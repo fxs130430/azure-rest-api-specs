@@ -714,8 +714,8 @@ model SavingsPlanModelProperties {
   @visibility(Lifecycle.Read)
   billingProfileId?: Azure.Core.armResourceIdentifier<[
     {
-      type: "Microsoft.Billing/billingAccounts";
       scopes: ["Tenant"];
+      type: "Microsoft.Billing/billingAccounts";
     }
   ]>;
 
@@ -1319,8 +1319,8 @@ model DiscountProperties {
   @visibility(Lifecycle.Read)
   billingAccountResourceId?: Azure.Core.armResourceIdentifier<[
     {
-      type: "Microsoft.Billing/billingAccounts";
       scopes: ["Tenant"];
+      type: "Microsoft.Billing/billingAccounts";
     }
   ]>;
 
@@ -1330,8 +1330,8 @@ model DiscountProperties {
   @visibility(Lifecycle.Read)
   billingProfileResourceId?: Azure.Core.armResourceIdentifier<[
     {
-      type: "Microsoft.Billing/billingAccounts";
       scopes: ["Tenant"];
+      type: "Microsoft.Billing/billingAccounts";
     }
   ]>;
 
@@ -1341,8 +1341,8 @@ model DiscountProperties {
   @visibility(Lifecycle.Read)
   customerResourceId?: Azure.Core.armResourceIdentifier<[
     {
-      type: "Microsoft.Billing/billingAccounts/customers";
       scopes: ["Tenant"];
+      type: "Microsoft.Billing/billingAccounts/customers";
     }
   ]>;
 
@@ -1363,8 +1363,8 @@ model DiscountProperties {
   @visibility(Lifecycle.Read)
   benefitResourceId?: Azure.Core.armResourceIdentifier<[
     {
-      type: "Microsoft.BillingBenefits/discounts";
       scopes: ["ResourceGroup"];
+      type: "Microsoft.BillingBenefits/discounts";
     }
   ]>;
 
@@ -1544,8 +1544,8 @@ model EntityTypeAffiliateDiscount extends DiscountProperties {
   @visibility(Lifecycle.Read)
   primaryResourceId?: Azure.Core.armResourceIdentifier<[
     {
-      type: "Microsoft.BillingBenefits/discounts";
       scopes: ["ResourceGroup"];
+      type: "Microsoft.BillingBenefits/discounts";
     }
   ]>;
 
@@ -1853,4 +1853,12 @@ model ExpandParameter {
    */
   @query("$expand")
   $expand?: string;
+}
+
+/**
+ * ARM not found response
+ */
+@error
+model ArmNotFoundResponse {
+  ...Response<404>;
 }
