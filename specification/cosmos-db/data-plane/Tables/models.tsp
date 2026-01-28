@@ -196,7 +196,6 @@ model TableEntitiesPagedResult {
   /**
    * List of table entities.
    */
-  @pageItems
   value?: TableEntityProperties[];
 }
 

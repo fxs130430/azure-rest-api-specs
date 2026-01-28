@@ -439,7 +439,6 @@ namespace Data.Tables {
         /**
          * An entity partition key continuation token.
          */
-        @continuationToken
         @header("x-ms-continuation-NextPartitionKey")
         nextPartitionKey?: string;
 
@@ -493,7 +492,6 @@ namespace Data.Tables {
         /**
          * An entity partition key continuation token.
          */
-        @continuationToken
         @header("x-ms-continuation-NextPartitionKey")
         nextPartitionKey?: string;
 
@@ -529,8 +527,10 @@ namespace Data.Tables {
       @header("Content-Type")
       multipartContentType: "multipart/mixed";
 
-      ...RequestIdResponseHeader;
       ...ApiVersionHeader;
+      ...RequestIdResponseHeader;
+      ...ClientRequestIdHeader;
+      ...DateResponseHeader;
     } & TransactionBodyParameter) | TablesError;
   }
 }
