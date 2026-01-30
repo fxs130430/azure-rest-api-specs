@@ -51,10 +51,10 @@
             }
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "./common/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "./common/v1/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -67,7 +67,7 @@
           "default": {
             "description": "*** Error Responses: ***\n\n * 400 InvalidLocation - An invalid location was specified.\n\n * 404 SubscriptionNotFound - The requested subscription was not found.",
             "schema": {
-              "$ref": "../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
+              "$ref": "../../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -343,7 +343,7 @@
           "readOnly": true
         },
         "sku": {
-          "$ref": "../../../common/v1/types.json#/definitions/Sku",
+          "$ref": "./common/v1/types.json#/definitions/Sku",
           "description": "The sku.",
           "readOnly": true
         },
@@ -659,7 +659,7 @@
           "readOnly": true
         },
         "sku": {
-          "$ref": "../../../common/v1/types.json#/definitions/Sku",
+          "$ref": "./common/v1/types.json#/definitions/Sku",
           "description": "The sku.",
           "readOnly": true
         },
@@ -1502,7 +1502,7 @@
           "readOnly": true
         },
         "sku": {
-          "$ref": "../../../common/v1/types.json#/definitions/Sku",
+          "$ref": "./common/v1/types.json#/definitions/Sku",
           "description": "The sku.",
           "readOnly": true
         },

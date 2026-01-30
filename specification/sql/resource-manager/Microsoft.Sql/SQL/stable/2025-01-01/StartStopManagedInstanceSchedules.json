@@ -25,16 +25,16 @@
         "operationId": "StartStopManagedInstanceSchedules_ListByInstance",
         "parameters": [
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ResourceGroupParameter"
+            "$ref": "./common/v1/types.json#/parameters/ResourceGroupParameter"
           },
           {
             "$ref": "#/parameters/ManagedInstanceNameParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "./common/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "./common/v1/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -47,7 +47,7 @@
           "default": {
             "description": "*** Error Responses: ***\n\n * 400 ManagementServiceStartStopManagedInstanceScheduleSmallTimespan - Time between two successive actions is less than 1 hour.\n\n * 400 ManagementServiceStartStopManagedInstanceScheduleSubscriptionNotEnabledForFeature - User attempted to use Start/Stop feature without having the subscription allowlisted for the appropriate subscription feature.\n\n * 400 ManagementServiceStartStopManagedInstanceScheduleNotSupportedOnSKU - Scheduled Start/Stop operation is not supported on the given SKU.\n\n * 400 ManagementServiceStopManagedInstanceHostedOnRdfePlatform - Stop executed on the instance that is not running with Feature Wave November 2022\n\n * 400 StartStopOfManagedInstanceIsDisabled - Start and stop operation on managed instance is not enabled.\n\n * 400 ManagementServiceStartStopManagedInstanceScheduleFeatureDisabled - User attempted to use the scheduled Start/Stop Azure SQL Managed Instance feature, which is disabled.\n\n * 400 ManagementServiceStartStopManagedInstanceScheduleOverlap - Overlap in schedule pairs.\n\n * 404 ServerNotInSubscriptionResourceGroup - Specified server does not exist in the specified resource group and subscription.\n\n * 404 SubscriptionDoesNotHaveServer - The requested server was not found\n\n * 404 ResourceNotFound - The requested resource was not found.\n\n * 404 ManagementServiceStartStopManagedInstanceScheduleNotFound - Schedule does not exist for a given managed instance.\n\n * 409 ManagementServiceStartStopManagedInstanceScheduleConflictingOperation - The attempted create/update/delete operation of Start/Stop schedule on the Azure SQL Managed Instance failed. The schedule was either not created or couldn't be updated/deleted as it was busy with an ongoing scheduled operation. Please retry your request later.",
             "schema": {
-              "$ref": "../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
+              "$ref": "../../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -70,7 +70,7 @@
         "operationId": "StartStopManagedInstanceSchedules_Get",
         "parameters": [
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ResourceGroupParameter"
+            "$ref": "./common/v1/types.json#/parameters/ResourceGroupParameter"
           },
           {
             "$ref": "#/parameters/ManagedInstanceNameParameter"
@@ -90,10 +90,10 @@
             }
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "./common/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "./common/v1/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -106,7 +106,7 @@
           "default": {
             "description": "*** Error Responses: ***\n\n * 204 ManagementServiceStartStopManagedInstanceScheduleNameInvalid - User attempted to perform CRUD operation of Start/Stop schedule with a schedule name different from 'default'\n\n * 400 ManagementServiceStartStopManagedInstanceScheduleSmallTimespan - Time between two successive actions is less than 1 hour.\n\n * 400 ManagementServiceStartStopManagedInstanceScheduleSubscriptionNotEnabledForFeature - User attempted to use Start/Stop feature without having the subscription allowlisted for the appropriate subscription feature.\n\n * 400 ManagementServiceStartStopManagedInstanceScheduleNotSupportedOnSKU - Scheduled Start/Stop operation is not supported on the given SKU.\n\n * 400 ManagementServiceStopManagedInstanceHostedOnRdfePlatform - Stop executed on the instance that is not running with Feature Wave November 2022\n\n * 400 StartStopOfManagedInstanceIsDisabled - Start and stop operation on managed instance is not enabled.\n\n * 400 ManagementServiceStartStopManagedInstanceScheduleFeatureDisabled - User attempted to use the scheduled Start/Stop Azure SQL Managed Instance feature, which is disabled.\n\n * 400 ManagementServiceStartStopManagedInstanceScheduleOverlap - Overlap in schedule pairs.\n\n * 400 ManagementServiceStartStopManagedInstanceScheduleCreateOrUpdateRequestParametersInvalid - The provided set of parameters in the body of the request is either empty or invalid.\n\n * 400 ManagementServiceStartStopManagedInstanceScheduleCreateOrUpdateRequestTimeZoneInvalid - The provided time zone parameter is invalid.\n\n * 400 ManagementServiceStartStopManagedInstanceScheduleCreateOrUpdateRequestScheduleInvalid - The provided Start/Stop schedule is invalid. The schedule either contains no items in the schedule list or some of the items in the list have invalid values. \n\n * 404 ServerNotInSubscriptionResourceGroup - Specified server does not exist in the specified resource group and subscription.\n\n * 404 SubscriptionDoesNotHaveServer - The requested server was not found\n\n * 404 ResourceNotFound - The requested resource was not found.\n\n * 404 ManagementServiceStartStopManagedInstanceScheduleNotFound - Schedule does not exist for a given managed instance.\n\n * 404 ManagementServiceStartStopManagedInstanceScheduleNameInvalid - User attempted to perform CRUD operation of Start/Stop schedule with a schedule name different from 'default'\n\n * 409 ManagementServiceStartStopManagedInstanceScheduleConflictingOperation - The attempted create/update/delete operation of Start/Stop schedule on the Azure SQL Managed Instance failed. The schedule was either not created or couldn't be updated/deleted as it was busy with an ongoing scheduled operation. Please retry your request later.",
             "schema": {
-              "$ref": "../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
+              "$ref": "../../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -124,7 +124,7 @@
         "operationId": "StartStopManagedInstanceSchedules_CreateOrUpdate",
         "parameters": [
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ResourceGroupParameter"
+            "$ref": "./common/v1/types.json#/parameters/ResourceGroupParameter"
           },
           {
             "$ref": "#/parameters/ManagedInstanceNameParameter"
@@ -153,10 +153,10 @@
             }
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "./common/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "./common/v1/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -169,7 +169,7 @@
           "default": {
             "description": "*** Error Responses: ***\n\n * 204 ManagementServiceStartStopManagedInstanceScheduleNameInvalid - User attempted to perform CRUD operation of Start/Stop schedule with a schedule name different from 'default'\n\n * 400 ManagementServiceStartStopManagedInstanceScheduleCreateOrUpdateRequestParametersInvalid - The provided set of parameters in the body of the request is either empty or invalid.\n\n * 400 ManagementServiceStartStopManagedInstanceScheduleCreateOrUpdateRequestTimeZoneInvalid - The provided time zone parameter is invalid.\n\n * 400 ManagementServiceStartStopManagedInstanceScheduleCreateOrUpdateRequestScheduleInvalid - The provided Start/Stop schedule is invalid. The schedule either contains no items in the schedule list or some of the items in the list have invalid values. \n\n * 400 ManagementServiceStartStopManagedInstanceScheduleSmallTimespan - Time between two successive actions is less than 1 hour.\n\n * 400 ManagementServiceStartStopManagedInstanceScheduleSubscriptionNotEnabledForFeature - User attempted to use Start/Stop feature without having the subscription allowlisted for the appropriate subscription feature.\n\n * 400 ManagementServiceStartStopManagedInstanceScheduleNotSupportedOnSKU - Scheduled Start/Stop operation is not supported on the given SKU.\n\n * 400 ManagementServiceStopManagedInstanceHostedOnRdfePlatform - Stop executed on the instance that is not running with Feature Wave November 2022\n\n * 400 StartStopOfManagedInstanceIsDisabled - Start and stop operation on managed instance is not enabled.\n\n * 400 ManagementServiceStartStopManagedInstanceScheduleFeatureDisabled - User attempted to use the scheduled Start/Stop Azure SQL Managed Instance feature, which is disabled.\n\n * 400 ManagementServiceStartStopManagedInstanceScheduleOverlap - Overlap in schedule pairs.\n\n * 404 ManagementServiceStartStopManagedInstanceScheduleNameInvalid - User attempted to perform CRUD operation of Start/Stop schedule with a schedule name different from 'default'\n\n * 404 ServerNotInSubscriptionResourceGroup - Specified server does not exist in the specified resource group and subscription.\n\n * 404 SubscriptionDoesNotHaveServer - The requested server was not found\n\n * 404 ResourceNotFound - The requested resource was not found.\n\n * 404 ManagementServiceStartStopManagedInstanceScheduleNotFound - Schedule does not exist for a given managed instance.\n\n * 409 ManagementServiceStartStopManagedInstanceScheduleConflictingOperation - The attempted create/update/delete operation of Start/Stop schedule on the Azure SQL Managed Instance failed. The schedule was either not created or couldn't be updated/deleted as it was busy with an ongoing scheduled operation. Please retry your request later.",
             "schema": {
-              "$ref": "../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
+              "$ref": "../../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
             }
           },
           "201": {
@@ -196,7 +196,7 @@
         "operationId": "StartStopManagedInstanceSchedules_Delete",
         "parameters": [
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ResourceGroupParameter"
+            "$ref": "./common/v1/types.json#/parameters/ResourceGroupParameter"
           },
           {
             "$ref": "#/parameters/ManagedInstanceNameParameter"
@@ -216,10 +216,10 @@
             }
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "./common/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "./common/v1/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -229,7 +229,7 @@
           "default": {
             "description": "*** Error Responses: ***\n\n * 204 ManagementServiceStartStopManagedInstanceScheduleNotFound - Schedule does not exist for a given managed instance.\n\n * 204 ManagementServiceStartStopManagedInstanceScheduleNameInvalid - User attempted to perform CRUD operation of Start/Stop schedule with a schedule name different from 'default'\n\n * 400 ManagementServiceStartStopManagedInstanceScheduleSmallTimespan - Time between two successive actions is less than 1 hour.\n\n * 400 ManagementServiceStartStopManagedInstanceScheduleSubscriptionNotEnabledForFeature - User attempted to use Start/Stop feature without having the subscription allowlisted for the appropriate subscription feature.\n\n * 400 ManagementServiceStartStopManagedInstanceScheduleNotSupportedOnSKU - Scheduled Start/Stop operation is not supported on the given SKU.\n\n * 400 ManagementServiceStopManagedInstanceHostedOnRdfePlatform - Stop executed on the instance that is not running with Feature Wave November 2022\n\n * 400 StartStopOfManagedInstanceIsDisabled - Start and stop operation on managed instance is not enabled.\n\n * 400 ManagementServiceStartStopManagedInstanceScheduleFeatureDisabled - User attempted to use the scheduled Start/Stop Azure SQL Managed Instance feature, which is disabled.\n\n * 400 ManagementServiceStartStopManagedInstanceScheduleOverlap - Overlap in schedule pairs.\n\n * 400 ManagementServiceStartStopManagedInstanceScheduleCreateOrUpdateRequestParametersInvalid - The provided set of parameters in the body of the request is either empty or invalid.\n\n * 400 ManagementServiceStartStopManagedInstanceScheduleCreateOrUpdateRequestTimeZoneInvalid - The provided time zone parameter is invalid.\n\n * 400 ManagementServiceStartStopManagedInstanceScheduleCreateOrUpdateRequestScheduleInvalid - The provided Start/Stop schedule is invalid. The schedule either contains no items in the schedule list or some of the items in the list have invalid values. \n\n * 404 ServerNotInSubscriptionResourceGroup - Specified server does not exist in the specified resource group and subscription.\n\n * 404 SubscriptionDoesNotHaveServer - The requested server was not found\n\n * 404 ResourceNotFound - The requested resource was not found.\n\n * 404 ManagementServiceStartStopManagedInstanceScheduleNameInvalid - User attempted to perform CRUD operation of Start/Stop schedule with a schedule name different from 'default'\n\n * 409 ManagementServiceStartStopManagedInstanceScheduleConflictingOperation - The attempted create/update/delete operation of Start/Stop schedule on the Azure SQL Managed Instance failed. The schedule was either not created or couldn't be updated/deleted as it was busy with an ongoing scheduled operation. Please retry your request later.",
             "schema": {
-              "$ref": "../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
+              "$ref": "../../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
             }
           },
           "204": {
@@ -304,12 +304,12 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "../../../common/v1/types.json#/definitions/ProxyResource"
+          "$ref": "./common/v1/types.json#/definitions/ProxyResource"
         }
       ],
       "properties": {
         "systemData": {
-          "$ref": "../../../common/v1/types.json#/definitions/systemData",
+          "$ref": "./common/v1/types.json#/definitions/systemData",
           "description": "System data of the scheduled resource.",
           "readOnly": true
         },
