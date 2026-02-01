@@ -1,0 +1,125 @@
+import "@azure-tools/typespec-azure-core";
+import "@azure-tools/typespec-azure-resource-manager";
+import "@typespec/openapi";
+import "@typespec/rest";
+import "./models.tsp";
+import "./BillingAccount.tsp";
+
+using TypeSpec.Rest;
+using Azure.ResourceManager;
+using TypeSpec.Http;
+using TypeSpec.OpenAPI;
+
+namespace Microsoft.Billing;
+/**
+ * A billing subscription alias.
+ */
+@tenantResource
+@parentResource(BillingAccount)
+model BillingSubscriptionAlias
+  is Azure.ResourceManager.ProxyResource<BillingSubscriptionAliasProperties> {
+  ...ResourceNameParameter<
+    Resource = BillingSubscriptionAlias,
+    KeyName = "aliasName",
+    SegmentName = "billingSubscriptionAliases",
+    NamePattern = ""
+  >;
+
+  /**
+   * Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \ ? /
+   */
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-invalid-envelope-property" "For backward compatibility"
+  tags?: Record<string>;
+}
+
+@armResourceOperations
+interface BillingSubscriptionAliases {
+  /**
+   * Gets a subscription by its alias ID.  The operation is supported for seat based billing subscriptions.
+   */
+  #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
+  @operationId("BillingSubscriptionsAliases_Get")
+  get is ArmResourceRead<
+    BillingSubscriptionAlias,
+    BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters
+  >;
+
+  /**
+   * Creates or updates a billing subscription by its alias ID.  The operation is supported for seat based billing subscriptions.
+   */
+  #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-put-operation-response-codes" "For backward compatibility"
+  @operationId("BillingSubscriptionsAliases_CreateOrUpdate")
+  createOrUpdate is ArmResourceCreateOrReplaceAsync<
+    BillingSubscriptionAlias,
+    BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters,
+    Response = ArmResourceUpdatedResponse<BillingSubscriptionAlias> | ArmResourceCreatedResponse<
+      BillingSubscriptionAlias,
+      ArmLroLocationHeader<FinalResult = BillingSubscriptionAlias> &
+        Azure.Core.Foundations.RetryAfterHeader
+    > | ArmAcceptedLroResponse
+  >;
+
+  /**
+   * Lists the subscription aliases for a billing account. The operation is supported for seat based billing subscriptions.
+   */
+  #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
+  @operationId("BillingSubscriptionsAliases_ListByBillingAccount")
+  listByBillingAccount is ArmResourceListByParent<
+    BillingSubscriptionAlias,
+    BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters,
+    Parameters = {
+      /**
+       * Can be used to get deleted billing subscriptions.
+       */
+      @query("includeDeleted")
+      includeDeleted?: boolean;
+
+      /**
+       * The filter query option allows clients to filter a collection of resources that are addressed by a request URL.
+       */
+      @query("filter")
+      filter?: string;
+
+      /**
+       * The orderby query option allows clients to request resources in a particular order.
+       */
+      @query("orderBy")
+      orderBy?: string;
+
+      /**
+       * The top query option requests the number of items in the queried collection to be included in the result. The maximum supported value for top is 50.
+       */
+      @query("top")
+      top?: int64;
+
+      /**
+       * The skip query option requests the number of items in the queried collection that are to be skipped and not included in the result.
+       */
+      @query("skip")
+      skip?: int64;
+
+      /**
+       * The count query option allows clients to request a count of the matching resources included with the resources in the response.
+       */
+      @query("count")
+      count?: boolean;
+
+      /**
+       * The search query option allows clients to request items within a collection matching a free-text search expression. search is only supported for string fields.
+       */
+      @query("search")
+      search?: string;
+    }
+  >;
+}
+
+@@doc(BillingSubscriptionAlias.name,
+  "The ID that uniquely identifies a subscription alias."
+);
+@@doc(BillingSubscriptionAlias.properties,
+  "The properties of a(n) BillingSubscriptionAlias"
+);
+@@doc(BillingSubscriptionAliases.createOrUpdate::parameters.resource,
+  "A billing subscription alias."
+);
