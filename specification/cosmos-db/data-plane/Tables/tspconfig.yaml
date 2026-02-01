@@ -17,8 +17,7 @@ options:
     output-file: "Tables/{version-status}/{version}/table.json"
   "@azure-tools/typespec-python":
     emitter-output-dir: "{output-dir}/{service-dir}/azure-data-tables"
-    package-dir: "azure-data-tables"
-    package-name: "{package-dir}"
+    package-name: "azure-data-tables"
     package-mode: dataplane
     flavor: azure
   # Uncomment this line and add "@azure-tools/typespec-java" to your package.json to generate Java code

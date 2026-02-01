@@ -29,10 +29,10 @@ union ResponseFormat {
   string,
 
   /** Do not echo the created content. */
-  NoEcho: "return-no-content",
+  ReturnNoContent: "return-no-content",
 
   /** Echo the created content. */
-  Echo: "return-content",
+  ReturnContent: "return-content",
 }
 
 /** The properties for the table entity. */
@@ -75,6 +75,7 @@ alias FormatParameter = {
 alias TopParameter = {
   @doc("Specifies the maximum number of records to return.")
   @query
+  @minValue(0)
   $top?: int32;
 };
 
@@ -127,13 +128,12 @@ alias EtagResponseHeader = {
 /**
  * The properties for the table query response.
  */
-model TablesPagedResult {
+model TableQueryResponse {
   /**
    * The metadata response of the table.
    */
   @visibility(Lifecycle.Read, Lifecycle.Query)
   @encodedName("application/json", "odata.metadata")
-  @clientName("metadata")
   @access(Access.internal)
   odataMetadata?: string;
 
@@ -157,7 +157,6 @@ model TableProperties {
    */
   @visibility(Lifecycle.Read, Lifecycle.Query)
   @encodedName("application/json", "odata.type")
-  @clientName("type")
   @access(Access.internal)
   odataType?: string;
 
@@ -166,7 +165,6 @@ model TableProperties {
    */
   @visibility(Lifecycle.Read, Lifecycle.Query)
   @encodedName("application/json", "odata.id")
-  @clientName("id")
   @access(Access.internal)
   odataId?: string;
 
@@ -175,7 +173,6 @@ model TableProperties {
    */
   @visibility(Lifecycle.Read, Lifecycle.Query)
   @encodedName("application/json", "odata.editLink")
-  @clientName("editLink")
   @access(Access.internal)
   odataEditLink?: string;
 }
@@ -183,13 +180,12 @@ model TableProperties {
 /**
  * The properties for the table entity query response.
  */
-model TableEntitiesPagedResult {
+model TableEntityQueryResponse {
   /**
    * The metadata response of the table.
    */
   @visibility(Lifecycle.Read, Lifecycle.Query)
   @encodedName("application/json", "odata.metadata")
-  @clientName("metadata")
   @access(Access.internal)
   odataMetadata?: string;
 
@@ -198,15 +194,6 @@ model TableEntitiesPagedResult {
    */
   value?: TableEntityProperties[];
 }
-
-/** The multipart body parameter. */
-alias TransactionBodyParameter = {
-  /** The body of the request. */
-  @multipartBody body: {
-    name: HttpPart<string>;
-    body: HttpPart<bytes>;
-  };
-};
 
 /// Table ACL
 
@@ -404,7 +391,6 @@ model TablesError {
 
   /** The error message. */
   @encodedName("application/json", "Message")
-  @clientName("message")
   message?: string;
 }
 
@@ -419,7 +405,6 @@ model TableResponse {
    */
   @visibility(Lifecycle.Read, Lifecycle.Query)
   @encodedName("application/json", "odata.metadata")
-  @clientName("metadata")
   @access(Access.internal)
   odataMetadata?: string;
 }
@@ -431,11 +416,11 @@ model CreateTableEchoResponse {
 
   /** Content-Type header */
   @header("Content-Type")
-  contentType: string;
+  contentType: "application/json;odata=minimalmetadata";
 
   /** Whether the content echo was requested and applied. */
   @header("Preference-Applied")
-  contentEcho?: string;
+  preferenceApplied?: string;
 
   ...ApiVersionHeader;
   ...RequestIdResponseHeader;
@@ -454,7 +439,7 @@ model CreateTableResponse {
 
   /** Whether the content echo was requested and applied. */
   @header("Preference-Applied")
-  contentEcho?: string;
+  preferenceApplied?: string;
 
   ...ApiVersionHeader;
   ...RequestIdResponseHeader;
@@ -469,11 +454,11 @@ model InsertEntityEchoResponse {
 
   /** Content-Type header */
   @header("Content-Type")
-  contentType: string;
+  contentType: "application/json;odata=minimalmetadata";
 
   /** Whether the content echo was requested and applied. */
   @header("Preference-Applied")
-  contentEcho?: string;
+  preferenceApplied?: string;
 
   ...ApiVersionHeader;
   ...RequestIdResponseHeader;
@@ -494,7 +479,7 @@ model InsertEntityResponse {
 
   /** Whether the content echo was requested and applied. */
   @header("Preference-Applied")
-  contentEcho?: string;
+  preferenceApplied?: string;
 
   ...ApiVersionHeader;
   ...RequestIdResponseHeader;

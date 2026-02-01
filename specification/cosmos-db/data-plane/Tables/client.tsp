@@ -4,12 +4,20 @@ import "@azure-tools/typespec-client-generator-core";
 using Azure.ClientGenerator.Core;
 using Data.Tables;
 
-namespace Customizations;
+namespace ClientCustomizations;
 
-@client({
-  name: "TableServiceClient",
-  service: Data.Tables,
-})
+@@clientNamespace(Data.Tables, "Azure.Data.Tables");
+@@clientNamespace(Data.Tables.Service, "Azure.Data.Tables");
+@@clientNamespace(Data.Tables.Table, "Azure.Data.Tables");
+@@clientNamespace(ClientCustomizations, "Azure.Data.Tables");
+
+@client(
+  {
+    name: "TableServiceClient",
+    service: Data.Tables,
+  },
+  "python"
+)
 interface ClientParent {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
   getProperties is Data.Tables.Service.getProperties;
@@ -25,9 +33,8 @@ interface ClientParent {
 @@clientName(ClientParent.getProperties, "getServiceProperties", "python");
 @@clientName(ClientParent.setProperties, "setServiceProperties", "python");
 @@clientName(ClientParent.getStatistics, "getServiceStats", "python");
-@@access(ClientParent.query, Access.internal, "python");
+@@clientName(ClientParent.query, "listTables", "python");
 
-/** Client initialization options for TableClient */
 model TableClientOptions {
   /** The name of the table to operate on */
   tableName: string;
@@ -36,13 +43,17 @@ model TableClientOptions {
 @@clientInitialization(ClientChild,
   {
     parameters: TableClientOptions,
-  }
+  },
+  "python"
 );
 
-@client({
-  name: "TableClient",
-  service: Data.Tables,
-})
+@client(
+  {
+    name: "TableClient",
+    service: Data.Tables,
+  },
+  "python"
+)
 interface ClientChild {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
   create is Data.Tables.Table.create;
@@ -66,8 +77,6 @@ interface ClientChild {
   getAccessPolicy is Data.Tables.Table.getAccessPolicy;
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
   setAccessPolicy is Data.Tables.Table.setAccessPolicy;
-  #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
-  submitTransaction is Data.Tables.Table.submitTransaction;
 }
 
 @@clientName(ClientChild.getAccessPolicy, "getTableAccessPolicy", "python");
@@ -78,8 +87,20 @@ interface ClientChild {
 @@access(ClientChild.updateEntity, Access.internal, "python");
 @@access(ClientChild.mergeEntity, Access.internal, "python");
 @@access(ClientChild.queryEntities, Access.internal, "python");
+@@alternateType(Data.Tables.AccessPolicy.start, string, "python");
+@@alternateType(Data.Tables.AccessPolicy.expiry, string, "python");
 
-@@clientName(AccessPolicy, "TableAccessPolicy");
-@@clientName(Logging, "TableAnalyticsLogging");
-@@clientName(TableProperties, "TableItem");
-@@clientName(CorsRule, "TableCorsRule");
+/** The signed identifier. */
+model SignedIdentifier {
+  /** The unique ID for the signed identifier. */
+  @Xml.name("Id") id: string;
+
+  /** The access policy for the signed identifier. */
+  @Xml.name("AccessPolicy") accessPolicy?: AccessPolicy;
+}
+@@alternateType(Data.Tables.SignedIdentifier, SignedIdentifier, "python");
+/** Client initialization options for TableClient */
+@@clientName(Data.Tables.AccessPolicy, "TableAccessPolicy", "python");
+@@clientName(Data.Tables.Logging, "TableAnalyticsLogging", "python");
+@@clientName(Data.Tables.TableProperties, "TableItem", "python");
+@@clientName(Data.Tables.CorsRule, "TableCorsRule", "python");

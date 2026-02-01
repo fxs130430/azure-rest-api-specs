@@ -10,21 +10,7 @@ namespace Data.Tables {
   op TablesXmlOperation<
     TParams extends TypeSpec.Reflection.Model,
     TResponse extends TypeSpec.Reflection.Model
-  >(
-    /** Content-Type header */
-    #suppress "@typespec/http/content-type-ignored" "Template for existing API"
-    @header("Content-Type")
-    contentType: "application/xml",
-
-    ...ApiVersionHeader,
-    ...TParams,
-    ...ClientRequestIdHeader,
-  ): (TResponse & {
-    /** Content-Type header */
-    #suppress "@typespec/http/content-type-ignored" "Template for existing API"
-    @header("Content-Type")
-    contentType: "application/xml";
-
+  >(...ApiVersionHeader, ...TParams, ...ClientRequestIdHeader): (TResponse & {
     ...ApiVersionHeader;
     ...RequestIdResponseHeader;
     ...ClientRequestIdHeader;
@@ -61,6 +47,10 @@ namespace Data.Tables {
       {
         ...TimeoutParameter;
 
+        /** Content-Type header */
+        @header("Content-Type")
+        contentType: "application/xml";
+
         /** The table service properties to set. */
         @body
         tableServiceProperties: TableServiceProperties;
@@ -79,7 +69,15 @@ namespace Data.Tables {
     @route("?restype=service&comp=properties")
     op getProperties is TablesXmlOperation<
       TimeoutParameter,
-      TableServiceProperties
+      {
+        /** Content-Type header */
+        @header("Content-Type")
+        contentType: "application/xml";
+
+        /** The table service properties. */
+        @body
+        tableServiceProperties: TableServiceProperties;
+      }
     >;
 
     /**
@@ -94,6 +92,10 @@ namespace Data.Tables {
       TimeoutParameter,
       {
         ...DateResponseHeader;
+
+        /** Content-Type header */
+        @header("Content-Type")
+        contentType: "application/xml";
 
         /** Table service statistics */
         @body
@@ -126,12 +128,12 @@ namespace Data.Tables {
         nextTableName?: string;
       },
       {
-        @body body: TablesPagedResult;
+        @body body: TableQueryResponse;
 
         /** Content-Type header */
         #suppress "@typespec/http/content-type-ignored" "Template for existing API"
         @header("Content-Type")
-        contentType: string;
+        contentType: "application/json;odata=minimalmetadata";
 
         /**
          * A table query continuation token.
@@ -155,6 +157,10 @@ namespace Data.Tables {
         ...TimeoutParameter;
       },
       {
+        /** Content-Type header */
+        @header("Content-Type")
+        contentType: "application/xml";
+
         /** Signed identifiers */
         @body body: SignedIdentifiers;
 
@@ -172,6 +178,10 @@ namespace Data.Tables {
     op setAccessPolicy is TablesXmlOperation<
       {
         ...TablePathParameter;
+
+        /** Content-Type header */
+        @header("Content-Type")
+        contentType: "application/xml";
 
         /** The access control list for the table. */
         @body
@@ -213,7 +223,7 @@ namespace Data.Tables {
        * payload. Possible values are return-no-content and return-content.
        */
       @header("Prefer")
-      echoTable?: ResponseFormat,
+      prefer?: ResponseFormat,
     ): CreateTableEchoResponse | CreateTableResponse | TablesError;
 
     /**
@@ -260,7 +270,7 @@ namespace Data.Tables {
        * payload. Possible values are return-no-content and return-content.
        */
       @header("Prefer")
-      echoEntity?: ResponseFormat,
+      prefer?: ResponseFormat,
 
       /** The entity properties to insert. */
       #suppress "@azure-tools/typespec-azure-core/bad-record-type" "Union types are not supported"
@@ -429,12 +439,12 @@ namespace Data.Tables {
         nextRowKey?: string;
       },
       {
-        @body body: TableEntitiesPagedResult;
+        @body body: TableEntityQueryResponse;
 
         /** Content-Type header */
         #suppress "@typespec/http/content-type-ignored" "Template for existing API"
         @header("Content-Type")
-        contentType: string;
+        contentType: "application/json;odata=minimalmetadata";
 
         /**
          * An entity partition key continuation token.
@@ -487,7 +497,7 @@ namespace Data.Tables {
         /** Content-Type header */
         #suppress "@typespec/http/content-type-ignored" "Template for existing API"
         @header("Content-Type")
-        contentType: string;
+        contentType: "application/json;odata=minimalmetadata";
 
         /**
          * An entity partition key continuation token.
@@ -502,35 +512,5 @@ namespace Data.Tables {
         nextRowKey?: string;
       }
     >;
-
-    /**
-     * The Batch operation allows multiple API calls to be embedded into a single HTTP request.
-     */
-    #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
-    @post
-    @route("/$batch")
-    op submitTransaction(
-      /** The batch request content */
-      ...TransactionBodyParameter,
-
-      /** Required. The value of this header must be multipart/mixed with a batch boundary. Example header value: multipart/mixed; boundary=batch_<GUID> */
-      @header("Content-Type")
-      multipartContentType: "multipart/mixed",
-
-      ...TimeoutParameter,
-      ...ApiVersionHeader,
-      ...ClientRequestIdHeader,
-    ): ({
-      @statusCode statusCode: 202;
-
-      /** Required. The value of this header must be multipart/mixed with a batch boundary. Example header value: multipart/mixed; boundary=batch_<GUID> */
-      @header("Content-Type")
-      multipartContentType: "multipart/mixed";
-
-      ...ApiVersionHeader;
-      ...RequestIdResponseHeader;
-      ...ClientRequestIdHeader;
-      ...DateResponseHeader;
-    } & TransactionBodyParameter) | TablesError;
   }
 }
