@@ -45,7 +45,7 @@ options:
     namespace: com.azure.ai.contentunderstanding
     enable-sync-stack: true
     generate-tests: false
-    generate-sample: false
+    generate-samples: false
     partial-update: false
     use-eclipse-language-server: false
     flavor: azure
