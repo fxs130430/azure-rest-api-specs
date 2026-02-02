@@ -3,6 +3,8 @@ import "@typespec/versioning";
 import "@azure-tools/typespec-azure-core";
 import "@azure-tools/typespec-azure-resource-manager";
 import "@typespec/openapi";
+import "./PrivateEndpointConnection.tsp";
+import "./PrivateLinkResource.tsp";
 
 using TypeSpec.Http;
 using TypeSpec.Rest;
@@ -188,6 +190,7 @@ model FileShareProperties {
   @visibility(Lifecycle.Create, Lifecycle.Read, Lifecycle.Update)
   publicNetworkAccess?: PublicNetworkAccess;
 
+  @added(Versions.v2025_06_01_preview)
   @visibility(Lifecycle.Read)
   @doc("The list of associated private endpoint connections.")
   privateEndpointConnections?: PrivateEndpointConnection[];
@@ -522,6 +525,37 @@ model FileShareProvisioningRecommendationOutput {
 
   @doc("Redundancy options for the share.")
   availableRedundancyOptions: Redundancy[];
+}
+
+/**
+ * A list of private link resources.
+ */
+@added(Versions.v2025_09_01_preview)
+model PrivateLinkResourceListResult is Azure.Core.Page<PrivateLinkResource>;
+
+/**
+ * Properties of a private link resource.
+ */
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "PrivateLinkResource is a read-only resource and does not require provisioning state"
+@added(Versions.v2025_09_01_preview)
+model PrivateLinkResourceProperties {
+  /**
+   * The private link resource group id.
+   */
+  @visibility(Lifecycle.Read)
+  groupId?: string;
+
+  /**
+   * The private link resource required member names.
+   */
+  @visibility(Lifecycle.Read)
+  requiredMembers?: string[];
+
+  /**
+   * The private link resource private link DNS zone name.
+   */
+  @visibility(Lifecycle.Read)
+  requiredZoneNames?: string[];
 }
 
 #suppress "@azure-tools/typespec-azure-core/no-openapi" "Added Operation ID as it determines the PowerShell verb used."
