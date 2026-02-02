@@ -24,5 +24,5 @@ namespace Microsoft.Edge;
 @doc("The available API versions.")
 enum Versions {
   @doc("Version 2025-06-01-preview")
-  v2025_06_01_preview: "2025-06-01-preview",
+  v2025_06_01_Preview: "2025-06-01-preview",
 }

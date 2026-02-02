@@ -483,7 +483,7 @@
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/disconnectedOperations/{name}/images/{imageName}/artifacts": {
       "get": {
-        "operationId": "Artifacts_ListByImage",
+        "operationId": "Artifacts_ListByParent",
         "tags": [
           "Artifacts"
         ],
@@ -530,8 +530,8 @@
           }
         },
         "x-ms-examples": {
-          "Artifacts_ListByImage": {
-            "$ref": "./examples/Artifact_ListByImage_MaximumSet_Gen.json"
+          "Artifacts_ListByParent": {
+            "$ref": "./examples/Artifact_ListByParent_MaximumSet_Gen.json"
           }
         },
         "x-ms-pageable": {
