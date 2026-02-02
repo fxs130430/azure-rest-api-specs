@@ -2641,7 +2641,7 @@ namespace KnowledgeBaseRetrievalClient {
 );
 @@clientName(AzureOpenAIVectorizer.azureOpenAIParameters, "parameters");
 @@clientName(AzureOpenAIVectorizerParameters.resourceUri, "resourceUrl");
-@@clientName(AzureOpenAIVectorizerParameters.deploymentId, "deploymentName");
+@@clientName(AzureOpenAIVectorizerParameters.deploymentId, "deploymentName", "!javascript");
 @@clientName(WebApiVectorizer.customWebApiParameters, "webApiParameters");
 @@clientName(WebApiVectorizerParameters.uri, "url", "python");
 @@clientName(WebApiVectorizerParameters.uri, "url", "java");
@@ -2928,6 +2928,20 @@ namespace KnowledgeBaseRetrievalClient {
 );
 @@clientName(Search.SearchServiceCounters, "ServiceCounters", "javascript");
 @@clientName(Search.SearchServiceLimits, "ServiceLimits", "javascript");
+@@clientName(Search.SearchAlias.eTag, "etag", "javascript");
+@@clientName(Search.RankingOrder.RerankerScore, "ReRankerScore", "javascript");
+@@clientName(Search.ChatCompletionResponseFormat.jsonSchemaProperties,
+  "chatCompletionSchemaProperties",
+  "javascript"
+);
+@@clientName(Search.AIFoundryModelCatalogName.OpenAICLIPImageTextEmbeddingsVitBasePatch32,
+  "OpenAIClipImageTextEmbeddingsVitBasePatch32",
+  "javascript"
+);
+@@clientName(Search.AIFoundryModelCatalogName.OpenAICLIPImageTextEmbeddingsViTLargePatch14336,
+  "OpenAIClipImageTextEmbeddingsViTLargePatch14336",
+  "javascript"
+);
 
 // Knowledge Base types
 @@clientNamespace(Search.AIServices, "Azure.Search.Documents.KnowledgeBases");
