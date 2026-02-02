@@ -27,7 +27,7 @@ These are the global settings for the [Microsoft Planetary Computer Pro].
 ```yaml
 openapi-type: data-plane
 openapi-subtype: providerHub
-tag: package-2025-04-30-preview
+tag: package-2026-04-15
 ```
 
 ### Tag: package-2025-04-30-preview
@@ -36,5 +36,14 @@ These settings apply only when `--tag=package-2025-04-30-preview` is specified o
 
 ```yaml $(tag) == 'package-2025-04-30-preview'
 input-file:
-  - Microsoft.PlanetaryComputer/preview/2025-04-30-preview/openapi.json
+  - Microsoft.PlanetaryComputer/stable/2025-04-30-preview/openapi.json
+```
+
+### Tag: package-2026-04-15
+
+These settings apply only when `--tag=package-2026-04-15` is specified on the command line.
+
+```yaml $(tag) == 'package-2026-04-15'
+input-file:
+  - Microsoft.PlanetaryComputer/stable/2026-04-15/openapi.json
 ```

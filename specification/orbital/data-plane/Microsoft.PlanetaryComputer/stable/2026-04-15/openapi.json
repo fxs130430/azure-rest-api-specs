@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "MPCPro Ingestion and Management API",
-    "version": "2026-04-30",
+    "version": "2026-04-15",
     "x-typespec-generated": [
       {
         "emitter": "@azure-tools/typespec-autorest"
@@ -135,6 +135,14 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "TilerStaticImages_Create_MaximumSet_Gen": {
+            "$ref": "./examples/TilerStaticImages_Create_MaximumSet_Gen.json"
+          },
+          "TilerStaticImages_Create_MinimumSet_Gen": {
+            "$ref": "./examples/TilerStaticImages_Create_MinimumSet_Gen.json"
+          }
         }
       }
     },
@@ -194,6 +202,14 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "TilerStaticImages_Get_MaximumSet_Gen": {
+            "$ref": "./examples/TilerStaticImages_Get_MaximumSet_Gen.json"
+          },
+          "TilerStaticImages_Get_MinimumSet_Gen": {
+            "$ref": "./examples/TilerStaticImages_Get_MinimumSet_Gen.json"
           }
         }
       }
@@ -387,6 +403,14 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "TilerWmtsTileMatrixSets_GetCapabilitiesXml_MaximumSet_Gen": {
+            "$ref": "./examples/TilerWmtsTileMatrixSets_GetCapabilitiesXml_MaximumSet_Gen.json"
+          },
+          "TilerWmtsTileMatrixSets_GetCapabilitiesXml_MinimumSet_Gen": {
+            "$ref": "./examples/TilerWmtsTileMatrixSets_GetCapabilitiesXml_MinimumSet_Gen.json"
+          }
         }
       }
     },
@@ -573,6 +597,14 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "TilerTileJsonTileMatrixSets_Get_MaximumSet_Gen": {
+            "$ref": "./examples/TilerTileJsonTileMatrixSets_Get_MaximumSet_Gen.json"
+          },
+          "TilerTileJsonTileMatrixSets_Get_MinimumSet_Gen": {
+            "$ref": "./examples/TilerTileJsonTileMatrixSets_Get_MinimumSet_Gen.json"
           }
         }
       }
@@ -842,6 +874,14 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "TilerWmts_GetCapabilitiesXml_MaximumSet_Gen": {
+            "$ref": "./examples/TilerWmts_GetCapabilitiesXml_MaximumSet_Gen.json"
+          },
+          "TilerWmts_GetCapabilitiesXml_MinimumSet_Gen": {
+            "$ref": "./examples/TilerWmts_GetCapabilitiesXml_MinimumSet_Gen.json"
+          }
         }
       }
     },
@@ -934,6 +974,14 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "TilerAssetStatistics_GetAll_MaximumSet_Gen": {
+            "$ref": "./examples/TilerAssetStatistics_GetAll_MaximumSet_Gen.json"
+          },
+          "TilerAssetStatistics_GetAll_MinimumSet_Gen": {
+            "$ref": "./examples/TilerAssetStatistics_GetAll_MinimumSet_Gen.json"
+          }
         }
       }
     },
@@ -993,6 +1041,14 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "TilerAvailableAssets_GetAll_MaximumSet_Gen": {
+            "$ref": "./examples/TilerAvailableAssets_GetAll_MaximumSet_Gen.json"
+          },
+          "TilerAvailableAssets_GetAll_MinimumSet_Gen": {
+            "$ref": "./examples/TilerAvailableAssets_GetAll_MinimumSet_Gen.json"
+          }
         }
       }
     },
@@ -1045,6 +1101,14 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "TilerBound_GetAll_MaximumSet_Gen": {
+            "$ref": "./examples/TilerBound_GetAll_MaximumSet_Gen.json"
+          },
+          "TilerBound_GetAll_MinimumSet_Gen": {
+            "$ref": "./examples/TilerBound_GetAll_MinimumSet_Gen.json"
           }
         }
       }
@@ -1276,6 +1340,14 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "TilerParts_GetMinxMinyMaxxMaxyFormat_MaximumSet_Gen": {
+            "$ref": "./examples/TilerParts_GetMinxMinyMaxxMaxyFormat_MaximumSet_Gen.json"
+          },
+          "TilerParts_GetMinxMinyMaxxMaxyFormat_MinimumSet_Gen": {
+            "$ref": "./examples/TilerParts_GetMinxMinyMaxxMaxyFormat_MinimumSet_Gen.json"
+          }
         }
       }
     },
@@ -1504,6 +1576,11 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "TilerGeoJsons_CropWidthxHeightFormat_MaximumSet_Gen": {
+            "$ref": "./examples/TilerGeoJsons_CropWidthxHeightFormat_MaximumSet_Gen.json"
           }
         }
       }
@@ -1745,6 +1822,14 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "TilerParts_GetMinxMinyMaxxMaxyWidthxHeightFormat_MaximumSet_Gen": {
+            "$ref": "./examples/TilerParts_GetMinxMinyMaxxMaxyWidthxHeightFormat_MaximumSet_Gen.json"
+          },
+          "TilerParts_GetMinxMinyMaxxMaxyWidthxHeightFormat_MinimumSet_Gen": {
+            "$ref": "./examples/TilerParts_GetMinxMinyMaxxMaxyWidthxHeightFormat_MinimumSet_Gen.json"
+          }
         }
       }
     },
@@ -1964,6 +2049,11 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "TilerGeoJsons_CropFormat_MaximumSet_Gen": {
+            "$ref": "./examples/TilerGeoJsons_CropFormat_MaximumSet_Gen.json"
+          }
         }
       }
     },
@@ -2028,6 +2118,14 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "TilerInfoOperations_Get_MaximumSet_Gen": {
+            "$ref": "./examples/TilerInfoOperations_Get_MaximumSet_Gen.json"
+          },
+          "TilerInfoOperations_Get_MinimumSet_Gen": {
+            "$ref": "./examples/TilerInfoOperations_Get_MinimumSet_Gen.json"
+          }
         }
       }
     },
@@ -2091,6 +2189,11 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "TilerInfoGeoJsonOperations_Get_MaximumSet_Gen": {
+            "$ref": "./examples/TilerInfoGeoJsonOperations_Get_MaximumSet_Gen.json"
           }
         }
       }
@@ -2256,6 +2359,14 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "TilerPoints_GetLonLat_MaximumSet_Gen": {
+            "$ref": "./examples/TilerPoints_GetLonLat_MaximumSet_Gen.json"
+          },
+          "TilerPoints_GetLonLat_MinimumSet_Gen": {
+            "$ref": "./examples/TilerPoints_GetLonLat_MinimumSet_Gen.json"
           }
         }
       }
@@ -2521,6 +2632,14 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "TilerPreviews_Get_MaximumSet_Gen": {
+            "$ref": "./examples/TilerPreviews_Get_MaximumSet_Gen.json"
+          },
+          "TilerPreviews_Get_MinimumSet_Gen": {
+            "$ref": "./examples/TilerPreviews_Get_MinimumSet_Gen.json"
+          }
         }
       }
     },
@@ -2731,6 +2850,14 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "TilerPreviews_GetFormat_MaximumSet_Gen": {
+            "$ref": "./examples/TilerPreviews_GetFormat_MaximumSet_Gen.json"
+          },
+          "TilerPreviews_GetFormat_MinimumSet_Gen": {
+            "$ref": "./examples/TilerPreviews_GetFormat_MinimumSet_Gen.json"
+          }
         }
       }
     },
@@ -2822,6 +2949,14 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "TilerStatistics_GetAll_MaximumSet_Gen": {
+            "$ref": "./examples/TilerStatistics_GetAll_MaximumSet_Gen.json"
+          },
+          "TilerStatistics_GetAll_MinimumSet_Gen": {
+            "$ref": "./examples/TilerStatistics_GetAll_MinimumSet_Gen.json"
           }
         }
       },
@@ -2929,6 +3064,11 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "TilerGeoJsonStatistics_GetAll_MaximumSet_Gen": {
+            "$ref": "./examples/TilerGeoJsonStatistics_GetAll_MaximumSet_Gen.json"
           }
         }
       }
@@ -3190,6 +3330,14 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "TilerTileJsonOperations_Get_MaximumSet_Gen": {
+            "$ref": "./examples/TilerTileJsonOperations_Get_MaximumSet_Gen.json"
+          },
+          "TilerTileJsonOperations_Get_MinimumSet_Gen": {
+            "$ref": "./examples/TilerTileJsonOperations_Get_MinimumSet_Gen.json"
+          }
         }
       }
     },
@@ -3415,6 +3563,14 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "TilerTiles_GetZxyScalexFormat_MaximumSet_Gen": {
+            "$ref": "./examples/TilerTiles_GetZxyScalexFormat_MaximumSet_Gen.json"
+          },
+          "TilerTiles_GetZxyScalexFormat_MinimumSet_Gen": {
+            "$ref": "./examples/TilerTiles_GetZxyScalexFormat_MinimumSet_Gen.json"
+          }
         }
       }
     },
@@ -3564,6 +3720,14 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "TilerTileMatrixSets_GetZxyScalexFormat_MaximumSet_Gen": {
+            "$ref": "./examples/TilerTileMatrixSets_GetZxyScalexFormat_MaximumSet_Gen.json"
+          },
+          "TilerTileMatrixSets_GetZxyScalexFormat_MinimumSet_Gen": {
+            "$ref": "./examples/TilerTileMatrixSets_GetZxyScalexFormat_MinimumSet_Gen.json"
+          }
         }
       }
     },
@@ -3628,6 +3792,14 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "MapsClassmapLegends_Get_MaximumSet_Gen": {
+            "$ref": "./examples/MapsClassmapLegends_Get_MaximumSet_Gen.json"
+          },
+          "MapsClassmapLegends_Get_MinimumSet_Gen": {
+            "$ref": "./examples/MapsClassmapLegends_Get_MinimumSet_Gen.json"
           }
         }
       }
@@ -3716,6 +3888,14 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "MapsLegends_Get_MaximumSet_Gen": {
+            "$ref": "./examples/MapsLegends_Get_MaximumSet_Gen.json"
+          },
+          "MapsLegends_Get_MinimumSet_Gen": {
+            "$ref": "./examples/MapsLegends_Get_MinimumSet_Gen.json"
+          }
         }
       }
     },
@@ -3786,6 +3966,14 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "MapsIntervalLegends_GetByClassmapName_MaximumSet_Gen": {
+            "$ref": "./examples/MapsIntervalLegends_GetByClassmapName_MaximumSet_Gen.json"
+          },
+          "MapsIntervalLegends_GetByClassmapName_MinimumSet_Gen": {
+            "$ref": "./examples/MapsIntervalLegends_GetByClassmapName_MinimumSet_Gen.json"
           }
         }
       }
@@ -3928,6 +4116,14 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "MosaicsWmtsMosaicsTileMatrixSets_GetCapabilitiesXml_MaximumSet_Gen": {
+            "$ref": "./examples/MosaicsWmtsMosaicsTileMatrixSets_GetCapabilitiesXml_MaximumSet_Gen.json"
+          },
+          "MosaicsWmtsMosaicsTileMatrixSets_GetCapabilitiesXml_MinimumSet_Gen": {
+            "$ref": "./examples/MosaicsWmtsMosaicsTileMatrixSets_GetCapabilitiesXml_MinimumSet_Gen.json"
+          }
         }
       }
     },
@@ -4016,6 +4212,14 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "MosaicsAssetsForPoints_GetLonLatAssets_MaximumSet_Gen": {
+            "$ref": "./examples/MosaicsAssetsForPoints_GetLonLatAssets_MaximumSet_Gen.json"
+          },
+          "MosaicsAssetsForPoints_GetLonLatAssets_MinimumSet_Gen": {
+            "$ref": "./examples/MosaicsAssetsForPoints_GetLonLatAssets_MinimumSet_Gen.json"
           }
         }
       }
@@ -4214,6 +4418,14 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "MosaicsTileMatrixSetsTileJson_Get_MaximumSet_Gen": {
+            "$ref": "./examples/MosaicsTileMatrixSetsTileJson_Get_MaximumSet_Gen.json"
+          },
+          "MosaicsTileMatrixSetsTileJson_Get_MinimumSet_Gen": {
+            "$ref": "./examples/MosaicsTileMatrixSetsTileJson_Get_MinimumSet_Gen.json"
           }
         }
       }
@@ -4429,6 +4641,14 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "MosaicsWmtsMosaics_GetCapabilitiesXml_MaximumSet_Gen": {
+            "$ref": "./examples/MosaicsWmtsMosaics_GetCapabilitiesXml_MaximumSet_Gen.json"
+          },
+          "MosaicsWmtsMosaics_GetCapabilitiesXml_MinimumSet_Gen": {
+            "$ref": "./examples/MosaicsWmtsMosaics_GetCapabilitiesXml_MinimumSet_Gen.json"
+          }
         }
       }
     },
@@ -4472,6 +4692,14 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "MosaicsInfoSearch_Get_MaximumSet_Gen": {
+            "$ref": "./examples/MosaicsInfoSearch_Get_MaximumSet_Gen.json"
+          },
+          "MosaicsInfoSearch_Get_MinimumSet_Gen": {
+            "$ref": "./examples/MosaicsInfoSearch_Get_MinimumSet_Gen.json"
           }
         }
       }
@@ -6261,6 +6489,14 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "MosaicsTileJsonOperations_Get_MaximumSet_Gen": {
+            "$ref": "./examples/MosaicsTileJsonOperations_Get_MaximumSet_Gen.json"
+          },
+          "MosaicsTileJsonOperations_Get_MinimumSet_Gen": {
+            "$ref": "./examples/MosaicsTileJsonOperations_Get_MinimumSet_Gen.json"
+          }
         }
       }
     },
@@ -6492,6 +6728,14 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "MosaicsTiles_GetZxyScalexFormat_MaximumSet_Gen": {
+            "$ref": "./examples/MosaicsTiles_GetZxyScalexFormat_MaximumSet_Gen.json"
+          },
+          "MosaicsTiles_GetZxyScalexFormat_MinimumSet_Gen": {
+            "$ref": "./examples/MosaicsTiles_GetZxyScalexFormat_MinimumSet_Gen.json"
+          }
         }
       }
     },
@@ -6650,6 +6894,14 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "MosaicsTileMatrixSets_GetZxyScalexFormat_MaximumSet_Gen": {
+            "$ref": "./examples/MosaicsTileMatrixSets_GetZxyScalexFormat_MaximumSet_Gen.json"
+          },
+          "MosaicsTileMatrixSets_GetZxyScalexFormat_MinimumSet_Gen": {
+            "$ref": "./examples/MosaicsTileMatrixSets_GetZxyScalexFormat_MinimumSet_Gen.json"
+          }
         }
       }
     },
@@ -6732,6 +6984,14 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "MosaicsAssetsForTileMatrixSets_GetZxyAssets_MaximumSet_Gen": {
+            "$ref": "./examples/MosaicsAssetsForTileMatrixSets_GetZxyAssets_MaximumSet_Gen.json"
+          },
+          "MosaicsAssetsForTileMatrixSets_GetZxyAssets_MinimumSet_Gen": {
+            "$ref": "./examples/MosaicsAssetsForTileMatrixSets_GetZxyAssets_MinimumSet_Gen.json"
           }
         }
       }
@@ -6889,6 +7149,14 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "MosaicsAssetsForTiles_GetZxyAssets_MaximumSet_Gen": {
+            "$ref": "./examples/MosaicsAssetsForTiles_GetZxyAssets_MaximumSet_Gen.json"
+          },
+          "MosaicsAssetsForTiles_GetZxyAssets_MinimumSet_Gen": {
+            "$ref": "./examples/MosaicsAssetsForTiles_GetZxyAssets_MinimumSet_Gen.json"
+          }
         }
       }
     },
@@ -6932,6 +7200,14 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "MosaicsRegisterSearch_Register_MaximumSet_Gen": {
+            "$ref": "./examples/MosaicsRegisterSearch_Register_MaximumSet_Gen.json"
+          },
+          "MosaicsRegisterSearch_Register_MinimumSet_Gen": {
+            "$ref": "./examples/MosaicsRegisterSearch_Register_MinimumSet_Gen.json"
+          }
         }
       }
     },
@@ -6972,6 +7248,14 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "TileMatrixList_Get_MaximumSet_Gen": {
+            "$ref": "./examples/TileMatrixList_Get_MaximumSet_Gen.json"
+          },
+          "TileMatrixList_Get_MinimumSet_Gen": {
+            "$ref": "./examples/TileMatrixList_Get_MinimumSet_Gen.json"
           }
         }
       }
@@ -7017,6 +7301,11 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "TileMatrixDefinitions_Get_MaximumSet_Gen": {
+            "$ref": "./examples/TileMatrixDefinitions_Get_MaximumSet_Gen.json"
+          }
         }
       }
     },
@@ -7051,6 +7340,14 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "GeoCatalogAuthConfigOperations_Get_MaximumSet_Gen": {
+            "$ref": "./examples/GeoCatalogAuthConfigOperations_Get_MaximumSet_Gen.json"
+          },
+          "GeoCatalogAuthConfigOperations_Get_MinimumSet_Gen": {
+            "$ref": "./examples/GeoCatalogAuthConfigOperations_Get_MinimumSet_Gen.json"
           }
         }
       }
@@ -7087,6 +7384,14 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "GeoCatalogAzmapsClient_GetId_MaximumSet_Gen": {
+            "$ref": "./examples/GeoCatalogAzmapsClient_GetId_MaximumSet_Gen.json"
+          },
+          "GeoCatalogAzmapsClient_GetId_MinimumSet_Gen": {
+            "$ref": "./examples/GeoCatalogAzmapsClient_GetId_MinimumSet_Gen.json"
+          }
         }
       }
     },
@@ -7121,6 +7426,14 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "GeoCatalogAzmapsToken_Get_MaximumSet_Gen": {
+            "$ref": "./examples/GeoCatalogAzmapsToken_Get_MaximumSet_Gen.json"
+          },
+          "GeoCatalogAzmapsToken_Get_MinimumSet_Gen": {
+            "$ref": "./examples/GeoCatalogAzmapsToken_Get_MinimumSet_Gen.json"
           }
         }
       }
@@ -7164,6 +7477,11 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "Ingestions_ListAll_MaximumSet_Gen": {
+            "$ref": "./examples/Ingestions_ListAll_MaximumSet_Gen.json"
           }
         }
       },
@@ -7216,6 +7534,11 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "Ingestions_Create_MaximumSet_Gen": {
+            "$ref": "./examples/Ingestions_Create_MaximumSet_Gen.json"
+          }
         }
       }
     },
@@ -7255,6 +7578,11 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "Ingestions_Get_MaximumSet_Gen": {
+            "$ref": "./examples/Ingestions_Get_MaximumSet_Gen.json"
           }
         }
       },
@@ -7305,6 +7633,11 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "Ingestions_Update_MaximumSet_Gen": {
+            "$ref": "./examples/Ingestions_Update_MaximumSet_Gen.json"
           }
         }
       },
@@ -7360,7 +7693,12 @@
         "x-ms-long-running-operation-options": {
           "final-state-via": "location"
         },
-        "x-ms-long-running-operation": true
+        "x-ms-long-running-operation": true,
+        "x-ms-examples": {
+          "Ingestions_Delete_MaximumSet_Gen": {
+            "$ref": "./examples/Ingestions_Delete_MaximumSet_Gen.json"
+          }
+        }
       }
     },
     "/inma/collections/{collectionId}/ingestions/{ingestionId}/runs": {
@@ -7405,6 +7743,11 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "IngestionRuns_ListAll_MaximumSet_Gen": {
+            "$ref": "./examples/IngestionRuns_ListAll_MaximumSet_Gen.json"
           }
         }
       },
@@ -7451,6 +7794,11 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "IngestionRuns_Create_MaximumSet_Gen": {
+            "$ref": "./examples/IngestionRuns_Create_MaximumSet_Gen.json"
+          }
         }
       }
     },
@@ -7494,6 +7842,11 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "IngestionRuns_Get_MaximumSet_Gen": {
+            "$ref": "./examples/IngestionRuns_Get_MaximumSet_Gen.json"
+          }
         }
       }
     },
@@ -7533,6 +7886,11 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "IngestionSources_ListAll_MaximumSet_Gen": {
+            "$ref": "./examples/IngestionSources_ListAll_MaximumSet_Gen.json"
           }
         }
       },
@@ -7582,6 +7940,11 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "IngestionSources_Create_MaximumSet_Gen": {
+            "$ref": "./examples/IngestionSources_Create_MaximumSet_Gen.json"
+          }
         }
       }
     },
@@ -7618,6 +7981,11 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "IngestionSources_Get_MaximumSet_Gen": {
+            "$ref": "./examples/IngestionSources_Get_MaximumSet_Gen.json"
           }
         }
       },
@@ -7689,6 +8057,11 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "IngestionSources_CreateOrReplace_MaximumSet_Gen": {
+            "$ref": "./examples/IngestionSources_CreateOrReplace_MaximumSet_Gen.json"
+          }
         }
       },
       "delete": {
@@ -7727,6 +8100,14 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "IngestionSources_Delete_MaximumSet_Gen": {
+            "$ref": "./examples/IngestionSources_Delete_MaximumSet_Gen.json"
+          },
+          "IngestionSources_Delete_MinimumSet_Gen": {
+            "$ref": "./examples/IngestionSources_Delete_MinimumSet_Gen.json"
+          }
         }
       }
     },
@@ -7760,6 +8141,11 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "IngestionSources_ListManagedIdentities_MaximumSet_Gen": {
+            "$ref": "./examples/IngestionSources_ListManagedIdentities_MaximumSet_Gen.json"
           }
         }
       }
@@ -7859,6 +8245,11 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "IngestionOperations_ListAll_MaximumSet_Gen": {
+            "$ref": "./examples/IngestionOperations_ListAll_MaximumSet_Gen.json"
+          }
         }
       },
       "delete": {
@@ -7887,6 +8278,14 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "IngestionOperations_DeleteAll_MaximumSet_Gen": {
+            "$ref": "./examples/IngestionOperations_DeleteAll_MaximumSet_Gen.json"
+          },
+          "IngestionOperations_DeleteAll_MinimumSet_Gen": {
+            "$ref": "./examples/IngestionOperations_DeleteAll_MinimumSet_Gen.json"
           }
         }
       }
@@ -7931,6 +8330,11 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "IngestionOperations_Get_MaximumSet_Gen": {
+            "$ref": "./examples/IngestionOperations_Get_MaximumSet_Gen.json"
+          }
         }
       },
       "delete": {
@@ -7968,6 +8372,11 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "IngestionOperations_Delete_MaximumSet_Gen": {
+            "$ref": "./examples/IngestionOperations_Delete_MaximumSet_Gen.json"
           }
         }
       }
@@ -8019,6 +8428,14 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "Sas_GetSign_MaximumSet_Gen": {
+            "$ref": "./examples/Sas_GetSign_MaximumSet_Gen.json"
+          },
+          "Sas_GetSign_MinimumSet_Gen": {
+            "$ref": "./examples/Sas_GetSign_MinimumSet_Gen.json"
+          }
         }
       }
     },
@@ -8069,6 +8486,14 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "Sas_GetToken_MaximumSet_Gen": {
+            "$ref": "./examples/Sas_GetToken_MaximumSet_Gen.json"
+          },
+          "Sas_GetToken_MinimumSet_Gen": {
+            "$ref": "./examples/Sas_GetToken_MinimumSet_Gen.json"
+          }
         }
       }
     },
@@ -8109,6 +8534,14 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "Sas_RevokeToken_MaximumSet_Gen": {
+            "$ref": "./examples/Sas_RevokeToken_MaximumSet_Gen.json"
+          },
+          "Sas_RevokeToken_MinimumSet_Gen": {
+            "$ref": "./examples/Sas_RevokeToken_MinimumSet_Gen.json"
+          }
         }
       }
     },
@@ -8143,6 +8576,14 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "StacLandingPages_Get_MaximumSet_Gen": {
+            "$ref": "./examples/StacLandingPages_Get_MaximumSet_Gen.json"
+          },
+          "StacLandingPages_Get_MinimumSet_Gen": {
+            "$ref": "./examples/StacLandingPages_Get_MinimumSet_Gen.json"
           }
         }
       }
@@ -8214,6 +8655,14 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "StacCollectionOperations_GetAll_MaximumSet_Gen": {
+            "$ref": "./examples/StacCollectionOperations_GetAll_MaximumSet_Gen.json"
+          },
+          "StacCollectionOperations_GetAll_MinimumSet_Gen": {
+            "$ref": "./examples/StacCollectionOperations_GetAll_MinimumSet_Gen.json"
+          }
         }
       },
       "post": {
@@ -8272,7 +8721,12 @@
         "x-ms-long-running-operation-options": {
           "final-state-via": "location"
         },
-        "x-ms-long-running-operation": true
+        "x-ms-long-running-operation": true,
+        "x-ms-examples": {
+          "StacCollectionOperations_Create_MaximumSet_Gen": {
+            "$ref": "./examples/StacCollectionOperations_Create_MaximumSet_Gen.json"
+          }
+        }
       }
     },
     "/stac/collections/{collectionId}": {
@@ -8352,6 +8806,14 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "StacCollectionOperations_Get_MaximumSet_Gen": {
+            "$ref": "./examples/StacCollectionOperations_Get_MaximumSet_Gen.json"
+          },
+          "StacCollectionOperations_Get_MinimumSet_Gen": {
+            "$ref": "./examples/StacCollectionOperations_Get_MinimumSet_Gen.json"
+          }
         }
       },
       "put": {
@@ -8413,7 +8875,12 @@
         "x-ms-long-running-operation-options": {
           "final-state-via": "location"
         },
-        "x-ms-long-running-operation": true
+        "x-ms-long-running-operation": true,
+        "x-ms-examples": {
+          "StacCollectionOperations_CreateOrReplace_MaximumSet_Gen": {
+            "$ref": "./examples/StacCollectionOperations_CreateOrReplace_MaximumSet_Gen.json"
+          }
+        }
       },
       "delete": {
         "operationId": "StacCollectionOperations_Delete",
@@ -8465,7 +8932,12 @@
         "x-ms-long-running-operation-options": {
           "final-state-via": "location"
         },
-        "x-ms-long-running-operation": true
+        "x-ms-long-running-operation": true,
+        "x-ms-examples": {
+          "StacCollectionOperations_Delete_MaximumSet_Gen": {
+            "$ref": "./examples/StacCollectionOperations_Delete_MaximumSet_Gen.json"
+          }
+        }
       }
     },
     "/stac/collections/{collectionId}/assets": {
@@ -8531,6 +9003,11 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "StacCollectionAssets_Create_MaximumSet_Gen": {
+            "$ref": "./examples/StacCollectionAssets_Create_MaximumSet_Gen.json"
           }
         }
       }
@@ -8608,6 +9085,11 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "StacCollectionAssets_CreateOrReplace_MaximumSet_Gen": {
+            "$ref": "./examples/StacCollectionAssets_CreateOrReplace_MaximumSet_Gen.json"
+          }
         }
       },
       "delete": {
@@ -8659,6 +9141,14 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "StacCollectionAssets_Delete_MaximumSet_Gen": {
+            "$ref": "./examples/StacCollectionAssets_Delete_MaximumSet_Gen.json"
+          },
+          "StacCollectionAssets_Delete_MinimumSet_Gen": {
+            "$ref": "./examples/StacCollectionAssets_Delete_MinimumSet_Gen.json"
+          }
         }
       }
     },
@@ -8702,6 +9192,11 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "StacCollectionConfig_Get_MaximumSet_Gen": {
+            "$ref": "./examples/StacCollectionConfig_Get_MaximumSet_Gen.json"
           }
         }
       }
@@ -8752,6 +9247,11 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "StacCollectionMosaics_GetAll_MaximumSet_Gen": {
+            "$ref": "./examples/StacCollectionMosaics_GetAll_MaximumSet_Gen.json"
           }
         }
       },
@@ -8810,6 +9310,11 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "StacCollectionMosaics_Add_MaximumSet_Gen": {
+            "$ref": "./examples/StacCollectionMosaics_Add_MaximumSet_Gen.json"
+          }
         }
       }
     },
@@ -8862,6 +9367,11 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "StacCollectionMosaics_Get_MaximumSet_Gen": {
+            "$ref": "./examples/StacCollectionMosaics_Get_MaximumSet_Gen.json"
           }
         }
       },
@@ -8929,6 +9439,11 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "StacCollectionMosaics_CreateOrReplace_MaximumSet_Gen": {
+            "$ref": "./examples/StacCollectionMosaics_CreateOrReplace_MaximumSet_Gen.json"
+          }
         }
       },
       "delete": {
@@ -8980,6 +9495,14 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "StacCollectionMosaics_Delete_MaximumSet_Gen": {
+            "$ref": "./examples/StacCollectionMosaics_Delete_MaximumSet_Gen.json"
+          },
+          "StacCollectionMosaics_Delete_MinimumSet_Gen": {
+            "$ref": "./examples/StacCollectionMosaics_Delete_MinimumSet_Gen.json"
+          }
         }
       }
     },
@@ -9023,6 +9546,14 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "StacCollectionPartitionTypes_Get_MaximumSet_Gen": {
+            "$ref": "./examples/StacCollectionPartitionTypes_Get_MaximumSet_Gen.json"
+          },
+          "StacCollectionPartitionTypes_Get_MinimumSet_Gen": {
+            "$ref": "./examples/StacCollectionPartitionTypes_Get_MinimumSet_Gen.json"
           }
         }
       },
@@ -9078,6 +9609,14 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "StacCollectionPartitionTypes_Replace_MaximumSet_Gen": {
+            "$ref": "./examples/StacCollectionPartitionTypes_Replace_MaximumSet_Gen.json"
+          },
+          "StacCollectionPartitionTypes_Replace_MinimumSet_Gen": {
+            "$ref": "./examples/StacCollectionPartitionTypes_Replace_MinimumSet_Gen.json"
+          }
         }
       }
     },
@@ -9127,6 +9666,11 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "StacCollectionRenderOptions_GetAll_MaximumSet_Gen": {
+            "$ref": "./examples/StacCollectionRenderOptions_GetAll_MaximumSet_Gen.json"
           }
         }
       },
@@ -9185,6 +9729,11 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "StacCollectionRenderOptions_Create_MaximumSet_Gen": {
+            "$ref": "./examples/StacCollectionRenderOptions_Create_MaximumSet_Gen.json"
+          }
         }
       }
     },
@@ -9240,6 +9789,11 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "StacCollectionRenderOptions_Get_MaximumSet_Gen": {
+            "$ref": "./examples/StacCollectionRenderOptions_Get_MaximumSet_Gen.json"
           }
         }
       },
@@ -9307,6 +9861,11 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "StacCollectionRenderOptions_CreateOrReplace_MaximumSet_Gen": {
+            "$ref": "./examples/StacCollectionRenderOptions_CreateOrReplace_MaximumSet_Gen.json"
+          }
         }
       },
       "delete": {
@@ -9358,6 +9917,14 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "StacCollectionRenderOptions_Delete_MaximumSet_Gen": {
+            "$ref": "./examples/StacCollectionRenderOptions_Delete_MaximumSet_Gen.json"
+          },
+          "StacCollectionRenderOptions_Delete_MinimumSet_Gen": {
+            "$ref": "./examples/StacCollectionRenderOptions_Delete_MinimumSet_Gen.json"
+          }
         }
       }
     },
@@ -9401,6 +9968,14 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "StacCollectionTileSettings_GetAll_MaximumSet_Gen": {
+            "$ref": "./examples/StacCollectionTileSettings_GetAll_MaximumSet_Gen.json"
+          },
+          "StacCollectionTileSettings_GetAll_MinimumSet_Gen": {
+            "$ref": "./examples/StacCollectionTileSettings_GetAll_MinimumSet_Gen.json"
           }
         }
       },
@@ -9452,6 +10027,14 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "StacCollectionTileSettings_Replace_MaximumSet_Gen": {
+            "$ref": "./examples/StacCollectionTileSettings_Replace_MaximumSet_Gen.json"
+          },
+          "StacCollectionTileSettings_Replace_MinimumSet_Gen": {
+            "$ref": "./examples/StacCollectionTileSettings_Replace_MinimumSet_Gen.json"
           }
         }
       }
@@ -9516,6 +10099,11 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "StacItems_GetFeatures_MaximumSet_Gen": {
+            "$ref": "./examples/StacItems_GetFeatures_MaximumSet_Gen.json"
+          }
         }
       },
       "post": {
@@ -9574,7 +10162,12 @@
         "x-ms-long-running-operation-options": {
           "final-state-via": "location"
         },
-        "x-ms-long-running-operation": true
+        "x-ms-long-running-operation": true,
+        "x-ms-examples": {
+          "StacItems_Create_MaximumSet_Gen": {
+            "$ref": "./examples/StacItems_Create_MaximumSet_Gen.json"
+          }
+        }
       }
     },
     "/stac/collections/{collectionId}/items/{itemId}": {
@@ -9619,6 +10212,11 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "StacItems_Get_MaximumSet_Gen": {
+            "$ref": "./examples/StacItems_Get_MaximumSet_Gen.json"
           }
         }
       },
@@ -9689,7 +10287,12 @@
         "x-ms-long-running-operation-options": {
           "final-state-via": "location"
         },
-        "x-ms-long-running-operation": true
+        "x-ms-long-running-operation": true,
+        "x-ms-examples": {
+          "StacItems_CreateOrReplace_MaximumSet_Gen": {
+            "$ref": "./examples/StacItems_CreateOrReplace_MaximumSet_Gen.json"
+          }
+        }
       },
       "patch": {
         "operationId": "StacItems_Update",
@@ -9761,7 +10364,12 @@
         "x-ms-long-running-operation-options": {
           "final-state-via": "location"
         },
-        "x-ms-long-running-operation": true
+        "x-ms-long-running-operation": true,
+        "x-ms-examples": {
+          "StacItems_Update_MaximumSet_Gen": {
+            "$ref": "./examples/StacItems_Update_MaximumSet_Gen.json"
+          }
+        }
       },
       "delete": {
         "operationId": "StacItems_Delete",
@@ -9821,7 +10429,12 @@
         "x-ms-long-running-operation-options": {
           "final-state-via": "location"
         },
-        "x-ms-long-running-operation": true
+        "x-ms-long-running-operation": true,
+        "x-ms-examples": {
+          "StacItems_Delete_MaximumSet_Gen": {
+            "$ref": "./examples/StacItems_Delete_MaximumSet_Gen.json"
+          }
+        }
       }
     },
     "/stac/collections/{collectionId}/queryables": {
@@ -9870,6 +10483,14 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "StacQueryables_GetAllByCollection_MaximumSet_Gen": {
+            "$ref": "./examples/StacQueryables_GetAllByCollection_MaximumSet_Gen.json"
+          },
+          "StacQueryables_GetAllByCollection_MinimumSet_Gen": {
+            "$ref": "./examples/StacQueryables_GetAllByCollection_MinimumSet_Gen.json"
           }
         }
       },
@@ -9930,6 +10551,14 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "StacQueryables_Create_MaximumSet_Gen": {
+            "$ref": "./examples/StacQueryables_Create_MaximumSet_Gen.json"
+          },
+          "StacQueryables_Create_MinimumSet_Gen": {
+            "$ref": "./examples/StacQueryables_Create_MinimumSet_Gen.json"
           }
         }
       }
@@ -9999,6 +10628,14 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "StacQueryables_CreateOrReplace_MaximumSet_Gen": {
+            "$ref": "./examples/StacQueryables_CreateOrReplace_MaximumSet_Gen.json"
+          },
+          "StacQueryables_CreateOrReplace_MinimumSet_Gen": {
+            "$ref": "./examples/StacQueryables_CreateOrReplace_MinimumSet_Gen.json"
+          }
         }
       },
       "delete": {
@@ -10049,6 +10686,14 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "StacQueryables_Delete_MaximumSet_Gen": {
+            "$ref": "./examples/StacQueryables_Delete_MaximumSet_Gen.json"
+          },
+          "StacQueryables_Delete_MinimumSet_Gen": {
+            "$ref": "./examples/StacQueryables_Delete_MinimumSet_Gen.json"
           }
         }
       }
@@ -10107,6 +10752,14 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "StacCollectionThumbnails_Get_MaximumSet_Gen": {
+            "$ref": "./examples/StacCollectionThumbnails_Get_MaximumSet_Gen.json"
+          },
+          "StacCollectionThumbnails_Get_MinimumSet_Gen": {
+            "$ref": "./examples/StacCollectionThumbnails_Get_MinimumSet_Gen.json"
+          }
         }
       }
     },
@@ -10141,6 +10794,14 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "StacConformanceClass_Get_MaximumSet_Gen": {
+            "$ref": "./examples/StacConformanceClass_Get_MaximumSet_Gen.json"
+          },
+          "StacConformanceClass_Get_MinimumSet_Gen": {
+            "$ref": "./examples/StacConformanceClass_Get_MinimumSet_Gen.json"
           }
         }
       }
@@ -10182,6 +10843,14 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "StacQueryables_GetAll_MaximumSet_Gen": {
+            "$ref": "./examples/StacQueryables_GetAll_MaximumSet_Gen.json"
+          },
+          "StacQueryables_GetAll_MinimumSet_Gen": {
+            "$ref": "./examples/StacQueryables_GetAll_MinimumSet_Gen.json"
           }
         }
       }
@@ -10339,6 +11008,11 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "StacSearchOperations_Get_MaximumSet_Gen": {
+            "$ref": "./examples/StacSearchOperations_Get_MaximumSet_Gen.json"
+          }
         }
       },
       "post": {
@@ -10383,6 +11057,11 @@
                 "description": "String error code indicating what went wrong."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "StacSearchOperations_Create_MaximumSet_Gen": {
+            "$ref": "./examples/StacSearchOperations_Create_MaximumSet_Gen.json"
           }
         }
       }
