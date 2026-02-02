@@ -2403,6 +2403,27 @@ alias RangeParameter = {
   range?: string;
 };
 
+/** The required range parameter for page blob operations. */
+alias PageRangeRequiredParameter = {
+  /** Bytes of data in the specified range. */
+  @header("Range")
+  range: string;
+};
+
+/** The required destination range parameter for page blob from URL operations. */
+alias DestinationRangeRequiredParameter = {
+  /** Bytes of source data in the specified range. The length of this range should match the ContentLength header and x-ms-range/Range destination range header. */
+  @header("x-ms-range")
+  range: string;
+};
+
+/** The required source range parameter for page blob from URL operations. */
+alias SourceRangeRequiredParameter = {
+  /** Bytes of source data in the specified range. The length of this range should match the ContentLength header and x-ms-range/Range destination range header. */
+  @header("x-ms-source-range")
+  sourceRange: string;
+};
+
 /** The version ID parameter. */
 alias VersionIdParameter = {
   /** The version id parameter is an opaque DateTime value that, when present, specifies the version of the blob to operate on. It's for service version 2019-10-10 and newer. */
