@@ -58,6 +58,9 @@ namespace Azure.AI.Projects;
 // Usage / Public accessibility overrides
 // --------------------------------------------------------------------------------
 
+// Needs forceful exposition
+@@access(FoundryPreviewOptInKeys, Access.public);
+
 // Default name produces a style violation
 @@clientName(SASCredentials, "SasCredentials", "java");
 @@clientName(SasCredential, "BlobReferenceSasCredential");
