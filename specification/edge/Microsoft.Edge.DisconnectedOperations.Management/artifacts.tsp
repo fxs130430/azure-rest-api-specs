@@ -22,7 +22,7 @@ model Artifact is ProxyResource<ArtifactProperties> {
 @armResourceOperations
 interface Artifacts {
   @doc("List by parent")
-  listByArtifact is ArmResourceListByParent<Artifact>;
+  listByImage is ArmResourceListByParent<Artifact>;
 
   @doc("Get the resource")
   get is ArmResourceRead<Artifact>;
