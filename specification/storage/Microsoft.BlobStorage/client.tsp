@@ -112,3 +112,5 @@ namespace Customizations;
 );
 @@clientName(Storage.Blob.Service.findBlobsByTags, "filterBlobs", "python");
 @@clientName(Storage.Blob.Container.findBlobsByTags, "filterBlobs", "python");
+
+@@alternateType(BlockIdParameter.blockid, string, "python");
