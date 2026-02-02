@@ -45,7 +45,6 @@ namespace Azure.AI.Projects;
 
 @@clientName(EntraIDCredentials, "EntraIdCredentials");
 
-@@clientName(EvalCompareReport, "EvaluationCompareReport");
 @@clientName(EvalResult, "EvaluationResult");
 @@clientName(EvalRun, "EvaluationRun");
 @@clientName(EvalRunDataSource, "EvaluationRunDataSource");
