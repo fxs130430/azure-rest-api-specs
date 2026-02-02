@@ -17,7 +17,6 @@ namespace Microsoft.FileShares;
 /**
  * The private endpoint connection resource.
  */
-@added(Versions.v2025_09_01_preview)
 @parentResource(FileShare)
 model PrivateEndpointConnection is PrivateEndpointConnectionResource;
 
