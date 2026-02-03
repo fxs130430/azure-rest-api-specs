@@ -173,7 +173,7 @@ def format_output(resource_providers: List[Dict[str, str]], format_type: str) ->
             return "No resource providers without service groups found."
         
         lines = [
-            f"{rp['name']} ({rp['service']})"
+            rp['name']
             for rp in resource_providers
         ]
         return '\n'.join(lines)

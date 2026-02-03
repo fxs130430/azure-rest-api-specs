@@ -44,10 +44,11 @@ def test_list_format():
     # Check at least one provider is listed
     assert len(provider_lines) > 0, "Should have at least one resource provider"
     
-    # Check format (should be "Microsoft.XXX (service)")
+    # Check format (should be "Microsoft.XXX")
     for line in provider_lines[:5]:  # Check first 5
-        if '(' in line and ')' in line:
-            assert line.startswith('Microsoft.'), f"Invalid format: {line}"
+        assert line.startswith('Microsoft.'), f"Invalid format: {line}"
+        # Verify no service name in parentheses
+        assert '(' not in line, f"Service name should not be in list format: {line}"
     
     print(f"✓ List format test passed: {len(provider_lines)} providers listed")
     return len(provider_lines)

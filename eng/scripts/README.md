@@ -95,8 +95,8 @@ python fetch_rp_without_service_groups.py --repo-root /path/to/azure-rest-api-sp
    ```
    Output:
    ```
-   Microsoft.Storage (storage)
-   Microsoft.KeyVault (keyvault)
+   Microsoft.Storage
+   Microsoft.KeyVault
    ...
    ```
 

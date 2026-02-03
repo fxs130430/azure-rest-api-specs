@@ -48,9 +48,9 @@ The script will display a list of Azure resource providers that don't have servi
 
 Example output:
 ```
-Microsoft.Storage (storage)
-Microsoft.KeyVault (keyvault)
-Microsoft.Network (frontdoor)
+Microsoft.Storage
+Microsoft.KeyVault
+Microsoft.Network
 ...
 
 Total: 106 resource provider(s) without service groups
