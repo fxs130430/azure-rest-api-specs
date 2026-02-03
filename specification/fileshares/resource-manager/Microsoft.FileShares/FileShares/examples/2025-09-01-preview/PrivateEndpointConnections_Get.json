@@ -1,20 +1,12 @@
 {
-  "title": "PrivateEndpointConnections_Create",
-  "operationId": "PrivateEndpointConnections_Create",
+  "title": "PrivateEndpointConnections_Get",
+  "operationId": "PrivateEndpointConnections_Get",
   "parameters": {
-    "api-version": "2025-06-01-preview",
+    "api-version": "2025-09-01-preview",
     "subscriptionId": "0681745E-3F9F-4966-80E6-69624A3B29F2",
     "resourceGroupName": "rgfileshares",
     "resourceName": "fileshare",
-    "privateEndpointConnectionName": "privateEndpointConnection1",
-    "resource": {
-      "properties": {
-        "privateLinkServiceConnectionState": {
-          "status": "Approved",
-          "description": "Approved by admin"
-        }
-      }
-    }
+    "privateEndpointConnectionName": "privateEndpointConnection1"
   },
   "responses": {
     "200": {
@@ -28,7 +20,7 @@
           },
           "privateLinkServiceConnectionState": {
             "status": "Approved",
-            "description": "Approved by admin",
+            "description": "Auto-approved",
             "actionsRequired": "None"
           },
           "provisioningState": "Succeeded"
@@ -44,13 +36,6 @@
           "lastModifiedByType": "User",
           "lastModifiedAt": "2025-07-23T12:37:53.955Z"
         }
-      }
-    },
-    "202": {
-      "headers": {
-        "Azure-AsyncOperation": "https://management.azure.com/subscriptions/0681745E-3F9F-4966-80E6-69624A3B29F2/providers/Microsoft.FileShares/locations/eastus/operationStatuses/operation123?api-version=2025-06-01-preview",
-        "Location": "https://management.azure.com/subscriptions/0681745E-3F9F-4966-80E6-69624A3B29F2/resourceGroups/rgfileshares/providers/Microsoft.FileShares/fileShares/fileshare/privateEndpointConnections/privateEndpointConnection1?api-version=2025-06-01-preview",
-        "Retry-After": "10"
       }
     }
   }
