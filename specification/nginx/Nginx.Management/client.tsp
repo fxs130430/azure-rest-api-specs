@@ -135,11 +135,14 @@ using Azure.Core;
 );
 @@clientName(AnalysisResultData, "NginxAnalysisResultDetails", "csharp");
 @@clientName(Level, "NginxDiagnosticLevel", "csharp");
-@@clientName(NginxConfigurationResponse, "NginxConfiguration", "csharp,go");
+@@clientName(NginxConfigurationResponse,
+  "NginxConfiguration",
+  "csharp,go,javascript"
+);
 @@usage(NginxConfigurationResponse, Usage.input, "csharp");
 @@clientName(NginxConfigurationResponseProperties,
   "NginxConfigurationProperties",
-  "csharp,go"
+  "csharp,go,javascript"
 );
 @@clientName(NginxDeploymentApiKeyResponse, "NginxDeploymentApiKey", "csharp");
 @@clientName(NginxDeploymentApiKeyResponseProperties,
