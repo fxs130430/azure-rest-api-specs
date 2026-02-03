@@ -53,26 +53,8 @@ namespace Customizations;
   "rust"
 );
 
-// Range alternate types for Rust
-@@alternateType(RangeParameter.range,
-  {
-    identity: "crate::models::HttpRange",
-  },
-  "rust"
-);
-@@alternateType(PageRangeRequiredParameter.range,
-  {
-    identity: "crate::models::HttpRange",
-  },
-  "rust"
-);
-@@alternateType(DestinationRangeRequiredParameter.range,
-  {
-    identity: "crate::models::HttpRange",
-  },
-  "rust"
-);
-@@alternateType(SourceRangeRequiredParameter.sourceRange,
+// Range alternate type for Rust - applied to the underlying scalar type
+@@alternateType(HttpRangeString,
   {
     identity: "crate::models::HttpRange",
   },
