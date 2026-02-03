@@ -1,7 +1,7 @@
 parameters:
   - name: SdkRepoBranch
     type: string
-    default: 'js-release-tool-test'
+    default: 'kyle/js-release-tool-test'
     displayName: 'SDK repository branch'
   - name: ConfigType
     type: string
