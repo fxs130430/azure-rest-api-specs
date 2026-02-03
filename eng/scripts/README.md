@@ -118,6 +118,20 @@ python fetch_rp_without_service_groups.py | grep -i storage
 - Python 3.6 or higher
 - No external dependencies (uses only standard library)
 
+### Testing
+
+Run the test suite to verify the script functionality:
+```bash
+python test_fetch_rp.py
+```
+
+The test suite validates:
+- Count output returns a valid number
+- List format produces correct output
+- JSON format produces valid JSON with correct structure
+- Table format produces properly formatted tables
+- Known providers are correctly identified (e.g., Storage/KeyVault included, Compute excluded)
+
 ### Implementation Details
 
 The script:
