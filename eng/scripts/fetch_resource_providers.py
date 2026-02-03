@@ -19,25 +19,25 @@ HOW TO RUN:
 The script automatically detects the repository root. Run from anywhere in the repo:
 
     # List all resource providers WITHOUT service groups (default)
-    python fetch_rp_without_service_groups.py
+    python fetch_resource_providers.py
 
     # List all resource providers WITH service groups
-    python fetch_rp_without_service_groups.py --with-service-groups
+    python fetch_resource_providers.py --with-service-groups
 
     # Get just the count
-    python fetch_rp_without_service_groups.py --count
-    python fetch_rp_without_service_groups.py --with-service-groups --count
+    python fetch_resource_providers.py --count
+    python fetch_resource_providers.py --with-service-groups --count
 
     # Output as table
-    python fetch_rp_without_service_groups.py --format table
-    python fetch_rp_without_service_groups.py --with-service-groups --format table
+    python fetch_resource_providers.py --format table
+    python fetch_resource_providers.py --with-service-groups --format table
 
     # Output as JSON
-    python fetch_rp_without_service_groups.py --format json
-    python fetch_rp_without_service_groups.py --with-service-groups --format json
+    python fetch_resource_providers.py --format json
+    python fetch_resource_providers.py --with-service-groups --format json
 
     # Specify repository root explicitly (if running from outside repo)
-    python fetch_rp_without_service_groups.py --repo-root /path/to/azure-rest-api-specs
+    python fetch_resource_providers.py --repo-root /path/to/azure-rest-api-specs
 
 ARGUMENTS:
 ----------
@@ -70,17 +70,17 @@ EXAMPLES:
 ---------
     # Show RPs without service groups
     cd /path/to/azure-rest-api-specs
-    python eng/scripts/fetch_rp_without_service_groups.py
+    python eng/scripts/fetch_resource_providers.py
 
     # Show RPs with service groups
-    python eng/scripts/fetch_rp_without_service_groups.py --with-service-groups
+    python eng/scripts/fetch_resource_providers.py --with-service-groups
 
     # Show RPs with service groups as JSON
-    python eng/scripts/fetch_rp_without_service_groups.py --with-service-groups --format json
+    python eng/scripts/fetch_resource_providers.py --with-service-groups --format json
 
     # From any subdirectory (auto-detects repo root)
     cd /path/to/azure-rest-api-specs/specification/compute
-    python ../../eng/scripts/fetch_rp_without_service_groups.py --with-service-groups --count
+    python ../../eng/scripts/fetch_resource_providers.py --with-service-groups --count
 
 TESTING:
 --------

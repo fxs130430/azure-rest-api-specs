@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Simple test script for fetch_rp_without_service_groups.py
+Simple test script for fetch_resource_providers.py
 
 Tests basic functionality to ensure the script works correctly.
 """
@@ -12,8 +12,8 @@ from pathlib import Path
 
 
 def run_script(*args):
-    """Run the fetch_rp_without_service_groups.py script with given arguments."""
-    script_path = Path(__file__).parent.parent / 'fetch_rp_without_service_groups.py'
+    """Run the fetch_resource_providers.py script with given arguments."""
+    script_path = Path(__file__).parent.parent / 'fetch_resource_providers.py'
     repo_root = Path(__file__).parent.parent.parent.parent
     
     cmd = [sys.executable, str(script_path), '--repo-root', str(repo_root)] + list(args)
@@ -193,7 +193,7 @@ def test_known_providers_with_service_groups():
 
 def main():
     """Run all tests."""
-    print("Running tests for fetch_rp_without_service_groups.py...\n")
+    print("Running tests for fetch_resource_providers.py...\n")
     
     try:
         # Test WITHOUT service groups (original functionality)
