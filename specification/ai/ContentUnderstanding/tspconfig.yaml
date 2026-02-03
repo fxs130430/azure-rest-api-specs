@@ -33,12 +33,12 @@ options:
     generate-sample: false
     flavor: azure
   "@azure-tools/typespec-ts":
-    emitter-output-dir: "{output-dir}/{service-dir}/ai-content-understanding-rest"
+    emitter-output-dir: "{output-dir}/{service-dir}/ai-content-understanding"
     package-details:
-      name: "@azure-rest/ai-content-understanding"
+      name: "@azure/ai-content-understanding"
       description: "Azure Content Understanding Rest Client"
-      version: "1.0.0-beta.1"
     generate-test: false
+    generate-samples: false
     flavor: azure
   "@azure-tools/typespec-java":
     emitter-output-dir: "{output-dir}/{service-dir}/azure-ai-contentunderstanding"
