@@ -114,11 +114,89 @@ def test_known_providers():
     print("✓ Known providers test passed")
 
 
+def test_with_service_groups_count():
+    """Test count output for RPs with service groups."""
+    result = run_script('--with-service-groups', '--count')
+    assert result.returncode == 0, f"Script failed: {result.stderr}"
+    
+    count = int(result.stdout.strip())
+    assert count > 0, "Count should be greater than 0"
+    print(f"✓ With service groups count test passed: Found {count} resource providers")
+    return count
+
+
+def test_with_service_groups_list():
+    """Test list format for RPs with service groups."""
+    result = run_script('--with-service-groups', '--format', 'list')
+    assert result.returncode == 0, f"Script failed: {result.stderr}"
+    
+    lines = result.stdout.strip().split('\n')
+    # Filter out summary line
+    provider_lines = [l for l in lines if l and not l.startswith('Total:')]
+    
+    # Check at least one provider is listed
+    assert len(provider_lines) > 0, "Should have at least one resource provider"
+    
+    # Check format (should be "Microsoft.XXX: [service1, service2, ...]")
+    for line in provider_lines[:5]:  # Check first 5
+        assert line.startswith('Microsoft.'), f"Invalid format: {line}"
+        assert '[' in line and ']' in line, f"Missing service groups in format: {line}"
+    
+    print(f"✓ With service groups list format test passed: {len(provider_lines)} providers listed")
+    return len(provider_lines)
+
+
+def test_with_service_groups_json():
+    """Test JSON format for RPs with service groups."""
+    result = run_script('--with-service-groups', '--format', 'json')
+    assert result.returncode == 0, f"Script failed: {result.stderr}"
+    
+    # Parse JSON
+    data = json.loads(result.stdout)
+    
+    # Check structure
+    assert isinstance(data, list), "JSON output should be a list"
+    assert len(data) > 0, "Should have at least one entry"
+    
+    # Check first entry structure
+    first = data[0]
+    assert 'name' in first, "Entry should have 'name' field"
+    assert 'path' in first, "Entry should have 'path' field"
+    assert 'service' in first, "Entry should have 'service' field"
+    assert 'service_groups' in first, "Entry should have 'service_groups' field"
+    assert isinstance(first['service_groups'], list), "service_groups should be a list"
+    assert first['name'].startswith('Microsoft.'), "Name should start with 'Microsoft.'"
+    
+    print(f"✓ With service groups JSON format test passed: {len(data)} providers in JSON")
+    return len(data)
+
+
+def test_known_providers_with_service_groups():
+    """Test that known providers with service groups are correctly identified."""
+    result = run_script('--with-service-groups', '--format', 'json')
+    assert result.returncode == 0, f"Script failed: {result.stderr}"
+    
+    data = json.loads(result.stdout)
+    providers_dict = {item['name']: item['service_groups'] for item in data}
+    
+    # Compute SHOULD have service groups
+    assert 'Microsoft.Compute' in providers_dict, "Microsoft.Compute should be in the list"
+    compute_groups = providers_dict['Microsoft.Compute']
+    assert 'ComputeRP' in compute_groups, "Microsoft.Compute should have ComputeRP"
+    assert 'DiskRP' in compute_groups, "Microsoft.Compute should have DiskRP"
+    
+    # Storage should NOT be in this list (it has no service groups)
+    assert 'Microsoft.Storage' not in providers_dict, "Microsoft.Storage should NOT be in the list"
+    
+    print("✓ Known providers with service groups test passed")
+
+
 def main():
     """Run all tests."""
     print("Running tests for fetch_rp_without_service_groups.py...\n")
     
     try:
+        # Test WITHOUT service groups (original functionality)
         count = test_count_output()
         list_count = test_list_format()
         json_count = test_json_format()
@@ -128,6 +206,17 @@ def main():
         # Verify all formats return same count
         assert count == list_count == json_count, \
             f"Count mismatch: count={count}, list={list_count}, json={json_count}"
+        
+        # Test WITH service groups (new functionality)
+        print()
+        with_sg_count = test_with_service_groups_count()
+        with_sg_list_count = test_with_service_groups_list()
+        with_sg_json_count = test_with_service_groups_json()
+        test_known_providers_with_service_groups()
+        
+        # Verify all formats return same count for service groups
+        assert with_sg_count == with_sg_list_count == with_sg_json_count, \
+            f"Count mismatch for with service groups: count={with_sg_count}, list={with_sg_list_count}, json={with_sg_json_count}"
         
         print("\n✅ All tests passed!")
         return 0
