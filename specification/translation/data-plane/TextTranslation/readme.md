@@ -26,8 +26,7 @@ openapi-type: data-plane
 These settings apply only when `--tag=package-2026-06-06` is specified on the command line.
 
 ``` yaml $(tag) == 'package-2026-06-06'
-input-file:
-  - stable/2026-06-06/openapi.json
+input-file: stable/2026-06-06/openapi.json
 ```
 
 ### Release 3.0
@@ -43,8 +42,7 @@ input-file: stable/3.0/openapi.json
 These settings apply only when `--tag=package-2025-10-01-preview` is specified on the command line.
 
 ``` yaml $(tag) == 'package-2025-10-01-preview'
-input-file:
-  - preview/2025-10-01-preview/openapi.json
+input-file: preview/2025-10-01-preview/openapi.json
 ```
 
 ## Multi-API/Profile support for AutoRest v3 generators
