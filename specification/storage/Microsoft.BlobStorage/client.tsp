@@ -1,7 +1,6 @@
 import "@azure-tools/typespec-client-generator-core";
 import "./main.tsp";
 
-using TypeSpec.Http;
 using Azure.ClientGenerator.Core;
 using Storage.Blob;
 
@@ -51,6 +50,13 @@ namespace Customizations;
 );
 @@alternateType(StructuredContentLengthResponseHeader.structuredContentLength,
   uint64,
+  "rust"
+);
+
+@@alternateType(HttpRangeString,
+  {
+    identity: "crate::models::HttpRange",
+  },
   "rust"
 );
 
