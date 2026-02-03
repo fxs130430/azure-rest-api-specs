@@ -46,6 +46,43 @@ def has_version_directories(rp_path: Path) -> bool:
     return (rp_path / 'stable').exists() or (rp_path / 'preview').exists()
 
 
+def find_repo_root(start_path: Path = None) -> Path:
+    """
+    Find the repository root by looking for the specification directory.
+    
+    Searches upward from the start_path to find a directory containing 'specification'.
+    
+    Args:
+        start_path: Starting directory (default: current working directory)
+    
+    Returns:
+        Path to the repository root
+        
+    Raises:
+        FileNotFoundError: If repository root cannot be found
+    """
+    if start_path is None:
+        start_path = Path.cwd()
+    
+    current = start_path.resolve()
+    
+    # Check current directory and up to 5 parent directories
+    for _ in range(6):
+        if (current / 'specification').exists() and (current / 'specification').is_dir():
+            return current
+        
+        # Move to parent directory
+        parent = current.parent
+        if parent == current:  # Reached filesystem root
+            break
+        current = parent
+    
+    raise FileNotFoundError(
+        f"Could not find azure-rest-api-specs repository root from {start_path}. "
+        f"Make sure you're running this script from within the repository."
+    )
+
+
 def find_resource_providers_without_service_groups(repo_root: Path) -> List[Dict[str, str]]:
     """
     Find all resource providers that have no service groups.
@@ -152,8 +189,8 @@ def main():
     parser.add_argument(
         '--repo-root',
         type=Path,
-        default=Path.cwd(),
-        help='Path to the azure-rest-api-specs repository root (default: current directory)'
+        default=None,
+        help='Path to the azure-rest-api-specs repository root (default: auto-detect from current location)'
     )
     parser.add_argument(
         '--format',
@@ -170,8 +207,15 @@ def main():
     args = parser.parse_args()
     
     try:
+        # Determine repository root
+        if args.repo_root:
+            repo_root = args.repo_root.resolve()
+        else:
+            # Auto-detect repository root
+            repo_root = find_repo_root()
+        
         # Find resource providers without service groups
-        resource_providers = find_resource_providers_without_service_groups(args.repo_root)
+        resource_providers = find_resource_providers_without_service_groups(repo_root)
         
         if args.count:
             print(len(resource_providers))
