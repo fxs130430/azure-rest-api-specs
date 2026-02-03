@@ -54,7 +54,7 @@ namespace Customizations;
 );
 
 // Range alternate type for Rust - applied to the underlying scalar type
-@@alternateType(HttpRangeString,
+@@alternateType(Storage.Blob.HttpRangeString,
   {
     identity: "crate::models::HttpRange",
   },
