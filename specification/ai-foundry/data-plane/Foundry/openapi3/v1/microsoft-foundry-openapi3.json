@@ -5607,14 +5607,7 @@
                   "items": {
                     "type": "array",
                     "items": {
-                      "anyOf": [
-                        {
-                          "$ref": "#/components/schemas/OpenAI.Item"
-                        },
-                        {
-                          "$ref": "#/components/schemas/OpenAI.EasyInputMessage"
-                        }
-                      ]
+                      "$ref": "#/components/schemas/OpenAI.Item"
                     },
                     "maxItems": 20,
                     "description": "The items to add to the conversation. You may add up to 20 items at a time."
@@ -5709,7 +5702,7 @@
                     "data": {
                       "type": "array",
                       "items": {
-                        "$ref": "#/components/schemas/OpenAI.ItemResource"
+                        "$ref": "#/components/schemas/OpenAI.OutputItem"
                       },
                       "description": "The requested list of items."
                     },
@@ -5777,7 +5770,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/OpenAI.ItemResource"
+                  "$ref": "#/components/schemas/OpenAI.OutputItem"
                 }
               }
             }
@@ -13924,7 +13917,7 @@
         },
         "allOf": [
           {
-            "$ref": "#/components/schemas/OpenAI.ItemResource"
+            "$ref": "#/components/schemas/OpenAI.OutputItem"
           }
         ]
       },
@@ -24124,18 +24117,6 @@
         "properties": {
           "type": {
             "$ref": "#/components/schemas/OpenAI.ItemResourceType"
-          },
-          "agent_reference": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/AgentReference"
-              }
-            ],
-            "description": "The agent that created the item."
-          },
-          "response_id": {
-            "type": "string",
-            "description": "The response on which the item is created."
           }
         },
         "discriminator": {
@@ -24144,7 +24125,6 @@
             "structured_outputs": "#/components/schemas/StructuredOutputsItemResource",
             "workflow_preview_action": "#/components/schemas/WorkflowPreviewActionOutputItemResource",
             "oauth_consent_request": "#/components/schemas/OAuthConsentRequestItemResource",
-            "memory_search_call": "#/components/schemas/MemorySearchToolCallItemResource",
             "message": "#/components/schemas/OpenAI.InputMessageResource",
             "output_message": "#/components/schemas/OpenAI.ItemResourceOutputMessage",
             "file_search_call": "#/components/schemas/OpenAI.ItemResourceFileSearchToolCall",
@@ -25127,11 +25107,7 @@
               "mcp_list_tools",
               "mcp_approval_request",
               "mcp_approval_response",
-              "mcp_call",
-              "structured_outputs",
-              "oauth_consent_request",
-              "memory_search_call",
-              "workflow_preview_action"
+              "mcp_call"
             ]
           }
         ]
@@ -26237,11 +26213,24 @@
         "properties": {
           "type": {
             "$ref": "#/components/schemas/OpenAI.OutputItemType"
+          },
+          "agent_reference": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AgentReference"
+              }
+            ],
+            "description": "The agent that created the item."
+          },
+          "response_id": {
+            "type": "string",
+            "description": "The response on which the item is created."
           }
         },
         "discriminator": {
           "propertyName": "type",
           "mapping": {
+            "memory_search_call": "#/components/schemas/MemorySearchToolCallItemResource",
             "output_message": "#/components/schemas/OpenAI.OutputItemOutputMessage",
             "file_search_call": "#/components/schemas/OpenAI.OutputItemFileSearchToolCall",
             "function_call": "#/components/schemas/OpenAI.OutputItemFunctionToolCall",
@@ -27168,7 +27157,11 @@
               "mcp_call",
               "mcp_list_tools",
               "mcp_approval_request",
-              "custom_tool_call"
+              "custom_tool_call",
+              "structured_outputs",
+              "oauth_consent_request",
+              "memory_search_call",
+              "workflow_preview_action"
             ]
           }
         ]
