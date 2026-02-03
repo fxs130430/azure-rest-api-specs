@@ -1005,6 +1005,11 @@
         },
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
+        },
+        "x-ms-examples": {
+          "List PrivateEndpointConnections": {
+            "$ref": "./examples/PrivateEndpointConnections_ListByFileShare.json"
+          }
         }
       }
     },
@@ -1049,6 +1054,11 @@
             "schema": {
               "$ref": "../../../../../../common-types/resource-management/v6/types.json#/definitions/ErrorResponse"
             }
+          }
+        },
+        "x-ms-examples": {
+          "Get PrivateEndpointConnection": {
+            "$ref": "./examples/PrivateEndpointConnections_Get.json"
           }
         }
       },
@@ -1125,7 +1135,12 @@
         "x-ms-long-running-operation-options": {
           "final-state-via": "location"
         },
-        "x-ms-long-running-operation": true
+        "x-ms-long-running-operation": true,
+        "x-ms-examples": {
+          "Create PrivateEndpointConnection": {
+            "$ref": "./examples/PrivateEndpointConnections_Create.json"
+          }
+        }
       },
       "delete": {
         "operationId": "PrivateEndpointConnections_Delete",
@@ -1191,7 +1206,12 @@
         "x-ms-long-running-operation-options": {
           "final-state-via": "location"
         },
-        "x-ms-long-running-operation": true
+        "x-ms-long-running-operation": true,
+        "x-ms-examples": {
+          "Delete PrivateEndpointConnection": {
+            "$ref": "./examples/PrivateEndpointConnections_Delete.json"
+          }
+        }
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.FileShares/fileShares/{resourceName}/privateLinkResources": {
@@ -1236,6 +1256,11 @@
         },
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
+        },
+        "x-ms-examples": {
+          "List PrivateLinkResources": {
+            "$ref": "./examples/PrivateLinkResources_ListByFileShare.json"
+          }
         }
       }
     },
@@ -1285,6 +1310,11 @@
             "schema": {
               "$ref": "../../../../../../common-types/resource-management/v6/types.json#/definitions/ErrorResponse"
             }
+          }
+        },
+        "x-ms-examples": {
+          "Get PrivateLinkResource": {
+            "$ref": "./examples/PrivateLinkResources_Get.json"
           }
         }
       }
