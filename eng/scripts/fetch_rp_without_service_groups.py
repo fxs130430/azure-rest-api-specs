@@ -7,17 +7,71 @@ that do not have service groups. A resource provider without service groups
 directly contains 'stable' and/or 'preview' directories instead of having
 service group subdirectories.
 
-Example:
-- Microsoft.Compute has service groups: CloudserviceRP, ComputeRP, etc.
-- Microsoft.Storage has no service groups (directly contains stable/preview)
+WHAT IT DOES:
+-------------
+Scans the Azure REST API specifications repository to find resource providers
+that do not use service groups for organization.
 
-Usage:
-    python fetch_rp_without_service_groups.py [--repo-root PATH] [--format FORMAT]
+Example structure differences:
+- Microsoft.Compute (HAS service groups): CloudserviceRP/, ComputeRP/, DiskRP/
+- Microsoft.Storage (NO service groups): stable/, preview/ (directly)
 
-Arguments:
-    --repo-root PATH    Path to the azure-rest-api-specs repository root
-                        (default: current directory)
+HOW TO RUN:
+-----------
+The script automatically detects the repository root. Run from anywhere in the repo:
+
+    # Basic usage - list all resource providers without service groups
+    python fetch_rp_without_service_groups.py
+
+    # Get just the count
+    python fetch_rp_without_service_groups.py --count
+
+    # Output as table
+    python fetch_rp_without_service_groups.py --format table
+
+    # Output as JSON
+    python fetch_rp_without_service_groups.py --format json
+
+    # Specify repository root explicitly (if running from outside repo)
+    python fetch_rp_without_service_groups.py --repo-root /path/to/azure-rest-api-specs
+
+ARGUMENTS:
+----------
+    --repo-root PATH    Path to azure-rest-api-specs repository root
+                        (default: auto-detects from current location)
     --format FORMAT     Output format: 'list', 'json', or 'table' (default: 'list')
+    --count             Show only the count of resource providers
+    --help              Show this help message
+
+OUTPUT FORMATS:
+---------------
+    list    - Simple list of resource provider names (default)
+              Example: Microsoft.Storage
+    
+    table   - Formatted table with columns for name, service, and path
+              Includes service name and full path for reference
+    
+    json    - JSON array with full details for each resource provider
+              Includes name, path, and service fields
+
+EXAMPLES:
+---------
+    # From repository root
+    cd /path/to/azure-rest-api-specs
+    python eng/scripts/fetch_rp_without_service_groups.py
+
+    # From scripts directory
+    cd /path/to/azure-rest-api-specs/eng/scripts
+    python fetch_rp_without_service_groups.py
+
+    # From any subdirectory (auto-detects repo root)
+    cd /path/to/azure-rest-api-specs/specification/compute
+    python ../../eng/scripts/fetch_rp_without_service_groups.py --count
+
+TESTING:
+--------
+Run the test suite to verify functionality:
+    python Tests/test_fetch_rp.py
 """
 
 import argparse

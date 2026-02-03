@@ -13,8 +13,8 @@ from pathlib import Path
 
 def run_script(*args):
     """Run the fetch_rp_without_service_groups.py script with given arguments."""
-    script_path = Path(__file__).parent / 'fetch_rp_without_service_groups.py'
-    repo_root = Path(__file__).parent.parent.parent
+    script_path = Path(__file__).parent.parent / 'fetch_rp_without_service_groups.py'
+    repo_root = Path(__file__).parent.parent.parent.parent
     
     cmd = [sys.executable, str(script_path), '--repo-root', str(repo_root)] + list(args)
     result = subprocess.run(cmd, capture_output=True, text=True)
