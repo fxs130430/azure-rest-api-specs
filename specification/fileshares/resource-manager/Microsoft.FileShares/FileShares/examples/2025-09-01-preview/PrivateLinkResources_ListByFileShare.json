@@ -10,11 +10,11 @@
       "body": {
         "value": [
           {
-            "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/res4303/providers/Microsoft.FileShares/fileShares/testfileshare01/privateLinkResources/FileShare",
-            "name": "FileShare",
+            "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/res4303/providers/Microsoft.FileShares/fileShares/testfileshare01/privateLinkResources/fileshare",
+            "name": "fileshare",
             "type": "Microsoft.FileShares/privateLinkResources",
             "properties": {
-              "groupId": "FileShare",
+              "groupId": "fileshare",
               "requiredMembers": [
                 "file"
               ],
