@@ -190,7 +190,6 @@ model FileShareProperties {
   @visibility(Lifecycle.Create, Lifecycle.Read, Lifecycle.Update)
   publicNetworkAccess?: PublicNetworkAccess;
 
-  @added(Versions.v2025_06_01_preview)
   @visibility(Lifecycle.Read)
   @doc("The list of associated private endpoint connections.")
   privateEndpointConnections?: PrivateEndpointConnection[];
