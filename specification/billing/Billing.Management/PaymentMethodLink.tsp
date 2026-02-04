@@ -32,13 +32,15 @@ model PaymentMethodLink
   tags?: Record<string>;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface PaymentMethodLinks {
   /**
    * Gets a payment method linked with a billing profile. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("PaymentMethods_GetByBillingProfile")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("PaymentMethods")
   getByBillingProfile is ArmResourceRead<
     PaymentMethodLink,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters
@@ -49,9 +51,12 @@ interface PaymentMethodLinks {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("PaymentMethods_ListByBillingProfile")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("PaymentMethods")
   listByBillingProfile is ArmResourceListByParent<
     PaymentMethodLink,
-    BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters
+    BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters,
+    Response = ArmResponse<PaymentMethodLinksListResult>
   >;
 }
 

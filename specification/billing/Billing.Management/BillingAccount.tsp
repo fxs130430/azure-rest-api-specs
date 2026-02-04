@@ -30,11 +30,13 @@ model BillingAccount
   tags?: Record<string>;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface BillingAccounts {
   /**
    * Gets a billing account by its ID.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingAccount")
   get is ArmResourceRead<
     BillingAccount,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters
@@ -43,6 +45,8 @@ interface BillingAccounts {
   /**
    * Updates the properties of a billing account. Currently, displayName and address can be updated for billing accounts with agreement type Microsoft Customer Agreement. Currently address and notification email address can be updated for billing accounts with agreement type Microsoft Online Services Agreement. Currently, purchase order number can be edited for billing accounts with agreement type Enterprise Agreement.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingAccount")
   @patch(#{ implicitOptionality: false })
   update is ArmCustomPatchAsync<
     BillingAccount,
@@ -53,6 +57,8 @@ interface BillingAccounts {
   /**
    * Lists the billing accounts that a user has access to.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingAccount")
   list is ArmResourceListByParent<
     BillingAccount,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters,
@@ -134,26 +140,32 @@ interface BillingAccounts {
   /**
    * Adds payment terms to all the billing profiles under the billing account. Currently, payment terms can be added only on billing accounts that have Agreement Type as 'Microsoft Customer Agreement' and AccountType as 'Enterprise'. This action needs pre-authorization and only Field Sellers are authorized to add the payment terms and is not a self-serve action.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingAccount")
   addPaymentTerms is ArmResourceActionAsync<
     BillingAccount,
     PaymentTerm[],
-    ArmResponse<BillingAccount>,
+    BillingAccount,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters
   >;
 
   /**
    * Cancels all the payment terms on billing account that falls after the cancellation date in the request. Currently, cancel payment terms is only served by admin actions and is not a self-serve action.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingAccount")
   cancelPaymentTerms is ArmResourceActionAsync<
     BillingAccount,
     utcDateTime,
-    ArmResponse<BillingAccount>,
+    BillingAccount,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters
   >;
 
   /**
    * Gets the transition details for a billing account that has transitioned from agreement type Microsoft Online Services Program to agreement type Microsoft Customer Agreement.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingAccount")
   confirmTransition is ArmResourceActionSync<
     BillingAccount,
     void,
@@ -164,6 +176,8 @@ interface BillingAccounts {
   /**
    * Lists the invoice sections for which the user has permission to create Azure subscriptions. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingAccount")
   @list
   @action("listInvoiceSectionsWithCreateSubscriptionPermission")
   listInvoiceSectionsByCreateSubscriptionPermission is ArmResourceActionSync<
@@ -183,6 +197,8 @@ interface BillingAccounts {
   /**
    * Validates payment terms on a billing account with agreement type 'Microsoft Customer Agreement' and account type 'Enterprise'.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingAccount")
   validatePaymentTerms is ArmResourceActionSync<
     BillingAccount,
     PaymentTerm[],
@@ -195,6 +211,8 @@ interface BillingAccounts {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingPermissions_ListByBillingAccount")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingPermission")
   @list
   @get
   @action("billingPermissions")
@@ -210,6 +228,8 @@ interface BillingAccounts {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingPermissions_CheckAccessByBillingAccount")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingPermission")
   @action("checkAccess")
   checkAccessByBillingAccount is ArmResourceActionSync<
     BillingAccount,
@@ -223,6 +243,8 @@ interface BillingAccounts {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRequests_ListByBillingAccount")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRequest")
   @list
   @get
   @action("billingRequests")
@@ -275,11 +297,13 @@ interface BillingAccounts {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleAssignments_CreateByBillingAccount")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleAssignment")
   @action("createBillingRoleAssignment")
   createByBillingAccount is ArmResourceActionAsync<
     BillingAccount,
     BillingRoleAssignmentProperties,
-    ArmResponse<BillingRoleAssignment>,
+    BillingRoleAssignment,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters
   >;
 
@@ -288,12 +312,14 @@ interface BillingAccounts {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleAssignments_ResolveByBillingAccount")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleAssignment")
   @list
   @action("resolveBillingRoleAssignments")
   resolveByBillingAccount is ArmResourceActionAsync<
     BillingAccount,
     void,
-    ArmResponse<ResourceListResult<BillingRoleAssignment>>,
+    ResourceListResult<BillingRoleAssignment>,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters,
     Parameters = {
       /**
@@ -315,6 +341,7 @@ interface BillingAccounts {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("SavingsPlans_ListByBillingAccount")
+  @tag("Savings plan")
   @list
   @get
   @action("savingsPlans")
@@ -367,11 +394,13 @@ interface BillingAccounts {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("Invoices_DownloadDocumentsByBillingAccount")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Invoice")
   @action("downloadDocuments")
   downloadDocumentsByBillingAccount is ArmResourceActionAsync<
     BillingAccount,
     DocumentDownloadRequest[],
-    ArmResponse<DocumentDownloadResult>,
+    DocumentDownloadResult,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters
   >;
 
@@ -380,13 +409,14 @@ interface BillingAccounts {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("Reservations_ListByBillingAccount")
+  @tag("Reservations")
   @list
   @get
   @action("reservations")
   reservationsListByBillingAccount is ArmResourceActionSync<
     BillingAccount,
     void,
-    ArmResponse<ResourceListResult<Reservation>>,
+    ArmResponse<ReservationsListResult>,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters,
     Parameters = {
       /**

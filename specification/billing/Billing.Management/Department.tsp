@@ -31,11 +31,13 @@ model Department is Azure.ResourceManager.ProxyResource<DepartmentProperties> {
   tags?: Record<string>;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface Departments {
   /**
    * Gets a department by ID. The operation is supported only for billing accounts with agreement type Enterprise Agreement.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Department")
   get is ArmResourceRead<
     Department,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters
@@ -44,6 +46,8 @@ interface Departments {
   /**
    * Lists the departments that a user has access to. The operation is supported only for billing accounts with agreement type Enterprise Agreement.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Department")
   listByBillingAccount is ArmResourceListByParent<
     Department,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters,
@@ -85,6 +89,8 @@ interface Departments {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingPermissions_ListByDepartment")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingPermission")
   @list
   @get
   @action("billingPermissions")
@@ -100,6 +106,8 @@ interface Departments {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingPermissions_CheckAccessByDepartment")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingPermission")
   @action("checkAccess")
   checkAccessByDepartment is ArmResourceActionSync<
     Department,

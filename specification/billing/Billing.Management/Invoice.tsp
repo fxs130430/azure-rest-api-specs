@@ -59,16 +59,20 @@ alias InvoiceOps = Azure.ResourceManager.Legacy.ExtensionOperations<
   }
 >;
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface Invoices {
   /**
    * Gets an invoice by billing account name and ID. The operation is supported for all billing account types.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Invoice")
   getByBillingAccount is InvoiceOps.Read<Invoice>;
 
   /**
    * Lists the invoices for a billing account for a given start date and end date. The operation is supported for all billing account types.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Invoice")
   listByBillingAccount is InvoiceOps.List<
     Invoice,
     Parameters = {
@@ -125,16 +129,20 @@ interface Invoices {
   /**
    * Regenerate an invoice by billing account name and invoice name. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Invoice")
   amend is InvoiceOps.ActionAsync<Invoice, void, ArmAcceptedLroResponse>;
 
   /**
    * Gets a URL to download an invoice document. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement, Microsoft Customer Agreement or Enterprise Agreement.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Invoice")
   @action("download")
   downloadByBillingAccount is InvoiceOps.ActionAsync<
     Invoice,
     void,
-    ArmResponse<DocumentDownloadResult>,
+    DocumentDownloadResult,
     Parameters = {
       /**
        * The ID that uniquely identifies an invoice document. This ID may be an identifier for an invoice PDF, a credit note, or a tax receipt.
@@ -147,11 +155,13 @@ interface Invoices {
   /**
    * Gets a URL to download the summary document for an invoice. The operation is supported for billing accounts with agreement type Enterprise Agreement.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Invoice")
   @action("downloadSummary")
   downloadSummaryByBillingAccount is InvoiceOps.ActionAsync<
     Invoice,
     void,
-    ArmResponse<DocumentDownloadResult>
+    DocumentDownloadResult
   >;
 
   /**
@@ -159,6 +169,8 @@ interface Invoices {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("Transactions_ListByInvoice")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Transaction")
   @list
   @get
   @action("transactions")
@@ -210,11 +222,13 @@ interface Invoices {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("Transactions_TransactionsDownloadByInvoice")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Transaction")
   @action("transactionsDownload")
   transactionsDownloadByInvoice is InvoiceOps.ActionAsync<
     Invoice,
     void,
-    ArmResponse<DocumentDownloadResult>
+    DocumentDownloadResult
   >;
 
   /**
@@ -222,6 +236,8 @@ interface Invoices {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("Transactions_GetTransactionSummaryByInvoice")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Transaction")
   @get
   @action("transactionSummary")
   getTransactionSummaryByInvoice is InvoiceOps.ActionSync<
@@ -257,9 +273,14 @@ alias InvoiceByBillingSubscriptionOps = Azure.ResourceManager.Legacy.ExtensionOp
     @path
     @segment("billingAccounts")
     @key
-    default: string;
+    default: "default";
 
-    ...SubscriptionIdParameter;
+    /** The ID that uniquely identifies a billing subscription. */
+    @path
+    @segment("billingSubscriptions")
+    @key
+    @pattern("^[0-9A-Fa-f]{8}-([0-9A-Fa-f]{4}-){3}[0-9A-Fa-f]{12}$")
+    subscriptionId: string;
   },
   {},
   {
@@ -272,13 +293,15 @@ alias InvoiceByBillingSubscriptionOps = Azure.ResourceManager.Legacy.ExtensionOp
   }
 >;
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface InvoiceByBillingSubscription {
   /**
    * Gets an invoice by subscription ID and invoice ID. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement or Microsoft Customer Agreement.
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("Invoices_GetByBillingSubscription")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Invoice")
   getByBillingSubscription is InvoiceByBillingSubscriptionOps.Read<Invoice>;
 
   /**
@@ -286,6 +309,8 @@ interface InvoiceByBillingSubscription {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("Invoices_ListByBillingSubscription")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Invoice")
   listByBillingSubscription is InvoiceByBillingSubscriptionOps.List<
     Invoice,
     Parameters = {
@@ -344,11 +369,13 @@ interface InvoiceByBillingSubscription {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("Invoices_DownloadByBillingSubscription")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Invoice")
   @action("download")
   downloadByBillingSubscription is InvoiceByBillingSubscriptionOps.ActionAsync<
     Invoice,
     void,
-    ArmResponse<DocumentDownloadResult>,
+    DocumentDownloadResult,
     Parameters = {
       /**
        * The ID that uniquely identifies an invoice document. This ID may be an identifier for an invoice PDF, a credit note, or a tax receipt.
@@ -372,7 +399,7 @@ alias InvoiceByIdOps = Azure.ResourceManager.Legacy.ExtensionOperations<
     @path
     @segment("billingAccounts")
     @key
-    default: string;
+    default: "default";
   },
   {},
   {
@@ -385,13 +412,15 @@ alias InvoiceByIdOps = Azure.ResourceManager.Legacy.ExtensionOperations<
   }
 >;
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface InvoiceById {
   /**
    * Gets an invoice by ID. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement or Microsoft Customer Agreement.
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("Invoices_Get")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Invoice")
   get is InvoiceByIdOps.Read<Invoice>;
 }
 

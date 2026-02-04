@@ -32,11 +32,12 @@ model PartnerTransferDetails
   tags?: Record<string>;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface PartnerTransfers {
   /**
    * Gets a transfer request by ID. The operation is supported only for billing accounts with agreement type Microsoft Partner Agreement.
    */
+  @tag("Transfers")
   get is ArmResourceRead<
     PartnerTransferDetails,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters
@@ -45,6 +46,7 @@ interface PartnerTransfers {
   /**
    * Sends a request to a user in a customer's billing account to transfer billing ownership of their subscriptions. The operation is supported only for billing accounts with agreement type Microsoft Partner Agreement.
    */
+  @tag("Transfers")
   initiate is Azure.ResourceManager.Legacy.CreateOrUpdateSync<
     PartnerTransferDetails,
     Request = PartnerInitiateTransferRequest,
@@ -54,6 +56,7 @@ interface PartnerTransfers {
   /**
    * Lists the transfer requests sent to a customer. The operation is supported only for billing accounts with agreement type Microsoft Partner Agreement.
    */
+  @tag("Transfers")
   list is ArmResourceListByParent<
     PartnerTransferDetails,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters
@@ -62,6 +65,7 @@ interface PartnerTransfers {
   /**
    * Cancels a transfer request. The operation is supported only for billing accounts with agreement type Microsoft Partner Agreement.
    */
+  @tag("Transfers")
   cancel is ArmResourceActionSync<
     PartnerTransferDetails,
     void,

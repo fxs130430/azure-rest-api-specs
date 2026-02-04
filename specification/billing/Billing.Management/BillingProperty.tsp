@@ -31,13 +31,15 @@ model BillingProperty
   tags?: Record<string>;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface BillingProperties {
   /**
    * Gets the billing properties for a subscription
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingProperty_Get")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingProperty")
   get is ArmResourceRead<
     BillingProperty,
     BaseParameters = Azure.ResourceManager.Foundations.SubscriptionBaseParameters,
@@ -61,6 +63,8 @@ interface BillingProperties {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingProperty_Update")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingProperty")
   @patch(#{ implicitOptionality: false })
   update is ArmCustomPatchSync<
     BillingProperty,

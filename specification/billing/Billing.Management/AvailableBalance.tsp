@@ -56,15 +56,17 @@ alias AvailableBalanceOps = Azure.ResourceManager.Legacy.ExtensionOperations<
     @path
     @segment("availableBalance")
     @key
-    default: string;
+    default: "default";
   }
 >;
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface AvailableBalances {
   /**
    * The Available Credit or Payment on Account Balance for a billing account. The credit balance can be used to settle due or past due invoices and is supported for billing accounts with agreement type Microsoft Customer Agreement. The payment on account balance is supported for billing accounts with agreement type Microsoft Customer Agreement or Microsoft Online Services Program.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("AvailableBalance")
   getByBillingAccount is AvailableBalanceOps.Read<AvailableBalance>;
 }
 alias AvailableBalanceOperationGroupOps = Azure.ResourceManager.Legacy.ExtensionOperations<
@@ -97,17 +99,19 @@ alias AvailableBalanceOperationGroupOps = Azure.ResourceManager.Legacy.Extension
     @path
     @segment("availableBalance")
     @key
-    default: string;
+    default: "default";
   }
 >;
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface AvailableBalanceOperationGroup {
   /**
    * The Available Credit or Payment on Account Balance for a billing profile. The credit balance can be used to settle due or past due invoices and is supported for billing accounts with agreement type Microsoft Customer Agreement. The payment on account balance is supported for billing accounts with agreement type Microsoft Customer Agreement.
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("AvailableBalances_GetByBillingProfile")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("AvailableBalance")
   getByBillingProfile is AvailableBalanceOperationGroupOps.Read<AvailableBalance>;
 }
 

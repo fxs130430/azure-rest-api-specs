@@ -74,13 +74,15 @@ alias CustomerPolicyOps = Azure.ResourceManager.Legacy.ExtensionOperations<
   }
 >;
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface CustomerPolicies {
   /**
    * Lists the policies for a customer. This operation is supported only for billing accounts with agreement type Microsoft Partner Agreement.
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("Policies_GetByCustomer")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Policy")
   getByCustomer is CustomerPolicyOps.Read<CustomerPolicy>;
 }
 alias PolicyOps = Azure.ResourceManager.Legacy.ExtensionOperations<
@@ -113,20 +115,24 @@ alias PolicyOps = Azure.ResourceManager.Legacy.ExtensionOperations<
     @path
     @segment("policies")
     @key
-    default: string;
+    default: "default";
   }
 >;
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface Policies {
   /**
    * Lists the policies for a customer at billing account scope. This operation is supported only for billing accounts with agreement type Microsoft Partner Agreement.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Policy")
   getByCustomerAtBillingAccount is PolicyOps.Read<CustomerPolicy>;
 
   /**
    * Updates the policies for a customer at billing account scope. This operation is supported only for billing accounts with agreement type Microsoft Partner Agreement.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Policy")
   createOrUpdateByCustomerAtBillingAccount is PolicyOps.CreateOrUpdateAsync<
     CustomerPolicy,
     LroHeaders = ArmLroLocationHeader<FinalResult = CustomerPolicy> &

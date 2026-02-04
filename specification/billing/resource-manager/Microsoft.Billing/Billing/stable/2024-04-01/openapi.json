@@ -43,145 +43,85 @@
       "name": "Operations"
     },
     {
-      "name": "Agreements"
+      "name": "Agreement"
     },
     {
-      "name": "BillingRequests"
+      "name": "BillingRequest"
     },
     {
-      "name": "BillingRoleAssignments"
+      "name": "BillingRoleAssignment"
     },
     {
-      "name": "Invoices"
+      "name": "Invoice"
+    },
+    {
+      "name": "Transaction"
+    },
+    {
+      "name": "Reservation"
     },
     {
       "name": "Reservations"
     },
     {
-      "name": "BillingAccounts"
+      "name": "BillingAccount"
     },
     {
-      "name": "AssociatedTenants"
+      "name": "BillingPermission"
     },
     {
-      "name": "AvailableBalances"
+      "name": "Savings plan"
     },
     {
-      "name": "AvailableBalanceOperationGroup"
+      "name": "AssociatedTenant"
     },
     {
-      "name": "Products"
+      "name": "AvailableBalance"
     },
     {
-      "name": "BillingProfiles"
+      "name": "Product"
     },
     {
-      "name": "BillingProperties"
+      "name": "BillingProfile"
     },
     {
-      "name": "BillingRoleAssignmentByCustomer"
+      "name": "BillingProperty"
     },
     {
-      "name": "BillingRoleAssignmentByInvoiceSection"
+      "name": "BillingRoleDefinition"
     },
     {
-      "name": "BillingRoleAssignmentByBillingAccount"
+      "name": "Savings plan order"
     },
     {
-      "name": "BillingRoleAssignmentByDepartment"
+      "name": "BillingSubscription"
     },
     {
-      "name": "BillingRoleAssignmentByEnrollmentAccount"
+      "name": "Policy"
     },
     {
-      "name": "BillingRoleDefinitions"
+      "name": "Customer"
     },
     {
-      "name": "BillingRoleDefinitionByCustomer"
+      "name": "Department"
     },
     {
-      "name": "BillingRoleDefinitionByInvoiceSection"
+      "name": "EnrollmentAccount"
     },
     {
-      "name": "BillingRoleDefinitionByBillingAccount"
-    },
-    {
-      "name": "BillingRoleDefinitionByDepartment"
-    },
-    {
-      "name": "BillingRoleDefinitionByEnrollmentAccount"
-    },
-    {
-      "name": "SavingsPlanOrderModels"
-    },
-    {
-      "name": "SavingsPlanModels"
-    },
-    {
-      "name": "BillingSubscriptions"
-    },
-    {
-      "name": "BillingSubscriptionOperationGroup"
-    },
-    {
-      "name": "BillingSubscriptionAliases"
-    },
-    {
-      "name": "Policies"
-    },
-    {
-      "name": "Customers"
-    },
-    {
-      "name": "CustomerOperationGroup"
-    },
-    {
-      "name": "Departments"
-    },
-    {
-      "name": "EnrollmentAccounts"
-    },
-    {
-      "name": "EnrollmentAccountOperationGroup"
-    },
-    {
-      "name": "InvoiceByBillingSubscription"
-    },
-    {
-      "name": "InvoiceById"
-    },
-    {
-      "name": "InvoiceSections"
+      "name": "InvoiceSection"
     },
     {
       "name": "PaymentMethods"
     },
     {
-      "name": "PaymentMethodLinks"
-    },
-    {
-      "name": "PaymentMethodOperationGroup"
-    },
-    {
-      "name": "CustomerPolicies"
-    },
-    {
-      "name": "BillingProfilePolicies"
-    },
-    {
-      "name": "BillingAccountPolicies"
-    },
-    {
-      "name": "SubscriptionPolicies"
+      "name": "ReservationOrder"
     },
     {
       "name": "ReservationOrders"
     },
     {
       "name": "Transfers"
-    },
-    {
-      "name": "PartnerTransfers"
     },
     {
       "name": "RecipientTransfers"
@@ -192,9 +132,12 @@
       "get": {
         "operationId": "BillingAccounts_List",
         "tags": [
-          "BillingAccounts"
+          "BillingAccount"
         ],
         "description": "Lists the billing accounts that a user has access to.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -320,9 +263,12 @@
       "get": {
         "operationId": "BillingAccounts_Get",
         "tags": [
-          "BillingAccounts"
+          "BillingAccount"
         ],
         "description": "Gets a billing account by its ID.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -374,9 +320,12 @@
       "patch": {
         "operationId": "BillingAccounts_Update",
         "tags": [
-          "BillingAccounts"
+          "BillingAccount"
         ],
         "description": "Updates the properties of a billing account. Currently, displayName and address can be updated for billing accounts with agreement type Microsoft Customer Agreement. Currently address and notification email address can be updated for billing accounts with agreement type Microsoft Online Services Agreement. Currently, purchase order number can be edited for billing accounts with agreement type Enterprise Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -446,9 +395,12 @@
       "post": {
         "operationId": "BillingAccounts_AddPaymentTerms",
         "tags": [
-          "BillingAccounts"
+          "BillingAccount"
         ],
         "description": "Adds payment terms to all the billing profiles under the billing account. Currently, payment terms can be added only on billing accounts that have Agreement Type as 'Microsoft Customer Agreement' and AccountType as 'Enterprise'. This action needs pre-authorization and only Field Sellers are authorized to add the payment terms and is not a self-serve action.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -509,7 +461,7 @@
         },
         "x-ms-long-running-operation-options": {
           "final-state-via": "location",
-          "final-state-schema": "#/definitions/Azure.ResourceManager.ArmResponse%3CBillingAccount%3E"
+          "final-state-schema": "#/definitions/BillingAccount"
         },
         "x-ms-long-running-operation": true
       }
@@ -518,9 +470,12 @@
       "get": {
         "operationId": "Agreements_ListByBillingAccount",
         "tags": [
-          "Agreements"
+          "Agreement"
         ],
         "description": "Lists the agreements for a billing account.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -569,9 +524,12 @@
       "get": {
         "operationId": "Agreements_Get",
         "tags": [
-          "Agreements"
+          "Agreement"
         ],
         "description": "Gets an agreement by ID.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -618,9 +576,12 @@
       "get": {
         "operationId": "AssociatedTenants_ListByBillingAccount",
         "tags": [
-          "AssociatedTenants"
+          "AssociatedTenant"
         ],
         "description": "Lists the associated tenants that can collaborate with the billing account on commerce activities like viewing and downloading invoices, managing payments, making purchases, and managing or provisioning licenses.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -713,9 +674,12 @@
       "get": {
         "operationId": "AssociatedTenants_Get",
         "tags": [
-          "AssociatedTenants"
+          "AssociatedTenant"
         ],
         "description": "Gets an associated tenant by ID.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -760,9 +724,12 @@
       "put": {
         "operationId": "AssociatedTenants_CreateOrUpdate",
         "tags": [
-          "AssociatedTenants"
+          "AssociatedTenant"
         ],
         "description": "Create or update an associated tenant for the billing account.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -838,9 +805,12 @@
       "delete": {
         "operationId": "AssociatedTenants_Delete",
         "tags": [
-          "AssociatedTenants"
+          "AssociatedTenant"
         ],
         "description": "Deletes an associated tenant for a billing account.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -902,9 +872,12 @@
       "get": {
         "operationId": "AvailableBalances_GetByBillingAccount",
         "tags": [
-          "AvailableBalances"
+          "AvailableBalance"
         ],
         "description": "The Available Credit or Payment on Account Balance for a billing account. The credit balance can be used to settle due or past due invoices and is supported for billing accounts with agreement type Microsoft Customer Agreement. The payment on account balance is supported for billing accounts with agreement type Microsoft Customer Agreement or Microsoft Online Services Program.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -943,9 +916,12 @@
       "get": {
         "operationId": "BillingPermissions_ListByBillingAccount",
         "tags": [
-          "BillingAccounts"
+          "BillingPermission"
         ],
         "description": "Lists the billing permissions the caller has on a billing account.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -987,9 +963,12 @@
       "get": {
         "operationId": "BillingProfiles_ListByBillingAccount",
         "tags": [
-          "BillingProfiles"
+          "BillingProfile"
         ],
         "description": "Lists the billing profiles that a user has access to. The operation is supported for billing accounts with agreement of type Microsoft Customer Agreement and Microsoft Partner Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -1082,9 +1061,12 @@
       "get": {
         "operationId": "BillingProfiles_Get",
         "tags": [
-          "BillingProfiles"
+          "BillingProfile"
         ],
         "description": "Gets a billing profile by its ID. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement and Microsoft Partner Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -1129,9 +1111,12 @@
       "put": {
         "operationId": "BillingProfiles_CreateOrUpdate",
         "tags": [
-          "BillingProfiles"
+          "BillingProfile"
         ],
         "description": "Creates or updates a billing profile. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement and Microsoft Partner Agreement. If you are a MCA Individual (Pay-as-you-go) customer, then please use the Azure portal experience to create the billing profile.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -1221,9 +1206,12 @@
       "delete": {
         "operationId": "BillingProfiles_Delete",
         "tags": [
-          "BillingProfiles"
+          "BillingProfile"
         ],
         "description": "Deletes a billing profile. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement and Microsoft Partner Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -1285,9 +1273,12 @@
       "get": {
         "operationId": "AvailableBalances_GetByBillingProfile",
         "tags": [
-          "AvailableBalanceOperationGroup"
+          "AvailableBalance"
         ],
         "description": "The Available Credit or Payment on Account Balance for a billing profile. The credit balance can be used to settle due or past due invoices and is supported for billing accounts with agreement type Microsoft Customer Agreement. The payment on account balance is supported for billing accounts with agreement type Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -1334,9 +1325,12 @@
       "get": {
         "operationId": "BillingPermissions_ListByBillingProfile",
         "tags": [
-          "BillingProfiles"
+          "BillingPermission"
         ],
         "description": "Lists the billing permissions the caller has on a billing profile.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -1386,9 +1380,12 @@
       "get": {
         "operationId": "BillingRequests_ListByBillingProfile",
         "tags": [
-          "BillingProfiles"
+          "BillingRequest"
         ],
         "description": "The list of billing requests submitted for the billing profile.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -1482,9 +1479,12 @@
       "get": {
         "operationId": "BillingRoleAssignments_ListByBillingProfile",
         "tags": [
-          "BillingRoleAssignments"
+          "BillingRoleAssignment"
         ],
         "description": "Lists the role assignments for the caller on a billing profile. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement or Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -1557,9 +1557,12 @@
       "get": {
         "operationId": "BillingRoleAssignments_GetByBillingProfile",
         "tags": [
-          "BillingRoleAssignments"
+          "BillingRoleAssignment"
         ],
         "description": "Gets a role assignment for the caller on a billing profile. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement or Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -1612,9 +1615,12 @@
       "delete": {
         "operationId": "BillingRoleAssignments_DeleteByBillingProfile",
         "tags": [
-          "BillingRoleAssignments"
+          "BillingRoleAssignment"
         ],
         "description": "Deletes a role assignment on a billing profile. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement or Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -1669,9 +1675,12 @@
       "get": {
         "operationId": "BillingRoleDefinition_ListByBillingProfile",
         "tags": [
-          "BillingRoleDefinitions"
+          "BillingRoleDefinition"
         ],
         "description": "Lists the role definitions for a billing profile. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement, Microsoft Customer Agreement or Enterprise Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -1721,9 +1730,12 @@
       "get": {
         "operationId": "BillingRoleDefinition_GetByBillingProfile",
         "tags": [
-          "BillingRoleDefinitions"
+          "BillingRoleDefinition"
         ],
         "description": "Gets the definition for a role on a billing profile. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement or Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -1778,9 +1790,12 @@
       "get": {
         "operationId": "BillingSubscriptions_ListByBillingProfile",
         "tags": [
-          "BillingSubscriptions"
+          "BillingSubscription"
         ],
         "description": "Lists the subscriptions that are billed to a billing profile. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement or Microsoft Partner Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -1889,9 +1904,12 @@
       "get": {
         "operationId": "BillingSubscriptions_GetByBillingProfile",
         "tags": [
-          "BillingSubscriptions"
+          "BillingSubscription"
         ],
         "description": "Gets a subscription by its billing profile and ID. The operation is supported for billing accounts with agreement type Enterprise Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -1950,9 +1968,12 @@
       "post": {
         "operationId": "BillingPermissions_CheckAccessByBillingProfile",
         "tags": [
-          "BillingProfiles"
+          "BillingPermission"
         ],
         "description": "Provides a list of check access response objects for a billing profile.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -2011,9 +2032,12 @@
       "post": {
         "operationId": "BillingRoleAssignments_CreateByBillingProfile",
         "tags": [
-          "BillingProfiles"
+          "BillingRoleAssignment"
         ],
         "description": "Adds a role assignment on a billing profile. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement or Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -2079,7 +2103,7 @@
         },
         "x-ms-long-running-operation-options": {
           "final-state-via": "location",
-          "final-state-schema": "#/definitions/Azure.ResourceManager.ArmResponse%3CBillingRoleAssignment%3E"
+          "final-state-schema": "#/definitions/BillingRoleAssignment"
         },
         "x-ms-long-running-operation": true
       }
@@ -2088,9 +2112,12 @@
       "get": {
         "operationId": "Customers_ListByBillingProfile",
         "tags": [
-          "Customers"
+          "Customer"
         ],
         "description": "Lists the customers that are billed to a billing profile. The operation is supported only for billing accounts with agreement type Microsoft Partner Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -2191,9 +2218,12 @@
       "get": {
         "operationId": "Customers_Get",
         "tags": [
-          "Customers"
+          "Customer"
         ],
         "description": "Gets a customer by its ID. The operation is supported only for billing accounts with agreement type Microsoft Partner Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -2248,9 +2278,12 @@
       "get": {
         "operationId": "BillingPermissions_ListByCustomer",
         "tags": [
-          "Customers"
+          "BillingPermission"
         ],
         "description": "Lists the billing permissions the caller has for a customer.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -2308,9 +2341,12 @@
       "get": {
         "operationId": "BillingRequests_ListByCustomer",
         "tags": [
-          "Customers"
+          "BillingRequest"
         ],
         "description": "The list of billing requests submitted for the customer.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -2412,9 +2448,12 @@
       "get": {
         "operationId": "BillingRoleAssignments_ListByCustomer",
         "tags": [
-          "BillingRoleAssignmentByCustomer"
+          "BillingRoleAssignment"
         ],
         "description": "Lists the role assignments for the caller on customer. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -2495,9 +2534,12 @@
       "get": {
         "operationId": "BillingRoleAssignments_GetByCustomer",
         "tags": [
-          "BillingRoleAssignmentByCustomer"
+          "BillingRoleAssignment"
         ],
         "description": "Gets a role assignment for the caller on a customer. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -2558,9 +2600,12 @@
       "delete": {
         "operationId": "BillingRoleAssignments_DeleteByCustomer",
         "tags": [
-          "BillingRoleAssignmentByCustomer"
+          "BillingRoleAssignment"
         ],
         "description": "Deletes a role assignment on a customer. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -2623,9 +2668,12 @@
       "get": {
         "operationId": "BillingRoleDefinition_ListByCustomer",
         "tags": [
-          "BillingRoleDefinitionByCustomer"
+          "BillingRoleDefinition"
         ],
         "description": "Lists the role definitions for a customer. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -2683,9 +2731,12 @@
       "get": {
         "operationId": "BillingRoleDefinition_GetByCustomer",
         "tags": [
-          "BillingRoleDefinitionByCustomer"
+          "BillingRoleDefinition"
         ],
         "description": "Gets the definition for a role on a customer. The operation is supported only for billing accounts with agreement type Microsoft Partner Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -2748,9 +2799,12 @@
       "get": {
         "operationId": "BillingSubscriptions_ListByCustomer",
         "tags": [
-          "Customers"
+          "BillingSubscription"
         ],
         "description": "Lists the subscriptions for a customer. The operation is supported only for billing accounts with agreement type Microsoft Partner Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -2866,9 +2920,12 @@
       "post": {
         "operationId": "BillingPermissions_CheckAccessByCustomer",
         "tags": [
-          "Customers"
+          "BillingPermission"
         ],
         "description": "Provides a list of check access response objects for a customer.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -2935,9 +2992,12 @@
       "post": {
         "operationId": "BillingRoleAssignments_CreateByCustomer",
         "tags": [
-          "Customers"
+          "BillingRoleAssignment"
         ],
         "description": "Adds a role assignment on a customer. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -3011,18 +3071,88 @@
         },
         "x-ms-long-running-operation-options": {
           "final-state-via": "location",
-          "final-state-schema": "#/definitions/Azure.ResourceManager.ArmResponse%3CBillingRoleAssignment%3E"
+          "final-state-schema": "#/definitions/BillingRoleAssignment"
         },
         "x-ms-long-running-operation": true
       }
     },
-    "/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/customers/{customerName}/default": {
+    "/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/customers/{customerName}/policies/{policyName}": {
+      "get": {
+        "operationId": "Policies_GetByCustomer",
+        "tags": [
+          "Policy"
+        ],
+        "description": "Lists the policies for a customer. This operation is supported only for billing accounts with agreement type Microsoft Partner Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
+        "parameters": [
+          {
+            "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "name": "billingAccountName",
+            "in": "path",
+            "description": "The ID that uniquely identifies a billing account.",
+            "required": true,
+            "type": "string",
+            "pattern": "^([0-9]+|([Pp][Cc][Nn]\\.[A-Za-z0-9]+)|[0-9A-Fa-f]{8}-([0-9A-Fa-f]{4}-){3}[0-9A-Fa-f]{12}(:[0-9A-Fa-f]{8}-([0-9A-Fa-f]{4}-){3}[0-9A-Fa-f]{12}_[0-9]{4}(-[0-9]{2}){2})?)$"
+          },
+          {
+            "name": "billingProfileName",
+            "in": "path",
+            "description": "The ID that uniquely identifies a billing profile.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[a-zA-Z\\d-_]{1,128}$"
+          },
+          {
+            "name": "customerName",
+            "in": "path",
+            "description": "The ID that uniquely identifies a customer.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[a-zA-Z\\d-_]{1,128}$"
+          },
+          {
+            "name": "policyName",
+            "in": "path",
+            "description": "Service-defined resource names such as 'default' which are reserved resource names.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Azure operation completed successfully.",
+            "schema": {
+              "$ref": "#/definitions/CustomerPolicy"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "../../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "PoliciesGetByCustomer": {
+            "$ref": "./examples/policiesGetByCustomer.json"
+          }
+        }
+      }
+    },
+    "/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/customers/{customerName}/policies/default": {
       "put": {
         "operationId": "Policies_CreateOrUpdateByCustomer",
         "tags": [
-          "Customers"
+          "Policy"
         ],
         "description": "Updates the policies for a customer. This operation is supported only for billing accounts with agreement type Microsoft Partner Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -3114,77 +3244,16 @@
         "x-ms-long-running-operation": true
       }
     },
-    "/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/customers/{customerName}/policies/{policyName}": {
-      "get": {
-        "operationId": "Policies_GetByCustomer",
-        "tags": [
-          "CustomerPolicies"
-        ],
-        "description": "Lists the policies for a customer. This operation is supported only for billing accounts with agreement type Microsoft Partner Agreement.",
-        "parameters": [
-          {
-            "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
-          },
-          {
-            "name": "billingAccountName",
-            "in": "path",
-            "description": "The ID that uniquely identifies a billing account.",
-            "required": true,
-            "type": "string",
-            "pattern": "^([0-9]+|([Pp][Cc][Nn]\\.[A-Za-z0-9]+)|[0-9A-Fa-f]{8}-([0-9A-Fa-f]{4}-){3}[0-9A-Fa-f]{12}(:[0-9A-Fa-f]{8}-([0-9A-Fa-f]{4}-){3}[0-9A-Fa-f]{12}_[0-9]{4}(-[0-9]{2}){2})?)$"
-          },
-          {
-            "name": "billingProfileName",
-            "in": "path",
-            "description": "The ID that uniquely identifies a billing profile.",
-            "required": true,
-            "type": "string",
-            "pattern": "^[a-zA-Z\\d-_]{1,128}$"
-          },
-          {
-            "name": "customerName",
-            "in": "path",
-            "description": "The ID that uniquely identifies a customer.",
-            "required": true,
-            "type": "string",
-            "pattern": "^[a-zA-Z\\d-_]{1,128}$"
-          },
-          {
-            "name": "policyName",
-            "in": "path",
-            "description": "Service-defined resource names such as 'default' which are reserved resource names.",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Azure operation completed successfully.",
-            "schema": {
-              "$ref": "#/definitions/CustomerPolicy"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "../../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
-            }
-          }
-        },
-        "x-ms-examples": {
-          "PoliciesGetByCustomer": {
-            "$ref": "./examples/policiesGetByCustomer.json"
-          }
-        }
-      }
-    },
     "/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/customers/{customerName}/resolveBillingRoleAssignments": {
       "post": {
         "operationId": "BillingRoleAssignments_ResolveByCustomer",
         "tags": [
-          "Customers"
+          "BillingRoleAssignment"
         ],
         "description": "Lists the role assignments for the caller on a customer while fetching user info for each role assignment. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -3263,7 +3332,7 @@
         },
         "x-ms-long-running-operation-options": {
           "final-state-via": "location",
-          "final-state-schema": "#/definitions/Azure.ResourceManager.ArmResponse%3CAzure.ResourceManager.ResourceListResult%3CBillingRoleAssignment%3E%3E"
+          "final-state-schema": "#/definitions/BillingRoleAssignmentListResult"
         },
         "x-ms-long-running-operation": true,
         "x-ms-pageable": {
@@ -3275,9 +3344,12 @@
       "get": {
         "operationId": "Transactions_ListByCustomer",
         "tags": [
-          "Customers"
+          "Transaction"
         ],
         "description": "Lists the billed or unbilled transactions by customer id for given start date and end date. Transactions include purchases, refunds and Azure usage charges. Unbilled transactions are listed under pending invoice Id and do not include tax. Tax is added to the amount once an invoice is generated.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -3428,7 +3500,7 @@
       "get": {
         "operationId": "PartnerTransfers_List",
         "tags": [
-          "PartnerTransfers"
+          "Transfers"
         ],
         "description": "Lists the transfer requests sent to a customer. The operation is supported only for billing accounts with agreement type Microsoft Partner Agreement.",
         "parameters": [
@@ -3488,7 +3560,7 @@
       "get": {
         "operationId": "PartnerTransfers_Get",
         "tags": [
-          "PartnerTransfers"
+          "Transfers"
         ],
         "description": "Gets a transfer request by ID. The operation is supported only for billing accounts with agreement type Microsoft Partner Agreement.",
         "parameters": [
@@ -3551,7 +3623,7 @@
       "put": {
         "operationId": "PartnerTransfers_Initiate",
         "tags": [
-          "PartnerTransfers"
+          "Transfers"
         ],
         "description": "Sends a request to a user in a customer's billing account to transfer billing ownership of their subscriptions. The operation is supported only for billing accounts with agreement type Microsoft Partner Agreement.",
         "parameters": [
@@ -3631,7 +3703,7 @@
       "post": {
         "operationId": "PartnerTransfers_Cancel",
         "tags": [
-          "PartnerTransfers"
+          "Transfers"
         ],
         "description": "Cancels a transfer request. The operation is supported only for billing accounts with agreement type Microsoft Partner Agreement.",
         "parameters": [
@@ -3696,9 +3768,12 @@
       "get": {
         "operationId": "InvoiceSections_ListByBillingProfile",
         "tags": [
-          "InvoiceSections"
+          "InvoiceSection"
         ],
         "description": "Lists the invoice sections that a user has access to. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -3799,9 +3874,12 @@
       "get": {
         "operationId": "InvoiceSections_Get",
         "tags": [
-          "InvoiceSections"
+          "InvoiceSection"
         ],
         "description": "Gets an invoice section by its ID. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -3854,9 +3932,12 @@
       "put": {
         "operationId": "InvoiceSections_CreateOrUpdate",
         "tags": [
-          "InvoiceSections"
+          "InvoiceSection"
         ],
         "description": "Creates or updates an invoice section. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -3954,9 +4035,12 @@
       "delete": {
         "operationId": "InvoiceSections_Delete",
         "tags": [
-          "InvoiceSections"
+          "InvoiceSection"
         ],
         "description": "Deletes an invoice section. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -4026,9 +4110,12 @@
       "get": {
         "operationId": "BillingPermissions_ListByInvoiceSection",
         "tags": [
-          "InvoiceSections"
+          "BillingPermission"
         ],
         "description": "Lists the billing permissions the caller has for an invoice section.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -4086,9 +4173,12 @@
       "get": {
         "operationId": "BillingRequests_ListByInvoiceSection",
         "tags": [
-          "InvoiceSections"
+          "BillingRequest"
         ],
         "description": "The list of billing requests submitted for the invoice section.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -4190,9 +4280,12 @@
       "get": {
         "operationId": "BillingRoleAssignments_ListByInvoiceSection",
         "tags": [
-          "BillingRoleAssignmentByInvoiceSection"
+          "BillingRoleAssignment"
         ],
         "description": "Lists the role assignments for the caller on an invoice section. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -4273,9 +4366,12 @@
       "get": {
         "operationId": "BillingRoleAssignments_GetByInvoiceSection",
         "tags": [
-          "BillingRoleAssignmentByInvoiceSection"
+          "BillingRoleAssignment"
         ],
         "description": "Gets a role assignment for the caller on an invoice section. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -4336,9 +4432,12 @@
       "delete": {
         "operationId": "BillingRoleAssignments_DeleteByInvoiceSection",
         "tags": [
-          "BillingRoleAssignmentByInvoiceSection"
+          "BillingRoleAssignment"
         ],
         "description": "Deletes a role assignment on an invoice section. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -4401,9 +4500,12 @@
       "get": {
         "operationId": "BillingRoleDefinition_ListByInvoiceSection",
         "tags": [
-          "BillingRoleDefinitionByInvoiceSection"
+          "BillingRoleDefinition"
         ],
         "description": "Lists the role definitions for an invoice section. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement or Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -4461,9 +4563,12 @@
       "get": {
         "operationId": "BillingRoleDefinition_GetByInvoiceSection",
         "tags": [
-          "BillingRoleDefinitionByInvoiceSection"
+          "BillingRoleDefinition"
         ],
         "description": "Gets the definition for a role on an invoice section. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -4526,9 +4631,12 @@
       "get": {
         "operationId": "BillingSubscriptions_ListByInvoiceSection",
         "tags": [
-          "InvoiceSections"
+          "BillingSubscription"
         ],
         "description": "Lists the subscriptions that are billed to an invoice section. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -4644,9 +4752,12 @@
       "post": {
         "operationId": "BillingPermissions_CheckAccessByInvoiceSection",
         "tags": [
-          "InvoiceSections"
+          "BillingPermission"
         ],
         "description": "Provides a list of check access response objects for an invoice section.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -4713,9 +4824,12 @@
       "post": {
         "operationId": "BillingRoleAssignments_CreateByInvoiceSection",
         "tags": [
-          "InvoiceSections"
+          "BillingRoleAssignment"
         ],
         "description": "Adds a role assignment on an invoice section. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -4789,7 +4903,7 @@
         },
         "x-ms-long-running-operation-options": {
           "final-state-via": "location",
-          "final-state-schema": "#/definitions/Azure.ResourceManager.ArmResponse%3CBillingRoleAssignment%3E"
+          "final-state-schema": "#/definitions/BillingRoleAssignment"
         },
         "x-ms-long-running-operation": true
       }
@@ -4798,9 +4912,12 @@
       "get": {
         "operationId": "Products_ListByInvoiceSection",
         "tags": [
-          "InvoiceSections"
+          "Product"
         ],
         "description": "Lists the products for an invoice section. These don't include products billed based on usage. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -4902,9 +5019,12 @@
       "post": {
         "operationId": "BillingRoleAssignments_ResolveByInvoiceSection",
         "tags": [
-          "InvoiceSections"
+          "BillingRoleAssignment"
         ],
         "description": "Lists the role assignments for the caller on an invoice section while fetching user info for each role assignment. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -4983,7 +5103,7 @@
         },
         "x-ms-long-running-operation-options": {
           "final-state-via": "location",
-          "final-state-schema": "#/definitions/Azure.ResourceManager.ArmResponse%3CAzure.ResourceManager.ResourceListResult%3CBillingRoleAssignment%3E%3E"
+          "final-state-schema": "#/definitions/BillingRoleAssignmentListResult"
         },
         "x-ms-long-running-operation": true,
         "x-ms-pageable": {
@@ -4995,9 +5115,12 @@
       "get": {
         "operationId": "Transactions_ListByInvoiceSection",
         "tags": [
-          "InvoiceSections"
+          "Transaction"
         ],
         "description": "Lists the billed or unbilled transactions by invoice section name for given start date and end date. Transactions include purchases, refunds and Azure usage charges. Unbilled transactions are listed under pending invoice Id and do not include tax. Tax is added to the amount once an invoice is generated.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -5416,9 +5539,12 @@
       "post": {
         "operationId": "InvoiceSections_ValidateDeleteEligibility",
         "tags": [
-          "InvoiceSections"
+          "InvoiceSection"
         ],
         "description": "Validates if the invoice section can be deleted. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -5476,9 +5602,12 @@
       "get": {
         "operationId": "Invoices_ListByBillingProfile",
         "tags": [
-          "BillingProfiles"
+          "Invoice"
         ],
         "description": "Lists the invoices for a billing profile for a given start date and end date. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement or Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -5588,9 +5717,12 @@
       "get": {
         "operationId": "PaymentMethods_ListByBillingProfile",
         "tags": [
-          "PaymentMethodLinks"
+          "PaymentMethods"
         ],
         "description": "Lists payment methods attached to a billing profile. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -5616,7 +5748,7 @@
           "200": {
             "description": "Azure operation completed successfully.",
             "schema": {
-              "$ref": "#/definitions/PaymentMethodLinkListResult"
+              "$ref": "#/definitions/PaymentMethodLinksListResult"
             }
           },
           "default": {
@@ -5640,9 +5772,12 @@
       "get": {
         "operationId": "PaymentMethods_GetByBillingProfile",
         "tags": [
-          "PaymentMethodLinks"
+          "PaymentMethods"
         ],
         "description": "Gets a payment method linked with a billing profile. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -5696,9 +5831,12 @@
       "get": {
         "operationId": "Policies_GetByBillingProfile",
         "tags": [
-          "BillingProfilePolicies"
+          "Policy"
         ],
         "description": "Lists the policies for a billing profile. This operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -5743,9 +5881,12 @@
       "put": {
         "operationId": "Policies_CreateOrUpdateByBillingProfile",
         "tags": [
-          "BillingProfilePolicies"
+          "Policy"
         ],
         "description": "Updates the policies for a billing profile. This operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -5823,9 +5964,12 @@
       "get": {
         "operationId": "Products_ListByBillingProfile",
         "tags": [
-          "BillingProfiles"
+          "Product"
         ],
         "description": "Lists the products for a billing profile. These don't include products billed based on usage. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement or Microsoft Partner Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -5919,7 +6063,7 @@
       "get": {
         "operationId": "Reservations_ListByBillingProfile",
         "tags": [
-          "BillingProfiles"
+          "Reservations"
         ],
         "description": "Lists the reservations for a billing profile and the roll up counts of reservations group by provisioning state.",
         "parameters": [
@@ -5991,7 +6135,7 @@
           "200": {
             "description": "Azure operation completed successfully.",
             "schema": {
-              "$ref": "#/definitions/ReservationListResult"
+              "$ref": "#/definitions/ReservationsListResult"
             }
           },
           "default": {
@@ -6015,9 +6159,12 @@
       "post": {
         "operationId": "BillingRoleAssignments_ResolveByBillingProfile",
         "tags": [
-          "BillingProfiles"
+          "BillingRoleAssignment"
         ],
         "description": "Lists the role assignments for the caller on an billing profile while fetching user info for each role assignment. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement or Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -6088,7 +6235,7 @@
         },
         "x-ms-long-running-operation-options": {
           "final-state-via": "location",
-          "final-state-schema": "#/definitions/Azure.ResourceManager.ArmResponse%3CAzure.ResourceManager.ResourceListResult%3CBillingRoleAssignment%3E%3E"
+          "final-state-schema": "#/definitions/BillingRoleAssignmentListResult"
         },
         "x-ms-long-running-operation": true,
         "x-ms-pageable": {
@@ -6100,9 +6247,12 @@
       "get": {
         "operationId": "Transactions_ListByBillingProfile",
         "tags": [
-          "BillingProfiles"
+          "Transaction"
         ],
         "description": "Lists the billed or unbilled transactions by billing profile name for given start and end date. Transactions include purchases, refunds and Azure usage charges. Unbilled transactions are listed under pending invoice Id and do not include tax. Tax is added to the amount once an invoice is generated.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -6245,9 +6395,12 @@
       "post": {
         "operationId": "BillingProfiles_ValidateDeleteEligibility",
         "tags": [
-          "BillingProfiles"
+          "BillingProfile"
         ],
         "description": "Validates if the billing profile can be deleted. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement and Microsoft Partner Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -6297,9 +6450,12 @@
       "get": {
         "operationId": "BillingRequests_ListByBillingAccount",
         "tags": [
-          "BillingAccounts"
+          "BillingRequest"
         ],
         "description": "The list of billing requests submitted for the billing account.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -6385,9 +6541,12 @@
       "get": {
         "operationId": "BillingRoleAssignments_ListByBillingAccount",
         "tags": [
-          "BillingRoleAssignmentByBillingAccount"
+          "BillingRoleAssignment"
         ],
         "description": "Lists the role assignments for the caller on a billing account. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement, Microsoft Customer Agreement or Enterprise Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -6452,9 +6611,12 @@
       "get": {
         "operationId": "BillingRoleAssignments_GetByBillingAccount",
         "tags": [
-          "BillingRoleAssignmentByBillingAccount"
+          "BillingRoleAssignment"
         ],
         "description": "Gets a role assignment for the caller on a billing account. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement, Microsoft Customer Agreement or Enterprise Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -6499,9 +6661,12 @@
       "put": {
         "operationId": "BillingRoleAssignments_CreateOrUpdateByBillingAccount",
         "tags": [
-          "BillingRoleAssignmentByBillingAccount"
+          "BillingRoleAssignment"
         ],
         "description": "Create or update a billing role assignment. The operation is supported only for billing accounts with agreement type Enterprise Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -6577,9 +6742,12 @@
       "delete": {
         "operationId": "BillingRoleAssignments_DeleteByBillingAccount",
         "tags": [
-          "BillingRoleAssignmentByBillingAccount"
+          "BillingRoleAssignment"
         ],
         "description": "Deletes a role assignment on a billing account. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement, Microsoft Customer Agreement or Enterprise Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -6626,9 +6794,12 @@
       "get": {
         "operationId": "BillingRoleDefinition_ListByBillingAccount",
         "tags": [
-          "BillingRoleDefinitionByBillingAccount"
+          "BillingRoleDefinition"
         ],
         "description": "Lists the role definitions for a billing account. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement, Microsoft Customer Agreement or Enterprise Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -6670,9 +6841,12 @@
       "get": {
         "operationId": "BillingRoleDefinition_GetByBillingAccount",
         "tags": [
-          "BillingRoleDefinitionByBillingAccount"
+          "BillingRoleDefinition"
         ],
         "description": "Gets the definition for a role on a billing account. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement, Microsoft Customer Agreement or Enterprise Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -6719,9 +6893,12 @@
       "get": {
         "operationId": "BillingSubscriptionsAliases_ListByBillingAccount",
         "tags": [
-          "BillingSubscriptionAliases"
+          "BillingSubscription"
         ],
         "description": "Lists the subscription aliases for a billing account. The operation is supported for seat based billing subscriptions.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -6814,9 +6991,12 @@
       "get": {
         "operationId": "BillingSubscriptionsAliases_Get",
         "tags": [
-          "BillingSubscriptionAliases"
+          "BillingSubscription"
         ],
         "description": "Gets a subscription by its alias ID.  The operation is supported for seat based billing subscriptions.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -6860,9 +7040,12 @@
       "put": {
         "operationId": "BillingSubscriptionsAliases_CreateOrUpdate",
         "tags": [
-          "BillingSubscriptionAliases"
+          "BillingSubscription"
         ],
         "description": "Creates or updates a billing subscription by its alias ID.  The operation is supported for seat based billing subscriptions.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -6953,9 +7136,12 @@
       "get": {
         "operationId": "BillingSubscriptions_ListByBillingAccount",
         "tags": [
-          "BillingSubscriptionOperationGroup"
+          "BillingSubscription"
         ],
         "description": "Lists the subscriptions for a billing account.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -7068,9 +7254,12 @@
       "get": {
         "operationId": "BillingSubscriptions_Get",
         "tags": [
-          "BillingSubscriptionOperationGroup"
+          "BillingSubscription"
         ],
         "description": "Gets a subscription by its ID. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement,  Microsoft Partner Agreement, and Enterprise Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -7120,9 +7309,12 @@
       "patch": {
         "operationId": "BillingSubscriptions_Update",
         "tags": [
-          "BillingSubscriptionOperationGroup"
+          "BillingSubscription"
         ],
         "description": "Updates the properties of a billing subscription.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -7193,9 +7385,12 @@
       "delete": {
         "operationId": "BillingSubscriptions_Delete",
         "tags": [
-          "BillingSubscriptionOperationGroup"
+          "BillingSubscription"
         ],
         "description": "Cancels a billing subscription. This operation is supported only for billing accounts of type Microsoft Partner Agreement or Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -7255,9 +7450,12 @@
       "post": {
         "operationId": "BillingSubscriptions_Cancel",
         "tags": [
-          "BillingSubscriptionOperationGroup"
+          "BillingSubscription"
         ],
         "description": "Cancels a usage-based subscription. This operation is supported only for billing accounts of type Microsoft Partner Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -7326,9 +7524,12 @@
       "post": {
         "operationId": "BillingSubscriptions_Merge",
         "tags": [
-          "BillingSubscriptionOperationGroup"
+          "BillingSubscription"
         ],
         "description": "Merges the billing subscription provided in the request with a target billing subscription.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -7392,7 +7593,7 @@
         },
         "x-ms-long-running-operation-options": {
           "final-state-via": "location",
-          "final-state-schema": "#/definitions/Azure.ResourceManager.ArmResponse%3CBillingSubscription%3E"
+          "final-state-schema": "#/definitions/BillingSubscription"
         },
         "x-ms-long-running-operation": true
       }
@@ -7401,9 +7602,12 @@
       "post": {
         "operationId": "BillingSubscriptions_Move",
         "tags": [
-          "BillingSubscriptionOperationGroup"
+          "BillingSubscription"
         ],
         "description": "Moves charges for a subscription to a new invoice section. The new invoice section must belong to the same billing profile as the existing invoice section. This operation is supported for billing accounts with agreement type Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -7467,7 +7671,7 @@
         },
         "x-ms-long-running-operation-options": {
           "final-state-via": "location",
-          "final-state-schema": "#/definitions/Azure.ResourceManager.ArmResponse%3CBillingSubscription%3E"
+          "final-state-schema": "#/definitions/BillingSubscription"
         },
         "x-ms-long-running-operation": true
       }
@@ -7476,9 +7680,12 @@
       "post": {
         "operationId": "BillingSubscriptions_Split",
         "tags": [
-          "BillingSubscriptionOperationGroup"
+          "BillingSubscription"
         ],
         "description": "Splits a subscription into a new subscription with quantity less than current subscription quantity and not equal to 0.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -7542,7 +7749,7 @@
         },
         "x-ms-long-running-operation-options": {
           "final-state-via": "location",
-          "final-state-schema": "#/definitions/Azure.ResourceManager.ArmResponse%3CBillingSubscription%3E"
+          "final-state-schema": "#/definitions/BillingSubscription"
         },
         "x-ms-long-running-operation": true
       }
@@ -7551,9 +7758,12 @@
       "post": {
         "operationId": "BillingSubscriptions_ValidateMoveEligibility",
         "tags": [
-          "BillingSubscriptionOperationGroup"
+          "BillingSubscription"
         ],
         "description": "Validates if charges for a subscription can be moved to a new invoice section. This operation is supported for billing accounts with agreement type Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -7610,9 +7820,12 @@
       "post": {
         "operationId": "BillingAccounts_CancelPaymentTerms",
         "tags": [
-          "BillingAccounts"
+          "BillingAccount"
         ],
         "description": "Cancels all the payment terms on billing account that falls after the cancellation date in the request. Currently, cancel payment terms is only served by admin actions and is not a self-serve action.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "consumes": [
           "text/plain"
         ],
@@ -7674,7 +7887,7 @@
         },
         "x-ms-long-running-operation-options": {
           "final-state-via": "location",
-          "final-state-schema": "#/definitions/Azure.ResourceManager.ArmResponse%3CBillingAccount%3E"
+          "final-state-schema": "#/definitions/BillingAccount"
         },
         "x-ms-long-running-operation": true
       }
@@ -7683,9 +7896,12 @@
       "post": {
         "operationId": "BillingPermissions_CheckAccessByBillingAccount",
         "tags": [
-          "BillingAccounts"
+          "BillingPermission"
         ],
         "description": "Provides a list of check access response objects for a billing account.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -7736,9 +7952,12 @@
       "post": {
         "operationId": "BillingAccounts_ConfirmTransition",
         "tags": [
-          "BillingAccounts"
+          "BillingAccount"
         ],
         "description": "Gets the transition details for a billing account that has transitioned from agreement type Microsoft Online Services Program to agreement type Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -7777,9 +7996,12 @@
       "post": {
         "operationId": "BillingRoleAssignments_CreateByBillingAccount",
         "tags": [
-          "BillingAccounts"
+          "BillingRoleAssignment"
         ],
         "description": "Adds a role assignment on a billing account. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement or Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -7837,7 +8059,7 @@
         },
         "x-ms-long-running-operation-options": {
           "final-state-via": "location",
-          "final-state-schema": "#/definitions/Azure.ResourceManager.ArmResponse%3CBillingRoleAssignment%3E"
+          "final-state-schema": "#/definitions/BillingRoleAssignment"
         },
         "x-ms-long-running-operation": true
       }
@@ -7846,9 +8068,12 @@
       "get": {
         "operationId": "Customers_ListByBillingAccount",
         "tags": [
-          "CustomerOperationGroup"
+          "Customer"
         ],
         "description": "Lists the customers that are billed to a billing account. The operation is supported only for billing accounts with agreement type Microsoft Partner Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -7944,9 +8169,12 @@
       "get": {
         "operationId": "Customers_GetByBillingAccount",
         "tags": [
-          "CustomerOperationGroup"
+          "Customer"
         ],
         "description": "Gets a customer by its ID at billing account level. The operation is supported only for billing accounts with agreement type Microsoft Partner Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -7993,9 +8221,12 @@
       "get": {
         "operationId": "BillingPermissions_ListByCustomerAtBillingAccount",
         "tags": [
-          "CustomerOperationGroup"
+          "BillingPermission"
         ],
         "description": "Lists the billing permissions the caller has for a customer at billing account level.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -8045,9 +8276,12 @@
       "get": {
         "operationId": "BillingSubscriptions_ListByCustomerAtBillingAccount",
         "tags": [
-          "CustomerOperationGroup"
+          "BillingSubscription"
         ],
         "description": "Lists the subscriptions for a customer at billing account level. The operation is supported only for billing accounts with agreement type Microsoft Partner Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -8151,13 +8385,16 @@
         }
       }
     },
-    "/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/customers/{customerName}/policies/{default}": {
+    "/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/customers/{customerName}/policies/default": {
       "get": {
         "operationId": "Policies_GetByCustomerAtBillingAccount",
         "tags": [
-          "Policies"
+          "Policy"
         ],
         "description": "Lists the policies for a customer at billing account scope. This operation is supported only for billing accounts with agreement type Microsoft Partner Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -8177,13 +8414,6 @@
             "required": true,
             "type": "string",
             "pattern": "^[a-zA-Z\\d-_]{1,128}$"
-          },
-          {
-            "name": "default",
-            "in": "path",
-            "description": "undefined",
-            "required": true,
-            "type": "string"
           }
         ],
         "responses": {
@@ -8209,9 +8439,12 @@
       "put": {
         "operationId": "Policies_CreateOrUpdateByCustomerAtBillingAccount",
         "tags": [
-          "Policies"
+          "Policy"
         ],
         "description": "Updates the policies for a customer at billing account scope. This operation is supported only for billing accounts with agreement type Microsoft Partner Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -8231,13 +8464,6 @@
             "required": true,
             "type": "string",
             "pattern": "^[a-zA-Z\\d-_]{1,128}$"
-          },
-          {
-            "name": "default",
-            "in": "path",
-            "description": "undefined",
-            "required": true,
-            "type": "string"
           },
           {
             "name": "parameters",
@@ -8296,9 +8522,12 @@
       "get": {
         "operationId": "Products_ListByCustomer",
         "tags": [
-          "CustomerOperationGroup"
+          "Product"
         ],
         "description": "Lists the products for a customer. These don't include products billed based on usage.The operation is supported only for billing accounts with agreement type Microsoft Partner Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -8392,9 +8621,12 @@
       "get": {
         "operationId": "Departments_ListByBillingAccount",
         "tags": [
-          "Departments"
+          "Department"
         ],
         "description": "Lists the departments that a user has access to. The operation is supported only for billing accounts with agreement type Enterprise Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -8473,9 +8705,12 @@
       "get": {
         "operationId": "Departments_Get",
         "tags": [
-          "Departments"
+          "Department"
         ],
         "description": "Gets a department by ID. The operation is supported only for billing accounts with agreement type Enterprise Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -8522,9 +8757,12 @@
       "get": {
         "operationId": "BillingPermissions_ListByDepartment",
         "tags": [
-          "Departments"
+          "BillingPermission"
         ],
         "description": "Lists the billing permissions the caller has for a department.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -8574,9 +8812,12 @@
       "get": {
         "operationId": "BillingRoleAssignments_ListByDepartment",
         "tags": [
-          "BillingRoleAssignmentByDepartment"
+          "BillingRoleAssignment"
         ],
         "description": "Lists the role assignments for the caller on a department. The operation is supported for billing accounts of type Enterprise Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -8626,9 +8867,12 @@
       "get": {
         "operationId": "BillingRoleAssignments_GetByDepartment",
         "tags": [
-          "BillingRoleAssignmentByDepartment"
+          "BillingRoleAssignment"
         ],
         "description": "Gets a role assignment for the caller on a department. The operation is supported only for billing accounts with agreement type Enterprise Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -8681,9 +8925,12 @@
       "put": {
         "operationId": "BillingRoleAssignments_CreateOrUpdateByDepartment",
         "tags": [
-          "BillingRoleAssignmentByDepartment"
+          "BillingRoleAssignment"
         ],
         "description": "Create or update a billing role assignment. The operation is supported only for billing accounts with agreement type Enterprise Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -8767,9 +9014,12 @@
       "delete": {
         "operationId": "BillingRoleAssignments_DeleteByDepartment",
         "tags": [
-          "BillingRoleAssignmentByDepartment"
+          "BillingRoleAssignment"
         ],
         "description": "Deletes a role assignment on a department. The operation is supported only for billing accounts with agreement type Enterprise Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -8824,9 +9074,12 @@
       "get": {
         "operationId": "BillingRoleDefinition_ListByDepartment",
         "tags": [
-          "BillingRoleDefinitionByDepartment"
+          "BillingRoleDefinition"
         ],
         "description": "List the definition for a department. The operation is supported for billing accounts with agreement type Enterprise Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -8876,9 +9129,12 @@
       "get": {
         "operationId": "BillingRoleDefinition_GetByDepartment",
         "tags": [
-          "BillingRoleDefinitionByDepartment"
+          "BillingRoleDefinition"
         ],
         "description": "Gets the definition for a role on a department. The operation is supported for billing accounts with agreement type Enterprise Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -8933,9 +9189,12 @@
       "post": {
         "operationId": "BillingPermissions_CheckAccessByDepartment",
         "tags": [
-          "Departments"
+          "BillingPermission"
         ],
         "description": "Provides a list of check access response objects for a department.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -8994,9 +9253,12 @@
       "get": {
         "operationId": "EnrollmentAccounts_ListByDepartment",
         "tags": [
-          "EnrollmentAccounts"
+          "EnrollmentAccount"
         ],
         "description": "Lists the enrollment accounts for a department. The operation is supported only for billing accounts with agreement type Enterprise Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -9090,9 +9352,12 @@
       "get": {
         "operationId": "EnrollmentAccounts_GetByDepartment",
         "tags": [
-          "EnrollmentAccounts"
+          "EnrollmentAccount"
         ],
         "description": "Gets an enrollment account by department. The operation is supported only for billing accounts with agreement type Enterprise Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -9147,9 +9412,12 @@
       "post": {
         "operationId": "Invoices_DownloadDocumentsByBillingAccount",
         "tags": [
-          "BillingAccounts"
+          "Invoice"
         ],
         "description": "Gets a URL to download multiple invoice documents (invoice pdf, tax receipts, credit notes) as a zip file. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement or Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -9210,7 +9478,7 @@
         },
         "x-ms-long-running-operation-options": {
           "final-state-via": "location",
-          "final-state-schema": "#/definitions/Azure.ResourceManager.ArmResponse%3CDocumentDownloadResult%3E"
+          "final-state-schema": "#/definitions/DocumentDownloadResult"
         },
         "x-ms-long-running-operation": true
       }
@@ -9219,9 +9487,12 @@
       "get": {
         "operationId": "EnrollmentAccounts_ListByBillingAccount",
         "tags": [
-          "EnrollmentAccountOperationGroup"
+          "EnrollmentAccount"
         ],
         "description": "Lists the enrollment accounts for a billing account. The operation is supported only for billing accounts with agreement type Enterprise Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -9307,9 +9578,12 @@
       "get": {
         "operationId": "EnrollmentAccounts_Get",
         "tags": [
-          "EnrollmentAccountOperationGroup"
+          "EnrollmentAccount"
         ],
         "description": "Gets an enrollment account by ID. The operation is supported only for billing accounts with agreement type Enterprise Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -9356,9 +9630,12 @@
       "get": {
         "operationId": "BillingPermissions_ListByEnrollmentAccount",
         "tags": [
-          "EnrollmentAccountOperationGroup"
+          "BillingPermission"
         ],
         "description": "Lists the billing permissions the caller has for an enrollment account.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -9408,9 +9685,12 @@
       "get": {
         "operationId": "BillingRoleAssignments_ListByEnrollmentAccount",
         "tags": [
-          "BillingRoleAssignmentByEnrollmentAccount"
+          "BillingRoleAssignment"
         ],
         "description": "Lists the role assignments for the caller on a enrollment account. The operation is supported for billing accounts of type Enterprise Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -9460,9 +9740,12 @@
       "get": {
         "operationId": "BillingRoleAssignments_GetByEnrollmentAccount",
         "tags": [
-          "BillingRoleAssignmentByEnrollmentAccount"
+          "BillingRoleAssignment"
         ],
         "description": "Gets a role assignment for the caller on a enrollment Account. The operation is supported only for billing accounts with agreement type Enterprise Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -9515,9 +9798,12 @@
       "put": {
         "operationId": "BillingRoleAssignments_CreateOrUpdateByEnrollmentAccount",
         "tags": [
-          "BillingRoleAssignmentByEnrollmentAccount"
+          "BillingRoleAssignment"
         ],
         "description": "Create or update a billing role assignment. The operation is supported only for billing accounts with agreement type Enterprise Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -9601,9 +9887,12 @@
       "delete": {
         "operationId": "BillingRoleAssignments_DeleteByEnrollmentAccount",
         "tags": [
-          "BillingRoleAssignmentByEnrollmentAccount"
+          "BillingRoleAssignment"
         ],
         "description": "Deletes a role assignment on a enrollment Account. The operation is supported only for billing accounts with agreement type Enterprise Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -9658,9 +9947,12 @@
       "get": {
         "operationId": "BillingRoleDefinition_ListByEnrollmentAccount",
         "tags": [
-          "BillingRoleDefinitionByEnrollmentAccount"
+          "BillingRoleDefinition"
         ],
         "description": "List the definition for an enrollment account. The operation is supported for billing accounts with agreement type Enterprise Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -9710,9 +10002,12 @@
       "get": {
         "operationId": "BillingRoleDefinition_GetByEnrollmentAccount",
         "tags": [
-          "BillingRoleDefinitionByEnrollmentAccount"
+          "BillingRoleDefinition"
         ],
         "description": "Gets the definition for a role on an enrollment account. The operation is supported for billing accounts with agreement type Enterprise Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -9767,9 +10062,12 @@
       "get": {
         "operationId": "BillingSubscriptions_ListByEnrollmentAccount",
         "tags": [
-          "EnrollmentAccountOperationGroup"
+          "BillingSubscription"
         ],
         "description": "Lists the subscriptions for an enrollment account. The operation is supported for billing accounts with agreement type Enterprise Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -9863,9 +10161,12 @@
       "post": {
         "operationId": "BillingPermissions_CheckAccessByEnrollmentAccount",
         "tags": [
-          "EnrollmentAccountOperationGroup"
+          "BillingPermission"
         ],
         "description": "Provides a list of check access response objects for an enrollment account.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -9924,9 +10225,12 @@
       "get": {
         "operationId": "Invoices_ListByBillingAccount",
         "tags": [
-          "Invoices"
+          "Invoice"
         ],
         "description": "Lists the invoices for a billing account for a given start date and end date. The operation is supported for all billing account types.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -10028,9 +10332,12 @@
       "get": {
         "operationId": "Invoices_GetByBillingAccount",
         "tags": [
-          "Invoices"
+          "Invoice"
         ],
         "description": "Gets an invoice by billing account name and ID. The operation is supported for all billing account types.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -10073,61 +10380,16 @@
         }
       }
     },
-    "/providers/Microsoft.Billing/billingAccounts/{default}/invoices/{invoiceName}": {
-      "get": {
-        "operationId": "Invoices_Get",
-        "tags": [
-          "InvoiceById"
-        ],
-        "description": "Gets an invoice by ID. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement or Microsoft Customer Agreement.",
-        "parameters": [
-          {
-            "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
-          },
-          {
-            "name": "default",
-            "in": "path",
-            "description": "undefined",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "invoiceName",
-            "in": "path",
-            "description": "The ID that uniquely identifies an invoice.",
-            "required": true,
-            "type": "string",
-            "pattern": "^(H[0-9]-[A-Z0-9]+)$|^(?:([GHT]|HT){1}[A-Z0-9]{9})$|^(?:[D]{1}[A-Z0-9]{9})$|^(?:E{1}[B-Z0-9]{1}[A-Z0-9]{8})$|^(?:EA[A-Z0-9]{8})$"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Azure operation completed successfully.",
-            "schema": {
-              "$ref": "#/definitions/Invoice"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "../../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
-            }
-          }
-        },
-        "x-ms-examples": {
-          "InvoicesGet": {
-            "$ref": "./examples/invoicesGet.json"
-          }
-        }
-      }
-    },
     "/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/invoices/{invoiceName}/amend": {
       "post": {
         "operationId": "Invoices_Amend",
         "tags": [
-          "Invoices"
+          "Invoice"
         ],
         "description": "Regenerate an invoice by billing account name and invoice name. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -10187,9 +10449,12 @@
       "post": {
         "operationId": "Invoices_DownloadByBillingAccount",
         "tags": [
-          "Invoices"
+          "Invoice"
         ],
         "description": "Gets a URL to download an invoice document. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement, Microsoft Customer Agreement or Enterprise Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -10253,7 +10518,7 @@
         },
         "x-ms-long-running-operation-options": {
           "final-state-via": "location",
-          "final-state-schema": "#/definitions/Azure.ResourceManager.ArmResponse%3CDocumentDownloadResult%3E"
+          "final-state-schema": "#/definitions/DocumentDownloadResult"
         },
         "x-ms-long-running-operation": true
       }
@@ -10262,9 +10527,12 @@
       "post": {
         "operationId": "Invoices_DownloadSummaryByBillingAccount",
         "tags": [
-          "Invoices"
+          "Invoice"
         ],
         "description": "Gets a URL to download the summary document for an invoice. The operation is supported for billing accounts with agreement type Enterprise Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -10321,7 +10589,7 @@
         },
         "x-ms-long-running-operation-options": {
           "final-state-via": "location",
-          "final-state-schema": "#/definitions/Azure.ResourceManager.ArmResponse%3CDocumentDownloadResult%3E"
+          "final-state-schema": "#/definitions/DocumentDownloadResult"
         },
         "x-ms-long-running-operation": true
       }
@@ -10330,9 +10598,12 @@
       "get": {
         "operationId": "Transactions_GetTransactionSummaryByInvoice",
         "tags": [
-          "Invoices"
+          "Transaction"
         ],
         "description": "Gets the transaction summary for an invoice. Transactions include purchases, refunds and Azure usage charges.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -10393,9 +10664,12 @@
       "get": {
         "operationId": "Transactions_ListByInvoice",
         "tags": [
-          "Invoices"
+          "Transaction"
         ],
         "description": "Lists the transactions for an invoice. Transactions include purchases, refunds and Azure usage charges.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -10489,9 +10763,12 @@
       "post": {
         "operationId": "Transactions_TransactionsDownloadByInvoice",
         "tags": [
-          "Invoices"
+          "Transaction"
         ],
         "description": "Gets a URL to download the transactions document for an invoice. The operation is supported for billing accounts with agreement type Enterprise Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -10548,7 +10825,7 @@
         },
         "x-ms-long-running-operation-options": {
           "final-state-via": "location",
-          "final-state-schema": "#/definitions/Azure.ResourceManager.ArmResponse%3CDocumentDownloadResult%3E"
+          "final-state-schema": "#/definitions/DocumentDownloadResult"
         },
         "x-ms-long-running-operation": true
       }
@@ -10557,9 +10834,12 @@
       "post": {
         "operationId": "BillingAccounts_ListInvoiceSectionsByCreateSubscriptionPermission",
         "tags": [
-          "BillingAccounts"
+          "BillingAccount"
         ],
         "description": "Lists the invoice sections for which the user has permission to create Azure subscriptions. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -10611,6 +10891,9 @@
           "PaymentMethods"
         ],
         "description": "Lists the payment methods available for a billing account. Along with the payment methods owned by the caller, these payment methods can be attached to a billing profile to make payments. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -10627,7 +10910,7 @@
           "200": {
             "description": "Azure operation completed successfully.",
             "schema": {
-              "$ref": "#/definitions/PaymentMethodListResult"
+              "$ref": "#/definitions/PaymentMethodsListResult"
             }
           },
           "default": {
@@ -10654,6 +10937,9 @@
           "PaymentMethods"
         ],
         "description": "Gets a payment method available for a billing account. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -10698,9 +10984,12 @@
       "get": {
         "operationId": "Policies_GetByBillingAccount",
         "tags": [
-          "BillingAccountPolicies"
+          "Policy"
         ],
         "description": "Get the policies for a billing account of Enterprise Agreement type.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -10737,9 +11026,12 @@
       "put": {
         "operationId": "Policies_CreateOrUpdateByBillingAccount",
         "tags": [
-          "BillingAccountPolicies"
+          "Policy"
         ],
         "description": "Update the policies for a billing account of Enterprise Agreement type.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -10809,9 +11101,12 @@
       "get": {
         "operationId": "Products_ListByBillingAccount",
         "tags": [
-          "Products"
+          "Product"
         ],
         "description": "Lists the products for a billing account. These don't include products billed based on usage. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement or Microsoft Partner Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -10897,9 +11192,12 @@
       "get": {
         "operationId": "Products_Get",
         "tags": [
-          "Products"
+          "Product"
         ],
         "description": "Gets a product by ID. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -10944,9 +11242,12 @@
       "patch": {
         "operationId": "Products_Update",
         "tags": [
-          "Products"
+          "Product"
         ],
         "description": "Updates the properties of a Product. Currently, auto renew can be updated. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -11002,9 +11303,12 @@
       "post": {
         "operationId": "Products_Move",
         "tags": [
-          "Products"
+          "Product"
         ],
         "description": "Moves a product's charges to a new invoice section. The new invoice section must belong to the same billing profile as the existing invoice section. This operation is supported only for products that are purchased with a recurring charge and for billing accounts with agreement type Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -11070,7 +11374,7 @@
         },
         "x-ms-long-running-operation-options": {
           "final-state-via": "location",
-          "final-state-schema": "#/definitions/Azure.ResourceManager.ArmResponse%3CProduct%3E"
+          "final-state-schema": "#/definitions/Product"
         },
         "x-ms-long-running-operation": true
       }
@@ -11079,9 +11383,12 @@
       "post": {
         "operationId": "Products_ValidateMoveEligibility",
         "tags": [
-          "Products"
+          "Product"
         ],
         "description": "Validates if a product's charges can be moved to a new invoice section. This operation is supported only for products that are purchased with a recurring charge and for billing accounts with agreement type Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -11142,6 +11449,7 @@
         "tags": [
           "ReservationOrders"
         ],
+        "summary": "Get all `ReservationOrders in the billing account.",
         "description": "List all the ReservationOrders in the billing account.",
         "parameters": [
           {
@@ -11206,8 +11514,9 @@
       "get": {
         "operationId": "ReservationOrders_GetByBillingAccount",
         "tags": [
-          "ReservationOrders"
+          "ReservationOrder"
         ],
+        "summary": "Get a specific ReservationOrder in the billing account.",
         "description": "Get the details of the ReservationOrder in the billing account.",
         "parameters": [
           {
@@ -11266,6 +11575,7 @@
         "tags": [
           "Reservations"
         ],
+        "summary": "Get Reservations in a given reservation Order in the billing account",
         "description": "List Reservations within a single ReservationOrder in the billing account.",
         "parameters": [
           {
@@ -11315,8 +11625,9 @@
       "get": {
         "operationId": "Reservations_GetByReservationOrder",
         "tags": [
-          "Reservations"
+          "Reservation"
         ],
+        "summary": "Get Reservation details in the billing account.",
         "description": "Get specific Reservation details in the billing account.",
         "parameters": [
           {
@@ -11384,7 +11695,7 @@
       "patch": {
         "operationId": "Reservations_UpdateByBillingAccount",
         "tags": [
-          "Reservations"
+          "Reservation"
         ],
         "description": "Update reservation by billing account.",
         "parameters": [
@@ -11467,7 +11778,7 @@
       "get": {
         "operationId": "Reservations_ListByBillingAccount",
         "tags": [
-          "BillingAccounts"
+          "Reservations"
         ],
         "description": "Lists the reservations in the billing account and the roll up counts of reservations group by provisioning states.",
         "parameters": [
@@ -11531,7 +11842,7 @@
           "200": {
             "description": "Azure operation completed successfully.",
             "schema": {
-              "$ref": "#/definitions/ReservationListResult"
+              "$ref": "#/definitions/ReservationsListResult"
             }
           },
           "default": {
@@ -11555,9 +11866,12 @@
       "post": {
         "operationId": "BillingRoleAssignments_ResolveByBillingAccount",
         "tags": [
-          "BillingAccounts"
+          "BillingRoleAssignment"
         ],
         "description": "Lists the role assignments for the caller on a billing account while fetching user info for each role assignment. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement, Microsoft Customer Agreement or Enterprise Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -11620,7 +11934,7 @@
         },
         "x-ms-long-running-operation-options": {
           "final-state-via": "location",
-          "final-state-schema": "#/definitions/Azure.ResourceManager.ArmResponse%3CAzure.ResourceManager.ResourceListResult%3CBillingRoleAssignment%3E%3E"
+          "final-state-schema": "#/definitions/BillingRoleAssignmentListResult"
         },
         "x-ms-long-running-operation": true,
         "x-ms-pageable": {
@@ -11632,7 +11946,7 @@
       "get": {
         "operationId": "SavingsPlanOrders_ListByBillingAccount",
         "tags": [
-          "SavingsPlanOrderModels"
+          "Savings plan order"
         ],
         "description": "List all Savings plan orders by billing account.",
         "parameters": [
@@ -11698,7 +12012,7 @@
       "get": {
         "operationId": "SavingsPlanOrders_GetByBillingAccount",
         "tags": [
-          "SavingsPlanOrderModels"
+          "Savings plan order"
         ],
         "description": "Get a savings plan order by billing account.",
         "parameters": [
@@ -11756,7 +12070,7 @@
       "get": {
         "operationId": "SavingsPlans_ListBySavingsPlanOrder",
         "tags": [
-          "SavingsPlanModels"
+          "Savings plan"
         ],
         "description": "List savings plans in an order by billing account.",
         "parameters": [
@@ -11783,7 +12097,7 @@
           "200": {
             "description": "Azure operation completed successfully.",
             "schema": {
-              "$ref": "#/definitions/SavingsPlanModelListResult"
+              "$ref": "#/definitions/SavingsPlanModelList"
             }
           },
           "default": {
@@ -11807,7 +12121,7 @@
       "get": {
         "operationId": "SavingsPlans_GetByBillingAccount",
         "tags": [
-          "SavingsPlanModels"
+          "Savings plan"
         ],
         "description": "Get savings plan by billing account.",
         "parameters": [
@@ -11870,7 +12184,7 @@
       "patch": {
         "operationId": "SavingsPlans_UpdateByBillingAccount",
         "tags": [
-          "SavingsPlanModels"
+          "Savings plan"
         ],
         "description": "Update savings plan by billing account.",
         "parameters": [
@@ -11953,7 +12267,7 @@
       "post": {
         "operationId": "SavingsPlans_ValidateUpdateByBillingAccount",
         "tags": [
-          "SavingsPlanModels"
+          "Savings plan"
         ],
         "description": "Validate savings plan patch by billing account.",
         "parameters": [
@@ -12017,7 +12331,7 @@
       "get": {
         "operationId": "SavingsPlans_ListByBillingAccount",
         "tags": [
-          "BillingAccounts"
+          "Savings plan"
         ],
         "description": "List savings plans by billing account.",
         "parameters": [
@@ -12101,26 +12415,155 @@
         }
       }
     },
-    "/providers/Microsoft.Billing/billingAccounts/{default}/subscriptions/{subscriptionId}/invoices": {
-      "get": {
-        "operationId": "Invoices_ListByBillingSubscription",
+    "/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/validatePaymentTerms": {
+      "post": {
+        "operationId": "BillingAccounts_ValidatePaymentTerms",
         "tags": [
-          "InvoiceByBillingSubscription"
+          "BillingAccount"
         ],
-        "description": "Lists the invoices for a subscription. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement or Microsoft Customer Agreement.",
+        "description": "Validates payment terms on a billing account with agreement type 'Microsoft Customer Agreement' and account type 'Enterprise'.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
           },
           {
-            "name": "default",
+            "name": "billingAccountName",
             "in": "path",
-            "description": "undefined",
+            "description": "The ID that uniquely identifies a billing account.",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "pattern": "^([0-9]+|([Pp][Cc][Nn]\\.[A-Za-z0-9]+)|[0-9A-Fa-f]{8}-([0-9A-Fa-f]{4}-){3}[0-9A-Fa-f]{12}(:[0-9A-Fa-f]{8}-([0-9A-Fa-f]{4}-){3}[0-9A-Fa-f]{12}_[0-9]{4}(-[0-9]{2}){2})?)$"
           },
           {
-            "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/SubscriptionIdParameter"
+            "name": "parameters",
+            "in": "body",
+            "description": "The properties of payment term.",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PaymentTerm"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Azure operation completed successfully.",
+            "schema": {
+              "$ref": "#/definitions/PaymentTermsEligibilityResult"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "../../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "PaymentTermInvalid": {
+            "$ref": "./examples/paymentTermInvalid.json"
+          },
+          "PaymentTermValid": {
+            "$ref": "./examples/paymentTermValid.json"
+          }
+        }
+      }
+    },
+    "/providers/Microsoft.Billing/billingAccounts/default/billingSubscriptions/{subscriptionId}/downloadDocuments": {
+      "post": {
+        "operationId": "Invoices_DownloadDocumentsByBillingSubscription",
+        "tags": [
+          "Invoice"
+        ],
+        "description": "Gets a URL to download multiple invoice documents (invoice pdf, tax receipts, credit notes) as a zip file. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement or Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
+        "parameters": [
+          {
+            "name": "subscriptionId",
+            "in": "path",
+            "description": "The ID that uniquely identifies a billing subscription.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[0-9A-Fa-f]{8}-([0-9A-Fa-f]{4}-){3}[0-9A-Fa-f]{12}$"
+          },
+          {
+            "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "name": "downloadUrls",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DocumentDownloadRequest"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Azure operation completed successfully.",
+            "schema": {
+              "$ref": "#/definitions/DocumentDownloadResult"
+            }
+          },
+          "202": {
+            "description": "Resource operation accepted.",
+            "headers": {
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "../../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "InvoicesDownloadDocumentsByBillingSubscription": {
+            "$ref": "./examples/invoicesDownloadDocumentsByBillingSubscription.json"
+          }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location",
+          "final-state-schema": "#/definitions/DocumentDownloadResult"
+        },
+        "x-ms-long-running-operation": true
+      }
+    },
+    "/providers/Microsoft.Billing/billingAccounts/default/billingSubscriptions/{subscriptionId}/invoices": {
+      "get": {
+        "operationId": "Invoices_ListByBillingSubscription",
+        "tags": [
+          "Invoice"
+        ],
+        "description": "Lists the invoices for a subscription. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement or Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
+        "parameters": [
+          {
+            "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "name": "subscriptionId",
+            "in": "path",
+            "description": "The ID that uniquely identifies a billing subscription.",
+            "required": true,
+            "type": "string",
+            "pattern": "^[0-9A-Fa-f]{8}-([0-9A-Fa-f]{4}-){3}[0-9A-Fa-f]{12}$"
           },
           {
             "name": "periodStartDate",
@@ -12207,26 +12650,27 @@
         }
       }
     },
-    "/providers/Microsoft.Billing/billingAccounts/{default}/subscriptions/{subscriptionId}/invoices/{invoiceName}": {
+    "/providers/Microsoft.Billing/billingAccounts/default/billingSubscriptions/{subscriptionId}/invoices/{invoiceName}": {
       "get": {
         "operationId": "Invoices_GetByBillingSubscription",
         "tags": [
-          "InvoiceByBillingSubscription"
+          "Invoice"
         ],
         "description": "Gets an invoice by subscription ID and invoice ID. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement or Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
           },
           {
-            "name": "default",
+            "name": "subscriptionId",
             "in": "path",
-            "description": "undefined",
+            "description": "The ID that uniquely identifies a billing subscription.",
             "required": true,
-            "type": "string"
-          },
-          {
-            "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/SubscriptionIdParameter"
+            "type": "string",
+            "pattern": "^[0-9A-Fa-f]{8}-([0-9A-Fa-f]{4}-){3}[0-9A-Fa-f]{12}$"
           },
           {
             "name": "invoiceName",
@@ -12258,26 +12702,27 @@
         }
       }
     },
-    "/providers/Microsoft.Billing/billingAccounts/{default}/subscriptions/{subscriptionId}/invoices/{invoiceName}/download": {
+    "/providers/Microsoft.Billing/billingAccounts/default/billingSubscriptions/{subscriptionId}/invoices/{invoiceName}/download": {
       "post": {
         "operationId": "Invoices_DownloadByBillingSubscription",
         "tags": [
-          "InvoiceByBillingSubscription"
+          "Invoice"
         ],
         "description": "Gets a URL to download an invoice by billing subscription. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement or Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
           },
           {
-            "name": "default",
+            "name": "subscriptionId",
             "in": "path",
-            "description": "undefined",
+            "description": "The ID that uniquely identifies a billing subscription.",
             "required": true,
-            "type": "string"
-          },
-          {
-            "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/SubscriptionIdParameter"
+            "type": "string",
+            "pattern": "^[0-9A-Fa-f]{8}-([0-9A-Fa-f]{4}-){3}[0-9A-Fa-f]{12}$"
           },
           {
             "name": "invoiceName",
@@ -12330,48 +12775,39 @@
         },
         "x-ms-long-running-operation-options": {
           "final-state-via": "location",
-          "final-state-schema": "#/definitions/Azure.ResourceManager.ArmResponse%3CDocumentDownloadResult%3E"
+          "final-state-schema": "#/definitions/DocumentDownloadResult"
         },
         "x-ms-long-running-operation": true
       }
     },
-    "/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/validatePaymentTerms": {
-      "post": {
-        "operationId": "BillingAccounts_ValidatePaymentTerms",
+    "/providers/Microsoft.Billing/billingAccounts/default/invoices/{invoiceName}": {
+      "get": {
+        "operationId": "Invoices_Get",
         "tags": [
-          "BillingAccounts"
+          "Invoice"
         ],
-        "description": "Validates payment terms on a billing account with agreement type 'Microsoft Customer Agreement' and account type 'Enterprise'.",
+        "description": "Gets an invoice by ID. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement or Microsoft Customer Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
           },
           {
-            "name": "billingAccountName",
+            "name": "invoiceName",
             "in": "path",
-            "description": "The ID that uniquely identifies a billing account.",
+            "description": "The ID that uniquely identifies an invoice.",
             "required": true,
             "type": "string",
-            "pattern": "^([0-9]+|([Pp][Cc][Nn]\\.[A-Za-z0-9]+)|[0-9A-Fa-f]{8}-([0-9A-Fa-f]{4}-){3}[0-9A-Fa-f]{12}(:[0-9A-Fa-f]{8}-([0-9A-Fa-f]{4}-){3}[0-9A-Fa-f]{12}_[0-9]{4}(-[0-9]{2}){2})?)$"
-          },
-          {
-            "name": "parameters",
-            "in": "body",
-            "description": "The properties of payment term.",
-            "required": true,
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/PaymentTerm"
-              }
-            }
+            "pattern": "^(H[0-9]-[A-Z0-9]+)$|^(?:([GHT]|HT){1}[A-Z0-9]{9})$|^(?:[D]{1}[A-Z0-9]{9})$|^(?:E{1}[B-Z0-9]{1}[A-Z0-9]{8})$|^(?:EA[A-Z0-9]{8})$"
           }
         ],
         "responses": {
           "200": {
             "description": "Azure operation completed successfully.",
             "schema": {
-              "$ref": "#/definitions/PaymentTermsEligibilityResult"
+              "$ref": "#/definitions/Invoice"
             }
           },
           "default": {
@@ -12382,11 +12818,8 @@
           }
         },
         "x-ms-examples": {
-          "PaymentTermInvalid": {
-            "$ref": "./examples/paymentTermInvalid.json"
-          },
-          "PaymentTermValid": {
-            "$ref": "./examples/paymentTermValid.json"
+          "InvoicesGet": {
+            "$ref": "./examples/invoicesGet.json"
           }
         }
       }
@@ -12395,9 +12828,12 @@
       "get": {
         "operationId": "BillingRequests_ListByUser",
         "tags": [
-          "BillingRequests"
+          "BillingRequest"
         ],
         "description": "The list of billing requests submitted by a user.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -12478,9 +12914,12 @@
       "get": {
         "operationId": "BillingRequests_Get",
         "tags": [
-          "BillingRequests"
+          "BillingRequest"
         ],
         "description": "Gets a billing request by its ID.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -12517,9 +12956,12 @@
       "put": {
         "operationId": "BillingRequests_CreateOrUpdate",
         "tags": [
-          "BillingRequests"
+          "BillingRequest"
         ],
         "description": "Create or update a billing request.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -12592,6 +13034,9 @@
           "Operations"
         ],
         "description": "List the operations for the provider",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -12625,9 +13070,12 @@
       "get": {
         "operationId": "PaymentMethods_ListByUser",
         "tags": [
-          "PaymentMethodOperationGroup"
+          "PaymentMethods"
         ],
         "description": "Lists the payment methods owned by the caller.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -12637,7 +13085,7 @@
           "200": {
             "description": "Azure operation completed successfully.",
             "schema": {
-              "$ref": "#/definitions/PaymentMethodListResult"
+              "$ref": "#/definitions/PaymentMethodsListResult"
             }
           },
           "default": {
@@ -12661,9 +13109,12 @@
       "get": {
         "operationId": "PaymentMethods_GetByUser",
         "tags": [
-          "PaymentMethodOperationGroup"
+          "PaymentMethods"
         ],
         "description": "Gets a payment method owned by the caller.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -12699,9 +13150,12 @@
       "delete": {
         "operationId": "PaymentMethods_DeleteByUser",
         "tags": [
-          "PaymentMethodOperationGroup"
+          "PaymentMethods"
         ],
         "description": "Deletes a payment method owned by the caller.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -12741,6 +13195,7 @@
         "tags": [
           "RecipientTransfers"
         ],
+        "summary": "Lists the transfer requests received by the caller.",
         "description": "Lists the transfer requests received by the caller.",
         "parameters": [
           {
@@ -12777,6 +13232,7 @@
         "tags": [
           "RecipientTransfers"
         ],
+        "summary": "Gets a transfer request by ID. The caller must be the recipient of the transfer request.",
         "description": "Gets a transfer request by ID. The caller must be the recipient of the transfer request.",
         "parameters": [
           {
@@ -12818,6 +13274,7 @@
         "tags": [
           "RecipientTransfers"
         ],
+        "summary": "Accepts a transfer request.",
         "description": "Accepts a transfer request.",
         "parameters": [
           {
@@ -12868,6 +13325,7 @@
         "tags": [
           "RecipientTransfers"
         ],
+        "summary": "Declines a transfer request.",
         "description": "Declines a transfer request.",
         "parameters": [
           {
@@ -12909,6 +13367,7 @@
         "tags": [
           "RecipientTransfers"
         ],
+        "summary": "Validates if a subscription or a reservation can be transferred. Use this operation to validate your subscriptions or reservation before using the accept transfer operation.",
         "description": "Validates if a subscription or a reservation can be transferred. Use this operation to validate your subscriptions or reservation before using the accept transfer operation.",
         "parameters": [
           {
@@ -12956,7 +13415,13 @@
     "/providers/Microsoft.Billing/validateAddress": {
       "post": {
         "operationId": "Address_Validate",
+        "tags": [
+          "BillingAccount"
+        ],
         "description": "Validates an address. Use the operation to validate an address before using it as soldTo or a billTo address.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -12995,75 +13460,16 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/downloadDocuments": {
-      "post": {
-        "operationId": "Invoices_DownloadDocumentsByBillingSubscription",
-        "description": "Gets a URL to download multiple invoice documents (invoice pdf, tax receipts, credit notes) as a zip file. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement or Microsoft Customer Agreement.",
-        "parameters": [
-          {
-            "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
-          },
-          {
-            "name": "downloadUrls",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/DocumentDownloadRequest"
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Azure operation completed successfully.",
-            "schema": {
-              "$ref": "#/definitions/DocumentDownloadResult"
-            }
-          },
-          "202": {
-            "description": "Resource operation accepted.",
-            "headers": {
-              "Location": {
-                "type": "string",
-                "description": "The Location header contains the URL where the status of the long running operation can be checked."
-              },
-              "Retry-After": {
-                "type": "integer",
-                "format": "int32",
-                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
-              }
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "../../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
-            }
-          }
-        },
-        "x-ms-examples": {
-          "InvoicesDownloadDocumentsByBillingSubscription": {
-            "$ref": "./examples/invoicesDownloadDocumentsByBillingSubscription.json"
-          }
-        },
-        "x-ms-long-running-operation-options": {
-          "final-state-via": "location"
-        },
-        "x-ms-long-running-operation": true
-      }
-    },
     "/subscriptions/{subscriptionId}/providers/Microsoft.Billing/billingProperty/default": {
       "get": {
         "operationId": "BillingProperty_Get",
         "tags": [
-          "BillingProperties"
+          "BillingProperty"
         ],
         "description": "Gets the billing properties for a subscription",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -13115,9 +13521,12 @@
       "patch": {
         "operationId": "BillingProperty_Update",
         "tags": [
-          "BillingProperties"
+          "BillingProperty"
         ],
         "description": "Updates the billing property of a subscription. Currently, cost center can be updated for billing accounts with agreement type Microsoft Customer Agreement and subscription service usage address can be updated for billing accounts with agreement type Microsoft Online Service Program.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -13163,9 +13572,12 @@
       "get": {
         "operationId": "Policies_GetBySubscription",
         "tags": [
-          "SubscriptionPolicies"
+          "Policy"
         ],
         "description": "Lists the policies that are managed by the Billing Admin for the defined subscriptions. This is supported for Microsoft Online Services Program, Microsoft Customer Agreement and Microsoft Partner Agreement.",
+        "externalDocs": {
+          "url": "https://docs.microsoft.com/en-us/rest/api/billing/"
+        },
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
@@ -14012,84 +14424,6 @@
     "Azure.ResourceManager.ArmAcceptedLroResponse<\"Resource operation accepted.\", Azure.ResourceManager.{ location: string, retryAfter: int32 }>": {
       "type": "object",
       "description": "Resource operation accepted."
-    },
-    "Azure.ResourceManager.ArmResponse<Azure.ResourceManager.ResourceListResult<BillingRoleAssignment>>": {
-      "type": "object",
-      "description": "Azure operation completed successfully.",
-      "properties": {
-        "body": {
-          "$ref": "#/definitions/BillingRoleAssignmentListResult",
-          "description": "The body type of the operation request or response."
-        }
-      },
-      "required": [
-        "body"
-      ]
-    },
-    "Azure.ResourceManager.ArmResponse<BillingAccount>": {
-      "type": "object",
-      "description": "Azure operation completed successfully.",
-      "properties": {
-        "body": {
-          "$ref": "#/definitions/BillingAccount",
-          "description": "The body type of the operation request or response."
-        }
-      },
-      "required": [
-        "body"
-      ]
-    },
-    "Azure.ResourceManager.ArmResponse<BillingRoleAssignment>": {
-      "type": "object",
-      "description": "Azure operation completed successfully.",
-      "properties": {
-        "body": {
-          "$ref": "#/definitions/BillingRoleAssignment",
-          "description": "The body type of the operation request or response."
-        }
-      },
-      "required": [
-        "body"
-      ]
-    },
-    "Azure.ResourceManager.ArmResponse<BillingSubscription>": {
-      "type": "object",
-      "description": "Azure operation completed successfully.",
-      "properties": {
-        "body": {
-          "$ref": "#/definitions/BillingSubscription",
-          "description": "The body type of the operation request or response."
-        }
-      },
-      "required": [
-        "body"
-      ]
-    },
-    "Azure.ResourceManager.ArmResponse<DocumentDownloadResult>": {
-      "type": "object",
-      "description": "Azure operation completed successfully.",
-      "properties": {
-        "body": {
-          "$ref": "#/definitions/DocumentDownloadResult",
-          "description": "The body type of the operation request or response."
-        }
-      },
-      "required": [
-        "body"
-      ]
-    },
-    "Azure.ResourceManager.ArmResponse<Product>": {
-      "type": "object",
-      "description": "Azure operation completed successfully.",
-      "properties": {
-        "body": {
-          "$ref": "#/definitions/Product",
-          "description": "The body type of the operation request or response."
-        }
-      },
-      "required": [
-        "body"
-      ]
     },
     "AzurePlan": {
       "type": "object",
@@ -19214,27 +19548,6 @@
         }
       ]
     },
-    "PaymentMethodLinkListResult": {
-      "type": "object",
-      "description": "The response of a PaymentMethodLink list operation.",
-      "properties": {
-        "value": {
-          "type": "array",
-          "description": "The PaymentMethodLink items on this page",
-          "items": {
-            "$ref": "#/definitions/PaymentMethodLink"
-          }
-        },
-        "nextLink": {
-          "type": "string",
-          "format": "uri",
-          "description": "The link to the next page of items"
-        }
-      },
-      "required": [
-        "value"
-      ]
-    },
     "PaymentMethodLinkProperties": {
       "type": "object",
       "description": "The properties of a payment method link.",
@@ -19293,15 +19606,15 @@
         }
       }
     },
-    "PaymentMethodListResult": {
+    "PaymentMethodLinksListResult": {
       "type": "object",
-      "description": "The response of a PaymentMethod list operation.",
+      "description": "The response of a PaymentMethodLink list operation.",
       "properties": {
         "value": {
           "type": "array",
-          "description": "The PaymentMethod items on this page",
+          "description": "The PaymentMethodLink items on this page",
           "items": {
-            "$ref": "#/definitions/PaymentMethod"
+            "$ref": "#/definitions/PaymentMethodLink"
           }
         },
         "nextLink": {
@@ -19405,6 +19718,27 @@
           }
         ]
       }
+    },
+    "PaymentMethodsListResult": {
+      "type": "object",
+      "description": "The response of a PaymentMethod list operation.",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "The PaymentMethod items on this page",
+          "items": {
+            "$ref": "#/definitions/PaymentMethod"
+          }
+        },
+        "nextLink": {
+          "type": "string",
+          "format": "uri",
+          "description": "The link to the next page of items"
+        }
+      },
+      "required": [
+        "value"
+      ]
     },
     "PaymentOnAccount": {
       "type": "object",
@@ -20951,27 +21285,6 @@
         "value"
       ]
     },
-    "ReservationListResult": {
-      "type": "object",
-      "description": "The response of a Reservation list operation.",
-      "properties": {
-        "value": {
-          "type": "array",
-          "description": "The Reservation items on this page",
-          "items": {
-            "$ref": "#/definitions/Reservation"
-          }
-        },
-        "nextLink": {
-          "type": "string",
-          "format": "uri",
-          "description": "The link to the next page of items"
-        }
-      },
-      "required": [
-        "value"
-      ]
-    },
     "ReservationMergeProperties": {
       "type": "object",
       "description": "Properties of reservation merge",
@@ -21729,6 +22042,27 @@
           "readOnly": true
         }
       }
+    },
+    "ReservationsListResult": {
+      "type": "object",
+      "description": "The response of a Reservation list operation.",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "The Reservation items on this page",
+          "items": {
+            "$ref": "#/definitions/Reservation"
+          }
+        },
+        "nextLink": {
+          "type": "string",
+          "format": "uri",
+          "description": "The link to the next page of items"
+        }
+      },
+      "required": [
+        "value"
+      ]
     },
     "SavingsPlanModel": {
       "type": "object",

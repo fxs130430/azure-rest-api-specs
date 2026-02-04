@@ -32,11 +32,13 @@ model AssociatedTenant
   tags?: Record<string>;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface AssociatedTenants {
   /**
    * Gets an associated tenant by ID.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("AssociatedTenant")
   get is ArmResourceRead<
     AssociatedTenant,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters
@@ -45,6 +47,8 @@ interface AssociatedTenants {
   /**
    * Create or update an associated tenant for the billing account.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("AssociatedTenant")
   createOrUpdate is ArmResourceCreateOrReplaceAsync<
     AssociatedTenant,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters,
@@ -55,6 +59,8 @@ interface AssociatedTenants {
   /**
    * Deletes an associated tenant for a billing account.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("AssociatedTenant")
   delete is ArmResourceDeleteWithoutOkAsync<
     AssociatedTenant,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters
@@ -63,6 +69,8 @@ interface AssociatedTenants {
   /**
    * Lists the associated tenants that can collaborate with the billing account on commerce activities like viewing and downloading invoices, managing payments, making purchases, and managing or provisioning licenses.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("AssociatedTenant")
   listByBillingAccount is ArmResourceListByParent<
     AssociatedTenant,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters,

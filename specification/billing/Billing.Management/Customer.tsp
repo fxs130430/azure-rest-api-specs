@@ -66,16 +66,20 @@ alias CustomerOps = Azure.ResourceManager.Legacy.ExtensionOperations<
   }
 >;
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface Customers {
   /**
    * Gets a customer by its ID. The operation is supported only for billing accounts with agreement type Microsoft Partner Agreement.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Customer")
   get is CustomerOps.Read<Customer>;
 
   /**
    * Lists the customers that are billed to a billing profile. The operation is supported only for billing accounts with agreement type Microsoft Partner Agreement.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Customer")
   listByBillingProfile is CustomerOps.List<
     Customer,
     Parameters = {
@@ -128,6 +132,8 @@ interface Customers {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingPermissions_ListByCustomer")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingPermission")
   @list
   @get
   @action("billingPermissions")
@@ -142,6 +148,8 @@ interface Customers {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingPermissions_CheckAccessByCustomer")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingPermission")
   @action("checkAccess")
   checkAccessByCustomer is CustomerOps.ActionSync<
     Customer,
@@ -154,6 +162,8 @@ interface Customers {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRequests_ListByCustomer")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRequest")
   @list
   @get
   @action("billingRequests")
@@ -205,11 +215,13 @@ interface Customers {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleAssignments_CreateByCustomer")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleAssignment")
   @action("createBillingRoleAssignment")
   createByCustomer is CustomerOps.ActionAsync<
     Customer,
     BillingRoleAssignmentProperties,
-    ArmResponse<BillingRoleAssignment>
+    BillingRoleAssignment
   >;
 
   /**
@@ -217,12 +229,14 @@ interface Customers {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleAssignments_ResolveByCustomer")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleAssignment")
   @list
   @action("resolveBillingRoleAssignments")
   resolveByCustomer is CustomerOps.ActionAsync<
     Customer,
     void,
-    ArmResponse<ResourceListResult<BillingRoleAssignment>>,
+    ResourceListResult<BillingRoleAssignment>,
     Parameters = {
       /**
        * Resolves the scope display name for each of the role assignments.
@@ -243,6 +257,8 @@ interface Customers {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingSubscriptions_ListByCustomer")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingSubscription")
   @list
   @get
   @action("billingSubscriptions")
@@ -306,12 +322,14 @@ interface Customers {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("Policies_CreateOrUpdateByCustomer")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Policy")
   @put
   @action("policies/default")
   createOrUpdateByCustomer is CustomerOps.ActionAsync<
     Customer,
     CustomerPolicy,
-    ArmResponse<CustomerPolicy> | ArmResourceCreatedResponse<CustomerPolicy>
+    CustomerPolicy | ArmResourceCreatedResponse<CustomerPolicy>
   >;
 
   /**
@@ -319,6 +337,8 @@ interface Customers {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("Transactions_ListByCustomer")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Transaction")
   @list
   @get
   @action("transactions")
@@ -411,13 +431,15 @@ alias CustomerOperationGroupOps = Azure.ResourceManager.Legacy.ExtensionOperatio
   }
 >;
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface CustomerOperationGroup {
   /**
    * Gets a customer by its ID at billing account level. The operation is supported only for billing accounts with agreement type Microsoft Partner Agreement.
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("Customers_GetByBillingAccount")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Customer")
   getByBillingAccount is CustomerOperationGroupOps.Read<Customer>;
 
   /**
@@ -425,6 +447,8 @@ interface CustomerOperationGroup {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("Customers_ListByBillingAccount")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Customer")
   listByBillingAccount is CustomerOperationGroupOps.List<
     Customer,
     Parameters = {
@@ -477,6 +501,8 @@ interface CustomerOperationGroup {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingPermissions_ListByCustomerAtBillingAccount")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingPermission")
   @list
   @get
   @action("billingPermissions")
@@ -491,6 +517,8 @@ interface CustomerOperationGroup {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingSubscriptions_ListByCustomerAtBillingAccount")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingSubscription")
   @list
   @get
   @action("billingSubscriptions")
@@ -554,6 +582,8 @@ interface CustomerOperationGroup {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("Products_ListByCustomer")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Product")
   @list
   @get
   @action("products")

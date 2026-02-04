@@ -31,11 +31,13 @@ model Agreement is Azure.ResourceManager.ProxyResource<AgreementProperties> {
   tags?: Record<string>;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface Agreements {
   /**
    * Gets an agreement by ID.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Agreement")
   get is ArmResourceRead<
     Agreement,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters
@@ -44,6 +46,8 @@ interface Agreements {
   /**
    * Lists the agreements for a billing account.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Agreement")
   listByBillingAccount is ArmResourceListByParent<
     Agreement,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters,

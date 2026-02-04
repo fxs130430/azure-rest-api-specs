@@ -32,13 +32,15 @@ model BillingSubscriptionAlias
   tags?: Record<string>;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface BillingSubscriptionAliases {
   /**
    * Gets a subscription by its alias ID.  The operation is supported for seat based billing subscriptions.
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingSubscriptionsAliases_Get")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingSubscription")
   get is ArmResourceRead<
     BillingSubscriptionAlias,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters
@@ -50,6 +52,8 @@ interface BillingSubscriptionAliases {
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-put-operation-response-codes" "For backward compatibility"
   @operationId("BillingSubscriptionsAliases_CreateOrUpdate")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingSubscription")
   createOrUpdate is ArmResourceCreateOrReplaceAsync<
     BillingSubscriptionAlias,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters,
@@ -65,6 +69,8 @@ interface BillingSubscriptionAliases {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingSubscriptionsAliases_ListByBillingAccount")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingSubscription")
   listByBillingAccount is ArmResourceListByParent<
     BillingSubscriptionAlias,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters,

@@ -31,11 +31,13 @@ model Product is Azure.ResourceManager.ProxyResource<ProductProperties> {
   tags?: Record<string>;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface Products {
   /**
    * Gets a product by ID. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Product")
   get is ArmResourceRead<
     Product,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters
@@ -44,6 +46,8 @@ interface Products {
   /**
    * Updates the properties of a Product. Currently, auto renew can be updated. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Product")
   @patch(#{ implicitOptionality: false })
   update is ArmCustomPatchSync<
     Product,
@@ -54,6 +58,8 @@ interface Products {
   /**
    * Lists the products for a billing account. These don't include products billed based on usage. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement or Microsoft Partner Agreement.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Product")
   listByBillingAccount is ArmResourceListByParent<
     Product,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters,
@@ -99,16 +105,20 @@ interface Products {
   /**
    * Moves a product's charges to a new invoice section. The new invoice section must belong to the same billing profile as the existing invoice section. This operation is supported only for products that are purchased with a recurring charge and for billing accounts with agreement type Microsoft Customer Agreement.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Product")
   move is ArmResourceActionAsync<
     Product,
     MoveProductRequest,
-    ArmResponse<Product>,
+    Product,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters
   >;
 
   /**
    * Validates if a product's charges can be moved to a new invoice section. This operation is supported only for products that are purchased with a recurring charge and for billing accounts with agreement type Microsoft Customer Agreement.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Product")
   validateMoveEligibility is ArmResourceActionSync<
     Product,
     MoveProductRequest,

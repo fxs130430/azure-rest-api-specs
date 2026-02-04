@@ -8952,3 +8952,18 @@ model TransferItemQueryParameter {
    */
   state?: string;
 }
+
+/**
+ * The response of a PaymentMethodLink list operation.
+ */
+model PaymentMethodLinksListResult is Azure.Core.Page<PaymentMethodLink>;
+
+/**
+ * The response of a PaymentMethod list operation.
+ */
+model PaymentMethodsListResult is Azure.Core.Page<PaymentMethod>;
+
+/**
+ * The response of a Reservation list operation.
+ */
+model ReservationsListResult is Azure.Core.Page<Reservation>;

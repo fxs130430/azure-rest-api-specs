@@ -20,6 +20,8 @@ interface AddressOperationGroup {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("Address_Validate")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingAccount")
   @autoRoute
   @action("validateAddress")
   validate is ArmProviderActionSync<
@@ -35,12 +37,35 @@ interface InvoicesOperationGroup {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("Invoices_DownloadDocumentsByBillingSubscription")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Invoice")
   @autoRoute
   @action("downloadDocuments")
   @post
   downloadDocumentsByBillingSubscription(
-    ...SubscriptionIdParameter,
+    /** the provider namespace */
+    @path
+    @segment("providers")
+    @key
+    providerNamespace: "Microsoft.Billing",
+
+    /** undefined */
+    @path
+    @segment("billingAccounts")
+    @key
+    default: "default",
+
+    /** The ID that uniquely identifies a billing subscription. */
+    @path
+    @segment("billingSubscriptions")
+    @key
+    @pattern("^[0-9A-Fa-f]{8}-([0-9A-Fa-f]{4}-){3}[0-9A-Fa-f]{12}$")
+    subscriptionId: string,
+
     ...ApiVersionParameter,
     @body downloadUrls: DocumentDownloadRequest[],
-  ): ArmResponse<DocumentDownloadResult> | ArmAcceptedLroResponse | ErrorResponse;
+  ): ArmResponse<DocumentDownloadResult> | ArmAcceptedLroResponse<
+    "Resource operation accepted.",
+    LroHeaders = ArmLroLocationHeader<FinalResult = DocumentDownloadResult>
+  > | ErrorResponse;
 }

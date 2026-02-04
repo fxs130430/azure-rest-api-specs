@@ -33,13 +33,15 @@ model BillingProfilePolicy
   tags?: Record<string>;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface BillingProfilePolicies {
   /**
    * Lists the policies for a billing profile. This operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("Policies_GetByBillingProfile")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Policy")
   getByBillingProfile is ArmResourceRead<
     BillingProfilePolicy,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters
@@ -50,6 +52,8 @@ interface BillingProfilePolicies {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("Policies_CreateOrUpdateByBillingProfile")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Policy")
   createOrUpdateByBillingProfile is ArmResourceCreateOrReplaceAsync<
     BillingProfilePolicy,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters,

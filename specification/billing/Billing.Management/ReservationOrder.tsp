@@ -34,11 +34,13 @@ model ReservationOrder
   tags?: Record<string>;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface ReservationOrders {
   /**
    * Get the details of the ReservationOrder in the billing account.
    */
+  @summary("Get a specific ReservationOrder in the billing account.")
+  @tag("ReservationOrder")
   getByBillingAccount is ArmResourceRead<
     ReservationOrder,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters,
@@ -54,6 +56,8 @@ interface ReservationOrders {
   /**
    * List all the ReservationOrders in the billing account.
    */
+  @summary("Get all `ReservationOrders in the billing account.")
+  @tag("ReservationOrders")
   listByBillingAccount is ArmResourceListByParent<
     ReservationOrder,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters,

@@ -33,13 +33,15 @@ model BillingAccountPolicy
   tags?: Record<string>;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface BillingAccountPolicies {
   /**
    * Get the policies for a billing account of Enterprise Agreement type.
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("Policies_GetByBillingAccount")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Policy")
   getByBillingAccount is ArmResourceRead<
     BillingAccountPolicy,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters
@@ -50,6 +52,8 @@ interface BillingAccountPolicies {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("Policies_CreateOrUpdateByBillingAccount")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Policy")
   createOrUpdateByBillingAccount is ArmResourceCreateOrReplaceAsync<
     BillingAccountPolicy,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters,

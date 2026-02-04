@@ -64,11 +64,13 @@ alias BillingSubscriptionOps = Azure.ResourceManager.Legacy.ExtensionOperations<
   }
 >;
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface BillingSubscriptions {
   /**
    * Gets a subscription by its billing profile and ID. The operation is supported for billing accounts with agreement type Enterprise Agreement.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingSubscription")
   getByBillingProfile is BillingSubscriptionOps.Read<
     BillingSubscription,
     Parameters = {
@@ -83,6 +85,8 @@ interface BillingSubscriptions {
   /**
    * Lists the subscriptions that are billed to a billing profile. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement or Microsoft Partner Agreement.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingSubscription")
   listByBillingProfile is BillingSubscriptionOps.List<
     BillingSubscription,
     Parameters = {
@@ -162,13 +166,15 @@ alias BillingSubscriptionOperationGroupOps = Azure.ResourceManager.Legacy.Extens
   }
 >;
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface BillingSubscriptionOperationGroup {
   /**
    * Gets a subscription by its ID. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement,  Microsoft Partner Agreement, and Enterprise Agreement.
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingSubscriptions_Get")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingSubscription")
   get is BillingSubscriptionOperationGroupOps.Read<
     BillingSubscription,
     Parameters = {
@@ -185,6 +191,8 @@ interface BillingSubscriptionOperationGroup {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingSubscriptions_Update")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingSubscription")
   @patch(#{ implicitOptionality: false })
   update is BillingSubscriptionOperationGroupOps.CustomPatchAsync<
     BillingSubscription,
@@ -196,6 +204,8 @@ interface BillingSubscriptionOperationGroup {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingSubscriptions_Delete")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingSubscription")
   delete is BillingSubscriptionOperationGroupOps.DeleteWithoutOkAsync<BillingSubscription>;
 
   /**
@@ -203,6 +213,8 @@ interface BillingSubscriptionOperationGroup {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingSubscriptions_ListByBillingAccount")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingSubscription")
   listByBillingAccount is BillingSubscriptionOperationGroupOps.List<
     BillingSubscription,
     Parameters = {
@@ -273,6 +285,8 @@ interface BillingSubscriptionOperationGroup {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingSubscriptions_Cancel")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingSubscription")
   cancel is BillingSubscriptionOperationGroupOps.ActionAsync<
     BillingSubscription,
     CancelSubscriptionRequest,
@@ -284,10 +298,12 @@ interface BillingSubscriptionOperationGroup {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingSubscriptions_Merge")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingSubscription")
   merge is BillingSubscriptionOperationGroupOps.ActionAsync<
     BillingSubscription,
     BillingSubscriptionMergeRequest,
-    ArmResponse<BillingSubscription>
+    BillingSubscription
   >;
 
   /**
@@ -295,10 +311,12 @@ interface BillingSubscriptionOperationGroup {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingSubscriptions_Move")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingSubscription")
   move is BillingSubscriptionOperationGroupOps.ActionAsync<
     BillingSubscription,
     MoveBillingSubscriptionRequest,
-    ArmResponse<BillingSubscription>
+    BillingSubscription
   >;
 
   /**
@@ -306,10 +324,12 @@ interface BillingSubscriptionOperationGroup {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingSubscriptions_Split")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingSubscription")
   split is BillingSubscriptionOperationGroupOps.ActionAsync<
     BillingSubscription,
     BillingSubscriptionSplitRequest,
-    ArmResponse<BillingSubscription>
+    BillingSubscription
   >;
 
   /**
@@ -317,6 +337,8 @@ interface BillingSubscriptionOperationGroup {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingSubscriptions_ValidateMoveEligibility")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingSubscription")
   validateMoveEligibility is BillingSubscriptionOperationGroupOps.ActionSync<
     BillingSubscription,
     MoveBillingSubscriptionRequest,

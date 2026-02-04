@@ -58,17 +58,24 @@ alias PaymentMethodOps = Azure.ResourceManager.Legacy.ExtensionOperations<
   }
 >;
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface PaymentMethods {
   /**
    * Gets a payment method available for a billing account. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("PaymentMethods")
   getByBillingAccount is PaymentMethodOps.Read<PaymentMethod>;
 
   /**
    * Lists the payment methods available for a billing account. Along with the payment methods owned by the caller, these payment methods can be attached to a billing profile to make payments. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
    */
-  listByBillingAccount is PaymentMethodOps.List<PaymentMethod>;
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("PaymentMethods")
+  listByBillingAccount is PaymentMethodOps.List<
+    PaymentMethod,
+    Response = ArmResponse<PaymentMethodsListResult>
+  >;
 }
 alias PaymentMethodOperationGroupOps = Azure.ResourceManager.Legacy.ExtensionOperations<
   {
@@ -90,13 +97,15 @@ alias PaymentMethodOperationGroupOps = Azure.ResourceManager.Legacy.ExtensionOpe
   }
 >;
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface PaymentMethodOperationGroup {
   /**
    * Gets a payment method owned by the caller.
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("PaymentMethods_GetByUser")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("PaymentMethods")
   getByUser is PaymentMethodOperationGroupOps.Read<PaymentMethod>;
 
   /**
@@ -104,6 +113,8 @@ interface PaymentMethodOperationGroup {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("PaymentMethods_DeleteByUser")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("PaymentMethods")
   deleteByUser is PaymentMethodOperationGroupOps.DeleteSync<PaymentMethod>;
 
   /**
@@ -111,7 +122,12 @@ interface PaymentMethodOperationGroup {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("PaymentMethods_ListByUser")
-  listByUser is PaymentMethodOperationGroupOps.List<PaymentMethod>;
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("PaymentMethods")
+  listByUser is PaymentMethodOperationGroupOps.List<
+    PaymentMethod,
+    Response = ArmResponse<PaymentMethodsListResult>
+  >;
 }
 
 @@doc(PaymentMethod.name, "The ID that uniquely identifies a payment method.");

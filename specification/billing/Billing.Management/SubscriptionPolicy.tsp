@@ -31,13 +31,15 @@ model SubscriptionPolicy
   tags?: Record<string>;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface SubscriptionPolicies {
   /**
    * Lists the policies that are managed by the Billing Admin for the defined subscriptions. This is supported for Microsoft Online Services Program, Microsoft Customer Agreement and Microsoft Partner Agreement.
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("Policies_GetBySubscription")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Policy")
   getBySubscription is ArmResourceRead<
     SubscriptionPolicy,
     BaseParameters = Azure.ResourceManager.Foundations.SubscriptionBaseParameters

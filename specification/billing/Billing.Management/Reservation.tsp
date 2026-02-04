@@ -34,11 +34,13 @@ model Reservation
   sku?: ReservationSkuProperty;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface Reservations {
   /**
    * Get specific Reservation details in the billing account.
    */
+  @summary("Get Reservation details in the billing account.")
+  @tag("Reservation")
   getByReservationOrder is ArmResourceRead<
     Reservation,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters,
@@ -54,6 +56,7 @@ interface Reservations {
   /**
    * Update reservation by billing account.
    */
+  @tag("Reservation")
   @patch(#{ implicitOptionality: false })
   updateByBillingAccount is ArmCustomPatchAsync<
     Reservation,
@@ -66,6 +69,8 @@ interface Reservations {
   /**
    * List Reservations within a single ReservationOrder in the billing account.
    */
+  @summary("Get Reservations in a given reservation Order in the billing account")
+  @tag("Reservations")
   listByReservationOrder is ArmResourceListByParent<
     Reservation,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters,

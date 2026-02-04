@@ -30,11 +30,13 @@ model BillingRequest
   tags?: Record<string>;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface BillingRequests {
   /**
    * Gets a billing request by its ID.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRequest")
   get is ArmResourceRead<
     BillingRequest,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters
@@ -43,6 +45,8 @@ interface BillingRequests {
   /**
    * Create or update a billing request.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRequest")
   createOrUpdate is ArmResourceCreateOrReplaceAsync<
     BillingRequest,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters,
@@ -53,6 +57,8 @@ interface BillingRequests {
   /**
    * The list of billing requests submitted by a user.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRequest")
   listByUser is ArmResourceListByParent<
     BillingRequest,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters,

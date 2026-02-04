@@ -38,13 +38,14 @@ model SavingsPlanOrderModel
   sku: Sku;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface SavingsPlanOrderModels {
   /**
    * Get a savings plan order by billing account.
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("SavingsPlanOrders_GetByBillingAccount")
+  @tag("Savings plan order")
   getByBillingAccount is ArmResourceRead<
     SavingsPlanOrderModel,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters,
@@ -62,6 +63,7 @@ interface SavingsPlanOrderModels {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("SavingsPlanOrders_ListByBillingAccount")
+  @tag("Savings plan order")
   listByBillingAccount is ArmResourceListByParent<
     SavingsPlanOrderModel,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters,

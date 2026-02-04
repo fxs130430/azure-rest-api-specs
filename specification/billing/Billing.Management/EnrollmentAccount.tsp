@@ -67,16 +67,20 @@ alias EnrollmentAccountOps = Azure.ResourceManager.Legacy.ExtensionOperations<
   }
 >;
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface EnrollmentAccounts {
   /**
    * Gets an enrollment account by department. The operation is supported only for billing accounts with agreement type Enterprise Agreement.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("EnrollmentAccount")
   getByDepartment is EnrollmentAccountOps.Read<EnrollmentAccount>;
 
   /**
    * Lists the enrollment accounts for a department. The operation is supported only for billing accounts with agreement type Enterprise Agreement.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("EnrollmentAccount")
   listByDepartment is EnrollmentAccountOps.List<
     EnrollmentAccount,
     Parameters = {
@@ -146,13 +150,15 @@ alias EnrollmentAccountOperationGroupOps = Azure.ResourceManager.Legacy.Extensio
   }
 >;
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface EnrollmentAccountOperationGroup {
   /**
    * Gets an enrollment account by ID. The operation is supported only for billing accounts with agreement type Enterprise Agreement.
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("EnrollmentAccounts_Get")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("EnrollmentAccount")
   get is EnrollmentAccountOperationGroupOps.Read<EnrollmentAccount>;
 
   /**
@@ -160,6 +166,8 @@ interface EnrollmentAccountOperationGroup {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("EnrollmentAccounts_ListByBillingAccount")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("EnrollmentAccount")
   listByBillingAccount is EnrollmentAccountOperationGroupOps.List<
     EnrollmentAccount,
     Parameters = {
@@ -206,6 +214,8 @@ interface EnrollmentAccountOperationGroup {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingPermissions_ListByEnrollmentAccount")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingPermission")
   @list
   @get
   @action("billingPermissions")
@@ -220,6 +230,8 @@ interface EnrollmentAccountOperationGroup {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingPermissions_CheckAccessByEnrollmentAccount")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingPermission")
   @action("checkAccess")
   checkAccessByEnrollmentAccount is EnrollmentAccountOperationGroupOps.ActionSync<
     EnrollmentAccount,
@@ -232,6 +244,8 @@ interface EnrollmentAccountOperationGroup {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingSubscriptions_ListByEnrollmentAccount")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingSubscription")
   @list
   @get
   @action("billingSubscriptions")

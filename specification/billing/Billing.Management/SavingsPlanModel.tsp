@@ -38,13 +38,14 @@ model SavingsPlanModel
   sku: Sku;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface SavingsPlanModels {
   /**
    * Get savings plan by billing account.
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("SavingsPlans_GetByBillingAccount")
+  @tag("Savings plan")
   getByBillingAccount is ArmResourceRead<
     SavingsPlanModel,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters,
@@ -62,6 +63,7 @@ interface SavingsPlanModels {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("SavingsPlans_UpdateByBillingAccount")
+  @tag("Savings plan")
   @patch(#{ implicitOptionality: false })
   updateByBillingAccount is ArmCustomPatchAsync<
     SavingsPlanModel,
@@ -76,10 +78,11 @@ interface SavingsPlanModels {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("SavingsPlans_ListBySavingsPlanOrder")
+  @tag("Savings plan")
   listBySavingsPlanOrder is ArmResourceListByParent<
     SavingsPlanModel,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters,
-    Response = ArmResponse<SavingsPlanModelListResult>
+    Response = ArmResponse<SavingsPlanModelList>
   >;
 
   /**
@@ -87,6 +90,7 @@ interface SavingsPlanModels {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("SavingsPlans_ValidateUpdateByBillingAccount")
+  @tag("Savings plan")
   @action("validate")
   validateUpdateByBillingAccount is ArmResourceActionSync<
     SavingsPlanModel,

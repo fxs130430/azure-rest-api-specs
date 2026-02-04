@@ -67,13 +67,15 @@ alias BillingRoleDefinitionOps = Azure.ResourceManager.Legacy.ExtensionOperation
   }
 >;
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface BillingRoleDefinitions {
   /**
    * Gets the definition for a role on a billing profile. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement or Microsoft Customer Agreement.
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleDefinition_GetByBillingProfile")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleDefinition")
   getByBillingProfile is BillingRoleDefinitionOps.Read<BillingRoleDefinition>;
 
   /**
@@ -81,6 +83,8 @@ interface BillingRoleDefinitions {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleDefinition_ListByBillingProfile")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleDefinition")
   listByBillingProfile is BillingRoleDefinitionOps.List<BillingRoleDefinition>;
 }
 alias BillingRoleDefinitionByCustomerOps = Azure.ResourceManager.Legacy.ExtensionOperations<
@@ -125,13 +129,15 @@ alias BillingRoleDefinitionByCustomerOps = Azure.ResourceManager.Legacy.Extensio
   }
 >;
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface BillingRoleDefinitionByCustomer {
   /**
    * Gets the definition for a role on a customer. The operation is supported only for billing accounts with agreement type Microsoft Partner Agreement.
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleDefinition_GetByCustomer")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleDefinition")
   getByCustomer is BillingRoleDefinitionByCustomerOps.Read<BillingRoleDefinition>;
 
   /**
@@ -139,6 +145,8 @@ interface BillingRoleDefinitionByCustomer {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleDefinition_ListByCustomer")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleDefinition")
   listByCustomer is BillingRoleDefinitionByCustomerOps.List<BillingRoleDefinition>;
 }
 alias BillingRoleDefinitionByInvoiceSectionOps = Azure.ResourceManager.Legacy.ExtensionOperations<
@@ -183,13 +191,15 @@ alias BillingRoleDefinitionByInvoiceSectionOps = Azure.ResourceManager.Legacy.Ex
   }
 >;
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface BillingRoleDefinitionByInvoiceSection {
   /**
    * Gets the definition for a role on an invoice section. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleDefinition_GetByInvoiceSection")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleDefinition")
   getByInvoiceSection is BillingRoleDefinitionByInvoiceSectionOps.Read<BillingRoleDefinition>;
 
   /**
@@ -197,6 +207,8 @@ interface BillingRoleDefinitionByInvoiceSection {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleDefinition_ListByInvoiceSection")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleDefinition")
   listByInvoiceSection is BillingRoleDefinitionByInvoiceSectionOps.List<BillingRoleDefinition>;
 }
 alias BillingRoleDefinitionByBillingAccountOps = Azure.ResourceManager.Legacy.ExtensionOperations<
@@ -227,13 +239,15 @@ alias BillingRoleDefinitionByBillingAccountOps = Azure.ResourceManager.Legacy.Ex
   }
 >;
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface BillingRoleDefinitionByBillingAccount {
   /**
    * Gets the definition for a role on a billing account. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement, Microsoft Customer Agreement or Enterprise Agreement.
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleDefinition_GetByBillingAccount")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleDefinition")
   getByBillingAccount is BillingRoleDefinitionByBillingAccountOps.Read<BillingRoleDefinition>;
 
   /**
@@ -241,6 +255,8 @@ interface BillingRoleDefinitionByBillingAccount {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleDefinition_ListByBillingAccount")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleDefinition")
   listByBillingAccount is BillingRoleDefinitionByBillingAccountOps.List<BillingRoleDefinition>;
 }
 alias BillingRoleDefinitionByDepartmentOps = Azure.ResourceManager.Legacy.ExtensionOperations<
@@ -278,13 +294,15 @@ alias BillingRoleDefinitionByDepartmentOps = Azure.ResourceManager.Legacy.Extens
   }
 >;
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface BillingRoleDefinitionByDepartment {
   /**
    * Gets the definition for a role on a department. The operation is supported for billing accounts with agreement type Enterprise Agreement.
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleDefinition_GetByDepartment")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleDefinition")
   getByDepartment is BillingRoleDefinitionByDepartmentOps.Read<BillingRoleDefinition>;
 
   /**
@@ -292,6 +310,8 @@ interface BillingRoleDefinitionByDepartment {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleDefinition_ListByDepartment")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleDefinition")
   listByDepartment is BillingRoleDefinitionByDepartmentOps.List<BillingRoleDefinition>;
 }
 alias BillingRoleDefinitionByEnrollmentAccountOps = Azure.ResourceManager.Legacy.ExtensionOperations<
@@ -329,13 +349,15 @@ alias BillingRoleDefinitionByEnrollmentAccountOps = Azure.ResourceManager.Legacy
   }
 >;
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface BillingRoleDefinitionByEnrollmentAccount {
   /**
    * Gets the definition for a role on an enrollment account. The operation is supported for billing accounts with agreement type Enterprise Agreement.
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleDefinition_GetByEnrollmentAccount")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleDefinition")
   getByEnrollmentAccount is BillingRoleDefinitionByEnrollmentAccountOps.Read<BillingRoleDefinition>;
 
   /**
@@ -343,6 +365,8 @@ interface BillingRoleDefinitionByEnrollmentAccount {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleDefinition_ListByEnrollmentAccount")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleDefinition")
   listByEnrollmentAccount is BillingRoleDefinitionByEnrollmentAccountOps.List<BillingRoleDefinition>;
 }
 

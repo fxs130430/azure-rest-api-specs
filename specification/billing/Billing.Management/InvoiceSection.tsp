@@ -32,11 +32,13 @@ model InvoiceSection
   tags?: Record<string>;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface InvoiceSections {
   /**
    * Gets an invoice section by its ID. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("InvoiceSection")
   get is ArmResourceRead<
     InvoiceSection,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters
@@ -46,6 +48,8 @@ interface InvoiceSections {
    * Creates or updates an invoice section. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
    */
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-put-operation-response-codes" "For backward compatibility"
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("InvoiceSection")
   createOrUpdate is ArmResourceCreateOrReplaceAsync<
     InvoiceSection,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters,
@@ -59,6 +63,8 @@ interface InvoiceSections {
   /**
    * Deletes an invoice section. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("InvoiceSection")
   delete is ArmResourceDeleteWithoutOkAsync<
     InvoiceSection,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters
@@ -67,6 +73,8 @@ interface InvoiceSections {
   /**
    * Lists the invoice sections that a user has access to. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("InvoiceSection")
   listByBillingProfile is ArmResourceListByParent<
     InvoiceSection,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters,
@@ -120,6 +128,8 @@ interface InvoiceSections {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingPermissions_ListByInvoiceSection")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingPermission")
   @list
   @get
   @action("billingPermissions")
@@ -135,6 +145,8 @@ interface InvoiceSections {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingPermissions_CheckAccessByInvoiceSection")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingPermission")
   @action("checkAccess")
   checkAccessByInvoiceSection is ArmResourceActionSync<
     InvoiceSection,
@@ -148,6 +160,8 @@ interface InvoiceSections {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRequests_ListByInvoiceSection")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRequest")
   @list
   @get
   @action("billingRequests")
@@ -200,11 +214,13 @@ interface InvoiceSections {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleAssignments_CreateByInvoiceSection")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleAssignment")
   @action("createBillingRoleAssignment")
   createByInvoiceSection is ArmResourceActionAsync<
     InvoiceSection,
     BillingRoleAssignmentProperties,
-    ArmResponse<BillingRoleAssignment>,
+    BillingRoleAssignment,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters
   >;
 
@@ -213,12 +229,14 @@ interface InvoiceSections {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleAssignments_ResolveByInvoiceSection")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleAssignment")
   @list
   @action("resolveBillingRoleAssignments")
   resolveByInvoiceSection is ArmResourceActionAsync<
     InvoiceSection,
     void,
-    ArmResponse<ResourceListResult<BillingRoleAssignment>>,
+    ResourceListResult<BillingRoleAssignment>,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters,
     Parameters = {
       /**
@@ -240,6 +258,8 @@ interface InvoiceSections {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingSubscriptions_ListByInvoiceSection")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingSubscription")
   @list
   @get
   @action("billingSubscriptions")
@@ -302,6 +322,8 @@ interface InvoiceSections {
   /**
    * Validates if the invoice section can be deleted. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("InvoiceSection")
   validateDeleteEligibility is ArmResourceActionSync<
     InvoiceSection,
     void,
@@ -314,6 +336,8 @@ interface InvoiceSections {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("Products_ListByInvoiceSection")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Product")
   @list
   @get
   @action("products")
@@ -366,6 +390,8 @@ interface InvoiceSections {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("Transactions_ListByInvoiceSection")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Transaction")
   @list
   @get
   @action("transactions")

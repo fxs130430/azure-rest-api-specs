@@ -67,21 +67,27 @@ alias BillingRoleAssignmentOps = Azure.ResourceManager.Legacy.ExtensionOperation
   }
 >;
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface BillingRoleAssignments {
   /**
    * Gets a role assignment for the caller on a billing profile. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement or Microsoft Customer Agreement.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleAssignment")
   getByBillingProfile is BillingRoleAssignmentOps.Read<BillingRoleAssignment>;
 
   /**
    * Deletes a role assignment on a billing profile. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement or Microsoft Customer Agreement.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleAssignment")
   deleteByBillingProfile is BillingRoleAssignmentOps.DeleteSync<BillingRoleAssignment>;
 
   /**
    * Lists the role assignments for the caller on a billing profile. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement or Microsoft Customer Agreement.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleAssignment")
   listByBillingProfile is BillingRoleAssignmentOps.List<
     BillingRoleAssignment,
     Parameters = {
@@ -147,13 +153,15 @@ alias BillingRoleAssignmentByCustomerOps = Azure.ResourceManager.Legacy.Extensio
   }
 >;
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface BillingRoleAssignmentByCustomer {
   /**
    * Gets a role assignment for the caller on a customer. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement.
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleAssignments_GetByCustomer")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleAssignment")
   getByCustomer is BillingRoleAssignmentByCustomerOps.Read<BillingRoleAssignment>;
 
   /**
@@ -161,6 +169,8 @@ interface BillingRoleAssignmentByCustomer {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleAssignments_DeleteByCustomer")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleAssignment")
   deleteByCustomer is BillingRoleAssignmentByCustomerOps.DeleteSync<BillingRoleAssignment>;
 
   /**
@@ -168,6 +178,8 @@ interface BillingRoleAssignmentByCustomer {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleAssignments_ListByCustomer")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleAssignment")
   listByCustomer is BillingRoleAssignmentByCustomerOps.List<
     BillingRoleAssignment,
     Parameters = {
@@ -233,13 +245,15 @@ alias BillingRoleAssignmentByInvoiceSectionOps = Azure.ResourceManager.Legacy.Ex
   }
 >;
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface BillingRoleAssignmentByInvoiceSection {
   /**
    * Gets a role assignment for the caller on an invoice section. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement.
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleAssignments_GetByInvoiceSection")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleAssignment")
   getByInvoiceSection is BillingRoleAssignmentByInvoiceSectionOps.Read<BillingRoleAssignment>;
 
   /**
@@ -247,6 +261,8 @@ interface BillingRoleAssignmentByInvoiceSection {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleAssignments_DeleteByInvoiceSection")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleAssignment")
   deleteByInvoiceSection is BillingRoleAssignmentByInvoiceSectionOps.DeleteSync<BillingRoleAssignment>;
 
   /**
@@ -254,6 +270,8 @@ interface BillingRoleAssignmentByInvoiceSection {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleAssignments_ListByInvoiceSection")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleAssignment")
   listByInvoiceSection is BillingRoleAssignmentByInvoiceSectionOps.List<
     BillingRoleAssignment,
     Parameters = {
@@ -305,13 +323,15 @@ alias BillingRoleAssignmentByBillingAccountOps = Azure.ResourceManager.Legacy.Ex
   }
 >;
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface BillingRoleAssignmentByBillingAccount {
   /**
    * Gets a role assignment for the caller on a billing account. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement, Microsoft Customer Agreement or Enterprise Agreement.
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleAssignments_GetByBillingAccount")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleAssignment")
   getByBillingAccount is BillingRoleAssignmentByBillingAccountOps.Read<BillingRoleAssignment>;
 
   /**
@@ -319,6 +339,8 @@ interface BillingRoleAssignmentByBillingAccount {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleAssignments_CreateOrUpdateByBillingAccount")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleAssignment")
   createOrUpdateByBillingAccount is BillingRoleAssignmentByBillingAccountOps.CreateOrUpdateAsync<
     BillingRoleAssignment,
     LroHeaders = ArmLroLocationHeader<FinalResult = BillingRoleAssignment> &
@@ -330,6 +352,8 @@ interface BillingRoleAssignmentByBillingAccount {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleAssignments_DeleteByBillingAccount")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleAssignment")
   deleteByBillingAccount is BillingRoleAssignmentByBillingAccountOps.DeleteSync<BillingRoleAssignment>;
 
   /**
@@ -337,6 +361,8 @@ interface BillingRoleAssignmentByBillingAccount {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleAssignments_ListByBillingAccount")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleAssignment")
   listByBillingAccount is BillingRoleAssignmentByBillingAccountOps.List<
     BillingRoleAssignment,
     Parameters = {
@@ -395,13 +421,15 @@ alias BillingRoleAssignmentByDepartmentOps = Azure.ResourceManager.Legacy.Extens
   }
 >;
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface BillingRoleAssignmentByDepartment {
   /**
    * Gets a role assignment for the caller on a department. The operation is supported only for billing accounts with agreement type Enterprise Agreement.
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleAssignments_GetByDepartment")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleAssignment")
   getByDepartment is BillingRoleAssignmentByDepartmentOps.Read<BillingRoleAssignment>;
 
   /**
@@ -409,6 +437,8 @@ interface BillingRoleAssignmentByDepartment {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleAssignments_CreateOrUpdateByDepartment")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleAssignment")
   createOrUpdateByDepartment is BillingRoleAssignmentByDepartmentOps.CreateOrUpdateAsync<
     BillingRoleAssignment,
     LroHeaders = ArmLroLocationHeader<FinalResult = BillingRoleAssignment> &
@@ -420,6 +450,8 @@ interface BillingRoleAssignmentByDepartment {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleAssignments_DeleteByDepartment")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleAssignment")
   deleteByDepartment is BillingRoleAssignmentByDepartmentOps.DeleteSync<BillingRoleAssignment>;
 
   /**
@@ -427,6 +459,8 @@ interface BillingRoleAssignmentByDepartment {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleAssignments_ListByDepartment")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleAssignment")
   listByDepartment is BillingRoleAssignmentByDepartmentOps.List<BillingRoleAssignment>;
 }
 alias BillingRoleAssignmentByEnrollmentAccountOps = Azure.ResourceManager.Legacy.ExtensionOperations<
@@ -464,13 +498,15 @@ alias BillingRoleAssignmentByEnrollmentAccountOps = Azure.ResourceManager.Legacy
   }
 >;
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface BillingRoleAssignmentByEnrollmentAccount {
   /**
    * Gets a role assignment for the caller on a enrollment Account. The operation is supported only for billing accounts with agreement type Enterprise Agreement.
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleAssignments_GetByEnrollmentAccount")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleAssignment")
   getByEnrollmentAccount is BillingRoleAssignmentByEnrollmentAccountOps.Read<BillingRoleAssignment>;
 
   /**
@@ -478,6 +514,8 @@ interface BillingRoleAssignmentByEnrollmentAccount {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleAssignments_CreateOrUpdateByEnrollmentAccount")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleAssignment")
   createOrUpdateByEnrollmentAccount is BillingRoleAssignmentByEnrollmentAccountOps.CreateOrUpdateAsync<
     BillingRoleAssignment,
     LroHeaders = ArmLroLocationHeader<FinalResult = BillingRoleAssignment> &
@@ -489,6 +527,8 @@ interface BillingRoleAssignmentByEnrollmentAccount {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleAssignments_DeleteByEnrollmentAccount")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleAssignment")
   deleteByEnrollmentAccount is BillingRoleAssignmentByEnrollmentAccountOps.DeleteSync<BillingRoleAssignment>;
 
   /**
@@ -496,6 +536,8 @@ interface BillingRoleAssignmentByEnrollmentAccount {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleAssignments_ListByEnrollmentAccount")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleAssignment")
   listByEnrollmentAccount is BillingRoleAssignmentByEnrollmentAccountOps.List<BillingRoleAssignment>;
 }
 

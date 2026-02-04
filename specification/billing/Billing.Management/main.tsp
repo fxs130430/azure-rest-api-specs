@@ -9,6 +9,7 @@
  */
 import "@typespec/rest";
 import "@typespec/versioning";
+import "@typespec/openapi";
 import "@azure-tools/typespec-azure-core";
 import "@azure-tools/typespec-azure-resource-manager";
 import "./models.tsp";
@@ -47,6 +48,7 @@ import "./routes.tsp";
 
 using TypeSpec.Rest;
 using TypeSpec.Http;
+using TypeSpec.OpenAPI;
 using Azure.ResourceManager.Foundations;
 using Azure.Core;
 using Azure.ResourceManager;
@@ -70,4 +72,7 @@ enum Versions {
   v2024_04_01: "2024-04-01",
 }
 
-interface Operations extends Azure.ResourceManager.Operations {}
+interface Operations extends Azure.ResourceManager.Operations {
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  list is Azure.ResourceManager.Operations.list;
+}

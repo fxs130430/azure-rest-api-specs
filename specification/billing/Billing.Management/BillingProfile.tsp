@@ -32,11 +32,13 @@ model BillingProfile
   tags?: Record<string>;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface BillingProfiles {
   /**
    * Gets a billing profile by its ID. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement and Microsoft Partner Agreement.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingProfile")
   get is ArmResourceRead<
     BillingProfile,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters
@@ -46,6 +48,8 @@ interface BillingProfiles {
    * Creates or updates a billing profile. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement and Microsoft Partner Agreement. If you are a MCA Individual (Pay-as-you-go) customer, then please use the Azure portal experience to create the billing profile.
    */
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-put-operation-response-codes" "For backward compatibility"
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingProfile")
   createOrUpdate is ArmResourceCreateOrReplaceAsync<
     BillingProfile,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters,
@@ -59,6 +63,8 @@ interface BillingProfiles {
   /**
    * Deletes a billing profile. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement and Microsoft Partner Agreement.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingProfile")
   delete is ArmResourceDeleteWithoutOkAsync<
     BillingProfile,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters
@@ -67,6 +73,8 @@ interface BillingProfiles {
   /**
    * Lists the billing profiles that a user has access to. The operation is supported for billing accounts with agreement of type Microsoft Customer Agreement and Microsoft Partner Agreement.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingProfile")
   listByBillingAccount is ArmResourceListByParent<
     BillingProfile,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters,
@@ -120,6 +128,8 @@ interface BillingProfiles {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingPermissions_ListByBillingProfile")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingPermission")
   @list
   @get
   @action("billingPermissions")
@@ -135,6 +145,8 @@ interface BillingProfiles {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingPermissions_CheckAccessByBillingProfile")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingPermission")
   @action("checkAccess")
   checkAccessByBillingProfile is ArmResourceActionSync<
     BillingProfile,
@@ -146,6 +158,8 @@ interface BillingProfiles {
   /**
    * Validates if the billing profile can be deleted. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement and Microsoft Partner Agreement.
    */
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingProfile")
   validateDeleteEligibility is ArmResourceActionSync<
     BillingProfile,
     void,
@@ -158,6 +172,8 @@ interface BillingProfiles {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRequests_ListByBillingProfile")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRequest")
   @list
   @get
   @action("billingRequests")
@@ -210,11 +226,13 @@ interface BillingProfiles {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleAssignments_CreateByBillingProfile")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleAssignment")
   @action("createBillingRoleAssignment")
   createByBillingProfile is ArmResourceActionAsync<
     BillingProfile,
     BillingRoleAssignmentProperties,
-    ArmResponse<BillingRoleAssignment>,
+    BillingRoleAssignment,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters
   >;
 
@@ -223,12 +241,14 @@ interface BillingProfiles {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("BillingRoleAssignments_ResolveByBillingProfile")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("BillingRoleAssignment")
   @list
   @action("resolveBillingRoleAssignments")
   resolveByBillingProfile is ArmResourceActionAsync<
     BillingProfile,
     void,
-    ArmResponse<ResourceListResult<BillingRoleAssignment>>,
+    ResourceListResult<BillingRoleAssignment>,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters,
     Parameters = {
       /**
@@ -250,6 +270,8 @@ interface BillingProfiles {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("Invoices_ListByBillingProfile")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Invoice")
   @list
   @get
   @action("invoices")
@@ -314,6 +336,8 @@ interface BillingProfiles {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("Products_ListByBillingProfile")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Product")
   @list
   @get
   @action("products")
@@ -366,13 +390,14 @@ interface BillingProfiles {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("Reservations_ListByBillingProfile")
+  @tag("Reservations")
   @list
   @get
   @action("reservations")
   reservationsListByBillingProfile is ArmResourceActionSync<
     BillingProfile,
     void,
-    ArmResponse<ResourceListResult<Reservation>>,
+    ArmResponse<ReservationsListResult>,
     BaseParameters = Azure.ResourceManager.Foundations.TenantBaseParameters,
     Parameters = {
       /**
@@ -418,6 +443,8 @@ interface BillingProfiles {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("Transactions_ListByBillingProfile")
+  @externalDocs("https://docs.microsoft.com/en-us/rest/api/billing/")
+  @tag("Transaction")
   @list
   @get
   @action("transactions")
