@@ -57,7 +57,10 @@ namespace Customizations;
   "javascript"
 );
 @@clientName(BlobPropertiesInternal.deletedTime, "deletedOn", "javascript");
+@@clientName(BlobPropertiesInternal.eTag, "etag", "javascript");
 @@clientName(ContainerProperties.deletedTime, "deletedOn", "javascript");
+@@clientName(ContainerProperties.eTag, "etag", "javascript");
+@@clientName(EtagResponseHeader.eTag, "etag", "javascript");
 @@clientName(GeoReplication.lastSyncTime, "lastSyncOn", "javascript");
 @@clientName(KeyInfo.start, "startsOn", "javascript");
 @@clientName(KeyInfo.expiry, "expiresOn", "javascript");
