@@ -9,7 +9,7 @@ options:
     arm-types-dir: "{project-root}/../../../../common-types/resource-management"
   "@azure-typespec/http-client-csharp-mgmt":
     namespace: "Azure.ResourceManager.Hci"
-    emitter-output-dir: "{output-dir}/{service-dir}/{namespace}"
+    emitter-output-dir: "{output-dir}/sdk/azurestackhci/{namespace}"
   "@azure-tools/typespec-go":
     service-dir: sdk/resourcemanager/azurestackhci
     module: github.com/Azure/azure-sdk-for-go/{service-dir}/armazurestackhci
