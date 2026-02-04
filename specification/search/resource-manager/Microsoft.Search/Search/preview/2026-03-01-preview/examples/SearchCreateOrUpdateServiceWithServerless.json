@@ -13,7 +13,7 @@
         "name": "serverless"
       },
       "properties": {
-        "hostingMode": "default"
+        "hostingMode": "Default"
       }
     }
   },
@@ -34,9 +34,9 @@
           "endpoint": "https://myserverlessservice.search.windows.net/",
           "status": "provisioning",
           "statusDetails": "",
-          "hostingMode": "default",
+          "hostingMode": "Default",
           "provisioningState": "provisioning",
-          "publicNetworkAccess": "enabled",
+          "publicNetworkAccess": "Enabled",
           "networkRuleSet": {
             "ipRules": [],
             "bypass": "None"
@@ -72,9 +72,9 @@
           "endpoint": "https://myserverlessservice.search.windows.net/",
           "status": "provisioning",
           "statusDetails": "",
-          "hostingMode": "default",
+          "hostingMode": "Default",
           "provisioningState": "provisioning",
-          "publicNetworkAccess": "enabled",
+          "publicNetworkAccess": "Enabled",
           "networkRuleSet": {
             "ipRules": [],
             "bypass": "None"
