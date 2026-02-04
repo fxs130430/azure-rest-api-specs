@@ -1,13 +1,75 @@
 import "@azure-tools/typespec-azure-core";
 import "@azure-tools/typespec-azure-resource-manager";
 import "@typespec/rest";
-import "./models.tsp";
+import "./CommonModels.tsp";
 
 using TypeSpec.Rest;
 using Azure.ResourceManager;
 using TypeSpec.Http;
 
 namespace Microsoft.ContainerService;
+
+// ============================================================================
+// SNAPSHOT-SPECIFIC MODELS
+// ============================================================================
+
+/**
+ * Properties used to configure a node pool snapshot.
+ */
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+model SnapshotProperties {
+  /**
+   * CreationData to be used to specify the source agent pool resource ID to create this snapshot.
+   */
+  creationData?: CreationData;
+
+  /**
+   * The type of a snapshot. The default is NodePool.
+   */
+  snapshotType?: SnapshotType = SnapshotType.NodePool;
+
+  /**
+   * The version of Kubernetes.
+   */
+  @visibility(Lifecycle.Read)
+  kubernetesVersion?: string;
+
+  /**
+   * The version of node image.
+   */
+  @visibility(Lifecycle.Read)
+  nodeImageVersion?: string;
+
+  /**
+   * The operating system type. The default is Linux.
+   */
+  @visibility(Lifecycle.Read)
+  osType?: OSType = OSType.Linux;
+
+  /**
+   * Specifies the OS SKU used by the agent pool. The default is Ubuntu if OSType is Linux. The default is Windows2019 when Kubernetes <= 1.24 or Windows2022 when Kubernetes >= 1.25 if OSType is Windows.
+   */
+  @visibility(Lifecycle.Read)
+  osSku?: OSSKU;
+
+  /**
+   * The size of the VM.
+   */
+  @visibility(Lifecycle.Read)
+  vmSize?: string;
+
+  /**
+   * Whether to use a FIPS-enabled OS.
+   */
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  @visibility(Lifecycle.Read)
+  enableFIPS?: boolean;
+}
+
+// ============================================================================
+// SNAPSHOT RESOURCE AND OPERATIONS
+// ============================================================================
+
 /**
  * A node pool snapshot resource.
  */

@@ -1,7 +1,7 @@
 import "@azure-tools/typespec-azure-core";
 import "@azure-tools/typespec-azure-resource-manager";
 import "@typespec/rest";
-import "./models.tsp";
+import "./CommonModels.tsp";
 import "./ManagedCluster.tsp";
 
 using TypeSpec.Rest;
@@ -9,6 +9,19 @@ using Azure.ResourceManager;
 using TypeSpec.Http;
 
 namespace Microsoft.ContainerService;
+
+/**
+ * Holds an array of MeshUpgradeProfiles
+ */
+model MeshUpgradeProfileList is Azure.Core.Page<MeshUpgradeProfile>;
+
+/**
+ * Mesh upgrade profile properties for a major.minor release.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+model MeshUpgradeProfileProperties extends MeshRevision {}
 /**
  * Upgrade profile for given mesh.
  */

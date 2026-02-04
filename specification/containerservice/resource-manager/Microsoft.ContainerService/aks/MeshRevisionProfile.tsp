@@ -1,12 +1,27 @@
 import "@azure-tools/typespec-azure-core";
 import "@azure-tools/typespec-azure-resource-manager";
 import "@typespec/rest";
-import "./models.tsp";
+import "./CommonModels.tsp";
 
 using Azure.ResourceManager;
 using TypeSpec.Rest;
 
 namespace Microsoft.ContainerService;
+
+/**
+ * Holds an array of MeshRevisionsProfiles
+ */
+model MeshRevisionProfileList is Azure.Core.Page<MeshRevisionProfile>;
+
+/**
+ * Mesh revision profile properties for a mesh
+ */
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+model MeshRevisionProfileProperties {
+  /** Available mesh revisions. */
+  @identifiers(#[])
+  meshRevisions?: MeshRevision[];
+}
 /**
  * Mesh revision profile for a mesh.
  */
