@@ -14,6 +14,7 @@ namespace Microsoft.CognitiveServices;
 /**
  * Cognitive Services account commitment plan.
  */
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 @parentResource(Account)
 model CommitmentPlan
   is Azure.ResourceManager.Legacy.TrackedResourceWithOptionalLocation<CommitmentPlanProperties> {

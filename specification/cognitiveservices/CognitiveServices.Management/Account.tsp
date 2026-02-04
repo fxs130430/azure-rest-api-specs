@@ -13,6 +13,7 @@ namespace Microsoft.CognitiveServices;
 /**
  * Cognitive Services account is an Azure resource representing the provisioned account, it's type, location and SKU.
  */
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model Account
   is Azure.ResourceManager.Legacy.TrackedResourceWithOptionalLocation<AccountProperties> {
   ...ResourceNameParameter<

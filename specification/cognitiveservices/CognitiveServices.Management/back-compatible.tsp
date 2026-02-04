@@ -97,6 +97,7 @@ using Microsoft.CognitiveServices;
 @@clientLocation(CommitmentPlanAccountAssociations.listAssociations,
   CommitmentPlans
 );
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 @@Azure.ClientGenerator.Core.Legacy.flattenProperty(CommitmentPlanAccountAssociation.properties
 );
 
@@ -106,6 +107,7 @@ using Microsoft.CognitiveServices;
 @@clientName(DefenderForAISettings.update::parameters.properties,
   "defenderForAISettings"
 );
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 @@Azure.ClientGenerator.Core.Legacy.flattenProperty(DefenderForAISetting.properties
 );
 
