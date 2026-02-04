@@ -114,3 +114,9 @@ namespace Customizations;
 @@clientName(Storage.Blob.Container.findBlobsByTags, "filterBlobs", "python");
 
 @@alternateType(BlockIdParameter.blockid, string, "python");
+
+@@Legacy.disablePageable(Storage.Blob.Container.listBlobFlatSegment, "python");
+@@Legacy.disablePageable(Storage.Blob.Container.listBlobHierarchySegment,
+  "python"
+);
+@@Legacy.disablePageable(Storage.Blob.Service.listContainersSegment, "python");
