@@ -44,6 +44,7 @@ import "./StaticSiteBasicAuthPropertiesARMResource.tsp";
 import "./StaticSiteCustomDomainOverviewARMResource.tsp";
 import "./StaticSiteLinkedBackendARMResource.tsp";
 import "./Site.tsp";
+import "./AIGateway.tsp";
 import "./BackupItem.tsp";
 import "./CsmPublishingCredentialsPoliciesEntity.tsp";
 import "./SiteAuthSettingsV2.tsp";
