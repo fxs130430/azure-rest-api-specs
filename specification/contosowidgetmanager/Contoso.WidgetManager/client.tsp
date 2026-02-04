@@ -18,6 +18,7 @@ namespace ClientCustomizations;
 // Line 119: Add required parameter 'hat' of type string to list_widgets
 // Define custom types for client customizations
 model ListWidgetsOptions {
+  @doc("The hat parameter for filtering widgets.")
   hat: string;
   ...StandardListQueryParameters;
 }
