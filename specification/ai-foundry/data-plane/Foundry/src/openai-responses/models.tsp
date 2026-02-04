@@ -113,11 +113,11 @@ namespace Azure.AI.Projects {
     structured_outputs: "structured_outputs",
     oauth_consent_request: "oauth_consent_request",
     memory_search_call: "memory_search_call",
-    workflow_preview_action: "workflow_preview_action",
+    workflow_action: "workflow_action",
   }
 
   @@copyVariants(OpenAI.ItemType, _AgentItemType);
-
+  @@copyVariants(OpenAI.ItemResourceType, _AgentItemType);
   @@copyVariants(OpenAI.OutputItemType, _AgentItemType);
 
   /* created_by conflicts with the property in OpenAI.FunctionShellCall, ApplyPatchToolCall, and ApplyPatchToolCallOutput, to work around it we use a union type here */
@@ -146,15 +146,15 @@ namespace Azure.AI.Projects {
     response_id?: string;
   }
 
-  model StructuredOutputsItemResource extends OpenAI.ItemResource {
+  model StructuredOutputsOutputItem extends OpenAI.OutputItem {
     type: "structured_outputs";
 
     @doc("The structured output captured during the response.")
     output: unknown;
   }
 
-  model WorkflowPreviewActionOutputItemResource extends OpenAI.ItemResource {
-    type: "workflow_preview_action";
+  model WorkflowActionOutputItem extends OpenAI.OutputItem {
+    type: "workflow_action";
 
     @doc("The kind of CSDL action (e.g., 'SetVariable', 'InvokeAzureAgent').")
     kind: string;
@@ -186,7 +186,7 @@ namespace Azure.AI.Projects {
   }
 
   @doc("Request from the service for the user to perform OAuth consent.")
-  model OAuthConsentRequestItemResource extends OpenAI.ItemResource {
+  model OAuthConsentRequestOutputItem extends OpenAI.OutputItem {
     id: string;
     type: "oauth_consent_request";
 

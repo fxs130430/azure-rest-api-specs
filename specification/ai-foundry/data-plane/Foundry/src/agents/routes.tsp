@@ -31,7 +31,7 @@ interface Agents {
   @route("/agents")
   @extension("x-ms-foundry-meta", AllConditionalAgentDefinitionPreviews)
   createAgent is FoundryDataPlanePreviewOperation<
-    FoundryPreviewOptInKeys.container_agents_v1 | FoundryPreviewOptInKeys.hosted_agents_v1 | FoundryPreviewOptInKeys.workflow_agents_v1,
+    FoundryFeaturesOptInKeys.container_agents_v1_preview | FoundryFeaturesOptInKeys.hosted_agents_v1_preview | FoundryFeaturesOptInKeys.workflow_agents_v1_preview,
     CreateAgentRequest,
     AgentObject
   >;
@@ -43,7 +43,8 @@ interface Agents {
   #suppress "@azure-tools/typespec-azure-core/no-unnamed-union" ""
   @post
   @route("/agents/{agent_name}")
-  updateAgent is FoundryDataPlaneOperation<
+  updateAgent is FoundryDataPlanePreviewOperation<
+    FoundryFeaturesOptInKeys.container_agents_v1_preview | FoundryFeaturesOptInKeys.hosted_agents_v1_preview | FoundryFeaturesOptInKeys.workflow_agents_v1_preview,
     {
       /** The name of the agent to retrieve. */
       @path agent_name: string;
@@ -59,8 +60,7 @@ interface Agents {
   #suppress "@azure-tools/typespec-azure-core/no-unnamed-union" ""
   @post
   @route("/agents:import")
-  createAgentFromManifest is FoundryDataPlanePreviewOperation<
-    FoundryPreviewOptInKeys.container_agents_v1 | FoundryPreviewOptInKeys.hosted_agents_v1,
+  createAgentFromManifest is FoundryDataPlaneOperation<
     CreateAgentFromManifestRequest,
     AgentObject
   >;
@@ -116,7 +116,7 @@ interface Agents {
   @route("/agents/{agent_name}/versions")
   @extension("x-ms-foundry-meta", AllConditionalAgentDefinitionPreviews)
   createAgentVersion is FoundryDataPlanePreviewOperation<
-    FoundryPreviewOptInKeys.container_agents_v1 | FoundryPreviewOptInKeys.hosted_agents_v1 | FoundryPreviewOptInKeys.workflow_agents_v1,
+    FoundryFeaturesOptInKeys.container_agents_v1_preview | FoundryFeaturesOptInKeys.hosted_agents_v1_preview | FoundryFeaturesOptInKeys.workflow_agents_v1_preview,
     {
       /**
        * The unique name that identifies the agent. Name can be used to retrieve/update/delete the agent.
@@ -178,8 +178,7 @@ interface Agents {
   #suppress "@azure-tools/typespec-azure-core/no-unnamed-union" ""
   @delete
   @route("/agents/{agent_name}/versions/{agent_version}")
-  deleteAgentVersion is FoundryDataPlanePreviewOperation<
-    FoundryPreviewOptInKeys.container_agents_v1 | FoundryPreviewOptInKeys.hosted_agents_v1,
+  deleteAgentVersion is FoundryDataPlaneOperation<
     {
       /** The name of the agent to delete. */
       @path agent_name: string;
@@ -216,10 +215,10 @@ interface Agents {
   @route("/agents/{agent_name}/versions/{agent_version}/containers/default:start")
   @extension(
     "x-ms-foundry-meta",
-    #{ required_previews: #[FoundryPreviewOptInKeys.container_agents_v1] }
+    #{ required_previews: #[FoundryFeaturesOptInKeys.container_agents_v1_preview] }
   )
   startAgentContainer is FoundryDataPlanePreviewOperation<
-    FoundryPreviewOptInKeys.container_agents_v1,
+    FoundryFeaturesOptInKeys.container_agents_v1_preview,
     {
       /** The name of the agent. */
       @path agent_name: string;
@@ -246,10 +245,10 @@ interface Agents {
   @route("/agents/{agent_name}/versions/{agent_version}/containers/default:update")
   @extension(
     "x-ms-foundry-meta",
-    #{ required_previews: #[FoundryPreviewOptInKeys.container_agents_v1] }
+    #{ required_previews: #[FoundryFeaturesOptInKeys.container_agents_v1_preview] }
   )
   updateAgentContainer is FoundryDataPlanePreviewOperation<
-    FoundryPreviewOptInKeys.container_agents_v1,
+    FoundryFeaturesOptInKeys.container_agents_v1_preview,
     {
       /** The name of the agent. */
       @path agent_name: string;
@@ -276,10 +275,10 @@ interface Agents {
   @route("/agents/{agent_name}/versions/{agent_version}/containers/default:stop")
   @extension(
     "x-ms-foundry-meta",
-    #{ required_previews: #[FoundryPreviewOptInKeys.container_agents_v1] }
+    #{ required_previews: #[FoundryFeaturesOptInKeys.container_agents_v1_preview] }
   )
   stopAgentContainer is FoundryDataPlanePreviewOperation<
-    FoundryPreviewOptInKeys.container_agents_v1,
+    FoundryFeaturesOptInKeys.container_agents_v1_preview,
     {
       /** The name of the agent. */
       @path agent_name: string;
@@ -300,10 +299,10 @@ interface Agents {
   @route("/agents/{agent_name}/versions/{agent_version}/containers/default:delete")
   @extension(
     "x-ms-foundry-meta",
-    #{ required_previews: #[FoundryPreviewOptInKeys.container_agents_v1] }
+    #{ required_previews: #[FoundryFeaturesOptInKeys.container_agents_v1_preview] }
   )
   deleteAgentContainer is FoundryDataPlanePreviewOperation<
-    FoundryPreviewOptInKeys.container_agents_v1,
+    FoundryFeaturesOptInKeys.container_agents_v1_preview,
     {
       /** The name of the agent. */
       @path agent_name: string;
@@ -321,10 +320,10 @@ interface Agents {
   @route("/agents/{agent_name}/versions/{agent_version}/containers/default")
   @extension(
     "x-ms-foundry-meta",
-    #{ required_previews: #[FoundryPreviewOptInKeys.container_agents_v1] }
+    #{ required_previews: #[FoundryFeaturesOptInKeys.container_agents_v1_preview] }
   )
   getAgentContainer is FoundryDataPlanePreviewOperation<
-    FoundryPreviewOptInKeys.container_agents_v1,
+    FoundryFeaturesOptInKeys.container_agents_v1_preview,
     {
       /** The name of the agent. */
       @path agent_name: string;
@@ -361,10 +360,10 @@ interface Agents {
     """)
   @extension(
     "x-ms-foundry-meta",
-    #{ required_previews: #[FoundryPreviewOptInKeys.container_agents_v1] }
+    #{ required_previews: #[FoundryFeaturesOptInKeys.container_agents_v1_preview] }
   )
   streamAgentContainerLogs is FoundryDataPlanePreviewOperation<
-    FoundryPreviewOptInKeys.container_agents_v1,
+    FoundryFeaturesOptInKeys.container_agents_v1_preview,
     {
       /** The name of the agent. */
       @path agent_name: string;
@@ -401,10 +400,10 @@ interface Agents {
   @route("/agents/{agent_name}/operations/{operation_id}")
   @extension(
     "x-ms-foundry-meta",
-    #{ required_previews: #[FoundryPreviewOptInKeys.container_agents_v1] }
+    #{ required_previews: #[FoundryFeaturesOptInKeys.container_agents_v1_preview] }
   )
   getAgentContainerOperation is FoundryDataPlanePreviewOperation<
-    FoundryPreviewOptInKeys.container_agents_v1,
+    FoundryFeaturesOptInKeys.container_agents_v1_preview,
     {
       /** The name of the agent. */
       @path agent_name: string;
@@ -423,10 +422,10 @@ interface Agents {
   @list
   @extension(
     "x-ms-foundry-meta",
-    #{ required_previews: #[FoundryPreviewOptInKeys.container_agents_v1] }
+    #{ required_previews: #[FoundryFeaturesOptInKeys.container_agents_v1_preview] }
   )
   listAgentContainerOperations is FoundryDataPlanePreviewOperation<
-    FoundryPreviewOptInKeys.container_agents_v1,
+    FoundryFeaturesOptInKeys.container_agents_v1_preview,
     {
       /** The name of the agent. */
       @path agent_name: string;
@@ -444,10 +443,10 @@ interface Agents {
   @list
   @extension(
     "x-ms-foundry-meta",
-    #{ required_previews: #[FoundryPreviewOptInKeys.container_agents_v1] }
+    #{ required_previews: #[FoundryFeaturesOptInKeys.container_agents_v1_preview] }
   )
   listAgentVersionContainerOperations is FoundryDataPlanePreviewOperation<
-    FoundryPreviewOptInKeys.container_agents_v1,
+    FoundryFeaturesOptInKeys.container_agents_v1_preview,
     {
       /** The name of the agent. */
       @path agent_name: string;
