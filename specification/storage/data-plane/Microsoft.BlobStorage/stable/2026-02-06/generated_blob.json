@@ -120,7 +120,7 @@
             "minimum": 0
           },
           {
-            "name": "Range",
+            "name": "x-ms-range",
             "in": "header",
             "description": "Return only the bytes of the blob in the specified range.",
             "required": false,
@@ -9041,7 +9041,7 @@
             "minimum": 0
           },
           {
-            "name": "Range",
+            "name": "x-ms-range",
             "in": "header",
             "description": "Bytes of data in the specified range.",
             "required": true,
@@ -9362,7 +9362,7 @@
             "minimum": 0
           },
           {
-            "name": "Range",
+            "name": "x-ms-range",
             "in": "header",
             "description": "Bytes of data in the specified range.",
             "required": true,
@@ -10022,7 +10022,7 @@
             "minimum": 0
           },
           {
-            "name": "Range",
+            "name": "x-ms-range",
             "in": "header",
             "description": "Return only the bytes of the blob in the specified range.",
             "required": false,
@@ -10233,7 +10233,7 @@
             "x-ms-client-name": "prevSnapshotUrl"
           },
           {
-            "name": "Range",
+            "name": "x-ms-range",
             "in": "header",
             "description": "Return only the bytes of the blob in the specified range.",
             "required": false,

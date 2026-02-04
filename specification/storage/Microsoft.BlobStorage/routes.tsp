@@ -1603,7 +1603,7 @@ namespace Storage.Blob {
             ...TimeoutParameter;
 
             /** Bytes of data in the specified range. */
-            @header("Range")
+            @header("x-ms-range")
             range: string;
 
             ...LeaseIdOptionalParameter;
@@ -1658,7 +1658,7 @@ namespace Storage.Blob {
             ...TimeoutParameter;
 
             /** Bytes of data in the specified range. */
-            @header("Range")
+            @header("x-ms-range")
             range: string;
 
             ...LeaseIdOptionalParameter;
