@@ -4,9 +4,9 @@ import "@azure-tools/typespec-client-generator-core";
 using Azure.Contoso.WidgetManager;
 using Azure.ClientGenerator.Core;
 
-// Custom namespace for client customizations
 namespace ClientCustomizations;
 
+// Augmentation decorators for existing types
 @@clientName(Widgets, "ContosoWidgets", "csharp");
 
 // Line 124: Remove "Model" suffix from FakedSharedModel
@@ -16,11 +16,14 @@ namespace ClientCustomizations;
 @@clientName(Widgets.createOrUpdateWidget.widgetName, "name", "python");
 
 // Line 119: Add required parameter 'hat' of type string to list_widgets
+// Define custom types for client customizations
 model ListWidgetsOptions {
   hat: string;
   ...StandardListQueryParameters;
 }
+
 op listWidgetsCustom(...ListWidgetsOptions): Azure.Core.Page<WidgetSuite>;
+
 @@override(Widgets.listWidgets, listWidgetsCustom, "python");
 
 // Line 101: Change delete operations to return None
