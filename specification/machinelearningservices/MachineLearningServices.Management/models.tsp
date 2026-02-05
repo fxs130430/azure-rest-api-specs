@@ -3782,7 +3782,6 @@ union RuleAction {
  * Enum to specifies the source type for an isolation key.
  */
 union IsolationKeySourceType {
-  string,
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
   Entra: "Entra",
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
@@ -16692,13 +16691,14 @@ model AgenticApplicationIsolationKeySource {
  * Isolation key source for Entra.
  */
 model EntraIsolationKeySource extends AgenticApplicationIsolationKeySource {
-  // No additional properties
+  type: "Entra";
 }
 
 /**
  * Isolation key source for header.
  */
 model HeaderIsolationKeySource extends AgenticApplicationIsolationKeySource {
+  type: "Header";
   chatHeaderName?: string;
   userHeaderName?: string;
 }
