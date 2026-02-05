@@ -102,6 +102,17 @@ suppressions:
     reason: Caused by swagger file refactor, this is already in prod.
     where:
       - $.definitions.DiagnoseRequestProperties.properties.requiredResourceProviders
+  - code: AvoidAdditionalProperties
+    reason: Caused by previously renamed definitions, already in production use.
+    where:
+      - $.definitions.EndpointModelProperties.properties.capabilities
+      - $.definitions.EndpointModelProperties.properties.finetuneCapabilities
+  - code: AvoidAdditionalProperties
+    reason: trying to align with schema here for caller to consume https://github.com/Azure/azure-rest-api-specs/blob/2e5be0e72597c6fc8d438f20e38087d900c16427/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/preview/2024-04-01-preview/mfe.json#L26070
+    where:
+      - $.definitions.ManagedOnlineEndpointResourceProperties.properties.mirrorTraffic
+      - $.definitions.ManagedOnlineEndpointResourceProperties.properties.traffic
+      - $.definitions.ServerlessEndpointInferenceEndpoint.properties.headers
   - code: PatchBodyParametersSchema
     reason: Suppress as instructed, this patch is for a abstract class and the type-discriminator needs to be required.
     where:
