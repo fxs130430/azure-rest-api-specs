@@ -19,7 +19,7 @@ interface Documents {
       ...acceptHeaderNone;
     },
     {
-      @header contentType: "application/json";
+      @header contentType: "text/plain; charset=utf-8";
       @body body: int64;
     }
   >;
