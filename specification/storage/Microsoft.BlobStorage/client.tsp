@@ -127,3 +127,10 @@ namespace Customizations;
 @@Legacy.disablePageable(Storage.Blob.Service.listContainersSegment,
   "python,javascript"
 );
+
+@@clientOption(Storage.Blob.Container, "includeRootSlash", false, "python");
+@@clientOption(Storage.Blob.Service, "includeRootSlash", false, "python");
+@@clientOption(Storage.Blob.Blob, "includeRootSlash", false, "python");
+@@clientOption(Storage.Blob.PageBlob, "includeRootSlash", false, "python");
+@@clientOption(Storage.Blob.BlockBlob, "includeRootSlash", false, "python");
+@@clientOption(Storage.Blob.AppendBlob, "includeRootSlash", false, "python");
