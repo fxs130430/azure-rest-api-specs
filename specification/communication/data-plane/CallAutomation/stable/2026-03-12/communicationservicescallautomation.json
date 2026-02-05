@@ -3203,6 +3203,36 @@
       },
       "additionalProperties": false
     },
+    "MoveParticipantsRequest": {
+      "description": "The request payload for moving participant to the call.",
+      "required": [
+        "fromCall",
+        "targetParticipants"
+      ],
+      "type": "object",
+      "properties": {
+        "targetParticipants": {
+          "description": "The participant to Move.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CommunicationIdentifierModel"
+          }
+        },
+        "operationContext": {
+          "description": "Used by customers when calling mid-call actions to correlate the request to the response event.",
+          "type": "string"
+        },
+        "operationCallbackUri": {
+          "description": "Set a callback URI that overrides the default callback URI set by CreateCall/AnswerCall for this operation.\r\nThis setup is per-action. If this is not set, the default callback URI set by CreateCall/AnswerCall will be used.",
+          "type": "string"
+        },
+        "fromCall": {
+          "description": "The CallConnectionId for the call you want to move the participant from",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
     "MoveParticipantsResponse": {
       "description": "The response payload for moving participants to the call.",
       "type": "object",
