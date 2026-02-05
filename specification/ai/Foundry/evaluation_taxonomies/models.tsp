@@ -38,7 +38,10 @@ union EvaluationTaxonomyInputType {
   @doc("Agent")
   agent: "agent",
 
-  @doc("Behavior")
+  @doc("Policy.")
+  policy: "policy",
+
+  @doc("Behavior-based taxonomy input for custom behavior definitions")
   behavior: "behavior",
 }
 
@@ -72,22 +75,13 @@ model BehaviorTaxonomyInput extends EvaluationTaxonomyInput {
   @doc("Input type of the evaluation taxonomy.")
   type: EvaluationTaxonomyInputType.behavior;
 
-  @doc("Name of the behavior.")
+  @doc("Name of the behavior to evaluate")
   behavior_name: string;
 
-  @doc("Natural language definition of the behavior.")
+  @doc("Detailed definition of the behavior (10-2000 characters)")
+  @minLength(10)
+  @maxLength(2000)
   behavior_definition: string;
-}
-
-@added(Versions.v2025_11_15_preview)
-@removed(Versions.v1)
-@doc("Example prompt with label for taxonomy generation.")
-model RiskExample {
-  @doc("Example prompt text.")
-  text: string;
-
-  @doc("Indicates if the example is in scope.")
-  inScope: boolean;
 }
 
 @added(Versions.v2025_11_15_preview)
@@ -102,6 +96,9 @@ model TaxonomyCategory {
 
   @doc("Description of the taxonomy category.")
   description?: string;
+
+  @doc("Risk category associated with this taxonomy category.")
+  riskCategory: RiskCategory;
 
   @doc("List of taxonomy sub categories.")
   subCategories: TaxonomySubCategory[];
@@ -123,10 +120,10 @@ model TaxonomySubCategory {
   @doc("Description of the taxonomy sub-category.")
   description?: string;
 
-  @doc("List of taxonomy items under this sub-category.")
+  @doc("Whether this sub-category is enabled for evaluation.")
   enabled: boolean;
 
-  @doc("List of subtopics in this sub-category.")
+  @doc("List of subtopics for this sub-category.")
   subtopics?: string[];
 
   @doc("Additional properties for the taxonomy sub-category.")
