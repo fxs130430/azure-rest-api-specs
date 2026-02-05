@@ -31,7 +31,7 @@ alias ProxyApiVersion = {
  */
 union UsageUnit {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Count: "Count",
 }
 
@@ -40,7 +40,7 @@ union UsageUnit {
  */
 union BillingCurrency {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   USD: "USD",
 }
 
@@ -49,7 +49,7 @@ union BillingCurrency {
  */
 union UnitOfMeasure {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   OneHour: "OneHour",
 }
 
@@ -58,9 +58,9 @@ union UnitOfMeasure {
  */
 union VMPriceOSType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Linux: "Linux",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Windows: "Windows",
 }
 
@@ -69,11 +69,11 @@ union VMPriceOSType {
  */
 union VMTier {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Standard: "Standard",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   LowPriority: "LowPriority",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Spot: "Spot",
 }
 
@@ -82,7 +82,7 @@ union VMTier {
  */
 union QuotaUnit {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Count: "Count",
 }
 
@@ -91,21 +91,21 @@ union QuotaUnit {
  */
 union Status {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Undefined: "Undefined",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Success: "Success",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Failure: "Failure",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   InvalidQuotaBelowClusterMinimum: "InvalidQuotaBelowClusterMinimum",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   InvalidQuotaExceedsSubscriptionLimit: "InvalidQuotaExceedsSubscriptionLimit",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   InvalidVMFamilyName: "InvalidVMFamilyName",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   OperationNotSupportedForSku: "OperationNotSupportedForSku",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   OperationNotEnabledForRegion: "OperationNotEnabledForRegion",
 }
 
@@ -114,13 +114,13 @@ union Status {
  */
 union CreatedByType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   User: "User",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Application: "Application",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   ManagedIdentity: "ManagedIdentity",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Key: "Key",
 }
 
@@ -129,25 +129,25 @@ union CreatedByType {
  */
 union ComputeType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AKS: "AKS",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Kubernetes: "Kubernetes",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AmlCompute: "AmlCompute",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   ComputeInstance: "ComputeInstance",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   DataFactory: "DataFactory",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   VirtualMachine: "VirtualMachine",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   HDInsight: "HDInsight",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Databricks: "Databricks",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   DataLakeAnalytics: "DataLakeAnalytics",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   SynapseSpark: "SynapseSpark",
 }
 
@@ -156,28 +156,28 @@ union ComputeType {
  */
 union ProvisioningState {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Unknown: "Unknown",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Updating: "Updating",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Creating: "Creating",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Deleting: "Deleting",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Succeeded: "Succeeded",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Failed: "Failed",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Canceled: "Canceled",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union UnderlyingResourceAction {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Delete: "Delete",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Detach: "Detach",
 }
 
@@ -186,9 +186,9 @@ union UnderlyingResourceAction {
  */
 union ImageType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   docker: "docker",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   azureml: "azureml",
 }
 
@@ -197,7 +197,7 @@ union ImageType {
  */
 union EnvironmentVariableType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   local: "local",
 }
 
@@ -206,11 +206,11 @@ union EnvironmentVariableType {
  */
 union Protocol {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   tcp: "tcp",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   udp: "udp",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   http: "http",
 }
 
@@ -219,13 +219,13 @@ union Protocol {
  */
 union VolumeDefinitionType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   bind: "bind",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   volume: "volume",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   tmpfs: "tmpfs",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   npipe: "npipe",
 }
 
@@ -234,17 +234,17 @@ union VolumeDefinitionType {
  */
 union NodeState {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   idle: "idle",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   running: "running",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   preparing: "preparing",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   unusable: "unusable",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   leaving: "leaving",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   preempted: "preempted",
 }
 
@@ -253,11 +253,11 @@ union NodeState {
  */
 union SourceType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Dataset: "Dataset",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Datastore: "Datastore",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   URI: "URI",
 }
 
@@ -266,9 +266,9 @@ union SourceType {
  */
 union MountAction {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Mount: "Mount",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Unmount: "Unmount",
 }
 
@@ -277,9 +277,9 @@ union MountAction {
  */
 union MountMode {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   ReadOnly: "ReadOnly",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   ReadWrite: "ReadWrite",
 }
 
@@ -288,17 +288,17 @@ union MountMode {
  */
 union MountState {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   MountRequested: "MountRequested",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Mounted: "Mounted",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   MountFailed: "MountFailed",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   UnmountRequested: "UnmountRequested",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   UnmountFailed: "UnmountFailed",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Unmounted: "Unmounted",
 }
 
@@ -307,17 +307,17 @@ union MountState {
  */
 union AssetProvisioningState {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Succeeded: "Succeeded",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Failed: "Failed",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Canceled: "Canceled",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Creating: "Creating",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Updating: "Updating",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Deleting: "Deleting",
 }
 
@@ -326,9 +326,9 @@ union AssetProvisioningState {
  */
 union PendingUploadType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   None: "None",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   TemporaryBlobReference: "TemporaryBlobReference",
 }
 
@@ -337,18 +337,18 @@ union PendingUploadType {
  */
 union PendingUploadCredentialType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   SAS: "SAS",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union ListViewType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   ActiveOnly: "ActiveOnly",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   ArchivedOnly: "ArchivedOnly",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   All: "All",
 }
 
@@ -357,11 +357,11 @@ union ListViewType {
  */
 union DataType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   uri_file: "uri_file",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   uri_folder: "uri_folder",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   mltable: "mltable",
 }
 
@@ -370,13 +370,13 @@ union DataType {
  */
 union DataReferenceCredentialType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   SAS: "SAS",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   DockerCredentials: "DockerCredentials",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   ManagedIdentity: "ManagedIdentity",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   NoCredentials: "NoCredentials",
 }
 
@@ -385,9 +385,9 @@ union DataReferenceCredentialType {
  */
 union AutoRebuildSetting {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Disabled: "Disabled",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   OnBaseImageUpdate: "OnBaseImageUpdate",
 }
 
@@ -396,24 +396,24 @@ union AutoRebuildSetting {
  */
 union EnvironmentType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Curated: "Curated",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   UserCreated: "UserCreated",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union VulnerabilityRisk {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   UNKNOWN: "UNKNOWN",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   CRITICAL: "CRITICAL",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   HIGH: "HIGH",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   MEDIUM: "MEDIUM",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   LOW: "LOW",
 }
 
@@ -422,9 +422,9 @@ union VulnerabilityRisk {
  */
 union OperatingSystemType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Linux: "Linux",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Windows: "Windows",
 }
 
@@ -433,17 +433,17 @@ union OperatingSystemType {
  */
 union EndpointProvisioningState {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Creating: "Creating",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Deleting: "Deleting",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Succeeded: "Succeeded",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Failed: "Failed",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Updating: "Updating",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Canceled: "Canceled",
 }
 
@@ -452,11 +452,11 @@ union EndpointProvisioningState {
  */
 union EndpointAuthMode {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AMLToken: "AMLToken",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Key: "Key",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AADToken: "AADToken",
 }
 
@@ -465,9 +465,9 @@ union EndpointAuthMode {
  */
 union BatchDeploymentConfigurationType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Model: "Model",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   PipelineComponent: "PipelineComponent",
 }
 
@@ -478,11 +478,11 @@ union BatchDeploymentConfigurationType {
  */
 union BatchLoggingLevel {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Info: "Info",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Warning: "Warning",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Debug: "Debug",
 }
 
@@ -491,11 +491,11 @@ union BatchLoggingLevel {
  */
 union ReferenceType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Id: "Id",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   DataPath: "DataPath",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   OutputPath: "OutputPath",
 }
 
@@ -504,9 +504,9 @@ union ReferenceType {
  */
 union BatchOutputAction {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   SummaryOnly: "SummaryOnly",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AppendRow: "AppendRow",
 }
 
@@ -515,26 +515,26 @@ union BatchOutputAction {
  */
 union DeploymentProvisioningState {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Creating: "Creating",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Deleting: "Deleting",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Scaling: "Scaling",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Updating: "Updating",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Succeeded: "Succeeded",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Failed: "Failed",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Canceled: "Canceled",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union CapabilityHostKind {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Agents: "Agents",
 }
 
@@ -543,17 +543,17 @@ union CapabilityHostKind {
  */
 union CapabilityHostProvisioningState {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Succeeded: "Succeeded",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Failed: "Failed",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Canceled: "Canceled",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Creating: "Creating",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Updating: "Updating",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Deleting: "Deleting",
 }
 
@@ -562,15 +562,15 @@ union CapabilityHostProvisioningState {
  */
 union CredentialsType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AccountKey: "AccountKey",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Certificate: "Certificate",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   None: "None",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Sas: "Sas",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   ServicePrincipal: "ServicePrincipal",
 }
 
@@ -579,15 +579,15 @@ union CredentialsType {
  */
 union DatastoreType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AzureBlob: "AzureBlob",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AzureDataLakeGen1: "AzureDataLakeGen1",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AzureDataLakeGen2: "AzureDataLakeGen2",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AzureFile: "AzureFile",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   OneLake: "OneLake",
 }
 
@@ -596,34 +596,34 @@ union DatastoreType {
  */
 union SecretsType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AccountKey: "AccountKey",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Certificate: "Certificate",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Sas: "Sas",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   ServicePrincipal: "ServicePrincipal",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union FeatureDataType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   String: "String",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Integer: "Integer",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Long: "Long",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Float: "Float",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Double: "Double",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Binary: "Binary",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Datetime: "Datetime",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Boolean: "Boolean",
 }
 
@@ -632,11 +632,11 @@ union FeatureDataType {
  */
 union EmailNotificationEnableType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   JobCompleted: "JobCompleted",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   JobFailed: "JobFailed",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   JobCancelled: "JobCancelled",
 }
 
@@ -645,7 +645,7 @@ union EmailNotificationEnableType {
  */
 union WebhookType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AzureDevOps: "AzureDevOps",
 }
 
@@ -723,51 +723,51 @@ union WeekDay {
   Sunday: "Sunday",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union TriggerType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Recurrence: "Recurrence",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Cron: "Cron",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union MaterializationStoreType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   None: "None",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Online: "Online",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Offline: "Offline",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   OnlineAndOffline: "OnlineAndOffline",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union DataAvailabilityStatus {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   None: "None",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Pending: "Pending",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Incomplete: "Incomplete",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Complete: "Complete",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union OrderString {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   CreatedAtDesc: "CreatedAtDesc",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   CreatedAtAsc: "CreatedAtAsc",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   UpdatedAtDesc: "UpdatedAtDesc",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   UpdatedAtAsc: "UpdatedAtAsc",
 }
 
@@ -776,17 +776,17 @@ union OrderString {
  */
 union PoolProvisioningState {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Creating: "Creating",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Deleting: "Deleting",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Succeeded: "Succeeded",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Failed: "Failed",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Updating: "Updating",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Canceled: "Canceled",
 }
 
@@ -795,7 +795,7 @@ union PoolProvisioningState {
  */
 union AuthMode {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AAD: "AAD",
 }
 
@@ -826,11 +826,11 @@ union SkuScaleType {
  */
 union IdentityConfigurationType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Managed: "Managed",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AMLToken: "AMLToken",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   UserIdentity: "UserIdentity",
 }
 
@@ -839,23 +839,23 @@ union IdentityConfigurationType {
  */
 union JobType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AutoML: "AutoML",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Command: "Command",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Sweep: "Sweep",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Pipeline: "Pipeline",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Spark: "Spark",
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @removed(Versions.v2025_12_01)
   @added(Versions.v2026_01_15_preview)
   FineTuning: "FineTuning",
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @removed(Versions.v2025_12_01)
   @added(Versions.v2026_01_15_preview)
   Distillation: "Distillation",
@@ -866,7 +866,7 @@ union JobType {
  */
 union NodesValueType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   All: "All",
 }
 
@@ -948,7 +948,7 @@ union JobStatus {
   Unknown: "Unknown",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union MarketplaceSubscriptionStatus {
   string,
 
@@ -972,7 +972,7 @@ union MarketplaceSubscriptionStatus {
   Unsubscribed: "Unsubscribed",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union MarketplaceSubscriptionProvisioningState {
   string,
 
@@ -1001,7 +1001,7 @@ union MarketplaceSubscriptionProvisioningState {
    */
   Updating: "Updating",
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Canceled: "Canceled",
 }
 
@@ -1010,11 +1010,11 @@ union MarketplaceSubscriptionProvisioningState {
  */
 union EndpointComputeType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Managed: "Managed",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Kubernetes: "Kubernetes",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AzureMLCompute: "AzureMLCompute",
 }
 
@@ -1023,33 +1023,33 @@ union EndpointComputeType {
  */
 union PublicNetworkAccessType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Enabled: "Enabled",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Disabled: "Disabled",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union DataCollectionMode {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Enabled: "Enabled",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Disabled: "Disabled",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union RollingRateType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Year: "Year",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Month: "Month",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Day: "Day",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Hour: "Hour",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Minute: "Minute",
 }
 
@@ -1058,86 +1058,86 @@ union RollingRateType {
  */
 union EgressPublicNetworkAccessType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Enabled: "Enabled",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Disabled: "Disabled",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union ScaleType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Default: "Default",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   TargetUtilization: "TargetUtilization",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union ContainerType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   StorageInitializer: "StorageInitializer",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   InferenceServer: "InferenceServer",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union KeyType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Primary: "Primary",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Secondary: "Secondary",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union ScheduleListViewType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   EnabledOnly: "EnabledOnly",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   DisabledOnly: "DisabledOnly",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   All: "All",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union ScheduleActionType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   CreateJob: "CreateJob",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   InvokeBatchEndpoint: "InvokeBatchEndpoint",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   CreateMonitor: "CreateMonitor",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union ScheduleProvisioningStatus {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Creating: "Creating",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Updating: "Updating",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Deleting: "Deleting",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Succeeded: "Succeeded",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Failed: "Failed",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Canceled: "Canceled",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union ServerlessInferenceEndpointAuthMode {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Key: "Key",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AAD: "AAD",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   KeyAndAAD: "KeyAndAAD",
 }
 
@@ -1146,9 +1146,9 @@ union ServerlessInferenceEndpointAuthMode {
  */
 union ContentSafetyLevel {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Blocking: "Blocking",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Deferred: "Deferred",
 }
 
@@ -1157,9 +1157,9 @@ union ContentSafetyLevel {
  */
 union ContentSafetyStatus {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Enabled: "Enabled",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Disabled: "Disabled",
 }
 
@@ -1168,23 +1168,23 @@ union ContentSafetyStatus {
  */
 union ServerlessEndpointState {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Unknown: "Unknown",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Creating: "Creating",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Deleting: "Deleting",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Suspending: "Suspending",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Reinstating: "Reinstating",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Online: "Online",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Suspended: "Suspended",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   CreationFailed: "CreationFailed",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   DeletionFailed: "DeletionFailed",
 }
 
@@ -1193,15 +1193,15 @@ union ServerlessEndpointState {
  */
 union EndpointServiceConnectionStatus {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Approved: "Approved",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Pending: "Pending",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Rejected: "Rejected",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Disconnected: "Disconnected",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Timeout: "Timeout",
 }
 
@@ -1210,11 +1210,11 @@ union EndpointServiceConnectionStatus {
  */
 union Origin {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   user: "user",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   system: "system",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   `user,system`: "user,system",
 }
 
@@ -1223,7 +1223,7 @@ union Origin {
  */
 union ActionType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Internal: "Internal",
 }
 
@@ -1232,9 +1232,9 @@ union ActionType {
  */
 union EncryptionStatus {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Enabled: "Enabled",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Disabled: "Disabled",
 }
 
@@ -1243,11 +1243,11 @@ union EncryptionStatus {
  */
 union IsolationMode {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Disabled: "Disabled",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AllowInternetOutbound: "AllowInternetOutbound",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AllowOnlyApprovedOutbound: "AllowOnlyApprovedOutbound",
 }
 
@@ -1256,13 +1256,13 @@ union IsolationMode {
  */
 union RuleCategory {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Required: "Required",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Recommended: "Recommended",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   UserDefined: "UserDefined",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Dependency: "Dependency",
 }
 
@@ -1271,15 +1271,15 @@ union RuleCategory {
  */
 union RuleStatus {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Inactive: "Inactive",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Active: "Active",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Provisioning: "Provisioning",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Deleting: "Deleting",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Failed: "Failed",
 }
 
@@ -1288,11 +1288,11 @@ union RuleStatus {
  */
 union RuleType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   FQDN: "FQDN",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   PrivateEndpoint: "PrivateEndpoint",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   ServiceTag: "ServiceTag",
 }
 
@@ -1301,9 +1301,9 @@ union RuleType {
  */
 union ManagedNetworkStatus {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Inactive: "Inactive",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Active: "Active",
 }
 
@@ -1312,9 +1312,9 @@ union ManagedNetworkStatus {
  */
 union FirewallSku {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Standard: "Standard",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Basic: "Basic",
 }
 
@@ -1323,18 +1323,18 @@ union FirewallSku {
  */
 union ManagedNetworkKind {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   V1: "V1",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   V2: "V2",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union DefaultActionType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Deny: "Deny",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Allow: "Allow",
 }
 
@@ -1344,13 +1344,13 @@ union DefaultActionType {
 #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "Provisioning state is defined in base properties"
 union PrivateEndpointConnectionProvisioningState {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Succeeded: "Succeeded",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Creating: "Creating",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Deleting: "Deleting",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Failed: "Failed",
 }
 
@@ -1359,11 +1359,11 @@ union PrivateEndpointConnectionProvisioningState {
  */
 union SystemDatastoresAuthMode {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AccessKey: "AccessKey",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Identity: "Identity",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   UserDelegationSAS: "UserDelegationSAS",
 }
 
@@ -1372,43 +1372,43 @@ union SystemDatastoresAuthMode {
  */
 union ConnectionAuthType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   PAT: "PAT",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   ManagedIdentity: "ManagedIdentity",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   UsernamePassword: "UsernamePassword",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   None: "None",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   SAS: "SAS",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AccountKey: "AccountKey",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   ServicePrincipal: "ServicePrincipal",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AccessKey: "AccessKey",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   ApiKey: "ApiKey",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   CustomKeys: "CustomKeys",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   OAuth2: "OAuth2",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AAD: "AAD",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   DelegatedSAS: "DelegatedSAS",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   ProjectManagedIdentity: "ProjectManagedIdentity",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AccountManagedIdentity: "AccountManagedIdentity",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   UserEntraToken: "UserEntraToken",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AgentUserImpersonation: "AgentUserImpersonation",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AgenticIdentityToken: "AgenticIdentityToken",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AgenticUser: "AgenticUser",
 }
 
@@ -1417,245 +1417,245 @@ union ConnectionAuthType {
  */
 union ConnectionCategory {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   PythonFeed: "PythonFeed",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   ContainerRegistry: "ContainerRegistry",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Git: "Git",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   S3: "S3",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Snowflake: "Snowflake",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AzureKeyVault: "AzureKeyVault",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AzureSqlDb: "AzureSqlDb",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AzureSynapseAnalytics: "AzureSynapseAnalytics",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AzureMySqlDb: "AzureMySqlDb",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AzurePostgresDb: "AzurePostgresDb",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   ADLSGen2: "ADLSGen2",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AzureContainerAppEnvironment: "AzureContainerAppEnvironment",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Redis: "Redis",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   ApiKey: "ApiKey",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AzureOpenAI: "AzureOpenAI",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AIServices: "AIServices",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   CognitiveSearch: "CognitiveSearch",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   CognitiveService: "CognitiveService",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   CustomKeys: "CustomKeys",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AzureBlob: "AzureBlob",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AzureStorageAccount: "AzureStorageAccount",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AzureOneLake: "AzureOneLake",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   CosmosDb: "CosmosDb",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   CosmosDbMongoDbApi: "CosmosDbMongoDbApi",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AzureDataExplorer: "AzureDataExplorer",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AzureMariaDb: "AzureMariaDb",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AzureDatabricksDeltaLake: "AzureDatabricksDeltaLake",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AzureSqlMi: "AzureSqlMi",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AzureTableStorage: "AzureTableStorage",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AmazonRdsForOracle: "AmazonRdsForOracle",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AmazonRdsForSqlServer: "AmazonRdsForSqlServer",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AmazonRedshift: "AmazonRedshift",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Db2: "Db2",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Drill: "Drill",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   GoogleBigQuery: "GoogleBigQuery",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Greenplum: "Greenplum",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Hbase: "Hbase",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Hive: "Hive",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Impala: "Impala",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Informix: "Informix",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   MariaDb: "MariaDb",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   MicrosoftAccess: "MicrosoftAccess",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   MySql: "MySql",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Netezza: "Netezza",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Oracle: "Oracle",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Phoenix: "Phoenix",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   PostgreSql: "PostgreSql",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Presto: "Presto",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   SapOpenHub: "SapOpenHub",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   SapBw: "SapBw",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   SapHana: "SapHana",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   SapTable: "SapTable",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Spark: "Spark",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   SqlServer: "SqlServer",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Sybase: "Sybase",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Teradata: "Teradata",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Vertica: "Vertica",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Pinecone: "Pinecone",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Databricks: "Databricks",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Cassandra: "Cassandra",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Couchbase: "Couchbase",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   MongoDbV2: "MongoDbV2",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   MongoDbAtlas: "MongoDbAtlas",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AmazonS3Compatible: "AmazonS3Compatible",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   FileServer: "FileServer",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   FtpServer: "FtpServer",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   GoogleCloudStorage: "GoogleCloudStorage",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Hdfs: "Hdfs",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   OracleCloudStorage: "OracleCloudStorage",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Sftp: "Sftp",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   GenericHttp: "GenericHttp",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   ODataRest: "ODataRest",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Odbc: "Odbc",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   GenericRest: "GenericRest",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   RemoteTool: "RemoteTool",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AmazonMws: "AmazonMws",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Concur: "Concur",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Dynamics: "Dynamics",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   DynamicsAx: "DynamicsAx",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   DynamicsCrm: "DynamicsCrm",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   GoogleAdWords: "GoogleAdWords",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Hubspot: "Hubspot",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Jira: "Jira",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Magento: "Magento",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Marketo: "Marketo",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Office365: "Office365",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Eloqua: "Eloqua",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Responsys: "Responsys",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   OracleServiceCloud: "OracleServiceCloud",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   PayPal: "PayPal",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   QuickBooks: "QuickBooks",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Salesforce: "Salesforce",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   SalesforceServiceCloud: "SalesforceServiceCloud",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   SalesforceMarketingCloud: "SalesforceMarketingCloud",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   SapCloudForCustomer: "SapCloudForCustomer",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   SapEcc: "SapEcc",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   ServiceNow: "ServiceNow",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   SharePointOnlineList: "SharePointOnlineList",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Shopify: "Shopify",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Square: "Square",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   WebTable: "WebTable",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Xero: "Xero",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Zoho: "Zoho",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   GenericContainerRegistry: "GenericContainerRegistry",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Elasticsearch: "Elasticsearch",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AppInsights: "AppInsights",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AppConfig: "AppConfig",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   OpenAI: "OpenAI",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Serp: "Serp",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   BingLLMSearch: "BingLLMSearch",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Serverless: "Serverless",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   ManagedOnlineEndpoint: "ManagedOnlineEndpoint",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   ApiManagement: "ApiManagement",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   ModelGateway: "ModelGateway",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   GroundingWithBingSearch: "GroundingWithBingSearch",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   GroundingWithCustomSearch: "GroundingWithCustomSearch",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Sharepoint: "Sharepoint",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   MicrosoftFabric: "MicrosoftFabric",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   PowerPlatformEnvironment: "PowerPlatformEnvironment",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   RemoteA2A: "RemoteA2A",
 }
 
@@ -1664,66 +1664,66 @@ union ConnectionCategory {
  */
 union ConnectionGroup {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Azure: "Azure",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   AzureAI: "AzureAI",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Database: "Database",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   NoSQL: "NoSQL",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   File: "File",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   GenericProtocol: "GenericProtocol",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   ServicesAndApps: "ServicesAndApps",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union ManagedPERequirement {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Required: "Required",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   NotRequired: "NotRequired",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   NotApplicable: "NotApplicable",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union ManagedPEStatus {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Inactive: "Inactive",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Active: "Active",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   NotApplicable: "NotApplicable",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union DefaultResourceProvisioningState {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   NotStarted: "NotStarted",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Failed: "Failed",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Creating: "Creating",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Updating: "Updating",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Succeeded: "Succeeded",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Deleting: "Deleting",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Accepted: "Accepted",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Canceled: "Canceled",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Scaling: "Scaling",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Disabled: "Disabled",
 }
 
@@ -1732,9 +1732,9 @@ union DefaultResourceProvisioningState {
  */
 union ModelLifecycleStatus {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   GenerallyAvailable: "GenerallyAvailable",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Preview: "Preview",
 }
 
@@ -1743,11 +1743,11 @@ union ModelLifecycleStatus {
  */
 union AllowedContentLevel {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Low: "Low",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Medium: "Medium",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   High: "High",
 }
 
@@ -1756,9 +1756,9 @@ union AllowedContentLevel {
  */
 union RaiPolicyContentSource {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Prompt: "Prompt",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Completion: "Completion",
 }
 
@@ -1767,11 +1767,11 @@ union RaiPolicyContentSource {
  */
 union RaiPolicyMode {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Default: "Default",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Deferred: "Deferred",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Blocking: "Blocking",
 }
 
@@ -1780,9 +1780,9 @@ union RaiPolicyMode {
  */
 union RaiPolicyType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   UserManaged: "UserManaged",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   SystemManaged: "SystemManaged",
 }
 
@@ -1791,17 +1791,17 @@ union RaiPolicyType {
  */
 union EndpointType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   `Azure.OpenAI`: "Azure.OpenAI",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   `Azure.Speech`: "Azure.Speech",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   `Azure.ContentSafety`: "Azure.ContentSafety",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   `Azure.Llama`: "Azure.Llama",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   managedOnlineEndpoint: "managedOnlineEndpoint",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   serverlessEndpoint: "serverlessEndpoint",
 }
 
@@ -1810,38 +1810,38 @@ union EndpointType {
  */
 union DiagnoseResultLevel {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Warning: "Warning",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Error: "Error",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Information: "Information",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union ServiceAccountKeyName {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Key1: "Key1",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Key2: "Key2",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "Provisioning state is defined in base properties"
 union ManagedNetworkProvisioningState {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Deferred: "Deferred",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Updating: "Updating",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Succeeded: "Succeeded",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Failed: "Failed",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Deleting: "Deleting",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Deleted: "Deleted",
 }
 
@@ -1850,11 +1850,11 @@ union ManagedNetworkProvisioningState {
  */
 union ClusterPurpose {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   FastProd: "FastProd",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   DenseProd: "DenseProd",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   DevTest: "DevTest",
 }
 
@@ -1863,11 +1863,11 @@ union ClusterPurpose {
  */
 union SslConfigStatus {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Disabled: "Disabled",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Enabled: "Enabled",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Auto: "Auto",
 }
 
@@ -1876,9 +1876,9 @@ union SslConfigStatus {
  */
 union LoadBalancerType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   PublicIp: "PublicIp",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   InternalLoadBalancer: "InternalLoadBalancer",
 }
 
@@ -1887,9 +1887,9 @@ union LoadBalancerType {
  */
 union OsType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Linux: "Linux",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Windows: "Windows",
 }
 
@@ -1898,9 +1898,9 @@ union OsType {
  */
 union VmPriority {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Dedicated: "Dedicated",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   LowPriority: "LowPriority",
 }
 
@@ -1909,11 +1909,11 @@ union VmPriority {
  */
 union RemoteLoginPortPublicAccess {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Enabled: "Enabled",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Disabled: "Disabled",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   NotSpecified: "NotSpecified",
 }
 
@@ -1922,9 +1922,9 @@ union RemoteLoginPortPublicAccess {
  */
 union AllocationState {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Steady: "Steady",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Resizing: "Resizing",
 }
 
@@ -1933,9 +1933,9 @@ union AllocationState {
  */
 union ApplicationSharingPolicy {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Personal: "Personal",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Shared: "Shared",
 }
 
@@ -1944,9 +1944,9 @@ union ApplicationSharingPolicy {
  */
 union MlflowAutologger {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Enabled: "Enabled",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Disabled: "Disabled",
 }
 
@@ -1955,9 +1955,9 @@ union MlflowAutologger {
  */
 union SshPublicAccess {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Enabled: "Enabled",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Disabled: "Disabled",
 }
 
@@ -1966,15 +1966,15 @@ union SshPublicAccess {
  */
 union PatchStatus {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   CompletedWithWarnings: "CompletedWithWarnings",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Failed: "Failed",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   InProgress: "InProgress",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Succeeded: "Succeeded",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Unknown: "Unknown",
 }
 
@@ -1983,37 +1983,37 @@ union PatchStatus {
  */
 union ComputeInstanceState {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Creating: "Creating",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   CreateFailed: "CreateFailed",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Deleting: "Deleting",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Running: "Running",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Restarting: "Restarting",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Resizing: "Resizing",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   JobRunning: "JobRunning",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   SettingUp: "SettingUp",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   SetupFailed: "SetupFailed",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Starting: "Starting",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Stopped: "Stopped",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Stopping: "Stopping",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   UserSettingUp: "UserSettingUp",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   UserSetupFailed: "UserSetupFailed",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Unknown: "Unknown",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Unusable: "Unusable",
 }
 
@@ -2022,7 +2022,7 @@ union ComputeInstanceState {
  */
 union ComputeInstanceAuthorizationType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   personal: "personal",
 }
 
@@ -2031,19 +2031,19 @@ union ComputeInstanceAuthorizationType {
  */
 union OperationName {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Create: "Create",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Start: "Start",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Stop: "Stop",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Restart: "Restart",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Resize: "Resize",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Reimage: "Reimage",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Delete: "Delete",
 }
 
@@ -2052,23 +2052,23 @@ union OperationName {
  */
 union OperationStatus {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   InProgress: "InProgress",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Succeeded: "Succeeded",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   CreateFailed: "CreateFailed",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   StartFailed: "StartFailed",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   StopFailed: "StopFailed",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   RestartFailed: "RestartFailed",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   ResizeFailed: "ResizeFailed",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   ReimageFailed: "ReimageFailed",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   DeleteFailed: "DeleteFailed",
 }
 
@@ -2077,11 +2077,11 @@ union OperationStatus {
  */
 union OperationTrigger {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   User: "User",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Schedule: "Schedule",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   IdleShutdown: "IdleShutdown",
 }
 
@@ -2090,11 +2090,11 @@ union OperationTrigger {
  */
 union ProvisioningStatus {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Completed: "Completed",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Provisioning: "Provisioning",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Failed: "Failed",
 }
 
@@ -2103,9 +2103,9 @@ union ProvisioningStatus {
  */
 union ScheduleStatus {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Enabled: "Enabled",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Disabled: "Disabled",
 }
 
@@ -2114,18 +2114,18 @@ union ScheduleStatus {
  */
 union ComputePowerAction {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Start: "Start",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Stop: "Stop",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union ComputeTriggerType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Recurrence: "Recurrence",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Cron: "Cron",
 }
 
@@ -2208,11 +2208,11 @@ union ComputeWeekDay {
  */
 union ScheduleProvisioningState {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Completed: "Completed",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Provisioning: "Provisioning",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Failed: "Failed",
 }
 
@@ -2221,11 +2221,11 @@ union ScheduleProvisioningState {
  */
 union Autosave {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   None: "None",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Local: "Local",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Remote: "Remote",
 }
 
@@ -2234,9 +2234,9 @@ union Autosave {
  */
 union Network {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Bridge: "Bridge",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Host: "Host",
 }
 
@@ -2245,11 +2245,11 @@ union Network {
  */
 union Caching {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   None: "None",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   ReadOnly: "ReadOnly",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   ReadWrite: "ReadWrite",
 }
 
@@ -2258,13 +2258,13 @@ union Caching {
  */
 union StorageAccountType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Standard_LRS: "Standard_LRS",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Premium_LRS: "Premium_LRS",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union MonitoringFeatureFilterType {
   string,
 
@@ -2306,17 +2306,17 @@ union MonitorComputeIdentityType {
  */
 union InputDeliveryMode {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   ReadOnlyMount: "ReadOnlyMount",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   ReadWriteMount: "ReadWriteMount",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Download: "Download",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Direct: "Direct",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   EvalMount: "EvalMount",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   EvalDownload: "EvalDownload",
 }
 
@@ -2325,11 +2325,11 @@ union InputDeliveryMode {
  */
 union OutputDeliveryMode {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   ReadWriteMount: "ReadWriteMount",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Upload: "Upload",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Direct: "Direct",
 }
 
@@ -2355,17 +2355,17 @@ union ForecastHorizonMode {
  */
 union JobOutputType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   uri_file: "uri_file",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   uri_folder: "uri_folder",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   mltable: "mltable",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   custom_model: "custom_model",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   mlflow_model: "mlflow_model",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   triton_model: "triton_model",
 }
 
@@ -2374,15 +2374,15 @@ union JobOutputType {
  */
 union JobTier {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Null: "Null",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Spot: "Spot",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Basic: "Basic",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Standard: "Standard",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Premium: "Premium",
 }
 
@@ -2493,19 +2493,19 @@ union TaskType {
  */
 union JobInputType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   literal: "literal",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   uri_file: "uri_file",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   uri_folder: "uri_folder",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   mltable: "mltable",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   custom_model: "custom_model",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   mlflow_model: "mlflow_model",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   triton_model: "triton_model",
 }
 
@@ -2577,7 +2577,7 @@ union TargetRollingWindowSizeMode {
   Custom: "Custom",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union ServiceDataAccessAuthIdentity {
   string,
 
@@ -2614,56 +2614,56 @@ union ModelProvider {
   Custom: "Custom",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union FineTuningTaskType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   ChatCompletion: "ChatCompletion",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   TextCompletion: "TextCompletion",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   TextClassification: "TextClassification",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   QuestionAnswering: "QuestionAnswering",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   TextSummarization: "TextSummarization",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   TokenClassification: "TokenClassification",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   TextTranslation: "TextTranslation",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   ImageClassification: "ImageClassification",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   ImageInstanceSegmentation: "ImageInstanceSegmentation",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   ImageObjectDetection: "ImageObjectDetection",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   VideoMultiObjectTracking: "VideoMultiObjectTracking",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union EarlyTerminationPolicyType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Bandit: "Bandit",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   MedianStopping: "MedianStopping",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   TruncationSelection: "TruncationSelection",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union SamplingAlgorithmType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Grid: "Grid",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Random: "Random",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Bayesian: "Bayesian",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union CategoricalDataDriftMetric {
   string,
 
@@ -2683,7 +2683,7 @@ union CategoricalDataDriftMetric {
   PearsonsChiSquaredTest: "PearsonsChiSquaredTest",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union MonitoringFeatureDataType {
   string,
 
@@ -2698,7 +2698,7 @@ union MonitoringFeatureDataType {
   Categorical: "Categorical",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union CategoricalDataQualityMetric {
   string,
 
@@ -2718,7 +2718,7 @@ union CategoricalDataQualityMetric {
   OutOfBoundsRate: "OutOfBoundsRate",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union CategoricalPredictionDriftMetric {
   string,
 
@@ -2865,7 +2865,7 @@ union ClassificationModels {
  */
 union StackMetaLearnerType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   None: "None",
 
   /**
@@ -2878,7 +2878,7 @@ union StackMetaLearnerType {
    */
   LogisticRegressionCV: "LogisticRegressionCV",
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   LightGBMClassifier: "LightGBMClassifier",
 
   /**
@@ -2891,9 +2891,9 @@ union StackMetaLearnerType {
    */
   ElasticNetCV: "ElasticNetCV",
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   LightGBMRegressor: "LightGBMRegressor",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   LinearRegression: "LinearRegression",
 }
 
@@ -2981,20 +2981,20 @@ union FeaturizationMode {
  */
 union DistributionType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   PyTorch: "PyTorch",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   TensorFlow: "TensorFlow",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Mpi: "Mpi",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union JobLimitsType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Command: "Command",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Sweep: "Sweep",
 }
 
@@ -3015,13 +3015,13 @@ union MonitorComputeType {
  */
 union ModelTaskType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Classification: "Classification",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Regression: "Regression",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union MonitoringNotificationType {
   string,
 
@@ -3031,7 +3031,7 @@ union MonitoringNotificationType {
   AmlNotification: "AmlNotification",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union MonitoringSignalType {
   string,
 
@@ -3149,7 +3149,7 @@ union DataGenerationType {
   DataGeneration: "DataGeneration",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union FeatureAttributionMetric {
   string,
 
@@ -3214,13 +3214,13 @@ union TargetAggregationFunction {
    */
   None: "None",
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Sum: "Sum",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Max: "Max",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Min: "Min",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Mean: "Mean",
 }
 
@@ -3235,9 +3235,9 @@ union UseStl {
    */
   None: "None",
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Season: "Season",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   SeasonTrend: "SeasonTrend",
 }
 
@@ -3559,11 +3559,11 @@ union ObjectDetectionPrimaryMetrics {
  */
 union OneLakeArtifactType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   LakeHouse: "LakeHouse",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union NumericalDataDriftMetric {
   string,
 
@@ -3588,7 +3588,7 @@ union NumericalDataDriftMetric {
   TwoSampleKolmogorovSmirnovTest: "TwoSampleKolmogorovSmirnovTest",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union NumericalDataQualityMetric {
   string,
 
@@ -3608,7 +3608,7 @@ union NumericalDataQualityMetric {
   OutOfBoundsRate: "OutOfBoundsRate",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union NumericalPredictionDriftMetric {
   string,
 
@@ -3638,9 +3638,9 @@ union NumericalPredictionDriftMetric {
  */
 union Goal {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Minimize: "Minimize",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Maximize: "Maximize",
 }
 
@@ -3649,9 +3649,9 @@ union Goal {
  */
 union RandomSamplingAlgorithmRule {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Random: "Random",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Sobol: "Sobol",
 }
 
@@ -3745,12 +3745,12 @@ union RegressionModels {
   XGBoostRegressor: "XGBoostRegressor",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 union SparkJobEntryType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   SparkJobPythonEntry: "SparkJobPythonEntry",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   SparkJobScalaEntry: "SparkJobScalaEntry",
 }
 
@@ -3759,11 +3759,11 @@ union SparkJobEntryType {
  */
 union DeploymentModelVersionUpgradeOption {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   OnceNewDefaultVersionAvailable: "OnceNewDefaultVersionAvailable",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   OnceCurrentVersionExpired: "OnceCurrentVersionExpired",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   NoAutoUpgrade: "NoAutoUpgrade",
 }
 
@@ -3772,9 +3772,9 @@ union DeploymentModelVersionUpgradeOption {
  */
 union RuleAction {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Allow: "Allow",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   Deny: "Deny",
 }
 
@@ -4156,7 +4156,7 @@ model ResourceName {
  */
 model PaginatedComputeResourcesList is Azure.Core.Page<ComputeResource>;
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "Provisioning state is defined in base properties"
 model ComputeResourceSchema {
   /**
@@ -4261,7 +4261,7 @@ model ClusterUpdateProperties {
  * Desired scale settings for the amlCompute.
  */
 model ScaleSettingsInformation {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @summary("Scale settings.")
   scaleSettings?: ScaleSettings;
 }
@@ -4332,7 +4332,7 @@ model CustomService {
   kernel?: JupyterKernelConfig;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model Image {
   ...Record<unknown>;
 
@@ -4353,7 +4353,7 @@ model Image {
   version?: string;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model EnvironmentVariable {
   ...Record<unknown>;
 
@@ -4369,7 +4369,7 @@ model EnvironmentVariable {
   value?: string;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model Docker {
   ...Record<unknown>;
 
@@ -4380,7 +4380,7 @@ model Docker {
   privileged?: boolean | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model Endpoint {
   /**
    * Protocol over which communication will happen over this endpoint
@@ -4411,7 +4411,7 @@ model Endpoint {
   hostIp?: string | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model VolumeDefinition {
   /**
    * Type of Volume Definition. Possible Values: bind,volume,tmpfs,npipe
@@ -4460,7 +4460,7 @@ model VolumeDefinition {
   tmpfs?: TmpfsOptions | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model BindOptions {
   /**
    * Type of Bind Option
@@ -4481,7 +4481,7 @@ model BindOptions {
   selinux?: string | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model VolumeOptions {
   /**
    * Indicate whether volume is nocopy
@@ -4490,7 +4490,7 @@ model VolumeOptions {
   nocopy?: boolean | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model TmpfsOptions {
   /**
    * Mention the Tmpfs size
@@ -4681,7 +4681,7 @@ model ResizeSchema {
  */
 model AvailableQuotaArmPaginatedResult is Azure.Core.Page<AvailableQuota>;
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model AvailableQuota {
   /**
    * Available quota properties
@@ -4690,7 +4690,7 @@ model AvailableQuota {
   properties?: AvailableQuotaProperties | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model AvailableQuotaProperties {
   /**
    * The number of available quota
@@ -4704,7 +4704,7 @@ model AvailableQuotaProperties {
 model UsageAndQuotaDetailsArmPaginatedResult
   is Azure.Core.Page<UsageAndQuotaDetails>;
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model UsageAndQuotaDetails {
   /**
    * Model collection name
@@ -4724,7 +4724,7 @@ model UsageAndQuotaDetails {
   usageDetails?: PTUDeploymentUsage[] | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 #suppress "@azure-tools/typespec-azure-core/casing-style" "Existing API contract uses this naming convention"
 model PTUDeploymentUsage {
   /**
@@ -4774,7 +4774,7 @@ model CodeContainerProperties extends AssetContainer {
 }
 
 #suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "Existing API uses inheritance pattern"
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model AssetContainer extends ResourceBase {
   /**
    * Is the asset archived?
@@ -4797,7 +4797,7 @@ model AssetContainer extends ResourceBase {
   nextVersion?: string | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model ResourceBase {
   /**
    * The asset description text.
@@ -4845,7 +4845,7 @@ model CodeVersionProperties extends AssetBase {
 }
 
 #suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "Existing API uses inheritance pattern"
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model AssetBase extends ResourceBase {
   /**
    * If the name version are system generated (anonymous registration).
@@ -4860,7 +4860,7 @@ model AssetBase extends ResourceBase {
   isArchived?: boolean = false;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model PendingUploadRequestDto {
   /**
    * If PendingUploadId = null then random guid will be used.
@@ -4874,7 +4874,7 @@ model PendingUploadRequestDto {
   pendingUploadType?: PendingUploadType = PendingUploadType.TemporaryBlobReference;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model PendingUploadResponseDto {
   /**
    * Container level read, write, list SAS
@@ -4894,7 +4894,7 @@ model PendingUploadResponseDto {
   pendingUploadType?: PendingUploadType = PendingUploadType.TemporaryBlobReference;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model BlobReferenceForConsumptionDto {
   /**
    * Blob URI path for client to upload data.
@@ -4916,7 +4916,7 @@ model BlobReferenceForConsumptionDto {
   storageAccountArmId?: string | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 @discriminator("credentialType")
 model PendingUploadCredentialDto {
   /**
@@ -5046,7 +5046,7 @@ model GetBlobReferenceSASResponseDto {
   blobReferenceForConsumption?: GetBlobReferenceForConsumptionDto | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model GetBlobReferenceForConsumptionDto {
   /**
    * Blob uri, example: https://blob.windows.core.net/Container/Path
@@ -5193,7 +5193,7 @@ model BuildContext {
   dockerfilePath?: string = "Dockerfile";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 @removed(Versions.v2025_12_01)
 @added(Versions.v2026_01_15_preview)
 model ImageDetails {
@@ -5215,7 +5215,7 @@ model ImageDetails {
   vulnerabilityFindings?: VulnerabilityFindings | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model ImageInfo {
   /**
    * Image digest
@@ -5242,7 +5242,7 @@ model ImageInfo {
   tag?: string | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model VulnerabilityFindings {
   /**
    * AssetId (Image digest).
@@ -5300,7 +5300,7 @@ model VulnerabilityFindings {
   totalFindingsCount?: int32;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model VulnerabilityDetails {
   /**
    * CVE id.
@@ -5382,7 +5382,7 @@ model VulnerabilityDetails {
   vendorUrl?: string | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model PackageDetails {
   /**
    * Install path.
@@ -5409,7 +5409,7 @@ model PackageDetails {
   patchedVersion?: string | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model InferenceContainerProperties {
   /**
    * The route to check the liveness of the inference server container.
@@ -5433,7 +5433,7 @@ model InferenceContainerProperties {
   startupRoute?: Route | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model Route {
   /**
    * [Required] The path for the route.
@@ -5455,7 +5455,7 @@ model ModelContainerResourceArmPaginatedResult
   is Azure.Core.Page<ModelContainer>;
 
 #suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "Existing API uses inheritance pattern"
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model ModelContainerProperties extends AssetContainer {
   /**
    * Provisioning state for the model container.
@@ -5518,7 +5518,7 @@ model ModelVersionProperties extends AssetBase {
   datasets?: DatasetReference[] | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model FlavorData {
   /**
    * Model flavor-specific data.
@@ -5801,11 +5801,11 @@ model AssetReferenceBase {
 }
 
 #suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "Existing API uses inheritance pattern"
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 #suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "Empty model used as placeholder in API"
 model DeploymentResourceConfiguration extends ResourceConfiguration {}
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model ResourceConfiguration {
   /**
    * Optional number of instances or nodes used by the compute target.
@@ -5931,7 +5931,7 @@ model PartialBatchDeployment {
 }
 
 #suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "Existing API uses inheritance pattern"
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model CapabilityHostProperties extends ResourceBase {
   /**
    * List of Aca Environment connections.
@@ -6160,7 +6160,7 @@ model FeaturesetVersionProperties extends AssetBase {
   stage?: string | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model MaterializationSettings {
   /**
    * Specifies the notification details
@@ -6250,7 +6250,7 @@ model MaterializationComputeResource {
   instanceType?: string | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model RecurrenceTrigger extends TriggerBase {
   /**
    * [Required] The frequency to trigger schedule.
@@ -6274,7 +6274,7 @@ model RecurrenceTrigger extends TriggerBase {
   triggerType: "Recurrence";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model RecurrenceSchedule {
   /**
    * [Required] List of hours for the schedule.
@@ -6299,7 +6299,7 @@ model RecurrenceSchedule {
   weekDays?: WeekDay[] | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 @discriminator("triggerType")
 model TriggerBase {
   /**
@@ -6548,11 +6548,11 @@ model PropertiesBase {
   properties?: StringStringKeyValuePair[] | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model StringStringKeyValuePair {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   key?: string;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   value?: string;
 }
 
@@ -6793,7 +6793,7 @@ model PartialMinimalTrackedResourceWithSku
   sku?: PartialSku;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model DeltaModelStatusRequest {
   /**
    * Gets or sets collection of delta models to retrieve status for.
@@ -6865,7 +6865,7 @@ model DeltaModelCurrentState {
   status?: string | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model DeltaModelListRequest {
   /**
    * Gets or sets number of delta models to return. Default: -1, means that all will be returned.
@@ -6929,7 +6929,7 @@ model DeltaModelModifyRequest {
   targetBaseModel?: string | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model GroupStatus {
   /**
    * Gets or sets the actual capacity info for the group.
@@ -6948,7 +6948,7 @@ model GroupStatus {
   requestedCapacity?: int32 = 0;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model ActualCapacityInfo {
   /**
    * Gets or sets the total number of instances (scale units) regardless of provisioning state or whether current group payload version matches the target group payload.
@@ -7220,7 +7220,7 @@ model Nodes {
 model MarketplaceSubscriptionResourceArmPaginatedResult
   is Azure.Core.Page<MarketplaceSubscription>;
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model MarketplaceSubscriptionProperties {
   /**
    * Marketplace Plan associated with the Marketplace Subscription.
@@ -7249,7 +7249,7 @@ model MarketplaceSubscriptionProperties {
   provisioningState?: MarketplaceSubscriptionProvisioningState;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model MarketplacePlan {
   /**
    * The identifying name of the Offer of the Marketplace Plan.
@@ -7324,7 +7324,7 @@ model OnlineDeploymentTrackedResourceArmPaginatedResult
   is Azure.Core.Page<OnlineDeployment>;
 
 #suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "Existing API uses inheritance pattern"
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 @discriminator("endpointComputeType")
 model OnlineDeploymentProperties extends EndpointDeploymentPropertiesBase {
   /**
@@ -7407,7 +7407,7 @@ model OnlineDeploymentProperties extends EndpointDeploymentPropertiesBase {
   startupProbe?: ProbeSettings | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model DataCollector {
   /**
    * [Required] The collection configuration. Each collection has it own configuration to collect model data and the name of collection can be arbitrary string.
@@ -7431,7 +7431,7 @@ model DataCollector {
   rollingRate?: RollingRateType = RollingRateType.Hour;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model Collection {
   /**
    * The msi client id used to collect logging to blob storage. If it's null,backend will pick a registered endpoint identity to auth.
@@ -7456,7 +7456,7 @@ model Collection {
   samplingRate?: float64 = 1;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model RequestLogging {
   /**
    * For payload logging, we only collect payload by default. If customers also want to collect the specified headers, they can set them in captureHeaders so that backend will collect those headers along with payload.
@@ -7499,7 +7499,7 @@ model OnlineScaleSettings {
   scaleType: ScaleType;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model DeploymentLogsRequest {
   /**
    * The type of container to retrieve logs from.
@@ -7513,7 +7513,7 @@ model DeploymentLogsRequest {
   tail?: int32 | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model DeploymentLogs {
   /**
    * The retrieved online deployment logs.
@@ -7522,7 +7522,7 @@ model DeploymentLogs {
   content?: string | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model RegenerateEndpointKeysRequest {
   /**
    * [Required] Specification for which type of key to generate. Primary or Secondary.
@@ -7606,7 +7606,7 @@ model ScheduleProperties extends ResourceBase {
   trigger: TriggerBase;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 @discriminator("actionType")
 model ScheduleActionBase {
   /**
@@ -7622,7 +7622,7 @@ model ScheduleActionBase {
 model ServerlessEndpointTrackedResourceArmPaginatedResult
   is Azure.Core.Page<ServerlessEndpoint>;
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model ServerlessEndpointProperties {
   /**
    * [Required] Specifies the authentication mode for the Serverless endpoint.
@@ -7668,7 +7668,7 @@ model ServerlessEndpointProperties {
   provisioningState?: EndpointProvisioningState;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model ContentSafety {
   /**
    * Specifies the current safety level for content safety.
@@ -7683,7 +7683,7 @@ model ContentSafety {
   contentSafetyStatus: ContentSafetyStatus;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model ServerlessInferenceEndpoint {
   /**
    * Specifies any required headers to target this serverless endpoint.
@@ -7700,7 +7700,7 @@ model ServerlessInferenceEndpoint {
   uri: url;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model ModelSettings {
   /**
    * The unique model identifier that this ServerlessEndpoint should provision.
@@ -7934,7 +7934,7 @@ model AcrDetails {
   systemCreatedAcrAccount?: SystemCreatedAcrAccount | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model SystemCreatedAcrAccount {
   /**
    * Name of the ACR account
@@ -7966,7 +7966,7 @@ model StorageAccountDetails {
   systemCreatedStorageAccount?: SystemCreatedStorageAccount | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model SystemCreatedStorageAccount {
   /**
    * Public blob access allowed
@@ -8118,10 +8118,10 @@ model WorkspaceProperties {
    */
   applicationInsights?: string;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   associatedWorkspaces?: string[];
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @removed(Versions.v2025_12_01)
   @added(Versions.v2026_01_15_preview)
   containerRegistries?: string[];
@@ -8141,9 +8141,9 @@ model WorkspaceProperties {
    */
   discoveryUrl?: string;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   enableDataIsolation?: boolean;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   #suppress "@azure-tools/typespec-azure-core/casing-style" "Existing API contract uses this naming convention"
   enableServiceSideCMKEncryption?: boolean;
 
@@ -8161,10 +8161,10 @@ model WorkspaceProperties {
   @added(Versions.v2026_01_15_preview)
   enableSoftwareBillOfMaterials?: boolean;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   encryption?: EncryptionProperty;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @removed(Versions.v2025_12_01)
   @added(Versions.v2026_01_15_preview)
   existingWorkspaces?: string[];
@@ -8184,7 +8184,7 @@ model WorkspaceProperties {
    */
   hbiWorkspace?: boolean;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   hubResourceId?: string;
 
   /**
@@ -8204,14 +8204,14 @@ model WorkspaceProperties {
    */
   keyVault?: string;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @removed(Versions.v2025_12_01)
   @added(Versions.v2026_01_15_preview)
   keyVaults?: string[];
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   managedNetwork?: ManagedNetworkSettings;
 
   /**
@@ -8301,7 +8301,7 @@ model WorkspaceProperties {
    */
   storageAccount?: string;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @removed(Versions.v2025_12_01)
   @added(Versions.v2026_01_15_preview)
   storageAccounts?: string[];
@@ -8340,7 +8340,7 @@ model WorkspaceProperties {
   workspaceId?: string;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model EncryptionProperty {
   /**
    * The byok cosmosdb account that customer brings to store customer's data
@@ -8411,19 +8411,19 @@ model KeyVaultProperties {
   keyVaultArmId: string;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model FeatureStoreSettings {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   computeRuntime?: ComputeRuntimeDto;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   offlineStoreConnectionName?: string;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   onlineStoreConnectionName?: string;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model ComputeRuntimeDto {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   sparkRuntimeVersion?: string;
 }
 
@@ -8441,7 +8441,7 @@ model ManagedNetworkSettings {
    */
   isolationMode?: IsolationMode;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @visibility(Lifecycle.Read)
   networkId?: string;
 
@@ -8503,7 +8503,7 @@ model OutboundRule {
   @visibility(Lifecycle.Read)
   errorInformation?: string;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @visibility(Lifecycle.Read)
   parentRuleNames?: string[];
 }
@@ -8512,7 +8512,7 @@ model OutboundRule {
  * Status of the Provisioning for the managed network of a machine learning workspace.
  */
 model ManagedNetworkProvisionStatus {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   sparkReady?: boolean;
 
   /**
@@ -8521,7 +8521,7 @@ model ManagedNetworkProvisionStatus {
   status?: ManagedNetworkStatus;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model NetworkAcls {
   /**
    * The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
@@ -8545,11 +8545,11 @@ model IPRule {
   value?: string;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model NotebookResourceInfo {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   fqdn?: string;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   isPrivateLinkEnabled?: boolean;
 
   /**
@@ -8563,18 +8563,18 @@ model NotebookResourceInfo {
   resourceId?: string;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model NotebookPreparationError {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   errorMessage?: string;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   statusCode?: int32;
 }
 
 /**
  * Private endpoint connection properties.
  */
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model PrivateEndpointConnectionProperties {
   privateEndpoint?: WorkspacePrivateEndpointResource;
 
@@ -8627,7 +8627,7 @@ model PrivateLinkServiceConnectionState {
   status?: EndpointServiceConnectionStatus;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model ServerlessComputeSettings {
   /**
    * The resource ID of an existing virtual network subnet in which serverless compute nodes should be deployed
@@ -8641,19 +8641,19 @@ model ServerlessComputeSettings {
   serverlessComputeNoPublicIP?: boolean;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model ServiceManagedResourcesSettings {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   cosmosDb?: CosmosDbSettings;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model CosmosDbSettings {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   collectionsThroughput?: int32;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model SharedPrivateLinkResource {
   /**
    * Unique name of the private link
@@ -8695,16 +8695,16 @@ model SharedPrivateLinkResourceProperty {
  * WorkspaceHub's configuration object.
  */
 model WorkspaceHubConfig {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   additionalWorkspaceStorageAccounts?: string[];
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   defaultWorkspaceResourceGroup?: string;
 }
 
 /**
  * The parameters for updating a machine learning workspace.
  */
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model WorkspaceUpdateParameters {
   identity?: Azure.ResourceManager.CommonTypes.ManagedServiceIdentity;
 
@@ -8729,7 +8729,7 @@ model WorkspaceUpdateParameters {
  * The parameters for updating a machine learning workspace.
  */
 model WorkspacePropertiesUpdateParameters {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   #suppress "@azure-tools/typespec-azure-core/casing-style" "Existing API contract uses this naming convention"
   @removed(Versions.v2025_12_01)
   @added(Versions.v2026_01_15_preview)
@@ -8750,7 +8750,7 @@ model WorkspacePropertiesUpdateParameters {
    */
   description?: string;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   enableDataIsolation?: boolean;
 
   /**
@@ -8760,7 +8760,7 @@ model WorkspacePropertiesUpdateParameters {
   @added(Versions.v2026_01_15_preview)
   enableSoftwareBillOfMaterials?: boolean;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   encryption?: EncryptionUpdateProperties;
 
   /**
@@ -8781,13 +8781,13 @@ model WorkspacePropertiesUpdateParameters {
   /**
    * The list of IPv4 addresses that are allowed to access the workspace.
    */
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @removed(Versions.v2025_12_01)
   @added(Versions.v2026_01_15_preview)
   ipAllowlist?: string[];
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   managedNetwork?: ManagedNetworkSettings;
 
   /**
@@ -8835,26 +8835,26 @@ model WorkspacePropertiesUpdateParameters {
   v1LegacyMode?: boolean;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model EncryptionUpdateProperties {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   keyVaultProperties: EncryptionKeyVaultUpdateProperties;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model EncryptionKeyVaultUpdateProperties {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @minLength(1)
   @pattern("[a-zA-Z0-9_]")
   keyIdentifier: string;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model WorkspaceConnectionPropertiesV2BasicResourceArmPaginatedResult
   is Azure.Core.Page<WorkspaceConnectionPropertiesV2BasicResource>;
 
 #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "Provisioning state is defined in base properties"
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 @discriminator("authType")
 model WorkspaceConnectionPropertiesV2 {
   /**
@@ -8867,15 +8867,15 @@ model WorkspaceConnectionPropertiesV2 {
    */
   category?: ConnectionCategory;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @visibility(Lifecycle.Read)
   createdByWorkspaceArmId?: Azure.Core.armResourceIdentifier;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   error?: string;
 
   // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   expiryTime?: utcDateTime;
 
   /**
@@ -8884,7 +8884,7 @@ model WorkspaceConnectionPropertiesV2 {
   @visibility(Lifecycle.Read)
   group?: ConnectionGroup;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   isSharedToAll?: boolean;
 
   /**
@@ -8893,15 +8893,15 @@ model WorkspaceConnectionPropertiesV2 {
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "Existing API uses additionalProperties pattern"
   metadata?: Record<string>;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   peRequirement?: ManagedPERequirement;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   peStatus?: ManagedPEStatus;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   sharedUserList?: string[];
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   target?: string;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   useWorkspaceManagedIdentity?: boolean;
 }
 
@@ -8915,11 +8915,11 @@ model WorkspaceConnectionUpdateParameter {
   properties?: WorkspaceConnectionPropertiesV2;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model EndpointDeploymentResourcePropertiesBasicResourceArmPaginatedResult
   is Azure.Core.Page<EndpointDeploymentResourcePropertiesBasicResource>;
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 @discriminator("type")
 model EndpointDeploymentResourceProperties {
   /**
@@ -8943,7 +8943,7 @@ model EndpointDeploymentResourceProperties {
   type: string;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model EndpointModels is Azure.Core.Page<EndpointModelProperties>;
 
 /**
@@ -8956,7 +8956,7 @@ model EndpointModelProperties {
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "Existing API uses additionalProperties pattern"
   capabilities?: Record<string>;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   deprecation?: EndpointModelDeprecationProperties;
 
   /**
@@ -8993,11 +8993,11 @@ model EndpointModelProperties {
   /**
    * The list of Model Sku.
    */
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   skus?: EndpointModelSkuProperties[];
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   systemData?: SystemData;
 
   /**
@@ -9006,7 +9006,7 @@ model EndpointModelProperties {
   version?: string;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model EndpointModelDeprecationProperties {
   /**
    * The datetime of deprecation of the fineTune Model.
@@ -9021,9 +9021,9 @@ model EndpointModelDeprecationProperties {
   inference?: utcDateTime;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model EndpointModelSkuProperties {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   capacity?: EndpointModelSkuCapacityProperties;
 
   /**
@@ -9043,7 +9043,7 @@ model EndpointModelSkuProperties {
   name?: string;
 
   #suppress "@azure-tools/typespec-azure-resource-manager/missing-x-ms-identifiers" "Array items do not have stable identifiers"
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   rateLimits?: EndpointModelSkuRateLimitProperties[];
 
   /**
@@ -9052,7 +9052,7 @@ model EndpointModelSkuProperties {
   usageName?: string;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model EndpointModelSkuCapacityProperties {
   /**
    * The default capacity.
@@ -9065,7 +9065,7 @@ model EndpointModelSkuCapacityProperties {
   maximum?: int32;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model EndpointModelSkuRateLimitProperties {
   /**
    * The count value of Call Rate Limit.
@@ -9084,9 +9084,9 @@ model EndpointModelSkuRateLimitProperties {
   rules?: EndpointModelSkuRateLimitRuleProperties[];
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model EndpointModelSkuRateLimitRuleProperties {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   count?: float32;
 
   /**
@@ -9095,28 +9095,28 @@ model EndpointModelSkuRateLimitRuleProperties {
   dynamicThrottlingEnabled?: boolean;
 
   #suppress "@azure-tools/typespec-azure-resource-manager/missing-x-ms-identifiers" "Array items do not have stable identifiers"
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   #suppress "@azure-tools/typespec-azure-resource-manager/missing-x-ms-identifiers" "Array items do not have stable identifiers"
   #suppress "@azure-tools/typespec-azure-resource-manager/secret-prop" "Secret property is part of existing API contract"
   key?: string;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   #suppress "@azure-tools/typespec-azure-resource-manager/missing-x-ms-identifiers" "Array items do not have stable identifiers"
   matchPatterns?: EndpointModelSkuRateLimitRulePatternProperties[];
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   minCount?: float32;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   renewalPeriod?: float32;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model EndpointModelSkuRateLimitRulePatternProperties {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   method?: string;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   path?: string;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model RaiBlocklistPropertiesBasicResourceArmPaginatedResult
   is Azure.Core.Page<RaiBlocklistPropertiesBasicResource>;
 
@@ -9143,7 +9143,7 @@ model RaiBlocklistItemsBulkAddRequest is RaiBlocklistItemBulkRequest[];
  * The Cognitive Services RaiBlocklist Item request body.
  */
 model RaiBlocklistItemBulkRequest {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   name?: string;
 
   /**
@@ -9168,7 +9168,7 @@ model RaiBlocklistItemProperties {
   pattern?: string;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model RaiBlocklistItemPropertiesBasicResourceArmPaginatedResult
   is Azure.Core.Page<RaiBlocklistItemPropertiesBasicResource>;
 
@@ -9189,9 +9189,9 @@ model RaiPolicyProperties {
   basePolicyName?: string;
 
   #suppress "@azure-tools/typespec-azure-resource-manager/missing-x-ms-identifiers" "Array items do not have stable identifiers"
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   completionBlocklists?: RaiBlocklistConfig[];
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   contentFilters?: RaiPolicyContentFilter[];
 
   /**
@@ -9200,7 +9200,7 @@ model RaiPolicyProperties {
   mode?: RaiPolicyMode;
 
   #suppress "@azure-tools/typespec-azure-resource-manager/missing-x-ms-identifiers" "Array items do not have stable identifiers"
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   promptBlocklists?: RaiBlocklistConfig[];
 
   /**
@@ -9259,11 +9259,11 @@ model RaiPolicyContentFilter {
  * Parameters to diagnose a workspace
  */
 model DiagnoseWorkspaceParameters {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   value?: DiagnoseRequestProperties;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model DiagnoseRequestProperties {
   /**
    * Setting for diagnosing dependent application insights
@@ -9326,47 +9326,47 @@ model DiagnoseRequestProperties {
   udr?: Record<unknown>;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model DiagnoseResponseResult {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   value?: DiagnoseResponseResultValue;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model DiagnoseResponseResultValue {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @identifiers(#["message"])
   userDefinedRouteResults?: DiagnoseResult[];
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @identifiers(#["message"])
   networkSecurityRuleResults?: DiagnoseResult[];
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @identifiers(#["message"])
   resourceLockResults?: DiagnoseResult[];
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @identifiers(#["message"])
   dnsResolutionResults?: DiagnoseResult[];
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @identifiers(#["message"])
   storageAccountResults?: DiagnoseResult[];
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @identifiers(#["message"])
   keyVaultResults?: DiagnoseResult[];
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @identifiers(#["message"])
   containerRegistryResults?: DiagnoseResult[];
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @identifiers(#["message"])
   applicationInsightsResults?: DiagnoseResult[];
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @identifiers(#["message"])
   otherResults?: DiagnoseResult[];
 }
@@ -9394,11 +9394,11 @@ model DiagnoseResult {
   message?: string;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model EndpointResourcePropertiesBasicResourceArmPaginatedResult
   is Azure.Core.Page<EndpointResourcePropertiesBasicResource>;
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 @discriminator("endpointType")
 model EndpointResourceProperties {
   /**
@@ -9454,7 +9454,7 @@ model EndpointResourceProperties {
   shouldCreateAiServicesEndpoint?: boolean;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model EndpointKeys {
   /**
    * Dictionary of Keys for the endpoint.
@@ -9463,24 +9463,24 @@ model EndpointKeys {
   keys?: AccountApiKeys;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model AccountApiKeys {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @secret
   key1?: string;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @secret
   key2?: string;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model RegenerateServiceAccountKeyContent {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   keyName?: ServiceAccountKeyName;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model ListWorkspaceKeysResult {
   /**
    * The access key of the workspace app insights
@@ -9489,9 +9489,9 @@ model ListWorkspaceKeysResult {
   @secret
   appInsightsInstrumentationKey?: string;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   containerRegistryCredentials?: RegistryListCredentialsResult;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   notebookAccessKeys?: ListNotebookKeysResult;
 
   /**
@@ -9508,7 +9508,7 @@ model ListWorkspaceKeysResult {
   userStorageKey?: string;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model RegistryListCredentialsResult {
   /**
    * The location of the workspace ACR
@@ -9516,7 +9516,7 @@ model RegistryListCredentialsResult {
   @visibility(Lifecycle.Read)
   location?: string;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @identifiers(#["name"])
   passwords?: Password[];
 
@@ -9527,20 +9527,20 @@ model RegistryListCredentialsResult {
   username?: string;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model Password {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @visibility(Lifecycle.Read)
   @secret
   name?: string;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @visibility(Lifecycle.Read)
   @secret
   value?: string;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model ListNotebookKeysResult {
   /**
    * The primary access key of the Notebook
@@ -9557,44 +9557,44 @@ model ListNotebookKeysResult {
   secondaryAccessKey?: string;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model NotebookAccessTokenResult {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @visibility(Lifecycle.Read)
   @secret
   accessToken?: string;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @visibility(Lifecycle.Read)
   expiresIn?: int32;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @visibility(Lifecycle.Read)
   hostName?: string;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @visibility(Lifecycle.Read)
   notebookResourceId?: string;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @visibility(Lifecycle.Read)
   publicDns?: string;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @visibility(Lifecycle.Read)
   @secret
   refreshToken?: string;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @visibility(Lifecycle.Read)
   scope?: string;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @visibility(Lifecycle.Read)
   tokenType?: string;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model ListStorageAccountKeysResult {
   /**
    * The access key of the storage
@@ -9604,10 +9604,10 @@ model ListStorageAccountKeysResult {
   userStorageKey?: string;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 #suppress "@azure-tools/typespec-azure-core/casing-style" "Existing API contract uses this naming convention"
 model ExternalFQDNResponse {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @identifiers(#["/properties/category"])
   value?: FqdnEndpointsPropertyBag[];
 }
@@ -9616,33 +9616,33 @@ model ExternalFQDNResponse {
  * Property bag for FQDN endpoints result
  */
 model FqdnEndpointsPropertyBag {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   properties?: FqdnEndpoints;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model FqdnEndpoints {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   category?: string;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @identifiers(#["domainName"])
   endpoints?: FqdnEndpoint[];
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model FqdnEndpoint {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   domainName?: string;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @identifiers(#["port"])
   endpointDetails?: FqdnEndpointDetail[];
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model FqdnEndpointDetail {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   port?: int32;
 }
 
@@ -9656,7 +9656,7 @@ model PrivateEndpointConnectionListResult {
   @pageItems
   value?: PrivateEndpointConnection[];
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @nextLink
   nextLink?: string;
 }
@@ -9668,11 +9668,11 @@ model PrivateLinkResourceListResult {
   /**
    * A list of private link resources
    */
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @pageItems
   value?: PrivateLinkResource[];
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @nextLink
   nextLink?: string;
 }
@@ -9680,7 +9680,7 @@ model PrivateLinkResourceListResult {
 /**
  * A private link resource
  */
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 #suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "Existing API uses inheritance pattern"
 model PrivateLinkResource extends Azure.ResourceManager.CommonTypes.Resource {
   identity?: Azure.ResourceManager.CommonTypes.ManagedServiceIdentity;
@@ -9700,7 +9700,7 @@ model PrivateLinkResource extends Azure.ResourceManager.CommonTypes.Resource {
    */
   sku?: Azure.ResourceManager.CommonTypes.Sku;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "Existing API uses additionalProperties pattern"
   tags?: Record<string>;
 }
@@ -9729,12 +9729,12 @@ model PrivateLinkResourceProperties {
  * Managed Network Provisioning options for managed network of a machine learning workspace.
  */
 model ManagedNetworkProvisionOptions {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   includeSpark?: boolean;
 }
 
 #suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "Existing API uses inheritance pattern"
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model ManagedNetworkSettingsBasicResource
   extends Azure.ResourceManager.CommonTypes.Resource {
   /**
@@ -9760,9 +9760,9 @@ model ManagedNetworkSettingsProperties {
 }
 
 #suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "Existing API uses inheritance pattern"
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model ManagedNetworkSettingsEx extends ManagedNetworkSettings {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @visibility(Lifecycle.Read)
   changeableIsolationModes?: IsolationMode[];
 }
@@ -9791,7 +9791,7 @@ model AKS extends Compute {
   computeType: "AKS";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 #suppress "@azure-tools/typespec-azure-core/casing-style" "Existing API contract uses this naming convention"
 model AKSSchema {
   /**
@@ -10831,7 +10831,7 @@ model Recurrence {
   schedule?: ComputeRecurrenceSchedule;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model ComputeRecurrenceSchedule {
   /**
    * [Required] List of hours for the schedule.
@@ -10879,7 +10879,7 @@ model Cron {
   expression?: string;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model ScheduleBase {
   /**
    * A system assigned id for the schedule.
@@ -11022,13 +11022,13 @@ model VirtualMachine extends Compute {
   computeType: "VirtualMachine";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model VirtualMachineSchema {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   properties?: VirtualMachineSchemaProperties;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model VirtualMachineSchemaProperties {
   /**
    * Virtual Machine size
@@ -11123,7 +11123,7 @@ model HDInsight extends Compute {
   computeType: "HDInsight";
 }
 #suppress "@azure-tools/typespec-azure-core/casing-style" "Existing API contract uses this naming convention"
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model HDInsightSchema {
   properties?: HDInsightProperties;
 }
@@ -11166,7 +11166,7 @@ model Databricks extends Compute {
   computeType: "Databricks";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model DatabricksSchema {
   properties?: DatabricksProperties;
 }
@@ -11183,13 +11183,13 @@ model DataLakeAnalytics extends Compute {
   computeType: "DataLakeAnalytics";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model DataLakeAnalyticsSchema {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   properties?: DataLakeAnalyticsSchemaProperties;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model DataLakeAnalyticsSchemaProperties {
   /**
    * DataLake Store Account Name
@@ -11201,7 +11201,7 @@ model DataLakeAnalyticsSchemaProperties {
  * A SynapseSpark compute.
  */
 model SynapseSpark extends Compute {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   properties?: SynapseSparkProperties;
 
   /**
@@ -11210,7 +11210,7 @@ model SynapseSpark extends Compute {
   computeType: "SynapseSpark";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model SynapseSparkProperties {
   /**
    * Auto scale properties.
@@ -11267,11 +11267,11 @@ model SynapseSparkProperties {
  * Auto scale properties
  */
 model AutoScaleProperties {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   minNodeCount?: int32;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   enabled?: boolean;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   maxNodeCount?: int32;
 }
 
@@ -11279,9 +11279,9 @@ model AutoScaleProperties {
  * Auto pause properties
  */
 model AutoPauseProperties {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   delayInMinutes?: int32;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   enabled?: boolean;
 }
 
@@ -11330,7 +11330,7 @@ model VirtualMachineSecrets extends ComputeSecrets {
   computeType: "VirtualMachine";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model VirtualMachineSecretsSchema {
   /**
    * Admin credentials for virtual machine.
@@ -11394,7 +11394,7 @@ model AccountKeyDatastoreSecrets extends DatastoreSecrets {
   secretsType: "AccountKey";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model AllFeatures extends MonitoringFeatureFilterBase {
   /**
    * [Required] Specifies the feature filter to leverage when selecting features to calculate metrics over.
@@ -11402,7 +11402,7 @@ model AllFeatures extends MonitoringFeatureFilterBase {
   filterType: "AllFeatures";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 @discriminator("filterType")
 model MonitoringFeatureFilterBase {
   /**
@@ -11601,7 +11601,7 @@ model JobOutput {
   jobOutputType: JobOutputType;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model QueueSettings {
   /**
    * Enum to determine the job tier.
@@ -11611,7 +11611,7 @@ model QueueSettings {
 }
 
 #suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "Existing API uses inheritance pattern"
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model JobResourceConfiguration extends ResourceConfiguration {
   /**
    * Extra arguments to pass to the Docker run command. This would override any parameters that have already been set by the system, or in this section. This parameter is only supported for Azure ML compute types.
@@ -11666,7 +11666,7 @@ model AutoMLVertical {
   trainingData: MLTableJobInput;
 }
 #suppress "@azure-tools/typespec-azure-core/casing-style" "Existing API contract uses this naming convention"
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model MLTableJobInput extends JobInput {
   ...AssetJobInput;
 
@@ -11719,7 +11719,7 @@ model NCrossValidations {
   mode: NCrossValidationsMode;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model AutoSeasonality extends Seasonality {
   /**
    * [Required] Seasonality mode.
@@ -11739,7 +11739,7 @@ model Seasonality {
   mode: SeasonalityMode;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model AutoTargetLags extends TargetLags {
   /**
    * [Required] Set target lags mode - Auto/Custom
@@ -11976,7 +11976,7 @@ model AzureFileDatastore extends DatastoreProperties {
   datastoreType: "AzureFile";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model AzureOpenAiFineTuning extends FineTuningVertical {
   /**
    * HyperParameters for fine tuning Azure Open AI model.
@@ -12013,7 +12013,7 @@ model AzureOpenAiHyperParameters {
   nEpochs?: int32 | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 @removed(Versions.v2025_12_01)
 @added(Versions.v2026_01_15_preview)
 @discriminator("modelProvider")
@@ -12164,7 +12164,7 @@ model SamplingAlgorithm {
   samplingAlgorithmType: SamplingAlgorithmType;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model CategoricalDataDriftMetricThreshold extends DataDriftMetricThresholdBase {
   /**
    * [Required] The categorical data drift metric to calculate.
@@ -12178,7 +12178,7 @@ model CategoricalDataDriftMetricThreshold extends DataDriftMetricThresholdBase {
   dataType: "Categorical";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 @discriminator("dataType")
 model DataDriftMetricThresholdBase {
   /**
@@ -12195,7 +12195,7 @@ model DataDriftMetricThresholdBase {
   threshold?: MonitoringThreshold | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model MonitoringThreshold {
   /**
    * The threshold value. If null, the set default is dependent on the metric type.
@@ -12205,7 +12205,7 @@ model MonitoringThreshold {
   value?: float64 | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model CategoricalDataQualityMetricThreshold
   extends DataQualityMetricThresholdBase {
   /**
@@ -12220,7 +12220,7 @@ model CategoricalDataQualityMetricThreshold
   dataType: "Categorical";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 @discriminator("dataType")
 model DataQualityMetricThresholdBase {
   /**
@@ -12237,7 +12237,7 @@ model DataQualityMetricThresholdBase {
   threshold?: MonitoringThreshold | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model CategoricalPredictionDriftMetricThreshold
   extends PredictionDriftMetricThresholdBase {
   /**
@@ -12252,7 +12252,7 @@ model CategoricalPredictionDriftMetricThreshold
   dataType: "Categorical";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 @discriminator("dataType")
 model PredictionDriftMetricThresholdBase {
   /**
@@ -12731,7 +12731,7 @@ model CommandJobLimits extends JobLimits {
   jobLimitsType: "Command";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 @discriminator("jobLimitsType")
 model JobLimits {
   /**
@@ -12763,7 +12763,7 @@ model ContainerResourceRequirements {
   containerResourceRequests?: ContainerResourceSettings | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model ContainerResourceSettings {
   /**
    * Number of vCPUs request/limit for container. More info:
@@ -12787,7 +12787,7 @@ model ContainerResourceSettings {
   memory?: string | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model CreateMonitorAction extends ScheduleActionBase {
   /**
    * [Required] Defines the monitor.
@@ -12801,7 +12801,7 @@ model CreateMonitorAction extends ScheduleActionBase {
   actionType: "CreateMonitor";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model MonitorDefinition {
   /**
    * The monitor's notification settings.
@@ -12831,7 +12831,7 @@ model MonitorDefinition {
   signals: Record<MonitoringSignalBase | null>;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model MonitorNotificationSettings {
   /**
    * The AML notification email settings.
@@ -12841,7 +12841,7 @@ model MonitorNotificationSettings {
   emailNotificationSettings?: MonitorEmailNotificationSettings | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model MonitorEmailNotificationSettings {
   /**
    * The email recipient list which has a limitation of 499 characters in total.
@@ -12890,7 +12890,7 @@ model MonitoringTarget {
   taskType: ModelTaskType;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 @discriminator("signalType")
 model MonitoringSignalBase {
   /**
@@ -12916,7 +12916,7 @@ model MonitoringSignalBase {
   signalType: MonitoringSignalType;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model CronTrigger extends TriggerBase {
   /**
    * [Required] Specifies cron expression of schedule.
@@ -12947,7 +12947,7 @@ model CustomForecastHorizon extends ForecastHorizon {
   mode: "Custom";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model CustomMetricThreshold {
   /**
    * [Required] The user-defined metric to calculate.
@@ -12965,7 +12965,7 @@ model CustomMetricThreshold {
   threshold?: MonitoringThreshold | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model CustomModelFineTuning extends FineTuningVertical {
   /**
    * HyperParameters for fine tuning custom model.
@@ -12980,7 +12980,7 @@ model CustomModelFineTuning extends FineTuningVertical {
   modelProvider: "Custom";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model CustomModelJobInput extends JobInput {
   ...AssetJobInput;
 
@@ -12990,7 +12990,7 @@ model CustomModelJobInput extends JobInput {
   jobInputType: "custom_model";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model CustomModelJobOutput extends JobOutput {
   ...AssetJobOutput;
 
@@ -13000,7 +13000,7 @@ model CustomModelJobOutput extends JobOutput {
   jobOutputType: "custom_model";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model CustomMonitoringSignal extends MonitoringSignalBase {
   /**
    * [Required] Reference to the component asset used to calculate the custom metrics.
@@ -13096,7 +13096,7 @@ model CustomNCrossValidations extends NCrossValidations {
   mode: "Custom";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model CustomSeasonality extends Seasonality {
   /**
    * [Required] Seasonality value.
@@ -13109,7 +13109,7 @@ model CustomSeasonality extends Seasonality {
   mode: "Custom";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model CustomTargetLags extends TargetLags {
   /**
    * [Required] Set target lags values.
@@ -13122,7 +13122,7 @@ model CustomTargetLags extends TargetLags {
   mode: "Custom";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model CustomTargetRollingWindowSize extends TargetRollingWindowSize {
   /**
    * [Required] TargetRollingWindowSize value.
@@ -13135,7 +13135,7 @@ model CustomTargetRollingWindowSize extends TargetRollingWindowSize {
   mode: "Custom";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model DataDriftMonitoringSignal extends MonitoringSignalBase {
   /**
    * A dictionary that maps feature names to their respective data types.
@@ -13184,7 +13184,7 @@ model DataDriftMonitoringSignal extends MonitoringSignalBase {
   signalType: "DataDrift";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model FeatureImportanceSettings {
   /**
    * The mode of operation for computing feature importance.
@@ -13198,7 +13198,7 @@ model FeatureImportanceSettings {
   targetColumn?: string | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 @removed(Versions.v2025_12_01)
 @added(Versions.v2026_01_15_preview)
 @discriminator("dataGenerationType")
@@ -13228,28 +13228,28 @@ model DataGenerationVertical {
   teacherModelEndpoint: TeacherModelEndpoint;
 
   #suppress "@azure-tools/typespec-azure-core/no-nullable" "Existing API contract allows null values"
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   teacherModelSettings?: TeacherModelSettings | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model PromptSettings {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   enableChainOfDensity?: boolean;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   enableChainOfThought?: boolean;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   maxLenSummary?: int32;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 #suppress "@azure-tools/typespec-azure-core/no-nullable" "Existing API contract allows null values"
 model TeacherModelEndpoint {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   endpointName?: string | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model TeacherModelSettings {
   /**
    * Teacher Model Request Settings.
@@ -13265,11 +13265,11 @@ model TeacherModelSettings {
   teacherModelInferenceParameters?: Record<string | null> | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model TeacherModelEndpointRequestSettings {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   minEndpointSuccessRatio?: float64;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   requestBatchSize?: int32;
 }
 
@@ -13295,7 +13295,7 @@ model DataPathAssetReference extends AssetReferenceBase {
   referenceType: "DataPath";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model DataQualityMonitoringSignal extends MonitoringSignalBase {
   /**
    * A dictionary that maps feature names to their respective data types.
@@ -13344,7 +13344,7 @@ model DataQualityMonitoringSignal extends MonitoringSignalBase {
   signalType: "DataQuality";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model DefaultScaleSettings extends OnlineScaleSettings {
   /**
    * [Required] Type of deployment scaling algorithm
@@ -13394,7 +13394,7 @@ model DistillationJob extends JobBaseProperties {
   jobType: "Distillation";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 @removed(Versions.v2025_12_01)
 @added(Versions.v2026_01_15_preview)
 model FinetuningDetails {
@@ -13411,7 +13411,7 @@ model FinetuningDetails {
   studentModel: JobInput;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model JobResources {
   /**
    * List of instance types to choose from.
@@ -13443,7 +13443,7 @@ model DockerCredential extends DataReferenceCredential {
   credentialType: "DockerCredentials";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model EndpointScheduleAction extends ScheduleActionBase {
   /**
    * [Required] Defines Schedule action definition details.
@@ -13459,7 +13459,7 @@ model EndpointScheduleAction extends ScheduleActionBase {
   actionType: "InvokeBatchEndpoint";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model FeatureAttributionDriftMonitoringSignal extends MonitoringSignalBase {
   /**
    * A dictionary that maps feature names to their respective data types.
@@ -13500,7 +13500,7 @@ model FeatureAttributionDriftMonitoringSignal extends MonitoringSignalBase {
   signalType: "FeatureAttributionDrift";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model FeatureAttributionMetricThreshold {
   /**
    * [Required] The feature attribution metric to calculate.
@@ -13516,7 +13516,7 @@ model FeatureAttributionMetricThreshold {
   threshold?: MonitoringThreshold | null;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model FeatureSubset extends MonitoringFeatureFilterBase {
   /**
    * [Required] The list of features to include.
@@ -13735,7 +13735,7 @@ model ImageClassification extends AutoMLVertical {
 }
 
 #suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "Existing API uses inheritance pattern"
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model ImageClassificationBase extends ImageVertical {
   /**
    * Settings used for training the model.
@@ -13995,7 +13995,7 @@ model ImageModelSettings {
   weightDecay?: float32 | null;
 }
 #suppress "@azure-tools/typespec-azure-core/casing-style" "Existing API contract uses this naming convention"
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model MLFlowModelJobInput extends JobInput {
   ...AssetJobInput;
 
@@ -14351,7 +14351,7 @@ model ImageInstanceSegmentation extends AutoMLVertical {
 }
 
 #suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "Existing API uses inheritance pattern"
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model ImageObjectDetectionBase extends ImageVertical {
   /**
    * Settings used for training the model.
@@ -14597,7 +14597,7 @@ model ImageObjectDetection extends AutoMLVertical {
   taskType: "ImageObjectDetection";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model JobScheduleAction extends ScheduleActionBase {
   /**
    * [Required] Defines Schedule action definition details.
@@ -14627,7 +14627,7 @@ model KubernetesOnlineDeployment extends OnlineDeploymentProperties {
   endpointComputeType: "Kubernetes";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model LabelGeneration extends DataGenerationVertical {
   /**
    * Training data for fine tuning.
@@ -14647,7 +14647,7 @@ model LabelGeneration extends DataGenerationVertical {
   dataGenerationType: "LabelGeneration";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model LakeHouseArtifact extends OneLakeArtifact {
   /**
    * [Required] OneLake artifact type
@@ -14691,7 +14691,7 @@ model LiteralJobInput extends JobInput {
   jobInputType: "literal";
 }
 #suppress "@azure-tools/typespec-azure-core/casing-style" "Existing API contract uses this naming convention"
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model MLFlowModelJobOutput extends JobOutput {
   ...AssetJobOutput;
 
@@ -14719,7 +14719,7 @@ model MLTableData extends DataVersionBaseProperties {
   dataType: "mltable";
 }
 #suppress "@azure-tools/typespec-azure-core/casing-style" "Existing API contract uses this naming convention"
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model MLTableJobOutput extends JobOutput {
   ...AssetJobOutput;
 
@@ -14913,7 +14913,7 @@ model NlpVertical {
 
 #suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "Empty model used as placeholder in API"
 #suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "Existing API uses inheritance pattern"
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model NlpVerticalFeaturizationSettings extends FeaturizationSettings {}
 
 /**
@@ -14946,7 +14946,7 @@ model NoneDatastoreCredentials extends DatastoreCredentials {
   credentialsType: "None";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model NumericalDataDriftMetricThreshold extends DataDriftMetricThresholdBase {
   /**
    * [Required] The numerical data drift metric to calculate.
@@ -14959,7 +14959,7 @@ model NumericalDataDriftMetricThreshold extends DataDriftMetricThresholdBase {
   dataType: "Numerical";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model NumericalDataQualityMetricThreshold
   extends DataQualityMetricThresholdBase {
   /**
@@ -14974,7 +14974,7 @@ model NumericalDataQualityMetricThreshold
   dataType: "Numerical";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model NumericalPredictionDriftMetricThreshold
   extends PredictionDriftMetricThresholdBase {
   /**
@@ -15113,7 +15113,7 @@ model PipelineJob extends JobBaseProperties {
   jobType: "Pipeline";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model PredictionDriftMonitoringSignal extends MonitoringSignalBase {
   /**
    * A dictionary that maps feature names to their respective data types.
@@ -15272,7 +15272,7 @@ model SASCredential extends DataReferenceCredential {
   credentialType: "SAS";
 }
 #suppress "@azure-tools/typespec-azure-core/casing-style" "Existing API contract uses this naming convention"
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model SASCredentialDto extends PendingUploadCredentialDto {
   /**
    * Full SAS Uri, including the storage, container/blob path and SAS token
@@ -15501,7 +15501,7 @@ model SparkJobEntry {
   sparkJobEntryType: SparkJobEntryType;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model SparkResourceConfiguration {
   /**
    * Optional type of VM used as supported by the compute target.
@@ -15517,7 +15517,7 @@ model SparkResourceConfiguration {
   runtimeVersion?: string = "3.1";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model SparkJobPythonEntry extends SparkJobEntry {
   /**
    * [Required] Relative python file path for job entry point.
@@ -15533,7 +15533,7 @@ model SparkJobPythonEntry extends SparkJobEntry {
   sparkJobEntryType: "SparkJobPythonEntry";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model SparkJobScalaEntry extends SparkJobEntry {
   /**
    * [Required] Scala class name used as entry point.
@@ -15723,7 +15723,7 @@ model TrialComponent {
   resources?: JobResourceConfiguration;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model TargetUtilizationScaleSettings extends OnlineScaleSettings {
   /**
    * The maximum number of instances that the deployment can scale to. The quota will be reserved for max_instances.
@@ -15833,7 +15833,7 @@ model TextNer extends AutoMLVertical {
   taskType: "TextNER";
 }
 #suppress "@azure-tools/typespec-azure-core/casing-style" "Existing API contract uses this naming convention"
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model TopNFeaturesByAttribution extends MonitoringFeatureFilterBase {
   /**
    * The number of top features to include.
@@ -15847,7 +15847,7 @@ model TopNFeaturesByAttribution extends MonitoringFeatureFilterBase {
   filterType: "TopNByAttribution";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model TritonModelJobInput extends JobInput {
   ...AssetJobInput;
 
@@ -15857,7 +15857,7 @@ model TritonModelJobInput extends JobInput {
   jobInputType: "triton_model";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model TritonModelJobOutput extends JobOutput {
   ...AssetJobOutput;
 
@@ -15892,7 +15892,7 @@ model UriFileDataVersion extends DataVersionBaseProperties {
   dataType: "uri_file";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model UriFileJobInput extends JobInput {
   ...AssetJobInput;
 
@@ -15902,7 +15902,7 @@ model UriFileJobInput extends JobInput {
   jobInputType: "uri_file";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model UriFileJobOutput extends JobOutput {
   ...AssetJobOutput;
 
@@ -15922,7 +15922,7 @@ model UriFolderDataVersion extends DataVersionBaseProperties {
   dataType: "uri_folder";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model UriFolderJobInput extends JobInput {
   ...AssetJobInput;
 
@@ -15932,7 +15932,7 @@ model UriFolderJobInput extends JobInput {
   jobInputType: "uri_folder";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model UriFolderJobOutput extends JobOutput {
   ...AssetJobOutput;
 
@@ -15964,10 +15964,10 @@ model AADAuthTypeWorkspaceConnectionProperties
   authType: "AAD";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model AccessKeyAuthTypeWorkspaceConnectionProperties
   extends WorkspaceConnectionPropertiesV2 {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   credentials?: WorkspaceConnectionAccessKey;
 
   /**
@@ -15976,11 +15976,11 @@ model AccessKeyAuthTypeWorkspaceConnectionProperties
   authType: "AccessKey";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model WorkspaceConnectionAccessKey {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   accessKeyId?: string;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   #suppress "@azure-tools/typespec-azure-resource-manager/secret-prop" "Secret property is part of existing API contract"
   secretAccessKey?: string;
 }
@@ -16005,7 +16005,7 @@ model AccountKeyAuthTypeWorkspaceConnectionProperties
  * Account key object for workspace connection credential.
  */
 model WorkspaceConnectionAccountKey {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   #suppress "@azure-tools/typespec-azure-resource-manager/secret-prop" "Secret property is part of existing API contract"
   key?: string;
 }
@@ -16032,7 +16032,7 @@ model WorkspaceConnectionAccountKey {
  *
  * Use Metadata property bag for ApiType, ApiVersion, Kind and other metadata fields
  */
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model ApiKeyAuthWorkspaceConnectionProperties
   extends WorkspaceConnectionPropertiesV2 {
   credentials?: WorkspaceConnectionApiKey;
@@ -16047,7 +16047,7 @@ model ApiKeyAuthWorkspaceConnectionProperties
  * Api key object for workspace connection credential.
  */
 model WorkspaceConnectionApiKey {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   #suppress "@azure-tools/typespec-azure-resource-manager/secret-prop" "Secret property is part of existing API contract"
   key?: string;
 }
@@ -16082,7 +16082,7 @@ model CapacityConfig {
   allowedValues?: int32[];
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model CognitiveServiceEndpointDeploymentResourceProperties {
   /**
    * Model used for the endpoint deployment.
@@ -16094,7 +16094,7 @@ model CognitiveServiceEndpointDeploymentResourceProperties {
    */
   raiPolicyName?: string;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   sku?: CognitiveServicesSku;
 
   /**
@@ -16103,7 +16103,7 @@ model CognitiveServiceEndpointDeploymentResourceProperties {
   versionUpgradeOption?: DeploymentModelVersionUpgradeOption;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model EndpointDeploymentModel {
   /**
    * Model format
@@ -16126,21 +16126,21 @@ model EndpointDeploymentModel {
   version?: string;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model CognitiveServicesSku {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   capacity?: int32;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   family?: string;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   name?: string;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   size?: string;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   tier?: string;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model ServerlessEndpointContentSafety {
   /**
    * Specifies the status of content safety.
@@ -16148,7 +16148,7 @@ model ServerlessEndpointContentSafety {
   contentSafetyStatus: ContentSafetyStatus;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model ContentSafetyEndpointDeploymentResourceProperties
   extends EndpointDeploymentResourceProperties {
   ...CognitiveServiceEndpointDeploymentResourceProperties;
@@ -16159,7 +16159,7 @@ model ContentSafetyEndpointDeploymentResourceProperties
   type: "Azure.ContentSafety";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model ContentSafetyEndpointResourceProperties
   extends EndpointResourceProperties {
   /**
@@ -16171,7 +16171,7 @@ model ContentSafetyEndpointResourceProperties
 /**
  * Custom Keys credential object
  */
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model CustomKeys {
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "Existing API uses additionalProperties pattern"
   keys?: Record<string>;
@@ -16201,7 +16201,7 @@ model CustomKeysWorkspaceConnectionProperties
  * FQDN Outbound Rule for the managed network of a machine learning workspace.
  */
 model FqdnOutboundRule extends OutboundRule {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   destination?: string;
 
   /**
@@ -16210,10 +16210,10 @@ model FqdnOutboundRule extends OutboundRule {
   type: "FQDN";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model ManagedIdentityAuthTypeWorkspaceConnectionProperties
   extends WorkspaceConnectionPropertiesV2 {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   credentials?: WorkspaceConnectionManagedIdentity;
 
   /**
@@ -16222,15 +16222,15 @@ model ManagedIdentityAuthTypeWorkspaceConnectionProperties
   authType: "ManagedIdentity";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model WorkspaceConnectionManagedIdentity {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   clientId?: string;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   resourceId?: string;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model ManagedOnlineEndpointDeploymentResourceProperties
   extends EndpointDeploymentResourceProperties {
   /**
@@ -16238,7 +16238,7 @@ model ManagedOnlineEndpointDeploymentResourceProperties
    */
   endpointComputeType?: EndpointComputeType;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   `model`?: string;
 
   /**
@@ -16247,7 +16247,7 @@ model ManagedOnlineEndpointDeploymentResourceProperties
   type: "managedOnlineEndpoint";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model ManagedOnlineEndpointResourceProperties
   extends EndpointResourceProperties {
   /**
@@ -16255,13 +16255,13 @@ model ManagedOnlineEndpointResourceProperties
    */
   authMode?: EndpointAuthMode;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   compute?: string;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   description?: string;
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "Existing API uses additionalProperties pattern"
   mirrorTraffic?: Record<int32>;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   scoringUri?: url;
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "Existing API uses additionalProperties pattern"
   traffic?: Record<int32>;
@@ -16272,15 +16272,15 @@ model ManagedOnlineEndpointResourceProperties
   endpointType: "managedOnlineEndpoint";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model ServerlessEndpointModelSettings {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @minLength(1)
   @pattern("[a-zA-Z0-9_]")
   modelId: string;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model NoneAuthTypeWorkspaceConnectionProperties
   extends WorkspaceConnectionPropertiesV2 {
   /**
@@ -16289,7 +16289,7 @@ model NoneAuthTypeWorkspaceConnectionProperties
   authType: "None";
 }
 #suppress "@azure-tools/typespec-azure-core/casing-style" "Existing API contract uses this naming convention"
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model OAuth2AuthTypeWorkspaceConnectionProperties
   extends WorkspaceConnectionPropertiesV2 {
   credentials?: WorkspaceConnectionOAuth2;
@@ -16317,7 +16317,7 @@ model WorkspaceConnectionOAuth2 {
   #suppress "@azure-tools/typespec-azure-core/no-format" "Format not applicable for this property"
   clientId?: Azure.Core.uuid;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @secret
   clientSecret?: string;
 
@@ -16327,7 +16327,7 @@ model WorkspaceConnectionOAuth2 {
   @secret
   developerToken?: string;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @secret
   password?: string;
 
@@ -16350,7 +16350,7 @@ model WorkspaceConnectionOAuth2 {
   username?: string;
 }
 #suppress "@azure-tools/typespec-azure-core/casing-style" "Existing API contract uses this naming convention"
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model OpenAIEndpointDeploymentResourceProperties
   extends EndpointDeploymentResourceProperties {
   ...CognitiveServiceEndpointDeploymentResourceProperties;
@@ -16361,7 +16361,7 @@ model OpenAIEndpointDeploymentResourceProperties
   type: "Azure.OpenAI";
 }
 #suppress "@azure-tools/typespec-azure-core/casing-style" "Existing API contract uses this naming convention"
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model OpenAIEndpointResourceProperties extends EndpointResourceProperties {
   /**
    * Type of the endpoint.
@@ -16369,10 +16369,10 @@ model OpenAIEndpointResourceProperties extends EndpointResourceProperties {
   endpointType: "Azure.OpenAI";
 }
 #suppress "@azure-tools/typespec-azure-core/casing-style" "Existing API contract uses this naming convention"
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model PATAuthTypeWorkspaceConnectionProperties
   extends WorkspaceConnectionPropertiesV2 {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   credentials?: WorkspaceConnectionPersonalAccessToken;
 
   /**
@@ -16381,9 +16381,9 @@ model PATAuthTypeWorkspaceConnectionProperties
   authType: "PAT";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model WorkspaceConnectionPersonalAccessToken {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   pat?: string;
 }
 
@@ -16391,9 +16391,9 @@ model WorkspaceConnectionPersonalAccessToken {
  * Private Endpoint destination for a Private Endpoint Outbound Rule for the managed network of a machine learning workspace.
  */
 model PrivateEndpointDestination {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   serviceResourceId?: Azure.Core.armResourceIdentifier;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   sparkEnabled?: boolean;
 
   /**
@@ -16401,7 +16401,7 @@ model PrivateEndpointDestination {
    */
   sparkStatus?: RuleStatus;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   subresourceTarget?: string;
 }
 
@@ -16414,7 +16414,7 @@ model PrivateEndpointOutboundRule extends OutboundRule {
    */
   destination?: PrivateEndpointDestination;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   fqdns?: string[];
 
   /**
@@ -16423,10 +16423,10 @@ model PrivateEndpointOutboundRule extends OutboundRule {
   type: "PrivateEndpoint";
 }
 #suppress "@azure-tools/typespec-azure-core/casing-style" "Existing API contract uses this naming convention"
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model SASAuthTypeWorkspaceConnectionProperties
   extends WorkspaceConnectionPropertiesV2 {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   credentials?: WorkspaceConnectionSharedAccessSignature;
 
   /**
@@ -16435,30 +16435,30 @@ model SASAuthTypeWorkspaceConnectionProperties
   authType: "SAS";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model WorkspaceConnectionSharedAccessSignature {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   sas?: string;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model ServerlessEndpointCapacityReservation {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @minLength(1)
   @pattern("[a-zA-Z0-9_]")
   capacityReservationGroupId: string;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   endpointReservedCapacity?: int32;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model ServerlessEndpointResourceProperties extends EndpointResourceProperties {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   authMode?: ServerlessInferenceEndpointAuthMode;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   capacityReservation?: ServerlessEndpointCapacityReservation;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   contentSafety?: ServerlessEndpointContentSafety;
 
   /**
@@ -16466,17 +16466,17 @@ model ServerlessEndpointResourceProperties extends EndpointResourceProperties {
    */
   endpointState?: ServerlessEndpointState;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   inferenceEndpoint?: ServerlessEndpointInferenceEndpoint;
   #suppress "@azure-tools/typespec-azure-core/no-unknown" "Type is intentionally dynamic in existing API"
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   #suppress "@azure-tools/typespec-azure-core/no-unknown" "Type is intentionally dynamic in existing API"
   marketplaceSubscriptionId?: string;
   #suppress "@azure-tools/typespec-azure-core/no-unknown" "Type is intentionally dynamic in existing API"
   metadata?: unknown;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   modelSettings?: ServerlessEndpointModelSettings;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   offer?: ServerlessOffer;
 
   /**
@@ -16485,34 +16485,34 @@ model ServerlessEndpointResourceProperties extends EndpointResourceProperties {
   endpointType: "serverlessEndpoint";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model ServerlessEndpointInferenceEndpoint {
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "Existing API uses additionalProperties pattern"
   @visibility(Lifecycle.Read)
   headers?: Record<string>;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @visibility(Lifecycle.Read)
   uri: url;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model ServerlessOffer {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @minLength(1)
   @pattern("[a-zA-Z0-9_]")
   offerName: string;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @minLength(1)
   @pattern("[a-zA-Z0-9_]")
   publisher: string;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model ServicePrincipalAuthTypeWorkspaceConnectionProperties
   extends WorkspaceConnectionPropertiesV2 {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   credentials?: WorkspaceConnectionServicePrincipal;
 
   /**
@@ -16521,16 +16521,16 @@ model ServicePrincipalAuthTypeWorkspaceConnectionProperties
   authType: "ServicePrincipal";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model WorkspaceConnectionServicePrincipal {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   clientId?: string;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @secret
   clientSecret?: string;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   tenantId?: string;
 }
 
@@ -16548,11 +16548,11 @@ model ServiceTagDestination {
    */
   addressPrefixes?: string[];
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   portRanges?: string;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   protocol?: string;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   serviceTag?: string;
 }
 
@@ -16571,7 +16571,7 @@ model ServiceTagOutboundRule extends OutboundRule {
   type: "ServiceTag";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model SpeechEndpointDeploymentResourceProperties
   extends EndpointDeploymentResourceProperties {
   ...CognitiveServiceEndpointDeploymentResourceProperties;
@@ -16582,7 +16582,7 @@ model SpeechEndpointDeploymentResourceProperties
   type: "Azure.Speech";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model SpeechEndpointResourceProperties extends EndpointResourceProperties {
   /**
    * Type of the endpoint.
@@ -16590,10 +16590,10 @@ model SpeechEndpointResourceProperties extends EndpointResourceProperties {
   endpointType: "Azure.Speech";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model UsernamePasswordAuthTypeWorkspaceConnectionProperties
   extends WorkspaceConnectionPropertiesV2 {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   credentials?: WorkspaceConnectionUsernamePassword;
 
   /**
@@ -16602,9 +16602,9 @@ model UsernamePasswordAuthTypeWorkspaceConnectionProperties
   authType: "UsernamePassword";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model WorkspaceConnectionUsernamePassword {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @secret
   password?: string;
 
@@ -16614,15 +16614,15 @@ model WorkspaceConnectionUsernamePassword {
   @secret
   securityToken?: string;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   username?: string;
 }
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 //Fix Me: Compile Error
 model InferenceUpdateParameterProperties {
   description?: string;
 }
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 //Fix Me: Compile Error
 model InferenceUpdateParameter {
   properties: InferenceUpdateParameterProperties;
@@ -16649,13 +16649,13 @@ alias ReferenceSASParameters = {
   /**
    * Asset id and blob uri.
    */
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
   @body
   body: GetBlobReferenceSASRequestDto;
 };
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "Existing API contract - suppression reason updated"
 model CustomLocationParameter {
   @path
   @segment("locations")
