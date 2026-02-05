@@ -28,4 +28,6 @@ jobs:
         uses: ./.github/actions/setup-node-install-deps
 
       - name: Check package.json formatting
-        run: npx prettier package.json package-lock.json --check --config .prettierrc.json
+        run: |
+          npx prettier package.json package-lock.json \
+            --check --config .prettierrc.json
