@@ -1063,6 +1063,11 @@
             }
           }
         },
+        "x-ms-examples": {
+          "ListAiGatewaysBySubscription": {
+            "$ref": "./examples/AIGateways_ListBySubscription.json"
+          }
+        },
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
@@ -2595,6 +2600,11 @@
             }
           }
         },
+        "x-ms-examples": {
+          "ListAiGatewaysByResourceGroup": {
+            "$ref": "./examples/AIGateways_ListByResourceGroup.json"
+          }
+        },
         "x-ms-pageable": {
           "nextLinkName": "nextLink"
         }
@@ -2641,6 +2651,11 @@
             "schema": {
               "$ref": "../../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
             }
+          }
+        },
+        "x-ms-examples": {
+          "GetAiGateway": {
+            "$ref": "./examples/AIGateways_Get.json"
           }
         }
       },
@@ -2700,6 +2715,11 @@
               "$ref": "../../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
             }
           }
+        },
+        "x-ms-examples": {
+          "CreateOrUpdateAiGateway": {
+            "$ref": "./examples/AIGateways_CreateOrUpdate.json"
+          }
         }
       },
       "patch": {
@@ -2752,6 +2772,11 @@
               "$ref": "../../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
             }
           }
+        },
+        "x-ms-examples": {
+          "PatchAiGateway": {
+            "$ref": "./examples/AIGateways_Patch.json"
+          }
         }
       },
       "delete": {
@@ -2794,6 +2819,11 @@
             "schema": {
               "$ref": "../../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
             }
+          }
+        },
+        "x-ms-examples": {
+          "DeleteAiGateway": {
+            "$ref": "./examples/AIGateways_Delete.json"
           }
         }
       }
