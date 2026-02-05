@@ -3779,6 +3779,17 @@ union RuleAction {
 }
 
 /**
+ * Enum to specifies the source type for an isolation key.
+ */
+union IsolationKeySourceType {
+  string,
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  Entra: "Entra",
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
+  Header: "Header",
+}
+
+/**
  * The List Usages operation response.
  */
 model ListUsagesResult is Azure.Core.Page<Usage>;
@@ -16668,6 +16679,29 @@ model ManagedNetworkListResult
   is Azure.Core.Page<ManagedNetworkSettingsPropertiesBasicResource>;
 
 model OutboundRuleListResult is Azure.Core.Page<OutboundRuleBasicResource>;
+
+/**
+ * Isolation key source for an agentic application.
+ */
+@discriminator("type")
+model AgenticApplicationIsolationKeySource {
+  type: IsolationKeySourceType;
+}
+
+/**
+ * Isolation key source for Entra.
+ */
+model EntraIsolationKeySource extends AgenticApplicationIsolationKeySource {
+  // No additional properties
+}
+
+/**
+ * Isolation key source for header.
+ */
+model HeaderIsolationKeySource extends AgenticApplicationIsolationKeySource {
+  chatHeaderName?: string;
+  userHeaderName?: string;
+}
 
 @@visibility(ListAmlUserFeatureResult.value, Lifecycle.Read);
 @@visibility(ListUsagesResult.value, Lifecycle.Read);
