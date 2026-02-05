@@ -2641,7 +2641,10 @@ namespace KnowledgeBaseRetrievalClient {
 );
 @@clientName(AzureOpenAIVectorizer.azureOpenAIParameters, "parameters");
 @@clientName(AzureOpenAIVectorizerParameters.resourceUri, "resourceUrl");
-@@clientName(AzureOpenAIVectorizerParameters.deploymentId, "deploymentName", "!javascript");
+@@clientName(AzureOpenAIVectorizerParameters.deploymentId,
+  "deploymentName",
+  "!javascript"
+);
 @@clientName(WebApiVectorizer.customWebApiParameters, "webApiParameters");
 @@clientName(WebApiVectorizerParameters.uri, "url", "python");
 @@clientName(WebApiVectorizerParameters.uri, "url", "java");
