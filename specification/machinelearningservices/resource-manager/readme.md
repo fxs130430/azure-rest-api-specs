@@ -118,6 +118,76 @@ suppressions:
     reason: This should be exist in 2024-10-01-preview and got suppressed already, not sure why it got triggered.
     where:
       - $.paths["/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/connections/{connectionName}/deployments/{deploymentName}"].put
+  - code: AvoidAdditionalProperties
+    reason: Pre-existing API behavior, these schemas use additionalProperties for dynamic key-value pairs.
+    where:
+      - $.definitions.CustomKeys.properties.keys
+      - $.definitions.WorkspaceConnectionPropertiesV2.properties.metadata
+      - $.definitions.DiagnoseRequestProperties.properties.applicationInsights
+      - $.definitions.DiagnoseRequestProperties.properties.containerRegistry
+      - $.definitions.DiagnoseRequestProperties.properties.dnsResolution
+      - $.definitions.DiagnoseRequestProperties.properties.keyVault
+      - $.definitions.DiagnoseRequestProperties.properties.nsg
+      - $.definitions.DiagnoseRequestProperties.properties.others
+      - $.definitions.DiagnoseRequestProperties.properties.resourceLock
+      - $.definitions.DiagnoseRequestProperties.properties.storageAccount
+      - $.definitions.DiagnoseRequestProperties.properties.udr
+  - code: DefinitionsPropertiesNamesCamelCase
+    reason: Pre-existing API behavior, property name uses acronym CMK (Customer Managed Key) which is industry standard.
+    where:
+      - $.definitions.WorkspaceProperties.properties.enableServiceSideCMKEncryption
+  - code: ProvisioningStateMustBeReadOnly
+    reason: Pre-existing API behavior, provisioningState properties are read-only in the API response.
+  - code: ParametersSchemaAsTypeObject
+    reason: Pre-existing API behavior, PATCH for abstract classes requires polymorphic type discriminator.
+  - code: ProvisioningStateSpecifiedForLROPut
+    reason: Pre-existing API behavior, provisioning state is part of the resource model.
+  - code: PutResponseCodes
+    reason: Pre-existing API behavior for LRO PUT operations.
+  - code: RequiredPropertiesMissingInResourceModel
+    reason: These are list result models and action responses, not ARM resources. They do not require id/name/type properties.
+    where:
+      - $.definitions.AvailableQuota
+      - $.definitions.AvailableQuotaArmPaginatedResult
+      - $.definitions.EndpointModels
+      - $.definitions.ExternalFQDNResponse
+      - $.definitions.ListAmlUserFeatureResult
+      - $.definitions.ListUsagesResult
+      - $.definitions.ListWorkspaceQuotas
+      - $.definitions.SkuResourceArmPaginatedResult
+      - $.definitions.UsageAndQuotaDetailsArmPaginatedResult
+      - $.definitions.VirtualMachineSizeListResult
+  - code: ArmResourcePropertiesBag
+    reason: Pre-existing API contract uses type/name as discriminator property within the properties bag for polymorphic resources.
+    where:
+      - $.definitions.EndpointDeploymentResourcePropertiesBasicResource
+      - $.definitions.EndpointResourcePropertiesBasicResource
+      - $.definitions.OutboundRuleBasicResource
+      - $.definitions.RaiPolicyPropertiesBasicResource
+  - code: TrackedResourcePatchOperation
+    reason: Pre-existing API uses PUT for updates. PrivateEndpointConnection has location/tags but uses PUT, not PATCH.
+    where:
+      - $.definitions.PrivateEndpointConnection
+  - code: ResourceNameRestriction
+    reason: Pre-existing API behavior, adding restriction would be a breaking change.
+  - code: PostResponseCodes
+    reason: Pre-existing API behavior for action operations.
+  - code: ConsistentPatchProperties
+    reason: Pre-existing API design for Compute resource where properties.properties is a known pattern.
+    where:
+      - $.paths["/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/computes/{computeName}"].patch.parameters[5].schema
+  - code: LroPatch202
+    reason: Pre-existing API behavior for Compute update operations.
+    where:
+      - $.paths["/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/computes/{computeName}"].patch.responses
+  - code: GetCollectionOnlyHasValueAndNextLink
+    reason: Pre-existing API behavior for list operations.
+  - code: XmsPageableForListCalls
+    reason: Pre-existing API behavior, pagination is handled by the framework.
+  - code: CollectionObjectPropertiesNaming
+    reason: Pre-existing API behavior.
+  - code: PatchResponseCodes
+    reason: Pre-existing API behavior.
 ```
 
 ### Tag: package-preview-2025-10-01-preview
