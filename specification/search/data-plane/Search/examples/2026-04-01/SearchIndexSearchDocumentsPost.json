@@ -1,0 +1,128 @@
+{
+  "operationId": "Documents_SearchPost",
+  "title": "SearchIndexSearchDocumentsPost",
+  "parameters": {
+    "endpoint": "https://exampleservice.search.windows.net",
+    "indexName": "test-index",
+    "api-version": "2026-04-01",
+    "x-ms-client-request-id": "00000000-0000-0000-0000-000000000000",
+    "body": {
+      "count": true,
+      "facets": [
+        "ownerId",
+        "price,metric:sum,default:10"
+      ],
+      "filter": "category eq 'purple' or category eq 'pink'",
+      "highlight": "category",
+      "highlightPostTag": "</em>",
+      "highlightPreTag": "</em>",
+      "minimumCoverage": 100,
+      "queryType": "semantic",
+      "scoringStatistics": "global",
+      "sessionId": "mysessionid",
+      "scoringParameters": [
+        "categoryTag:desiredCategoryValue"
+      ],
+      "scoringProfile": "stringFieldBoost",
+      "search": "purple",
+      "searchFields": "id,name,description,category,ownerId",
+      "searchMode": "any",
+      "queryLanguage": "en-us",
+      "speller": "lexicon",
+      "select": "id,name,description,category,ownerId",
+      "skip": 0,
+      "top": 10,
+      "semanticConfiguration": "testconfig",
+      "semanticErrorHandling": "partial",
+      "semanticMaxWaitInMilliseconds": 5000,
+      "semanticQuery": "find all purple",
+      "answers": "extractive",
+      "captions": "extractive",
+      "vectorQueries": [
+        {
+          "vector": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "kind": "vector",
+          "k": 50,
+          "fields": "vector22, vector1b",
+          "oversampling": 20,
+          "weight": 1,
+          "threshold": {
+            "value": 0.984,
+            "kind": "vectorSimilarity"
+          },
+          "filterOverride": "ownerId eq 'sam'"
+        }
+      ],
+      "vectorFilterMode": "preFilter",
+      "hybridSearch": {
+        "maxTextRecallSize": 100,
+        "countAndFacetMode": "countAllResults"
+      }
+    }
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "@odata.count": 27,
+        "@search.coverage": 100.0,
+        "@search.facets": {
+          "ownerId": [
+            {
+              "count": 16,
+              "value": "sam"
+            },
+            {
+              "count": 8,
+              "value": "ryan"
+            },
+            {
+              "count": 3,
+              "value": "benny"
+            }
+          ],
+          "price": [
+            {
+              "sum": 320.0
+            }
+          ]
+        },
+        "@search.answers": [
+          {
+            "key": "2f9e1b4c-d0a2-4fae-a11e-5f9c3e7a6b8d",
+            "text": "This is the answer text extracted from the document.",
+            "highlights": "This is the <em>answer</em> text extracted from the document.",
+            "score": 0.95
+          }
+        ],
+        "value": [
+          {
+            "@search.score": 1.0,
+            "@search.rerankerScore": 0.95,
+            "@search.captions": [
+              {
+                "text": "This is a caption from the document.",
+                "highlights": "This is a <em>caption</em> from the document."
+              }
+            ],
+            "id": "2f9e1b4c-d0a2-4fae-a11e-5f9c3e7a6b8d",
+            "name": "Purple Widget",
+            "description": "A great purple widget for all your needs.",
+            "category": "purple",
+            "ownerId": "sam"
+          }
+        ]
+      }
+    }
+  }
+}
