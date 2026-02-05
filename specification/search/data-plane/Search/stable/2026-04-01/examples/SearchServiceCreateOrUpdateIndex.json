@@ -249,8 +249,7 @@
                 }
               ]
             },
-            "rankingOrder": "BoostedRerankerScore",
-            "flightingOptIn": true
+            "rankingOrder": "BoostedRerankerScore"
           }
         ]
       },
@@ -392,7 +391,6 @@
         ]
       },
       "permissionFilterOption": "enabled",
-      "purviewEnabled": true,
       "@odata.etag": "0x1234568AE7E58A1"
     }
   },
@@ -403,7 +401,6 @@
         "description": "description",
         "defaultScoringProfile": "stringFieldBoost",
         "permissionFilterOption": "enabled",
-        "purviewEnabled": true,
         "fields": [
           {
             "name": "id",
@@ -692,7 +689,6 @@
           "configurations": [
             {
               "name": "testconfig",
-              "flightingOptIn": true,
               "rankingOrder": "BoostedRerankerScore",
               "prioritizedFields": {
                 "titleField": {
@@ -866,7 +862,6 @@
         "description": "description",
         "defaultScoringProfile": "stringFieldBoost",
         "permissionFilterOption": "enabled",
-        "purviewEnabled": true,
         "fields": [
           {
             "name": "id",
@@ -1155,7 +1150,6 @@
           "configurations": [
             {
               "name": "testconfig",
-              "flightingOptIn": true,
               "rankingOrder": "BoostedRerankerScore",
               "prioritizedFields": {
                 "titleField": {
