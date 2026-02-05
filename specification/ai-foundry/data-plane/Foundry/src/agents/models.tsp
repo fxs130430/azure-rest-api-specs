@@ -5,9 +5,12 @@ using TypeSpec.OpenAPI;
 
 namespace Azure.AI.Projects;
 
+const dasd: string = "hello";
+
 /** Feature opt-in keys for agent operations supporting container, hosted, and workflow agents. */
 union AgentDefinitionFeatureKeys {
-  container_agents_v1_preview: "ContainerAgents=V1Preview",
+  string,
+  container_agents_v1_preview: FoundryFeaturesOptInKeys.container_agents_v1_preview,
   hosted_agents_v1_preview: "HostedAgents=V1Preview",
   workflow_agents_v1_preview: "WorkflowAgents=V1Preview",
 }
