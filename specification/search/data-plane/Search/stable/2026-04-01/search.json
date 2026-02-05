@@ -1112,136 +1112,6 @@
         }
       }
     },
-    "/indexers('{indexerName}')/search.resetdocs": {
-      "post": {
-        "operationId": "Indexers_ResetDocs",
-        "description": "Resets specific documents in the datasource to be selectively re-ingested by the indexer.",
-        "parameters": [
-          {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
-          },
-          {
-            "name": "Accept",
-            "in": "header",
-            "description": "The Accept header.",
-            "required": true,
-            "type": "string",
-            "enum": [
-              "application/json;odata.metadata=minimal"
-            ],
-            "x-ms-enum": {
-              "modelAsString": false
-            },
-            "x-ms-client-name": "accept"
-          },
-          {
-            "name": "overwrite",
-            "in": "query",
-            "description": "If false, keys or ids will be appended to existing ones. If true, only the keys or ids in this payload will be queued to be re-ingested.",
-            "required": false,
-            "type": "boolean",
-            "default": false
-          },
-          {
-            "$ref": "#/parameters/Azure.Core.ClientRequestIdHeader"
-          },
-          {
-            "name": "indexerName",
-            "in": "path",
-            "description": "The name of the indexer.",
-            "required": true,
-            "type": "string",
-            "x-ms-client-name": "name"
-          },
-          {
-            "name": "keysOrIds",
-            "in": "body",
-            "description": "The keys or ids of the documents to be re-ingested. If keys are provided, the document key field must be specified in the indexer configuration. If ids are provided, the document key field is ignored.",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/DocumentKeysOrIds"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "There is no content to send for this request, but the headers may be useful. "
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        },
-        "x-ms-examples": {
-          "SearchServiceResetDocs": {
-            "$ref": "./examples/SearchServiceResetDocs.json"
-          }
-        }
-      }
-    },
-    "/indexers('{indexerName}')/search.resync": {
-      "post": {
-        "operationId": "Indexers_Resync",
-        "description": "Resync selective options from the datasource to be re-ingested by the indexer.\"",
-        "parameters": [
-          {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
-          },
-          {
-            "name": "Accept",
-            "in": "header",
-            "description": "The Accept header.",
-            "required": true,
-            "type": "string",
-            "enum": [
-              "application/json;odata.metadata=minimal"
-            ],
-            "x-ms-enum": {
-              "modelAsString": false
-            },
-            "x-ms-client-name": "accept"
-          },
-          {
-            "$ref": "#/parameters/Azure.Core.ClientRequestIdHeader"
-          },
-          {
-            "name": "indexerName",
-            "in": "path",
-            "description": "The name of the indexer.",
-            "required": true,
-            "type": "string",
-            "x-ms-client-name": "name"
-          },
-          {
-            "name": "indexerResync",
-            "in": "body",
-            "description": "The definition of the indexer resync options.",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/IndexerResyncBody"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "There is no content to send for this request, but the headers may be useful. "
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        },
-        "x-ms-examples": {
-          "SearchServiceResync": {
-            "$ref": "./examples/SearchServiceResync.json"
-          }
-        }
-      }
-    },
     "/indexers('{indexerName}')/search.run": {
       "post": {
         "operationId": "Indexers_Run",
@@ -1724,14 +1594,6 @@
             "x-ms-client-name": "querySourceAuthorization"
           },
           {
-            "name": "x-ms-enable-elevated-read",
-            "in": "header",
-            "description": "A value that enables elevated read that bypass document level permission checks for the query operation.",
-            "required": false,
-            "type": "boolean",
-            "x-ms-client-name": "enableElevatedRead"
-          },
-          {
             "name": "search",
             "in": "query",
             "description": "A full-text search query expression; Use \"*\" or omit this parameter to match all documents.",
@@ -1812,9 +1674,6 @@
             "$ref": "#/parameters/SearchOptions.semanticQuery"
           },
           {
-            "$ref": "#/parameters/SearchOptions.queryRewrites"
-          },
-          {
             "$ref": "#/parameters/SearchOptions.debug"
           },
           {
@@ -1822,9 +1681,6 @@
           },
           {
             "$ref": "#/parameters/SearchOptions.speller"
-          },
-          {
-            "$ref": "#/parameters/SearchOptions.semanticFields"
           },
           {
             "$ref": "#/parameters/Azure.Core.ClientRequestIdHeader"
@@ -2247,14 +2103,6 @@
             "x-ms-client-name": "querySourceAuthorization"
           },
           {
-            "name": "x-ms-enable-elevated-read",
-            "in": "header",
-            "description": "A value that enables elevated read that bypass document level permission checks for the query operation.",
-            "required": false,
-            "type": "boolean",
-            "x-ms-client-name": "enableElevatedRead"
-          },
-          {
             "$ref": "#/parameters/Azure.Core.ClientRequestIdHeader"
           },
           {
@@ -2495,14 +2343,6 @@
             "x-ms-client-name": "querySourceAuthorization"
           },
           {
-            "name": "x-ms-enable-elevated-read",
-            "in": "header",
-            "description": "A value that enables elevated read that bypass document level permission checks for the query operation.",
-            "required": false,
-            "type": "boolean",
-            "x-ms-client-name": "enableElevatedRead"
-          },
-          {
             "name": "key",
             "in": "path",
             "description": "The key of the document to retrieve.",
@@ -2669,53 +2509,6 @@
         "x-ms-examples": {
           "SearchServiceGetIndexStatistics": {
             "$ref": "./examples/SearchServiceGetIndexStatistics.json"
-          }
-        }
-      }
-    },
-    "/indexstats": {
-      "get": {
-        "operationId": "GetIndexStatsSummary",
-        "description": "Retrieves a summary of statistics for all indexes in the search service.",
-        "parameters": [
-          {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
-          },
-          {
-            "name": "Accept",
-            "in": "header",
-            "description": "The Accept header.",
-            "required": true,
-            "type": "string",
-            "enum": [
-              "application/json;odata.metadata=minimal"
-            ],
-            "x-ms-enum": {
-              "modelAsString": false
-            },
-            "x-ms-client-name": "accept"
-          },
-          {
-            "$ref": "#/parameters/Azure.Core.ClientRequestIdHeader"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The request has succeeded.",
-            "schema": {
-              "$ref": "#/definitions/ListIndexStatsSummary"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        },
-        "x-ms-examples": {
-          "SearchServiceGetIndexStatsSummary": {
-            "$ref": "./examples/SearchServiceGetIndexStatsSummary.json"
           }
         }
       }
@@ -3941,67 +3734,6 @@
         "x-ms-examples": {
           "SearchServiceDeleteSkillset": {
             "$ref": "./examples/SearchServiceDeleteSkillset.json"
-          }
-        }
-      }
-    },
-    "/skillsets('{skillsetName}')/search.resetskills": {
-      "post": {
-        "operationId": "Skillsets_ResetSkills",
-        "description": "Reset an existing skillset in a search service.",
-        "parameters": [
-          {
-            "$ref": "#/parameters/Azure.Core.Foundations.ApiVersionParameter"
-          },
-          {
-            "name": "Accept",
-            "in": "header",
-            "description": "The Accept header.",
-            "required": true,
-            "type": "string",
-            "enum": [
-              "application/json;odata.metadata=minimal"
-            ],
-            "x-ms-enum": {
-              "modelAsString": false
-            },
-            "x-ms-client-name": "accept"
-          },
-          {
-            "$ref": "#/parameters/Azure.Core.ClientRequestIdHeader"
-          },
-          {
-            "name": "skillsetName",
-            "in": "path",
-            "description": "The name of the skillset.",
-            "required": true,
-            "type": "string",
-            "x-ms-client-name": "name"
-          },
-          {
-            "name": "skillNames",
-            "in": "body",
-            "description": "The names of the skills to reset. If not specified, all skills in the skillset will be reset.",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/SkillNames"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "There is no content to send for this request, but the headers may be useful. "
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/ErrorResponse"
-            }
-          }
-        },
-        "x-ms-examples": {
-          "SearchServiceResetSkills": {
-            "$ref": "./examples/SearchServiceResetSkills.json"
           }
         }
       }
@@ -6303,14 +6035,7 @@
     },
     "DebugInfo": {
       "type": "object",
-      "description": "Contains debugging information that can be used to further explore your search results.",
-      "properties": {
-        "queryRewrites": {
-          "$ref": "#/definitions/QueryRewritesDebugInfo",
-          "description": "Contains debugging information specific to query rewrites.",
-          "readOnly": true
-        }
-      }
+      "description": "Contains debugging information that can be used to further explore your search results."
     },
     "DefaultCognitiveServicesAccount": {
       "type": "object",
@@ -6412,11 +6137,6 @@
       "type": "object",
       "description": "Contains debugging information that can be used to further explore your search results.",
       "properties": {
-        "semantic": {
-          "$ref": "#/definitions/SemanticDebugInfo",
-          "description": "Contains debugging information specific to semantic ranking requests.",
-          "readOnly": true
-        },
         "vectors": {
           "$ref": "#/definitions/VectorsDebugInfo",
           "description": "Contains debugging information specific to vector and hybrid search.",
@@ -14573,68 +14293,6 @@
         }
       }
     },
-    "QueryRewritesDebugInfo": {
-      "type": "object",
-      "description": "Contains debugging information specific to query rewrites.",
-      "properties": {
-        "text": {
-          "$ref": "#/definitions/QueryRewritesValuesDebugInfo",
-          "description": "List of query rewrites generated for the text query.",
-          "readOnly": true
-        },
-        "vectors": {
-          "type": "array",
-          "description": "List of query rewrites generated for the vectorizable text queries.",
-          "items": {
-            "$ref": "#/definitions/QueryRewritesValuesDebugInfo"
-          },
-          "readOnly": true
-        }
-      }
-    },
-    "QueryRewritesType": {
-      "type": "string",
-      "description": "This parameter is only valid if the query type is `semantic`. When QueryRewrites is set to `generative`, the query terms are sent to a generate model which will produce 10 (default) rewrites to help increase the recall of the request. The requested count can be configured by appending the pipe character `|` followed by the `count-<number of rewrites>` option, such as `generative|count-3`. Defaults to `None`.",
-      "enum": [
-        "none",
-        "generative"
-      ],
-      "x-ms-enum": {
-        "name": "QueryRewritesType",
-        "modelAsString": true,
-        "values": [
-          {
-            "name": "None",
-            "value": "none",
-            "description": "Do not generate additional query rewrites for this query."
-          },
-          {
-            "name": "Generative",
-            "value": "generative",
-            "description": "Generate alternative query terms to increase the recall of a search request."
-          }
-        ]
-      }
-    },
-    "QueryRewritesValuesDebugInfo": {
-      "type": "object",
-      "description": "Contains debugging information specific to query rewrites.",
-      "properties": {
-        "inputQuery": {
-          "type": "string",
-          "description": "The input text to the generative query rewriting model. There may be cases where the user query and the input to the generative model are not identical.",
-          "readOnly": true
-        },
-        "rewrites": {
-          "type": "array",
-          "description": "List of query rewrites.",
-          "items": {
-            "type": "string"
-          },
-          "readOnly": true
-        }
-      }
-    },
     "QuerySpellerType": {
       "type": "string",
       "description": "Improve search recall by spell-correcting individual search query terms.",
@@ -15133,12 +14791,6 @@
           "description": "Type of partial response that was returned for a semantic ranking request.",
           "readOnly": true,
           "x-ms-client-name": "semanticPartialResponseType"
-        },
-        "@search.semanticQueryRewritesResultType": {
-          "$ref": "#/definitions/SemanticQueryRewritesResultType",
-          "description": "Type of query rewrite that was used to retrieve documents.",
-          "readOnly": true,
-          "x-ms-client-name": "semanticQueryRewritesResultType"
         }
       },
       "required": [
@@ -16470,14 +16122,6 @@
           "$ref": "#/definitions/QueryCaptionType",
           "description": "A value that specifies whether captions should be returned as part of the search response."
         },
-        "queryRewrites": {
-          "$ref": "#/definitions/QueryRewritesType",
-          "description": "A value that specifies whether query rewrites should be generated to augment the search query."
-        },
-        "semanticFields": {
-          "type": "string",
-          "description": "The comma-separated list of field names used for semantic ranking."
-        },
         "vectorQueries": {
           "type": "array",
           "description": "The query parameters for vector and hybrid search queries.",
@@ -16782,38 +16426,6 @@
         "prioritizedFields"
       ]
     },
-    "SemanticDebugInfo": {
-      "type": "object",
-      "description": "Contains debugging information specific to semantic ranking requests.",
-      "properties": {
-        "titleField": {
-          "$ref": "#/definitions/QueryResultDocumentSemanticField",
-          "description": "The title field that was sent to the semantic enrichment process, as well as how it was used",
-          "readOnly": true
-        },
-        "contentFields": {
-          "type": "array",
-          "description": "The content fields that were sent to the semantic enrichment process, as well as how they were used",
-          "items": {
-            "$ref": "#/definitions/QueryResultDocumentSemanticField"
-          },
-          "readOnly": true
-        },
-        "keywordFields": {
-          "type": "array",
-          "description": "The keyword fields that were sent to the semantic enrichment process, as well as how they were used",
-          "items": {
-            "$ref": "#/definitions/QueryResultDocumentSemanticField"
-          },
-          "readOnly": true
-        },
-        "rerankerInput": {
-          "$ref": "#/definitions/QueryResultDocumentRerankerInput",
-          "description": "The raw concatenated strings that were sent to the semantic enrichment process.",
-          "readOnly": true
-        }
-      }
-    },
     "SemanticErrorMode": {
       "type": "string",
       "description": "Allows the user to choose whether a semantic call should fail completely, or to return partial results.",
@@ -16933,24 +16545,6 @@
             "$ref": "#/definitions/SemanticField"
           }
         }
-      }
-    },
-    "SemanticQueryRewritesResultType": {
-      "type": "string",
-      "description": "Type of query rewrite that was used for this request.",
-      "enum": [
-        "originalQueryOnly"
-      ],
-      "x-ms-enum": {
-        "name": "SemanticQueryRewritesResultType",
-        "modelAsString": true,
-        "values": [
-          {
-            "name": "OriginalQueryOnly",
-            "value": "originalQueryOnly",
-            "description": "Query rewrites were not successfully generated for this request. Only the original query was used to retrieve the results."
-          }
-        ]
       }
     },
     "SemanticSearch": {
@@ -20127,10 +19721,6 @@
         "text": {
           "type": "string",
           "description": "The text to be vectorized to perform a vector search query."
-        },
-        "queryRewrites": {
-          "$ref": "#/definitions/QueryRewritesType",
-          "description": "Can be configured to let a generative model rewrite the query before sending it to be vectorized."
         }
       },
       "required": [
@@ -21181,34 +20771,6 @@
       },
       "x-ms-parameter-location": "method"
     },
-    "SearchOptions.queryRewrites": {
-      "name": "queryRewrites",
-      "in": "query",
-      "description": "When QueryRewrites is set to `generative`, the query terms are sent to a generate model which will produce 10 (default) rewrites to help increase the recall of the request. The requested count can be configured by appending the pipe character `|` followed by the `count-<number of rewrites>` option, such as `generative|count-3`. Defaults to `None`. This parameter is only valid if the query type is `semantic`.",
-      "required": false,
-      "type": "string",
-      "enum": [
-        "none",
-        "generative"
-      ],
-      "x-ms-enum": {
-        "name": "QueryRewritesType",
-        "modelAsString": true,
-        "values": [
-          {
-            "name": "None",
-            "value": "none",
-            "description": "Do not generate additional query rewrites for this query."
-          },
-          {
-            "name": "Generative",
-            "value": "generative",
-            "description": "Generate alternative query terms to increase the recall of a search request."
-          }
-        ]
-      },
-      "x-ms-parameter-location": "method"
-    },
     "SearchOptions.queryType": {
       "name": "queryType",
       "in": "query",
@@ -21379,18 +20941,6 @@
           }
         ]
       },
-      "x-ms-parameter-location": "method"
-    },
-    "SearchOptions.semanticFields": {
-      "name": "semanticFields",
-      "in": "query",
-      "description": "The list of field names used for semantic ranking.",
-      "required": false,
-      "type": "array",
-      "items": {
-        "type": "string"
-      },
-      "collectionFormat": "csv",
       "x-ms-parameter-location": "method"
     },
     "SearchOptions.semanticMaxWaitInMilliseconds": {

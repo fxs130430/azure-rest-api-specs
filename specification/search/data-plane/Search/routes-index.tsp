@@ -1,8 +1,10 @@
 ﻿import "@azure-tools/typespec-azure-core";
+import "@typespec/versioning";
 import "@typespec/rest";
 import "./models-index.tsp";
 
 using TypeSpec.Http;
+using TypeSpec.Versioning;
 
 namespace Search;
 
