@@ -168,6 +168,8 @@ interface Service {
     ...TimeoutParameter,
     ...ClientRequestIdHeader,
     ...ContentLengthParameter,
+
+    /** The batch request content */
     ...MultipartBodyParameter,
   ): (MultipartBodyParameter & {
     /** The media type of the body of the response. For batch requests, this is multipart/mixed; boundary=batchresponse_GUID */
@@ -400,17 +402,17 @@ interface Container {
   @post
   @route("?restype=container&comp=batch")
   submitBatch(
-    /** The batch request content */
-    ...MultipartBodyParameter,
-
     /** Required. The value of this header must be multipart/mixed with a batch boundary. Example header value: multipart/mixed; boundary=batch_<GUID> */
     @header("Content-Type")
     multipartContentType: "multipart/mixed",
 
-    ...ContentLengthParameter,
-    ...TimeoutParameter,
     ...ApiVersionHeader,
+    ...TimeoutParameter,
     ...ClientRequestIdHeader,
+    ...ContentLengthParameter,
+
+    /** The batch request content */
+    ...MultipartBodyParameter,
   ): ({
     @statusCode statusCode: 202;
 
