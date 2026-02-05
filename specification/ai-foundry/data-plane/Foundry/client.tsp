@@ -211,17 +211,17 @@ using Azure.AI.Projects;
 // Usage / Public accessibility overrides
 // --------------------------------------------------------------------------------
 
-@@usage(OpenAI.ItemResource, Usage.json);
-@@usage(OpenAI.CreateResponseStreamingResponse, Usage.json);
-
-@@usage(AgentId, Usage.output);
-@@access(AgentId, Access.public);
-
+// This class can be used to referene an Agent during an OpenAI responses create call 
+// (although in all our Python samples and tests we use Dict[str, Any] as input to responses calls. Similalry for JS/TS)
 @@usage(AgentReference, Usage.input);
 @@access(AgentReference, Access.public);
 
-@@usage(ApiError, Usage.output);
-@@access(ApiError, Access.public);
-
-@@usage(ApiErrorResponse, Usage.output);
-@@access(ApiErrorResponse, Access.public);
+// Why were these added?
+//@@usage(OpenAI.ItemResource, Usage.json);
+//@@usage(OpenAI.CreateResponseStreamingResponse, Usage.json);
+//@@usage(AgentId, Usage.output);
+//@@access(AgentId, Access.public);
+//@@usage(ApiError, Usage.output);
+//@@access(ApiError, Access.public);
+//@@usage(ApiErrorResponse, Usage.output);
+//@@access(ApiErrorResponse, Access.public);
