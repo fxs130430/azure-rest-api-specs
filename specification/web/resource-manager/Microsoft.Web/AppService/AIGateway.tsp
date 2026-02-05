@@ -12,7 +12,7 @@ using TypeSpec.OpenAPI;
 namespace Microsoft.Web;
 
 @doc("The properties of an AI gateway.")
-model AIGatewayProperties {
+model AiGatewayProperties {
   @visibility(Lifecycle.Read)
   @doc("The status of the last operation.")
   provisioningState?: ResourceProvisioningState;
@@ -23,7 +23,7 @@ model AIGatewayProperties {
 }
 
 @doc("An AI gateway resource.")
-model AIGateway is Azure.ResourceManager.TrackedResource<AIGatewayProperties> {
+model AiGateway is Azure.ResourceManager.TrackedResource<AiGatewayProperties> {
   @key("name")
   @segment("aigateways")
   @doc("The name of the AI gateway")
@@ -34,15 +34,15 @@ model AIGateway is Azure.ResourceManager.TrackedResource<AIGatewayProperties> {
 
 @armResourceOperations
 @doc("The operations of AI gateways.")
-interface AIGateways {
-  get is ArmResourceRead<AIGateway>;
-  createOrUpdate is ArmResourceCreateOrReplaceSync<AIGateway>;
-  patch is ArmResourcePatchSync<AIGateway, AIGatewayProperties>;
-  delete is ArmResourceDeleteSync<AIGateway>;
-  listBySubscription is ArmListBySubscription<AIGateway>;
+interface AiGateways {
+  get is ArmResourceRead<AiGateway>;
+  createOrUpdate is ArmResourceCreateOrReplaceSync<AiGateway>;
+  patch is ArmResourcePatchSync<AiGateway, AiGatewayProperties>;
+  delete is ArmResourceDeleteSync<AiGateway>;
+  listBySubscription is ArmListBySubscription<AiGateway>;
   listByResourceGroup is ArmResourceListByParent<
-    AIGateway,
-    Azure.ResourceManager.Foundations.BaseParameters<AIGateway> &
+    AiGateway,
+    Azure.ResourceManager.Foundations.BaseParameters<AiGateway> &
       Azure.Core.StandardListQueryParameters &
       Azure.Core.FilterQueryParameter &
       Azure.Core.SelectQueryParameter &
