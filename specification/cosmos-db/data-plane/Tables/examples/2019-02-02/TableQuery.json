@@ -1,5 +1,5 @@
 {
-  "operationId": "Query",
+  "operationId": "Table_Query",
   "title": "QueryTables",
   "parameters": {
     "x-ms-version": "2019-02-02",

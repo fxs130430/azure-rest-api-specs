@@ -1,5 +1,5 @@
 {
-  "operationId": "QueryEntityWithPartitionAndRowKey",
+  "operationId": "Table_QueryEntityWithPartitionAndRowKey",
   "title": "GetEntity",
   "parameters": {
     "x-ms-version": "2019-02-02",

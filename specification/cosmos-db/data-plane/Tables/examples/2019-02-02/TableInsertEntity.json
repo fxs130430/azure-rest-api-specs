@@ -1,5 +1,5 @@
 {
-  "operationId": "InsertEntity",
+  "operationId": "Table_InsertEntity",
   "title": "InsertEntity",
   "parameters": {
     "x-ms-version": "2019-02-02",

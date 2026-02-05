@@ -1,5 +1,5 @@
 {
-  "operationId": "Create",
+  "operationId": "Table_Create",
   "title": "CreateTable",
   "parameters": {
     "x-ms-version": "2019-02-02",

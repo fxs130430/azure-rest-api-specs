@@ -197,9 +197,14 @@ model TableEntityQueryResponse {
 
 /// Table ACL
 
-/** Represents an array of signed identifiers */
+/** Table signed identifiers. */
 @Xml.name("SignedIdentifiers")
-model SignedIdentifiers is Array<SignedIdentifier>;
+model SignedIdentifiers {
+  /** An array of signed identifiers */
+  @Xml.unwrapped
+  @Xml.name("SignedIdentifier")
+  identifiers: Array<SignedIdentifier>;
+}
 
 /** The signed identifier. */
 @Xml.name("SignedIdentifier")
@@ -230,6 +235,7 @@ model AccessPolicy {
 /// Service Properties
 
 /** The service properties. */
+@Xml.name("StorageServiceProperties")
 model TableServiceProperties {
   /** The logging properties. */
   @Xml.name("Logging") logging?: Logging;
@@ -334,6 +340,7 @@ model CorsRule {
 }
 
 /** Stats for the table service. */
+@Xml.name("StorageServiceStats")
 model TableServiceStats {
   /** Geo-Replication information for the Secondary Storage Service. */
   @Xml.name("GeoReplication") geoReplication?: GeoReplication;
@@ -385,6 +392,10 @@ model TablesServiceError {
 /** Table JSON error. */
 @error
 model TablesError {
+  /** Content-Type header */
+  @header("Content-Type")
+  contentType: "application/json";
+
   /** The error code. */
   @header("x-ms-error-code")
   errorCode?: string;

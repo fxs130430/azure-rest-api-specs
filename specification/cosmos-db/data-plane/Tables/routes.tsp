@@ -51,6 +51,10 @@ namespace Data.Tables {
         @header("Content-Type")
         contentType: "application/xml";
 
+        /** Even though the response is 204, we need explicit Accept. */
+        @header("Accept")
+        accept: "application/xml";
+
         /** The table service properties to set. */
         @body
         tableServiceProperties: TableServiceProperties;
@@ -183,6 +187,10 @@ namespace Data.Tables {
         @header("Content-Type")
         contentType: "application/xml";
 
+        /** Even though the response is 204, we need explicit Accept. */
+        @header("Accept")
+        accept: "application/xml";
+
         /** The access control list for the table. */
         @body
         tableAcl: SignedIdentifiers;
@@ -236,6 +244,12 @@ namespace Data.Tables {
       ...ApiVersionHeader,
       ...ClientRequestIdHeader,
       ...TablePathParameter,
+
+      /** Even though the response is 204, if we don't add explicit json, we will
+       * get XML formatted error responses from the server.
+       */
+      @header("Accept")
+      accept: "application/json",
     ): {
       @statusCode statusCode: 204;
       ...ApiVersionHeader;
@@ -293,6 +307,12 @@ namespace Data.Tables {
         @header("Content-Type")
         contentType: "application/json";
 
+        /** Even though the response is 204, if we don't add explicit json, we will
+         * get XML formatted error responses from the server.
+         */
+        @header("Accept")
+        accept: "application/json";
+
         /**
          * Match condition for an entity to be deleted. If specified and a matching entity
          * is not found, an error will be raised. To force an unconditional delete, set to
@@ -340,6 +360,12 @@ namespace Data.Tables {
         /** Content-Type header */
         @header("Content-Type")
         contentType: "application/json";
+
+        /** Even though the response is 204, if we don't add explicit json, we will
+         * get XML formatted error responses from the server.
+         */
+        @header("Accept")
+        accept: "application/json";
 
         /**
          * Match condition for an entity to be deleted. If specified and a matching entity
@@ -392,6 +418,12 @@ namespace Data.Tables {
          */
         @header("If-Match")
         ifMatch: string;
+
+        /** Even though the response is 204, if we don't add explicit json, we will
+         * get XML formatted error responses from the server.
+         */
+        @header("Accept")
+        accept: "application/json";
 
         /**
          * The partition key of the entity.
