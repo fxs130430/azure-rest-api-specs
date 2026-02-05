@@ -1,0 +1,31 @@
+name: Root - Format Check
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - package.json
+      - package-lock.json
+  pull_request:
+    paths:
+      - package.json
+      - package-lock.json
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  format-check:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node and install deps
+        uses: ./.github/actions/setup-node-install-deps
+
+      - name: Check package.json formatting
+        run: npx prettier package.json package-lock.json --check --config .prettierrc.json
