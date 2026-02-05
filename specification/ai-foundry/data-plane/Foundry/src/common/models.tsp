@@ -80,13 +80,13 @@ alias WithConditionalFoundryPreviewHeader<OptionalPreviewOptInHeader> = {
 #suppress "@azure-tools/typespec-azure-core/long-running-polling-operation-required" ""
 #suppress "@azure-tools/typespec-azure-core/no-response-body" ""
 op FoundryDataPlanePreviewOperation<
-  FoundryFeaturesOptInKeys,
+  string,
   Params extends Reflection.Model,
   Response,
   ErrorResponse = ApiErrorResponse
 > is FoundryDataPlaneOperation<
   {
-    ...WithConditionalFoundryPreviewHeader<FoundryFeaturesOptInKeys>;
+    ...WithConditionalFoundryPreviewHeader<string>;
     ...Params;
   },
   Response,
@@ -104,12 +104,12 @@ op OpenAIOperation<
 #suppress "@azure-tools/typespec-azure-core/operation-missing-api-version" "OpenAI-based operations are not conventionally versioned"
 #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "OpenAI-based operations are definitionally non-standard"
 op OpenAIOperationWithPreview<
-  FoundryFeaturesOptInKeys,
+  string,
   Params extends Reflection.Model,
   Response,
   ErrorResponse = ApiErrorResponse
 >(
-  ...WithConditionalFoundryPreviewHeader<FoundryFeaturesOptInKeys>,
+  ...WithConditionalFoundryPreviewHeader<string>,
   ...Params,
 ): Response | ErrorResponse;
 

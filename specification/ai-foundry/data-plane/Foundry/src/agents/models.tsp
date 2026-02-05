@@ -7,10 +7,9 @@ namespace Azure.AI.Projects;
 
 /** Feature opt-in keys for agent operations supporting container, hosted, and workflow agents. */
 union AgentDefinitionFeatureKeys {
-  string,
-  container_agents_v1_preview: FoundryFeaturesOptInKeys.container_agents_v1_preview,
-  hosted_agents_v1_preview: FoundryFeaturesOptInKeys.hosted_agents_v1_preview,
-  workflow_agents_v1_preview: FoundryFeaturesOptInKeys.workflow_agents_v1_preview,
+  container_agents_v1_preview: "ContainerAgents=V1Preview",
+  hosted_agents_v1_preview: "HostedAgents=V1Preview",
+  workflow_agents_v1_preview: "WorkflowAgents=V1Preview",
 }
 
 const AllConditionalAgentDefinitionPreviews = #{
