@@ -3782,6 +3782,7 @@ union RuleAction {
  * Enum to specifies the source type for an isolation key.
  */
 union IsolationKeySourceType {
+  string,
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
   Entra: "Entra",
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "Documentation not available in original swagger"
