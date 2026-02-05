@@ -1,6 +1,6 @@
 {
   "parameters": {
-    "api-version": "2025-03-01-preview",
+    "api-version": "2025-09-01-preview",
     "connectivityCheckRequestParams": {
       "destination": {
         "address": "8.8.8.8",
@@ -47,7 +47,7 @@
     },
     "202": {
       "headers": {
-        "location": "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/connectivityCheck/operationresults/bmljb2xhLW5ldHdvcmt3YXRjaGVyNF9Db25uZWN0aXRpdml0eUNoZWNrXzE2MmExNmZl?api-version=2025-03-01-preview"
+        "location": "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/connectivityCheck/operationresults/bmljb2xhLW5ldHdvcmt3YXRjaGVyNF9Db25uZWN0aXRpdml0eUNoZWNrXzE2MmExNmZl?api-version=2025-09-01-preview"
       }
     }
   },

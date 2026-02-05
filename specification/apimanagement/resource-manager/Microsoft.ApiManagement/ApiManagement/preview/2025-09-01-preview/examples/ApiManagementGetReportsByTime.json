@@ -1,7 +1,7 @@
 {
   "parameters": {
     "$filter": "timestamp ge datetime'2017-06-01T00:00:00' and timestamp le datetime'2017-06-04T00:00:00'",
-    "api-version": "2025-03-01-preview",
+    "api-version": "2025-09-01-preview",
     "interval": "PT15M",
     "resourceGroupName": "rg1",
     "serviceName": "apimService1",

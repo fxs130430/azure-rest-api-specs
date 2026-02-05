@@ -1,6 +1,6 @@
 {
   "parameters": {
-    "api-version": "2025-03-01-preview",
+    "api-version": "2025-09-01-preview",
     "gatewayId": "gw1",
     "parameters": {
       "expiry": "2020-04-21T00:44:24.2845269Z",

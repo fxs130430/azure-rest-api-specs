@@ -1,6 +1,6 @@
 {
   "parameters": {
-    "api-version": "2025-03-01-preview",
+    "api-version": "2025-09-01-preview",
     "apiId": "599e2953193c3c0bd0b3e2fa",
     "resolverId": "599e29ab193c3c0bd0b3e2fb",
     "resourceGroupName": "rg1",

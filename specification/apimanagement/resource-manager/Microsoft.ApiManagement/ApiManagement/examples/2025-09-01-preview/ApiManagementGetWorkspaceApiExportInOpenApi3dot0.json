@@ -1,7 +1,7 @@
 {
   "parameters": {
     "format": "openapi-link",
-    "api-version": "2025-03-01-preview",
+    "api-version": "2025-09-01-preview",
     "apiId": "aid9676",
     "export": "true",
     "resourceGroupName": "rg1",

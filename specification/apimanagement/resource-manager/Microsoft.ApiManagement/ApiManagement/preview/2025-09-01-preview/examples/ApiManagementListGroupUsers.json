@@ -1,6 +1,6 @@
 {
   "parameters": {
-    "api-version": "2025-03-01-preview",
+    "api-version": "2025-09-01-preview",
     "groupId": "57d2ef278aa04f0888cba3f3",
     "resourceGroupName": "rg1",
     "serviceName": "apimService1",

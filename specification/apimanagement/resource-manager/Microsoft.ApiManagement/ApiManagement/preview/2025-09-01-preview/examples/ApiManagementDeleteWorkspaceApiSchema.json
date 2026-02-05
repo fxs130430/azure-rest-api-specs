@@ -1,7 +1,7 @@
 {
   "parameters": {
     "If-Match": "*",
-    "api-version": "2025-03-01-preview",
+    "api-version": "2025-09-01-preview",
     "apiId": "59d5b28d1f7fab116c282650",
     "resourceGroupName": "rg1",
     "schemaId": "59d5b28e1f7fab116402044e",
