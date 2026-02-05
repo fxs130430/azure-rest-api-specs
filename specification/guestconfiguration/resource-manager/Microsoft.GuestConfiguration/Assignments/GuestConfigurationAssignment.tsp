@@ -13,13 +13,16 @@ namespace Microsoft.GuestConfiguration;
 /**
  * Guest configuration assignment is an association between a machine and guest configuration.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-custom-resource-usage-discourage" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
-model GuestConfigurationAssignment extends ProxyResource {
+model GuestConfigurationAssignment
+  is Azure.ResourceManager.ProxyResource<GuestConfigurationAssignmentProperties> {
   /**
-   * Properties of the Guest configuration assignment.
+   * Name of the guest configuration assignment.
    */
-  properties?: GuestConfigurationAssignmentProperties;
+  @key("guestConfigurationAssignmentName")
+  @segment("guestConfigurationAssignments")
+  @path
+  @visibility(Lifecycle.Read)
+  name: string;
 
   /**
    *  Azure Resource Manager metadata containing createdBy and modifiedBy information.

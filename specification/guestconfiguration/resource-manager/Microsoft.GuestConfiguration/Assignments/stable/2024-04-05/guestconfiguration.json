@@ -176,7 +176,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmssName}/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/{name}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmssName}/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/{guestConfigurationAssignmentName}": {
       "get": {
         "operationId": "GuestConfigurationAssignmentsVMSS_Get",
         "description": "Get information about a guest configuration assignment for VMSS",
@@ -198,7 +198,7 @@
             "type": "string"
           },
           {
-            "name": "name",
+            "name": "guestConfigurationAssignmentName",
             "in": "path",
             "description": "The guest configuration assignment name.",
             "required": true,
@@ -246,7 +246,7 @@
             "type": "string"
           },
           {
-            "name": "name",
+            "name": "guestConfigurationAssignmentName",
             "in": "path",
             "description": "The guest configuration assignment name.",
             "required": true,
@@ -309,7 +309,7 @@
             "type": "string"
           },
           {
-            "name": "name",
+            "name": "guestConfigurationAssignmentName",
             "in": "path",
             "description": "The guest configuration assignment name.",
             "required": true,
@@ -340,7 +340,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmssName}/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/{name}/reports": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmssName}/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/{guestConfigurationAssignmentName}/reports": {
       "get": {
         "operationId": "GuestConfigurationAssignmentReportsVMSS_List",
         "description": "List all reports for the VMSS guest configuration assignment, latest report first.",
@@ -362,7 +362,7 @@
             "type": "string"
           },
           {
-            "name": "name",
+            "name": "guestConfigurationAssignmentName",
             "in": "path",
             "description": "The guest configuration assignment name.",
             "required": true,
@@ -393,7 +393,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmssName}/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/{name}/reports/{id}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmssName}/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/{guestConfigurationAssignmentName}/reports/{id}": {
       "get": {
         "operationId": "GuestConfigurationAssignmentReportsVMSS_Get",
         "description": "Get a report for the VMSS guest configuration assignment, by reportId.",
@@ -415,7 +415,7 @@
             "type": "string"
           },
           {
-            "name": "name",
+            "name": "guestConfigurationAssignmentName",
             "in": "path",
             "description": "The guest configuration assignment name.",
             "required": true,
@@ -1711,10 +1711,6 @@
         ]
       }
     },
-    "Azure.Core.armResourceType": {
-      "type": "string",
-      "description": "Represents an Azure Resource Type."
-    },
     "ComplianceStatus": {
       "type": "string",
       "description": "A value indicating compliance status of the machine for the assigned guest configuration.",
@@ -1874,7 +1870,7 @@
       },
       "allOf": [
         {
-          "$ref": "#/definitions/ProxyResource"
+          "$ref": "../../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
         }
       ]
     },
@@ -2244,34 +2240,6 @@
           }
         ]
       }
-    },
-    "ProxyResource": {
-      "type": "object",
-      "description": "ARM proxy resource.",
-      "properties": {
-        "id": {
-          "type": "string",
-          "format": "arm-id",
-          "description": "ARM resource id of the guest configuration assignment.",
-          "readOnly": true
-        },
-        "name": {
-          "type": "string",
-          "description": "The guest configuration assignment name."
-        },
-        "location": {
-          "type": "string",
-          "description": "Region where the VM is located."
-        },
-        "type": {
-          "$ref": "#/definitions/Azure.Core.armResourceType",
-          "description": "The type of the resource.",
-          "readOnly": true
-        }
-      },
-      "required": [
-        "name"
-      ]
     },
     "Type": {
       "type": "string",
