@@ -48,7 +48,8 @@ op FoundryDataPlaneOperation<
   ErrorResponse = ApiErrorResponse
 >(...Params, ...FoundryDataPlaneApiVersionParameter): Response | ErrorResponse;
 
-enum FoundryFeaturesOptInKeys {
+union FoundryFeaturesOptInKeys {
+  string,
   container_agents_v1_preview: "ContainerAgents=V1Preview",
   hosted_agents_v1_preview: "HostedAgents=V1Preview",
   workflow_agents_v1_preview: "WorkflowAgents=V1Preview",
@@ -64,7 +65,7 @@ alias WithRequiredFoundryPreviewHeader<RequiredPreviewOptInHeader> = {
    * A feature flag opt-in required when using preview operations or modifying persisted preview resources.
    */
   @header("Foundry-Features")
-  foundry_features: string | RequiredPreviewOptInHeader;
+  foundry_features: RequiredPreviewOptInHeader;
 };
 
 #suppress "@azure-tools/typespec-azure-core/no-unnamed-union" "Union with template parameter cannot be named"
@@ -73,7 +74,7 @@ alias WithConditionalFoundryPreviewHeader<OptionalPreviewOptInHeader> = {
    * A feature flag opt-in required when using preview operations or modifying persisted preview resources.
    */
   @header("Foundry-Features")
-  foundry_features?: string | OptionalPreviewOptInHeader;
+  foundry_features?: OptionalPreviewOptInHeader;
 };
 
 #suppress "@azure-tools/typespec-azure-core/long-running-polling-operation-required" ""
