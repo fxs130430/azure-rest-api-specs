@@ -5,6 +5,14 @@ using TypeSpec.OpenAPI;
 
 namespace Azure.AI.Projects;
 
+/** Feature opt-in keys for agent operations supporting container, hosted, and workflow agents. */
+union AgentDefinitionFeatureKeys {
+  string,
+  container_agents_v1_preview: FoundryFeaturesOptInKeys.container_agents_v1_preview,
+  hosted_agents_v1_preview: FoundryFeaturesOptInKeys.hosted_agents_v1_preview,
+  workflow_agents_v1_preview: FoundryFeaturesOptInKeys.workflow_agents_v1_preview,
+}
+
 const AllConditionalAgentDefinitionPreviews = #{
   conditional_previews: #[
     FoundryFeaturesOptInKeys.hosted_agents_v1_preview,
