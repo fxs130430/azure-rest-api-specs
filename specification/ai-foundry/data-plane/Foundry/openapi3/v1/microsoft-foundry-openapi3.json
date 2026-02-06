@@ -68,9 +68,6 @@
             "schema": {
               "anyOf": [
                 {
-                  "type": "string"
-                },
-                {
                   "type": "string",
                   "enum": [
                     "ContainerAgents=V1Preview"
@@ -328,9 +325,6 @@
             "schema": {
               "anyOf": [
                 {
-                  "type": "string"
-                },
-                {
                   "type": "string",
                   "enum": [
                     "ContainerAgents=V1Preview"
@@ -531,16 +525,9 @@
             "required": false,
             "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "ContainerAgents=V1Preview"
-                  ]
-                }
+              "type": "string",
+              "enum": [
+                "ContainerAgents=V1Preview"
               ]
             }
           },
@@ -675,16 +662,9 @@
             "required": false,
             "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "ContainerAgents=V1Preview"
-                  ]
-                }
+              "type": "string",
+              "enum": [
+                "ContainerAgents=V1Preview"
               ]
             }
           },
@@ -761,9 +741,6 @@
             "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
             "schema": {
               "anyOf": [
-                {
-                  "type": "string"
-                },
                 {
                   "type": "string",
                   "enum": [
@@ -1099,16 +1076,9 @@
             "required": false,
             "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "ContainerAgents=V1Preview"
-                  ]
-                }
+              "type": "string",
+              "enum": [
+                "ContainerAgents=V1Preview"
               ]
             }
           },
@@ -1184,16 +1154,9 @@
             "required": false,
             "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "ContainerAgents=V1Preview"
-                  ]
-                }
+              "type": "string",
+              "enum": [
+                "ContainerAgents=V1Preview"
               ]
             }
           },
@@ -1337,16 +1300,9 @@
             "required": false,
             "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "ContainerAgents=V1Preview"
-                  ]
-                }
+              "type": "string",
+              "enum": [
+                "ContainerAgents=V1Preview"
               ]
             }
           },
@@ -1431,16 +1387,9 @@
             "required": false,
             "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "ContainerAgents=V1Preview"
-                  ]
-                }
+              "type": "string",
+              "enum": [
+                "ContainerAgents=V1Preview"
               ]
             }
           },
@@ -1540,16 +1489,9 @@
             "required": false,
             "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "ContainerAgents=V1Preview"
-                  ]
-                }
+              "type": "string",
+              "enum": [
+                "ContainerAgents=V1Preview"
               ]
             }
           },
@@ -1658,16 +1600,9 @@
             "required": false,
             "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "ContainerAgents=V1Preview"
-                  ]
-                }
+              "type": "string",
+              "enum": [
+                "ContainerAgents=V1Preview"
               ]
             }
           },
@@ -1752,16 +1687,9 @@
             "required": false,
             "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "ContainerAgents=V1Preview"
-                  ]
-                }
+              "type": "string",
+              "enum": [
+                "ContainerAgents=V1Preview"
               ]
             }
           },
@@ -3265,16 +3193,9 @@
             "required": false,
             "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "Evaluations=V1Preview"
-                  ]
-                }
+              "type": "string",
+              "enum": [
+                "Evaluations=V1Preview"
               ]
             }
           },
@@ -3357,16 +3278,9 @@
             "required": false,
             "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "Evaluations=V1Preview"
-                  ]
-                }
+              "type": "string",
+              "enum": [
+                "Evaluations=V1Preview"
               ]
             }
           },
@@ -3473,16 +3387,9 @@
             "required": true,
             "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "Evaluations=V1Preview"
-                  ]
-                }
+              "type": "string",
+              "enum": [
+                "Evaluations=V1Preview"
               ]
             }
           }
@@ -3578,16 +3485,9 @@
             "required": true,
             "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "Evaluations=V1Preview"
-                  ]
-                }
+              "type": "string",
+              "enum": [
+                "Evaluations=V1Preview"
               ]
             }
           }
@@ -3649,16 +3549,9 @@
             "required": true,
             "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "Evaluations=V1Preview"
-                  ]
-                }
+              "type": "string",
+              "enum": [
+                "Evaluations=V1Preview"
               ]
             }
           }
@@ -3732,16 +3625,9 @@
             "required": true,
             "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "Evaluations=V1Preview"
-                  ]
-                }
+              "type": "string",
+              "enum": [
+                "Evaluations=V1Preview"
               ]
             }
           },
@@ -3812,16 +3698,9 @@
             "required": true,
             "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "Evaluations=V1Preview"
-                  ]
-                }
+              "type": "string",
+              "enum": [
+                "Evaluations=V1Preview"
               ]
             }
           },
@@ -3885,16 +3764,9 @@
             "required": true,
             "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "Evaluations=V1Preview"
-                  ]
-                }
+              "type": "string",
+              "enum": [
+                "Evaluations=V1Preview"
               ]
             }
           },
@@ -4267,16 +4139,9 @@
             "required": true,
             "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "Insights=V1Preview"
-                  ]
-                }
+              "type": "string",
+              "enum": [
+                "Insights=V1Preview"
               ]
             }
           },
@@ -4539,16 +4404,9 @@
             "required": true,
             "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "MemoryStores=V1Preview"
-                  ]
-                }
+              "type": "string",
+              "enum": [
+                "MemoryStores=V1Preview"
               ]
             }
           },
@@ -4687,16 +4545,9 @@
             "required": true,
             "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "MemoryStores=V1Preview"
-                  ]
-                }
+              "type": "string",
+              "enum": [
+                "MemoryStores=V1Preview"
               ]
             }
           },
@@ -4789,16 +4640,9 @@
             "required": true,
             "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "MemoryStores=V1Preview"
-                  ]
-                }
+              "type": "string",
+              "enum": [
+                "MemoryStores=V1Preview"
               ]
             }
           },
@@ -4887,16 +4731,9 @@
             "required": true,
             "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "MemoryStores=V1Preview"
-                  ]
-                }
+              "type": "string",
+              "enum": [
+                "MemoryStores=V1Preview"
               ]
             }
           },
@@ -4961,16 +4798,9 @@
             "required": true,
             "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "MemoryStores=V1Preview"
-                  ]
-                }
+              "type": "string",
+              "enum": [
+                "MemoryStores=V1Preview"
               ]
             }
           },
@@ -5046,16 +4876,9 @@
             "required": true,
             "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "MemoryStores=V1Preview"
-                  ]
-                }
+              "type": "string",
+              "enum": [
+                "MemoryStores=V1Preview"
               ]
             }
           },
@@ -5122,16 +4945,9 @@
             "required": true,
             "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "MemoryStores=V1Preview"
-                  ]
-                }
+              "type": "string",
+              "enum": [
+                "MemoryStores=V1Preview"
               ]
             }
           },
@@ -5217,16 +5033,9 @@
             "required": true,
             "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "MemoryStores=V1Preview"
-                  ]
-                }
+              "type": "string",
+              "enum": [
+                "MemoryStores=V1Preview"
               ]
             }
           },
@@ -5331,16 +5140,9 @@
             "required": true,
             "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "MemoryStores=V1Preview"
-                  ]
-                }
+              "type": "string",
+              "enum": [
+                "MemoryStores=V1Preview"
               ]
             }
           },
@@ -8294,16 +8096,9 @@
             "required": false,
             "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "RedTeams=V1Preview"
-                  ]
-                }
+              "type": "string",
+              "enum": [
+                "RedTeams=V1Preview"
               ]
             }
           },
@@ -8725,16 +8520,9 @@
             "required": true,
             "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
             "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "string",
-                  "enum": [
-                    "Insights=V1Preview"
-                  ]
-                }
+              "type": "string",
+              "enum": [
+                "Insights=V1Preview"
               ]
             }
           },
