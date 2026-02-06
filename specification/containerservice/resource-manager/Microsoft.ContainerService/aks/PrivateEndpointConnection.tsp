@@ -54,7 +54,7 @@ interface PrivateEndpointConnections {
   /**
    * Deletes a private endpoint connection.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-delete-operation-response-codes" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-delete-operation-response-codes" "Delete operation response codes follow existing AKS API contract for backward compatibility."
   delete is ArmResourceDeleteWithoutOkAsync<
     PrivateEndpointConnection,
     Response = ArmDeletedResponse | ArmDeleteAcceptedLroResponse<ArmLroLocationHeader &

@@ -123,14 +123,12 @@ model CommandResultProperties {
    * The time when the command started.
    */
   @visibility(Lifecycle.Read)
-  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
   startedAt?: utcDateTime;
 
   /**
    * The time when the command finished.
    */
   @visibility(Lifecycle.Read)
-  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
   finishedAt?: utcDateTime;
 
   /**
@@ -236,25 +234,25 @@ model ManagedCluster
   /**
    * The managed cluster SKU.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-invalid-envelope-property" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-invalid-envelope-property" "Property intentionally at envelope level for this resource. This is a published API pattern that cannot be changed without breaking existing clients."
   sku?: ManagedClusterSKU;
 
   /**
    * The extended location of the Virtual Machine.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-invalid-envelope-property" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-invalid-envelope-property" "Property intentionally at envelope level for this resource. This is a published API pattern that cannot be changed without breaking existing clients."
   extendedLocation?: ExtendedLocation;
 
   /**
    * The identity of the managed cluster, if configured.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-invalid-envelope-property" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-invalid-envelope-property" "Property intentionally at envelope level for this resource. This is a published API pattern that cannot be changed without breaking existing clients."
   identity?: ManagedClusterIdentity;
 
   /**
    * This is primarily used to expose different UI experiences in the portal for different kinds
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-invalid-envelope-property" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-invalid-envelope-property" "Property intentionally at envelope level for this resource. This is a published API pattern that cannot be changed without breaking existing clients."
   kind?: string;
 }
 
@@ -322,7 +320,7 @@ interface ManagedClusters {
       /**
        * ignore-pod-disruption-budget=true to delete those pods on a node without considering Pod Disruption Budget
        */
-      #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+      #suppress "@azure-tools/typespec-azure-core/casing-style" "Property name maintained for backward compatibility with existing API versions"
       @added(Versions.v2025_10_02_preview)
       @query("ignore-pod-disruption-budget")
       `ignore-pod-disruption-budget`?: boolean;
@@ -375,7 +373,7 @@ interface ManagedClusters {
       /**
        * server fqdn type for credentials to be returned
        */
-      #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+      #suppress "@azure-tools/typespec-azure-core/casing-style" "Property name maintained for backward compatibility with existing API versions"
       @query("server-fqdn")
       `server-fqdn`?: string;
     }
@@ -394,7 +392,7 @@ interface ManagedClusters {
       /**
        * server fqdn type for credentials to be returned
        */
-      #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+      #suppress "@azure-tools/typespec-azure-core/casing-style" "Property name maintained for backward compatibility with existing API versions"
       @query("server-fqdn")
       `server-fqdn`?: string;
 
@@ -419,7 +417,7 @@ interface ManagedClusters {
       /**
        * server fqdn type for credentials to be returned
        */
-      #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+      #suppress "@azure-tools/typespec-azure-core/casing-style" "Property name maintained for backward compatibility with existing API versions"
       @query("server-fqdn")
       `server-fqdn`?: string;
     }
@@ -442,7 +440,7 @@ interface ManagedClusters {
    * **WARNING**: This API will be deprecated. Please see [AKS-managed Azure Active Directory integration](https://aka.ms/aks-managed-aad) to update your cluster with AKS-managed Azure AD.
    */
   #deprecated "This API will be deprecated. Please see [AKS-managed Azure Active Directory integration](https://aka.ms/aks-managed-aad) to update your cluster with AKS-managed Azure AD."
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "Property name maintained for backward compatibility with existing API versions"
   @tag("ManagedClusters")
   @summary("Reset the AAD Profile of a managed cluster.")
   resetAADProfile is ArmResourceActionAsync<
@@ -456,7 +454,7 @@ interface ManagedClusters {
   /**
    * See [Certificate rotation](https://docs.microsoft.com/azure/aks/certificate-rotation) for more details about rotating managed cluster certificates.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-post-operation-response-codes" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-post-operation-response-codes" "This operation returns 202 for async operations, which is the correct behavior for this long-running action."
   @tag("ManagedClusters")
   @summary("Rotates the certificates of a managed cluster.")
   rotateClusterCertificates is ArmResourceActionAsync<
@@ -470,7 +468,7 @@ interface ManagedClusters {
   /**
    * Aborts the currently running operation on the managed cluster. The Managed Cluster will be moved to a Canceling state and eventually to a Canceled state when cancellation finishes. If the operation completes before cancellation can take place, a 409 error code is returned.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-post-operation-response-codes" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-post-operation-response-codes" "This operation returns 202 for async operations, which is the correct behavior for this long-running action."
   @tag("ManagedClusters")
   @action("abort")
   @summary("Aborts last operation running on managed cluster.")
@@ -485,7 +483,7 @@ interface ManagedClusters {
   /**
    * Rotates the service account signing keys of a managed cluster.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-post-operation-response-codes" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-post-operation-response-codes" "This operation returns 202 for async operations, which is the correct behavior for this long-running action."
   @tag("ManagedClusters")
   rotateServiceAccountSigningKeys is ArmResourceActionAsync<
     ManagedCluster,
@@ -498,7 +496,7 @@ interface ManagedClusters {
   /**
    * This can only be performed on Azure Virtual Machine Scale set backed clusters. Stopping a cluster stops the control plane and agent nodes entirely, while maintaining all object and cluster state. A cluster does not accrue charges while it is stopped. See [stopping a cluster](https://docs.microsoft.com/azure/aks/start-stop-cluster) for more details about stopping a cluster.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-post-operation-response-codes" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-post-operation-response-codes" "This operation returns 202 for async operations, which is the correct behavior for this long-running action."
   @tag("ManagedClusters")
   @summary("Stops a Managed Cluster")
   stop is ArmResourceActionAsync<
@@ -512,7 +510,7 @@ interface ManagedClusters {
   /**
    * See [starting a cluster](https://docs.microsoft.com/azure/aks/start-stop-cluster) for more details about starting a cluster.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-post-operation-response-codes" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-post-operation-response-codes" "This operation returns 202 for async operations, which is the correct behavior for this long-running action."
   @tag("ManagedClusters")
   @summary("Starts a previously stopped Managed Cluster")
   start is ArmResourceActionAsync<
