@@ -4465,34 +4465,6 @@
         "modelAsString": true
       }
     },
-    "TranscriptionCallSummaryUpdated": {
-      "type": "object",
-      "properties": {
-        "transcriptionUpdate": {
-          "$ref": "#/definitions/TranscriptionUpdate"
-        },
-        "callConnectionId": {
-          "description": "Call connection ID.",
-          "type": "string"
-        },
-        "serverCallId": {
-          "description": "Server call ID.",
-          "type": "string"
-        },
-        "correlationId": {
-          "description": "Correlation ID for event to call correlation. Also called ChainId for skype chain ID.",
-          "type": "string"
-        },
-        "operationContext": {
-          "description": "Used by customers when calling mid-call actions to correlate the request to the response event.",
-          "type": "string"
-        },
-        "resultInformation": {
-          "$ref": "#/definitions/ResultInformation"
-        }
-      },
-      "additionalProperties": false
-    },
     "TranscriptionFailed": {
       "type": "object",
       "properties": {
@@ -4582,7 +4554,6 @@
         "transcriptionResumed",
         "transcriptionUpdated",
         "transcriptionStopped",
-        "callSummaryUpdated",
         "unspecifiedError"
       ],
       "type": "string",
@@ -4689,10 +4660,6 @@
         },
         "transcriptionStatusDetails": {
           "$ref": "#/definitions/TranscriptionStatusDetails"
-        },
-        "transcriptionMessage": {
-          "description": "Optional message providing additional context about the transcription update.",
-          "type": "string"
         }
       },
       "additionalProperties": false
@@ -4805,16 +4772,6 @@
         "operationCallbackUri": {
           "description": "Set a callback URI that overrides the default callback URI set by CreateCall/AnswerCall for this operation.\r\nThis setup is per-action. If this is not set, the default callback URI set by CreateCall/AnswerCall will be used.",
           "type": "string"
-        }
-      },
-      "additionalProperties": false
-    },
-    "UserConsent": {
-      "type": "object",
-      "properties": {
-        "recording": {
-          "format": "int32",
-          "type": "integer"
         }
       },
       "additionalProperties": false
@@ -4934,7 +4891,7 @@
   },
   "security": [
     {
-      "Authorization": []
+      "Authorization": [ ]
     }
   ],
   "x-ms-parameterized-host": {
