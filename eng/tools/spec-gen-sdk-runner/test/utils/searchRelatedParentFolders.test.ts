@@ -174,9 +174,7 @@ describe("searchRelatedParentFolders", () => {
       // Note: There IS a parent tspconfig.yaml at specification/contosowidgetmanager/Contoso.Management/
       // but when starting from NestedService/foo.tsp, only NestedService/tspconfig.yaml should be found
       // because the path doesn't contain 'resource-manager' or 'data-plane'
-      const files = [
-        "specification/contosowidgetmanager/Contoso.Management/NestedService/foo.tsp",
-      ];
+      const files = ["specification/contosowidgetmanager/Contoso.Management/NestedService/foo.tsp"];
 
       const result = searchRelatedParentFolders(files, {
         searchFileRegex: typespecProjectRegex,
@@ -188,7 +186,9 @@ describe("searchRelatedParentFolders", () => {
       // Should only find one tspconfig (nearest) even with findAll: true
       // The parent tspconfig at Contoso.Management/ should NOT be included
       expect(Object.keys(result)).toHaveLength(1);
-      expect(result["specification/contosowidgetmanager/Contoso.Management/NestedService"]).toBeDefined();
+      expect(
+        result["specification/contosowidgetmanager/Contoso.Management/NestedService"],
+      ).toBeDefined();
       expect(result["specification/contosowidgetmanager/Contoso.Management"]).toBeUndefined();
     });
 

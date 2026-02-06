@@ -281,7 +281,12 @@ export function findAllParentsWithFile(
  */
 export function searchRelatedParentFolders(
   files: string[],
-  options: { searchFileRegex: RegExp; specRepoFolder: string; stopAtFolder?: string; findAll?: boolean },
+  options: {
+    searchFileRegex: RegExp;
+    specRepoFolder: string;
+    stopAtFolder?: string;
+    findAll?: boolean;
+  },
 ): { [folderPath: string]: string[] } {
   const result: { [folderPath: string]: string[] } = {};
 
