@@ -2415,6 +2415,7 @@ alias IfNoneMatchParameter = {
 /** The range parameter. */
 alias RangeParameter = {
   /** Return only the bytes of the blob in the specified range. */
+  @access(Access.internal, "python,go,js,csharp")
   @header("Range")
   range?: string;
 };

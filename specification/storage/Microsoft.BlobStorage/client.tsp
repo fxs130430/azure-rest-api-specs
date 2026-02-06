@@ -134,3 +134,14 @@ namespace Customizations;
 @@clientOption(Storage.Blob.PageBlob, "includeRootSlash", false, "python");
 @@clientOption(Storage.Blob.BlockBlob, "includeRootSlash", false, "python");
 @@clientOption(Storage.Blob.AppendBlob, "includeRootSlash", false, "python");
+
+alias XMsRangeParameter = {
+  /** Return only the bytes of the blob in the specified range. */
+  @header("x-ms-range")
+  range?: string;
+};
+
+@@alternateType(RangeParameter.range,
+  XMsRangeParameter.range,
+  "python,go,js,csharp"
+);
