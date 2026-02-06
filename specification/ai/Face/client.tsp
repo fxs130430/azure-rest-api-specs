@@ -59,7 +59,7 @@ interface FaceClient {
   @doc("Please refer to https://learn.microsoft.com/rest/api/face/face-detection-operations/detect-from-url for more details.")
   @access(Access.internal)
   @clientName("detectFromUrlImpl", "java,csharp")
-  detectFromUrl is FaceDetectionOperations.detectFromUrl;
+  detectFaceFromUrl is FaceDetectionOperations.detectFaceFromUrl;
   #suppress "@azure-tools/typespec-azure-core/byos" "It's an RPC call to detect face from an image, it doesn't store anything. There's a BYOS version of this call, but it's not this one."
   @doc("Please refer to https://learn.microsoft.com/rest/api/face/face-detection-operations/detect for more details.")
   @access(Access.internal)
