@@ -1,262 +1,120 @@
 #!/usr/bin/env node
-/**
- * Fetch Azure resource providers with or without service groups.
- * 
- * Usage:
- *   node fetch-resource-providers.js [--with-service-groups] [--format FORMAT] [--count]
- * 
- * Options:
- *   --with-service-groups  Show RPs with service groups (default: without)
- *   --format FORMAT        Output format: list, json, table (default: list)
- *   --count               Show only count
- *   --repo-root PATH      Repository root (default: auto-detect)
- */
+// Fetch Azure resource providers with or without service groups
+// Usage: node fetch-resource-providers.js [--with-service-groups] [--format list|json|table] [--count]
 
 const fs = require('fs');
 const path = require('path');
 
-/**
- * Check if directory is a service group (not stable/preview/common-types/examples).
- */
 function isServiceGroupDirectory(dirPath) {
     const excludeNames = new Set(['stable', 'preview', 'common-types', 'examples']);
-    const name = path.basename(dirPath);
     try {
-        return !excludeNames.has(name) && fs.statSync(dirPath).isDirectory();
-    } catch {
-        return false;
-    }
+        return !excludeNames.has(path.basename(dirPath)) && fs.statSync(dirPath).isDirectory();
+    } catch { return false; }
 }
 
-/**
- * Check if resource provider has stable or preview directories.
- */
 function hasVersionDirectories(rpPath) {
-    return fs.existsSync(path.join(rpPath, 'stable')) || 
-           fs.existsSync(path.join(rpPath, 'preview'));
+    return fs.existsSync(path.join(rpPath, 'stable')) || fs.existsSync(path.join(rpPath, 'preview'));
 }
 
-/**
- * Find repository root by searching for specification directory.
- */
-function findRepoRoot(startPath = null) {
-    let current = path.resolve(startPath || process.cwd());
-    
+function findRepoRoot(startPath = process.cwd()) {
+    let current = path.resolve(startPath);
     for (let i = 0; i < 6; i++) {
-        const specPath = path.join(current, 'specification');
-        if (fs.existsSync(specPath) && fs.statSync(specPath).isDirectory()) {
-            return current;
-        }
-        
+        if (fs.existsSync(path.join(current, 'specification'))) return current;
         const parent = path.dirname(current);
-        if (parent === current) {
-            break;
-        }
+        if (parent === current) break;
         current = parent;
     }
-    
-    throw new Error(
-        `Could not find azure-rest-api-specs repository root from ${startPath || process.cwd()}. ` +
-        `Make sure you're running this script from within the repository.`
-    );
+    throw new Error('Could not find repository root. Run from within azure-rest-api-specs.');
 }
 
-/**
- * Find resource providers with or without service groups.
- */
 function findResourceProviders(repoRoot, withServiceGroups = false) {
-    const resourceProviders = [];
+    const results = [];
     const specDir = path.join(repoRoot, 'specification');
+    if (!fs.existsSync(specDir)) throw new Error(`Specification directory not found: ${specDir}`);
     
-    if (!fs.existsSync(specDir)) {
-        throw new Error(`Specification directory not found: ${specDir}`);
-    }
-    
-    const serviceDirs = fs.readdirSync(specDir);
-    
-    for (const serviceDirName of serviceDirs) {
-        const serviceDir = path.join(specDir, serviceDirName);
+    for (const serviceName of fs.readdirSync(specDir)) {
+        const serviceDir = path.join(specDir, serviceName);
+        if (!fs.statSync(serviceDir).isDirectory()) continue;
         
-        if (!fs.statSync(serviceDir).isDirectory()) {
-            continue;
-        }
+        const rmDir = path.join(serviceDir, 'resource-manager');
+        if (!fs.existsSync(rmDir)) continue;
         
-        const resourceManagerDir = path.join(serviceDir, 'resource-manager');
-        if (!fs.existsSync(resourceManagerDir)) {
-            continue;
-        }
-        
-        const items = fs.readdirSync(resourceManagerDir);
-        
-        for (const itemName of items) {
-            const item = path.join(resourceManagerDir, itemName);
+        for (const rpName of fs.readdirSync(rmDir)) {
+            const rpPath = path.join(rmDir, rpName);
+            if (!fs.statSync(rpPath).isDirectory() || !rpName.startsWith('Microsoft.')) continue;
             
-            if (!fs.statSync(item).isDirectory() || !itemName.startsWith('Microsoft.')) {
-                continue;
-            }
-            
-            const serviceGroups = [];
-            const subItems = fs.readdirSync(item);
-            
-            for (const subItem of subItems) {
-                const subItemPath = path.join(item, subItem);
-                if (isServiceGroupDirectory(subItemPath)) {
-                    serviceGroups.push(subItem);
-                }
-            }
-            
-            const relativePath = path.relative(repoRoot, item);
+            const serviceGroups = fs.readdirSync(rpPath)
+                .filter(sg => isServiceGroupDirectory(path.join(rpPath, sg)))
+                .sort();
             
             if (withServiceGroups && serviceGroups.length > 0) {
-                resourceProviders.push({
-                    name: itemName,
-                    path: relativePath,
-                    service: serviceDirName,
-                    service_groups: serviceGroups.sort()
+                results.push({
+                    name: rpName,
+                    path: path.relative(repoRoot, rpPath),
+                    service: serviceName,
+                    service_groups: serviceGroups
                 });
-            } else if (!withServiceGroups && serviceGroups.length === 0 && hasVersionDirectories(item)) {
-                resourceProviders.push({
-                    name: itemName,
-                    path: relativePath,
-                    service: serviceDirName
+            } else if (!withServiceGroups && serviceGroups.length === 0 && hasVersionDirectories(rpPath)) {
+                results.push({
+                    name: rpName,
+                    path: path.relative(repoRoot, rpPath),
+                    service: serviceName
                 });
             }
         }
     }
-    
-    resourceProviders.sort((a, b) => a.name.localeCompare(b.name));
-    return resourceProviders;
+    return results.sort((a, b) => a.name.localeCompare(b.name));
 }
 
-/**
- * Format resource provider list according to specified format.
- */
-function formatOutput(resourceProviders, formatType, withServiceGroups) {
-    if (formatType === 'json') {
-        return JSON.stringify(resourceProviders, null, 2);
+function formatOutput(rps, format, withSG) {
+    if (format === 'json') return JSON.stringify(rps, null, 2);
+    if (rps.length === 0) return `No resource providers ${withSG ? 'with' : 'without'} service groups found.`;
+    
+    if (format === 'table') {
+        const maxSvc = Math.max(...rps.map(r => r.service.length));
+        const maxName = Math.max(...rps.map(r => r.name.length));
+        const header = withSG 
+            ? `${'Service'.padEnd(maxSvc)}  ${'Resource Provider'.padEnd(maxName)}  Service Groups`
+            : `${'Service'.padEnd(maxSvc)}  ${'Resource Provider'.padEnd(maxName)}  Path`;
+        const sep = `${'-'.repeat(maxSvc)}  ${'-'.repeat(maxName)}  ${'-'.repeat(60)}`;
+        const rows = withSG
+            ? rps.map(r => `${r.service.padEnd(maxSvc)}  ${r.name.padEnd(maxName)}  ${r.service_groups.join(', ')}`)
+            : rps.map(r => `${r.service.padEnd(maxSvc)}  ${r.name.padEnd(maxName)}  ${r.path}`);
+        return [header, sep, ...rows].join('\n');
     }
     
-    if (resourceProviders.length === 0) {
-        const msg = withServiceGroups ? "with" : "without";
-        return `No resource providers ${msg} service groups found.`;
-    }
-    
-    if (formatType === 'table') {
-        if (withServiceGroups) {
-            const maxServiceLen = Math.max(...resourceProviders.map(rp => rp.service.length));
-            const maxNameLen = Math.max(...resourceProviders.map(rp => rp.name.length));
-            const header = `${'Service'.padEnd(maxServiceLen)}  ${'Resource Provider'.padEnd(maxNameLen)}  Service Groups`;
-            const separator = `${'-'.repeat(maxServiceLen)}  ${'-'.repeat(maxNameLen)}  ${'-'.repeat(60)}`;
-            const rows = resourceProviders.map(rp => 
-                `${rp.service.padEnd(maxServiceLen)}  ${rp.name.padEnd(maxNameLen)}  ${rp.service_groups.join(', ')}`
-            );
-            return [header, separator, ...rows].join('\n');
-        } else {
-            const maxServiceLen = Math.max(...resourceProviders.map(rp => rp.service.length));
-            const maxNameLen = Math.max(...resourceProviders.map(rp => rp.name.length));
-            const header = `${'Service'.padEnd(maxServiceLen)}  ${'Resource Provider'.padEnd(maxNameLen)}  Path`;
-            const separator = `${'-'.repeat(maxServiceLen)}  ${'-'.repeat(maxNameLen)}  ${'-'.repeat(50)}`;
-            const rows = resourceProviders.map(rp => 
-                `${rp.service.padEnd(maxServiceLen)}  ${rp.name.padEnd(maxNameLen)}  ${rp.path}`
-            );
-            return [header, separator, ...rows].join('\n');
-        }
-    }
-    
-    // list format
-    if (withServiceGroups) {
-        return resourceProviders
-            .map(rp => `${rp.service}, ${rp.name}, [${rp.service_groups.join(', ')}]`)
-            .join('\n');
-    } else {
-        return resourceProviders
-            .map(rp => `${rp.service}, ${rp.name}`)
-            .join('\n');
-    }
+    return withSG
+        ? rps.map(r => `${r.service}, ${r.name}, [${r.service_groups.join(', ')}]`).join('\n')
+        : rps.map(r => `${r.service}, ${r.name}`).join('\n');
 }
 
-/**
- * Parse command line arguments.
- */
-function parseArgs() {
-    const args = {
-        repoRoot: null,
-        format: 'list',
-        count: false,
-        withServiceGroups: false,
-        help: false
-    };
+function main() {
+    const args = { repoRoot: null, format: 'list', count: false, withSG: false };
     
     for (let i = 2; i < process.argv.length; i++) {
         const arg = process.argv[i];
-        
         if (arg === '--help' || arg === '-h') {
-            args.help = true;
-        } else if (arg === '--repo-root') {
-            args.repoRoot = process.argv[++i];
-        } else if (arg === '--format') {
-            args.format = process.argv[++i];
-            if (!['list', 'json', 'table'].includes(args.format)) {
-                throw new Error(`Invalid format: ${args.format}. Must be one of: list, json, table`);
-            }
-        } else if (arg === '--count') {
-            args.count = true;
-        } else if (arg === '--with-service-groups') {
-            args.withServiceGroups = true;
-        } else {
-            throw new Error(`Unknown argument: ${arg}`);
-        }
-    }
-    
-    return args;
-}
-
-/**
- * Show help message.
- */
-function showHelp() {
-    console.log(`
-Fetch Azure resource providers with or without service groups.
-
-Usage:
-  node fetch-resource-providers.js [OPTIONS]
-
-Options:
-  --with-service-groups  Show RPs with service groups (default: without)
-  --format FORMAT        Output format: list, json, table (default: list)
-  --count               Show only count
-  --repo-root PATH      Repository root (default: auto-detect)
-  --help, -h            Show this help message
-`);
-}
-
-/**
- * Main entry point.
- */
-function main() {
-    try {
-        const args = parseArgs();
-        
-        if (args.help) {
-            showHelp();
+            console.log('Usage: node fetch-resource-providers.js [--with-service-groups] [--format list|json|table] [--count] [--repo-root PATH]');
             return 0;
         }
-        
+        if (arg === '--repo-root') args.repoRoot = process.argv[++i];
+        else if (arg === '--format') args.format = process.argv[++i];
+        else if (arg === '--count') args.count = true;
+        else if (arg === '--with-service-groups') args.withSG = true;
+    }
+    
+    try {
         const repoRoot = args.repoRoot ? path.resolve(args.repoRoot) : findRepoRoot();
-        const resourceProviders = findResourceProviders(repoRoot, args.withServiceGroups);
+        const rps = findResourceProviders(repoRoot, args.withSG);
         
         if (args.count) {
-            console.log(resourceProviders.length);
+            console.log(rps.length);
         } else {
-            const output = formatOutput(resourceProviders, args.format, args.withServiceGroups);
-            console.log(output);
-            
+            console.log(formatOutput(rps, args.format, args.withSG));
             if (args.format !== 'json') {
-                const msg = args.withServiceGroups ? "with" : "without";
-                console.log(`\nTotal: ${resourceProviders.length} resource provider(s) ${msg} service groups`);
+                console.log(`\nTotal: ${rps.length} resource provider(s) ${args.withSG ? 'with' : 'without'} service groups`);
             }
         }
-        
         return 0;
     } catch (error) {
         console.error(`Error: ${error.message}`);
@@ -264,14 +122,7 @@ function main() {
     }
 }
 
-if (require.main === module) {
-    process.exit(main());
-}
+if (require.main === module) process.exit(main());
 
-module.exports = {
-    findRepoRoot,
-    findResourceProviders,
-    formatOutput,
-    isServiceGroupDirectory,
-    hasVersionDirectories
-};
+module.exports = { findRepoRoot, findResourceProviders, formatOutput, isServiceGroupDirectory, hasVersionDirectories };
+
