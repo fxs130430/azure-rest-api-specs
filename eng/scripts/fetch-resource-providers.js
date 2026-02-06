@@ -143,20 +143,21 @@ function formatOutput(resourceProviders, formatType, withServiceGroups) {
     
     if (formatType === 'table') {
         if (withServiceGroups) {
+            const maxServiceLen = Math.max(...resourceProviders.map(rp => rp.service.length));
             const maxNameLen = Math.max(...resourceProviders.map(rp => rp.name.length));
-            const header = `${'Resource Provider'.padEnd(maxNameLen)}  Service Groups`;
-            const separator = `${'-'.repeat(maxNameLen)}  ${'-'.repeat(60)}`;
+            const header = `${'Service'.padEnd(maxServiceLen)}  ${'Resource Provider'.padEnd(maxNameLen)}  Service Groups`;
+            const separator = `${'-'.repeat(maxServiceLen)}  ${'-'.repeat(maxNameLen)}  ${'-'.repeat(60)}`;
             const rows = resourceProviders.map(rp => 
-                `${rp.name.padEnd(maxNameLen)}  ${rp.service_groups.join(', ')}`
+                `${rp.service.padEnd(maxServiceLen)}  ${rp.name.padEnd(maxNameLen)}  ${rp.service_groups.join(', ')}`
             );
             return [header, separator, ...rows].join('\n');
         } else {
-            const maxNameLen = Math.max(...resourceProviders.map(rp => rp.name.length));
             const maxServiceLen = Math.max(...resourceProviders.map(rp => rp.service.length));
-            const header = `${'Resource Provider'.padEnd(maxNameLen)}  ${'Service'.padEnd(maxServiceLen)}  Path`;
-            const separator = `${'-'.repeat(maxNameLen)}  ${'-'.repeat(maxServiceLen)}  ${'-'.repeat(50)}`;
+            const maxNameLen = Math.max(...resourceProviders.map(rp => rp.name.length));
+            const header = `${'Service'.padEnd(maxServiceLen)}  ${'Resource Provider'.padEnd(maxNameLen)}  Path`;
+            const separator = `${'-'.repeat(maxServiceLen)}  ${'-'.repeat(maxNameLen)}  ${'-'.repeat(50)}`;
             const rows = resourceProviders.map(rp => 
-                `${rp.name.padEnd(maxNameLen)}  ${rp.service.padEnd(maxServiceLen)}  ${rp.path}`
+                `${rp.service.padEnd(maxServiceLen)}  ${rp.name.padEnd(maxNameLen)}  ${rp.path}`
             );
             return [header, separator, ...rows].join('\n');
         }
@@ -165,11 +166,11 @@ function formatOutput(resourceProviders, formatType, withServiceGroups) {
     // list format
     if (withServiceGroups) {
         return resourceProviders
-            .map(rp => `${rp.name}: [${rp.service_groups.join(', ')}]`)
+            .map(rp => `${rp.service}, ${rp.name}, [${rp.service_groups.join(', ')}]`)
             .join('\n');
     } else {
         return resourceProviders
-            .map(rp => rp.name)
+            .map(rp => `${rp.service}, ${rp.name}`)
             .join('\n');
     }
 }
