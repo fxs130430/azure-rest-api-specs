@@ -92,3 +92,214 @@ using Microsoft.NetApp;
   "NetAppCachePropertiesExportPolicy",
   "csharp"
 );
+
+// C# model renames to match existing SDK API surface
+@@clientName(Microsoft.NetApp.QosType, "CapacityPoolQosType", "csharp");
+@@clientName(Microsoft.NetApp.ActiveDirectory,
+  "NetAppAccountActiveDirectory",
+  "csharp"
+);
+@@clientName(Microsoft.NetApp.AccountEncryption,
+  "NetAppAccountEncryption",
+  "csharp"
+);
+@@clientName(Microsoft.NetApp.Replication, "NetAppVolumeReplication", "csharp");
+@@clientName(Microsoft.NetApp.DailySchedule,
+  "SnapshotPolicyDailySchedule",
+  "csharp"
+);
+@@clientName(Microsoft.NetApp.HourlySchedule,
+  "SnapshotPolicyHourlySchedule",
+  "csharp"
+);
+@@clientName(Microsoft.NetApp.MonthlySchedule,
+  "SnapshotPolicyMonthlySchedule",
+  "csharp"
+);
+@@clientName(Microsoft.NetApp.WeeklySchedule,
+  "SnapshotPolicyWeeklySchedule",
+  "csharp"
+);
+@@clientName(Microsoft.NetApp.ActiveDirectoryStatus,
+  "NetAppAccountActiveDirectoryStatus",
+  "csharp"
+);
+@@clientName(Microsoft.NetApp.LdapSearchScopeOpt,
+  "NetAppLdapSearchScopeConfiguration",
+  "csharp"
+);
+@@clientName(Microsoft.NetApp.ReplicationSchedule,
+  "NetAppReplicationSchedule",
+  "csharp"
+);
+
+// C# AZC0030/AZC0032 naming compliance: Request→Content, Response→Result
+@@clientName(Microsoft.NetApp.AuthorizeRequest,
+  "NetAppVolumeAuthorizeReplicationContent",
+  "csharp"
+);
+@@clientName(Microsoft.NetApp.BackupsMigrationRequest,
+  "BackupsMigrationContent",
+  "csharp"
+);
+@@clientName(Microsoft.NetApp.BreakFileLocksRequest,
+  "NetAppVolumeBreakFileLocksContent",
+  "csharp"
+);
+@@clientName(Microsoft.NetApp.BreakReplicationRequest,
+  "NetAppVolumeBreakReplicationContent",
+  "csharp"
+);
+@@clientName(Microsoft.NetApp.ChangeZoneRequest,
+  "ChangeZoneContent",
+  "csharp"
+);
+@@clientName(Microsoft.NetApp.CheckAvailabilityResponse,
+  "NetAppCheckAvailabilityResult",
+  "csharp"
+);
+@@clientName(Microsoft.NetApp.CheckElasticVolumeFilePathAvailabilityRequest,
+  "CheckElasticVolumeFilePathAvailabilityContent",
+  "csharp"
+);
+@@clientName(Microsoft.NetApp.ClusterPeerCommandResponse,
+  "ClusterPeerCommandResult",
+  "csharp"
+);
+@@clientName(Microsoft.NetApp.EncryptionTransitionRequest,
+  "NetAppEncryptionTransitionContent",
+  "csharp"
+);
+@@clientName(Microsoft.NetApp.FilePathAvailabilityRequest,
+  "NetAppFilePathAvailabilityContent",
+  "csharp"
+);
+@@clientName(Microsoft.NetApp.GetGroupIdListForLdapUserRequest,
+  "GetGroupIdListForLdapUserContent",
+  "csharp"
+);
+@@clientName(Microsoft.NetApp.GetGroupIdListForLdapUserResponse,
+  "GetGroupIdListForLdapUserResult",
+  "csharp"
+);
+@@clientName(Microsoft.NetApp.GetKeyVaultStatusResponse,
+  "NetAppKeyVaultStatusResult",
+  "csharp"
+);
+@@clientName(Microsoft.NetApp.ListQuotaReportResponse,
+  "NetAppVolumeQuotaReportListResult",
+  "csharp"
+);
+@@clientName(Microsoft.NetApp.ListReplicationsRequest,
+  "ListReplicationsContent",
+  "csharp"
+);
+@@clientName(Microsoft.NetApp.PeerClusterForVolumeMigrationRequest,
+  "PeerClusterForVolumeMigrationContent",
+  "csharp"
+);
+@@clientName(Microsoft.NetApp.PoolChangeRequest,
+  "NetAppVolumePoolChangeContent",
+  "csharp"
+);
+@@clientName(Microsoft.NetApp.QueryNetworkSiblingSetRequest,
+  "QueryNetworkSiblingSetContent",
+  "csharp"
+);
+@@clientName(Microsoft.NetApp.QuotaAvailabilityRequest,
+  "NetAppQuotaAvailabilityContent",
+  "csharp"
+);
+@@clientName(Microsoft.NetApp.RansomwareSuspectsClearRequest,
+  "RansomwareSuspectsClearContent",
+  "csharp"
+);
+@@clientName(Microsoft.NetApp.ReestablishReplicationRequest,
+  "NetAppVolumeReestablishReplicationContent",
+  "csharp"
+);
+@@clientName(Microsoft.NetApp.RelocateVolumeRequest,
+  "RelocateVolumeContent",
+  "csharp"
+);
+@@clientName(Microsoft.NetApp.ResourceNameAvailabilityRequest,
+  "NetAppNameAvailabilityContent",
+  "csharp"
+);
+@@clientName(Microsoft.NetApp.SvmPeerCommandResponse,
+  "SvmPeerCommandResult",
+  "csharp"
+);
+@@clientName(Microsoft.NetApp.UpdateNetworkSiblingSetRequest,
+  "UpdateNetworkSiblingSetContent",
+  "csharp"
+);
+@@clientName(Microsoft.NetApp.VolumeGroupMetaData,
+  "NetAppVolumeGroupMetadata",
+  "csharp"
+);
+
+// C# prepend-rp-prefix renames (restore NetApp prefix from old SDK)
+@@clientName(Microsoft.NetApp.AvsDataStore, "NetAppAvsDataStore", "csharp");
+@@clientName(Microsoft.NetApp.ChownMode, "NetAppChownMode", "csharp");
+@@clientName(Microsoft.NetApp.DestinationReplication, "NetAppDestinationReplication", "csharp");
+@@clientName(Microsoft.NetApp.EncryptionIdentity, "NetAppEncryptionIdentity", "csharp");
+@@clientName(Microsoft.NetApp.EncryptionKeySource, "NetAppEncryptionKeySource", "csharp");
+@@clientName(Microsoft.NetApp.KeySource, "NetAppKeySource", "csharp");
+@@clientName(Microsoft.NetApp.KeyVaultPrivateEndpoint, "NetAppKeyVaultPrivateEndpoint", "csharp");
+@@clientName(Microsoft.NetApp.RegionInfo, "NetAppRegionInfo", "csharp");
+@@clientName(Microsoft.NetApp.ReplicationType, "NetAppReplicationType", "csharp");
+
+// C# rename-mapping renames (backward compat with old autorest SDK names)
+@@clientName(Microsoft.NetApp.EnableSubvolumes, "EnableNetAppSubvolume", "csharp");
+@@clientName(Microsoft.NetApp.Exclude, "ExcludeReplicationsFilter", "csharp");
+@@clientName(Microsoft.NetApp.FileAccessLogs, "NetAppFileAccessLog", "csharp");
+@@clientName(Microsoft.NetApp.CheckNameResourceTypes, "NetAppNameAvailabilityResourceType", "csharp");
+@@clientName(Microsoft.NetApp.InAvailabilityReasonType, "NetAppNameUnavailableReason", "csharp");
+@@clientName(Microsoft.NetApp.NetworkFeatures, "NetAppNetworkFeature", "csharp");
+@@clientName(Microsoft.NetApp.CheckQuotaNameResourceTypes, "NetAppQuotaAvailabilityResourceType", "csharp");
+@@clientName(Microsoft.NetApp.SubvolumeModel, "NetAppSubvolumeMetadata", "csharp");
+@@clientName(Microsoft.NetApp.VolumeBackups, "NetAppVolumeBackupDetail", "csharp");
+@@clientName(Microsoft.NetApp.VolumePropertiesDataProtection, "NetAppVolumeDataProtection", "csharp");
+@@clientName(Microsoft.NetApp.VolumeGroup, "NetAppVolumeGroupResult", "csharp");
+@@clientName(Microsoft.NetApp.MountTargetProperties, "NetAppVolumeMountTarget", "csharp");
+@@clientName(Microsoft.NetApp.VolumePatchPropertiesDataProtection, "NetAppVolumePatchDataProtection", "csharp");
+@@clientName(Microsoft.NetApp.Type, "NetAppVolumeQuotaType", "csharp");
+@@clientName(Microsoft.NetApp.VolumeRevert, "NetAppVolumeRevertContent", "csharp");
+@@clientName(Microsoft.NetApp.SecurityStyle, "NetAppVolumeSecurityStyle", "csharp");
+@@clientName(Microsoft.NetApp.SnapshotRestoreFiles, "NetAppVolumeSnapshotRestoreFilesContent", "csharp");
+@@clientName(Microsoft.NetApp.VolumeStorageToNetworkProximity, "NetAppVolumeStorageToNetworkProximity", "csharp");
+@@clientName(Microsoft.NetApp.BackupPatch, "NetAppBackupVaultBackupPatch", "csharp");
+@@clientName(Microsoft.NetApp.UsageName, "NetAppUsageName", "csharp");
+@@clientName(Microsoft.NetApp.UsageResult, "NetAppUsageResult", "csharp");
+@@clientName(Microsoft.NetApp.VolumeRelocationProperties, "NetAppVolumeRelocationProperties", "csharp");
+
+// C# ARM resource renames (restore NetApp prefix on resource types)
+// Note: Volume is handled via [CodeGenType] in Custom code because @@clientName
+// on Volume causes generator crashes with [CodeGenSerialization] in Custom code.
+@@clientName(Microsoft.NetApp.BackupPolicy, "NetAppBackupPolicy", "csharp");
+@@clientName(Microsoft.NetApp.BackupVault, "NetAppBackupVault", "csharp");
+@@clientName(Microsoft.NetApp.Backup, "NetAppBackupVaultBackup", "csharp");
+@@clientName(Microsoft.NetApp.SubvolumeInfo, "NetAppSubvolumeInfo", "csharp");
+@@clientName(Microsoft.NetApp.VolumeQuotaRule, "NetAppVolumeQuotaRule", "csharp");
+@@clientName(Microsoft.NetApp.Snapshot, "NetAppVolumeSnapshot", "csharp");
+@@clientName(Microsoft.NetApp.VolumeGroupDetails, "NetAppVolumeGroup", "csharp");
+@@clientName(Microsoft.NetApp.BackupPolicyPatch, "NetAppBackupPolicyPatch", "csharp");
+@@clientName(Microsoft.NetApp.BackupVaultPatch, "NetAppBackupVaultPatch", "csharp");
+// SubvolumePatchParams rename removed — derived from SubvolumeInfo resource rename
+@@clientName(Microsoft.NetApp.VolumeQuotaRulePatch, "NetAppVolumeQuotaRulePatch", "csharp");
+@@clientName(Microsoft.NetApp.ChangeKeyVault, "NetAppChangeKeyVault", "csharp");
+
+// Make types public for C# SDK backward compatibility
+@@access(Microsoft.NetApp.VolumePropertiesExportPolicy,
+  Access.public,
+  "csharp"
+);
+@@access(Microsoft.NetApp.VolumeBackupRelationshipStatus,
+  Access.public,
+  "csharp"
+);
+@@access(Microsoft.NetApp.VolumeRestoreRelationshipStatus,
+  Access.public,
+  "csharp"
+);
