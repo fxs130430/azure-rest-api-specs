@@ -41,7 +41,7 @@ op DetectOperation<T extends TypeSpec.Reflection.Model> is Azure.Core.RpcOperati
 >;
 
 interface FaceDetectionOperations {
-  detectFromUrl is DetectOperation<{
+  detectFaceFromUrl is DetectOperation<{
     @doc("The format of the HTTP payload.")
     @header
     contentType: "application/json";
