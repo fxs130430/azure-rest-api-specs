@@ -142,7 +142,7 @@ interface Service {
   @get
   @route("?restype=account&comp=properties")
   @sharedRoute
-  getAccountInfo is StorageOperation<
+  getAccountInfo is StorageOperationNoBody<
     TimeoutParameter,
     {
       ...SkuNameResponseHeader;
@@ -209,7 +209,7 @@ interface Container {
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   @put
   @route("?restype=container")
-  create is StorageOperation<
+  create is StorageOperationNoBody<
     {
       ...TimeoutParameter;
       ...MetadataHeaders;
@@ -233,7 +233,7 @@ interface Container {
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   @get
   @route("?restype=container")
-  getProperties is StorageOperation<
+  getProperties is StorageOperationNoBody<
     {
       ...TimeoutParameter;
       ...LeaseIdOptionalParameter;
@@ -272,7 +272,7 @@ interface Container {
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   @delete
   @route("?restype=container")
-  delete is StorageOperation<
+  delete is StorageOperationNoBody<
     {
       ...TimeoutParameter;
       ...LeaseIdOptionalParameter;
@@ -290,7 +290,7 @@ interface Container {
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @put
   @route("?restype=container&comp=metadata")
-  setMetadata is StorageOperation<
+  setMetadata is StorageOperationNoBody<
     {
       ...TimeoutParameter;
       ...LeaseIdOptionalParameter;
@@ -353,7 +353,7 @@ interface Container {
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @put
   @route("?restype=container&comp=undelete")
-  restore is StorageOperation<
+  restore is StorageOperationNoBody<
     {
       /** Optional.  Version 2019-12-12 and later.  Specifies the name of the deleted container to restore. */
       @header("x-ms-deleted-container-name")
@@ -376,7 +376,7 @@ interface Container {
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @put
   @route("?restype=container&comp=rename")
-  rename is StorageOperation<
+  rename is StorageOperationNoBody<
     {
       /** Required.  Specifies the name of the container to rename. */
       @header("x-ms-source-container-name")
@@ -470,7 +470,7 @@ interface Container {
   @put
   @sharedRoute
   @route("?comp=lease&restype=container")
-  releaseLease is StorageOperation<
+  releaseLease is StorageOperationNoBody<
     {
       ...LeaseIdRequiredParameter;
       ...TimeoutParameter;
@@ -491,7 +491,7 @@ interface Container {
   @put
   @sharedRoute
   @route("?comp=lease&restype=container")
-  renewLease is StorageOperation<
+  renewLease is StorageOperationNoBody<
     {
       ...LeaseIdRequiredParameter;
       ...TimeoutParameter;
@@ -512,7 +512,7 @@ interface Container {
   @put
   @sharedRoute
   @route("?comp=lease&restype=container")
-  breakLease is StorageOperation<
+  breakLease is StorageOperationNoBody<
     {
       ...TimeoutParameter;
       ...IfModifiedSinceParameter;
@@ -535,7 +535,7 @@ interface Container {
   @put
   @sharedRoute
   @route("?comp=lease&restype=container")
-  changeLease is StorageOperation<
+  changeLease is StorageOperationNoBody<
     {
       ...LeaseIdRequiredParameter;
       ...ProposedLeaseIdRequiredParameter;
@@ -606,7 +606,7 @@ interface Container {
   @get
   @route("?restype=account&comp=properties")
   @sharedRoute
-  getAccountInfo is StorageOperation<
+  getAccountInfo is StorageOperationNoBody<
     {
       ...TimeoutParameter;
     },
@@ -850,7 +850,7 @@ interface Blob {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   @delete
-  delete is StorageOperation<
+  delete is StorageOperationNoBody<
     {
       ...SnapshotParameter;
       ...VersionIdParameter;
@@ -886,7 +886,7 @@ interface Blob {
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   @put
   @route("?comp=undelete")
-  undelete is StorageOperation<
+  undelete is StorageOperationNoBody<
     {
       ...TimeoutParameter;
     },
@@ -899,7 +899,7 @@ interface Blob {
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   @put
   @route("?comp=expiry")
-  setExpiry is StorageOperation<
+  setExpiry is StorageOperationNoBody<
     {
       ...TimeoutParameter;
       ...BlobExpiryOptionsParameter;
@@ -918,7 +918,7 @@ interface Blob {
   @put
   @sharedRoute
   @route("?comp=properties")
-  setProperties is StorageOperation<
+  setProperties is StorageOperationNoBody<
     {
       ...TimeoutParameter;
       ...BlobCacheControlParameter;
@@ -947,7 +947,7 @@ interface Blob {
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @put
   @route("?comp=immutabilityPolicies")
-  setImmutabilityPolicy is StorageOperation<
+  setImmutabilityPolicy is StorageOperationNoBody<
     {
       ...TimeoutParameter;
       ...IfUnmodifiedSinceParameter;
@@ -967,7 +967,7 @@ interface Blob {
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   @delete
   @route("?comp=immutabilityPolicies")
-  deleteImmutabilityPolicy is StorageOperation<
+  deleteImmutabilityPolicy is StorageOperationNoBody<
     {
       ...TimeoutParameter;
       ...SnapshotParameter;
@@ -982,7 +982,7 @@ interface Blob {
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @put
   @route("?comp=legalhold")
-  setLegalHold is StorageOperation<
+  setLegalHold is StorageOperationNoBody<
     {
       ...TimeoutParameter;
       ...LegalHoldRequiredParameter;
@@ -1000,7 +1000,7 @@ interface Blob {
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @put
   @route("?comp=metadata")
-  setMetadata is StorageOperation<
+  setMetadata is StorageOperationNoBody<
     {
       ...TimeoutParameter;
       ...MetadataHeadersParameter;
@@ -1059,7 +1059,7 @@ interface Blob {
   @put
   @sharedRoute
   @route("?comp=lease")
-  releaseLease is StorageOperation<
+  releaseLease is StorageOperationNoBody<
     {
       ...TimeoutParameter;
       ...LeaseIdRequiredParameter;
@@ -1083,7 +1083,7 @@ interface Blob {
   @put
   @sharedRoute
   @route("?comp=lease")
-  renewLease is StorageOperation<
+  renewLease is StorageOperationNoBody<
     {
       ...TimeoutParameter;
       ...LeaseIdRequiredParameter;
@@ -1108,7 +1108,7 @@ interface Blob {
   @put
   @sharedRoute
   @route("?comp=lease")
-  changeLease is StorageOperation<
+  changeLease is StorageOperationNoBody<
     {
       ...TimeoutParameter;
       ...LeaseIdRequiredParameter;
@@ -1133,7 +1133,7 @@ interface Blob {
   @put
   @sharedRoute
   @route("?comp=lease")
-  breakLease is StorageOperation<
+  breakLease is StorageOperationNoBody<
     {
       ...TimeoutParameter;
       ...LeaseBreakPeriodParameter;
@@ -1158,7 +1158,7 @@ interface Blob {
   @put
   @sharedRoute
   @route("?comp=snapshot")
-  createSnapshot is StorageOperation<
+  createSnapshot is StorageOperationNoBody<
     {
       ...TimeoutParameter;
       ...MetadataHeaders;
@@ -1192,7 +1192,7 @@ interface Blob {
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   @put
   @sharedRoute
-  startCopyFromUrl is StorageOperation<
+  startCopyFromUrl is StorageOperationNoBody<
     {
       ...TimeoutParameter;
       ...MetadataHeaders;
@@ -1239,8 +1239,8 @@ interface Blob {
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   @put
   @sharedRoute
-  @route("?comp=copy&sync")
-  copyFromUrl is StorageOperation<
+  @route("?comp=copy")
+  copyFromUrl is StorageOperationNoBody<
     {
       ...TimeoutParameter;
       ...MetadataHeaders;
@@ -1292,7 +1292,7 @@ interface Blob {
   @put
   @sharedRoute
   @route("?comp=copy")
-  abortCopyFromUrl is StorageOperation<
+  abortCopyFromUrl is StorageOperationNoBody<
     {
       ...TimeoutParameter;
 
@@ -1319,7 +1319,7 @@ interface Blob {
   @put
   @sharedRoute
   @route("?comp=tier")
-  setTier is StorageOperation<
+  setTier is StorageOperationNoBody<
     {
       ...SnapshotParameter;
       ...VersionIdParameter;
@@ -1345,7 +1345,7 @@ interface Blob {
   @get
   @sharedRoute
   @route("?restype=account&comp=properties")
-  getAccountInfo is StorageOperation<
+  getAccountInfo is StorageOperationNoBody<
     {
       ...TimeoutParameter;
     },
@@ -1697,7 +1697,7 @@ interface PageBlob {
   @put
   @sharedRoute
   @route("?comp=properties")
-  resize is StorageOperation<
+  resize is StorageOperationNoBody<
     {
       ...TimeoutParameter;
       ...LeaseIdOptionalParameter;
@@ -1726,7 +1726,7 @@ interface PageBlob {
   @put
   @sharedRoute
   @route("?comp=properties")
-  setSequenceNumber is StorageOperation<
+  setSequenceNumber is StorageOperationNoBody<
     {
       ...TimeoutParameter;
       ...LeaseIdOptionalParameter;
@@ -1751,7 +1751,7 @@ interface PageBlob {
   @put
   @sharedRoute
   @route("?comp=incrementalcopy")
-  copyIncremental is StorageOperation<
+  copyIncremental is StorageOperationNoBody<
     {
       ...TimeoutParameter;
       ...IfModifiedSinceParameter;
@@ -1879,7 +1879,7 @@ interface AppendBlob {
   @put
   @sharedRoute
   @route("?comp=appendblock")
-  appendBlockFromUrl is StorageOperation<
+  appendBlockFromUrl is StorageOperationNoBody<
     {
       ...SourceUrlParameter;
       ...SourceRangeParameter;
@@ -1931,7 +1931,7 @@ interface AppendBlob {
   @put
   @sharedRoute
   @route("?comp=seal")
-  seal is StorageOperation<
+  seal is StorageOperationNoBody<
     {
       ...TimeoutParameter;
       ...LeaseIdOptionalParameter;
@@ -2118,7 +2118,7 @@ interface BlockBlob {
   @put
   @sharedRoute
   @route("?comp=block")
-  stageBlockFromUrl is StorageOperation<
+  stageBlockFromUrl is StorageOperationNoBody<
     {
       ...BlockIdParameter;
       ...ContentLengthParameter;
