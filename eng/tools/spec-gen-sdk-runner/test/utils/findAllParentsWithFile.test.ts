@@ -76,13 +76,22 @@ describe("findAllParentsWithFile", () => {
   });
 
   test("stops at specified boundary", () => {
+    // Setup: config.json files exist at both:
+    // 1. specification/contosowidgetmanager/resource-manager/config.json (above boundary)
+    // 2. specification/contosowidgetmanager/resource-manager/Microsoft.Contoso/config.json (within search range)
+    // When searching from SubService1 with stopAtFolder set to resource-manager,
+    // it should find the config.json at Microsoft.Contoso but NOT the one at resource-manager
     const result = findAllParentsWithFile(
       "specification/contosowidgetmanager/resource-manager/Microsoft.Contoso/Service1/SubService1",
       /^config\.json$/,
       repoRoot,
-      "specification",
+      "specification/contosowidgetmanager/resource-manager",
     );
-    expect(result).toHaveLength(0);
+    // Should only find the config.json at Microsoft.Contoso level, stopping before resource-manager
+    expect(result).toHaveLength(1);
+    expect(result[0]).toBe(
+      "specification/contosowidgetmanager/resource-manager/Microsoft.Contoso",
+    );
   });
 
   test("handles single segment path", () => {
