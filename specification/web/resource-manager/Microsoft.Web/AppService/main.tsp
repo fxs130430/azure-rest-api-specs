@@ -102,15 +102,20 @@ namespace Microsoft.Web;
  * The available API versions.
  */
 enum Versions {
-  /**
-   * The 2025-03-01 API version.
-   */
-  v2025_03_01: "2025-03-01",
+  // /**
+  //  * The 2025-03-01 API version.
+  //  */
+  // v2025_03_01: "2025-03-01",
+
+  // /**
+  //  * The 2025-05-01 API version.
+  //  */
+  // v2025_05_01: "2025-05-01",
 
   /**
-   * The 2025-05-01 API version.
+   * The 2026-03-01-preview API version.
    */
-  v2025_05_01: "2025-05-01",
+  v2026_03_01_preview: "2026-03-01-preview",
 }
 
 interface Operations
