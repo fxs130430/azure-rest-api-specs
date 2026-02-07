@@ -2,15 +2,18 @@ import "@azure-tools/typespec-azure-core";
 import "@azure-tools/typespec-azure-resource-manager";
 import "@typespec/openapi";
 import "@typespec/rest";
+import "@typespec/versioning";
 import "./models.tsp";
 
 using TypeSpec.Rest;
 using Azure.ResourceManager;
 using TypeSpec.Http;
 using TypeSpec.OpenAPI;
+using TypeSpec.Versioning;
 
 namespace Microsoft.Web;
 
+@added(Versions.v2026_03_01_preview)
 @doc("The properties of an AI gateway.")
 model AiGatewayProperties {
   @visibility(Lifecycle.Read)
@@ -22,6 +25,7 @@ model AiGatewayProperties {
   aiGatewayId?: string;
 }
 
+@added(Versions.v2026_03_01_preview)
 @doc("An AI gateway resource.")
 model AiGateway is Azure.ResourceManager.TrackedResource<AiGatewayProperties> {
   @key("name")
@@ -32,6 +36,7 @@ model AiGateway is Azure.ResourceManager.TrackedResource<AiGatewayProperties> {
   name: string;
 }
 
+@added(Versions.v2026_03_01_preview)
 @armResourceOperations
 @doc("The operations of AI gateways.")
 interface AiGateways {
