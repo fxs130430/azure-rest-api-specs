@@ -58,7 +58,7 @@ namespace Azure.AI.Projects {
     type: "remote_tool";
   }
 
-  model OutputItemItemReference extends OpenAI.OutputItem {
+  model OutputItemReference extends OpenAI.OutputItem {
     type: "item_reference";
   }
 
