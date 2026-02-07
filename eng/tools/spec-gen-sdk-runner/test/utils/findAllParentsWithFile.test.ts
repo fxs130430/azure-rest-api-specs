@@ -66,23 +66,29 @@ describe("findAllParentsWithFile", () => {
     );
   });
 
-  test("returns empty array when no matching files found", () => {
-    const result = findAllParentsWithFile(
-      "specification/nonexistent/path",
-      typespecProjectRegex,
-      repoRoot,
-    );
-    expect(result).toHaveLength(0);
+  test("throws error when directory does not exist", () => {
+    expect(() =>
+      findAllParentsWithFile("specification/nonexistent/path", typespecProjectRegex, repoRoot),
+    ).toThrow(/ENOENT/);
   });
 
-  test("stops at specified boundary", () => {
+  test("stops at specified boundary and finds files before it", () => {
+    // Start from SubService1 and set boundary at Microsoft.Contoso
+    // Should find tspconfig.yaml in SubService1 and Service1, but not traverse above Microsoft.Contoso
     const result = findAllParentsWithFile(
       "specification/contosowidgetmanager/resource-manager/Microsoft.Contoso/Service1/SubService1",
-      /^config\.json$/,
+      typespecProjectRegex,
       repoRoot,
-      "specification",
+      "specification/contosowidgetmanager/resource-manager/Microsoft.Contoso",
     );
-    expect(result).toHaveLength(0);
+    // Should find both SubService1 and Service1 tspconfigs before hitting the boundary
+    expect(result).toHaveLength(2);
+    expect(result[0]).toBe(
+      "specification/contosowidgetmanager/resource-manager/Microsoft.Contoso/Service1/SubService1",
+    );
+    expect(result[1]).toBe(
+      "specification/contosowidgetmanager/resource-manager/Microsoft.Contoso/Service1",
+    );
   });
 
   test("handles single segment path", () => {
