@@ -25,8 +25,9 @@ options:
   #   flavor: azure
   "@azure-tools/typespec-ts":
     emitter-output-dir: "{output-dir}/{service-dir}/storage-blob-rest"
-    generate-metadata: true
-    generate-test: true
+    generate-metadata: false
+    generate-test: false
+    include-headers-in-response: true
     package-details:
       name: "@azure-rest/storage-blob"
       description: "Azure.Storage.Blob Service"
