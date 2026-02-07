@@ -49,12 +49,17 @@ namespace Azure.AI.Projects {
 
   union _AdditionalOutputItemTypes {
     remote_tool: "remote_tool",
+    item_reference: "item_reference",
   }
 
   @@copyVariants(OpenAI.OutputItemType, _AdditionalOutputItemTypes);
 
   model OutputItemRemoteToolCall extends OpenAI.OutputItem {
     type: "remote_tool";
+  }
+
+  model OutputItemItemReference extends OpenAI.OutputItem {
+    type: "item_reference";
   }
 
   union _AdditionalToolChoiceParamTypes {
@@ -80,13 +85,13 @@ namespace Azure.AI.Projects {
           custom_search_resource_id?: string,
         },
         `user-context`?: {
-          `request-id`?: string,
+          `request-ip`?: string,
           oid?: string,
           tid?: string,
           appid?: string,
           `auth-type`?: string,
           `token-type`?: string,
-          upn: string,
+          upn?: string,
           `user-agent`?: string,
           `ms-user-agent`?: string,
           ...Record<string>,
@@ -96,6 +101,7 @@ namespace Azure.AI.Projects {
           `agent-version`?: string,
           `agent-version-id`?: string,
           `agent-kind`?: string,
+          `conversation-id`?: string,
           `model`?: string,
           `top-p`?: string,
           temperature?: string,
@@ -103,10 +109,11 @@ namespace Azure.AI.Projects {
             `tool-name`?: string,
             `tool-type`?: string,
           }[],
+          `reasoning-effort`?: string,
           `reasoning-summary`?: string,
-          `max-tool-calls`?: string,
+          `max-tool-calls`?: integer,
           `parallel-tool-calls`?: boolean,
-          `max-output-tokens`?: int32,
+          `max-output-tokens`?: integer,
           `previous-response-id`?: string,
           `agent-version-created-at`?: utcDateTime,
           `agent-version-description`?: string,
