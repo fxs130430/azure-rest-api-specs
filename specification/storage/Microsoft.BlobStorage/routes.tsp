@@ -331,7 +331,7 @@ interface Container {
     {
       ...TimeoutParameter;
       ...LeaseIdOptionalParameter;
-      ...MetadataHeadersParameter;
+      ...MetadataHeaders;
       ...IfModifiedSinceParameter;
     },
     {
@@ -1039,7 +1039,7 @@ interface Blob {
   setMetadata is StorageOperationNoBody<
     {
       ...TimeoutParameter;
-      ...MetadataHeadersParameter;
+      ...MetadataHeaders;
       ...LeaseIdOptionalParameter;
       ...EncryptionKeyParameter;
       ...EncryptionKeySha256Parameter;
