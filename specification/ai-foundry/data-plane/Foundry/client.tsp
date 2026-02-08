@@ -10,12 +10,12 @@ import "./src/common/service.tsp";
 import "./src/connections/routes.tsp";
 import "./src/datasets/routes.tsp";
 import "./src/deployments/routes.tsp";
+import "./src/indexes/routes.tsp";
 
 // Beta operations (preview routes, requiring opt-in HTTP request header)
 import "./src/evaluation_taxonomies/routes.tsp";
 import "./src/evaluationrules/routes.tsp";
 import "./src/evaluators/routes.tsp";
-import "./src/indexes/routes.tsp";
 import "./src/insights/routes.tsp";
 import "./src/memory_stores/routes.tsp";
 import "./src/red-teams/routes.tsp";
