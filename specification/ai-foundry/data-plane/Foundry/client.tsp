@@ -14,7 +14,6 @@ import "./src/deployments/routes.tsp";
 // Beta operations (preview routes, requiring opt-in HTTP request header)
 import "./src/evaluation_taxonomies/routes.tsp";
 import "./src/evaluationrules/routes.tsp";
-import "./src/evaluations/routes.tsp";
 import "./src/evaluators/routes.tsp";
 import "./src/indexes/routes.tsp";
 import "./src/insights/routes.tsp";
