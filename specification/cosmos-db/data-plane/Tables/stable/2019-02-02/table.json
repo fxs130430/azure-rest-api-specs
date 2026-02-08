@@ -28,12 +28,12 @@
     ]
   },
   "produces": [
-    "application/xml",
-    "application/json"
+    "application/json",
+    "application/xml"
   ],
   "consumes": [
-    "application/xml",
-    "application/json"
+    "application/json",
+    "application/xml"
   ],
   "security": [
     {
@@ -54,6 +54,809 @@
   },
   "tags": [],
   "paths": {
+    "/{table}()": {
+      "get": {
+        "operationId": "Table_QueryEntities",
+        "description": "Queries entities under the given table.",
+        "produces": [
+          "application/json;odata=minimalmetadata",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "DataServiceVersion",
+            "in": "header",
+            "description": "DataServiceVersion header",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "3.0"
+            ],
+            "x-ms-enum": {
+              "modelAsString": false
+            },
+            "x-ms-client-name": "dataServiceVersion"
+          },
+          {
+            "name": "x-ms-version",
+            "in": "header",
+            "description": "The API version.",
+            "required": true,
+            "type": "string",
+            "x-ms-client-name": "apiVersion"
+          },
+          {
+            "name": "x-ms-client-request-id",
+            "in": "header",
+            "description": "An opaque, globally-unique, client-generated string identifier for the request.",
+            "required": false,
+            "type": "string",
+            "format": "uuid",
+            "x-ms-client-name": "clientRequestId"
+          },
+          {
+            "name": "table",
+            "in": "path",
+            "description": "The name of the table.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "$format",
+            "in": "query",
+            "description": "Specifies the metadata format for the response.",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "application/json;odata=nometadata",
+              "application/json;odata=minimalmetadata",
+              "application/json;odata=fullmetadata"
+            ],
+            "x-ms-enum": {
+              "name": "OdataMetadataFormat",
+              "modelAsString": true,
+              "values": [
+                {
+                  "name": "NoMetadata",
+                  "value": "application/json;odata=nometadata",
+                  "description": "No metadata."
+                },
+                {
+                  "name": "MinimalMetadata",
+                  "value": "application/json;odata=minimalmetadata",
+                  "description": "Minimal metadata. This is the default and the minimum required for full deserialization."
+                },
+                {
+                  "name": "FullMetadata",
+                  "value": "application/json;odata=fullmetadata",
+                  "description": "Full metadata."
+                }
+              ]
+            }
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "description": "Specifies the maximum number of records to return.",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select expression using OData notation. Limits the columns on each record to just those requested.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "OData filter expression.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "timeout",
+            "in": "query",
+            "description": "The timeout parameter is expressed in seconds.",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0
+          },
+          {
+            "name": "NextPartitionKey",
+            "in": "query",
+            "description": "An entity partition key query continuation token from a previous call.",
+            "required": false,
+            "type": "string",
+            "x-ms-client-name": "nextPartitionKey"
+          },
+          {
+            "name": "NextRowKey",
+            "in": "query",
+            "description": "An entity row key query continuation token from a previous call.",
+            "required": false,
+            "type": "string",
+            "x-ms-client-name": "nextRowKey"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "$ref": "#/definitions/TableEntityQueryResponse"
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "format": "date-time-rfc7231",
+                "description": "UTC date/time value generated by the service that indicates the time at which the response was initiated"
+              },
+              "x-ms-client-request-id": {
+                "type": "string",
+                "format": "uuid",
+                "description": "An opaque, globally-unique, client-generated string identifier for the request."
+              },
+              "x-ms-continuation-NextPartitionKey": {
+                "type": "string",
+                "description": "An entity partition key continuation token."
+              },
+              "x-ms-continuation-NextRowKey": {
+                "type": "string",
+                "description": "A entity row key continuation token."
+              },
+              "x-ms-request-id": {
+                "type": "string",
+                "format": "uuid",
+                "description": "An opaque, globally-unique, server-generated string identifier for the request."
+              },
+              "x-ms-version": {
+                "type": "string",
+                "description": "The API version."
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/TablesError"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "type": "string",
+                "description": "The error code."
+              }
+            }
+          }
+        },
+        "x-ms-examples": {
+          "QueryEntities": {
+            "$ref": "./examples/TableQueryEntities.json"
+          }
+        }
+      }
+    },
+    "/{table}(PartitionKey='{partitionKey}',RowKey='{rowKey}')": {
+      "get": {
+        "operationId": "Table_QueryEntityWithPartitionAndRowKey",
+        "description": "Retrieve a single entity.",
+        "produces": [
+          "application/json;odata=minimalmetadata",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "DataServiceVersion",
+            "in": "header",
+            "description": "DataServiceVersion header",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "3.0"
+            ],
+            "x-ms-enum": {
+              "modelAsString": false
+            },
+            "x-ms-client-name": "dataServiceVersion"
+          },
+          {
+            "name": "x-ms-version",
+            "in": "header",
+            "description": "The API version.",
+            "required": true,
+            "type": "string",
+            "x-ms-client-name": "apiVersion"
+          },
+          {
+            "name": "x-ms-client-request-id",
+            "in": "header",
+            "description": "An opaque, globally-unique, client-generated string identifier for the request.",
+            "required": false,
+            "type": "string",
+            "format": "uuid",
+            "x-ms-client-name": "clientRequestId"
+          },
+          {
+            "name": "table",
+            "in": "path",
+            "description": "The name of the table.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "timeout",
+            "in": "query",
+            "description": "The timeout parameter is expressed in seconds.",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0
+          },
+          {
+            "name": "$format",
+            "in": "query",
+            "description": "Specifies the metadata format for the response.",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "application/json;odata=nometadata",
+              "application/json;odata=minimalmetadata",
+              "application/json;odata=fullmetadata"
+            ],
+            "x-ms-enum": {
+              "name": "OdataMetadataFormat",
+              "modelAsString": true,
+              "values": [
+                {
+                  "name": "NoMetadata",
+                  "value": "application/json;odata=nometadata",
+                  "description": "No metadata."
+                },
+                {
+                  "name": "MinimalMetadata",
+                  "value": "application/json;odata=minimalmetadata",
+                  "description": "Minimal metadata. This is the default and the minimum required for full deserialization."
+                },
+                {
+                  "name": "FullMetadata",
+                  "value": "application/json;odata=fullmetadata",
+                  "description": "Full metadata."
+                }
+              ]
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select expression using OData notation. Limits the columns on each record to just those requested.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "OData filter expression.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "partitionKey",
+            "in": "path",
+            "description": "The partition key of the entity.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "rowKey",
+            "in": "path",
+            "description": "The row key of the entity.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The request has succeeded.",
+            "schema": {
+              "type": "object",
+              "additionalProperties": {}
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "format": "date-time-rfc7231",
+                "description": "UTC date/time value generated by the service that indicates the time at which the response was initiated"
+              },
+              "ETag": {
+                "type": "string",
+                "description": "The ETag contains a value that you can use to perform operations conditionally."
+              },
+              "x-ms-client-request-id": {
+                "type": "string",
+                "format": "uuid",
+                "description": "An opaque, globally-unique, client-generated string identifier for the request."
+              },
+              "x-ms-continuation-NextPartitionKey": {
+                "type": "string",
+                "description": "An entity partition key continuation token."
+              },
+              "x-ms-continuation-NextRowKey": {
+                "type": "string",
+                "description": "A entity row key continuation token."
+              },
+              "x-ms-request-id": {
+                "type": "string",
+                "format": "uuid",
+                "description": "An opaque, globally-unique, server-generated string identifier for the request."
+              },
+              "x-ms-version": {
+                "type": "string",
+                "description": "The API version."
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/TablesError"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "type": "string",
+                "description": "The error code."
+              }
+            }
+          }
+        },
+        "x-ms-examples": {
+          "GetEntity": {
+            "$ref": "./examples/TableQueryEntityWithPartitionAndRowKey.json"
+          }
+        }
+      },
+      "put": {
+        "operationId": "Table_UpdateEntity",
+        "description": "Update entity in a table.",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "DataServiceVersion",
+            "in": "header",
+            "description": "DataServiceVersion header",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "3.0"
+            ],
+            "x-ms-enum": {
+              "modelAsString": false
+            },
+            "x-ms-client-name": "dataServiceVersion"
+          },
+          {
+            "name": "x-ms-version",
+            "in": "header",
+            "description": "The API version.",
+            "required": true,
+            "type": "string",
+            "x-ms-client-name": "apiVersion"
+          },
+          {
+            "name": "x-ms-client-request-id",
+            "in": "header",
+            "description": "An opaque, globally-unique, client-generated string identifier for the request.",
+            "required": false,
+            "type": "string",
+            "format": "uuid",
+            "x-ms-client-name": "clientRequestId"
+          },
+          {
+            "name": "table",
+            "in": "path",
+            "description": "The name of the table.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "timeout",
+            "in": "query",
+            "description": "The timeout parameter is expressed in seconds.",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "Even though the response is 204, if we don't add explicit json, we will\nget XML formatted error responses from the server.",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "application/json"
+            ],
+            "x-ms-enum": {
+              "modelAsString": false
+            },
+            "x-ms-client-name": "accept"
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "description": "Match condition for an entity to be deleted. If specified and a matching entity\nis not found, an error will be raised. To force an unconditional delete, set to\nthe wildcard character (*).",
+            "required": false,
+            "type": "string",
+            "x-ms-client-name": "ifMatch"
+          },
+          {
+            "name": "partitionKey",
+            "in": "path",
+            "description": "The partition key of the entity.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "rowKey",
+            "in": "path",
+            "description": "The row key of the entity.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "tableEntityProperties",
+            "in": "body",
+            "description": "The properties for the table entity.",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "additionalProperties": {}
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "There is no content to send for this request, but the headers may be useful. ",
+            "headers": {
+              "Date": {
+                "type": "string",
+                "format": "date-time-rfc7231",
+                "description": "UTC date/time value generated by the service that indicates the time at which the response was initiated"
+              },
+              "ETag": {
+                "type": "string",
+                "description": "The ETag contains a value that you can use to perform operations conditionally."
+              },
+              "x-ms-client-request-id": {
+                "type": "string",
+                "format": "uuid",
+                "description": "An opaque, globally-unique, client-generated string identifier for the request."
+              },
+              "x-ms-request-id": {
+                "type": "string",
+                "format": "uuid",
+                "description": "An opaque, globally-unique, server-generated string identifier for the request."
+              },
+              "x-ms-version": {
+                "type": "string",
+                "description": "The API version."
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/TablesError"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "type": "string",
+                "description": "The error code."
+              }
+            }
+          }
+        },
+        "x-ms-examples": {
+          "UpdateEntity": {
+            "$ref": "./examples/TableUpdateEntity.json"
+          }
+        }
+      },
+      "patch": {
+        "operationId": "Table_MergeEntity",
+        "description": "Merge entity in a table.",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "DataServiceVersion",
+            "in": "header",
+            "description": "DataServiceVersion header",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "3.0"
+            ],
+            "x-ms-enum": {
+              "modelAsString": false
+            },
+            "x-ms-client-name": "dataServiceVersion"
+          },
+          {
+            "name": "x-ms-version",
+            "in": "header",
+            "description": "The API version.",
+            "required": true,
+            "type": "string",
+            "x-ms-client-name": "apiVersion"
+          },
+          {
+            "name": "x-ms-client-request-id",
+            "in": "header",
+            "description": "An opaque, globally-unique, client-generated string identifier for the request.",
+            "required": false,
+            "type": "string",
+            "format": "uuid",
+            "x-ms-client-name": "clientRequestId"
+          },
+          {
+            "name": "table",
+            "in": "path",
+            "description": "The name of the table.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "timeout",
+            "in": "query",
+            "description": "The timeout parameter is expressed in seconds.",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "Even though the response is 204, if we don't add explicit json, we will\nget XML formatted error responses from the server.",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "application/json"
+            ],
+            "x-ms-enum": {
+              "modelAsString": false
+            },
+            "x-ms-client-name": "accept"
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "description": "Match condition for an entity to be deleted. If specified and a matching entity\nis not found, an error will be raised. To force an unconditional delete, set to\nthe wildcard character (*).",
+            "required": false,
+            "type": "string",
+            "x-ms-client-name": "ifMatch"
+          },
+          {
+            "name": "partitionKey",
+            "in": "path",
+            "description": "The partition key of the entity.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "rowKey",
+            "in": "path",
+            "description": "The row key of the entity.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "tableEntityProperties",
+            "in": "body",
+            "description": "The properties for the table entity.",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "additionalProperties": {}
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "There is no content to send for this request, but the headers may be useful. ",
+            "headers": {
+              "Date": {
+                "type": "string",
+                "format": "date-time-rfc7231",
+                "description": "UTC date/time value generated by the service that indicates the time at which the response was initiated"
+              },
+              "ETag": {
+                "type": "string",
+                "description": "The ETag contains a value that you can use to perform operations conditionally."
+              },
+              "x-ms-client-request-id": {
+                "type": "string",
+                "format": "uuid",
+                "description": "An opaque, globally-unique, client-generated string identifier for the request."
+              },
+              "x-ms-request-id": {
+                "type": "string",
+                "format": "uuid",
+                "description": "An opaque, globally-unique, server-generated string identifier for the request."
+              },
+              "x-ms-version": {
+                "type": "string",
+                "description": "The API version."
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/TablesError"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "type": "string",
+                "description": "The error code."
+              }
+            }
+          }
+        },
+        "x-ms-examples": {
+          "MergeEntity": {
+            "$ref": "./examples/TableMergeEntity.json"
+          }
+        }
+      },
+      "delete": {
+        "operationId": "Table_DeleteEntity",
+        "description": "Deletes the specified entity in a table.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "DataServiceVersion",
+            "in": "header",
+            "description": "DataServiceVersion header",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "3.0"
+            ],
+            "x-ms-enum": {
+              "modelAsString": false
+            },
+            "x-ms-client-name": "dataServiceVersion"
+          },
+          {
+            "name": "x-ms-version",
+            "in": "header",
+            "description": "The API version.",
+            "required": true,
+            "type": "string",
+            "x-ms-client-name": "apiVersion"
+          },
+          {
+            "name": "x-ms-client-request-id",
+            "in": "header",
+            "description": "An opaque, globally-unique, client-generated string identifier for the request.",
+            "required": false,
+            "type": "string",
+            "format": "uuid",
+            "x-ms-client-name": "clientRequestId"
+          },
+          {
+            "name": "table",
+            "in": "path",
+            "description": "The name of the table.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "timeout",
+            "in": "query",
+            "description": "The timeout parameter is expressed in seconds.",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "description": "Match condition for an entity to be deleted. If specified and a matching entity\nis not found, an error will be raised. To force an unconditional delete, set to\nthe wildcard character (*).",
+            "required": true,
+            "type": "string",
+            "x-ms-client-name": "ifMatch"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "Even though the response is 204, if we don't add explicit json, we will\nget XML formatted error responses from the server.",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "application/json"
+            ],
+            "x-ms-enum": {
+              "modelAsString": false
+            },
+            "x-ms-client-name": "accept"
+          },
+          {
+            "name": "partitionKey",
+            "in": "path",
+            "description": "The partition key of the entity.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "rowKey",
+            "in": "path",
+            "description": "The row key of the entity.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "There is no content to send for this request, but the headers may be useful. ",
+            "headers": {
+              "Date": {
+                "type": "string",
+                "format": "date-time-rfc7231",
+                "description": "UTC date/time value generated by the service that indicates the time at which the response was initiated"
+              },
+              "x-ms-client-request-id": {
+                "type": "string",
+                "format": "uuid",
+                "description": "An opaque, globally-unique, client-generated string identifier for the request."
+              },
+              "x-ms-request-id": {
+                "type": "string",
+                "format": "uuid",
+                "description": "An opaque, globally-unique, server-generated string identifier for the request."
+              },
+              "x-ms-version": {
+                "type": "string",
+                "description": "The API version."
+              }
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/TablesError"
+            },
+            "headers": {
+              "x-ms-error-code": {
+                "type": "string",
+                "description": "The error code."
+              }
+            }
+          }
+        },
+        "x-ms-examples": {
+          "DeleteEntity": {
+            "$ref": "./examples/TableDeleteEntity.json"
+          }
+        }
+      }
+    },
     "/{table}": {
       "post": {
         "operationId": "Table_InsertEntity",
@@ -266,741 +1069,10 @@
               }
             }
           }
-        }
-      }
-    },
-    "/{table}(PartitionKey='{partitionKey}',RowKey='{rowKey}')": {
-      "get": {
-        "operationId": "Table_QueryEntityWithPartitionAndRowKey",
-        "description": "Retrieve a single entity.",
-        "produces": [
-          "application/json;odata=minimalmetadata",
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "DataServiceVersion",
-            "in": "header",
-            "description": "DataServiceVersion header",
-            "required": true,
-            "type": "string",
-            "enum": [
-              "3.0"
-            ],
-            "x-ms-enum": {
-              "modelAsString": false
-            },
-            "x-ms-client-name": "dataServiceVersion"
-          },
-          {
-            "name": "x-ms-version",
-            "in": "header",
-            "description": "The API version.",
-            "required": true,
-            "type": "string",
-            "x-ms-client-name": "apiVersion"
-          },
-          {
-            "name": "x-ms-client-request-id",
-            "in": "header",
-            "description": "An opaque, globally-unique, client-generated string identifier for the request.",
-            "required": false,
-            "type": "string",
-            "format": "uuid",
-            "x-ms-client-name": "clientRequestId"
-          },
-          {
-            "name": "table",
-            "in": "path",
-            "description": "The name of the table.",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "timeout",
-            "in": "query",
-            "description": "The timeout parameter is expressed in seconds.",
-            "required": false,
-            "type": "integer",
-            "format": "int32",
-            "minimum": 0
-          },
-          {
-            "name": "$format",
-            "in": "query",
-            "description": "Specifies the metadata format for the response.",
-            "required": false,
-            "type": "string",
-            "enum": [
-              "application/json;odata=nometadata",
-              "application/json;odata=minimalmetadata",
-              "application/json;odata=fullmetadata"
-            ],
-            "x-ms-enum": {
-              "name": "OdataMetadataFormat",
-              "modelAsString": true,
-              "values": [
-                {
-                  "name": "NoMetadata",
-                  "value": "application/json;odata=nometadata",
-                  "description": "No metadata."
-                },
-                {
-                  "name": "MinimalMetadata",
-                  "value": "application/json;odata=minimalmetadata",
-                  "description": "Minimal metadata. This is the default and the minimum required for full deserialization."
-                },
-                {
-                  "name": "FullMetadata",
-                  "value": "application/json;odata=fullmetadata",
-                  "description": "Full metadata."
-                }
-              ]
-            }
-          },
-          {
-            "name": "$select",
-            "in": "query",
-            "description": "Select expression using OData notation. Limits the columns on each record to just those requested.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$filter",
-            "in": "query",
-            "description": "OData filter expression.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "partitionKey",
-            "in": "path",
-            "description": "The partition key of the entity.",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "rowKey",
-            "in": "path",
-            "description": "The row key of the entity.",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The request has succeeded.",
-            "schema": {
-              "type": "object",
-              "additionalProperties": {}
-            },
-            "headers": {
-              "Date": {
-                "type": "string",
-                "format": "date-time-rfc7231",
-                "description": "UTC date/time value generated by the service that indicates the time at which the response was initiated"
-              },
-              "ETag": {
-                "type": "string",
-                "description": "The ETag contains a value that you can use to perform operations conditionally."
-              },
-              "x-ms-client-request-id": {
-                "type": "string",
-                "format": "uuid",
-                "description": "An opaque, globally-unique, client-generated string identifier for the request."
-              },
-              "x-ms-continuation-NextPartitionKey": {
-                "type": "string",
-                "description": "An entity partition key continuation token."
-              },
-              "x-ms-continuation-NextRowKey": {
-                "type": "string",
-                "description": "A entity row key continuation token."
-              },
-              "x-ms-request-id": {
-                "type": "string",
-                "format": "uuid",
-                "description": "An opaque, globally-unique, server-generated string identifier for the request."
-              },
-              "x-ms-version": {
-                "type": "string",
-                "description": "The API version."
-              }
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/TablesError"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "The error code."
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "operationId": "Table_UpdateEntity",
-        "description": "Update entity in a table.",
-        "produces": [
-          "application/json"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "DataServiceVersion",
-            "in": "header",
-            "description": "DataServiceVersion header",
-            "required": true,
-            "type": "string",
-            "enum": [
-              "3.0"
-            ],
-            "x-ms-enum": {
-              "modelAsString": false
-            },
-            "x-ms-client-name": "dataServiceVersion"
-          },
-          {
-            "name": "x-ms-version",
-            "in": "header",
-            "description": "The API version.",
-            "required": true,
-            "type": "string",
-            "x-ms-client-name": "apiVersion"
-          },
-          {
-            "name": "x-ms-client-request-id",
-            "in": "header",
-            "description": "An opaque, globally-unique, client-generated string identifier for the request.",
-            "required": false,
-            "type": "string",
-            "format": "uuid",
-            "x-ms-client-name": "clientRequestId"
-          },
-          {
-            "name": "table",
-            "in": "path",
-            "description": "The name of the table.",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "timeout",
-            "in": "query",
-            "description": "The timeout parameter is expressed in seconds.",
-            "required": false,
-            "type": "integer",
-            "format": "int32",
-            "minimum": 0
-          },
-          {
-            "name": "If-Match",
-            "in": "header",
-            "description": "Match condition for an entity to be deleted. If specified and a matching entity\nis not found, an error will be raised. To force an unconditional delete, set to\nthe wildcard character (*).",
-            "required": false,
-            "type": "string",
-            "x-ms-client-name": "ifMatch"
-          },
-          {
-            "name": "partitionKey",
-            "in": "path",
-            "description": "The partition key of the entity.",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "rowKey",
-            "in": "path",
-            "description": "The row key of the entity.",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "tableEntityProperties",
-            "in": "body",
-            "description": "The properties for the table entity.",
-            "required": false,
-            "schema": {
-              "type": "object",
-              "additionalProperties": {}
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "There is no content to send for this request, but the headers may be useful. ",
-            "headers": {
-              "Date": {
-                "type": "string",
-                "format": "date-time-rfc7231",
-                "description": "UTC date/time value generated by the service that indicates the time at which the response was initiated"
-              },
-              "ETag": {
-                "type": "string",
-                "description": "The ETag contains a value that you can use to perform operations conditionally."
-              },
-              "x-ms-client-request-id": {
-                "type": "string",
-                "format": "uuid",
-                "description": "An opaque, globally-unique, client-generated string identifier for the request."
-              },
-              "x-ms-request-id": {
-                "type": "string",
-                "format": "uuid",
-                "description": "An opaque, globally-unique, server-generated string identifier for the request."
-              },
-              "x-ms-version": {
-                "type": "string",
-                "description": "The API version."
-              }
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/TablesError"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "The error code."
-              }
-            }
-          }
-        }
-      },
-      "patch": {
-        "operationId": "Table_MergeEntity",
-        "description": "Merge entity in a table.",
-        "produces": [
-          "application/json"
-        ],
-        "consumes": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "DataServiceVersion",
-            "in": "header",
-            "description": "DataServiceVersion header",
-            "required": true,
-            "type": "string",
-            "enum": [
-              "3.0"
-            ],
-            "x-ms-enum": {
-              "modelAsString": false
-            },
-            "x-ms-client-name": "dataServiceVersion"
-          },
-          {
-            "name": "x-ms-version",
-            "in": "header",
-            "description": "The API version.",
-            "required": true,
-            "type": "string",
-            "x-ms-client-name": "apiVersion"
-          },
-          {
-            "name": "x-ms-client-request-id",
-            "in": "header",
-            "description": "An opaque, globally-unique, client-generated string identifier for the request.",
-            "required": false,
-            "type": "string",
-            "format": "uuid",
-            "x-ms-client-name": "clientRequestId"
-          },
-          {
-            "name": "table",
-            "in": "path",
-            "description": "The name of the table.",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "timeout",
-            "in": "query",
-            "description": "The timeout parameter is expressed in seconds.",
-            "required": false,
-            "type": "integer",
-            "format": "int32",
-            "minimum": 0
-          },
-          {
-            "name": "If-Match",
-            "in": "header",
-            "description": "Match condition for an entity to be deleted. If specified and a matching entity\nis not found, an error will be raised. To force an unconditional delete, set to\nthe wildcard character (*).",
-            "required": false,
-            "type": "string",
-            "x-ms-client-name": "ifMatch"
-          },
-          {
-            "name": "partitionKey",
-            "in": "path",
-            "description": "The partition key of the entity.",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "rowKey",
-            "in": "path",
-            "description": "The row key of the entity.",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "tableEntityProperties",
-            "in": "body",
-            "description": "The properties for the table entity.",
-            "required": false,
-            "schema": {
-              "type": "object",
-              "additionalProperties": {}
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "There is no content to send for this request, but the headers may be useful. ",
-            "headers": {
-              "Date": {
-                "type": "string",
-                "format": "date-time-rfc7231",
-                "description": "UTC date/time value generated by the service that indicates the time at which the response was initiated"
-              },
-              "ETag": {
-                "type": "string",
-                "description": "The ETag contains a value that you can use to perform operations conditionally."
-              },
-              "x-ms-client-request-id": {
-                "type": "string",
-                "format": "uuid",
-                "description": "An opaque, globally-unique, client-generated string identifier for the request."
-              },
-              "x-ms-request-id": {
-                "type": "string",
-                "format": "uuid",
-                "description": "An opaque, globally-unique, server-generated string identifier for the request."
-              },
-              "x-ms-version": {
-                "type": "string",
-                "description": "The API version."
-              }
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/TablesError"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "The error code."
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "operationId": "Table_DeleteEntity",
-        "description": "Deletes the specified entity in a table.",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "DataServiceVersion",
-            "in": "header",
-            "description": "DataServiceVersion header",
-            "required": true,
-            "type": "string",
-            "enum": [
-              "3.0"
-            ],
-            "x-ms-enum": {
-              "modelAsString": false
-            },
-            "x-ms-client-name": "dataServiceVersion"
-          },
-          {
-            "name": "x-ms-version",
-            "in": "header",
-            "description": "The API version.",
-            "required": true,
-            "type": "string",
-            "x-ms-client-name": "apiVersion"
-          },
-          {
-            "name": "x-ms-client-request-id",
-            "in": "header",
-            "description": "An opaque, globally-unique, client-generated string identifier for the request.",
-            "required": false,
-            "type": "string",
-            "format": "uuid",
-            "x-ms-client-name": "clientRequestId"
-          },
-          {
-            "name": "table",
-            "in": "path",
-            "description": "The name of the table.",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "timeout",
-            "in": "query",
-            "description": "The timeout parameter is expressed in seconds.",
-            "required": false,
-            "type": "integer",
-            "format": "int32",
-            "minimum": 0
-          },
-          {
-            "name": "If-Match",
-            "in": "header",
-            "description": "Match condition for an entity to be deleted. If specified and a matching entity\nis not found, an error will be raised. To force an unconditional delete, set to\nthe wildcard character (*).",
-            "required": true,
-            "type": "string",
-            "x-ms-client-name": "ifMatch"
-          },
-          {
-            "name": "partitionKey",
-            "in": "path",
-            "description": "The partition key of the entity.",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "rowKey",
-            "in": "path",
-            "description": "The row key of the entity.",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "There is no content to send for this request, but the headers may be useful. ",
-            "headers": {
-              "Date": {
-                "type": "string",
-                "format": "date-time-rfc7231",
-                "description": "UTC date/time value generated by the service that indicates the time at which the response was initiated"
-              },
-              "x-ms-client-request-id": {
-                "type": "string",
-                "format": "uuid",
-                "description": "An opaque, globally-unique, client-generated string identifier for the request."
-              },
-              "x-ms-request-id": {
-                "type": "string",
-                "format": "uuid",
-                "description": "An opaque, globally-unique, server-generated string identifier for the request."
-              },
-              "x-ms-version": {
-                "type": "string",
-                "description": "The API version."
-              }
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/TablesError"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "The error code."
-              }
-            }
-          }
-        }
-      }
-    },
-    "/{table}()": {
-      "get": {
-        "operationId": "Table_QueryEntities",
-        "description": "Queries entities under the given table.",
-        "produces": [
-          "application/json;odata=minimalmetadata",
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "DataServiceVersion",
-            "in": "header",
-            "description": "DataServiceVersion header",
-            "required": true,
-            "type": "string",
-            "enum": [
-              "3.0"
-            ],
-            "x-ms-enum": {
-              "modelAsString": false
-            },
-            "x-ms-client-name": "dataServiceVersion"
-          },
-          {
-            "name": "x-ms-version",
-            "in": "header",
-            "description": "The API version.",
-            "required": true,
-            "type": "string",
-            "x-ms-client-name": "apiVersion"
-          },
-          {
-            "name": "x-ms-client-request-id",
-            "in": "header",
-            "description": "An opaque, globally-unique, client-generated string identifier for the request.",
-            "required": false,
-            "type": "string",
-            "format": "uuid",
-            "x-ms-client-name": "clientRequestId"
-          },
-          {
-            "name": "table",
-            "in": "path",
-            "description": "The name of the table.",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "$format",
-            "in": "query",
-            "description": "Specifies the metadata format for the response.",
-            "required": false,
-            "type": "string",
-            "enum": [
-              "application/json;odata=nometadata",
-              "application/json;odata=minimalmetadata",
-              "application/json;odata=fullmetadata"
-            ],
-            "x-ms-enum": {
-              "name": "OdataMetadataFormat",
-              "modelAsString": true,
-              "values": [
-                {
-                  "name": "NoMetadata",
-                  "value": "application/json;odata=nometadata",
-                  "description": "No metadata."
-                },
-                {
-                  "name": "MinimalMetadata",
-                  "value": "application/json;odata=minimalmetadata",
-                  "description": "Minimal metadata. This is the default and the minimum required for full deserialization."
-                },
-                {
-                  "name": "FullMetadata",
-                  "value": "application/json;odata=fullmetadata",
-                  "description": "Full metadata."
-                }
-              ]
-            }
-          },
-          {
-            "name": "$top",
-            "in": "query",
-            "description": "Specifies the maximum number of records to return.",
-            "required": false,
-            "type": "integer",
-            "format": "int32",
-            "minimum": 0
-          },
-          {
-            "name": "$select",
-            "in": "query",
-            "description": "Select expression using OData notation. Limits the columns on each record to just those requested.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "$filter",
-            "in": "query",
-            "description": "OData filter expression.",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "timeout",
-            "in": "query",
-            "description": "The timeout parameter is expressed in seconds.",
-            "required": false,
-            "type": "integer",
-            "format": "int32",
-            "minimum": 0
-          },
-          {
-            "name": "NextPartitionKey",
-            "in": "query",
-            "description": "An entity partition key query continuation token from a previous call.",
-            "required": false,
-            "type": "string",
-            "x-ms-client-name": "nextPartitionKey"
-          },
-          {
-            "name": "NextRowKey",
-            "in": "query",
-            "description": "An entity row key query continuation token from a previous call.",
-            "required": false,
-            "type": "string",
-            "x-ms-client-name": "nextRowKey"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The request has succeeded.",
-            "schema": {
-              "$ref": "#/definitions/TableEntityQueryResponse"
-            },
-            "headers": {
-              "Date": {
-                "type": "string",
-                "format": "date-time-rfc7231",
-                "description": "UTC date/time value generated by the service that indicates the time at which the response was initiated"
-              },
-              "x-ms-client-request-id": {
-                "type": "string",
-                "format": "uuid",
-                "description": "An opaque, globally-unique, client-generated string identifier for the request."
-              },
-              "x-ms-continuation-NextPartitionKey": {
-                "type": "string",
-                "description": "An entity partition key continuation token."
-              },
-              "x-ms-continuation-NextRowKey": {
-                "type": "string",
-                "description": "A entity row key continuation token."
-              },
-              "x-ms-request-id": {
-                "type": "string",
-                "format": "uuid",
-                "description": "An opaque, globally-unique, server-generated string identifier for the request."
-              },
-              "x-ms-version": {
-                "type": "string",
-                "description": "The API version."
-              }
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/TablesError"
-            },
-            "headers": {
-              "x-ms-error-code": {
-                "type": "string",
-                "description": "The error code."
-              }
-            }
+        },
+        "x-ms-examples": {
+          "InsertEntity": {
+            "$ref": "./examples/TableInsertEntity.json"
           }
         }
       }
@@ -1153,6 +1225,11 @@
                 "description": "The error code."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "QueryTables": {
+            "$ref": "./examples/TableQuery.json"
           }
         }
       },
@@ -1341,6 +1418,11 @@
               }
             }
           }
+        },
+        "x-ms-examples": {
+          "CreateTable": {
+            "$ref": "./examples/TableCreate.json"
+          }
         }
       }
     },
@@ -1375,6 +1457,20 @@
             "description": "The name of the table.",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "Even though the response is 204, if we don't add explicit json, we will\nget XML formatted error responses from the server.",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "application/json"
+            ],
+            "x-ms-enum": {
+              "modelAsString": false
+            },
+            "x-ms-client-name": "accept"
           }
         ],
         "responses": {
@@ -1413,6 +1509,11 @@
                 "description": "The error code."
               }
             }
+          }
+        },
+        "x-ms-examples": {
+          "DeleteTable": {
+            "$ref": "./examples/TableDelete.json"
           }
         }
       }
@@ -1531,6 +1632,20 @@
             "type": "string"
           },
           {
+            "name": "Accept",
+            "in": "header",
+            "description": "Even though the response is 204, we need explicit Accept.",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "application/xml"
+            ],
+            "x-ms-enum": {
+              "modelAsString": false
+            },
+            "x-ms-client-name": "accept"
+          },
+          {
             "name": "timeout",
             "in": "query",
             "description": "The timeout parameter is expressed in seconds.",
@@ -1625,6 +1740,20 @@
             "type": "integer",
             "format": "int32",
             "minimum": 0
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "description": "Even though the response is 204, we need explicit Accept.",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "application/xml"
+            ],
+            "x-ms-enum": {
+              "modelAsString": false
+            },
+            "x-ms-client-name": "accept"
           },
           {
             "name": "x-ms-client-request-id",
@@ -2196,11 +2325,24 @@
       ]
     },
     "SignedIdentifiers": {
-      "type": "array",
-      "description": "Represents an array of signed identifiers",
-      "items": {
-        "$ref": "#/definitions/SignedIdentifier"
-      }
+      "type": "object",
+      "description": "Table signed identifiers.",
+      "properties": {
+        "identifiers": {
+          "type": "array",
+          "description": "An array of signed identifiers",
+          "items": {
+            "$ref": "#/definitions/SignedIdentifier"
+          },
+          "xml": {
+            "name": "SignedIdentifier",
+            "wrapped": false
+          }
+        }
+      },
+      "required": [
+        "identifiers"
+      ]
     },
     "TableEntityQueryResponse": {
       "type": "object",
@@ -2415,6 +2557,9 @@
             "wrapped": true
           }
         }
+      },
+      "xml": {
+        "name": "StorageServiceProperties"
       }
     },
     "TableServiceStats": {
@@ -2428,6 +2573,9 @@
             "name": "GeoReplication"
           }
         }
+      },
+      "xml": {
+        "name": "StorageServiceStats"
       }
     },
     "TablesError": {
