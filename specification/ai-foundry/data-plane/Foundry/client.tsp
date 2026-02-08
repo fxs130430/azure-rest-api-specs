@@ -2,7 +2,25 @@
 // This file is used for emitting the Python client (package azure-ai-projects) and 
 // the JS client (package @azure/ai-projects).
 //
-import "./main.tsp";
+
+// Stable perations (GA routes)
+import "./src/agents/routes.tsp";
+import "./src/common/custom_types.tsp";
+import "./src/common/service.tsp";
+import "./src/connections/routes.tsp";
+import "./src/datasets/routes.tsp";
+import "./src/deployments/routes.tsp";
+
+// Beta operations (preview routes, requiring opt-in HTTP request header)
+import "./src/evaluation_taxonomies/routes.tsp";
+import "./src/evaluationrules/routes.tsp";
+import "./src/evaluations/routes.tsp";
+import "./src/evaluators/routes.tsp";
+import "./src/indexes/routes.tsp";
+import "./src/insights/routes.tsp";
+import "./src/memory_stores/routes.tsp";
+import "./src/red-teams/routes.tsp";
+import "./src/schedules/routes.tsp";
 
 using Azure.ClientGenerator.Core;
 using Azure.AI.Projects;
@@ -18,61 +36,6 @@ using Azure.AI.Projects;
 
 // To fix circular dependency in Python, remaining OpenAI types are emitted as Azure.AI.Projects
 @@clientNamespace(OpenAI, "azure.ai.projects", "python");
-
-// ------------------------------------------------------------------------------------------------
-// Operation scope customizations - don't generate Responses. We will use OpenAI client for those
-// ------------------------------------------------------------------------------------------------
-@@scope(Responses.createResponse, "!(python, javascript)");
-@@scope(Responses.createResponseStream, "!(python, javascript)");
-@@scope(Responses.getResponseStream, "!(python, javascript)");
-@@scope(Responses.getResponse, "!(python, javascript)");
-@@scope(Responses.deleteResponse, "!(python, javascript)");
-@@scope(Responses.cancelResponse, "!(python, javascript)");
-@@scope(Responses.listInputItems, "!(python, javascript)");
-@@scope(Responses.listResponses, "!(python, javascript)");
-@@scope(Responses.compactResponseConversation, "!(python, javascript)");
-
-// ---------------------------------------------------------------------------------------------------
-// Operation scope customizations - don't generate Conversations. We will use OpenAI client for those
-// ---------------------------------------------------------------------------------------------------
-@@scope(Conversations.createConversation, "!(python, javascript)");
-@@scope(Conversations.updateConversation, "!(python, javascript)");
-@@scope(Conversations.getConversation, "!(python, javascript)");
-@@scope(Conversations.deleteConversation, "!(python, javascript)");
-@@scope(Conversations.listConversations, "!(python, javascript)");
-@@scope(Conversations.createConversationItems, "!(python, javascript)");
-@@scope(Conversations.getConversationItem, "!(python, javascript)");
-@@scope(Conversations.deleteConversationItem, "!(python, javascript)");
-@@scope(Conversations.listConversationItems, "!(python, javascript)");
-
-// ---------------------------------------------------------------------------------------------------
-// Operation scope customizations - don't generate Evaluations. We will use OpenAI client for those
-// ---------------------------------------------------------------------------------------------------
-@@scope(OpenAIEvals.listEvals, "!(python, javascript)");
-@@scope(OpenAIEvals.createEval, "!(python, javascript)");
-@@scope(OpenAIEvals.deleteEval, "!(python, javascript)");
-@@scope(OpenAIEvals.getEval, "!(python, javascript)");
-@@scope(OpenAIEvals.updateEval, "!(python, javascript)");
-@@scope(OpenAIEvals.listRuns, "!(python, javascript)");
-@@scope(OpenAIEvals.createEvalRun, "!(python, javascript)");
-@@scope(OpenAIEvals.deleteEvalRun, "!(python, javascript)");
-@@scope(OpenAIEvals.getEvalRun, "!(python, javascript)");
-@@scope(OpenAIEvals.cancelEvalRun, "!(python, javascript)");
-@@scope(OpenAIEvals.getEvalRunOutputItems, "!(python, javascript)");
-@@scope(OpenAIEvals.getEvalRunOutputItem, "!(python, javascript)"
-);
-
-// ---------------------------------------------------------------------------------------------------
-// Operation scope customizations - don't generate fine-tuning. We will use OpenAI client for those
-// ---------------------------------------------------------------------------------------------------
-@@scope(FineTuning.createFineTuningJob, "!(python, javascript)");
-@@scope(FineTuning.listPaginatedFineTuningJobs, "!(python, javascript)");
-@@scope(FineTuning.cancelFineTuningJob, "!(python, javascript)");
-@@scope(FineTuning.listFineTuningJobCheckpoints, "!(python, javascript)");
-@@scope(FineTuning.retrieveFineTuningJob, "!(python, javascript)");
-@@scope(FineTuning.pauseFineTuningJob, "!(python, javascript)");
-@@scope(FineTuning.resumeFineTuningJob, "!(python, javascript)");
-@@scope(FineTuning.listFineTuningJobEvents, "!(python, javascript)");
 
 // ---------------------------------------------------------------------------------------------------
 // Operation scope customizations - don't generate container operations *except* for backend C#
