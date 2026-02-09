@@ -4791,11 +4791,12 @@
     },
     "WebSocketMediaStreamingOptions": {
       "description": "Represents the options for WebSocket transport.",
-      "required": [
-        "audioChannelType",
-        "transportType"
-      ],
       "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/MediaStreamingOptions"
+        }
+      ],
       "properties": {
         "transportUrl": {
           "description": "The transport URL for media streaming.",
@@ -4818,23 +4819,19 @@
         "enableDtmfTones": {
           "description": "A value that indicates whether to stream the DTMF tones.",
           "type": "boolean"
-        },
-        "transportType": {
-          "$ref": "#/definitions/StreamingTransportType"
-        },
-        "audioChannelType": {
-          "$ref": "#/definitions/MediaStreamingAudioChannelType"
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "x-ms-discriminator-value": "websocket"
     },
     "WebSocketTranscriptionOptions": {
       "description": "Represents the options for WebSocket transport.",
-      "required": [
-        "locale",
-        "transportType"
-      ],
       "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/TranscriptionOptions"
+        }
+      ],
       "properties": {
         "transportUrl": {
           "description": "The URL used for live transcription transport.",
@@ -4851,16 +4848,10 @@
         "enableIntermediateResults": {
           "description": "Enables intermediate results for the transcribed speech.",
           "type": "boolean"
-        },
-        "transportType": {
-          "$ref": "#/definitions/StreamingTransportType"
-        },
-        "locale": {
-          "description": "Specifies the Locale used for transcription, e.g., en-CA or en-AU.",
-          "type": "string"
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "x-ms-discriminator-value": "websocket"
     }
   },
   "parameters": {
@@ -4893,7 +4884,7 @@
   },
   "security": [
     {
-      "Authorization": []
+      "Authorization": [ ]
     }
   ],
   "x-ms-parameterized-host": {
