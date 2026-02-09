@@ -32,7 +32,8 @@ import "./LoadBalancer.tsp";
 import "./IdentityBinding.tsp";
 import "./JWTAuthenticator.tsp";
 import "./MeshMembership.tsp";
-import "./Routes.tsp";
+import "./Operations.tsp";
+import "./LocationRoutes.tsp";
 
 using Azure.ResourceManager;
 using TypeSpec.Versioning;
