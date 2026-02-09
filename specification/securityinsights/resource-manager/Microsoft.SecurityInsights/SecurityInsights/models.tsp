@@ -7961,6 +7961,7 @@ model ThreatIntelligenceList is Azure.Core.Page<TIObject>;
  * Represents a threat intelligence object in Azure Security Insights.
  */
 #suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+@discriminator("kind")
 model TIObject extends Azure.ResourceManager.CommonTypes.Resource {
   /**
    * The properties of the TI object

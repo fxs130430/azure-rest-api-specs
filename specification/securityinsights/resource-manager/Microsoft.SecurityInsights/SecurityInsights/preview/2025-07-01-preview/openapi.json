@@ -13076,26 +13076,12 @@
     "AttackPattern": {
       "type": "object",
       "description": "Represents an attack pattern in Azure Security Insights.",
-      "properties": {
-        "kind": {
-          "type": "string",
-          "description": "The kind of the TI object",
-          "enum": [
-            "AttackPattern"
-          ],
-          "x-ms-enum": {
-            "modelAsString": false
-          }
-        }
-      },
-      "required": [
-        "kind"
-      ],
       "allOf": [
         {
           "$ref": "#/definitions/TIObject"
         }
-      ]
+      ],
+      "x-ms-discriminator-value": "AttackPattern"
     },
     "AttackTactic": {
       "type": "string",
@@ -20343,26 +20329,12 @@
     "Identity": {
       "type": "object",
       "description": "Represents an identity in Azure Security Insights.",
-      "properties": {
-        "kind": {
-          "type": "string",
-          "description": "The kind of the TI object",
-          "enum": [
-            "Identity"
-          ],
-          "x-ms-enum": {
-            "modelAsString": false
-          }
-        }
-      },
-      "required": [
-        "kind"
-      ],
       "allOf": [
         {
           "$ref": "#/definitions/TIObject"
         }
-      ]
+      ],
+      "x-ms-discriminator-value": "Identity"
     },
     "Incident": {
       "type": "object",
@@ -21142,26 +21114,14 @@
           "items": {
             "$ref": "#/definitions/IndicatorObservablesItem"
           }
-        },
-        "kind": {
-          "type": "string",
-          "description": "The kind of the TI object",
-          "enum": [
-            "Indicator"
-          ],
-          "x-ms-enum": {
-            "modelAsString": false
-          }
         }
       },
-      "required": [
-        "kind"
-      ],
       "allOf": [
         {
           "$ref": "#/definitions/TIObject"
         }
-      ]
+      ],
+      "x-ms-discriminator-value": "Indicator"
     },
     "IndicatorObservablesItem": {
       "type": "object",
@@ -25709,26 +25669,12 @@
     "Relationship": {
       "type": "object",
       "description": "Represents a relationship in Azure Security Insights.",
-      "properties": {
-        "kind": {
-          "type": "string",
-          "description": "The kind of the TI object",
-          "enum": [
-            "Relationship"
-          ],
-          "x-ms-enum": {
-            "modelAsString": false
-          }
-        }
-      },
-      "required": [
-        "kind"
-      ],
       "allOf": [
         {
           "$ref": "#/definitions/TIObject"
         }
-      ]
+      ],
+      "x-ms-discriminator-value": "Relationship"
     },
     "RelationshipHint": {
       "type": "object",
@@ -27924,6 +27870,7 @@
           "description": "The kind of the TI object"
         }
       },
+      "discriminator": "kind",
       "required": [
         "kind"
       ],
@@ -28259,26 +28206,12 @@
     "ThreatActor": {
       "type": "object",
       "description": "Represents a threat actor in Azure Security Insights.",
-      "properties": {
-        "kind": {
-          "type": "string",
-          "description": "The kind of the TI object",
-          "enum": [
-            "ThreatActor"
-          ],
-          "x-ms-enum": {
-            "modelAsString": false
-          }
-        }
-      },
-      "required": [
-        "kind"
-      ],
       "allOf": [
         {
           "$ref": "#/definitions/TIObject"
         }
-      ]
+      ],
+      "x-ms-discriminator-value": "ThreatActor"
     },
     "ThreatIntelligenceAlertRule": {
       "type": "object",
