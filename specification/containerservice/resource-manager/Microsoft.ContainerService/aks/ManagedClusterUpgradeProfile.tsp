@@ -11,6 +11,46 @@ using Versioning;
 
 namespace Microsoft.ContainerService;
 
+// =============================================================================
+// ManagedClusterUpgradeProfile resource and operations
+// =============================================================================
+
+/**
+ * The list of available upgrades for compute pools.
+ */
+@singleton("default")
+@parentResource(ManagedCluster)
+model ManagedClusterUpgradeProfile
+  is Azure.ResourceManager.ProxyResource<
+    ManagedClusterUpgradeProfileProperties,
+    false
+  > {
+  ...ResourceNameParameter<
+    Resource = ManagedClusterUpgradeProfile,
+    KeyName = "upgradeProfile",
+    SegmentName = "upgradeProfiles",
+    NamePattern = ""
+  >;
+}
+
+@@doc(ManagedClusterUpgradeProfile.name, "");
+@@doc(ManagedClusterUpgradeProfile.properties,
+  "The properties of the upgrade profile."
+);
+
+@armResourceOperations(#{ omitTags: true })
+interface ManagedClusterUpgradeProfiles {
+  /**
+   * Gets the upgrade profile of a managed cluster.
+   */
+  @tag("ManagedClusters")
+  getUpgradeProfile is ArmResourceRead<ManagedClusterUpgradeProfile>;
+}
+
+// =============================================================================
+// ManagedClusterUpgradeProfile models
+// =============================================================================
+
 /**
  * Control plane and agent pool upgrade profiles.
  */
@@ -79,34 +119,3 @@ model ManagedClusterPoolUpgradeProfileUpgradesItem {
   @added(Versions.v2025_10_02_preview)
   isOutOfSupport?: boolean;
 }
-/**
- * The list of available upgrades for compute pools.
- */
-@singleton("default")
-@parentResource(ManagedCluster)
-model ManagedClusterUpgradeProfile
-  is Azure.ResourceManager.ProxyResource<
-    ManagedClusterUpgradeProfileProperties,
-    false
-  > {
-  ...ResourceNameParameter<
-    Resource = ManagedClusterUpgradeProfile,
-    KeyName = "upgradeProfile",
-    SegmentName = "upgradeProfiles",
-    NamePattern = ""
-  >;
-}
-
-@armResourceOperations(#{ omitTags: true })
-interface ManagedClusterUpgradeProfiles {
-  /**
-   * Gets the upgrade profile of a managed cluster.
-   */
-  @tag("ManagedClusters")
-  getUpgradeProfile is ArmResourceRead<ManagedClusterUpgradeProfile>;
-}
-
-@@doc(ManagedClusterUpgradeProfile.name, "");
-@@doc(ManagedClusterUpgradeProfile.properties,
-  "The properties of the upgrade profile."
-);
