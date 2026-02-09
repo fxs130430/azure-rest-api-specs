@@ -2,12 +2,14 @@ import "@typespec/rest";
 import "@typespec/http";
 import "@azure-tools/typespec-azure-core";
 import "@azure-tools/typespec-azure-resource-manager";
+import "@azure-tools/typespec-client-generator-core";
 
 using TypeSpec.Rest;
 using TypeSpec.Http;
 using Azure.Core;
 using Azure.ResourceManager;
 using Azure.ResourceManager.Foundations;
+using Azure.ClientGenerator.Core;
 using Versioning;
 
 namespace Microsoft.ContainerService;
@@ -1438,6 +1440,8 @@ model OperationValue {
   /**
    * Describes the properties of a Operation Value Display.
    */
+  #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Property flatten for SDK backward compatibility."
+  @Azure.ClientGenerator.Core.Legacy.flattenProperty
   display?: OperationValueDisplay;
 }
 
@@ -3739,24 +3743,28 @@ model ManagedClusterPropertiesAutoScalerProfile {
    * Detects similar node pools and balances the number of nodes between them. Valid values are 'true' and 'false'
    */
   #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  @clientName("balanceSimilarNodeGroups")
   `balance-similar-node-groups`?: string;
 
   /**
    * DaemonSet pods will be gracefully terminated from empty nodes. If set to true, all daemonset pods on empty nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted.
    */
   #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  @clientName("daemonsetEvictionForEmptyNodes")
   `daemonset-eviction-for-empty-nodes`?: boolean;
 
   /**
    * DaemonSet pods will be gracefully terminated from non-empty nodes. If set to true, all daemonset pods on occupied nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted.
    */
   #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  @clientName("daemonsetEvictionForOccupiedNodes")
   `daemonset-eviction-for-occupied-nodes`?: boolean;
 
   /**
    * Should CA ignore DaemonSet pods when calculating resource utilization for scaling down. If set to true, the resources used by daemonset will be taken into account when making scaling down decisions.
    */
   #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  @clientName("ignoreDaemonsetsUtilization")
   `ignore-daemonsets-utilization`?: boolean;
 
   /**
@@ -3768,90 +3776,105 @@ model ManagedClusterPropertiesAutoScalerProfile {
    * The maximum number of empty nodes that can be deleted at the same time. This must be a positive integer. The default is 10.
    */
   #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  @clientName("maxEmptyBulkDelete")
   `max-empty-bulk-delete`?: string;
 
   /**
    * The maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. The default is 600.
    */
   #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  @clientName("maxGracefulTerminationSec")
   `max-graceful-termination-sec`?: string;
 
   /**
    * The maximum time the autoscaler waits for a node to be provisioned. The default is '15m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
    */
   #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  @clientName("maxNodeProvisionTime")
   `max-node-provision-time`?: string;
 
   /**
    * The maximum percentage of unready nodes in the cluster. After this percentage is exceeded, cluster autoscaler halts operations. The default is 45. The maximum is 100 and the minimum is 0.
    */
   #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  @clientName("maxTotalUnreadyPercentage")
   `max-total-unready-percentage`?: string;
 
   /**
    * Ignore unscheduled pods before they're a certain age. For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. The default is '0s'. Values must be an integer followed by a unit ('s' for seconds, 'm' for minutes, 'h' for hours, etc).
    */
   #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  @clientName("newPodScaleUpDelay")
   `new-pod-scale-up-delay`?: string;
 
   /**
    * The number of allowed unready nodes, irrespective of max-total-unready-percentage. This must be an integer. The default is 3.
    */
   #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  @clientName("okTotalUnreadyCount")
   `ok-total-unready-count`?: string;
 
   /**
    * How often cluster is reevaluated for scale up or down. The default is '10'. Values must be an integer number of seconds.
    */
   #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  @clientName("scanInterval")
   `scan-interval`?: string;
 
   /**
    * How long after scale up that scale down evaluation resumes. The default is '10m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
    */
   #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  @clientName("scaleDownDelayAfterAdd")
   `scale-down-delay-after-add`?: string;
 
   /**
    * How long after node deletion that scale down evaluation resumes. The default is the scan-interval. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
    */
   #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  @clientName("scaleDownDelayAfterDelete")
   `scale-down-delay-after-delete`?: string;
 
   /**
    * How long after scale down failure that scale down evaluation resumes. The default is '3m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
    */
   #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  @clientName("scaleDownDelayAfterFailure")
   `scale-down-delay-after-failure`?: string;
 
   /**
    * How long a node should be unneeded before it is eligible for scale down. The default is '10m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
    */
   #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  @clientName("scaleDownUnneededTime")
   `scale-down-unneeded-time`?: string;
 
   /**
    * How long an unready node should be unneeded before it is eligible for scale down. The default is '20m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
    */
   #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  @clientName("scaleDownUnreadyTime")
   `scale-down-unready-time`?: string;
 
   /**
    * Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down. The default is '0.5'.
    */
   #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  @clientName("scaleDownUtilizationThreshold")
   `scale-down-utilization-threshold`?: string;
 
   /**
    * If cluster autoscaler will skip deleting nodes with pods with local storage, for example, EmptyDir or HostPath. The default is true.
    */
   #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  @clientName("skipNodesWithLocalStorage")
   `skip-nodes-with-local-storage`?: string;
 
   /**
    * If cluster autoscaler will skip deleting nodes with pods from kube-system (except for DaemonSet or mirror pods). The default is true.
    */
   #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  @clientName("skipNodesWithSystemPods")
   `skip-nodes-with-system-pods`?: string;
 }
 
