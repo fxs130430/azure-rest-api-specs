@@ -2938,7 +2938,7 @@ union ChatCompletionExtraParametersBehavior {
   string,
 
   /** Passes any extra parameters directly to the model. */
-  PassThrough: "pass-through",
+  PassThrough: "passThrough",
 
   /** Drops all extra parameters. */
   Drop: "drop",

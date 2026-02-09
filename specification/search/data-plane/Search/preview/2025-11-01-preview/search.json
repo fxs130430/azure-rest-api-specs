@@ -5417,7 +5417,7 @@
       "type": "string",
       "description": "Specifies how 'extraParameters' should be handled by Azure AI Foundry. Defaults to 'error'.",
       "enum": [
-        "pass-through",
+        "passThrough",
         "drop",
         "error"
       ],
@@ -5427,7 +5427,7 @@
         "values": [
           {
             "name": "PassThrough",
-            "value": "pass-through",
+            "value": "passThrough",
             "description": "Passes any extra parameters directly to the model."
           },
           {
@@ -5629,7 +5629,7 @@
           "description": "How extra parameters are handled by Azure AI Foundry. Default is 'error'.",
           "default": "error",
           "enum": [
-            "pass-through",
+            "passThrough",
             "drop",
             "error"
           ],
@@ -5639,7 +5639,7 @@
             "values": [
               {
                 "name": "PassThrough",
-                "value": "pass-through",
+                "value": "passThrough",
                 "description": "Passes any extra parameters directly to the model."
               },
               {
