@@ -4496,6 +4496,7 @@
     "TranscriptionOptions": {
       "description": "Options for live transcription.",
       "required": [
+        "locale",
         "transportType"
       ],
       "type": "object",
@@ -4830,6 +4831,7 @@
     "WebSocketTranscriptionOptions": {
       "description": "Represents the options for WebSocket transport.",
       "required": [
+        "locale",
         "transportType"
       ],
       "type": "object",
