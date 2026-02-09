@@ -2986,7 +2986,7 @@
           "$ref": "#/definitions/MediaStreamingAudioChannelType"
         }
       },
-      "additionalProperties": false,
+      "additionalProperties": true,
       "discriminator": "transportType"
     },
     "MediaStreamingStarted": {
@@ -4509,7 +4509,7 @@
           "type": "string"
         }
       },
-      "additionalProperties": false,
+      "additionalProperties": true,
       "discriminator": "transportType"
     },
     "TranscriptionResultType": {
