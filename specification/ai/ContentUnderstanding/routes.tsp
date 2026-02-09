@@ -233,7 +233,7 @@ interface ContentAnalyzers {
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
   @added(Versions.v2025_11_01)
-  @doc("Return default settings for this Content Understanding resource.")
+  @doc("Update default settings for this Content Understanding resource.")
   @route("/defaults")
   @patch
   updateDefaults is Foundations.Operation<
