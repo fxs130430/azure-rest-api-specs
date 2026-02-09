@@ -28,10 +28,10 @@ export class FolderStructureRule implements Rule {
 
     stdOutput += `folder: ${folder}\n`;
     if (!(await fileExists(folder))) {
+      if (stdOutput) console.log(stdOutput);
       return {
         success: false,
-        stdOutput: stdOutput,
-        errorOutput: `Folder '${folder}' does not exist.\n`,
+        reason: `Folder '${folder}' does not exist.\n`,
       };
     }
 
@@ -200,10 +200,10 @@ export class FolderStructureRule implements Rule {
       }
     }
 
-    return {
-      success: success,
-      stdOutput: stdOutput,
-      errorOutput: errorOutput,
-    };
+    if (stdOutput) console.log(stdOutput);
+
+    return success
+      ? { success: true }
+      : { success: false, reason: errorOutput || "Folder structure validation failed." };
   }
 }
