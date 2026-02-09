@@ -20,6 +20,7 @@ import "./src/insights/routes.tsp";
 import "./src/memory_stores/routes.tsp";
 import "./src/red-teams/routes.tsp";
 import "./src/schedules/routes.tsp";
+import "./relocate-beta-operations.tsp";
 
 using Azure.ClientGenerator.Core;
 using Azure.AI.Projects;
@@ -37,7 +38,7 @@ using Azure.AI.Projects;
 @@clientNamespace(OpenAI, "azure.ai.projects", "python");
 
 // ---------------------------------------------------------------------------------------------------
-// Operation scope customizations - don't generate container operations *except* for backend C#
+// Operation scope customizations - don't generate container operations
 // ---------------------------------------------------------------------------------------------------
 @@scope(Agents.startAgentContainer, "!(python, javascript)");
 @@scope(Agents.updateAgentContainer, "!(python, javascript)");
@@ -88,6 +89,10 @@ using Azure.AI.Projects;
 @@clientName(MemoryStores.listMemoryStores, "list", "python");
 @@clientName(MemoryStores.deleteMemoryStore, "delete", "python");
 
+// The SDK will have custom code to handle LRO memory updates.
+@@access(MemoryStores.updateMemories, Access.internal, "python");
+@@scope(MemoryStores.getUpdateResult, "!(python)");
+
 @@clientName(MemoryStoreSearchResponse, "MemoryStoreSearchResult", "python");
 @@clientName(DeleteMemoryStoreResponse, "DeleteMemoryStoreResult", "python");
 @@clientName(MemoryStoreUpdateResponse, "MemoryStoreUpdateResult", "python");
@@ -95,10 +100,6 @@ using Azure.AI.Projects;
   "MemoryStoreDeleteScopeResult",
   "python"
 );
-
-// The SDK will have custom code to handle LRO memory updates.
-@@access(MemoryStores.updateMemories, Access.internal, "python");
-@@scope(MemoryStores.getUpdateResult, "!(python)");
 
 // Hand written code still needs the below classes. Make sure they are emitted.
 @@usage(MemoryStoreUpdateCompletedResult, Usage.output);
