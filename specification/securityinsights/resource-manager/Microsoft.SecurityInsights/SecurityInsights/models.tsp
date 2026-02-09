@@ -1,11 +1,10 @@
-import "@typespec/rest";
+﻿import "@typespec/rest";
 import "@typespec/http";
 import "@azure-tools/typespec-azure-core";
 import "@azure-tools/typespec-azure-resource-manager";
 
 using TypeSpec.Rest;
 using TypeSpec.Http;
-using Azure.Core;
 using Azure.ResourceManager;
 using Azure.ResourceManager.Foundations;
 
@@ -75,7 +74,7 @@ union CreatedByType {
   Key: "Key",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 union TriggersOn {
   string,
 
@@ -90,7 +89,7 @@ union TriggersOn {
   Alerts: "Alerts",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 union TriggersWhen {
   string,
 
@@ -105,7 +104,7 @@ union TriggersWhen {
   Updated: "Updated",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 union ConditionType {
   string,
 
@@ -947,7 +946,7 @@ union DataConnectorLicenseState {
   Unknown: "Unknown",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 union EnrichmentType {
   string,
 
@@ -984,7 +983,7 @@ union EntityTimelineKind {
   Anomaly: "Anomaly",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 union EntityItemQueryKind {
   string,
 
@@ -1028,7 +1027,7 @@ union GetInsightsError {
   Insight: "Insight",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 union EntityQueryTemplateKind {
   string,
 
@@ -1897,7 +1896,7 @@ union ThreatIntelligenceSortingOrder {
   descending: "descending",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 union TiType {
   string,
 
@@ -2313,7 +2312,7 @@ union AlertDetail {
   Severity: "Severity",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 union AutomationRuleBooleanConditionSupportedOperator {
   string,
 
@@ -2328,7 +2327,7 @@ union AutomationRuleBooleanConditionSupportedOperator {
   Or: "Or",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 union AutomationRulePropertyArrayChangedConditionSupportedArrayType {
   string,
 
@@ -2353,7 +2352,7 @@ union AutomationRulePropertyArrayChangedConditionSupportedArrayType {
   Comments: "Comments",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 union AutomationRulePropertyArrayChangedConditionSupportedChangeType {
   string,
 
@@ -2363,7 +2362,7 @@ union AutomationRulePropertyArrayChangedConditionSupportedChangeType {
   Added: "Added",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 union AutomationRulePropertyArrayConditionSupportedArrayType {
   string,
 
@@ -2383,7 +2382,7 @@ union AutomationRulePropertyArrayConditionSupportedArrayType {
   IncidentLabels: "IncidentLabels",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 union AutomationRulePropertyArrayConditionSupportedArrayConditionType {
   string,
 
@@ -2398,7 +2397,7 @@ union AutomationRulePropertyArrayConditionSupportedArrayConditionType {
   AllItems: "AllItems",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 union AutomationRulePropertyChangedConditionSupportedPropertyType {
   string,
 
@@ -2418,7 +2417,7 @@ union AutomationRulePropertyChangedConditionSupportedPropertyType {
   IncidentOwner: "IncidentOwner",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 union AutomationRulePropertyChangedConditionSupportedChangedType {
   string,
 
@@ -2433,7 +2432,7 @@ union AutomationRulePropertyChangedConditionSupportedChangedType {
   ChangedTo: "ChangedTo",
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 union AutomationRulePropertyConditionSupportedOperator {
   string,
 
@@ -3485,7 +3484,7 @@ union RegistryValueKind {
 /**
  * The operation against the threshold that triggers alert rule.
  */
-#suppress "@azure-tools/typespec-azure-core/no-enum" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/no-enum" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 enum TriggerOperator {
   /**
    * GreaterThan
@@ -3511,7 +3510,7 @@ enum TriggerOperator {
 /**
  * The operating system type.
  */
-#suppress "@azure-tools/typespec-azure-core/no-enum" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/no-enum" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 enum OSFamily {
   /**
    * Host with Linux operating system.
@@ -3542,7 +3541,7 @@ enum OSFamily {
 /**
  * The delivery action of this mail message like Delivered, Blocked, Replaced etc
  */
-#suppress "@azure-tools/typespec-azure-core/no-enum" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/no-enum" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 enum DeliveryAction {
   /**
    * Unknown
@@ -3573,7 +3572,7 @@ enum DeliveryAction {
 /**
  * The delivery location of this mail message like Inbox, JunkFolder etc
  */
-#suppress "@azure-tools/typespec-azure-core/no-enum" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/no-enum" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 enum DeliveryLocation {
   /**
    * Unknown
@@ -3624,7 +3623,7 @@ enum DeliveryLocation {
 /**
  * The elevation token associated with the process.
  */
-#suppress "@azure-tools/typespec-azure-core/no-enum" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/no-enum" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 enum ElevationToken {
   /**
    * Default elevation token
@@ -3650,7 +3649,7 @@ model AlertRulesList is Azure.Core.Page<AlertRule>;
 /**
  * An azure resource object with an Etag property
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model ResourceWithEtag extends Azure.ResourceManager.CommonTypes.Resource {
   /**
    * Etag of the azure resource
@@ -3694,8 +3693,8 @@ model ActionsList is Azure.Core.Page<ActionResponse>;
 /**
  * Action property bag.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model ActionResponseProperties extends ActionPropertiesBase {
   /**
    * The name of the logic app's workflow.
@@ -3716,7 +3715,7 @@ model ActionPropertiesBase {
 /**
  * Action for alert rule.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model ActionRequest extends ResourceWithEtag {
   /**
    * Action properties for put request
@@ -3727,7 +3726,7 @@ model ActionRequest extends ResourceWithEtag {
 /**
  * Action property bag.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model ActionRequestProperties extends ActionPropertiesBase {
   /**
    * Logic App Callback URL for this specific workflow.
@@ -3744,7 +3743,7 @@ model AlertRuleTemplatesList is Azure.Core.Page<AlertRuleTemplate>;
 /**
  * Automation rule properties
  */
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model AutomationRuleProperties {
   /**
    * The display name of the automation rule.
@@ -3813,9 +3812,9 @@ model AutomationRuleTriggeringLogic {
   // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
   expirationTimeUtc?: utcDateTime;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   triggersOn: TriggersOn;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   triggersWhen: TriggersWhen;
 
   /**
@@ -3831,7 +3830,7 @@ model AutomationRuleTriggeringLogic {
  */
 @discriminator("conditionType")
 model AutomationRuleCondition {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   conditionType: ConditionType;
 }
 
@@ -3840,7 +3839,7 @@ model AutomationRuleCondition {
  */
 @discriminator("actionType")
 model AutomationRuleAction {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   order: int32;
 
   /**
@@ -3866,7 +3865,7 @@ model ClientInfo {
   /**
    * The object id of the client.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-format"
+  #suppress "@azure-tools/typespec-azure-core/no-format" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @format("uuid")
   objectId?: string;
 
@@ -3876,7 +3875,7 @@ model ClientInfo {
   userPrincipalName?: string;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model AutomationRulesList is Azure.Core.Page<AutomationRule>;
 
 /**
@@ -3896,7 +3895,7 @@ model EntityManualTriggerRequestBody {
   /**
    * The tenant id of the playbook resource.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-format"
+  #suppress "@azure-tools/typespec-azure-core/no-format" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @format("uuid")
   tenantId?: string;
 
@@ -3913,14 +3912,14 @@ model EntityManualTriggerRequestBody {
   ]>;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model ManualTriggerRequestBody {
-  #suppress "@azure-tools/typespec-azure-core/no-format"
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/no-format" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @format("uuid")
   tenantId?: string;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   logicAppsResourceId: Azure.Core.armResourceIdentifier<[
     {
       type: "Microsoft.Logic/workflows";
@@ -3944,7 +3943,7 @@ model BookmarkList is Azure.Core.Page<Bookmark>;
 /**
  * Describes bookmark properties
  */
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model BookmarkProperties {
   /**
    * The time the bookmark was created
@@ -4019,6 +4018,7 @@ model BookmarkProperties {
   /**
    * Describes the entity mappings of the bookmark
    */
+  #suppress "@azure-tools/typespec-azure-resource-manager/missing-x-ms-identifiers" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   entityMappings?: BookmarkEntityMappings[];
 
   /**
@@ -4051,7 +4051,8 @@ model UserInfo {
   /**
    * The object id of the user.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-format"
+  #suppress "@azure-tools/typespec-azure-core/no-format" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  #suppress "@azure-tools/typespec-azure-core/no-nullable" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @format("uuid")
   objectId?: string | null;
 }
@@ -4120,7 +4121,7 @@ model RelationList is Azure.Core.Page<Relation>;
 /**
  * Relation property bag.
  */
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model RelationProperties {
   /**
    * The resource ID of the related resource
@@ -4159,7 +4160,7 @@ model BookmarkExpandParameters {
   /**
    * The Id of the expansion to perform.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-format"
+  #suppress "@azure-tools/typespec-azure-core/no-format" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @format("uuid")
   expansionId?: string;
 
@@ -4233,6 +4234,7 @@ model BookmarkExpandResponseValue {
   /**
    * Array of expansion result connected entities
    */
+  #suppress "@azure-tools/typespec-azure-resource-manager/missing-x-ms-identifiers" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   edges?: ConnectedEntity[];
 }
 
@@ -4248,6 +4250,7 @@ model ConnectedEntity {
   /**
    * key-value pairs for a connected entity mapping
    */
+  #suppress "@azure-tools/typespec-azure-core/no-unknown" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   additionalData?: unknown;
 }
 
@@ -4259,9 +4262,9 @@ model PackageList is Azure.Core.Page<PackageModel>;
 /**
  * Describes package properties
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "For backward compatibility"
-#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model PackageProperties extends PackageBaseProperties {}
 
 /**
@@ -4508,7 +4511,7 @@ model ProductPackageList is Azure.Core.Page<ProductPackageModel>;
 /**
  * Describes package properties
  */
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model ProductPackageProperties {
   ...PackageBaseProperties;
   ...ProductPackageAdditionalProperties;
@@ -4531,7 +4534,7 @@ model ProductPackageAdditionalProperties {
   /**
    * The json of the ARM template to deploy. Expandable.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-unknown" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/no-unknown" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   packagedContent?: unknown;
 }
 
@@ -4543,7 +4546,7 @@ model ProductTemplateList is Azure.Core.Page<ProductTemplateModel>;
 /**
  * Template property bag.
  */
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model ProductTemplateProperties {
   ...TemplateBaseProperties;
   ...ProductTemplateAdditionalProperties;
@@ -4687,7 +4690,7 @@ model ProductTemplateAdditionalProperties {
   /**
    * The json of the ARM template to deploy
    */
-  #suppress "@azure-tools/typespec-azure-core/no-unknown" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/no-unknown" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   packagedContent?: unknown;
 }
 
@@ -4699,7 +4702,7 @@ model TemplateList is Azure.Core.Page<TemplateModel>;
 /**
  * Template property bag.
  */
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model TemplateProperties {
   ...TemplateBaseProperties;
   ...TemplateAdditionalProperties;
@@ -4712,7 +4715,7 @@ model TemplateAdditionalProperties {
   /**
    * The JSON of the ARM template to deploy active content. Expandable.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-unknown" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/no-unknown" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   mainTemplate?: unknown;
 
   /**
@@ -4790,7 +4793,7 @@ model DataConnectorConnectBody {
   @secret
   password?: string;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   requestConfigUserInputValues?: unknown[];
 }
 
@@ -5132,7 +5135,7 @@ model EntityExpandParameters {
   /**
    * The Id of the expansion to perform.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-format"
+  #suppress "@azure-tools/typespec-azure-core/no-format" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @format("uuid")
   expansionId?: string;
 
@@ -5187,7 +5190,7 @@ model EntityEdges {
   /**
    * A bag of custom fields that should be part of the entity and will be presented to the user.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   additionalData?: Record<unknown>;
 }
 
@@ -5313,6 +5316,7 @@ model GetQueriesResponse {
   @pageItems
   value?: EntityQueryItem[];
 
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @nextLink
   nextLink?: string;
 }
@@ -5480,10 +5484,11 @@ model InsightsTableResult {
   /**
    * Rows data of the table
    */
+  #suppress "@azure-tools/typespec-azure-resource-manager/missing-x-ms-identifiers" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   rows?: string[][];
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model InsightsTableResultColumnsItem {
   /**
    * the type of the column
@@ -5504,7 +5509,7 @@ model EntityQueryList is Azure.Core.Page<EntityQuery>;
 /**
  * Specific entity query that supports put requests.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 @discriminator("kind")
 model CustomEntityQuery extends ResourceWithEtag {
   /**
@@ -5526,7 +5531,7 @@ model FileImportList is Azure.Core.Page<FileImport>;
 /**
  * Describes the FileImport's properties
  */
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model FileImportProperties {
   /**
    * Describes how to ingest the records in the file.
@@ -5541,6 +5546,7 @@ model FileImportProperties {
   /**
    * The time the file was imported.
    */
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @visibility(Lifecycle.Read)
   // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
   createdTimeUTC?: utcDateTime;
@@ -5595,6 +5601,7 @@ model FileImportProperties {
   /**
    * The time the files associated with this import are deleted from the storage account.
    */
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @visibility(Lifecycle.Read)
   // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
   filesValidUntilTimeUTC?: utcDateTime;
@@ -5602,6 +5609,7 @@ model FileImportProperties {
   /**
    * The time the file import record is soft deleted from the database and history.
    */
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @visibility(Lifecycle.Read)
   // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
   importValidUntilTimeUTC?: utcDateTime;
@@ -5663,7 +5671,7 @@ model HuntList is Azure.Core.Page<Hunt>;
 /**
  * Describes hunt properties
  */
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model HuntProperties {
   /**
    * The display name of the hunt
@@ -5723,7 +5731,8 @@ model HuntOwner {
   /**
    * The object id of the user the hunt is assigned to.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-format"
+  #suppress "@azure-tools/typespec-azure-core/no-format" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  #suppress "@azure-tools/typespec-azure-core/no-nullable" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @format("uuid")
   objectId?: string | null;
 
@@ -5746,7 +5755,7 @@ model HuntRelationList is Azure.Core.Page<HuntRelation>;
 /**
  * Describes hunt relation properties
  */
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model HuntRelationProperties {
   /**
    * The id of the related resource
@@ -5785,7 +5794,7 @@ model HuntCommentList is Azure.Core.Page<HuntComment>;
 /**
  * Describes a hunt comment properties
  */
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model HuntCommentProperties {
   /**
    * The message for the comment
@@ -5801,7 +5810,7 @@ model IncidentList is Azure.Core.Page<Incident>;
 /**
  * Describes incident properties
  */
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model IncidentProperties {
   /**
    * The title of the incident
@@ -5939,7 +5948,7 @@ model IncidentOwnerInfo {
   /**
    * The object id of the user the incident is assigned to.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-format"
+  #suppress "@azure-tools/typespec-azure-core/no-format" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @format("uuid")
   objectId?: string;
 
@@ -6095,7 +6104,7 @@ model SecurityAlert extends Entity {
 /**
  * SecurityAlert entity property bag.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model SecurityAlertProperties extends EntityCommonProperties {
   /**
    * The display name of the alert.
@@ -6276,7 +6285,7 @@ model EntityCommonProperties {
   /**
    * A bag of custom fields that should be part of the entity and will be presented to the user.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @visibility(Lifecycle.Read)
   additionalData?: Record<unknown>;
 
@@ -6317,7 +6326,7 @@ model HuntingBookmark extends Entity {
 /**
  * Describes bookmark properties
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model HuntingBookmarkProperties extends EntityCommonProperties {
   /**
    * The time the bookmark was created
@@ -6386,7 +6395,7 @@ model IncidentCommentList is Azure.Core.Page<IncidentComment>;
 /**
  * Incident comment property bag.
  */
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model IncidentCommentProperties {
   /**
    * The comment message
@@ -6454,7 +6463,7 @@ model IncidentTaskList is Azure.Core.Page<IncidentTask>;
 /**
  * Describes the properties of an incident task
  */
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model IncidentTaskProperties {
   /**
    * The title of the task
@@ -6504,7 +6513,7 @@ model MetadataList is Azure.Core.Page<MetadataModel>;
 /**
  * Metadata property bag.
  */
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model MetadataProperties {
   /**
    * Static ID for the content.  Used to identify dependencies and content from solutions or community.  Hard-coded/static for out of the box content and solutions. Dynamic for user-created.  This is the resource name
@@ -6605,7 +6614,7 @@ model MetadataProperties {
 /**
  * Metadata patch request body.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model MetadataPatch extends ResourceWithEtag {
   /**
    * Metadata patch request body
@@ -6721,7 +6730,7 @@ model OfficeConsentList is Azure.Core.Page<OfficeConsent>;
 /**
  * Consent property bag.
  */
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model OfficeConsentProperties {
   /**
    * The tenantId of the Office365 with the consent.
@@ -6737,7 +6746,7 @@ model OfficeConsentProperties {
 /**
  * The Sentinel onboarding state properties
  */
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model SentinelOnboardingStateProperties {
   /**
    * Flag that indicates the status of the CMK setting
@@ -6814,7 +6823,7 @@ model RecommendationList is Azure.Core.Page<Recommendation>;
 /**
  * Recommendation properties object.
  */
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model RecommendationProperties {
   /**
    * Id of the recommendation type.
@@ -6863,12 +6872,14 @@ model RecommendationProperties {
   /**
    * Id of the resource this recommendation refers to.
    */
+  #suppress "@azure-tools/typespec-azure-core/no-nullable" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   resourceId?: string | null;
 
   /**
    * Collection of additional properties for the recommendation.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/no-nullable" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   additionalProperties?: Record<string> | null;
 }
 
@@ -6899,7 +6910,8 @@ model RecommendedSuggestion {
   /**
    * Collection of additional properties for the suggestion.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  #suppress "@azure-tools/typespec-azure-core/no-nullable" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   additionalProperties?: Record<string> | null;
 }
 
@@ -6937,7 +6949,7 @@ model ReevaluateResponse {
 /**
  * List all the SecurityMLAnalyticsSettings
  */
-#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model SecurityMLAnalyticsSettingsList
   is Azure.Core.Page<SecurityMLAnalyticsSetting>;
 
@@ -7042,12 +7054,12 @@ model SourceControlList is Azure.Core.Page<SourceControl>;
 /**
  * Describes source control properties
  */
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model SourceControlProperties {
   /**
    * The id (a Guid) of the source control
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-duplicate-property" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-duplicate-property" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @visibility(Lifecycle.Read)
   id?: string;
 
@@ -7358,7 +7370,7 @@ model Warning {
   /**
    * Warning data.
    */
-  #suppress "@azure-tools/typespec-client-generator-core/property-name-conflict" "For backward compatibility"
+  #suppress "@azure-tools/typespec-client-generator-core/property-name-conflict" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @visibility(Lifecycle.Read)
   warning?: WarningBody;
 }
@@ -7379,7 +7391,7 @@ model WarningBody {
   @visibility(Lifecycle.Read)
   message?: string;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @visibility(Lifecycle.Read)
   @identifiers(#[])
   details?: WarningBody[];
@@ -7401,7 +7413,7 @@ model ThreatIntelligenceIndicatorModel extends ThreatIntelligenceInformation {
 /**
  * Describes threat intelligence entity properties
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model ThreatIntelligenceIndicatorProperties extends EntityCommonProperties {
   /**
    * List of tags
@@ -7545,7 +7557,7 @@ model ThreatIntelligenceIndicatorProperties extends EntityCommonProperties {
   /**
    * Extensions map
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   extensions?: Record<unknown>;
 }
 
@@ -7571,7 +7583,7 @@ model ThreatIntelligenceParsedPattern {
   /**
    * Pattern type key
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/secret-prop" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/secret-prop" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   patternTypeKey?: string;
 
   /**
@@ -7623,7 +7635,7 @@ model ThreatIntelligenceExternalReference {
   /**
    * External reference hashes
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   hashes?: Record<string>;
 }
 
@@ -7846,6 +7858,7 @@ model ConditionProperties {
   /**
    * The list of clauses to be evaluated in disjunction or conjunction base on the specified top level connective operator.
    */
+  #suppress "@azure-tools/typespec-azure-resource-manager/missing-x-ms-identifiers" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   clauses: ConditionClause[];
 
   /**
@@ -7929,6 +7942,7 @@ model QueryCondition {
   /**
    * The list of clauses to be evaluated in disjunction or conjunction base on the specified top level connective operator.
    */
+  #suppress "@azure-tools/typespec-azure-resource-manager/missing-x-ms-identifiers" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   clauses: ConditionClause[];
 
   /**
@@ -7960,7 +7974,8 @@ model ThreatIntelligenceList is Azure.Core.Page<TIObject>;
 /**
  * Represents a threat intelligence object in Azure Security Insights.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 @discriminator("kind")
 model TIObject extends Azure.ResourceManager.CommonTypes.Resource {
   /**
@@ -7977,11 +7992,12 @@ model TIObject extends Azure.ResourceManager.CommonTypes.Resource {
 /**
  * Describes properties common to all threat intelligence objects
  */
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model TIObjectCommonProperties {
   /**
    * The core STIX object that this TI object represents.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @visibility(Lifecycle.Read)
   data?: Record<unknown>;
 
@@ -8014,7 +8030,7 @@ model TIObjectCommonProperties {
   /**
    * The ID of the rules version that was active when this TI object was last ingested.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-format"
+  #suppress "@azure-tools/typespec-azure-core/no-format" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @visibility(Lifecycle.Read)
   @format("uuid")
   ingestionRulesVersion?: string;
@@ -8041,6 +8057,7 @@ model TIObjectCommonProperties {
   /**
    * A dictionary used to help follow relationships from this object to other STIX objects. The keys are field names from the STIX object (in the 'data' field), and the values are lists of sources that can be prepended to the object ID in order to efficiently locate the target TI object.
    */
+  #suppress "@azure-tools/typespec-azure-resource-manager/missing-x-ms-identifiers" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @visibility(Lifecycle.Read)
   relationshipHints?: RelationshipHint[];
 }
@@ -8049,9 +8066,9 @@ model TIObjectCommonProperties {
  * An object used to help follow relationships from this object to other STIX objects.
  */
 model RelationshipHint {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   fieldName?: string;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   source?: string;
 }
 
@@ -8060,24 +8077,25 @@ model RelationshipHint {
  */
 model TriggeredAnalyticsRuleRunProperties {
   // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   executionTimeUtc: utcDateTime;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   ruleId: string;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   triggeredAnalyticsRuleRunId: string;
 
   /**
    * The triggered analytics rule run provisioning state
    */
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @visibility(Lifecycle.Read)
   provisioningState: ProvisioningState;
 
   /**
    * Dictionary of <any>
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   ruleRunAdditionalData?: Record<unknown>;
 }
 
@@ -8101,7 +8119,7 @@ model AnalyticsRuleRunTrigger {
  */
 model AnalyticsRuleRunTriggerProperties {
   // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   executionTimeUtc: utcDateTime;
 }
 
@@ -8209,7 +8227,7 @@ model WatchlistProperties {
   /**
    * The search key is used to optimize query performance when using watchlists for joins with other data. For example, enable a column with IP addresses to be the designated SearchKey field, then use this field as the key field when joining to other event data by IP address.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/secret-prop" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/secret-prop" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   itemsSearchKey: string;
 
   /**
@@ -8237,7 +8255,7 @@ model WatchlistItemList is Azure.Core.Page<WatchlistItem>;
 /**
  * Describes watchlist item properties
  */
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model WatchlistItemProperties {
   /**
    * The type of the watchlist item
@@ -8284,13 +8302,13 @@ model WatchlistItemProperties {
   /**
    * key-value pairs for a watchlist item
    */
-  #suppress "@azure-tools/typespec-azure-core/no-unknown" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/no-unknown" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   itemsKeyValue: unknown;
 
   /**
    * key-value pairs for a watchlist item entity mapping
    */
-  #suppress "@azure-tools/typespec-azure-core/no-unknown" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/no-unknown" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   entityMapping?: unknown;
 }
 
@@ -8303,7 +8321,7 @@ model WorkspaceManagerAssignmentList
 /**
  * The workspace manager assignment properties
  */
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model WorkspaceManagerAssignmentProperties {
   /**
    * The resource name of the workspace manager group targeted by the workspace manager assignment
@@ -8435,7 +8453,7 @@ model WorkspaceManagerConfigurationList
 /**
  * The workspace manager configuration properties
  */
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model WorkspaceManagerConfigurationProperties {
   /**
    * The current mode of the workspace manager configuration
@@ -8451,7 +8469,7 @@ model WorkspaceManagerGroupList is Azure.Core.Page<WorkspaceManagerGroup>;
 /**
  * The workspace manager group properties
  */
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model WorkspaceManagerGroupProperties {
   /**
    * The description of the workspace manager group
@@ -8477,7 +8495,7 @@ model WorkspaceManagerMembersList is Azure.Core.Page<WorkspaceManagerMember>;
 /**
  * The workspace manager member properties
  */
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model WorkspaceManagerMemberProperties {
   /**
    * Fully qualified resource ID of the target Sentinel workspace joining the given Sentinel workspace manager
@@ -8517,7 +8535,7 @@ model AlertRuleTemplatePropertiesBase {
   /**
    * The last time that this alert rule template has been updated.
    */
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @visibility(Lifecycle.Read)
   // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
   lastUpdatedDateUTC?: utcDateTime;
@@ -8525,7 +8543,7 @@ model AlertRuleTemplatePropertiesBase {
   /**
    * The time that this alert rule template has been added.
    */
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @visibility(Lifecycle.Read)
   // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
   createdDateUTC?: utcDateTime;
@@ -8555,7 +8573,7 @@ model AlertRuleTemplatePropertiesBase {
 /**
  * Alert rule template with MITRE property bag.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model AlertRuleTemplateWithMitreProperties
   extends AlertRuleTemplatePropertiesBase {
   /**
@@ -8591,12 +8609,13 @@ model QueryBasedAlertRuleTemplateProperties {
   /**
    * Dictionary of string key-value pairs of columns to be attached to the alert
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   customDetails?: Record<string>;
 
   /**
    * Array of the entity mappings of the alert rule
    */
+  #suppress "@azure-tools/typespec-azure-resource-manager/missing-x-ms-identifiers" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   entityMappings?: EntityMapping[];
 
   /**
@@ -8612,6 +8631,7 @@ model QueryBasedAlertRuleTemplateProperties {
   /**
    * Array of the sentinel entity mappings of the alert rule
    */
+  #suppress "@azure-tools/typespec-azure-resource-manager/missing-x-ms-identifiers" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   sentinelEntitiesMappings?: SentinelEntityMapping[];
 }
 
@@ -8715,10 +8735,12 @@ model SentinelEntityMapping {
 /**
  * Represents MLBehaviorAnalytics alert rule.
  */
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model MLBehaviorAnalyticsAlertRule extends AlertRule {
   /**
    * MLBehaviorAnalytics alert rule properties
    */
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   properties?: MLBehaviorAnalyticsAlertRuleProperties;
 
   /**
@@ -8730,10 +8752,12 @@ model MLBehaviorAnalyticsAlertRule extends AlertRule {
 /**
  * MLBehaviorAnalytics alert rule base property bag.
  */
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model MLBehaviorAnalyticsAlertRuleProperties {
   /**
    * The Name of the alert rule template used to create this rule.
    */
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   alertRuleTemplateName: string;
 
   /**
@@ -8788,10 +8812,12 @@ model MLBehaviorAnalyticsAlertRuleProperties {
 /**
  * Represents MLBehaviorAnalytics alert rule template.
  */
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model MLBehaviorAnalyticsAlertRuleTemplate extends AlertRuleTemplate {
   /**
    * MLBehaviorAnalytics alert rule template properties.
    */
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   properties?: MLBehaviorAnalyticsAlertRuleTemplateProperties;
 
   /**
@@ -8803,7 +8829,8 @@ model MLBehaviorAnalyticsAlertRuleTemplate extends AlertRuleTemplate {
 /**
  * MLBehaviorAnalytics alert rule template properties.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model MLBehaviorAnalyticsAlertRuleTemplateProperties
   extends AlertRuleTemplateWithMitreProperties {
   /**
@@ -8988,6 +9015,7 @@ model FusionScenarioExclusionPattern {
   /**
    * DateTime when scenario exclusion pattern is added in UTC.
    */
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   dateAddedInUTC: string;
 }
 
@@ -9018,7 +9046,7 @@ model FusionAlertRuleTemplateProperties {
   /**
    * The time that this alert rule template has been added.
    */
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @visibility(Lifecycle.Read)
   // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
   createdDateUTC?: utcDateTime;
@@ -9026,7 +9054,7 @@ model FusionAlertRuleTemplateProperties {
   /**
    * The time that this alert rule template was last updated.
    */
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @visibility(Lifecycle.Read)
   // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
   lastUpdatedDateUTC?: utcDateTime;
@@ -9222,7 +9250,7 @@ model ThreatIntelligenceAlertRuleTemplate extends AlertRuleTemplate {
 /**
  * Threat Intelligence alert rule template properties
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model ThreatIntelligenceAlertRuleTemplateProperties
   extends AlertRuleTemplateWithMitreProperties {
   /**
@@ -9249,7 +9277,7 @@ model MicrosoftSecurityIncidentCreationAlertRule extends AlertRule {
 /**
  * MicrosoftSecurityIncidentCreation rule property bag.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model MicrosoftSecurityIncidentCreationAlertRuleProperties
   extends MicrosoftSecurityIncidentCreationAlertRuleCommonProperties {
   /**
@@ -9324,7 +9352,7 @@ model MicrosoftSecurityIncidentCreationAlertRuleTemplate
 /**
  * MicrosoftSecurityIncidentCreation rule template properties
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model MicrosoftSecurityIncidentCreationAlertRuleTemplateProperties
   extends AlertRuleTemplatePropertiesBase {
   /**
@@ -9351,7 +9379,7 @@ model MicrosoftSecurityIncidentCreationAlertRuleTemplateProperties
 /**
  * Scheduled alert rule base property bag.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model ScheduledAlertRuleProperties extends ScheduledAlertRuleCommonProperties {
   /**
    * The Name of the alert rule template used to create this rule.
@@ -9513,13 +9541,13 @@ model ScheduledAlertRuleCommonProperties {
   /**
    * Dictionary of string key-value pairs of columns to be attached to the alert
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   customDetails?: Record<string>;
 
   /**
    * Array of the entity mappings of the alert rule
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/missing-x-ms-identifiers" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/missing-x-ms-identifiers" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   entityMappings?: EntityMapping[];
 
   /**
@@ -9530,6 +9558,7 @@ model ScheduledAlertRuleCommonProperties {
   /**
    * Array of the sentinel entity mappings of the alert rule
    */
+  #suppress "@azure-tools/typespec-azure-resource-manager/missing-x-ms-identifiers" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   sentinelEntitiesMappings?: SentinelEntityMapping[];
 }
 
@@ -9612,12 +9641,13 @@ model NrtAlertRuleProperties {
   /**
    * Dictionary of string key-value pairs of columns to be attached to the alert
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   customDetails?: Record<string>;
 
   /**
    * Array of the entity mappings of the alert rule
    */
+  #suppress "@azure-tools/typespec-azure-resource-manager/missing-x-ms-identifiers" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   entityMappings?: EntityMapping[];
 
   /**
@@ -9633,6 +9663,7 @@ model NrtAlertRuleProperties {
   /**
    * Array of the sentinel entity mappings of the alert rule
    */
+  #suppress "@azure-tools/typespec-azure-resource-manager/missing-x-ms-identifiers" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   sentinelEntitiesMappings?: SentinelEntityMapping[];
 }
 
@@ -9648,7 +9679,7 @@ model ScheduledAlertRuleTemplateProperties {
   /**
    * The time that this alert rule template has been added.
    */
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @visibility(Lifecycle.Read)
   // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
   createdDateUTC?: utcDateTime;
@@ -9656,7 +9687,7 @@ model ScheduledAlertRuleTemplateProperties {
   /**
    * The time that this alert rule template was last updated.
    */
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @visibility(Lifecycle.Read)
   // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
   lastUpdatedDateUTC?: utcDateTime;
@@ -9740,13 +9771,13 @@ model ScheduledAlertRuleTemplateProperties {
   /**
    * Dictionary of string key-value pairs of columns to be attached to the alert
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   customDetails?: Record<string>;
 
   /**
    * Array of the entity mappings of the alert rule
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/missing-x-ms-identifiers" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/missing-x-ms-identifiers" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   entityMappings?: EntityMapping[];
 
   /**
@@ -9757,6 +9788,7 @@ model ScheduledAlertRuleTemplateProperties {
   /**
    * Array of the sentinel entity mappings of the alert rule
    */
+  #suppress "@azure-tools/typespec-azure-resource-manager/missing-x-ms-identifiers" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   sentinelEntitiesMappings?: SentinelEntityMapping[];
 }
 
@@ -9828,7 +9860,7 @@ model NrtAlertRule extends AlertRule {
   kind: "NRT";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model AddIncidentTaskActionProperties {
   /**
    * The title of the task.
@@ -9845,7 +9877,7 @@ model AddIncidentTaskActionProperties {
  * Describes an automation rule action to add a task to an incident
  */
 model AutomationRuleAddIncidentTaskAction extends AutomationRuleAction {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   actionConfiguration?: AddIncidentTaskActionProperties;
 
   /**
@@ -9854,12 +9886,12 @@ model AutomationRuleAddIncidentTaskAction extends AutomationRuleAction {
   actionType: "AddIncidentTask";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model AutomationRuleBooleanCondition {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   operator?: AutomationRuleBooleanConditionSupportedOperator;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @identifiers(#[])
   @minItems(2)
   @maxItems(10)
@@ -9870,7 +9902,7 @@ model AutomationRuleBooleanCondition {
  * Describes an automation rule action to modify an object's properties
  */
 model AutomationRuleModifyPropertiesAction extends AutomationRuleAction {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   actionConfiguration?: IncidentPropertiesAction;
 
   /**
@@ -9879,7 +9911,7 @@ model AutomationRuleModifyPropertiesAction extends AutomationRuleAction {
   actionType: "ModifyProperties";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model IncidentPropertiesAction {
   /**
    * The severity of the incident
@@ -9918,49 +9950,49 @@ model IncidentPropertiesAction {
   labels?: IncidentLabel[];
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model AutomationRulePropertyArrayChangedValuesCondition {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   arrayType?: AutomationRulePropertyArrayChangedConditionSupportedArrayType;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   changeType?: AutomationRulePropertyArrayChangedConditionSupportedChangeType;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model AutomationRulePropertyArrayValuesCondition {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   arrayType?: AutomationRulePropertyArrayConditionSupportedArrayType;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   arrayConditionType?: AutomationRulePropertyArrayConditionSupportedArrayConditionType;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @identifiers(#[])
   @maxItems(10)
   itemConditions?: AutomationRuleCondition[];
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model AutomationRulePropertyValuesChangedCondition {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   propertyName?: AutomationRulePropertyChangedConditionSupportedPropertyType;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   changeType?: AutomationRulePropertyChangedConditionSupportedChangedType;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   operator?: AutomationRulePropertyConditionSupportedOperator;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   propertyValues?: string[];
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model AutomationRulePropertyValuesCondition {
   /**
    * The property to evaluate in an automation rule property condition.
    */
   propertyName?: AutomationRulePropertyConditionSupportedProperty;
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   operator?: AutomationRulePropertyConditionSupportedOperator;
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   propertyValues?: string[];
 }
 
@@ -9968,7 +10000,7 @@ model AutomationRulePropertyValuesCondition {
  * Describes an automation rule action to run a playbook
  */
 model AutomationRuleRunPlaybookAction extends AutomationRuleAction {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   actionConfiguration?: PlaybookActionProperties;
 
   /**
@@ -9977,7 +10009,7 @@ model AutomationRuleRunPlaybookAction extends AutomationRuleAction {
   actionType: "RunPlaybook";
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model PlaybookActionProperties {
   /**
    * The resource id of the playbook resource.
@@ -9994,7 +10026,7 @@ model PlaybookActionProperties {
   /**
    * The tenant id of the playbook resource.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-format"
+  #suppress "@azure-tools/typespec-azure-core/no-format" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @format("uuid")
   tenantId?: string;
 }
@@ -10003,7 +10035,7 @@ model PlaybookActionProperties {
  * Describes an automation rule condition that applies a boolean operator (e.g AND, OR) to conditions
  */
 model BooleanConditionProperties extends AutomationRuleCondition {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   conditionProperties?: AutomationRuleBooleanCondition;
   conditionType: "Boolean";
 }
@@ -10012,7 +10044,7 @@ model BooleanConditionProperties extends AutomationRuleCondition {
  * Describes an automation rule condition that evaluates an array property's value change
  */
 model PropertyArrayChangedConditionProperties extends AutomationRuleCondition {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   conditionProperties?: AutomationRulePropertyArrayChangedValuesCondition;
   conditionType: "PropertyArrayChanged";
 }
@@ -10021,7 +10053,7 @@ model PropertyArrayChangedConditionProperties extends AutomationRuleCondition {
  * Describes an automation rule condition that evaluates an array property's value
  */
 model PropertyArrayConditionProperties extends AutomationRuleCondition {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   conditionProperties?: AutomationRulePropertyArrayValuesCondition;
   conditionType: "PropertyArray";
 }
@@ -10030,7 +10062,7 @@ model PropertyArrayConditionProperties extends AutomationRuleCondition {
  * Describes an automation rule condition that evaluates a property's value change
  */
 model PropertyChangedConditionProperties extends AutomationRuleCondition {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   conditionProperties?: AutomationRulePropertyValuesChangedCondition;
   conditionType: "PropertyChanged";
 }
@@ -10039,7 +10071,7 @@ model PropertyChangedConditionProperties extends AutomationRuleCondition {
  * Describes an automation rule condition that evaluates a property's value
  */
 model PropertyConditionProperties extends AutomationRuleCondition {
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   conditionProperties?: AutomationRulePropertyValuesCondition;
   conditionType: "Property";
 }
@@ -10385,7 +10417,7 @@ model InstructionStepDetails {
   /**
    * Gets or sets the instruction type parameters settings.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-unknown" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/no-unknown" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   parameters: unknown;
 
   /**
@@ -10412,6 +10444,7 @@ model CustomizableConnectionsConfig {
 /**
  * Represents AADIP (Azure Active Directory Identity Protection) requirements check request.
  */
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model AADCheckRequirements extends DataConnectorsCheckRequirements {
   /**
    * AADIP (Azure Active Directory Identity Protection) requirements check properties.
@@ -10427,7 +10460,9 @@ model AADCheckRequirements extends DataConnectorsCheckRequirements {
 /**
  * AADIP (Azure Active Directory Identity Protection) requirements check properties.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model AADCheckRequirementsProperties extends DataConnectorTenantId {}
 
 /**
@@ -10458,12 +10493,14 @@ model AatpCheckRequirements extends DataConnectorsCheckRequirements {
 /**
  * AATP (Azure Advanced Threat Protection) requirements check properties.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model AatpCheckRequirementsProperties extends DataConnectorTenantId {}
 
 /**
  * Represents ASC (Azure Security Center) requirements check request.
  */
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model ASCCheckRequirements extends DataConnectorsCheckRequirements {
   /**
    * ASC (Azure Security Center) requirements check properties.
@@ -10479,6 +10516,7 @@ model ASCCheckRequirements extends DataConnectorsCheckRequirements {
 /**
  * ASC (Azure Security Center) requirements check properties.
  */
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model ASCCheckRequirementsProperties {
   /**
    * The subscription id to connect to, and get the data from.
@@ -10524,7 +10562,8 @@ model Dynamics365CheckRequirements extends DataConnectorsCheckRequirements {
 /**
  * Dynamics365 requirements check properties.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model Dynamics365CheckRequirementsProperties extends DataConnectorTenantId {}
 
 /**
@@ -10545,7 +10584,8 @@ model McasCheckRequirements extends DataConnectorsCheckRequirements {
 /**
  * MCAS (Microsoft Cloud App Security) requirements check properties.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model McasCheckRequirementsProperties extends DataConnectorTenantId {}
 
 /**
@@ -10566,7 +10606,8 @@ model MdatpCheckRequirements extends DataConnectorsCheckRequirements {
 /**
  * MDATP (Microsoft Defender Advanced Threat Protection) requirements check properties.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model MdatpCheckRequirementsProperties extends DataConnectorTenantId {}
 
 /**
@@ -10587,7 +10628,8 @@ model MstiCheckRequirements extends DataConnectorsCheckRequirements {
 /**
  * Microsoft Threat Intelligence requirements check properties.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model MstiCheckRequirementsProperties extends DataConnectorTenantId {}
 
 /**
@@ -10608,12 +10650,15 @@ model MtpCheckRequirements extends DataConnectorsCheckRequirements {
 /**
  * MTP (Microsoft Threat Protection) requirements check properties.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model MTPCheckRequirementsProperties extends DataConnectorTenantId {}
 
 /**
  * Represents OfficeATP (Office 365 Advanced Threat Protection) requirements check request.
  */
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model OfficeATPCheckRequirements extends DataConnectorsCheckRequirements {
   /**
    * OfficeATP (Office 365 Advanced Threat Protection) requirements check properties.
@@ -10629,12 +10674,15 @@ model OfficeATPCheckRequirements extends DataConnectorsCheckRequirements {
 /**
  * OfficeATP (Office 365 Advanced Threat Protection) requirements check properties.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model OfficeATPCheckRequirementsProperties extends DataConnectorTenantId {}
 
 /**
  * Represents OfficeIRM (Microsoft Insider Risk Management) requirements check request.
  */
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model OfficeIRMCheckRequirements extends DataConnectorsCheckRequirements {
   /**
    * OfficeIRM (Microsoft Insider Risk Management) requirements check properties.
@@ -10650,7 +10698,9 @@ model OfficeIRMCheckRequirements extends DataConnectorsCheckRequirements {
 /**
  * OfficeIRM (Microsoft Insider Risk Management) requirements check properties.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model OfficeIRMCheckRequirementsProperties extends DataConnectorTenantId {}
 
 /**
@@ -10672,7 +10722,8 @@ model MicrosoftPurviewInformationProtectionCheckRequirements
 /**
  * MicrosoftPurviewInformationProtection requirements check properties.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model MicrosoftPurviewInformationProtectionCheckRequirementsProperties
   extends DataConnectorTenantId {}
 
@@ -10695,13 +10746,15 @@ model Office365ProjectCheckRequirements
 /**
  * Office365 Project requirements check properties.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model Office365ProjectCheckRequirementsProperties
   extends DataConnectorTenantId {}
 
 /**
  * Represents Office PowerBI requirements check request.
  */
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model OfficePowerBICheckRequirements extends DataConnectorsCheckRequirements {
   /**
    * Office Power BI requirements check properties.
@@ -10717,7 +10770,9 @@ model OfficePowerBICheckRequirements extends DataConnectorsCheckRequirements {
 /**
  * Office PowerBI requirements check properties.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model OfficePowerBICheckRequirementsProperties extends DataConnectorTenantId {}
 
 /**
@@ -10738,12 +10793,14 @@ model PurviewAuditCheckRequirements extends DataConnectorsCheckRequirements {
 /**
  * PurviewAudit requirements check properties.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model PurviewAuditCheckRequirementsProperties extends DataConnectorTenantId {}
 
 /**
  * Threat Intelligence Platforms data connector check requirements
  */
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model TICheckRequirements extends DataConnectorsCheckRequirements {
   /**
    * Threat Intelligence Platforms data connector check required properties
@@ -10759,7 +10816,9 @@ model TICheckRequirements extends DataConnectorsCheckRequirements {
 /**
  * Threat Intelligence Platforms data connector required properties.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model TICheckRequirementsProperties extends DataConnectorTenantId {}
 
 /**
@@ -10780,12 +10839,14 @@ model TiTaxiiCheckRequirements extends DataConnectorsCheckRequirements {
 /**
  * Threat Intelligence TAXII data connector required properties.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model TiTaxiiCheckRequirementsProperties extends DataConnectorTenantId {}
 
 /**
  * Represents IoT requirements check request.
  */
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model IoTCheckRequirements extends DataConnectorsCheckRequirements {
   /**
    * IoT requirements check properties.
@@ -10801,6 +10862,7 @@ model IoTCheckRequirements extends DataConnectorsCheckRequirements {
 /**
  * IoT requirements check properties.
  */
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model IoTCheckRequirementsProperties {
   /**
    * The subscription id to connect to, and get the data from.
@@ -10811,7 +10873,7 @@ model IoTCheckRequirementsProperties {
 /**
  * Represents AADIP (Azure Active Directory Identity Protection) data connector.
  */
-#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model AADDataConnector extends DataConnector {
   /**
    * AADIP (Azure Active Directory Identity Protection) data connector properties.
@@ -10827,7 +10889,7 @@ model AADDataConnector extends DataConnector {
 /**
  * AADIP (Azure Active Directory Identity Protection) data connector properties.
  */
-#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model AADDataConnectorProperties {
   ...DataConnectorTenantId;
   ...DataConnectorWithAlertsProperties;
@@ -10881,7 +10943,7 @@ model MstiDataConnector extends DataConnector {
 /**
  * Microsoft Threat Intelligence data connector properties.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model MstiDataConnectorProperties extends DataConnectorTenantId {
   /**
    * The available data types for the connector.
@@ -10902,7 +10964,7 @@ model MstiDataConnectorDataTypes {
 /**
  * Data type for Microsoft Threat Intelligence Platforms data connector.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model MstiDataConnectorDataTypesMicrosoftEmergingThreatFeed
   extends DataConnectorDataTypeCommon {
   /**
@@ -10930,7 +10992,7 @@ model PremiumMicrosoftDefenderForThreatIntelligence extends DataConnector {
 /**
  * Microsoft Defender for Threat Intelligence Premium data connector properties.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model PremiumMdtiDataConnectorProperties extends DataConnectorTenantId {
   /**
    * The lookback period for the feed to be imported. The date-time to begin importing the feed from, for example: 2024-01-01T00:00:00.000Z.
@@ -10941,7 +11003,7 @@ model PremiumMdtiDataConnectorProperties extends DataConnectorTenantId {
   /**
    * The flag to indicate whether the tenant has the premium SKU required to access this connector.
    */
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   requiredSKUsPresent?: boolean;
 
   /**
@@ -10963,14 +11025,15 @@ model PremiumMdtiDataConnectorDataTypes {
 /**
  * Data type for Microsoft Defender for Threat Intelligence Premium data connector.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
-#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model PremiumMdtiDataConnectorDataTypesConnector
   extends DataConnectorDataTypeCommon {}
 
 /**
  * Represents MTP (Microsoft Threat Protection) data connector.
  */
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model MTPDataConnector extends DataConnector {
   /**
    * MTP (Microsoft Threat Protection) data connector properties.
@@ -10986,7 +11049,8 @@ model MTPDataConnector extends DataConnector {
 /**
  * MTP (Microsoft Threat Protection) data connector properties.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model MTPDataConnectorProperties extends DataConnectorTenantId {
   /**
    * The available data types for the connector.
@@ -11002,6 +11066,7 @@ model MTPDataConnectorProperties extends DataConnectorTenantId {
 /**
  * The available data types for Microsoft Threat Protection Platforms data connector.
  */
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model MTPDataConnectorDataTypes {
   /**
    * Incidents data type for Microsoft Threat Protection Platforms data connector.
@@ -11017,13 +11082,17 @@ model MTPDataConnectorDataTypes {
 /**
  * Incidents data type for Microsoft Threat Protection Platforms data connector.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model MTPDataConnectorDataTypesIncidents extends DataConnectorDataTypeCommon {}
 
 /**
  * Alerts data type for Microsoft Threat Protection Platforms data connector.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model MTPDataConnectorDataTypesAlerts extends DataConnectorDataTypeCommon {}
 
 /**
@@ -11039,7 +11108,7 @@ model MtpFilteredProviders {
 /**
  * Represents AATP (Azure Advanced Threat Protection) data connector.
  */
-#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model AATPDataConnector extends DataConnector {
   /**
    * AATP (Azure Advanced Threat Protection) data connector properties.
@@ -11055,7 +11124,7 @@ model AATPDataConnector extends DataConnector {
 /**
  * AATP (Azure Advanced Threat Protection) data connector properties.
  */
-#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model AATPDataConnectorProperties {
   ...DataConnectorTenantId;
   ...DataConnectorWithAlertsProperties;
@@ -11064,7 +11133,7 @@ model AATPDataConnectorProperties {
 /**
  * Represents ASC (Azure Security Center) data connector.
  */
-#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model ASCDataConnector extends DataConnector {
   /**
    * ASC (Azure Security Center) data connector properties.
@@ -11080,8 +11149,8 @@ model ASCDataConnector extends DataConnector {
 /**
  * ASC (Azure Security Center) data connector properties.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
-#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model ASCDataConnectorProperties extends DataConnectorWithAlertsProperties {
   /**
    * The subscription id to connect to, and get the data from.
@@ -11132,8 +11201,8 @@ model AwsCloudTrailDataConnectorDataTypes {
 /**
  * Logs data type.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
-#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model AwsCloudTrailDataConnectorDataTypesLogs
   extends DataConnectorDataTypeCommon {}
 
@@ -11190,7 +11259,8 @@ model AwsS3DataConnectorDataTypes {
 /**
  * Logs data type.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model AwsS3DataConnectorDataTypesLogs extends DataConnectorDataTypeCommon {}
 
 /**
@@ -11255,7 +11325,7 @@ model RestApiPollerDataConnectorProperties {
   /**
    * The add on attributes. The key name will become attribute name (a column) and the value will become the attribute value in the payload.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   addOnAttributes?: Record<string>;
 }
 
@@ -11282,14 +11352,14 @@ model RestApiPollerRequestConfig {
   /**
    * The Rate limit queries per second for the request..
    */
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
-  #suppress "@azure-tools/typespec-azure-core/no-nullable" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  #suppress "@azure-tools/typespec-azure-core/no-nullable" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   rateLimitQPS?: int32 | null;
 
   /**
    * The query window in minutes for the request.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-nullable" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/no-nullable" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   queryWindowInMin?: int32 | null;
 
   /**
@@ -11305,31 +11375,31 @@ model RestApiPollerRequestConfig {
   /**
    * The retry count.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-nullable" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/no-nullable" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   retryCount?: int32 | null;
 
   /**
    * The timeout in seconds.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-nullable" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/no-nullable" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   timeoutInSeconds?: int32 | null;
 
   /**
    * Flag to indicate if HTTP POST payload is in JSON format (vs form-urlencoded).
    */
-  #suppress "@azure-tools/typespec-azure-core/no-nullable" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/no-nullable" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   isPostPayloadJson?: boolean | null;
 
   /**
    * The header for the request for the remote server.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   headers?: Record<string>;
 
   /**
    * The HTTP query parameters to RESTful API.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   queryParameters?: Record<unknown>;
 
   /**
@@ -11366,7 +11436,7 @@ model RestApiPollerRequestConfig {
 /**
  * The configuration of the destination of the data.
  */
-#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model DCRConfiguration {
   /**
    * Represents the data collection ingestion endpoint in log analytics.
@@ -11401,7 +11471,7 @@ model CcpResponseConfig {
   /**
    * The status value.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-nullable" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/no-nullable" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   successStatusValue?: string | null;
 
   /**
@@ -11427,25 +11497,25 @@ model CcpResponseConfig {
   /**
    * The value indicating whether the response has CSV boundary in case the response in CSV format.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-nullable" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/no-nullable" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   hasCsvBoundary?: boolean | null;
 
   /**
    * The value indicating whether the response has headers in case the response in CSV format.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-nullable" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/no-nullable" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   hasCsvHeader?: boolean | null;
 
   /**
    * The value indicating whether the response isn't an array of events / logs.  By setting this flag to true it means the remote server will response with an object which each property has as a value an array of events / logs.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-nullable" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/no-nullable" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   convertChildPropertiesToArray?: boolean | null;
 
   /**
    * The character used to escape characters in CSV.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-nullable" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/no-nullable" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @maxLength(1)
   @minLength(1)
   csvEscape?: string | null = "\"";
@@ -11474,7 +11544,7 @@ model RestApiPollerRequestPagingConfig {
 /**
  * The request paging configuration for LinkHeader and PersistentLinkHeader paging type parameters.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model RestApiPollerRequestPagingLinkHeaderConfig
   extends RestApiPollerRequestPagingConfig {
   /**
@@ -11491,7 +11561,7 @@ model RestApiPollerRequestPagingLinkHeaderConfig
 /**
  * The request paging configuration for NextPageToken and PersistentToken paging type parameters.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model RestApiPollerRequestPagingTokenConfig
   extends RestApiPollerRequestPagingConfig {
   /**
@@ -11523,7 +11593,7 @@ model RestApiPollerRequestPagingTokenConfig
 /**
  * The request paging configuration for NextPageUrl paging type parameters.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model RestApiPollerRequestPagingNextPageUrlConfig
   extends RestApiPollerRequestPagingConfig {
   /**
@@ -11534,7 +11604,7 @@ model RestApiPollerRequestPagingNextPageUrlConfig
   /**
    * Query parameters of next page URL
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   nextPageUrlQueryParameters?: Record<string>;
 
   /**
@@ -11561,7 +11631,7 @@ model RestApiPollerRequestPagingNextPageUrlConfig
 /**
  * The request paging configuration for Offset paging type parameters.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model RestApiPollerRequestPagingOffsetConfig
   extends RestApiPollerRequestPagingConfig {
   /**
@@ -11573,7 +11643,7 @@ model RestApiPollerRequestPagingOffsetConfig
 /**
  * The request paging configuration for Count base paging type parameters.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model RestApiPollerRequestPagingCountBaseConfig
   extends RestApiPollerRequestPagingConfig {
   /**
@@ -11605,6 +11675,7 @@ model RestApiPollerRequestPagingCountBaseConfig
 /**
  * Represents Google Cloud Platform data connector.
  */
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model GCPDataConnector extends DataConnector {
   /**
    * Google Cloud Platform data connector properties.
@@ -11620,6 +11691,7 @@ model GCPDataConnector extends DataConnector {
 /**
  * Google Cloud Platform data connector properties.
  */
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model GCPDataConnectorProperties {
   /**
    * The name of the connector definition that represents the UI config.
@@ -11645,6 +11717,7 @@ model GCPDataConnectorProperties {
 /**
  * Google Cloud Platform auth section properties.
  */
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model GCPAuthProperties {
   /**
    * The service account that is used to access the GCP project.
@@ -11665,6 +11738,7 @@ model GCPAuthProperties {
 /**
  * Google Cloud Platform request section properties.
  */
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model GCPRequestProperties {
   /**
    * The GCP project id.
@@ -11684,6 +11758,7 @@ model ApiKeyAuthModel extends CcpAuthConfig {
   /**
    * API Key for the user secret key credential
    */
+  #suppress "@azure-tools/typespec-azure-resource-manager/secret-prop" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   apiKey: string;
 
   /**
@@ -11710,7 +11785,8 @@ model ApiKeyAuthModel extends CcpAuthConfig {
 /**
  * Model for API authentication with AWS.
  */
-#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model AWSAuthModel extends CcpAuthConfig {
   /**
    * AWS STS assume role ARN
@@ -11752,7 +11828,7 @@ model BasicAuthModel extends CcpAuthConfig {
 /**
  * Model for API authentication for all GCP kind connectors.
  */
-#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model GCPAuthModel extends CcpAuthConfig {
   /**
    * GCP Service Account Email
@@ -11782,13 +11858,13 @@ model GenericBlobSbsAuthModel extends CcpAuthConfig {
   /**
    * Credentials for service bus namespace, keyvault uri for access key
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   credentialsConfig?: Record<string>;
 
   /**
    * Credentials for storage account, keyvault uri for access key
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   storageAccountCredentialsConfig?: Record<string>;
 
   /**
@@ -11834,38 +11910,38 @@ model JwtAuthModel extends CcpAuthConfig {
   /**
    * The user name. If user name and password sent in header request we only need to populate the `value` property with the user name (Same as basic auth). If user name and password sent in body request we need to specify the `Key` and `Value`.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   userName: Record<string>;
 
   /**
    * The password
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @secret
   password: Record<string>;
 
   /**
    * The custom query parameter we want to add once we send request to token endpoint.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   queryParameters?: Record<string>;
 
   /**
    * The custom headers we want to add once we send request to token endpoint.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   headers?: Record<string>;
 
   /**
    * Flag indicating whether we want to send the user name and password to token endpoint in the headers.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-nullable" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/no-nullable" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   isCredentialsInHeaders?: boolean | null;
 
   /**
    * Flag indicating whether the body request is JSON (header Content-Type = application/json), meaning its a Form URL encoded request (header Content-Type = application/x-www-form-urlencoded).
    */
-  #suppress "@azure-tools/typespec-azure-core/no-nullable" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/no-nullable" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   isJsonRequest?: boolean | null = false;
 
   /**
@@ -11883,7 +11959,7 @@ model JwtAuthModel extends CcpAuthConfig {
 /**
  * Model for API authentication with OAuth2.
  */
-#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model OAuthModel extends CcpAuthConfig {
   /**
    * The user's authorization code.
@@ -11905,7 +11981,7 @@ model OAuthModel extends CcpAuthConfig {
   /**
    * Indicating whether we want to send the clientId and clientSecret to token endpoint in the headers.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-nullable" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/no-nullable" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   isCredentialsInHeaders?: boolean | null = false;
 
   /**
@@ -11931,13 +12007,13 @@ model OAuthModel extends CcpAuthConfig {
   /**
    * The token endpoint headers.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   tokenEndpointHeaders?: Record<string>;
 
   /**
    * The token endpoint query parameters.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   tokenEndpointQueryParameters?: Record<string>;
 
   /**
@@ -11948,13 +12024,13 @@ model OAuthModel extends CcpAuthConfig {
   /**
    * The authorization endpoint headers.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   authorizationEndpointHeaders?: Record<string>;
 
   /**
    * The authorization endpoint query parameters.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   authorizationEndpointQueryParameters?: Record<string>;
 
   /**
@@ -12010,38 +12086,38 @@ model SessionAuthModel extends CcpAuthConfig {
   /**
    * The user name attribute key value.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   userName: Record<string>;
 
   /**
    * The password attribute name.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @secret
   password: Record<string>;
 
   /**
    * Query parameters to session service endpoint.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   queryParameters?: Record<unknown>;
 
   /**
    * Indicating whether API key is set in HTTP POST payload.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-nullable" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/no-nullable" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   isPostPayloadJson?: boolean | null;
 
   /**
    * HTTP request headers to session service endpoint.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   headers?: Record<string>;
 
   /**
    * Session timeout in minutes.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-nullable" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/no-nullable" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   sessionTimeoutInMinutes?: int32 | null;
 
   /**
@@ -12063,7 +12139,7 @@ model SessionAuthModel extends CcpAuthConfig {
 /**
  * Represents MCAS (Microsoft Cloud App Security) data connector.
  */
-#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model MCASDataConnector extends DataConnector {
   /**
    * MCAS (Microsoft Cloud App Security) data connector properties.
@@ -12079,8 +12155,8 @@ model MCASDataConnector extends DataConnector {
 /**
  * MCAS (Microsoft Cloud App Security) data connector properties.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
-#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model MCASDataConnectorProperties extends DataConnectorTenantId {
   /**
    * The available data types for the connector.
@@ -12091,8 +12167,8 @@ model MCASDataConnectorProperties extends DataConnectorTenantId {
 /**
  * The available data types for MCAS (Microsoft Cloud App Security) data connector.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
-#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model MCASDataConnectorDataTypes extends AlertsDataTypeOfDataConnector {
   /**
    * Discovery log data type connection.
@@ -12118,7 +12194,7 @@ model Dynamics365DataConnector extends DataConnector {
 /**
  * Dynamics365 data connector properties.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model Dynamics365DataConnectorProperties extends DataConnectorTenantId {
   /**
    * The available data types for the connector.
@@ -12139,13 +12215,15 @@ model Dynamics365DataConnectorDataTypes {
 /**
  * Common Data Service data type connection.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model Dynamics365DataConnectorDataTypesDynamics365CdsActivities
   extends DataConnectorDataTypeCommon {}
 
 /**
  * Represents OfficeATP (Office 365 Advanced Threat Protection) data connector.
  */
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model OfficeATPDataConnector extends DataConnector {
   /**
    * OfficeATP (Office 365 Advanced Threat Protection) data connector properties.
@@ -12161,6 +12239,7 @@ model OfficeATPDataConnector extends DataConnector {
 /**
  * OfficeATP (Office 365 Advanced Threat Protection) data connector properties.
  */
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model OfficeATPDataConnectorProperties {
   ...DataConnectorTenantId;
   ...DataConnectorWithAlertsProperties;
@@ -12184,7 +12263,7 @@ model MicrosoftPurviewInformationProtectionDataConnector extends DataConnector {
 /**
  * Microsoft Purview Information Protection data connector properties.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model MicrosoftPurviewInformationProtectionDataConnectorProperties
   extends DataConnectorTenantId {
   /**
@@ -12206,7 +12285,8 @@ model MicrosoftPurviewInformationProtectionConnectorDataTypes {
 /**
  * Logs data type.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model MicrosoftPurviewInformationProtectionConnectorDataTypesLogs
   extends DataConnectorDataTypeCommon {}
 
@@ -12228,7 +12308,7 @@ model Office365ProjectDataConnector extends DataConnector {
 /**
  * Office Microsoft Project data connector properties.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model Office365ProjectDataConnectorProperties extends DataConnectorTenantId {
   /**
    * The available data types for the connector.
@@ -12249,13 +12329,14 @@ model Office365ProjectConnectorDataTypes {
 /**
  * Logs data type.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model Office365ProjectConnectorDataTypesLogs
   extends DataConnectorDataTypeCommon {}
-
 /**
  * Represents Office Microsoft PowerBI data connector.
  */
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model OfficePowerBIDataConnector extends DataConnector {
   /**
    * Office Microsoft PowerBI data connector properties.
@@ -12271,7 +12352,8 @@ model OfficePowerBIDataConnector extends DataConnector {
 /**
  * Office Microsoft PowerBI data connector properties.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model OfficePowerBIDataConnectorProperties extends DataConnectorTenantId {
   /**
    * The available data types for the connector.
@@ -12282,6 +12364,7 @@ model OfficePowerBIDataConnectorProperties extends DataConnectorTenantId {
 /**
  * The available data types for Office Microsoft PowerBI data connector.
  */
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model OfficePowerBIConnectorDataTypes {
   /**
    * Logs data type.
@@ -12292,7 +12375,9 @@ model OfficePowerBIConnectorDataTypes {
 /**
  * Logs data type.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model OfficePowerBIConnectorDataTypesLogs extends DataConnectorDataTypeCommon {}
 
 /**
@@ -12313,7 +12398,7 @@ model PurviewAuditDataConnector extends DataConnector {
 /**
  * PurviewAudit data connector properties.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model PurviewAuditDataConnectorProperties extends DataConnectorTenantId {
   /**
    * The connector definition name (the dataConnectorDefinition resource id).
@@ -12349,12 +12434,14 @@ model PurviewAuditConnectorDataTypes {
 /**
  * Logs data type.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model PurviewAuditConnectorDataTypesLogs extends DataConnectorDataTypeCommon {}
 
 /**
  * Represents OfficeIRM (Microsoft Insider Risk Management) data connector.
  */
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model OfficeIRMDataConnector extends DataConnector {
   /**
    * OfficeIRM (Microsoft Insider Risk Management) data connector properties.
@@ -12370,6 +12457,7 @@ model OfficeIRMDataConnector extends DataConnector {
 /**
  * OfficeIRM (Microsoft Insider Risk Management) data connector properties.
  */
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model OfficeIRMDataConnectorProperties {
   ...DataConnectorTenantId;
   ...DataConnectorWithAlertsProperties;
@@ -12378,7 +12466,7 @@ model OfficeIRMDataConnectorProperties {
 /**
  * Represents MDATP (Microsoft Defender Advanced Threat Protection) data connector.
  */
-#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model MDATPDataConnector extends DataConnector {
   /**
    * MDATP (Microsoft Defender Advanced Threat Protection) data connector properties.
@@ -12394,7 +12482,7 @@ model MDATPDataConnector extends DataConnector {
 /**
  * MDATP (Microsoft Defender Advanced Threat Protection) data connector properties.
  */
-#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model MDATPDataConnectorProperties {
   ...DataConnectorTenantId;
   ...DataConnectorWithAlertsProperties;
@@ -12418,7 +12506,7 @@ model OfficeDataConnector extends DataConnector {
 /**
  * Office data connector properties.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model OfficeDataConnectorProperties extends DataConnectorTenantId {
   /**
    * The available data types for the connector.
@@ -12449,30 +12537,30 @@ model OfficeDataConnectorDataTypes {
 /**
  * Exchange data type connection.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
-#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model OfficeDataConnectorDataTypesExchange
   extends DataConnectorDataTypeCommon {}
 
 /**
  * SharePoint data type connection.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
-#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model OfficeDataConnectorDataTypesSharePoint
   extends DataConnectorDataTypeCommon {}
 
 /**
  * Teams data type connection.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
-#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model OfficeDataConnectorDataTypesTeams extends DataConnectorDataTypeCommon {}
 
 /**
  * Represents threat intelligence data connector.
  */
-#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model TIDataConnector extends DataConnector {
   /**
    * TI (Threat Intelligence) data connector properties.
@@ -12488,14 +12576,14 @@ model TIDataConnector extends DataConnector {
 /**
  * TI (Threat Intelligence) data connector properties.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
-#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model TIDataConnectorProperties extends DataConnectorTenantId {
   /**
    * The lookback period for the feed to be imported.
    */
   // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
-  #suppress "@azure-tools/typespec-azure-core/no-nullable" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/no-nullable" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   tipLookbackPeriod?: utcDateTime | null;
 
   /**
@@ -12507,7 +12595,7 @@ model TIDataConnectorProperties extends DataConnectorTenantId {
 /**
  * The available data types for TI (Threat Intelligence) data connector.
  */
-#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model TIDataConnectorDataTypes {
   /**
    * Data type for indicators connection.
@@ -12518,9 +12606,9 @@ model TIDataConnectorDataTypes {
 /**
  * Data type for indicators connection.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
-#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
-#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model TIDataConnectorDataTypesIndicators extends DataConnectorDataTypeCommon {}
 
 /**
@@ -12541,7 +12629,7 @@ model TiTaxiiDataConnector extends DataConnector {
 /**
  * Threat Intelligence TAXII data connector properties.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model TiTaxiiDataConnectorProperties extends DataConnectorTenantId {
   /**
    * The workspace id.
@@ -12571,17 +12659,20 @@ model TiTaxiiDataConnectorProperties extends DataConnectorTenantId {
   /**
    * The password for the TAXII server.
    */
+  #suppress "@azure-tools/typespec-azure-resource-manager/secret-prop" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   password?: string;
 
   /**
    * The lookback period for the TAXII server.
    */
   // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
+  #suppress "@azure-tools/typespec-azure-core/no-nullable" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   taxiiLookbackPeriod?: utcDateTime | null;
 
   /**
    * The polling frequency for the TAXII server.
    */
+  #suppress "@azure-tools/typespec-azure-core/no-nullable" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   pollingFrequency: PollingFrequency | null;
 
   /**
@@ -12603,13 +12694,15 @@ model TiTaxiiDataConnectorDataTypes {
 /**
  * Data type for TAXII connector.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model TiTaxiiDataConnectorDataTypesTaxiiClient
   extends DataConnectorDataTypeCommon {}
 
 /**
  * Represents IoT data connector.
  */
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model IoTDataConnector extends DataConnector {
   /**
    * IoT data connector properties.
@@ -12625,7 +12718,8 @@ model IoTDataConnector extends DataConnector {
 /**
  * IoT data connector properties.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model IoTDataConnectorProperties extends DataConnectorWithAlertsProperties {
   /**
    * The subscription id to connect to, and get the data from.
@@ -12728,8 +12822,9 @@ model CodelessUiConnectorConfigProperties {
   instructionSteps: CodelessUiConnectorConfigPropertiesInstructionStepsItem[];
 }
 
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model CodelessUiConnectorConfigPropertiesGraphQueriesItem
   extends GraphQueries {}
 
@@ -12753,8 +12848,9 @@ model GraphQueries {
   baseQuery?: string;
 }
 
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model CodelessUiConnectorConfigPropertiesSampleQueriesItem
   extends SampleQueries {}
 
@@ -12773,8 +12869,9 @@ model SampleQueries {
   query?: string;
 }
 
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model CodelessUiConnectorConfigPropertiesDataTypesItem
   extends LastDataReceivedDataType {}
 
@@ -12793,8 +12890,9 @@ model LastDataReceivedDataType {
   lastDataReceivedQuery?: string;
 }
 
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model CodelessUiConnectorConfigPropertiesConnectivityCriteriaItem
   extends ConnectivityCriteria {}
 
@@ -12845,8 +12943,9 @@ model Permissions {
   customs?: PermissionsCustomsItem[];
 }
 
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model PermissionsResourceProviderItem extends ResourceProvider {}
 
 /**
@@ -12904,14 +13003,16 @@ model RequiredPermissions {
   delete?: boolean;
 }
 
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model PermissionsCustomsItem extends Customs {}
 
 /**
  * Customs permissions required for the connector
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model Customs extends CustomsPermission {}
 
 /**
@@ -12929,8 +13030,9 @@ model CustomsPermission {
   description?: string;
 }
 
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model CodelessUiConnectorConfigPropertiesInstructionStepsItem
   extends InstructionSteps {}
 
@@ -12955,8 +13057,9 @@ model InstructionSteps {
   instructions?: InstructionStepsInstructionsItem[];
 }
 
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model InstructionStepsInstructionsItem extends ConnectorInstructionModelBase {}
 
 /**
@@ -12966,6 +13069,7 @@ model ConnectorInstructionModelBase {
   /**
    * The parameters for the setting
    */
+  #suppress "@azure-tools/typespec-azure-core/no-unknown" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   parameters?: unknown;
 
   /**
@@ -13076,6 +13180,7 @@ model CodelessConnectorPollingAuthProperties {
   /**
    * The query parameters used in authorization request, used in Oauth 2.0 flow
    */
+  #suppress "@azure-tools/typespec-azure-core/no-unknown" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   authorizationEndpointQueryParameters?: unknown;
 
   /**
@@ -13086,11 +13191,13 @@ model CodelessConnectorPollingAuthProperties {
   /**
    * The query headers used in token request, used in Oauth 2.0 flow
    */
+  #suppress "@azure-tools/typespec-azure-core/no-unknown" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   tokenEndpointHeaders?: unknown;
 
   /**
    * The query parameters used in token request, used in Oauth 2.0 flow
    */
+  #suppress "@azure-tools/typespec-azure-core/no-unknown" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   tokenEndpointQueryParameters?: unknown;
 
   /**
@@ -13146,11 +13253,13 @@ model CodelessConnectorPollingRequestProperties {
   /**
    * Describe the headers sent in the poll request
    */
+  #suppress "@azure-tools/typespec-azure-core/no-unknown" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   headers?: unknown;
 
   /**
    * Describe the query parameters sent in the poll request
    */
+  #suppress "@azure-tools/typespec-azure-core/no-unknown" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   queryParameters?: unknown;
 
   /**
@@ -13257,24 +13366,28 @@ model ActivityTimelineItem extends EntityTimelineItem {
    * The grouping bucket start time.
    */
   // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   bucketStartTimeUTC: utcDateTime;
 
   /**
    * The grouping bucket end time.
    */
   // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   bucketEndTimeUTC: utcDateTime;
 
   /**
    * The time of the first activity in the grouping bucket.
    */
   // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   firstActivityTimeUTC: utcDateTime;
 
   /**
    * The time of the last activity in the grouping bucket.
    */
   // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   lastActivityTimeUTC: utcDateTime;
 
   /**
@@ -13432,15 +13545,17 @@ model EntityQueryItemProperties {
   /**
    * Data types for template
    */
+  #suppress "@azure-tools/typespec-azure-resource-manager/missing-x-ms-identifiers" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   requiredInputFieldsSets?: string[][];
 
   /**
    * The query applied only to entities matching to all filters
    */
+  #suppress "@azure-tools/typespec-azure-core/no-unknown" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   entitiesFilter?: unknown;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model EntityQueryItemPropertiesDataTypesItem {
   /**
    * Data type name
@@ -13466,7 +13581,7 @@ model InsightQueryItem extends EntityQueryItem {
 /**
  * Represents Insight Query.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model InsightQueryItemProperties extends EntityQueryItemProperties {
   /**
    * The insight display name.
@@ -13491,6 +13606,7 @@ model InsightQueryItemProperties extends EntityQueryItemProperties {
   /**
    * The insight chart query.
    */
+  #suppress "@azure-tools/typespec-azure-core/no-unknown" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   chartQuery?: unknown;
 
   /**
@@ -13526,7 +13642,7 @@ model InsightQueryItemPropertiesTableQuery {
   queriesDefinitions?: InsightQueryItemPropertiesTableQueryQueriesDefinitionsItem[];
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model InsightQueryItemPropertiesTableQueryColumnsDefinitionsItem {
   /**
    * Insight column header.
@@ -13544,7 +13660,7 @@ model InsightQueryItemPropertiesTableQueryColumnsDefinitionsItem {
   supportDeepLink?: boolean;
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model InsightQueryItemPropertiesTableQueryQueriesDefinitionsItem {
   /**
    * Insight column header.
@@ -13568,7 +13684,7 @@ model InsightQueryItemPropertiesTableQueryQueriesDefinitionsItem {
   linkColumnsDefinitions?: InsightQueryItemPropertiesTableQueryQueriesDefinitionsPropertiesItemsItem[];
 }
 
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model InsightQueryItemPropertiesTableQueryQueriesDefinitionsPropertiesItemsItem {
   /**
    * Insight Link Definition Projected Name.
@@ -13578,6 +13694,7 @@ model InsightQueryItemPropertiesTableQueryQueriesDefinitionsPropertiesItemsItem 
   /**
    * Insight Link Definition Query.
    */
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   Query?: string;
 }
 
@@ -13787,12 +13904,13 @@ model ActivityEntityQueriesProperties {
   /**
    * List of the fields of the source entity that are required to run the query
    */
+  #suppress "@azure-tools/typespec-azure-resource-manager/missing-x-ms-identifiers" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   requiredInputFieldsSets?: string[][];
 
   /**
    * The query applied only to entities matching to all filters
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   entitiesFilter?: Record<string[]>;
 
   /**
@@ -13887,6 +14005,7 @@ model ActivityEntityQueryTemplateProperties {
   /**
    * List of required data types for the given entity query template
    */
+  #suppress "@azure-tools/typespec-azure-resource-manager/missing-x-ms-identifiers" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   dataTypes?: DataTypeDefinitions[];
 
   /**
@@ -13897,12 +14016,13 @@ model ActivityEntityQueryTemplateProperties {
   /**
    * List of the fields of the source entity that are required to run the query
    */
+  #suppress "@azure-tools/typespec-azure-resource-manager/missing-x-ms-identifiers" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   requiredInputFieldsSets?: string[][];
 
   /**
    * The query applied only to entities matching to all filters
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   entitiesFilter?: Record<string[]>;
 }
 
@@ -13959,7 +14079,7 @@ model TeamProperties {
 /**
  * Represents Anomaly Security ML Analytics Settings
  */
-#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model AnomalySecurityMLAnalyticsSettings extends SecurityMLAnalyticsSetting {
   /**
    * Anomaly Security ML Analytics Settings properties
@@ -13975,7 +14095,7 @@ model AnomalySecurityMLAnalyticsSettings extends SecurityMLAnalyticsSetting {
 /**
  * AnomalySecurityMLAnalytics settings base property bag.
  */
-#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model AnomalySecurityMLAnalyticsSettingsProperties {
   /**
    * The description of the SecurityMLAnalyticsSettings.
@@ -14023,7 +14143,7 @@ model AnomalySecurityMLAnalyticsSettingsProperties {
   /**
    * The customizable observations of the AnomalySecurityMLAnalyticsSettings.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-unknown" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/no-unknown" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   customizableObservations?: unknown;
 
   /**
@@ -14049,7 +14169,7 @@ model AnomalySecurityMLAnalyticsSettingsProperties {
   /**
    * The anomaly settings definition Id
    */
-  #suppress "@azure-tools/typespec-azure-core/no-format"
+  #suppress "@azure-tools/typespec-azure-core/no-format" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @format("uuid")
   settingsDefinitionId?: string;
 }
@@ -14057,7 +14177,7 @@ model AnomalySecurityMLAnalyticsSettingsProperties {
 /**
  * security ml analytics settings data sources
  */
-#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model SecurityMLAnalyticsSettingsDataSource {
   /**
    * The connector id that provides the following data types
@@ -14219,6 +14339,7 @@ model Indicator extends TIObject {
   /**
    * The observables of this indicator
    */
+  #suppress "@azure-tools/typespec-azure-resource-manager/missing-x-ms-identifiers" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   observables?: IndicatorObservablesItem[];
 
   /**
@@ -14260,7 +14381,7 @@ model AccountEntity extends Entity {
 /**
  * Account entity property bag.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model AccountEntityProperties extends EntityCommonProperties {
   /**
    * The Azure Active Directory tenant id.
@@ -14307,7 +14428,7 @@ model AccountEntityProperties extends EntityCommonProperties {
   /**
    * The objectGUID attribute is a single-value attribute that is the unique identifier for the object, assigned by active directory.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-format"
+  #suppress "@azure-tools/typespec-azure-core/no-format" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @visibility(Lifecycle.Read)
   @format("uuid")
   objectGuid?: string;
@@ -14355,7 +14476,7 @@ model AzureResourceEntity extends Entity {
 /**
  * AzureResource entity property bag.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model AzureResourceEntityProperties extends EntityCommonProperties {
   /**
    * The azure resource id of the resource
@@ -14388,7 +14509,7 @@ model CloudApplicationEntity extends Entity {
 /**
  * CloudApplication entity property bag.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model CloudApplicationEntityProperties extends EntityCommonProperties {
   /**
    * The technical identifier of the application.
@@ -14427,7 +14548,7 @@ model DnsEntity extends Entity {
 /**
  * Dns entity property bag.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model DnsEntityProperties extends EntityCommonProperties {
   /**
    * An ip entity id for the dns server resolving the request
@@ -14472,7 +14593,7 @@ model FileEntity extends Entity {
 /**
  * File entity property bag.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model FileEntityProperties extends EntityCommonProperties {
   /**
    * The full path to the file.
@@ -14517,7 +14638,7 @@ model FileHashEntity extends Entity {
 /**
  * FileHash entity property bag.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model FileHashEntityProperties extends EntityCommonProperties {
   /**
    * The hash algorithm type.
@@ -14550,12 +14671,12 @@ model HostEntity extends Entity {
 /**
  * Host entity property bag.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model HostEntityProperties extends EntityCommonProperties {
   /**
    * The azure resource id of the VM.
    */
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @visibility(Lifecycle.Read)
   azureID?: string;
 
@@ -14592,7 +14713,7 @@ model HostEntityProperties extends EntityCommonProperties {
   /**
    * The OMS agent id, if the host has OMS agent installed.
    */
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @visibility(Lifecycle.Read)
   omsAgentID?: string;
 
@@ -14611,7 +14732,7 @@ model HostEntityProperties extends EntityCommonProperties {
 /**
  * Represents an IoT device entity.
  */
-#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model IoTDeviceEntity extends Entity {
   /**
    * IoTDevice entity properties
@@ -14627,8 +14748,8 @@ model IoTDeviceEntity extends Entity {
 /**
  * IoTDevice entity property bag.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
-#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model IoTDeviceEntityProperties extends EntityCommonProperties {
   /**
    * The ID of the IoT Device in the IoT Hub
@@ -14651,7 +14772,7 @@ model IoTDeviceEntityProperties extends EntityCommonProperties {
   /**
    * The ID of the security agent running on the device
    */
-  #suppress "@azure-tools/typespec-azure-core/no-format"
+  #suppress "@azure-tools/typespec-azure-core/no-format" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @visibility(Lifecycle.Read)
   @format("uuid")
   iotSecurityAgentId?: string;
@@ -14795,7 +14916,7 @@ model IpEntity extends Entity {
 /**
  * Ip entity property bag.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model IpEntityProperties extends EntityCommonProperties {
   /**
    * The IP address as string, e.g. 127.0.0.1 (either in Ipv4 or Ipv6)
@@ -14882,7 +15003,7 @@ model MailboxEntity extends Entity {
 /**
  * Mailbox entity property bag.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model MailboxEntityProperties extends EntityCommonProperties {
   /**
    * The mailbox's primary address
@@ -14905,7 +15026,7 @@ model MailboxEntityProperties extends EntityCommonProperties {
   /**
    * The AzureAD identifier of mailbox. Similar to AadUserId in account entity but this property is specific to mailbox object on office side
    */
-  #suppress "@azure-tools/typespec-azure-core/no-format"
+  #suppress "@azure-tools/typespec-azure-core/no-format" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @visibility(Lifecycle.Read)
   @format("uuid")
   externalDirectoryObjectId?: string;
@@ -14929,7 +15050,7 @@ model MailClusterEntity extends Entity {
 /**
  * Mail cluster entity property bag.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model MailClusterEntityProperties extends EntityCommonProperties {
   /**
    * The mail message IDs that are part of the mail cluster
@@ -14940,21 +15061,21 @@ model MailClusterEntityProperties extends EntityCommonProperties {
   /**
    * Count of mail messages by DeliveryStatus string representation
    */
-  #suppress "@azure-tools/typespec-azure-core/no-unknown" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/no-unknown" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @visibility(Lifecycle.Read)
   countByDeliveryStatus?: unknown;
 
   /**
    * Count of mail messages by ThreatType string representation
    */
-  #suppress "@azure-tools/typespec-azure-core/no-unknown" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/no-unknown" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @visibility(Lifecycle.Read)
   countByThreatType?: unknown;
 
   /**
    * Count of mail messages by ProtectionStatus string representation
    */
-  #suppress "@azure-tools/typespec-azure-core/no-unknown" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/no-unknown" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @visibility(Lifecycle.Read)
   countByProtectionStatus?: unknown;
 
@@ -15046,7 +15167,7 @@ model MailMessageEntity extends Entity {
 /**
  * Mail message entity property bag.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model MailMessageEntityProperties extends EntityCommonProperties {
   /**
    * The File entity ids of this mail message's attachments
@@ -15093,7 +15214,7 @@ model MailMessageEntityProperties extends EntityCommonProperties {
   /**
    * The sender's IP address
    */
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @visibility(Lifecycle.Read)
   senderIP?: string;
 
@@ -15125,7 +15246,7 @@ model MailMessageEntityProperties extends EntityCommonProperties {
   /**
    * The network message id of this mail message
    */
-  #suppress "@azure-tools/typespec-azure-core/no-format"
+  #suppress "@azure-tools/typespec-azure-core/no-format" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @visibility(Lifecycle.Read)
   @format("uuid")
   networkMessageId?: string;
@@ -15213,7 +15334,7 @@ model MalwareEntity extends Entity {
 /**
  * Malware entity property bag.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model MalwareEntityProperties extends EntityCommonProperties {
   /**
    * The malware category by the vendor, e.g. Trojan
@@ -15258,7 +15379,7 @@ model ProcessEntity extends Entity {
 /**
  * Process entity property bag.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model ProcessEntityProperties extends EntityCommonProperties {
   /**
    * The account entity id running the processes.
@@ -15333,7 +15454,7 @@ model RegistryKeyEntity extends Entity {
 /**
  * RegistryKey entity property bag.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model RegistryKeyEntityProperties extends EntityCommonProperties {
   /**
    * the hive that holds the registry key.
@@ -15344,7 +15465,7 @@ model RegistryKeyEntityProperties extends EntityCommonProperties {
   /**
    * The registry key path.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/secret-prop" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/secret-prop" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @visibility(Lifecycle.Read)
   key?: string;
 }
@@ -15367,7 +15488,7 @@ model RegistryValueEntity extends Entity {
 /**
  * RegistryValue entity property bag.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model RegistryValueEntityProperties extends EntityCommonProperties {
   /**
    * The registry key entity id.
@@ -15412,7 +15533,7 @@ model SecurityGroupEntity extends Entity {
 /**
  * SecurityGroup entity property bag.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model SecurityGroupEntityProperties extends EntityCommonProperties {
   /**
    * The group distinguished name
@@ -15423,7 +15544,7 @@ model SecurityGroupEntityProperties extends EntityCommonProperties {
   /**
    * A single-value attribute that is the unique identifier for the object, assigned by active directory.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-format"
+  #suppress "@azure-tools/typespec-azure-core/no-format" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @visibility(Lifecycle.Read)
   @format("uuid")
   objectGuid?: string;
@@ -15453,12 +15574,12 @@ model SubmissionMailEntity extends Entity {
 /**
  * Submission mail entity property bag.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model SubmissionMailEntityProperties extends EntityCommonProperties {
   /**
    * The network message id of email to which submission belongs
    */
-  #suppress "@azure-tools/typespec-azure-core/no-format"
+  #suppress "@azure-tools/typespec-azure-core/no-format" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @visibility(Lifecycle.Read)
   @format("uuid")
   networkMessageId?: string;
@@ -15466,7 +15587,7 @@ model SubmissionMailEntityProperties extends EntityCommonProperties {
   /**
    * The submission id
    */
-  #suppress "@azure-tools/typespec-azure-core/no-format"
+  #suppress "@azure-tools/typespec-azure-core/no-format" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @visibility(Lifecycle.Read)
   @format("uuid")
   submissionId?: string;
@@ -15540,7 +15661,7 @@ model UrlEntity extends Entity {
 /**
  * Url entity property bag.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model UrlEntityProperties extends EntityCommonProperties {
   /**
    * A full URL the entity points to
@@ -15567,7 +15688,7 @@ model NicEntity extends Entity {
 /**
  * Nic entity property bag.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model NicEntityProperties extends EntityCommonProperties {
   /**
    * The MAC address of this network interface

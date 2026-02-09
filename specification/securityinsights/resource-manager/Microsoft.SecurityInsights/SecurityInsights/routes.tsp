@@ -25,7 +25,7 @@ model EntityResource {
   >;
 }
 
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-interface-requires-decorator" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-interface-requires-decorator" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 interface DataConnectorsCheckRequirementsOperationGroup {
   /**
    * Get requirements state for a data connector type.
@@ -49,6 +49,7 @@ interface DataConnectorsCheckRequirementsOperationGroup {
     /**
      * The parameters for requirements check message
      */
+    #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
     @bodyRoot
     DataConnectorsCheckRequirements: DataConnectorsCheckRequirements,
   ): ArmResponse<DataConnectorRequirementsState> | CloudError;
@@ -57,7 +58,8 @@ interface DataConnectorsCheckRequirementsOperationGroup {
 /**
  * Get geodata for a single IP address
  */
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-interface-requires-decorator" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-interface-requires-decorator" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-operation" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/enrichment/{enrichmentType}/listGeodataByIp")
 @post
 op listGeodataByIp(
@@ -90,6 +92,7 @@ op listGeodataByIp(
 /**
  * Get whois information for a single domain name
  */
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-operation" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/enrichment/{enrichmentType}/listWhoisByDomain")
 @post
 op listWhoisByDomain(
@@ -119,14 +122,14 @@ op listWhoisByDomain(
   domainBody: EnrichmentDomainBody,
 ): ArmResponse<EnrichmentDomainWhois> | CloudError;
 
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-interface-requires-decorator" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-interface-requires-decorator" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 interface SourceControlOperationGroup {
   /**
    * Gets a list of repositories metadata.
    */
   // Due to TypeSpec provider action limitation: https://github.com/Azure/typespec-azure/issues/3224#issuecomment-3257368342
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-operation" "For backward compatibility"
-  #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-operation" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  #suppress "@azure-tools/typespec-azure-core/no-openapi" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @autoRoute
   @list
   @post
@@ -173,12 +176,12 @@ interface SourceControlOperationGroup {
   ): RepoList | CloudError;
 }
 
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-interface-requires-decorator" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-interface-requires-decorator" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 interface ThreatIntelligenceIndicatorOperationGroup {
   /**
    * Create a new threat intelligence indicator.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-post-operation-response-codes" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-post-operation-response-codes" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @autoRoute
   @action("createIndicator")
   createIndicator is Extension.ActionSync<
@@ -206,7 +209,7 @@ interface ThreatIntelligenceIndicatorOperationGroup {
   >;
 }
 
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-interface-requires-decorator" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-interface-requires-decorator" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 interface ThreatIntelligenceIndicatorMetricsOperationGroup {
   /**
    * Get threat intelligence indicators metrics (Indicators counts by Type, Threat Type, Source).
@@ -223,7 +226,7 @@ interface ThreatIntelligenceIndicatorMetricsOperationGroup {
   >;
 }
 
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-interface-requires-decorator" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-interface-requires-decorator" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 interface ThreatIntelligenceOperationGroup {
   /**
    * Gets the count of all TI objects for the workspace.

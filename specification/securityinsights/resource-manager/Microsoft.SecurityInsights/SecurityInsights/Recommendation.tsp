@@ -25,7 +25,7 @@ model Recommendation
   /**
    * Etag of the azure resource
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-invalid-envelope-property" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-invalid-envelope-property" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   etag?: string;
 }
 
@@ -74,7 +74,7 @@ interface Recommendations {
   >;
 }
 
-#suppress "@azure-tools/typespec-azure-core/no-format"
+#suppress "@azure-tools/typespec-azure-core/no-format" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 @@format(Recommendation.name, "uuid");
 @@doc(Recommendation.name, "Recommendation Id.");
 @@doc(Recommendation.properties, "Recommendation properties object.");

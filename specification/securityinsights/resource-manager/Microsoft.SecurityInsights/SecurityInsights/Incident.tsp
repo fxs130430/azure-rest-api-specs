@@ -24,7 +24,7 @@ model Incident is Azure.ResourceManager.ProxyResource<IncidentProperties> {
   /**
    * Etag of the azure resource
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-invalid-envelope-property" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-invalid-envelope-property" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   etag?: string;
 }
 
@@ -132,10 +132,12 @@ interface Incidents {
   /**
    * Triggers playbook on a specific incident
    */
+  #suppress "@azure-tools/typespec-azure-resource-manager/no-response-body" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   runPlaybook is IncidentOps.ActionSync<
     Incident,
     Request = ManualTriggerRequestBody,
     Response = NoContentResponse & {
+      #suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
       @body body: {};
     },
     ErrorType = CloudError,
