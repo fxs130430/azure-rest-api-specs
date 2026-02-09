@@ -14,19 +14,15 @@ namespace Microsoft.SecurityInsights;
 /**
  * Specific entity.
  */
-model Entity is Azure.ResourceManager.ProxyResource<{}> {
+@discriminator("kind")
+model Entity
+  is Azure.ResourceManager.Legacy.DiscriminatedExtensionResource<EntityKindEnum> {
   ...ResourceNameParameter<
     Resource = Entity,
     KeyName = "entityId",
     SegmentName = "entities",
     NamePattern = ""
   >;
-
-  /**
-   * The kind of the entity.
-   */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-invalid-envelope-property" "For backward compatibility"
-  kind: EntityKindEnum;
 }
 
 @armResourceOperations

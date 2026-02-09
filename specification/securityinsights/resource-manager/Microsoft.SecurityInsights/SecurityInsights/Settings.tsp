@@ -14,7 +14,9 @@ namespace Microsoft.SecurityInsights;
 /**
  * The Setting.
  */
-model Settings is Azure.ResourceManager.ProxyResource<{}> {
+@discriminator("kind")
+model Settings
+  is Azure.ResourceManager.Legacy.DiscriminatedExtensionResource<SettingKind> {
   ...ResourceNameParameter<
     Resource = Settings,
     KeyName = "settingsName",
@@ -23,10 +25,10 @@ model Settings is Azure.ResourceManager.ProxyResource<{}> {
   >;
 
   /**
-   * The kind of the setting
+   * Etag of the azure resource
    */
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-invalid-envelope-property" "For backward compatibility"
-  kind: SettingKind;
+  etag?: string;
 }
 
 @armResourceOperations

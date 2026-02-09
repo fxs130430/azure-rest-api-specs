@@ -16,12 +16,36 @@ namespace Microsoft.SecurityInsights;
  */
 union AlertRuleKind {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Scheduled
+   */
   Scheduled: "Scheduled",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * MicrosoftSecurityIncidentCreation
+   */
   MicrosoftSecurityIncidentCreation: "MicrosoftSecurityIncidentCreation",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Fusion
+   */
   Fusion: "Fusion",
+
+  /**
+   * MLBehaviorAnalytics
+   */
+  MLBehaviorAnalytics: "MLBehaviorAnalytics",
+
+  /**
+   * ThreatIntelligence
+   */
+  ThreatIntelligence: "ThreatIntelligence",
+
+  /**
+   * NRT
+   */
+  NRT: "NRT",
 }
 
 /**
@@ -29,13 +53,25 @@ union AlertRuleKind {
  */
 union CreatedByType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * User
+   */
   User: "User",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Application
+   */
   Application: "Application",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * ManagedIdentity
+   */
   ManagedIdentity: "ManagedIdentity",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Key
+   */
   Key: "Key",
 }
 
@@ -126,7 +162,10 @@ union ActionType {
  */
 union BillingStatisticKind {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * SapSolutionUsage
+   */
   SapSolutionUsage: "SapSolutionUsage",
 }
 
@@ -158,13 +197,228 @@ union IncidentSeverity {
 }
 
 /**
+ * The severity for alerts created by this alert rule.
+ */
+union AttackTactic {
+  string,
+
+  /**
+   * Reconnaissance
+   */
+  Reconnaissance: "Reconnaissance",
+
+  /**
+   * ResourceDevelopment
+   */
+  ResourceDevelopment: "ResourceDevelopment",
+
+  /**
+   * InitialAccess
+   */
+  InitialAccess: "InitialAccess",
+
+  /**
+   * Execution
+   */
+  Execution: "Execution",
+
+  /**
+   * Persistence
+   */
+  Persistence: "Persistence",
+
+  /**
+   * PrivilegeEscalation
+   */
+  PrivilegeEscalation: "PrivilegeEscalation",
+
+  /**
+   * DefenseEvasion
+   */
+  DefenseEvasion: "DefenseEvasion",
+
+  /**
+   * CredentialAccess
+   */
+  CredentialAccess: "CredentialAccess",
+
+  /**
+   * Discovery
+   */
+  Discovery: "Discovery",
+
+  /**
+   * LateralMovement
+   */
+  LateralMovement: "LateralMovement",
+
+  /**
+   * Collection
+   */
+  Collection: "Collection",
+
+  /**
+   * Exfiltration
+   */
+  Exfiltration: "Exfiltration",
+
+  /**
+   * CommandAndControl
+   */
+  CommandAndControl: "CommandAndControl",
+
+  /**
+   * Impact
+   */
+  Impact: "Impact",
+
+  /**
+   * PreAttack
+   */
+  PreAttack: "PreAttack",
+
+  /**
+   * ImpairProcessControl
+   */
+  ImpairProcessControl: "ImpairProcessControl",
+
+  /**
+   * InhibitResponseFunction
+   */
+  InhibitResponseFunction: "InhibitResponseFunction",
+}
+
+/**
+ * The kind of the entity
+ */
+union EntityKindEnum {
+  string,
+
+  /**
+   * Entity represents account in the system.
+   */
+  Account: "Account",
+
+  /**
+   * Entity represents host in the system.
+   */
+  Host: "Host",
+
+  /**
+   * Entity represents file in the system.
+   */
+  File: "File",
+
+  /**
+   * Entity represents azure resource in the system.
+   */
+  AzureResource: "AzureResource",
+
+  /**
+   * Entity represents cloud application in the system.
+   */
+  CloudApplication: "CloudApplication",
+
+  /**
+   * Entity represents dns resolution in the system.
+   */
+  DnsResolution: "DnsResolution",
+
+  /**
+   * Entity represents file hash in the system.
+   */
+  FileHash: "FileHash",
+
+  /**
+   * Entity represents ip in the system.
+   */
+  Ip: "Ip",
+
+  /**
+   * Entity represents malware in the system.
+   */
+  Malware: "Malware",
+
+  /**
+   * Entity represents process in the system.
+   */
+  Process: "Process",
+
+  /**
+   * Entity represents registry key in the system.
+   */
+  RegistryKey: "RegistryKey",
+
+  /**
+   * Entity represents registry value in the system.
+   */
+  RegistryValue: "RegistryValue",
+
+  /**
+   * Entity represents security group in the system.
+   */
+  SecurityGroup: "SecurityGroup",
+
+  /**
+   * Entity represents url in the system.
+   */
+  Url: "Url",
+
+  /**
+   * Entity represents IoT device in the system.
+   */
+  IoTDevice: "IoTDevice",
+
+  /**
+   * Entity represents security alert in the system.
+   */
+  SecurityAlert: "SecurityAlert",
+
+  /**
+   * Entity represents bookmark in the system.
+   */
+  Bookmark: "Bookmark",
+
+  /**
+   * Entity represents mail cluster in the system.
+   */
+  MailCluster: "MailCluster",
+
+  /**
+   * Entity represents mail message in the system.
+   */
+  MailMessage: "MailMessage",
+
+  /**
+   * Entity represents mailbox in the system.
+   */
+  Mailbox: "Mailbox",
+
+  /**
+   * Entity represents submission mail in the system.
+   */
+  SubmissionMail: "SubmissionMail",
+
+  /**
+   * Entity represents network interface in the system.
+   */
+  Nic: "Nic",
+}
+
+/**
  * The package kind
  */
 union PackageKind {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Solution
+   */
   Solution: "Solution",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Standalone
+   */
   Standalone: "Standalone",
 }
 
@@ -173,9 +427,15 @@ union PackageKind {
  */
 union Flag {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * true
+   */
   `true`: "true",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * false
+   */
   `false`: "false",
 }
 
@@ -184,13 +444,25 @@ union Flag {
  */
 union SourceKind {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * LocalWorkspace
+   */
   LocalWorkspace: "LocalWorkspace",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Community
+   */
   Community: "Community",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Solution
+   */
   Solution: "Solution",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * SourceRepository
+   */
   SourceRepository: "SourceRepository",
 }
 
@@ -199,11 +471,20 @@ union SourceKind {
  */
 union SupportTier {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Microsoft
+   */
   Microsoft: "Microsoft",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Partner
+   */
   Partner: "Partner",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Community
+   */
   Community: "Community",
 }
 
@@ -212,71 +493,253 @@ union SupportTier {
  */
 union Kind {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * DataConnector
+   */
   DataConnector: "DataConnector",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * DataType
+   */
   DataType: "DataType",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Workbook
+   */
   Workbook: "Workbook",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * WorkbookTemplate
+   */
   WorkbookTemplate: "WorkbookTemplate",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Playbook
+   */
   Playbook: "Playbook",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * PlaybookTemplate
+   */
   PlaybookTemplate: "PlaybookTemplate",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * AnalyticsRuleTemplate
+   */
   AnalyticsRuleTemplate: "AnalyticsRuleTemplate",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * AnalyticsRule
+   */
   AnalyticsRule: "AnalyticsRule",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * HuntingQuery
+   */
   HuntingQuery: "HuntingQuery",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * InvestigationQuery
+   */
   InvestigationQuery: "InvestigationQuery",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Parser
+   */
   Parser: "Parser",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Watchlist
+   */
   Watchlist: "Watchlist",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * WatchlistTemplate
+   */
   WatchlistTemplate: "WatchlistTemplate",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Solution
+   */
   Solution: "Solution",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * AzureFunction
+   */
   AzureFunction: "AzureFunction",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * LogicAppsCustomConnector
+   */
   LogicAppsCustomConnector: "LogicAppsCustomConnector",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * AutomationRule
+   */
   AutomationRule: "AutomationRule",
 
   /**
-   * The Codeless Connector Platform (CCP) Connectors
+   * ResourcesDataConnector
    */
   ResourcesDataConnector: "ResourcesDataConnector",
 
   /**
-   * Jupyter Notebooks
+   * Notebook
    */
   Notebook: "Notebook",
 
   /**
-   * one-off / standalone content contributed by community contributors
+   * Standalone
    */
   Standalone: "Standalone",
 
   /**
-   * Summary rules perform batch processing directly in your Log Analytics workspace.
+   * SummaryRule
    */
   SummaryRule: "SummaryRule",
+
+  /**
+   * Custom detections enable proactive monitoring and automated response actions for various events and system states across your tenant.
+   */
+  CustomDetection: "CustomDetection",
 }
 
 /**
- * Operator used for list of dependencies in criteria array.
+ * Represents an operator in a ConditionClause.
  */
 union Operator {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  AND: "AND",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  OR: "OR",
+
+  /**
+   * Equals
+   */
+  Equals: "Equals",
+
+  /**
+   * NotEquals
+   */
+  NotEquals: "NotEquals",
+
+  /**
+   * LessThan
+   */
+  LessThan: "LessThan",
+
+  /**
+   * LessThanEqual
+   */
+  LessThanEqual: "LessThanEqual",
+
+  /**
+   * GreaterThan
+   */
+  GreaterThan: "GreaterThan",
+
+  /**
+   * GreaterThanEqual
+   */
+  GreaterThanEqual: "GreaterThanEqual",
+
+  /**
+   * StringContains
+   */
+  StringContains: "StringContains",
+
+  /**
+   * StringNotContains
+   */
+  StringNotContains: "StringNotContains",
+
+  /**
+   * StringStartsWith
+   */
+  StringStartsWith: "StringStartsWith",
+
+  /**
+   * StringNotStartsWith
+   */
+  StringNotStartsWith: "StringNotStartsWith",
+
+  /**
+   * StringEndsWith
+   */
+  StringEndsWith: "StringEndsWith",
+
+  /**
+   * StringNotEndsWith
+   */
+  StringNotEndsWith: "StringNotEndsWith",
+
+  /**
+   * StringIsEmpty
+   */
+  StringIsEmpty: "StringIsEmpty",
+
+  /**
+   * IsNull
+   */
+  IsNull: "IsNull",
+
+  /**
+   * IsTrue
+   */
+  IsTrue: "IsTrue",
+
+  /**
+   * IsFalse
+   */
+  IsFalse: "IsFalse",
+
+  /**
+   * ArrayContains
+   */
+  ArrayContains: "ArrayContains",
+
+  /**
+   * ArrayNotContains
+   */
+  ArrayNotContains: "ArrayNotContains",
+
+  /**
+   * OnOrAfterRelative
+   */
+  OnOrAfterRelative: "OnOrAfterRelative",
+
+  /**
+   * AfterRelative
+   */
+  AfterRelative: "AfterRelative",
+
+  /**
+   * OnOrBeforeRelative
+   */
+  OnOrBeforeRelative: "OnOrBeforeRelative",
+
+  /**
+   * BeforeRelative
+   */
+  BeforeRelative: "BeforeRelative",
+
+  /**
+   * OnOrAfterAbsolute
+   */
+  OnOrAfterAbsolute: "OnOrAfterAbsolute",
+
+  /**
+   * AfterAbsolute
+   */
+  AfterAbsolute: "AfterAbsolute",
+
+  /**
+   * OnOrBeforeAbsolute
+   */
+  OnOrBeforeAbsolute: "OnOrBeforeAbsolute",
+
+  /**
+   * BeforeAbsolute
+   */
+  BeforeAbsolute: "BeforeAbsolute",
 }
 
 /**
@@ -284,7 +747,10 @@ union Operator {
  */
 union DataConnectorDefinitionKind {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Customizable
+   */
   Customizable: "Customizable",
 }
 
@@ -293,28 +759,131 @@ union DataConnectorDefinitionKind {
  */
 union DataConnectorKind {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * AzureActiveDirectory
+   */
   AzureActiveDirectory: "AzureActiveDirectory",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * AzureSecurityCenter
+   */
   AzureSecurityCenter: "AzureSecurityCenter",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * MicrosoftCloudAppSecurity
+   */
   MicrosoftCloudAppSecurity: "MicrosoftCloudAppSecurity",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * ThreatIntelligence
+   */
   ThreatIntelligence: "ThreatIntelligence",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  MicrosoftThreatIntelligence: "MicrosoftThreatIntelligence",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  PremiumMicrosoftDefenderForThreatIntelligence: "PremiumMicrosoftDefenderForThreatIntelligence",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * ThreatIntelligenceTaxii
+   */
+  ThreatIntelligenceTaxii: "ThreatIntelligenceTaxii",
+
+  /**
+   * Office365
+   */
   Office365: "Office365",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * OfficeATP
+   */
+  OfficeATP: "OfficeATP",
+
+  /**
+   * OfficeIRM
+   */
+  OfficeIRM: "OfficeIRM",
+
+  /**
+   * Office365Project
+   */
+  Office365Project: "Office365Project",
+
+  /**
+   * MicrosoftPurviewInformationProtection
+   */
+  MicrosoftPurviewInformationProtection: "MicrosoftPurviewInformationProtection",
+
+  /**
+   * OfficePowerBI
+   */
+  OfficePowerBI: "OfficePowerBI",
+
+  /**
+   * AmazonWebServicesCloudTrail
+   */
   AmazonWebServicesCloudTrail: "AmazonWebServicesCloudTrail",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * AmazonWebServicesS3
+   */
+  AmazonWebServicesS3: "AmazonWebServicesS3",
+
+  /**
+   * AzureAdvancedThreatProtection
+   */
   AzureAdvancedThreatProtection: "AzureAdvancedThreatProtection",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * MicrosoftDefenderAdvancedThreatProtection
+   */
   MicrosoftDefenderAdvancedThreatProtection: "MicrosoftDefenderAdvancedThreatProtection",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Dynamics365
+   */
+  Dynamics365: "Dynamics365",
+
+  /**
+   * MicrosoftThreatProtection
+   */
+  MicrosoftThreatProtection: "MicrosoftThreatProtection",
+
+  /**
+   * MicrosoftThreatIntelligence
+   */
+  MicrosoftThreatIntelligence: "MicrosoftThreatIntelligence",
+
+  /**
+   * PremiumMicrosoftDefenderForThreatIntelligence
+   */
+  PremiumMicrosoftDefenderForThreatIntelligence: "PremiumMicrosoftDefenderForThreatIntelligence",
+
+  /**
+   * GenericUI
+   */
+  GenericUI: "GenericUI",
+
+  /**
+   * APIPolling
+   */
+  APIPolling: "APIPolling",
+
+  /**
+   * IOT
+   */
+  IOT: "IOT",
+
+  /**
+   * GCP
+   */
+  GCP: "GCP",
+
+  /**
+   * RestApiPoller
+   */
   RestApiPoller: "RestApiPoller",
+
+  /**
+   * PurviewAudit
+   */
+  PurviewAudit: "PurviewAudit",
 }
 
 /**
@@ -322,11 +891,20 @@ union DataConnectorKind {
  */
 union ConnectAuthKind {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Basic
+   */
   Basic: "Basic",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * OAuth2
+   */
   OAuth2: "OAuth2",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * APIKey
+   */
   APIKey: "APIKey",
 }
 
@@ -335,9 +913,15 @@ union ConnectAuthKind {
  */
 union DataConnectorAuthorizationState {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Valid
+   */
   Valid: "Valid",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Invalid
+   */
   Invalid: "Invalid",
 }
 
@@ -346,18 +930,30 @@ union DataConnectorAuthorizationState {
  */
 union DataConnectorLicenseState {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Valid
+   */
   Valid: "Valid",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Invalid
+   */
   Invalid: "Invalid",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Unknown
+   */
   Unknown: "Unknown",
 }
 
 #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
 union EnrichmentType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * main
+   */
   main: "main",
 }
 
@@ -403,11 +999,20 @@ union EntityItemQueryKind {
  */
 union EntityQueryKind {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Expansion
+   */
   Expansion: "Expansion",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Insight
+   */
   Insight: "Insight",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Activity
+   */
   Activity: "Activity",
 }
 
@@ -416,27 +1021,63 @@ union EntityQueryKind {
  */
 union GetInsightsError {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Insight
+   */
   Insight: "Insight",
 }
 
 #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
 union EntityQueryTemplateKind {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Activity
+   */
   Activity: "Activity",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Insight
+   */
   Insight: "Insight",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * SecurityAlert
+   */
   SecurityAlert: "SecurityAlert",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Bookmark
+   */
   Bookmark: "Bookmark",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Expansion
+   */
   Expansion: "Expansion",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * GuidedInsight
+   */
   GuidedInsight: "GuidedInsight",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Anomaly
+   */
   Anomaly: "Anomaly",
+}
+
+/**
+ * The kind of the entity query that supports put request.
+ */
+union CustomEntityQueryKind {
+  string,
+
+  /**
+   * Activity
+   */
+  Activity: "Activity",
 }
 
 /**
@@ -574,21 +1215,45 @@ union FileImportState {
  */
 union Status {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * New
+   */
   New: "New",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Active
+   */
   Active: "Active",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Closed
+   */
   Closed: "Closed",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Backlog
+   */
   Backlog: "Backlog",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Approved
+   */
   Approved: "Approved",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Succeeded
+   */
   Succeeded: "Succeeded",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Failed
+   */
   Failed: "Failed",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * InProgress
+   */
   InProgress: "InProgress",
 }
 
@@ -597,53 +1262,65 @@ union Status {
  */
 union HypothesisStatus {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Unknown
+   */
   Unknown: "Unknown",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Invalidated
+   */
   Invalidated: "Invalidated",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Validated
+   */
   Validated: "Validated",
 }
 
 /**
- * The severity for alerts created by this alert rule.
+ * The type of the owner the hunt is assigned to.
  */
-union AttackTactic {
+union OwnerType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  Reconnaissance: "Reconnaissance",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  ResourceDevelopment: "ResourceDevelopment",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  InitialAccess: "InitialAccess",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  Execution: "Execution",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  Persistence: "Persistence",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  PrivilegeEscalation: "PrivilegeEscalation",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  DefenseEvasion: "DefenseEvasion",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  CredentialAccess: "CredentialAccess",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  Discovery: "Discovery",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  LateralMovement: "LateralMovement",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  Collection: "Collection",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  Exfiltration: "Exfiltration",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  CommandAndControl: "CommandAndControl",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  Impact: "Impact",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  PreAttack: "PreAttack",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  ImpairProcessControl: "ImpairProcessControl",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  InhibitResponseFunction: "InhibitResponseFunction",
+
+  /**
+   * The hunt owner type is unknown
+   */
+  Unknown: "Unknown",
+
+  /**
+   * The hunt owner type is an AAD user
+   */
+  User: "User",
+
+  /**
+   * The hunt owner type is an AAD group
+   */
+  Group: "Group",
+}
+
+/**
+ * The status of the incident
+ */
+union IncidentStatus {
+  string,
+
+  /**
+   * An active incident which isn't being handled currently
+   */
+  New: "New",
+
+  /**
+   * An active incident which is being handled
+   */
+  Active: "Active",
+
+  /**
+   * A non-active incident
+   */
+  Closed: "Closed",
 }
 
 /**
@@ -718,50 +1395,6 @@ union IncidentLabelType {
 }
 
 /**
- * The type of the owner the incident is assigned to.
- */
-union OwnerType {
-  string,
-
-  /**
-   * The incident owner type is unknown
-   */
-  Unknown: "Unknown",
-
-  /**
-   * The incident owner type is an AAD user
-   */
-  User: "User",
-
-  /**
-   * The incident owner type is an AAD group
-   */
-  Group: "Group",
-}
-
-/**
- * The status of the incident
- */
-union IncidentStatus {
-  string,
-
-  /**
-   * An active incident which isn't being handled currently
-   */
-  New: "New",
-
-  /**
-   * An active incident which is being handled
-   */
-  Active: "Active",
-
-  /**
-   * A non-active incident
-   */
-  Closed: "Closed",
-}
-
-/**
  * The confidence level of this alert.
  */
 union ConfidenceLevel {
@@ -811,7 +1444,7 @@ union ConfidenceScoreStatus {
 }
 
 /**
- * Holds the alert intent stage(s) mapping for this alert.
+ * The intent of the alert.
  */
 union KillChainIntent {
   string,
@@ -852,7 +1485,7 @@ union KillChainIntent {
   CredentialAccess: "CredentialAccess",
 
   /**
-   * Discovery consists of techniques that allow the adversary to gain knowledge about the system and internal network. When adversaries gain access to a new system, they must orient themselves to what they now have control of and what benefits operating from that system give to their current objective or overall goals during the intrusion. The operating system provides many native tools that aid in this post-compromise information-gathering phase.
+   * Discovery consists of techniques that allow the adversary to gain knowledge about the system and internal network. When adversaries gain access to a new system, they must navigate themselves to what they now have control of and what benefits operating from that system give to their current objective or overall goals during the intrusion. The operating system provides many native tools that aid in this post-compromise information-gathering phase.
    */
   Discovery: "Discovery",
 
@@ -947,118 +1580,6 @@ union AlertStatus {
 }
 
 /**
- * The kind of the entity
- */
-union EntityKindEnum {
-  string,
-
-  /**
-   * Entity represents account in the system.
-   */
-  Account: "Account",
-
-  /**
-   * Entity represents host in the system.
-   */
-  Host: "Host",
-
-  /**
-   * Entity represents file in the system.
-   */
-  File: "File",
-
-  /**
-   * Entity represents azure resource in the system.
-   */
-  AzureResource: "AzureResource",
-
-  /**
-   * Entity represents cloud application in the system.
-   */
-  CloudApplication: "CloudApplication",
-
-  /**
-   * Entity represents dns resolution in the system.
-   */
-  DnsResolution: "DnsResolution",
-
-  /**
-   * Entity represents file hash in the system.
-   */
-  FileHash: "FileHash",
-
-  /**
-   * Entity represents ip in the system.
-   */
-  Ip: "Ip",
-
-  /**
-   * Entity represents malware in the system.
-   */
-  Malware: "Malware",
-
-  /**
-   * Entity represents process in the system.
-   */
-  Process: "Process",
-
-  /**
-   * Entity represents registry key in the system.
-   */
-  RegistryKey: "RegistryKey",
-
-  /**
-   * Entity represents registry value in the system.
-   */
-  RegistryValue: "RegistryValue",
-
-  /**
-   * Entity represents security group in the system.
-   */
-  SecurityGroup: "SecurityGroup",
-
-  /**
-   * Entity represents url in the system.
-   */
-  Url: "Url",
-
-  /**
-   * Entity represents IoT device in the system.
-   */
-  IoTDevice: "IoTDevice",
-
-  /**
-   * Entity represents security alert in the system.
-   */
-  SecurityAlert: "SecurityAlert",
-
-  /**
-   * Entity represents bookmark in the system.
-   */
-  Bookmark: "Bookmark",
-
-  /**
-   * Entity represents mail cluster in the system.
-   */
-  MailCluster: "MailCluster",
-
-  /**
-   * Entity represents mail message in the system.
-   */
-  MailMessage: "MailMessage",
-
-  /**
-   * Entity represents mailbox in the system.
-   */
-  Mailbox: "Mailbox",
-
-  /**
-   * Entity represents submission mail in the system.
-   */
-  SubmissionMail: "SubmissionMail",
-}
-
-/**
  * The status of the task
  */
 union IncidentTaskStatus {
@@ -1076,18 +1597,35 @@ union IncidentTaskStatus {
 }
 
 /**
- * The kind of the setting
+ * State of recommendation.
  */
-union SettingKind {
+union State {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  Anomalies: "Anomalies",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  EyesOn: "EyesOn",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  EntityAnalytics: "EntityAnalytics",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  Ueba: "Ueba",
+
+  /**
+   * Recommendation is active.
+   */
+  Active: "Active",
+
+  /**
+   * Recommendation is in progress.
+   */
+  InProgress: "InProgress",
+
+  /**
+   * Recommendation has been dismissed.
+   */
+  Dismissed: "Dismissed",
+
+  /**
+   * Recommendation has been completed by user.
+   */
+  CompletedByUser: "CompletedByUser",
+
+  /**
+   * Recommendation has been completed by the system.
+   */
+  CompletedBySystem: "CompletedBySystem",
 }
 
 /**
@@ -1095,8 +1633,38 @@ union SettingKind {
  */
 union SecurityMLAnalyticsSettingsKind {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Anomaly
+   */
   Anomaly: "Anomaly",
+}
+
+/**
+ * The kind of the setting
+ */
+union SettingKind {
+  string,
+
+  /**
+   * Anomalies
+   */
+  Anomalies: "Anomalies",
+
+  /**
+   * EyesOn
+   */
+  EyesOn: "EyesOn",
+
+  /**
+   * EntityAnalytics
+   */
+  EntityAnalytics: "EntityAnalytics",
+
+  /**
+   * Ueba
+   */
+  Ueba: "Ueba",
 }
 
 /**
@@ -1104,11 +1672,20 @@ union SecurityMLAnalyticsSettingsKind {
  */
 union RepositoryAccessKind {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * OAuth
+   */
   OAuth: "OAuth",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * PAT
+   */
   PAT: "PAT",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * App
+   */
   App: "App",
 }
 
@@ -1117,9 +1694,15 @@ union RepositoryAccessKind {
  */
 union Version {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * V1
+   */
   V1: "V1",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * V2
+   */
   V2: "V2",
 }
 
@@ -1128,9 +1711,15 @@ union Version {
  */
 union RepoType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Github
+   */
   Github: "Github",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * AzureDevOps
+   */
   AzureDevOps: "AzureDevOps",
 }
 
@@ -1139,17 +1728,35 @@ union RepoType {
  */
 union ContentType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * AnalyticsRule
+   */
   AnalyticsRule: "AnalyticsRule",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * AutomationRule
+   */
   AutomationRule: "AutomationRule",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * HuntingQuery
+   */
   HuntingQuery: "HuntingQuery",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Parser
+   */
   Parser: "Parser",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Playbook
+   */
   Playbook: "Playbook",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Workbook
+   */
   Workbook: "Workbook",
 }
 
@@ -1158,11 +1765,20 @@ union ContentType {
  */
 union DeploymentFetchStatus {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Success
+   */
   Success: "Success",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Unauthorized
+   */
   Unauthorized: "Unauthorized",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * NotFound
+   */
   NotFound: "NotFound",
 }
 
@@ -1171,13 +1787,25 @@ union DeploymentFetchStatus {
  */
 union DeploymentState {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * In_Progress
+   */
   In_Progress: "In_Progress",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Completed
+   */
   Completed: "Completed",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Queued
+   */
   Queued: "Queued",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Canceling
+   */
   Canceling: "Canceling",
 }
 
@@ -1186,23 +1814,21 @@ union DeploymentState {
  */
 union DeploymentResult {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  Success: "Success",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  Canceled: "Canceled",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  Failed: "Failed",
-}
 
-/**
- * Status of the pull request.
- */
-union State {
-  string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  Open: "Open",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  Closed: "Closed",
+  /**
+   * Success
+   */
+  Success: "Success",
+
+  /**
+   * Canceled
+   */
+  Canceled: "Canceled",
+
+  /**
+   * Failed
+   */
+  Failed: "Failed",
 }
 
 /**
@@ -1210,15 +1836,30 @@ union State {
  */
 union WarningCode {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * SourceControlWarning_DeleteServicePrincipal
+   */
   SourceControlWarning_DeleteServicePrincipal: "SourceControlWarning_DeleteServicePrincipal",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * SourceControlWarning_DeletePipelineFromAzureDevOps
+   */
   SourceControlWarning_DeletePipelineFromAzureDevOps: "SourceControlWarning_DeletePipelineFromAzureDevOps",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * SourceControlWarning_DeleteWorkflowAndSecretFromGitHub
+   */
   SourceControlWarning_DeleteWorkflowAndSecretFromGitHub: "SourceControlWarning_DeleteWorkflowAndSecretFromGitHub",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * SourceControlWarning_DeleteRoleAssignment
+   */
   SourceControlWarning_DeleteRoleAssignment: "SourceControlWarning_DeleteRoleAssignment",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * SourceControl_DeletedWithWarnings
+   */
   SourceControl_DeletedWithWarnings: "SourceControl_DeletedWithWarnings",
 }
 
@@ -1239,18 +1880,30 @@ union ThreatIntelligenceResourceInnerKind {
  */
 union ThreatIntelligenceSortingOrder {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * unsorted
+   */
   unsorted: "unsorted",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * ascending
+   */
   ascending: "ascending",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * descending
+   */
   descending: "descending",
 }
 
 #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
 union TiType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * main
+   */
   main: "main",
 }
 
@@ -1321,6 +1974,38 @@ union TIObjectKind {
 }
 
 /**
+ * The triggered analytics rule run provisioning state
+ */
+union ProvisioningState {
+  string,
+
+  /**
+   * Accepted
+   */
+  Accepted: "Accepted",
+
+  /**
+   * InProgress
+   */
+  InProgress: "InProgress",
+
+  /**
+   * Succeeded
+   */
+  Succeeded: "Succeeded",
+
+  /**
+   * Failed
+   */
+  Failed: "Failed",
+
+  /**
+   * Canceled
+   */
+  Canceled: "Canceled",
+}
+
+/**
  * The sourceType of the watchlist
  */
 union SourceType {
@@ -1355,48 +2040,6 @@ union Mode {
 }
 
 /**
- * Describes provisioning state
- */
-union ProvisioningState {
-  string,
-
-  /**
-   * The New provisioning state.
-   */
-  New: "New",
-
-  /**
-   * The InProgress provisioning state.
-   */
-  InProgress: "InProgress",
-
-  /**
-   * The Uploading provisioning state.
-   */
-  Uploading: "Uploading",
-
-  /**
-   * The Deleting provisioning state.
-   */
-  Deleting: "Deleting",
-
-  /**
-   * The Succeeded provisioning state.
-   */
-  Succeeded: "Succeeded",
-
-  /**
-   * The Failed provisioning state.
-   */
-  Failed: "Failed",
-
-  /**
-   * The Canceled provisioning state.
-   */
-  Canceled: "Canceled",
-}
-
-/**
  * The alert rule template status.
  */
 union TemplateStatus {
@@ -1416,45 +2059,6 @@ union TemplateStatus {
    * Alert rule template is not available
    */
   NotAvailable: "NotAvailable",
-}
-
-/**
- * The alerts' productName on which the cases will be generated
- */
-union MicrosoftSecurityProductName {
-  string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  `Microsoft Cloud App Security`: "Microsoft Cloud App Security",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  `Azure Security Center`: "Azure Security Center",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  `Azure Advanced Threat Protection`: "Azure Advanced Threat Protection",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  `Azure Active Directory Identity Protection`: "Azure Active Directory Identity Protection",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  `Azure Security Center for IoT`: "Azure Security Center for IoT",
-}
-
-/**
- * Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
- */
-union MatchingMethod {
-  string,
-
-  /**
-   * Grouping alerts into a single incident if all the entities match
-   */
-  AllEntities: "AllEntities",
-
-  /**
-   * Grouping any alerts triggered by this rule into a single incident
-   */
-  AnyAlert: "AnyAlert",
-
-  /**
-   * Grouping alerts into a single incident if the selected entities, custom details and alert details match
-   */
-  Selected: "Selected",
 }
 
 /**
@@ -1555,34 +2159,6 @@ union EntityMappingType {
 }
 
 /**
- * Alert detail
- */
-union AlertDetail {
-  string,
-
-  /**
-   * Alert display name
-   */
-  DisplayName: "DisplayName",
-
-  /**
-   * Alert severity
-   */
-  Severity: "Severity",
-}
-
-/**
- * The event grouping aggregation kinds
- */
-union EventGroupingAggregationKind {
-  string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  SingleAlert: "SingleAlert",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  AlertPerResult: "AlertPerResult",
-}
-
-/**
  * The V3 alert property
  */
 union AlertProperty {
@@ -1632,11 +2208,112 @@ union AlertProperty {
    * Techniques alert property
    */
   Techniques: "Techniques",
+
+  /**
+   * SubTechniques alert property
+   */
+  SubTechniques: "SubTechniques",
 }
 
 /**
- * Describes a boolean condition operator.
+ * The event grouping aggregation kinds
  */
+union EventGroupingAggregationKind {
+  string,
+
+  /**
+   * SingleAlert
+   */
+  SingleAlert: "SingleAlert",
+
+  /**
+   * AlertPerResult
+   */
+  AlertPerResult: "AlertPerResult",
+}
+
+/**
+ * The alerts' productName on which the cases will be generated
+ */
+union MicrosoftSecurityProductName {
+  string,
+
+  /**
+   * Microsoft Cloud App Security
+   */
+  `Microsoft Cloud App Security`: "Microsoft Cloud App Security",
+
+  /**
+   * Azure Security Center
+   */
+  `Azure Security Center`: "Azure Security Center",
+
+  /**
+   * Azure Advanced Threat Protection
+   */
+  `Azure Advanced Threat Protection`: "Azure Advanced Threat Protection",
+
+  /**
+   * Azure Active Directory Identity Protection
+   */
+  `Azure Active Directory Identity Protection`: "Azure Active Directory Identity Protection",
+
+  /**
+   * Azure Security Center for IoT
+   */
+  `Azure Security Center for IoT`: "Azure Security Center for IoT",
+
+  /**
+   * Office 365 Advanced Threat Protection
+   */
+  `Office 365 Advanced Threat Protection`: "Office 365 Advanced Threat Protection",
+
+  /**
+   * Microsoft Defender Advanced Threat Protection
+   */
+  `Microsoft Defender Advanced Threat Protection`: "Microsoft Defender Advanced Threat Protection",
+}
+
+/**
+ * Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
+ */
+union MatchingMethod {
+  string,
+
+  /**
+   * Grouping alerts into a single incident if all the entities match
+   */
+  AllEntities: "AllEntities",
+
+  /**
+   * Grouping any alerts triggered by this rule into a single incident
+   */
+  AnyAlert: "AnyAlert",
+
+  /**
+   * Grouping alerts into a single incident if the selected entities, custom details and alert details match
+   */
+  Selected: "Selected",
+}
+
+/**
+ * Alert detail
+ */
+union AlertDetail {
+  string,
+
+  /**
+   * Alert display name
+   */
+  DisplayName: "DisplayName",
+
+  /**
+   * Alert severity
+   */
+  Severity: "Severity",
+}
+
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
 union AutomationRuleBooleanConditionSupportedOperator {
   string,
 
@@ -1686,9 +2363,7 @@ union AutomationRulePropertyArrayChangedConditionSupportedChangeType {
   Added: "Added",
 }
 
-/**
- * Describes an array condition evaluated array type.
- */
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
 union AutomationRulePropertyArrayConditionSupportedArrayType {
   string,
 
@@ -1701,11 +2376,14 @@ union AutomationRulePropertyArrayConditionSupportedArrayType {
    * Evaluate the condition on a custom detail's values
    */
   CustomDetailValues: "CustomDetailValues",
+
+  /**
+   * Evaluate the condition on the incident labels
+   */
+  IncidentLabels: "IncidentLabels",
 }
 
-/**
- * Describes an array condition evaluation type.
- */
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
 union AutomationRulePropertyArrayConditionSupportedArrayConditionType {
   string,
 
@@ -1860,6 +2538,16 @@ union AutomationRulePropertyConditionSupportedProperty {
    * The incident custom detail value
    */
   IncidentCustomDetailsValue: "IncidentCustomDetailsValue",
+
+  /**
+   * The Custom-Detection rule ids associated with any of the incident alerts
+   */
+  IncidentCustomDetectionRuleIds: "IncidentCustomDetectionRuleIds",
+
+  /**
+   * The alert title associated with any of the incident alerts
+   */
+  IncidentAlertTitle: "IncidentAlertTitle",
 
   /**
    * The account Azure Active Directory tenant id
@@ -2102,11 +2790,20 @@ union AutomationRulePropertyConditionSupportedProperty {
  */
 union ProviderPermissionsScope {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Subscription
+   */
   Subscription: "Subscription",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * ResourceGroup
+   */
   ResourceGroup: "ResourceGroup",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Workspace
+   */
   Workspace: "Workspace",
 }
 
@@ -2115,10 +2812,33 @@ union ProviderPermissionsScope {
  */
 union DataTypeState {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Enabled
+   */
   Enabled: "Enabled",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Disabled
+   */
   Disabled: "Disabled",
+}
+
+/**
+ * The available data providers.
+ */
+union MtpProvider {
+  string,
+
+  /**
+   * microsoftDefenderForCloudApps
+   */
+  microsoftDefenderForCloudApps: "microsoftDefenderForCloudApps",
+
+  /**
+   * microsoftDefenderForIdentity
+   */
+  microsoftDefenderForIdentity: "microsoftDefenderForIdentity",
 }
 
 /**
@@ -2126,27 +2846,60 @@ union DataTypeState {
  */
 union CcpAuthType {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Basic
+   */
   Basic: "Basic",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * APIKey
+   */
   APIKey: "APIKey",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * OAuth2
+   */
   OAuth2: "OAuth2",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * AWS
+   */
   AWS: "AWS",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * GCP
+   */
   GCP: "GCP",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Session
+   */
   Session: "Session",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * JwtToken
+   */
   JwtToken: "JwtToken",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * GitHub
+   */
   GitHub: "GitHub",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * ServiceBus
+   */
   ServiceBus: "ServiceBus",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Oracle
+   */
   Oracle: "Oracle",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * None
+   */
   None: "None",
 }
 
@@ -2155,13 +2908,25 @@ union CcpAuthType {
  */
 union HttpMethodVerb {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * GET
+   */
   GET: "GET",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * POST
+   */
   POST: "POST",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * PUT
+   */
   PUT: "PUT",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * DELETE
+   */
   DELETE: "DELETE",
 }
 
@@ -2170,20 +2935,300 @@ union HttpMethodVerb {
  */
 union RestApiPollerRequestPagingKind {
   string,
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * LinkHeader
+   */
   LinkHeader: "LinkHeader",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * NextPageToken
+   */
   NextPageToken: "NextPageToken",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * NextPageUrl
+   */
   NextPageUrl: "NextPageUrl",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * PersistentToken
+   */
   PersistentToken: "PersistentToken",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * PersistentLinkHeader
+   */
   PersistentLinkHeader: "PersistentLinkHeader",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * Offset
+   */
   Offset: "Offset",
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+
+  /**
+   * CountBasedPaging
+   */
   CountBasedPaging: "CountBasedPaging",
+}
+
+/**
+ * The polling frequency for the TAXII server.
+ */
+union PollingFrequency {
+  string,
+
+  /**
+   * Once a minute
+   */
+  OnceAMinute: "OnceAMinute",
+
+  /**
+   * Once an hour
+   */
+  OnceAnHour: "OnceAnHour",
+
+  /**
+   * Once a day
+   */
+  OnceADay: "OnceADay",
+}
+
+/**
+ * type of connectivity
+ */
+union ConnectivityType {
+  string,
+
+  /**
+   * IsConnectedQuery
+   */
+  IsConnectedQuery: "IsConnectedQuery",
+}
+
+/**
+ * Provider name
+ */
+union ProviderName {
+  string,
+
+  /**
+   * Microsoft.OperationalInsights/solutions
+   */
+  `Microsoft.OperationalInsights/solutions`: "Microsoft.OperationalInsights/solutions",
+
+  /**
+   * Microsoft.OperationalInsights/workspaces
+   */
+  `Microsoft.OperationalInsights/workspaces`: "Microsoft.OperationalInsights/workspaces",
+
+  /**
+   * Microsoft.OperationalInsights/workspaces/datasources
+   */
+  `Microsoft.OperationalInsights/workspaces/datasources`: "Microsoft.OperationalInsights/workspaces/datasources",
+
+  /**
+   * microsoft.aadiam/diagnosticSettings
+   */
+  `microsoft.aadiam/diagnosticSettings`: "microsoft.aadiam/diagnosticSettings",
+
+  /**
+   * Microsoft.OperationalInsights/workspaces/sharedKeys
+   */
+  `Microsoft.OperationalInsights/workspaces/sharedKeys`: "Microsoft.OperationalInsights/workspaces/sharedKeys",
+
+  /**
+   * Microsoft.Authorization/policyAssignments
+   */
+  `Microsoft.Authorization/policyAssignments`: "Microsoft.Authorization/policyAssignments",
+}
+
+/**
+ * Permission provider scope
+ */
+union PermissionProviderScope {
+  string,
+
+  /**
+   * ResourceGroup
+   */
+  ResourceGroup: "ResourceGroup",
+
+  /**
+   * Subscription
+   */
+  Subscription: "Subscription",
+
+  /**
+   * Workspace
+   */
+  Workspace: "Workspace",
+}
+
+/**
+ * The kind of the setting
+ */
+union SettingType {
+  string,
+
+  /**
+   * CopyableLabel
+   */
+  CopyableLabel: "CopyableLabel",
+
+  /**
+   * InstructionStepsGroup
+   */
+  InstructionStepsGroup: "InstructionStepsGroup",
+
+  /**
+   * InfoMessage
+   */
+  InfoMessage: "InfoMessage",
+}
+
+/**
+ * The type of the entity
+ */
+union EntityType {
+  string,
+
+  /**
+   * Entity represents account in the system.
+   */
+  Account: "Account",
+
+  /**
+   * Entity represents host in the system.
+   */
+  Host: "Host",
+
+  /**
+   * Entity represents file in the system.
+   */
+  File: "File",
+
+  /**
+   * Entity represents azure resource in the system.
+   */
+  AzureResource: "AzureResource",
+
+  /**
+   * Entity represents cloud application in the system.
+   */
+  CloudApplication: "CloudApplication",
+
+  /**
+   * Entity represents dns in the system.
+   */
+  DNS: "DNS",
+
+  /**
+   * Entity represents file hash in the system.
+   */
+  FileHash: "FileHash",
+
+  /**
+   * Entity represents ip in the system.
+   */
+  IP: "IP",
+
+  /**
+   * Entity represents malware in the system.
+   */
+  Malware: "Malware",
+
+  /**
+   * Entity represents process in the system.
+   */
+  Process: "Process",
+
+  /**
+   * Entity represents registry key in the system.
+   */
+  RegistryKey: "RegistryKey",
+
+  /**
+   * Entity represents registry value in the system.
+   */
+  RegistryValue: "RegistryValue",
+
+  /**
+   * Entity represents security group in the system.
+   */
+  SecurityGroup: "SecurityGroup",
+
+  /**
+   * Entity represents url in the system.
+   */
+  URL: "URL",
+
+  /**
+   * Entity represents IoT device in the system.
+   */
+  IoTDevice: "IoTDevice",
+
+  /**
+   * Entity represents security alert in the system.
+   */
+  SecurityAlert: "SecurityAlert",
+
+  /**
+   * Entity represents HuntingBookmark in the system.
+   */
+  HuntingBookmark: "HuntingBookmark",
+
+  /**
+   * Entity represents mail cluster in the system.
+   */
+  MailCluster: "MailCluster",
+
+  /**
+   * Entity represents mail message in the system.
+   */
+  MailMessage: "MailMessage",
+
+  /**
+   * Entity represents mailbox in the system.
+   */
+  Mailbox: "Mailbox",
+
+  /**
+   * Entity represents submission mail in the system.
+   */
+  SubmissionMail: "SubmissionMail",
+
+  /**
+   * Entity represents network interface in the system.
+   */
+  Nic: "Nic",
+}
+
+/**
+ * Insights Column type.
+ */
+union OutputType {
+  string,
+
+  /**
+   * Number
+   */
+  Number: "Number",
+
+  /**
+   * String
+   */
+  String: "String",
+
+  /**
+   * Date
+   */
+  Date: "Date",
+
+  /**
+   * Entity
+   */
+  Entity: "Entity",
 }
 
 /**
@@ -2201,6 +3246,50 @@ union SettingsStatus {
    * Anomaly settings status in Flighting mode
    */
   Flighting: "Flighting",
+}
+
+/**
+ * The entity provider that is synced.
+ */
+union EntityProviders {
+  string,
+
+  /**
+   * ActiveDirectory
+   */
+  ActiveDirectory: "ActiveDirectory",
+
+  /**
+   * AzureActiveDirectory
+   */
+  AzureActiveDirectory: "AzureActiveDirectory",
+}
+
+/**
+ * The data source that enriched by ueba.
+ */
+union UebaDataSources {
+  string,
+
+  /**
+   * AuditLogs
+   */
+  AuditLogs: "AuditLogs",
+
+  /**
+   * AzureActivity
+   */
+  AzureActivity: "AzureActivity",
+
+  /**
+   * SecurityEvent
+   */
+  SecurityEvent: "SecurityEvent",
+
+  /**
+   * SigninLogs
+   */
+  SigninLogs: "SigninLogs",
 }
 
 /**
@@ -2233,6 +3322,33 @@ union FileHashAlgorithm {
    * SHA256 Authenticode hash type
    */
   SHA256AC: "SHA256AC",
+}
+
+/**
+ * Device importance, determines if the device classified as 'crown jewel'
+ */
+union DeviceImportance {
+  string,
+
+  /**
+   * Unknown - Default value
+   */
+  Unknown: "Unknown",
+
+  /**
+   * Low
+   */
+  Low: "Low",
+
+  /**
+   * Normal
+   */
+  Normal: "Normal",
+
+  /**
+   * High
+   */
+  High: "High",
 }
 
 /**
@@ -2371,9 +3487,24 @@ union RegistryValueKind {
  */
 #suppress "@azure-tools/typespec-azure-core/no-enum" "For backward compatibility"
 enum TriggerOperator {
+  /**
+   * GreaterThan
+   */
   GreaterThan,
+
+  /**
+   * LessThan
+   */
   LessThan,
+
+  /**
+   * Equal
+   */
   Equal,
+
+  /**
+   * NotEqual
+   */
   NotEqual,
 }
 
@@ -2753,7 +3884,7 @@ model AutomationRulesList is Azure.Core.Page<AutomationRule>;
  */
 model EntityManualTriggerRequestBody {
   /**
-   * The incident id to associate the entity with.
+   * Incident ARM id.
    */
   incidentArmId?: Azure.Core.armResourceIdentifier<[
     {
@@ -2782,20 +3913,14 @@ model EntityManualTriggerRequestBody {
   ]>;
 }
 
-/**
- * Describes the request body for triggering a playbook on an incident.
- */
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
 model ManualTriggerRequestBody {
-  /**
-   * The tenant id of the playbook resource.
-   */
   #suppress "@azure-tools/typespec-azure-core/no-format"
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
   @format("uuid")
   tenantId?: string;
 
-  /**
-   * The resource id of the playbook resource.
-   */
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
   logicAppsResourceId: Azure.Core.armResourceIdentifier<[
     {
       type: "Microsoft.Logic/workflows";
@@ -2890,6 +4015,21 @@ model BookmarkProperties {
    * Describes an incident that relates to bookmark
    */
   incidentInfo?: IncidentInfo;
+
+  /**
+   * Describes the entity mappings of the bookmark
+   */
+  entityMappings?: BookmarkEntityMappings[];
+
+  /**
+   * A list of relevant mitre attacks
+   */
+  tactics?: AttackTactic[];
+
+  /**
+   * A list of relevant mitre techniques
+   */
+  techniques?: string[];
 }
 
 /**
@@ -2913,7 +4053,7 @@ model UserInfo {
    */
   #suppress "@azure-tools/typespec-azure-core/no-format"
   @format("uuid")
-  objectId?: string;
+  objectId?: string | null;
 }
 
 /**
@@ -2939,6 +4079,71 @@ model IncidentInfo {
    * Relation Name
    */
   relationName?: string;
+}
+
+/**
+ * Describes the entity mappings of a single entity
+ */
+model BookmarkEntityMappings {
+  /**
+   * The entity type
+   */
+  entityType?: string;
+
+  /**
+   * Array of fields mapping for that entity type
+   */
+  @identifiers(#[])
+  fieldMappings?: EntityFieldMapping[];
+}
+
+/**
+ * Map identifiers of a single entity
+ */
+model EntityFieldMapping {
+  /**
+   * Alert V3 identifier
+   */
+  identifier?: string;
+
+  /**
+   * The value of the identifier
+   */
+  value?: string;
+}
+
+/**
+ * List of relations.
+ */
+model RelationList is Azure.Core.Page<Relation>;
+
+/**
+ * Relation property bag.
+ */
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "For backward compatibility"
+model RelationProperties {
+  /**
+   * The resource ID of the related resource
+   */
+  relatedResourceId: string;
+
+  /**
+   * The name of the related resource
+   */
+  @visibility(Lifecycle.Read)
+  relatedResourceName?: string;
+
+  /**
+   * The resource type of the related resource
+   */
+  @visibility(Lifecycle.Read)
+  relatedResourceType?: string;
+
+  /**
+   * The resource kind of the related resource
+   */
+  @visibility(Lifecycle.Read)
+  relatedResourceKind?: string;
 }
 
 /**
@@ -2987,7 +4192,7 @@ model ExpansionResultsMetadata {
   /**
    * Information of the aggregated nodes in the expansion result.
    */
-  @OpenAPI.extension("x-ms-identifiers", #[])
+  @identifiers(#[])
   aggregations?: ExpansionResultAggregation[];
 }
 
@@ -3043,7 +4248,7 @@ model ConnectedEntity {
   /**
    * key-value pairs for a connected entity mapping
    */
-  additionalData?: Record<unknown>;
+  additionalData?: unknown;
 }
 
 /**
@@ -3541,6 +4746,7 @@ model DataConnectorConnectBody {
   /**
    * The API key of the audit server.
    */
+  @secret
   apiKey?: string;
 
   /**
@@ -3581,11 +4787,11 @@ model DataConnectorConnectBody {
   /**
    * The user password in the audit log server.
    */
+  @secret
   password?: string;
 
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
-  @OpenAPI.extension("x-ms-identifiers", #[])
-  requestConfigUserInputValues?: Record<unknown>[];
+  requestConfigUserInputValues?: unknown[];
 }
 
 /**
@@ -3647,6 +4853,7 @@ model EnrichmentIpGeodata {
    * A numeric rating of confidence that the value in the 'city' field is correct, on a scale of 0-100
    */
   @maxValue(100)
+  @minValue(0)
   cityConfidenceFactor?: int32;
 
   /**
@@ -3663,6 +4870,7 @@ model EnrichmentIpGeodata {
    * A numeric rating of confidence that the value in the 'country' field is correct on a scale of 0-100
    */
   @maxValue(100)
+  @minValue(0)
   countryConfidenceFactor?: int32;
 
   /**
@@ -3709,6 +4917,7 @@ model EnrichmentIpGeodata {
    * A numeric rating of confidence that the value in the 'state' field is correct on a scale of 0-100
    */
   @maxValue(100)
+  @minValue(0)
   stateConfidenceFactor?: int32;
 
   /**
@@ -3956,13 +5165,13 @@ model EntityExpandResponseValue {
   /**
    * Array of the expansion result entities.
    */
-  @OpenAPI.extension("x-ms-identifiers", #[])
+  @identifiers(#[])
   entities?: Entity[];
 
   /**
    * Array of edges that connects the entity to the list of entities.
    */
-  @OpenAPI.extension("x-ms-identifiers", #[])
+  @identifiers(#[])
   edges?: EntityEdges[];
 }
 
@@ -4021,7 +5230,8 @@ model EntityTimelineResponse {
   /**
    * The timeline result values.
    */
-  @OpenAPI.extension("x-ms-identifiers", #[])
+  @pageItems
+  @identifiers(#[])
   value?: EntityTimelineItem[];
 }
 
@@ -4037,13 +5247,13 @@ model TimelineResultsMetadata {
   /**
    * timeline aggregation per kind
    */
-  @OpenAPI.extension("x-ms-identifiers", #[])
+  @identifiers(#[])
   aggregations: TimelineAggregation[];
 
   /**
    * information about the failure queries
    */
-  @OpenAPI.extension("x-ms-identifiers", #[])
+  @identifiers(#[])
   errors?: TimelineError[];
 }
 
@@ -4081,11 +5291,6 @@ model TimelineError {
    */
   errorMessage: string;
 }
-
-/**
- * List all the incidents.
- */
-model IncidentList is Azure.Core.Page<Incident>;
 
 /**
  * Entity timeline Item.
@@ -4163,7 +5368,7 @@ model EntityGetInsightsParameters {
   /**
    * List of Insights Query Id. If empty, default value is all insights of this entity
    */
-  insightQueryIds?: string[];
+  insightQueryIds?: Azure.Core.uuid[];
 }
 
 /**
@@ -4178,7 +5383,8 @@ model EntityGetInsightsResponse {
   /**
    * The insights result values.
    */
-  @OpenAPI.extension("x-ms-identifiers", #[])
+  @pageItems
+  @identifiers(#[])
   value?: EntityInsightItem[];
 }
 
@@ -4194,7 +5400,7 @@ model GetInsightsResultsMetadata {
   /**
    * information about the failed queries
    */
-  @OpenAPI.extension("x-ms-identifiers", #[])
+  @identifiers(#[])
   errors?: GetInsightsErrorKind[];
 }
 
@@ -4240,7 +5446,7 @@ model EntityInsightItem {
   /**
    * Query results for table insights query.
    */
-  @OpenAPI.extension("x-ms-identifiers", #[])
+  @identifiers(#[])
   chartQueryResults?: InsightsTableResult[];
 }
 
@@ -4268,7 +5474,7 @@ model InsightsTableResult {
   /**
    * Columns Metadata of the table
    */
-  @OpenAPI.extension("x-ms-identifiers", #[])
+  @identifiers(#[])
   columns?: InsightsTableResultColumnsItem[];
 
   /**
@@ -4294,6 +5500,18 @@ model InsightsTableResultColumnsItem {
  * List of all the entity queries.
  */
 model EntityQueryList is Azure.Core.Page<EntityQuery>;
+
+/**
+ * Specific entity query that supports put requests.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+@discriminator("kind")
+model CustomEntityQuery extends ResourceWithEtag {
+  /**
+   * the entity query kind
+   */
+  kind: CustomEntityQueryKind;
+}
 
 /**
  * List of all the entity query templates.
@@ -4337,7 +5555,7 @@ model FileImportProperties {
    * An ordered list of some of the errors that were encountered during validation.
    */
   @visibility(Lifecycle.Read)
-  @OpenAPI.extension("x-ms-identifiers", #[])
+  @identifiers(#[])
   errorsPreview?: ValidationError[];
 
   /**
@@ -4460,7 +5678,7 @@ model HuntProperties {
   /**
    * The status of the hunt.
    */
-  status?: Status;
+  status?: Status = Status.New;
 
   /**
    * The hypothesis status of the hunt.
@@ -4507,7 +5725,7 @@ model HuntOwner {
    */
   #suppress "@azure-tools/typespec-azure-core/no-format"
   @format("uuid")
-  objectId?: string;
+  objectId?: string | null;
 
   /**
    * The user principal name of the user the hunt is assigned to.
@@ -4576,15 +5794,34 @@ model HuntCommentProperties {
 }
 
 /**
+ * List all the incidents.
+ */
+model IncidentList is Azure.Core.Page<Incident>;
+
+/**
  * Describes incident properties
  */
 #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "For backward compatibility"
 model IncidentProperties {
   /**
-   * Additional data on the incident
+   * The title of the incident
    */
-  @visibility(Lifecycle.Read)
-  additionalData?: IncidentAdditionalData;
+  title: string;
+
+  /**
+   * The description of the incident
+   */
+  description?: string;
+
+  /**
+   * The severity of the incident
+   */
+  severity: IncidentSeverity;
+
+  /**
+   * The status of the incident
+   */
+  status: IncidentStatus;
 
   /**
    * The reason the incident was closed
@@ -4592,14 +5829,44 @@ model IncidentProperties {
   classification?: IncidentClassification;
 
   /**
+   * The classification reason the incident was closed with
+   */
+  classificationReason?: IncidentClassificationReason;
+
+  /**
    * Describes the reason the incident was closed
    */
   classificationComment?: string;
 
   /**
-   * The classification reason the incident was closed with
+   * Describes a user that the incident is assigned to
    */
-  classificationReason?: IncidentClassificationReason;
+  owner?: IncidentOwnerInfo;
+
+  /**
+   * List of labels relevant to this incident
+   */
+  @identifiers(#[])
+  labels?: IncidentLabel[];
+
+  /**
+   * The time of the first activity in the incident
+   */
+  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
+  firstActivityTimeUtc?: utcDateTime;
+
+  /**
+   * The time of the last activity in the incident
+   */
+  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
+  lastActivityTimeUtc?: utcDateTime;
+
+  /**
+   * The last time the incident was updated
+   */
+  @visibility(Lifecycle.Read)
+  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
+  lastModifiedTimeUtc?: utcDateTime;
 
   /**
    * The time the incident was created
@@ -4609,15 +5876,27 @@ model IncidentProperties {
   createdTimeUtc?: utcDateTime;
 
   /**
-   * The description of the incident
+   * A sequential number
    */
-  description?: string;
+  @visibility(Lifecycle.Read)
+  incidentNumber?: int32;
 
   /**
-   * The time of the first activity in the incident
+   * Additional data on the incident
    */
-  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
-  firstActivityTimeUtc?: utcDateTime;
+  @visibility(Lifecycle.Read)
+  additionalData?: IncidentAdditionalData;
+
+  /**
+   * List of resource ids of Analytic rules related to the incident
+   */
+  @visibility(Lifecycle.Read)
+  relatedAnalyticRuleIds?: Azure.Core.armResourceIdentifier<[
+    {
+      scopes: ["Extension"];
+      type: "Microsoft.SecurityInsights/alertRules";
+    }
+  ]>[];
 
   /**
    * The deep-link url to the incident in Azure portal
@@ -4638,60 +5917,57 @@ model IncidentProperties {
   providerIncidentId?: string;
 
   /**
-   * A sequential number
+   * Describes a team for the incident
+   */
+  teamInformation?: TeamInformation;
+}
+
+/**
+ * Information on the user an incident is assigned to
+ */
+model IncidentOwnerInfo {
+  /**
+   * The email of the user the incident is assigned to.
+   */
+  email?: string;
+
+  /**
+   * The name of the user the incident is assigned to.
+   */
+  assignedTo?: string;
+
+  /**
+   * The object id of the user the incident is assigned to.
+   */
+  #suppress "@azure-tools/typespec-azure-core/no-format"
+  @format("uuid")
+  objectId?: string;
+
+  /**
+   * The user principal name of the user the incident is assigned to.
+   */
+  userPrincipalName?: string;
+
+  /**
+   * The type of the owner the incident is assigned to.
+   */
+  ownerType?: OwnerType;
+}
+
+/**
+ * Represents an incident label
+ */
+model IncidentLabel {
+  /**
+   * The name of the label
+   */
+  labelName: string;
+
+  /**
+   * The type of the label
    */
   @visibility(Lifecycle.Read)
-  incidentNumber?: int32;
-
-  /**
-   * List of labels relevant to this incident
-   */
-  @identifiers(#[])
-  labels?: IncidentLabel[];
-
-  /**
-   * The time of the last activity in the incident
-   */
-  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
-  lastActivityTimeUtc?: utcDateTime;
-
-  /**
-   * The last time the incident was updated
-   */
-  @visibility(Lifecycle.Read)
-  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
-  lastModifiedTimeUtc?: utcDateTime;
-
-  /**
-   * Describes a user that the incident is assigned to
-   */
-  owner?: IncidentOwnerInfo;
-
-  /**
-   * List of resource ids of Analytic rules related to the incident
-   */
-  @visibility(Lifecycle.Read)
-  relatedAnalyticRuleIds?: Azure.Core.armResourceIdentifier<[
-    {
-      scopes: ["Extension"];
-      type: "Microsoft.SecurityInsights/alertRules";
-    }
-  ]>[];
-
-  /**
-   * The severity of the incident
-   */
-  severity: IncidentSeverity;
-
-  /**
-   * The status of the incident
-   */
-  status: IncidentStatus;
-
-  /**
-   * The title of the incident
-   */
-  title: string;
+  labelType?: IncidentLabelType;
 }
 
 /**
@@ -4729,58 +6005,64 @@ model IncidentAdditionalData {
   tactics?: AttackTactic[];
 
   /**
+   * The techniques associated with incident's tactics
+   */
+  @visibility(Lifecycle.Read)
+  techniques?: string[];
+
+  /**
    * The provider incident url to the incident in Microsoft 365 Defender portal
    */
   @visibility(Lifecycle.Read)
   providerIncidentUrl?: string;
-}
-
-/**
- * Represents an incident label
- */
-model IncidentLabel {
-  /**
-   * The name of the label
-   */
-  labelName: string;
 
   /**
-   * The type of the label
+   * The incident number of the incident that the current incident was merged into
    */
   @visibility(Lifecycle.Read)
-  labelType?: IncidentLabelType;
+  mergedIncidentNumber?: string;
+
+  /**
+   * The URL to the incident that the current incident was merged into
+   */
+  @visibility(Lifecycle.Read)
+  mergedIncidentUrl?: string;
 }
 
 /**
- * Information on the user an incident is assigned to
+ * Describes team information
  */
-model IncidentOwnerInfo {
+model TeamInformation {
   /**
-   * The email of the user the incident is assigned to.
+   * Team ID
    */
-  email?: string;
+  @visibility(Lifecycle.Read)
+  teamId?: string;
 
   /**
-   * The name of the user the incident is assigned to.
+   * The primary channel URL of the team
    */
-  assignedTo?: string;
+  @visibility(Lifecycle.Read)
+  primaryChannelUrl?: string;
 
   /**
-   * The object id of the user the incident is assigned to.
+   * The time the team was created
    */
-  #suppress "@azure-tools/typespec-azure-core/no-format"
-  @format("uuid")
-  objectId?: string;
+  @visibility(Lifecycle.Read)
+  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
+  teamCreationTimeUtc?: utcDateTime;
 
   /**
-   * The user principal name of the user the incident is assigned to.
+   * The name of the team
    */
-  userPrincipalName?: string;
+  @visibility(Lifecycle.Read)
+  name?: string;
 
   /**
-   * The type of the owner the incident is assigned to.
+   * The description of the team
    */
-  ownerType?: OwnerType;
+  @visibility(Lifecycle.Read)
+  description?: string;
 }
 
 /**
@@ -5107,6 +6389,11 @@ model IncidentCommentList is Azure.Core.Page<IncidentComment>;
 #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "For backward compatibility"
 model IncidentCommentProperties {
   /**
+   * The comment message
+   */
+  message: string;
+
+  /**
    * The time the comment was created
    */
   @visibility(Lifecycle.Read)
@@ -5119,11 +6406,6 @@ model IncidentCommentProperties {
   @visibility(Lifecycle.Read)
   // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
   lastModifiedTimeUtc?: utcDateTime;
-
-  /**
-   * The comment message
-   */
-  message: string;
 
   /**
    * Describes the client that created the comment
@@ -5154,48 +6436,14 @@ model IncidentEntitiesResponse {
  */
 model IncidentEntitiesResultsMetadata {
   /**
-   * Total number of aggregations of the given kind in the incident related entities result.
-   */
-  count: int32;
-
-  /**
    * The kind of the aggregated entity.
    */
   entityKind: EntityKindEnum;
-}
-
-/**
- * List of relations.
- */
-model RelationList is Azure.Core.Page<Relation>;
-
-/**
- * Relation property bag.
- */
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "For backward compatibility"
-model RelationProperties {
-  /**
-   * The resource ID of the related resource
-   */
-  relatedResourceId: string;
 
   /**
-   * The name of the related resource
+   * Total number of aggregations of the given kind in the incident related entities result.
    */
-  @visibility(Lifecycle.Read)
-  relatedResourceName?: string;
-
-  /**
-   * The resource type of the related resource
-   */
-  @visibility(Lifecycle.Read)
-  relatedResourceType?: string;
-
-  /**
-   * The resource kind of the related resource
-   */
-  @visibility(Lifecycle.Read)
-  relatedResourceKind?: string;
+  count: int32;
 }
 
 /**
@@ -5557,6 +6805,7 @@ model OperationDisplay {
    */
   resource?: string;
 }
+
 /**
  * A list of recommendations
  */
@@ -5608,19 +6857,19 @@ model RecommendationProperties {
   /**
    * List of suggestions to take for this recommendation.
    */
-  @OpenAPI.extension("x-ms-identifiers", #[])
+  @identifiers(#[])
   suggestions: RecommendedSuggestion[];
 
   /**
    * Id of the resource this recommendation refers to.
    */
-  resourceId?: string;
+  resourceId?: string | null;
 
   /**
    * Collection of additional properties for the recommendation.
    */
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
-  additionalProperties?: Record<string>;
+  additionalProperties?: Record<string> | null;
 }
 
 /**
@@ -5651,7 +6900,7 @@ model RecommendedSuggestion {
    * Collection of additional properties for the suggestion.
    */
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
-  additionalProperties?: Record<string>;
+  additionalProperties?: Record<string> | null;
 }
 
 /**
@@ -6602,6 +7851,7 @@ model ConditionProperties {
   /**
    * The top level connective operator for this condition.
    */
+  @visibility(Lifecycle.Read)
   conditionConnective?: Connective;
 }
 
@@ -6612,6 +7862,7 @@ model ConditionClause {
   /**
    * The connective used to join all values in this ConditionClause
    */
+  @visibility(Lifecycle.Read)
   clauseConnective?: Connective;
 
   /**
@@ -6710,7 +7961,6 @@ model ThreatIntelligenceList is Azure.Core.Page<TIObject>;
  * Represents a threat intelligence object in Azure Security Insights.
  */
 #suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
-@discriminator("kind")
 model TIObject extends Azure.ResourceManager.CommonTypes.Resource {
   /**
    * The properties of the TI object
@@ -6820,6 +8070,7 @@ model TriggeredAnalyticsRuleRunProperties {
   /**
    * The triggered analytics rule run provisioning state
    */
+  @visibility(Lifecycle.Read)
   provisioningState: ProvisioningState;
 
   /**
@@ -7074,7 +8325,7 @@ model WorkspaceManagerAssignmentProperties {
   /**
    * List of resources included in this workspace manager assignment
    */
-  @OpenAPI.extension("x-ms-identifiers", #[])
+  @identifiers(#[])
   items: AssignmentItem[];
 }
 
@@ -7107,7 +8358,7 @@ model JobProperties {
   /**
    * List of items published by the job
    */
-  @OpenAPI.extension("x-ms-identifiers", #[])
+  @identifiers(#[])
   items?: JobItem[];
 
   /**
@@ -7155,7 +8406,7 @@ model JobItem {
   /**
    * The list of error descriptions if the item publication fails.
    */
-  @OpenAPI.extension("x-ms-identifiers", #[])
+  @identifiers(#[])
   errors?: Error[];
 }
 
@@ -7263,6 +8514,14 @@ model AlertRuleTemplatePropertiesBase {
   alertRulesCreatedByTemplateCount?: int32;
 
   /**
+   * The last time that this alert rule template has been updated.
+   */
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+  @visibility(Lifecycle.Read)
+  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
+  lastUpdatedDateUTC?: utcDateTime;
+
+  /**
    * The time that this alert rule template has been added.
    */
   #suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
@@ -7281,14 +8540,6 @@ model AlertRuleTemplatePropertiesBase {
   displayName?: string;
 
   /**
-   * The last time that this alert rule template has been updated.
-   */
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
-  @visibility(Lifecycle.Read)
-  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
-  lastUpdatedDateUTC?: utcDateTime;
-
-  /**
    * The required data sources for this template
    */
   @identifiers(#["connectorId"])
@@ -7301,6 +8552,266 @@ model AlertRuleTemplatePropertiesBase {
 }
 
 /**
+ * Alert rule template with MITRE property bag.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model AlertRuleTemplateWithMitreProperties
+  extends AlertRuleTemplatePropertiesBase {
+  /**
+   * The tactics of the alert rule
+   */
+  tactics?: AttackTactic[];
+
+  /**
+   * The techniques of the alert rule
+   */
+  techniques?: string[];
+}
+
+/**
+ * Query based alert rule template base property bag.
+ */
+model QueryBasedAlertRuleTemplateProperties {
+  /**
+   * The query that creates alerts for this rule.
+   */
+  query?: string;
+
+  /**
+   * The severity for alerts created by this alert rule.
+   */
+  severity?: AlertSeverity;
+
+  /**
+   * The version of this template - in format <a.b.c>, where all are numbers. For example <1.0.2>.
+   */
+  version?: string;
+
+  /**
+   * Dictionary of string key-value pairs of columns to be attached to the alert
+   */
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  customDetails?: Record<string>;
+
+  /**
+   * Array of the entity mappings of the alert rule
+   */
+  entityMappings?: EntityMapping[];
+
+  /**
+   * The alert details override settings
+   */
+  alertDetailsOverride?: AlertDetailsOverride;
+
+  /**
+   * The event grouping settings.
+   */
+  eventGroupingSettings?: EventGroupingSettings;
+
+  /**
+   * Array of the sentinel entity mappings of the alert rule
+   */
+  sentinelEntitiesMappings?: SentinelEntityMapping[];
+}
+
+/**
+ * Single entity mapping for the alert rule
+ */
+model EntityMapping {
+  /**
+   * The V3 type of the mapped entity
+   */
+  entityType?: EntityMappingType;
+
+  /**
+   * array of field mappings for the given entity mapping
+   */
+  @identifiers(#[])
+  fieldMappings?: FieldMapping[];
+}
+
+/**
+ * A single field mapping of the mapped entity
+ */
+model FieldMapping {
+  /**
+   * the V3 identifier of the entity
+   */
+  identifier?: string;
+
+  /**
+   * the column name to be mapped to the identifier
+   */
+  columnName?: string;
+}
+
+/**
+ * Settings for how to dynamically override alert static details
+ */
+model AlertDetailsOverride {
+  /**
+   * the format containing columns name(s) to override the alert name
+   */
+  alertDisplayNameFormat?: string;
+
+  /**
+   * the format containing columns name(s) to override the alert description
+   */
+  alertDescriptionFormat?: string;
+
+  /**
+   * the column name to take the alert tactics from
+   */
+  alertTacticsColumnName?: string;
+
+  /**
+   * the column name to take the alert severity from
+   */
+  alertSeverityColumnName?: string;
+
+  /**
+   * List of additional dynamic properties to override
+   */
+  @identifiers(#[])
+  alertDynamicProperties?: AlertPropertyMapping[];
+}
+
+/**
+ * A single alert property mapping to override
+ */
+model AlertPropertyMapping {
+  /**
+   * The V3 alert property
+   */
+  alertProperty?: AlertProperty;
+
+  /**
+   * the column name to use to override this property
+   */
+  value?: string;
+}
+
+/**
+ * Event grouping settings property bag.
+ */
+model EventGroupingSettings {
+  /**
+   * The event grouping aggregation kinds
+   */
+  aggregationKind?: EventGroupingAggregationKind;
+}
+
+/**
+ * A single sentinel entity mapping
+ */
+model SentinelEntityMapping {
+  /**
+   * the column name to be mapped to the SentinelEntities
+   */
+  columnName?: string;
+}
+
+/**
+ * Represents MLBehaviorAnalytics alert rule.
+ */
+model MLBehaviorAnalyticsAlertRule extends AlertRule {
+  /**
+   * MLBehaviorAnalytics alert rule properties
+   */
+  properties?: MLBehaviorAnalyticsAlertRuleProperties;
+
+  /**
+   * The kind of the alert rule
+   */
+  kind: "MLBehaviorAnalytics";
+}
+
+/**
+ * MLBehaviorAnalytics alert rule base property bag.
+ */
+model MLBehaviorAnalyticsAlertRuleProperties {
+  /**
+   * The Name of the alert rule template used to create this rule.
+   */
+  alertRuleTemplateName: string;
+
+  /**
+   * The description of the alert rule.
+   */
+  @visibility(Lifecycle.Read)
+  description?: string;
+
+  /**
+   * The display name for alerts created by this alert rule.
+   */
+  @visibility(Lifecycle.Read)
+  displayName?: string;
+
+  /**
+   * Determines whether this alert rule is enabled or disabled.
+   */
+  enabled: boolean;
+
+  /**
+   * The last time that this alert rule has been modified.
+   */
+  @visibility(Lifecycle.Read)
+  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
+  lastModifiedUtc?: utcDateTime;
+
+  /**
+   * The severity for alerts created by this alert rule.
+   */
+  @visibility(Lifecycle.Read)
+  severity?: AlertSeverity;
+
+  /**
+   * The tactics of the alert rule
+   */
+  @visibility(Lifecycle.Read)
+  tactics?: AttackTactic[];
+
+  /**
+   * The techniques of the alert rule
+   */
+  @visibility(Lifecycle.Read)
+  techniques?: string[];
+
+  /**
+   * The sub-techniques of the alert rule
+   */
+  @visibility(Lifecycle.Read)
+  subTechniques?: string[];
+}
+
+/**
+ * Represents MLBehaviorAnalytics alert rule template.
+ */
+model MLBehaviorAnalyticsAlertRuleTemplate extends AlertRuleTemplate {
+  /**
+   * MLBehaviorAnalytics alert rule template properties.
+   */
+  properties?: MLBehaviorAnalyticsAlertRuleTemplateProperties;
+
+  /**
+   * The kind of the alert rule
+   */
+  kind: "MLBehaviorAnalytics";
+}
+
+/**
+ * MLBehaviorAnalytics alert rule template properties.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model MLBehaviorAnalyticsAlertRuleTemplateProperties
+  extends AlertRuleTemplateWithMitreProperties {
+  /**
+   * The severity for alerts created by this alert rule.
+   */
+  severity: AlertSeverity;
+}
+
+/**
  * Represents Fusion alert rule.
  */
 model FusionAlertRule extends AlertRule {
@@ -7310,7 +8821,7 @@ model FusionAlertRule extends AlertRule {
   properties?: FusionAlertRuleProperties;
 
   /**
-   * The alert rule kind
+   * The kind of the alert rule
    */
   kind: "Fusion";
 }
@@ -7342,6 +8853,18 @@ model FusionAlertRuleProperties {
   enabled: boolean;
 
   /**
+   * Configuration for all supported source signals in fusion detection.
+   */
+  @identifiers(#[])
+  sourceSettings?: FusionSourceSettings[];
+
+  /**
+   * Configuration to exclude scenarios in fusion detection.
+   */
+  @identifiers(#[])
+  scenarioExclusionPatterns?: FusionScenarioExclusionPattern[];
+
+  /**
    * The last time that this alert has been modified.
    */
   @visibility(Lifecycle.Read)
@@ -7365,6 +8888,106 @@ model FusionAlertRuleProperties {
    */
   @visibility(Lifecycle.Read)
   techniques?: string[];
+
+  /**
+   * The sub-techniques of the alert rule
+   */
+  @visibility(Lifecycle.Read)
+  subTechniques?: string[];
+}
+
+/**
+ * Represents a supported source signal configuration in Fusion detection.
+ */
+model FusionSourceSettings {
+  /**
+   * Determines whether this source signal is enabled or disabled in Fusion detection.
+   */
+  enabled: boolean;
+
+  /**
+   * Name of the Fusion source signal. Refer to Fusion alert rule template for supported values.
+   */
+  sourceName: string;
+
+  /**
+   * Configuration for all source subtypes under this source signal consumed in fusion detection.
+   */
+  @identifiers(#[])
+  sourceSubTypes?: FusionSourceSubTypeSetting[];
+}
+
+/**
+ * Represents a supported source subtype configuration under a source signal in Fusion detection.
+ */
+model FusionSourceSubTypeSetting {
+  /**
+   * Determines whether this source subtype under source signal is enabled or disabled in Fusion detection.
+   */
+  enabled: boolean;
+
+  /**
+   * The Name of the source subtype under a given source signal in Fusion detection. Refer to Fusion alert rule template for supported values.
+   */
+  sourceSubTypeName: string;
+
+  /**
+   * The display name of source subtype under a source signal consumed in Fusion detection.
+   */
+  @visibility(Lifecycle.Read)
+  sourceSubTypeDisplayName?: string;
+
+  /**
+   * Severity configuration for a source subtype consumed in fusion detection.
+   */
+  severityFilters: FusionSubTypeSeverityFilter;
+}
+
+/**
+ * Represents severity configuration for a source subtype consumed in Fusion detection.
+ */
+model FusionSubTypeSeverityFilter {
+  /**
+   * Determines whether this source subtype supports severity configuration or not.
+   */
+  @visibility(Lifecycle.Read)
+  isSupported?: boolean;
+
+  /**
+   * Individual Severity configuration settings for a given source subtype consumed in Fusion detection.
+   */
+  @identifiers(#[])
+  filters?: FusionSubTypeSeverityFiltersItem[];
+}
+
+/**
+ * Represents a Severity filter setting for a given source subtype consumed in Fusion detection.
+ */
+model FusionSubTypeSeverityFiltersItem {
+  /**
+   * The Severity for a given source subtype consumed in Fusion detection.
+   */
+  severity: AlertSeverity;
+
+  /**
+   * Determines whether this severity is enabled or disabled for this source subtype consumed in Fusion detection.
+   */
+  enabled: boolean;
+}
+
+/**
+ * Represents a Fusion scenario exclusion patterns in Fusion detection.
+ */
+model FusionScenarioExclusionPattern {
+  /**
+   * Scenario exclusion pattern.
+   */
+  exclusionPattern: string;
+
+  /**
+   * DateTime when scenario exclusion pattern is added in UTC.
+   */
+  dateAddedInUTC: string;
 }
 
 /**
@@ -7377,17 +9000,17 @@ model FusionAlertRuleTemplate extends AlertRuleTemplate {
   properties?: FusionAlertRuleTemplateProperties;
 
   /**
-   * The alert rule kind
+   * The kind of the alert rule
    */
   kind: "Fusion";
 }
 
 /**
- * Represents Fusion alert rule template properties
+ * Fusion alert rule template properties
  */
 model FusionAlertRuleTemplateProperties {
   /**
-   * the number of alert rules that were created by this template
+   * The number of alert rules that were created by this template
    */
   alertRulesCreatedByTemplateCount?: int32;
 
@@ -7439,9 +9062,172 @@ model FusionAlertRuleTemplateProperties {
   tactics?: AttackTactic[];
 
   /**
-   * The techniques of the alert rule template
+   * The techniques of the alert rule
    */
   techniques?: string[];
+
+  /**
+   * The sub-techniques of the alert rule
+   */
+  subTechniques?: string[];
+
+  /**
+   * All supported source signal configurations consumed in fusion detection.
+   */
+  @identifiers(#[])
+  sourceSettings?: FusionTemplateSourceSetting[];
+}
+
+/**
+ * Represents a source signal consumed in Fusion detection.
+ */
+model FusionTemplateSourceSetting {
+  /**
+   * The name of a source signal consumed in Fusion detection.
+   */
+  sourceName: string;
+
+  /**
+   * All supported source subtypes under this source signal consumed in fusion detection.
+   */
+  @identifiers(#[])
+  sourceSubTypes?: FusionTemplateSourceSubType[];
+}
+
+/**
+ * Represents a source subtype under a source signal consumed in Fusion detection.
+ */
+model FusionTemplateSourceSubType {
+  /**
+   * The name of source subtype under a source signal consumed in Fusion detection.
+   */
+  sourceSubTypeName: string;
+
+  /**
+   * The display name of source subtype under a source signal consumed in Fusion detection.
+   */
+  @visibility(Lifecycle.Read)
+  sourceSubTypeDisplayName?: string;
+
+  /**
+   * Severity configuration available for a source subtype consumed in fusion detection.
+   */
+  severityFilter: FusionTemplateSubTypeSeverityFilter;
+}
+
+/**
+ * Represents severity configurations available for a source subtype consumed in Fusion detection.
+ */
+model FusionTemplateSubTypeSeverityFilter {
+  /**
+   * Determines whether severity configuration is supported for this source subtype consumed in Fusion detection.
+   */
+  isSupported: boolean;
+
+  /**
+   * List of all supported severities for this source subtype consumed in Fusion detection.
+   */
+  severityFilters?: AlertSeverity[];
+}
+
+/**
+ * Represents Threat Intelligence alert rule.
+ */
+model ThreatIntelligenceAlertRule extends AlertRule {
+  /**
+   * Threat Intelligence alert rule properties
+   */
+  properties?: ThreatIntelligenceAlertRuleProperties;
+
+  /**
+   * The kind of the alert rule
+   */
+  kind: "ThreatIntelligence";
+}
+
+/**
+ * Threat Intelligence alert rule base property bag.
+ */
+model ThreatIntelligenceAlertRuleProperties {
+  /**
+   * The Name of the alert rule template used to create this rule.
+   */
+  alertRuleTemplateName: string;
+
+  /**
+   * The description of the alert rule.
+   */
+  @visibility(Lifecycle.Read)
+  description?: string;
+
+  /**
+   * The display name for alerts created by this alert rule.
+   */
+  @visibility(Lifecycle.Read)
+  displayName?: string;
+
+  /**
+   * Determines whether this alert rule is enabled or disabled.
+   */
+  enabled: boolean;
+
+  /**
+   * The last time that this alert has been modified.
+   */
+  @visibility(Lifecycle.Read)
+  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
+  lastModifiedUtc?: utcDateTime;
+
+  /**
+   * The severity for alerts created by this alert rule.
+   */
+  @visibility(Lifecycle.Read)
+  severity?: AlertSeverity;
+
+  /**
+   * The tactics of the alert rule
+   */
+  @visibility(Lifecycle.Read)
+  tactics?: AttackTactic[];
+
+  /**
+   * The techniques of the alert rule
+   */
+  @visibility(Lifecycle.Read)
+  techniques?: string[];
+
+  /**
+   * The sub-techniques of the alert rule
+   */
+  @visibility(Lifecycle.Read)
+  subTechniques?: string[];
+}
+
+/**
+ * Represents Threat Intelligence alert rule template.
+ */
+model ThreatIntelligenceAlertRuleTemplate extends AlertRuleTemplate {
+  /**
+   * Threat Intelligence alert rule template properties
+   */
+  properties?: ThreatIntelligenceAlertRuleTemplateProperties;
+
+  /**
+   * The kind of the alert rule
+   */
+  kind: "ThreatIntelligence";
+}
+
+/**
+ * Threat Intelligence alert rule template properties
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model ThreatIntelligenceAlertRuleTemplateProperties
+  extends AlertRuleTemplateWithMitreProperties {
+  /**
+   * The severity for alerts created by this alert rule.
+   */
+  severity: AlertSeverity;
 }
 
 /**
@@ -7454,7 +9240,7 @@ model MicrosoftSecurityIncidentCreationAlertRule extends AlertRule {
   properties?: MicrosoftSecurityIncidentCreationAlertRuleProperties;
 
   /**
-   * The alert rule kind
+   * The kind of the alert rule
    */
   kind: "MicrosoftSecurityIncidentCreation";
 }
@@ -7529,7 +9315,7 @@ model MicrosoftSecurityIncidentCreationAlertRuleTemplate
   properties?: MicrosoftSecurityIncidentCreationAlertRuleTemplateProperties;
 
   /**
-   * The alert rule kind
+   * The kind of the alert rule
    */
   kind: "MicrosoftSecurityIncidentCreation";
 }
@@ -7559,21 +9345,6 @@ model MicrosoftSecurityIncidentCreationAlertRuleTemplateProperties
    * the alerts' severities on which the cases will be generated
    */
   severitiesFilter?: AlertSeverity[];
-}
-
-/**
- * Represents scheduled alert rule.
- */
-model ScheduledAlertRule extends AlertRule {
-  /**
-   * Scheduled alert rule properties
-   */
-  properties?: ScheduledAlertRuleProperties;
-
-  /**
-   * The alert rule kind
-   */
-  kind: "Scheduled";
 }
 
 /**
@@ -7632,6 +9403,11 @@ model ScheduledAlertRuleProperties extends ScheduledAlertRuleCommonProperties {
    * The techniques of the alert rule
    */
   techniques?: string[];
+
+  /**
+   * The sub-techniques of the alert rule
+   */
+  subTechniques?: string[];
 
   /**
    * The settings of the incidents that created from alerts triggered by this analytics rule
@@ -7749,93 +9525,114 @@ model ScheduledAlertRuleCommonProperties {
    * The alert details override settings
    */
   alertDetailsOverride?: AlertDetailsOverride;
+
+  /**
+   * Array of the sentinel entity mappings of the alert rule
+   */
+  sentinelEntitiesMappings?: SentinelEntityMapping[];
 }
 
 /**
- * Event grouping settings property bag.
+ * Nrt alert rule base property bag.
  */
-model EventGroupingSettings {
+model NrtAlertRuleProperties {
   /**
-   * The event grouping aggregation kinds
+   * The Name of the alert rule template used to create this rule.
    */
-  aggregationKind?: EventGroupingAggregationKind;
-}
-
-/**
- * Single entity mapping for the alert rule
- */
-model EntityMapping {
-  /**
-   * The V3 type of the mapped entity
-   */
-  entityType?: EntityMappingType;
+  alertRuleTemplateName?: string;
 
   /**
-   * array of field mappings for the given entity mapping
+   * The version of the alert rule template used to create this rule - in format <a.b.c>, where all are numbers, for example 0 <1.0.2>
    */
-  @identifiers(#[])
-  fieldMappings?: FieldMapping[];
-}
-
-/**
- * A single field mapping of the mapped entity
- */
-model FieldMapping {
-  /**
-   * the V3 identifier of the entity
-   */
-  identifier?: string;
+  templateVersion?: string;
 
   /**
-   * the column name to be mapped to the identifier
+   * The description of the alert rule.
    */
-  columnName?: string;
-}
-
-/**
- * Settings for how to dynamically override alert static details
- */
-model AlertDetailsOverride {
-  /**
-   * the format containing columns name(s) to override the alert name
-   */
-  alertDisplayNameFormat?: string;
+  description?: string;
 
   /**
-   * the format containing columns name(s) to override the alert description
+   * The query that creates alerts for this rule.
    */
-  alertDescriptionFormat?: string;
+  query: string;
 
   /**
-   * the column name to take the alert tactics from
+   * The tactics of the alert rule
    */
-  alertTacticsColumnName?: string;
+  tactics?: AttackTactic[];
 
   /**
-   * the column name to take the alert severity from
+   * The techniques of the alert rule
    */
-  alertSeverityColumnName?: string;
+  techniques?: string[];
 
   /**
-   * List of additional dynamic properties to override
+   * The sub-techniques of the alert rule
    */
-  @identifiers(#[])
-  alertDynamicProperties?: AlertPropertyMapping[];
-}
-
-/**
- * A single alert property mapping to override
- */
-model AlertPropertyMapping {
-  /**
-   * The V3 alert property
-   */
-  alertProperty?: AlertProperty;
+  subTechniques?: string[];
 
   /**
-   * the column name to use to override this property
+   * The display name for alerts created by this alert rule.
    */
-  value?: string;
+  displayName: string;
+
+  /**
+   * Determines whether this alert rule is enabled or disabled.
+   */
+  enabled: boolean;
+
+  /**
+   * The last time that this alert rule has been modified.
+   */
+  @visibility(Lifecycle.Read)
+  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
+  lastModifiedUtc?: utcDateTime;
+
+  /**
+   * The suppression (in ISO 8601 duration format) to wait since last time this alert rule been triggered.
+   */
+  suppressionDuration: duration;
+
+  /**
+   * Determines whether the suppression for this alert rule is enabled or disabled.
+   */
+  suppressionEnabled: boolean;
+
+  /**
+   * The severity for alerts created by this alert rule.
+   */
+  severity: AlertSeverity;
+
+  /**
+   * The settings of the incidents that created from alerts triggered by this analytics rule
+   */
+  incidentConfiguration?: IncidentConfiguration;
+
+  /**
+   * Dictionary of string key-value pairs of columns to be attached to the alert
+   */
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  customDetails?: Record<string>;
+
+  /**
+   * Array of the entity mappings of the alert rule
+   */
+  entityMappings?: EntityMapping[];
+
+  /**
+   * The alert details override settings
+   */
+  alertDetailsOverride?: AlertDetailsOverride;
+
+  /**
+   * The event grouping settings.
+   */
+  eventGroupingSettings?: EventGroupingSettings;
+
+  /**
+   * Array of the sentinel entity mappings of the alert rule
+   */
+  sentinelEntitiesMappings?: SentinelEntityMapping[];
 }
 
 /**
@@ -7843,7 +9640,7 @@ model AlertPropertyMapping {
  */
 model ScheduledAlertRuleTemplateProperties {
   /**
-   * the number of alert rules that were created by this template
+   * The number of alert rules that were created by this template
    */
   alertRulesCreatedByTemplateCount?: int32;
 
@@ -7920,9 +9717,14 @@ model ScheduledAlertRuleTemplateProperties {
   tactics?: AttackTactic[];
 
   /**
-   * The techniques of the alert rule template
+   * The techniques of the alert rule
    */
   techniques?: string[];
+
+  /**
+   * The sub-techniques of the alert rule
+   */
+  subTechniques?: string[];
 
   /**
    * The version of this template - in format <a.b.c>, where all are numbers. For example <1.0.2>.
@@ -7950,6 +9752,11 @@ model ScheduledAlertRuleTemplateProperties {
    * The alert details override settings
    */
   alertDetailsOverride?: AlertDetailsOverride;
+
+  /**
+   * Array of the sentinel entity mappings of the alert rule
+   */
+  sentinelEntitiesMappings?: SentinelEntityMapping[];
 }
 
 /**
@@ -7962,14 +9769,65 @@ model ScheduledAlertRuleTemplate extends AlertRuleTemplate {
   properties?: ScheduledAlertRuleTemplateProperties;
 
   /**
-   * The alert rule kind
+   * The kind of the alert rule
    */
   kind: "Scheduled";
 }
 
 /**
- * Describes an automation rule action to add a task to an incident.
+ * Represents NRT alert rule template.
  */
+model NrtAlertRuleTemplate extends AlertRuleTemplate {
+  /**
+   * NRT alert rule template properties
+   */
+  properties?: NrtAlertRuleTemplateProperties;
+
+  /**
+   * The kind of the alert rule
+   */
+  kind: "NRT";
+}
+
+/**
+ * NRT alert rule template properties
+ */
+model NrtAlertRuleTemplateProperties {
+  ...AlertRuleTemplateWithMitreProperties;
+  ...QueryBasedAlertRuleTemplateProperties;
+}
+
+/**
+ * Represents scheduled alert rule.
+ */
+model ScheduledAlertRule extends AlertRule {
+  /**
+   * Scheduled alert rule properties
+   */
+  properties?: ScheduledAlertRuleProperties;
+
+  /**
+   * The kind of the alert rule
+   */
+  kind: "Scheduled";
+}
+
+/**
+ * Represents NRT alert rule.
+ */
+model NrtAlertRule extends AlertRule {
+  /**
+   * NRT alert rule properties
+   */
+  properties?: NrtAlertRuleProperties;
+
+  /**
+   * The kind of the alert rule
+   */
+  kind: "NRT";
+}
+
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
 model AddIncidentTaskActionProperties {
   /**
    * The title of the task.
@@ -7986,9 +9844,7 @@ model AddIncidentTaskActionProperties {
  * Describes an automation rule action to add a task to an incident
  */
 model AutomationRuleAddIncidentTaskAction extends AutomationRuleAction {
-  /**
-   * Describes an automation rule action to add a task to an incident.
-   */
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
   actionConfiguration?: AddIncidentTaskActionProperties;
 
   /**
@@ -7997,13 +9853,9 @@ model AutomationRuleAddIncidentTaskAction extends AutomationRuleAction {
   actionType: "AddIncidentTask";
 }
 
-/**
- * Describes an automation rule condition with boolean operators.
- */
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
 model AutomationRuleBooleanCondition {
-  /**
-   * Describes a boolean condition operator.
-   */
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
   operator?: AutomationRuleBooleanConditionSupportedOperator;
 
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
@@ -8073,18 +9925,11 @@ model AutomationRulePropertyArrayChangedValuesCondition {
   changeType?: AutomationRulePropertyArrayChangedConditionSupportedChangeType;
 }
 
-/**
- * Describes an automation rule condition on array properties.
- */
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
 model AutomationRulePropertyArrayValuesCondition {
-  /**
-   * Describes an array condition evaluated array type.
-   */
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
   arrayType?: AutomationRulePropertyArrayConditionSupportedArrayType;
-
-  /**
-   * Describes an array condition evaluation type.
-   */
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
   arrayConditionType?: AutomationRulePropertyArrayConditionSupportedArrayConditionType;
 
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
@@ -8157,11 +10002,8 @@ model PlaybookActionProperties {
  * Describes an automation rule condition that applies a boolean operator (e.g AND, OR) to conditions
  */
 model BooleanConditionProperties extends AutomationRuleCondition {
-  /**
-   * Describes an automation rule condition with boolean operators.
-   */
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
   conditionProperties?: AutomationRuleBooleanCondition;
-
   conditionType: "Boolean";
 }
 
@@ -8178,11 +10020,8 @@ model PropertyArrayChangedConditionProperties extends AutomationRuleCondition {
  * Describes an automation rule condition that evaluates an array property's value
  */
 model PropertyArrayConditionProperties extends AutomationRuleCondition {
-  /**
-   * Describes an automation rule condition on array properties.
-   */
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
   conditionProperties?: AutomationRulePropertyArrayValuesCondition;
-
   conditionType: "PropertyArray";
 }
 
@@ -8202,6 +10041,32 @@ model PropertyConditionProperties extends AutomationRuleCondition {
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
   conditionProperties?: AutomationRulePropertyValuesCondition;
   conditionType: "Property";
+}
+
+/**
+ * Billing statistic about the Microsoft Sentinel solution for SAP Usage
+ */
+model SapSolutionUsageStatistic extends BillingStatistic {
+  /**
+   * The SAP solution usage object
+   */
+  properties?: SapSolutionUsageStatisticProperties;
+
+  /**
+   * The kind of the billing statistic
+   */
+  kind: "SapSolutionUsage";
+}
+
+/**
+ * Properties of the billing statistic about the Microsoft Sentinel solution for SAP usage
+ */
+model SapSolutionUsageStatisticProperties {
+  /**
+   * The latest count of active SAP system IDs under the Microsoft Sentinel solution for SAP Usage
+   */
+  @visibility(Lifecycle.Read)
+  activeSystemIdCount?: int64;
 }
 
 /**
@@ -8544,12 +10409,411 @@ model CustomizableConnectionsConfig {
 }
 
 /**
- * Represents Microsoft Entra ID data connector.
+ * Represents AADIP (Azure Active Directory Identity Protection) requirements check request.
+ */
+model AADCheckRequirements extends DataConnectorsCheckRequirements {
+  /**
+   * AADIP (Azure Active Directory Identity Protection) requirements check properties.
+   */
+  properties?: AADCheckRequirementsProperties;
+
+  /**
+   * Describes the kind of connector to be checked.
+   */
+  kind: "AzureActiveDirectory";
+}
+
+/**
+ * AADIP (Azure Active Directory Identity Protection) requirements check properties.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model AADCheckRequirementsProperties extends DataConnectorTenantId {}
+
+/**
+ * Properties data connector on tenant level.
+ */
+model DataConnectorTenantId {
+  /**
+   * The tenant id to connect to, and get the data from.
+   */
+  tenantId: string;
+}
+
+/**
+ * Represents AATP (Azure Advanced Threat Protection) requirements check request.
+ */
+model AatpCheckRequirements extends DataConnectorsCheckRequirements {
+  /**
+   * AATP (Azure Advanced Threat Protection) requirements check properties.
+   */
+  properties?: AatpCheckRequirementsProperties;
+
+  /**
+   * Describes the kind of connector to be checked.
+   */
+  kind: "AzureAdvancedThreatProtection";
+}
+
+/**
+ * AATP (Azure Advanced Threat Protection) requirements check properties.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model AatpCheckRequirementsProperties extends DataConnectorTenantId {}
+
+/**
+ * Represents ASC (Azure Security Center) requirements check request.
+ */
+model ASCCheckRequirements extends DataConnectorsCheckRequirements {
+  /**
+   * ASC (Azure Security Center) requirements check properties.
+   */
+  properties?: ASCCheckRequirementsProperties;
+
+  /**
+   * Describes the kind of connector to be checked.
+   */
+  kind: "AzureSecurityCenter";
+}
+
+/**
+ * ASC (Azure Security Center) requirements check properties.
+ */
+model ASCCheckRequirementsProperties {
+  /**
+   * The subscription id to connect to, and get the data from.
+   */
+  subscriptionId?: string;
+}
+
+/**
+ * Amazon Web Services CloudTrail requirements check request.
+ */
+model AwsCloudTrailCheckRequirements extends DataConnectorsCheckRequirements {
+  /**
+   * Describes the kind of connector to be checked.
+   */
+  kind: "AmazonWebServicesCloudTrail";
+}
+
+/**
+ * Amazon Web Services S3 requirements check request.
+ */
+model AwsS3CheckRequirements extends DataConnectorsCheckRequirements {
+  /**
+   * Describes the kind of connector to be checked.
+   */
+  kind: "AmazonWebServicesS3";
+}
+
+/**
+ * Represents Dynamics365 requirements check request.
+ */
+model Dynamics365CheckRequirements extends DataConnectorsCheckRequirements {
+  /**
+   * Dynamics365 requirements check properties.
+   */
+  properties?: Dynamics365CheckRequirementsProperties;
+
+  /**
+   * Describes the kind of connector to be checked.
+   */
+  kind: "Dynamics365";
+}
+
+/**
+ * Dynamics365 requirements check properties.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model Dynamics365CheckRequirementsProperties extends DataConnectorTenantId {}
+
+/**
+ * Represents MCAS (Microsoft Cloud App Security) requirements check request.
+ */
+model McasCheckRequirements extends DataConnectorsCheckRequirements {
+  /**
+   * MCAS (Microsoft Cloud App Security) requirements check properties.
+   */
+  properties?: McasCheckRequirementsProperties;
+
+  /**
+   * Describes the kind of connector to be checked.
+   */
+  kind: "MicrosoftCloudAppSecurity";
+}
+
+/**
+ * MCAS (Microsoft Cloud App Security) requirements check properties.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model McasCheckRequirementsProperties extends DataConnectorTenantId {}
+
+/**
+ * Represents MDATP (Microsoft Defender Advanced Threat Protection) requirements check request.
+ */
+model MdatpCheckRequirements extends DataConnectorsCheckRequirements {
+  /**
+   * MDATP (Microsoft Defender Advanced Threat Protection) requirements check properties.
+   */
+  properties?: MdatpCheckRequirementsProperties;
+
+  /**
+   * Describes the kind of connector to be checked.
+   */
+  kind: "MicrosoftDefenderAdvancedThreatProtection";
+}
+
+/**
+ * MDATP (Microsoft Defender Advanced Threat Protection) requirements check properties.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model MdatpCheckRequirementsProperties extends DataConnectorTenantId {}
+
+/**
+ * Represents Microsoft Threat Intelligence requirements check request.
+ */
+model MstiCheckRequirements extends DataConnectorsCheckRequirements {
+  /**
+   * Microsoft Threat Intelligence requirements check properties.
+   */
+  properties?: MstiCheckRequirementsProperties;
+
+  /**
+   * Describes the kind of connector to be checked.
+   */
+  kind: "MicrosoftThreatIntelligence";
+}
+
+/**
+ * Microsoft Threat Intelligence requirements check properties.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model MstiCheckRequirementsProperties extends DataConnectorTenantId {}
+
+/**
+ * Represents MTP (Microsoft Threat Protection) requirements check request.
+ */
+model MtpCheckRequirements extends DataConnectorsCheckRequirements {
+  /**
+   * MTP (Microsoft Threat Protection) requirements check properties.
+   */
+  properties?: MTPCheckRequirementsProperties;
+
+  /**
+   * Describes the kind of connector to be checked.
+   */
+  kind: "MicrosoftThreatProtection";
+}
+
+/**
+ * MTP (Microsoft Threat Protection) requirements check properties.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model MTPCheckRequirementsProperties extends DataConnectorTenantId {}
+
+/**
+ * Represents OfficeATP (Office 365 Advanced Threat Protection) requirements check request.
+ */
+model OfficeATPCheckRequirements extends DataConnectorsCheckRequirements {
+  /**
+   * OfficeATP (Office 365 Advanced Threat Protection) requirements check properties.
+   */
+  properties?: OfficeATPCheckRequirementsProperties;
+
+  /**
+   * Describes the kind of connector to be checked.
+   */
+  kind: "OfficeATP";
+}
+
+/**
+ * OfficeATP (Office 365 Advanced Threat Protection) requirements check properties.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model OfficeATPCheckRequirementsProperties extends DataConnectorTenantId {}
+
+/**
+ * Represents OfficeIRM (Microsoft Insider Risk Management) requirements check request.
+ */
+model OfficeIRMCheckRequirements extends DataConnectorsCheckRequirements {
+  /**
+   * OfficeIRM (Microsoft Insider Risk Management) requirements check properties.
+   */
+  properties?: OfficeIRMCheckRequirementsProperties;
+
+  /**
+   * Describes the kind of connector to be checked.
+   */
+  kind: "OfficeIRM";
+}
+
+/**
+ * OfficeIRM (Microsoft Insider Risk Management) requirements check properties.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model OfficeIRMCheckRequirementsProperties extends DataConnectorTenantId {}
+
+/**
+ * Represents MicrosoftPurviewInformationProtection requirements check request.
+ */
+model MicrosoftPurviewInformationProtectionCheckRequirements
+  extends DataConnectorsCheckRequirements {
+  /**
+   * MicrosoftPurviewInformationProtection requirements check properties.
+   */
+  properties?: MicrosoftPurviewInformationProtectionCheckRequirementsProperties;
+
+  /**
+   * Describes the kind of connector to be checked.
+   */
+  kind: "MicrosoftPurviewInformationProtection";
+}
+
+/**
+ * MicrosoftPurviewInformationProtection requirements check properties.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model MicrosoftPurviewInformationProtectionCheckRequirementsProperties
+  extends DataConnectorTenantId {}
+
+/**
+ * Represents Office365 Project requirements check request.
+ */
+model Office365ProjectCheckRequirements
+  extends DataConnectorsCheckRequirements {
+  /**
+   * Office365 Project requirements check properties.
+   */
+  properties?: Office365ProjectCheckRequirementsProperties;
+
+  /**
+   * Describes the kind of connector to be checked.
+   */
+  kind: "Office365Project";
+}
+
+/**
+ * Office365 Project requirements check properties.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model Office365ProjectCheckRequirementsProperties
+  extends DataConnectorTenantId {}
+
+/**
+ * Represents Office PowerBI requirements check request.
+ */
+model OfficePowerBICheckRequirements extends DataConnectorsCheckRequirements {
+  /**
+   * Office Power BI requirements check properties.
+   */
+  properties?: OfficePowerBICheckRequirementsProperties;
+
+  /**
+   * Describes the kind of connector to be checked.
+   */
+  kind: "OfficePowerBI";
+}
+
+/**
+ * Office PowerBI requirements check properties.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model OfficePowerBICheckRequirementsProperties extends DataConnectorTenantId {}
+
+/**
+ * Represents PurviewAudit requirements check request.
+ */
+model PurviewAuditCheckRequirements extends DataConnectorsCheckRequirements {
+  /**
+   * PurviewAudit requirements check properties.
+   */
+  properties?: PurviewAuditCheckRequirementsProperties;
+
+  /**
+   * Describes the kind of connector to be checked.
+   */
+  kind: "PurviewAudit";
+}
+
+/**
+ * PurviewAudit requirements check properties.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model PurviewAuditCheckRequirementsProperties extends DataConnectorTenantId {}
+
+/**
+ * Threat Intelligence Platforms data connector check requirements
+ */
+model TICheckRequirements extends DataConnectorsCheckRequirements {
+  /**
+   * Threat Intelligence Platforms data connector check required properties
+   */
+  properties?: TICheckRequirementsProperties;
+
+  /**
+   * Describes the kind of connector to be checked.
+   */
+  kind: "ThreatIntelligence";
+}
+
+/**
+ * Threat Intelligence Platforms data connector required properties.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model TICheckRequirementsProperties extends DataConnectorTenantId {}
+
+/**
+ * Threat Intelligence TAXII data connector check requirements
+ */
+model TiTaxiiCheckRequirements extends DataConnectorsCheckRequirements {
+  /**
+   * Threat Intelligence TAXII check required properties.
+   */
+  properties?: TiTaxiiCheckRequirementsProperties;
+
+  /**
+   * Describes the kind of connector to be checked.
+   */
+  kind: "ThreatIntelligenceTaxii";
+}
+
+/**
+ * Threat Intelligence TAXII data connector required properties.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model TiTaxiiCheckRequirementsProperties extends DataConnectorTenantId {}
+
+/**
+ * Represents IoT requirements check request.
+ */
+model IoTCheckRequirements extends DataConnectorsCheckRequirements {
+  /**
+   * IoT requirements check properties.
+   */
+  properties?: IoTCheckRequirementsProperties;
+
+  /**
+   * Describes the kind of connector to be checked.
+   */
+  kind: "IOT";
+}
+
+/**
+ * IoT requirements check properties.
+ */
+model IoTCheckRequirementsProperties {
+  /**
+   * The subscription id to connect to, and get the data from.
+   */
+  subscriptionId?: string;
+}
+
+/**
+ * Represents AADIP (Azure Active Directory Identity Protection) data connector.
  */
 #suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
 model AADDataConnector extends DataConnector {
   /**
-   * Microsoft Entra ID data connector properties.
+   * AADIP (Azure Active Directory Identity Protection) data connector properties.
    */
   properties?: AADDataConnectorProperties;
 
@@ -8560,22 +10824,12 @@ model AADDataConnector extends DataConnector {
 }
 
 /**
- * Microsoft Entra ID data connector properties.
+ * AADIP (Azure Active Directory Identity Protection) data connector properties.
  */
 #suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
 model AADDataConnectorProperties {
   ...DataConnectorTenantId;
   ...DataConnectorWithAlertsProperties;
-}
-
-/**
- * Properties data connector on tenant level.
- */
-model DataConnectorTenantId {
-  /**
-   * The tenant id to connect to, and get the data from.
-   */
-  tenantId: string;
 }
 
 /**
@@ -8606,6 +10860,179 @@ model DataConnectorDataTypeCommon {
    * Describe whether this data type connection is enabled or not.
    */
   state: DataTypeState;
+}
+
+/**
+ * Represents Microsoft Threat Intelligence data connector.
+ */
+model MstiDataConnector extends DataConnector {
+  /**
+   * Microsoft Threat Intelligence data connector properties.
+   */
+  properties?: MstiDataConnectorProperties;
+
+  /**
+   * The data connector kind
+   */
+  kind: "MicrosoftThreatIntelligence";
+}
+
+/**
+ * Microsoft Threat Intelligence data connector properties.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model MstiDataConnectorProperties extends DataConnectorTenantId {
+  /**
+   * The available data types for the connector.
+   */
+  dataTypes: MstiDataConnectorDataTypes;
+}
+
+/**
+ * The available data types for Microsoft Threat Intelligence Platforms data connector.
+ */
+model MstiDataConnectorDataTypes {
+  /**
+   * Data type for Microsoft Threat Intelligence Platforms data connector.
+   */
+  microsoftEmergingThreatFeed: MstiDataConnectorDataTypesMicrosoftEmergingThreatFeed;
+}
+
+/**
+ * Data type for Microsoft Threat Intelligence Platforms data connector.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model MstiDataConnectorDataTypesMicrosoftEmergingThreatFeed
+  extends DataConnectorDataTypeCommon {
+  /**
+   * The lookback period for the feed to be imported.
+   */
+  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
+  lookbackPeriod: utcDateTime;
+}
+
+/**
+ * Represents Microsoft Defender for Threat Intelligence Premium data connector.
+ */
+model PremiumMicrosoftDefenderForThreatIntelligence extends DataConnector {
+  /**
+   * Microsoft Defender for Threat Intelligence Premium data connector properties.
+   */
+  properties?: PremiumMdtiDataConnectorProperties;
+
+  /**
+   * The data connector kind
+   */
+  kind: "PremiumMicrosoftDefenderForThreatIntelligence";
+}
+
+/**
+ * Microsoft Defender for Threat Intelligence Premium data connector properties.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model PremiumMdtiDataConnectorProperties extends DataConnectorTenantId {
+  /**
+   * The lookback period for the feed to be imported. The date-time to begin importing the feed from, for example: 2024-01-01T00:00:00.000Z.
+   */
+  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
+  lookbackPeriod: utcDateTime;
+
+  /**
+   * The flag to indicate whether the tenant has the premium SKU required to access this connector.
+   */
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+  requiredSKUsPresent?: boolean;
+
+  /**
+   * The available data types for the connector.
+   */
+  dataTypes: PremiumMdtiDataConnectorDataTypes;
+}
+
+/**
+ * The available data types for Microsoft Defender for Threat Intelligence Premium data connector.
+ */
+model PremiumMdtiDataConnectorDataTypes {
+  /**
+   * Data type for Microsoft Defender for Threat Intelligence Premium data connector.
+   */
+  connector: PremiumMdtiDataConnectorDataTypesConnector;
+}
+
+/**
+ * Data type for Microsoft Defender for Threat Intelligence Premium data connector.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "For backward compatibility"
+model PremiumMdtiDataConnectorDataTypesConnector
+  extends DataConnectorDataTypeCommon {}
+
+/**
+ * Represents MTP (Microsoft Threat Protection) data connector.
+ */
+model MTPDataConnector extends DataConnector {
+  /**
+   * MTP (Microsoft Threat Protection) data connector properties.
+   */
+  properties?: MTPDataConnectorProperties;
+
+  /**
+   * The data connector kind
+   */
+  kind: "MicrosoftThreatProtection";
+}
+
+/**
+ * MTP (Microsoft Threat Protection) data connector properties.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model MTPDataConnectorProperties extends DataConnectorTenantId {
+  /**
+   * The available data types for the connector.
+   */
+  dataTypes: MTPDataConnectorDataTypes;
+
+  /**
+   * The available filtered providers for the connector.
+   */
+  filteredProviders?: MtpFilteredProviders;
+}
+
+/**
+ * The available data types for Microsoft Threat Protection Platforms data connector.
+ */
+model MTPDataConnectorDataTypes {
+  /**
+   * Incidents data type for Microsoft Threat Protection Platforms data connector.
+   */
+  incidents: MTPDataConnectorDataTypesIncidents;
+
+  /**
+   * Alerts data type for Microsoft Threat Protection Platforms data connector.
+   */
+  alerts?: MTPDataConnectorDataTypesAlerts;
+}
+
+/**
+ * Incidents data type for Microsoft Threat Protection Platforms data connector.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model MTPDataConnectorDataTypesIncidents extends DataConnectorDataTypeCommon {}
+
+/**
+ * Alerts data type for Microsoft Threat Protection Platforms data connector.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model MTPDataConnectorDataTypesAlerts extends DataConnectorDataTypeCommon {}
+
+/**
+ * Represents the connector's Filtered providers
+ */
+model MtpFilteredProviders {
+  /**
+   * Alerts filtered providers. When filters are not applied, all alerts will stream through the MTP pipeline, still in private preview for all products EXCEPT MDA and MDI, which are in GA state.
+   */
+  alerts: MtpProvider[];
 }
 
 /**
@@ -8708,6 +11135,62 @@ model AwsCloudTrailDataConnectorDataTypes {
 #suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "For backward compatibility"
 model AwsCloudTrailDataConnectorDataTypesLogs
   extends DataConnectorDataTypeCommon {}
+
+/**
+ * Represents Amazon Web Services S3 data connector.
+ */
+model AwsS3DataConnector extends DataConnector {
+  /**
+   * Amazon Web Services S3 data connector properties.
+   */
+  properties?: AwsS3DataConnectorProperties;
+
+  /**
+   * The data connector kind
+   */
+  kind: "AmazonWebServicesS3";
+}
+
+/**
+ * Amazon Web Services S3 data connector properties.
+ */
+model AwsS3DataConnectorProperties {
+  /**
+   * The logs destination table name in LogAnalytics.
+   */
+  destinationTable: string;
+
+  /**
+   * The AWS sqs urls for the connector.
+   */
+  sqsUrls: string[];
+
+  /**
+   * The Aws Role Arn that is used to access the Aws account.
+   */
+  roleArn: string;
+
+  /**
+   * The available data types for the connector.
+   */
+  dataTypes: AwsS3DataConnectorDataTypes;
+}
+
+/**
+ * The available data types for Amazon Web Services S3 data connector.
+ */
+model AwsS3DataConnectorDataTypes {
+  /**
+   * Logs data type.
+   */
+  logs: AwsS3DataConnectorDataTypesLogs;
+}
+
+/**
+ * Logs data type.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model AwsS3DataConnectorDataTypesLogs extends DataConnectorDataTypeCommon {}
 
 /**
  * Represents Rest Api Poller data connector.
@@ -9119,13 +11602,87 @@ model RestApiPollerRequestPagingCountBaseConfig
 }
 
 /**
+ * Represents Google Cloud Platform data connector.
+ */
+model GCPDataConnector extends DataConnector {
+  /**
+   * Google Cloud Platform data connector properties.
+   */
+  properties?: GCPDataConnectorProperties;
+
+  /**
+   * The data connector kind
+   */
+  kind: "GCP";
+}
+
+/**
+ * Google Cloud Platform data connector properties.
+ */
+model GCPDataConnectorProperties {
+  /**
+   * The name of the connector definition that represents the UI config.
+   */
+  connectorDefinitionName: string;
+
+  /**
+   * The auth section of the connector.
+   */
+  auth: GCPAuthProperties;
+
+  /**
+   * The request section of the connector.
+   */
+  request: GCPRequestProperties;
+
+  /**
+   * The configuration of the destination of the data.
+   */
+  dcrConfig?: DCRConfiguration;
+}
+
+/**
+ * Google Cloud Platform auth section properties.
+ */
+model GCPAuthProperties {
+  /**
+   * The service account that is used to access the GCP project.
+   */
+  serviceAccountEmail: string;
+
+  /**
+   * The GCP project number.
+   */
+  projectNumber: string;
+
+  /**
+   * The workload identity provider id that is used to gain access to the GCP project.
+   */
+  workloadIdentityProviderId: string;
+}
+
+/**
+ * Google Cloud Platform request section properties.
+ */
+model GCPRequestProperties {
+  /**
+   * The GCP project id.
+   */
+  projectId: string;
+
+  /**
+   * The GCP pub/sub subscription names.
+   */
+  subscriptionNames: string[];
+}
+
+/**
  * Model for authentication with the API Key. Will result in additional header on the request (default behavior) to the remote server: 'ApiKeyName: ApiKeyIdentifier ApiKey'. If 'IsApiKeyInPostPayload' is true it will send it in the body of the request and not the header.
  */
 model ApiKeyAuthModel extends CcpAuthConfig {
   /**
    * API Key for the user secret key credential
    */
-  @secret
   apiKey: string;
 
   /**
@@ -9543,6 +12100,281 @@ model MCASDataConnectorDataTypes extends AlertsDataTypeOfDataConnector {
 }
 
 /**
+ * Represents Dynamics365 data connector.
+ */
+model Dynamics365DataConnector extends DataConnector {
+  /**
+   * Dynamics365 data connector properties.
+   */
+  properties?: Dynamics365DataConnectorProperties;
+
+  /**
+   * The data connector kind
+   */
+  kind: "Dynamics365";
+}
+
+/**
+ * Dynamics365 data connector properties.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model Dynamics365DataConnectorProperties extends DataConnectorTenantId {
+  /**
+   * The available data types for the connector.
+   */
+  dataTypes: Dynamics365DataConnectorDataTypes;
+}
+
+/**
+ * The available data types for Dynamics365 data connector.
+ */
+model Dynamics365DataConnectorDataTypes {
+  /**
+   * Common Data Service data type connection.
+   */
+  dynamics365CdsActivities: Dynamics365DataConnectorDataTypesDynamics365CdsActivities;
+}
+
+/**
+ * Common Data Service data type connection.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model Dynamics365DataConnectorDataTypesDynamics365CdsActivities
+  extends DataConnectorDataTypeCommon {}
+
+/**
+ * Represents OfficeATP (Office 365 Advanced Threat Protection) data connector.
+ */
+model OfficeATPDataConnector extends DataConnector {
+  /**
+   * OfficeATP (Office 365 Advanced Threat Protection) data connector properties.
+   */
+  properties?: OfficeATPDataConnectorProperties;
+
+  /**
+   * The data connector kind
+   */
+  kind: "OfficeATP";
+}
+
+/**
+ * OfficeATP (Office 365 Advanced Threat Protection) data connector properties.
+ */
+model OfficeATPDataConnectorProperties {
+  ...DataConnectorTenantId;
+  ...DataConnectorWithAlertsProperties;
+}
+
+/**
+ * Represents Microsoft Purview Information Protection data connector.
+ */
+model MicrosoftPurviewInformationProtectionDataConnector extends DataConnector {
+  /**
+   * Microsoft Purview Information Protection data connector properties.
+   */
+  properties?: MicrosoftPurviewInformationProtectionDataConnectorProperties;
+
+  /**
+   * The data connector kind
+   */
+  kind: "MicrosoftPurviewInformationProtection";
+}
+
+/**
+ * Microsoft Purview Information Protection data connector properties.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model MicrosoftPurviewInformationProtectionDataConnectorProperties
+  extends DataConnectorTenantId {
+  /**
+   * The available data types for the connector.
+   */
+  dataTypes: MicrosoftPurviewInformationProtectionConnectorDataTypes;
+}
+
+/**
+ * The available data types for Microsoft Purview Information Protection data connector.
+ */
+model MicrosoftPurviewInformationProtectionConnectorDataTypes {
+  /**
+   * Logs data type.
+   */
+  logs: MicrosoftPurviewInformationProtectionConnectorDataTypesLogs;
+}
+
+/**
+ * Logs data type.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model MicrosoftPurviewInformationProtectionConnectorDataTypesLogs
+  extends DataConnectorDataTypeCommon {}
+
+/**
+ * Represents Office Microsoft Project data connector.
+ */
+model Office365ProjectDataConnector extends DataConnector {
+  /**
+   * Office Microsoft Project data connector properties.
+   */
+  properties?: Office365ProjectDataConnectorProperties;
+
+  /**
+   * The data connector kind
+   */
+  kind: "Office365Project";
+}
+
+/**
+ * Office Microsoft Project data connector properties.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model Office365ProjectDataConnectorProperties extends DataConnectorTenantId {
+  /**
+   * The available data types for the connector.
+   */
+  dataTypes: Office365ProjectConnectorDataTypes;
+}
+
+/**
+ * The available data types for Office Microsoft Project data connector.
+ */
+model Office365ProjectConnectorDataTypes {
+  /**
+   * Logs data type.
+   */
+  logs: Office365ProjectConnectorDataTypesLogs;
+}
+
+/**
+ * Logs data type.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model Office365ProjectConnectorDataTypesLogs
+  extends DataConnectorDataTypeCommon {}
+
+/**
+ * Represents Office Microsoft PowerBI data connector.
+ */
+model OfficePowerBIDataConnector extends DataConnector {
+  /**
+   * Office Microsoft PowerBI data connector properties.
+   */
+  properties?: OfficePowerBIDataConnectorProperties;
+
+  /**
+   * The data connector kind
+   */
+  kind: "OfficePowerBI";
+}
+
+/**
+ * Office Microsoft PowerBI data connector properties.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model OfficePowerBIDataConnectorProperties extends DataConnectorTenantId {
+  /**
+   * The available data types for the connector.
+   */
+  dataTypes: OfficePowerBIConnectorDataTypes;
+}
+
+/**
+ * The available data types for Office Microsoft PowerBI data connector.
+ */
+model OfficePowerBIConnectorDataTypes {
+  /**
+   * Logs data type.
+   */
+  logs: OfficePowerBIConnectorDataTypesLogs;
+}
+
+/**
+ * Logs data type.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model OfficePowerBIConnectorDataTypesLogs extends DataConnectorDataTypeCommon {}
+
+/**
+ * Represents PurviewAudit data connector.
+ */
+model PurviewAuditDataConnector extends DataConnector {
+  /**
+   * PurviewAudit data connector properties.
+   */
+  properties?: PurviewAuditDataConnectorProperties;
+
+  /**
+   * The data connector kind
+   */
+  kind: "PurviewAudit";
+}
+
+/**
+ * PurviewAudit data connector properties.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model PurviewAuditDataConnectorProperties extends DataConnectorTenantId {
+  /**
+   * The connector definition name (the dataConnectorDefinition resource id).
+   */
+  connectorDefinitionName?: string;
+
+  /**
+   * The source type indicates which kind of data is relevant for this connector.
+   */
+  sourceType?: string;
+
+  /**
+   * The DCR related properties.
+   */
+  dcrConfig?: DCRConfiguration;
+
+  /**
+   * The available data types for the connector.
+   */
+  dataTypes: PurviewAuditConnectorDataTypes;
+}
+
+/**
+ * The available data types for PurviewAudit data connector.
+ */
+model PurviewAuditConnectorDataTypes {
+  /**
+   * Logs data type.
+   */
+  logs: PurviewAuditConnectorDataTypesLogs;
+}
+
+/**
+ * Logs data type.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model PurviewAuditConnectorDataTypesLogs extends DataConnectorDataTypeCommon {}
+
+/**
+ * Represents OfficeIRM (Microsoft Insider Risk Management) data connector.
+ */
+model OfficeIRMDataConnector extends DataConnector {
+  /**
+   * OfficeIRM (Microsoft Insider Risk Management) data connector properties.
+   */
+  properties?: OfficeIRMDataConnectorProperties;
+
+  /**
+   * The data connector kind
+   */
+  kind: "OfficeIRM";
+}
+
+/**
+ * OfficeIRM (Microsoft Insider Risk Management) data connector properties.
+ */
+model OfficeIRMDataConnectorProperties {
+  ...DataConnectorTenantId;
+  ...DataConnectorWithAlertsProperties;
+}
+
+/**
  * Represents MDATP (Microsoft Defender Advanced Threat Protection) data connector.
  */
 #suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
@@ -9566,169 +12398,6 @@ model MDATPDataConnectorProperties {
   ...DataConnectorTenantId;
   ...DataConnectorWithAlertsProperties;
 }
-
-/**
- * Represents threat intelligence data connector.
- */
-#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
-model TIDataConnector extends DataConnector {
-  /**
-   * TI (Threat Intelligence) data connector properties.
-   */
-  properties?: TIDataConnectorProperties;
-
-  /**
-   * The data connector kind
-   */
-  kind: "ThreatIntelligence";
-}
-
-/**
- * TI (Threat Intelligence) data connector properties.
- */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
-#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
-model TIDataConnectorProperties extends DataConnectorTenantId {
-  /**
-   * The lookback period for the feed to be imported.
-   */
-  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
-  #suppress "@azure-tools/typespec-azure-core/no-nullable" "For backward compatibility"
-  tipLookbackPeriod?: utcDateTime | null;
-
-  /**
-   * The available data types for the connector.
-   */
-  dataTypes: TIDataConnectorDataTypes;
-}
-
-/**
- * The available data types for TI (Threat Intelligence) data connector.
- */
-#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
-model TIDataConnectorDataTypes {
-  /**
-   * Data type for indicators connection.
-   */
-  indicators: TIDataConnectorDataTypesIndicators;
-}
-
-/**
- * Data type for indicators connection.
- */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
-#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
-#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "For backward compatibility"
-model TIDataConnectorDataTypesIndicators extends DataConnectorDataTypeCommon {}
-
-/**
- * Represents Microsoft Threat Intelligence data connector.
- */
-#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
-model MSTIDataConnector extends DataConnector {
-  /**
-   * Microsoft Threat Intelligence data connector properties.
-   */
-  properties?: MSTIDataConnectorProperties;
-
-  /**
-   * The data connector kind
-   */
-  kind: "MicrosoftThreatIntelligence";
-}
-
-/**
- * Microsoft Threat Intelligence data connector properties.
- */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
-#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
-model MSTIDataConnectorProperties extends DataConnectorTenantId {
-  /**
-   * The available data types for the connector.
-   */
-  dataTypes: MSTIDataConnectorDataTypes;
-}
-
-/**
- * The available data types for Microsoft Threat Intelligence data connector.
- */
-#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
-model MSTIDataConnectorDataTypes {
-  /**
-   * Data type for Microsoft Threat Intelligence data connector.
-   */
-  microsoftEmergingThreatFeed: MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeed;
-}
-
-/**
- * Data type for Microsoft Threat Intelligence data connector.
- */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
-#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
-model MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeed
-  extends DataConnectorDataTypeCommon {
-  /**
-   * The lookback period for the feed to be imported. The date-time to begin importing the feed from, for example: 2024-01-01T00:00:00.000Z.
-   */
-  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
-  lookbackPeriod: utcDateTime;
-}
-
-/**
- * Represents Microsoft Defender for Threat Intelligence Premium data connector.
- */
-model PremiumMicrosoftDefenderForThreatIntelligence extends DataConnector {
-  /**
-   * Microsoft Defender for Threat Intelligence Premium data connector properties.
-   */
-  properties?: PremiumMdtiDataConnectorProperties;
-
-  /**
-   * The data connector kind
-   */
-  kind: "PremiumMicrosoftDefenderForThreatIntelligence";
-}
-
-/**
- * Microsoft Defender for Threat Intelligence Premium data connector properties.
- */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
-model PremiumMdtiDataConnectorProperties extends DataConnectorTenantId {
-  /**
-   * The lookback period for the feed to be imported. The date-time to begin importing the feed from, for example: 2024-01-01T00:00:00.000Z.
-   */
-  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
-  lookbackPeriod: utcDateTime;
-
-  /**
-   * The flag to indicate whether the tenant has the premium SKU required to access this connector.
-   */
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
-  requiredSKUsPresent?: boolean;
-
-  /**
-   * The available data types for the connector.
-   */
-  dataTypes: PremiumMdtiDataConnectorDataTypes;
-}
-
-/**
- * The available data types for Microsoft Defender for Threat Intelligence Premium data connector.
- */
-model PremiumMdtiDataConnectorDataTypes {
-  /**
-   * Data type for Microsoft Defender for Threat Intelligence Premium data connector.
-   */
-  connector: PremiumMdtiDataConnectorDataTypesConnector;
-}
-
-/**
- * Data type for Microsoft Defender for Threat Intelligence Premium data connector.
- */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
-#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "For backward compatibility"
-model PremiumMdtiDataConnectorDataTypesConnector
-  extends DataConnectorDataTypeCommon {}
 
 /**
  * Represents office data connector.
@@ -9798,6 +12467,1493 @@ model OfficeDataConnectorDataTypesSharePoint
 #suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
 #suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "For backward compatibility"
 model OfficeDataConnectorDataTypesTeams extends DataConnectorDataTypeCommon {}
+
+/**
+ * Represents threat intelligence data connector.
+ */
+#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+model TIDataConnector extends DataConnector {
+  /**
+   * TI (Threat Intelligence) data connector properties.
+   */
+  properties?: TIDataConnectorProperties;
+
+  /**
+   * The data connector kind
+   */
+  kind: "ThreatIntelligence";
+}
+
+/**
+ * TI (Threat Intelligence) data connector properties.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+model TIDataConnectorProperties extends DataConnectorTenantId {
+  /**
+   * The lookback period for the feed to be imported.
+   */
+  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
+  #suppress "@azure-tools/typespec-azure-core/no-nullable" "For backward compatibility"
+  tipLookbackPeriod?: utcDateTime | null;
+
+  /**
+   * The available data types for the connector.
+   */
+  dataTypes: TIDataConnectorDataTypes;
+}
+
+/**
+ * The available data types for TI (Threat Intelligence) data connector.
+ */
+#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+model TIDataConnectorDataTypes {
+  /**
+   * Data type for indicators connection.
+   */
+  indicators: TIDataConnectorDataTypesIndicators;
+}
+
+/**
+ * Data type for indicators connection.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-resource-manager/no-empty-model" "For backward compatibility"
+model TIDataConnectorDataTypesIndicators extends DataConnectorDataTypeCommon {}
+
+/**
+ * Data connector to pull Threat intelligence data from TAXII 2.0/2.1 server
+ */
+model TiTaxiiDataConnector extends DataConnector {
+  /**
+   * Threat intelligence TAXII data connector properties.
+   */
+  properties?: TiTaxiiDataConnectorProperties;
+
+  /**
+   * The data connector kind
+   */
+  kind: "ThreatIntelligenceTaxii";
+}
+
+/**
+ * Threat Intelligence TAXII data connector properties.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model TiTaxiiDataConnectorProperties extends DataConnectorTenantId {
+  /**
+   * The workspace id.
+   */
+  workspaceId?: string;
+
+  /**
+   * The friendly name for the TAXII server.
+   */
+  friendlyName?: string;
+
+  /**
+   * The API root for the TAXII server.
+   */
+  taxiiServer?: string;
+
+  /**
+   * The collection id of the TAXII server.
+   */
+  collectionId?: string;
+
+  /**
+   * The userName for the TAXII server.
+   */
+  userName?: string;
+
+  /**
+   * The password for the TAXII server.
+   */
+  password?: string;
+
+  /**
+   * The lookback period for the TAXII server.
+   */
+  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
+  taxiiLookbackPeriod?: utcDateTime | null;
+
+  /**
+   * The polling frequency for the TAXII server.
+   */
+  pollingFrequency: PollingFrequency | null;
+
+  /**
+   * The available data types for Threat Intelligence TAXII data connector.
+   */
+  dataTypes: TiTaxiiDataConnectorDataTypes;
+}
+
+/**
+ * The available data types for Threat Intelligence TAXII data connector.
+ */
+model TiTaxiiDataConnectorDataTypes {
+  /**
+   * Data type for TAXII connector.
+   */
+  taxiiClient: TiTaxiiDataConnectorDataTypesTaxiiClient;
+}
+
+/**
+ * Data type for TAXII connector.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model TiTaxiiDataConnectorDataTypesTaxiiClient
+  extends DataConnectorDataTypeCommon {}
+
+/**
+ * Represents IoT data connector.
+ */
+model IoTDataConnector extends DataConnector {
+  /**
+   * IoT data connector properties.
+   */
+  properties?: IoTDataConnectorProperties;
+
+  /**
+   * The data connector kind
+   */
+  kind: "IOT";
+}
+
+/**
+ * IoT data connector properties.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model IoTDataConnectorProperties extends DataConnectorWithAlertsProperties {
+  /**
+   * The subscription id to connect to, and get the data from.
+   */
+  subscriptionId?: string;
+}
+
+/**
+ * Represents Codeless UI data connector.
+ */
+model CodelessUiDataConnector extends DataConnector {
+  /**
+   * Codeless UI data connector properties
+   */
+  properties?: CodelessParameters;
+
+  /**
+   * The data connector kind
+   */
+  kind: "GenericUI";
+}
+
+/**
+ * Represents Codeless UI data connector
+ */
+model CodelessParameters {
+  /**
+   * Config to describe the instructions blade
+   */
+  connectorUiConfig?: CodelessUiConnectorConfigProperties;
+}
+
+/**
+ * Config to describe the instructions blade
+ */
+model CodelessUiConnectorConfigProperties {
+  /**
+   * Connector blade title
+   */
+  title: string;
+
+  /**
+   * Connector publisher name
+   */
+  publisher: string;
+
+  /**
+   * Connector description
+   */
+  descriptionMarkdown: string;
+
+  /**
+   * An optional custom image to be used when displaying the connector within Azure Sentinel's connector's gallery
+   */
+  customImage?: string;
+
+  /**
+   * Name of the table the connector will insert the data to
+   */
+  graphQueriesTableName: string;
+
+  /**
+   * The graph query to show the current data status
+   */
+  @identifiers(#[])
+  graphQueries: CodelessUiConnectorConfigPropertiesGraphQueriesItem[];
+
+  /**
+   * The sample queries for the connector
+   */
+  @identifiers(#[])
+  sampleQueries: CodelessUiConnectorConfigPropertiesSampleQueriesItem[];
+
+  /**
+   * Data types to check for last data received
+   */
+  @identifiers(#[])
+  dataTypes: CodelessUiConnectorConfigPropertiesDataTypesItem[];
+
+  /**
+   * Define the way the connector check connectivity
+   */
+  @identifiers(#[])
+  connectivityCriteria: CodelessUiConnectorConfigPropertiesConnectivityCriteriaItem[];
+
+  /**
+   * Connector Availability Status
+   */
+  availability: Availability;
+
+  /**
+   * Permissions required for the connector
+   */
+  permissions: Permissions;
+
+  /**
+   * Instruction steps to enable the connector
+   */
+  @identifiers(#[])
+  instructionSteps: CodelessUiConnectorConfigPropertiesInstructionStepsItem[];
+}
+
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+model CodelessUiConnectorConfigPropertiesGraphQueriesItem
+  extends GraphQueries {}
+
+/**
+ * The graph query to show the current data status
+ */
+model GraphQueries {
+  /**
+   * the metric that the query is checking
+   */
+  metricName?: string;
+
+  /**
+   * The legend for the graph
+   */
+  legend?: string;
+
+  /**
+   * The base query for the graph
+   */
+  baseQuery?: string;
+}
+
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+model CodelessUiConnectorConfigPropertiesSampleQueriesItem
+  extends SampleQueries {}
+
+/**
+ * The sample queries for the connector
+ */
+model SampleQueries {
+  /**
+   * The sample query description
+   */
+  description?: string;
+
+  /**
+   * the sample query
+   */
+  query?: string;
+}
+
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+model CodelessUiConnectorConfigPropertiesDataTypesItem
+  extends LastDataReceivedDataType {}
+
+/**
+ * Data type for last data received
+ */
+model LastDataReceivedDataType {
+  /**
+   * Name of the data type to show in the graph. can be use with {{graphQueriesTableName}} placeholder
+   */
+  name?: string;
+
+  /**
+   * Query for indicate last data received
+   */
+  lastDataReceivedQuery?: string;
+}
+
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+model CodelessUiConnectorConfigPropertiesConnectivityCriteriaItem
+  extends ConnectivityCriteria {}
+
+/**
+ * Setting for the connector check connectivity
+ */
+model ConnectivityCriteria {
+  /**
+   * type of connectivity
+   */
+  type?: ConnectivityType;
+
+  /**
+   * Queries for checking connectivity
+   */
+  value?: string[];
+}
+
+/**
+ * Connector Availability Status
+ */
+model Availability {
+  /**
+   * The connector Availability Status
+   */
+  status?: 1;
+
+  /**
+   * Set connector as preview
+   */
+  isPreview?: boolean;
+}
+
+/**
+ * Permissions required for the connector
+ */
+model Permissions {
+  /**
+   * Resource provider permissions required for the connector
+   */
+  @identifiers(#[])
+  resourceProvider?: PermissionsResourceProviderItem[];
+
+  /**
+   * Customs permissions required for the connector
+   */
+  @identifiers(#[])
+  customs?: PermissionsCustomsItem[];
+}
+
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+model PermissionsResourceProviderItem extends ResourceProvider {}
+
+/**
+ * Resource provider permissions required for the connector
+ */
+model ResourceProvider {
+  /**
+   * Provider name
+   */
+  provider?: ProviderName;
+
+  /**
+   * Permission description text
+   */
+  permissionsDisplayText?: string;
+
+  /**
+   * Permission provider display name
+   */
+  providerDisplayName?: string;
+
+  /**
+   * Permission provider scope
+   */
+  scope?: PermissionProviderScope;
+
+  /**
+   * Required permissions for the connector
+   */
+  requiredPermissions?: RequiredPermissions;
+}
+
+/**
+ * Required permissions for the connector
+ */
+model RequiredPermissions {
+  /**
+   * action permission
+   */
+  action?: boolean;
+
+  /**
+   * write permission
+   */
+  write?: boolean;
+
+  /**
+   * read permission
+   */
+  read?: boolean;
+
+  /**
+   * delete permission
+   */
+  delete?: boolean;
+}
+
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+model PermissionsCustomsItem extends Customs {}
+
+/**
+ * Customs permissions required for the connector
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model Customs extends CustomsPermission {}
+
+/**
+ * Customs permissions required for the connector
+ */
+model CustomsPermission {
+  /**
+   * Customs permissions name
+   */
+  name?: string;
+
+  /**
+   * Customs permissions description
+   */
+  description?: string;
+}
+
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+model CodelessUiConnectorConfigPropertiesInstructionStepsItem
+  extends InstructionSteps {}
+
+/**
+ * Instruction steps to enable the connector
+ */
+model InstructionSteps {
+  /**
+   * Instruction step title
+   */
+  title?: string;
+
+  /**
+   * Instruction step description
+   */
+  description?: string;
+
+  /**
+   * Instruction step details
+   */
+  @identifiers(#[])
+  instructions?: InstructionStepsInstructionsItem[];
+}
+
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+model InstructionStepsInstructionsItem extends ConnectorInstructionModelBase {}
+
+/**
+ * Instruction step details
+ */
+model ConnectorInstructionModelBase {
+  /**
+   * The parameters for the setting
+   */
+  parameters?: unknown;
+
+  /**
+   * The kind of the setting
+   */
+  type: SettingType;
+}
+
+/**
+ * Represents Codeless API Polling data connector.
+ */
+model CodelessApiPollingDataConnector extends DataConnector {
+  /**
+   * Codeless poling data connector properties
+   */
+  properties?: ApiPollingParameters;
+
+  /**
+   * The data connector kind
+   */
+  kind: "APIPolling";
+}
+
+/**
+ * Represents Codeless API Polling data connector
+ */
+model ApiPollingParameters {
+  /**
+   * Config to describe the instructions blade
+   */
+  connectorUiConfig?: CodelessUiConnectorConfigProperties;
+
+  /**
+   * Config to describe the polling instructions
+   */
+  pollingConfig?: CodelessConnectorPollingConfigProperties;
+}
+
+/**
+ * Config to describe the polling config for API poller connector
+ */
+model CodelessConnectorPollingConfigProperties {
+  /**
+   * The poller active status
+   */
+  isActive?: boolean;
+
+  /**
+   * Describe the authentication type of the poller
+   */
+  auth: CodelessConnectorPollingAuthProperties;
+
+  /**
+   * Describe the poll request config parameters of the poller
+   */
+  request: CodelessConnectorPollingRequestProperties;
+
+  /**
+   * Describe the poll request paging config of the poller
+   */
+  paging?: CodelessConnectorPollingPagingProperties;
+
+  /**
+   * Describe the response config parameters of the poller
+   */
+  response?: CodelessConnectorPollingResponseProperties;
+}
+
+/**
+ * Describe the authentication properties needed to successfully authenticate with the server
+ */
+model CodelessConnectorPollingAuthProperties {
+  /**
+   * The authentication type
+   */
+  authType: string;
+
+  /**
+   * The header name which the token is sent with
+   */
+  apiKeyName?: string;
+
+  /**
+   * A prefix send in the header before the actual token
+   */
+  apiKeyIdentifier?: string;
+
+  /**
+   * Marks if the key should sent in header
+   */
+  isApiKeyInPostPayload?: string;
+
+  /**
+   * Describes the flow name, for example 'AuthCode' for Oauth 2.0
+   */
+  flowName?: string;
+
+  /**
+   * The endpoint used to issue a token, used in Oauth 2.0 flow
+   */
+  tokenEndpoint?: string;
+
+  /**
+   * The endpoint used to authorize the user, used in Oauth 2.0 flow
+   */
+  authorizationEndpoint?: string;
+
+  /**
+   * The query parameters used in authorization request, used in Oauth 2.0 flow
+   */
+  authorizationEndpointQueryParameters?: unknown;
+
+  /**
+   * The redirect endpoint where we will get the authorization code, used in Oauth 2.0 flow
+   */
+  redirectionEndpoint?: string;
+
+  /**
+   * The query headers used in token request, used in Oauth 2.0 flow
+   */
+  tokenEndpointHeaders?: unknown;
+
+  /**
+   * The query parameters used in token request, used in Oauth 2.0 flow
+   */
+  tokenEndpointQueryParameters?: unknown;
+
+  /**
+   * Marks if we should send the client secret in header or payload, used in Oauth 2.0 flow
+   */
+  isClientSecretInHeader?: boolean;
+
+  /**
+   * The OAuth token scope
+   */
+  scope?: string;
+}
+
+/**
+ * Describe the request properties needed to successfully pull from the server
+ */
+model CodelessConnectorPollingRequestProperties {
+  /**
+   * Describe the endpoint we should pull the data from
+   */
+  apiEndpoint: string;
+
+  /**
+   * Defines the rate limit QPS
+   */
+  rateLimitQps?: int32;
+
+  /**
+   * The window interval we will use the pull the data
+   */
+  queryWindowInMin: int32;
+
+  /**
+   * The http method type we will use in the poll request, GET or POST
+   */
+  httpMethod: string;
+
+  /**
+   * The time format will be used the query events in a specific window
+   */
+  queryTimeFormat: string;
+
+  /**
+   * Describe the amount of time we should try and poll the data in case of failure
+   */
+  retryCount?: int32;
+
+  /**
+   * The number of seconds we will consider as a request timeout
+   */
+  timeoutInSeconds?: int32;
+
+  /**
+   * Describe the headers sent in the poll request
+   */
+  headers?: unknown;
+
+  /**
+   * Describe the query parameters sent in the poll request
+   */
+  queryParameters?: unknown;
+
+  /**
+   * For advanced scenarios for example user name/password embedded in nested JSON payload
+   */
+  queryParametersTemplate?: string;
+
+  /**
+   * This will be used the query events from a start of the time window
+   */
+  startTimeAttributeName?: string;
+
+  /**
+   * This will be used the query events from the end of the time window
+   */
+  endTimeAttributeName?: string;
+}
+
+/**
+ * Describe the properties needed to make a pagination call
+ */
+model CodelessConnectorPollingPagingProperties {
+  /**
+   * Describes the type. could be 'None', 'PageToken', 'PageCount', 'TimeStamp'
+   */
+  pagingType: string;
+
+  /**
+   * Defines the name of a next page attribute
+   */
+  nextPageParaName?: string;
+
+  /**
+   * Defines the path to a next page token JSON
+   */
+  nextPageTokenJsonPath?: string;
+
+  /**
+   * Defines the path to a page count attribute
+   */
+  pageCountAttributePath?: string;
+
+  /**
+   * Defines the path to a page total count attribute
+   */
+  pageTotalCountAttributePath?: string;
+
+  /**
+   * Defines the path to a paging time stamp attribute
+   */
+  pageTimeStampAttributePath?: string;
+
+  /**
+   * Determines whether to search for the latest time stamp in the events list
+   */
+  searchTheLatestTimeStampFromEventsList?: string;
+
+  /**
+   * Defines the name of the page size parameter
+   */
+  pageSizeParaName?: string;
+
+  /**
+   * Defines the paging size
+   */
+  pageSize?: int32;
+}
+
+/**
+ * Describes the response from the external server
+ */
+model CodelessConnectorPollingResponseProperties {
+  /**
+   * Describes the path we should extract the data in the response
+   */
+  eventsJsonPaths: string[];
+
+  /**
+   * Describes the path we should extract the status code in the response
+   */
+  successStatusJsonPath?: string;
+
+  /**
+   * Describes the path we should extract the status value in the response
+   */
+  successStatusValue?: string;
+
+  /**
+   * Describes if the data in the response is Gzip
+   */
+  isGzipCompressed?: boolean;
+}
+
+/**
+ * Represents Activity timeline item.
+ */
+model ActivityTimelineItem extends EntityTimelineItem {
+  /**
+   * The activity query id.
+   */
+  queryId: string;
+
+  /**
+   * The grouping bucket start time.
+   */
+  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
+  bucketStartTimeUTC: utcDateTime;
+
+  /**
+   * The grouping bucket end time.
+   */
+  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
+  bucketEndTimeUTC: utcDateTime;
+
+  /**
+   * The time of the first activity in the grouping bucket.
+   */
+  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
+  firstActivityTimeUTC: utcDateTime;
+
+  /**
+   * The time of the last activity in the grouping bucket.
+   */
+  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
+  lastActivityTimeUTC: utcDateTime;
+
+  /**
+   * The activity timeline content.
+   */
+  content: string;
+
+  /**
+   * The activity timeline title.
+   */
+  title: string;
+
+  /**
+   * The entity query kind type.
+   */
+  kind: "Activity";
+}
+
+/**
+ * Represents bookmark timeline item.
+ */
+model BookmarkTimelineItem extends EntityTimelineItem {
+  /**
+   * The bookmark azure resource id.
+   */
+  azureResourceId: string;
+
+  /**
+   * The bookmark display name.
+   */
+  displayName?: string;
+
+  /**
+   * The notes of the bookmark
+   */
+  notes?: string;
+
+  /**
+   * The bookmark end time.
+   */
+  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
+  endTimeUtc?: utcDateTime;
+
+  /**
+   * The bookmark start time.
+   */
+  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
+  startTimeUtc?: utcDateTime;
+
+  /**
+   * The bookmark event time.
+   */
+  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
+  eventTime?: utcDateTime;
+
+  /**
+   * Describes a user that created the bookmark
+   */
+  createdBy?: UserInfo;
+
+  /**
+   * List of labels relevant to this bookmark
+   */
+  labels?: string[];
+
+  /**
+   * The entity query kind type.
+   */
+  kind: "Bookmark";
+}
+
+/**
+ * Represents anomaly timeline item.
+ */
+model AnomalyTimelineItem extends EntityTimelineItem {
+  /**
+   * The anomaly azure resource id.
+   */
+  azureResourceId: string;
+
+  /**
+   * The anomaly product name.
+   */
+  productName?: string;
+
+  /**
+   * The anomaly description.
+   */
+  description?: string;
+
+  /**
+   * The anomaly name.
+   */
+  displayName: string;
+
+  /**
+   * The anomaly end time.
+   */
+  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
+  endTimeUtc: utcDateTime;
+
+  /**
+   * The anomaly start time.
+   */
+  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
+  startTimeUtc: utcDateTime;
+
+  /**
+   * The anomaly generated time.
+   */
+  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
+  timeGenerated: utcDateTime;
+
+  /**
+   * The name of the anomaly vendor.
+   */
+  vendor?: string;
+
+  /**
+   * The intent of the anomaly.
+   */
+  intent?: string;
+
+  /**
+   * The techniques of the anomaly.
+   */
+  techniques?: string[];
+
+  /**
+   * The reasons that cause the anomaly.
+   */
+  reasons?: string[];
+
+  /**
+   * The entity query kind type.
+   */
+  kind: "Anomaly";
+}
+
+/**
+ * An properties abstract Query item for entity
+ */
+model EntityQueryItemProperties {
+  /**
+   * Data types for template
+   */
+  @identifiers(#[])
+  dataTypes?: EntityQueryItemPropertiesDataTypesItem[];
+
+  /**
+   * The type of the entity
+   */
+  inputEntityType?: EntityType;
+
+  /**
+   * Data types for template
+   */
+  requiredInputFieldsSets?: string[][];
+
+  /**
+   * The query applied only to entities matching to all filters
+   */
+  entitiesFilter?: unknown;
+}
+
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+model EntityQueryItemPropertiesDataTypesItem {
+  /**
+   * Data type name
+   */
+  dataType?: string;
+}
+
+/**
+ * Represents Insight Query.
+ */
+model InsightQueryItem extends EntityQueryItem {
+  /**
+   * Properties bag for InsightQueryItem
+   */
+  properties?: InsightQueryItemProperties;
+
+  /**
+   * The kind of the entity query
+   */
+  kind: "Insight";
+}
+
+/**
+ * Represents Insight Query.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model InsightQueryItemProperties extends EntityQueryItemProperties {
+  /**
+   * The insight display name.
+   */
+  displayName?: string;
+
+  /**
+   * The insight description.
+   */
+  description?: string;
+
+  /**
+   * The base query of the insight.
+   */
+  baseQuery?: string;
+
+  /**
+   * The insight table query.
+   */
+  tableQuery?: InsightQueryItemPropertiesTableQuery;
+
+  /**
+   * The insight chart query.
+   */
+  chartQuery?: unknown;
+
+  /**
+   * The activity query definitions.
+   */
+  additionalQuery?: InsightQueryItemPropertiesAdditionalQuery;
+
+  /**
+   * The insight chart query.
+   */
+  defaultTimeRange?: InsightQueryItemPropertiesDefaultTimeRange;
+
+  /**
+   * The insight chart query.
+   */
+  referenceTimeRange?: InsightQueryItemPropertiesReferenceTimeRange;
+}
+
+/**
+ * The insight table query.
+ */
+model InsightQueryItemPropertiesTableQuery {
+  /**
+   * List of insight column definitions.
+   */
+  @identifiers(#[])
+  columnsDefinitions?: InsightQueryItemPropertiesTableQueryColumnsDefinitionsItem[];
+
+  /**
+   * List of insight queries definitions.
+   */
+  @identifiers(#[])
+  queriesDefinitions?: InsightQueryItemPropertiesTableQueryQueriesDefinitionsItem[];
+}
+
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+model InsightQueryItemPropertiesTableQueryColumnsDefinitionsItem {
+  /**
+   * Insight column header.
+   */
+  header?: string;
+
+  /**
+   * Insights Column type.
+   */
+  outputType?: OutputType;
+
+  /**
+   * Is query supports deep-link.
+   */
+  supportDeepLink?: boolean;
+}
+
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+model InsightQueryItemPropertiesTableQueryQueriesDefinitionsItem {
+  /**
+   * Insight column header.
+   */
+  filter?: string;
+
+  /**
+   * Insight column header.
+   */
+  summarize?: string;
+
+  /**
+   * Insight column header.
+   */
+  project?: string;
+
+  /**
+   * Insight column header.
+   */
+  @identifiers(#[])
+  linkColumnsDefinitions?: InsightQueryItemPropertiesTableQueryQueriesDefinitionsPropertiesItemsItem[];
+}
+
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+model InsightQueryItemPropertiesTableQueryQueriesDefinitionsPropertiesItemsItem {
+  /**
+   * Insight Link Definition Projected Name.
+   */
+  projectedName?: string;
+
+  /**
+   * Insight Link Definition Query.
+   */
+  Query?: string;
+}
+
+/**
+ * The activity query definitions.
+ */
+model InsightQueryItemPropertiesAdditionalQuery {
+  /**
+   * The insight query.
+   */
+  query?: string;
+
+  /**
+   * The insight text.
+   */
+  text?: string;
+}
+
+/**
+ * The insight chart query.
+ */
+model InsightQueryItemPropertiesDefaultTimeRange {
+  /**
+   * The padding for the start time of the query.
+   */
+  beforeRange?: string;
+
+  /**
+   * The padding for the end time of the query.
+   */
+  afterRange?: string;
+}
+
+/**
+ * The insight chart query.
+ */
+model InsightQueryItemPropertiesReferenceTimeRange {
+  /**
+   * Additional query time for looking back.
+   */
+  beforeRange?: string;
+}
+
+/**
+ * Represents security alert timeline item.
+ */
+model SecurityAlertTimelineItem extends EntityTimelineItem {
+  /**
+   * The alert azure resource id.
+   */
+  azureResourceId: string;
+
+  /**
+   * The alert product name.
+   */
+  productName?: string;
+
+  /**
+   * The alert description.
+   */
+  description?: string;
+
+  /**
+   * The alert name.
+   */
+  displayName: string;
+
+  /**
+   * The alert severity.
+   */
+  severity: AlertSeverity;
+
+  /**
+   * The alert end time.
+   */
+  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
+  endTimeUtc: utcDateTime;
+
+  /**
+   * The alert start time.
+   */
+  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
+  startTimeUtc: utcDateTime;
+
+  /**
+   * The alert generated time.
+   */
+  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
+  timeGenerated: utcDateTime;
+
+  /**
+   * The name of the alert type.
+   */
+  alertType: string;
+
+  /**
+   * The intent of the alert.
+   */
+  @visibility(Lifecycle.Read)
+  intent?: KillChainIntent;
+
+  /**
+   * The techniques of the alert.
+   */
+  techniques?: string[];
+
+  /**
+   * The entity query kind type.
+   */
+  kind: "SecurityAlert";
+}
+
+/**
+ * Represents Expansion entity query.
+ */
+model ExpansionEntityQuery extends EntityQuery {
+  /**
+   * Expansion entity query properties
+   */
+  properties?: ExpansionEntityQueriesProperties;
+
+  /**
+   * the entity query kind
+   */
+  kind: "Expansion";
+}
+
+/**
+ * Describes expansion entity query properties
+ */
+model ExpansionEntityQueriesProperties {
+  /**
+   * List of the data sources that are required to run the query
+   */
+  dataSources?: string[];
+
+  /**
+   * The query display name
+   */
+  displayName?: string;
+
+  /**
+   * The type of the query's source entity
+   */
+  inputEntityType?: EntityType;
+
+  /**
+   * List of the fields of the source entity that are required to run the query
+   */
+  inputFields?: string[];
+
+  /**
+   * List of the desired output types to be constructed from the result
+   */
+  outputEntityTypes?: EntityType[];
+
+  /**
+   * The template query string to be parsed and formatted
+   */
+  queryTemplate?: string;
+}
+
+/**
+ * Represents Activity entity query.
+ */
+model ActivityEntityQuery extends EntityQuery {
+  /**
+   * Activity entity query properties
+   */
+  properties?: ActivityEntityQueriesProperties;
+
+  /**
+   * the entity query kind
+   */
+  kind: "Activity";
+}
+
+/**
+ * Describes activity entity query properties
+ */
+model ActivityEntityQueriesProperties {
+  /**
+   * The entity query title
+   */
+  title?: string;
+
+  /**
+   * The entity query content to display in timeline
+   */
+  content?: string;
+
+  /**
+   * The entity query description
+   */
+  description?: string;
+
+  /**
+   * The Activity query definitions
+   */
+  queryDefinitions?: ActivityEntityQueriesPropertiesQueryDefinitions;
+
+  /**
+   * The type of the query's source entity
+   */
+  inputEntityType?: EntityType;
+
+  /**
+   * List of the fields of the source entity that are required to run the query
+   */
+  requiredInputFieldsSets?: string[][];
+
+  /**
+   * The query applied only to entities matching to all filters
+   */
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  entitiesFilter?: Record<string[]>;
+
+  /**
+   * The template id this activity was created from
+   */
+  templateName?: string;
+
+  /**
+   * Determines whether this activity is enabled or disabled.
+   */
+  enabled?: boolean;
+
+  /**
+   * The time the activity was created
+   */
+  @visibility(Lifecycle.Read)
+  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
+  createdTimeUtc?: utcDateTime;
+
+  /**
+   * The last time the activity was updated
+   */
+  @visibility(Lifecycle.Read)
+  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.
+  lastModifiedTimeUtc?: utcDateTime;
+}
+
+/**
+ * The Activity query definitions
+ */
+model ActivityEntityQueriesPropertiesQueryDefinitions {
+  /**
+   * The Activity query to run on a given entity
+   */
+  query?: string;
+}
+
+/**
+ * Represents Activity entity query.
+ */
+model ActivityCustomEntityQuery extends CustomEntityQuery {
+  /**
+   * Activity entity query properties
+   */
+  properties?: ActivityEntityQueriesProperties;
+
+  /**
+   * the entity query kind
+   */
+  kind: "Activity";
+}
+
+/**
+ * Represents Activity entity query.
+ */
+model ActivityEntityQueryTemplate extends EntityQueryTemplate {
+  /**
+   * Activity entity query properties
+   */
+  properties?: ActivityEntityQueryTemplateProperties;
+
+  /**
+   * the entity query template kind
+   */
+  kind: "Activity";
+}
+
+/**
+ * Describes activity entity query properties
+ */
+model ActivityEntityQueryTemplateProperties {
+  /**
+   * The entity query title
+   */
+  title?: string;
+
+  /**
+   * The entity query content to display in timeline
+   */
+  content?: string;
+
+  /**
+   * The entity query description
+   */
+  description?: string;
+
+  /**
+   * The Activity query definitions
+   */
+  queryDefinitions?: ActivityEntityQueryTemplatePropertiesQueryDefinitions;
+
+  /**
+   * List of required data types for the given entity query template
+   */
+  dataTypes?: DataTypeDefinitions[];
+
+  /**
+   * The type of the query's source entity
+   */
+  inputEntityType?: EntityType;
+
+  /**
+   * List of the fields of the source entity that are required to run the query
+   */
+  requiredInputFieldsSets?: string[][];
+
+  /**
+   * The query applied only to entities matching to all filters
+   */
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  entitiesFilter?: Record<string[]>;
+}
+
+/**
+ * The Activity query definitions
+ */
+model ActivityEntityQueryTemplatePropertiesQueryDefinitions {
+  /**
+   * The Activity query to run on a given entity
+   */
+  query?: string;
+
+  /**
+   * The dimensions we want to summarize the timeline results on, this is comma separated list
+   */
+  summarizeBy?: string;
+}
+
+/**
+ * The data type definition
+ */
+model DataTypeDefinitions {
+  /**
+   * The data type name
+   */
+  dataType?: string;
+}
+
+/**
+ * Describes team properties
+ */
+model TeamProperties {
+  /**
+   * The name of the team
+   */
+  teamName: string;
+
+  /**
+   * The description of the team
+   */
+  teamDescription?: string;
+
+  /**
+   * List of group IDs to add their members to the team
+   */
+  groupIds?: Azure.Core.uuid[];
+
+  /**
+   * List of member IDs to add to the team
+   */
+  memberIds?: Azure.Core.uuid[];
+}
 
 /**
  * Represents Anomaly Security ML Analytics Settings
@@ -9914,6 +14070,178 @@ model SecurityMLAnalyticsSettingsDataSource {
 }
 
 /**
+ * Settings with single toggle.
+ */
+model Anomalies extends Settings {
+  /**
+   * Anomalies properties
+   */
+  properties?: AnomaliesSettingsProperties;
+
+  /**
+   * The kind of the setting
+   */
+  kind: "Anomalies";
+}
+
+/**
+ * Anomalies property bag.
+ */
+model AnomaliesSettingsProperties {
+  /**
+   * Determines whether the setting is enable or disabled.
+   */
+  @visibility(Lifecycle.Read)
+  isEnabled?: boolean;
+}
+
+/**
+ * Settings with single toggle.
+ */
+model EyesOn extends Settings {
+  /**
+   * EyesOn properties
+   */
+  properties?: EyesOnSettingsProperties;
+
+  /**
+   * The kind of the setting
+   */
+  kind: "EyesOn";
+}
+
+/**
+ * EyesOn property bag.
+ */
+model EyesOnSettingsProperties {
+  /**
+   * Determines whether the setting is enable or disabled.
+   */
+  @visibility(Lifecycle.Read)
+  isEnabled?: boolean;
+}
+
+/**
+ * Settings with single toggle.
+ */
+model EntityAnalytics extends Settings {
+  /**
+   * EntityAnalytics properties
+   */
+  properties?: EntityAnalyticsProperties;
+
+  /**
+   * The kind of the setting
+   */
+  kind: "EntityAnalytics";
+}
+
+/**
+ * EntityAnalytics property bag.
+ */
+model EntityAnalyticsProperties {
+  /**
+   * The relevant entity providers that are synced
+   */
+  entityProviders?: EntityProviders[];
+}
+
+/**
+ * Settings with single toggle.
+ */
+model Ueba extends Settings {
+  /**
+   * Ueba properties
+   */
+  properties?: UebaProperties;
+
+  /**
+   * The kind of the setting
+   */
+  kind: "Ueba";
+}
+
+/**
+ * Ueba property bag.
+ */
+model UebaProperties {
+  /**
+   * The relevant data sources that enriched by ueba
+   */
+  dataSources?: UebaDataSources[];
+}
+
+/**
+ * Represents a threat actor in Azure Security Insights.
+ */
+model ThreatActor extends TIObject {
+  /**
+   * The kind of the TI object
+   */
+  kind: "ThreatActor";
+}
+
+/**
+ * Represents an attack pattern in Azure Security Insights.
+ */
+model AttackPattern extends TIObject {
+  /**
+   * The kind of the TI object
+   */
+  kind: "AttackPattern";
+}
+
+/**
+ * Represents an identity in Azure Security Insights.
+ */
+model Identity extends TIObject {
+  /**
+   * The kind of the TI object
+   */
+  kind: "Identity";
+}
+
+/**
+ * Represents a relationship in Azure Security Insights.
+ */
+model Relationship extends TIObject {
+  /**
+   * The kind of the TI object
+   */
+  kind: "Relationship";
+}
+
+/**
+ * Represents an indicator in Azure Security Insights.
+ */
+model Indicator extends TIObject {
+  /**
+   * The observables of this indicator
+   */
+  observables?: IndicatorObservablesItem[];
+
+  /**
+   * The kind of the TI object
+   */
+  kind: "Indicator";
+}
+
+/**
+ * An observable of this indicator
+ */
+model IndicatorObservablesItem {
+  /**
+   * The type of the observable of this indicator
+   */
+  type?: string;
+
+  /**
+   * The value of the observable of this indicator
+   */
+  value?: string;
+}
+
+/**
  * Represents an account entity.
  */
 model AccountEntity extends Entity {
@@ -9970,7 +14298,7 @@ model AccountEntityProperties extends EntityCommonProperties {
   isDomainJoined?: boolean;
 
   /**
-   * The NetBIOS domain name as it appears in the alert format - domain\username. Examples: NT AUTHORITY.
+   * The NetBIOS domain name as it appears in the alert format domain/username. Examples: NT AUTHORITY.
    */
   @visibility(Lifecycle.Read)
   ntDomain?: string;
@@ -10201,53 +14529,6 @@ model FileHashEntityProperties extends EntityCommonProperties {
    */
   @visibility(Lifecycle.Read)
   hashValue?: string;
-}
-
-/**
- * The geo-location context attached to the ip entity
- */
-model GeoLocation {
-  /**
-   * Autonomous System Number
-   */
-  @visibility(Lifecycle.Read)
-  asn?: int32;
-
-  /**
-   * City name
-   */
-  @visibility(Lifecycle.Read)
-  city?: string;
-
-  /**
-   * The country code according to ISO 3166 format
-   */
-  @visibility(Lifecycle.Read)
-  countryCode?: string;
-
-  /**
-   * Country name according to ISO 3166 Alpha 2: the lowercase of the English Short Name
-   */
-  @visibility(Lifecycle.Read)
-  countryName?: string;
-
-  /**
-   * The longitude of the identified location, expressed as a floating point number with range of -180 to 180, with positive numbers representing East and negative numbers representing West. Latitude and longitude are derived from the city or postal code.
-   */
-  @visibility(Lifecycle.Read)
-  latitude?: float64;
-
-  /**
-   * The latitude of the identified location, expressed as a floating point number with range of - 90 to 90, with positive numbers representing North and negative numbers representing South. Latitude and longitude are derived from the city or postal code.
-   */
-  @visibility(Lifecycle.Read)
-  longitude?: float64;
-
-  /**
-   * State name
-   */
-  @visibility(Lifecycle.Read)
-  state?: string;
 }
 
 /**
@@ -10533,6 +14814,53 @@ model IpEntityProperties extends EntityCommonProperties {
   @visibility(Lifecycle.Read)
   @identifiers(#[])
   threatIntelligence?: ThreatIntelligence[];
+}
+
+/**
+ * The geo-location context attached to the ip entity
+ */
+model GeoLocation {
+  /**
+   * Autonomous System Number
+   */
+  @visibility(Lifecycle.Read)
+  asn?: int32;
+
+  /**
+   * City name
+   */
+  @visibility(Lifecycle.Read)
+  city?: string;
+
+  /**
+   * The country code according to ISO 3166 format
+   */
+  @visibility(Lifecycle.Read)
+  countryCode?: string;
+
+  /**
+   * Country name according to ISO 3166 Alpha 2: the lowercase of the English Short Name
+   */
+  @visibility(Lifecycle.Read)
+  countryName?: string;
+
+  /**
+   * The latitude of the identified location, expressed as a floating point number with range of - 90 to 90. Latitude and longitude are derived from the city or postal code.
+   */
+  @visibility(Lifecycle.Read)
+  latitude?: float64;
+
+  /**
+   * The longitude of the identified location, expressed as a floating point number with range of -180 to 180. Latitude and longitude are derived from the city or postal code.
+   */
+  @visibility(Lifecycle.Read)
+  longitude?: float64;
+
+  /**
+   * State name
+   */
+  @visibility(Lifecycle.Read)
+  state?: string;
 }
 
 /**
@@ -11218,6 +15546,45 @@ model UrlEntityProperties extends EntityCommonProperties {
    */
   @visibility(Lifecycle.Read)
   url?: string;
+}
+
+/**
+ * Represents an network interface entity.
+ */
+model NicEntity extends Entity {
+  /**
+   * Network interface entity properties
+   */
+  properties?: NicEntityProperties;
+
+  /**
+   * The kind of the entity.
+   */
+  kind: "Nic";
+}
+
+/**
+ * Nic entity property bag.
+ */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "For backward compatibility"
+model NicEntityProperties extends EntityCommonProperties {
+  /**
+   * The MAC address of this network interface
+   */
+  @visibility(Lifecycle.Read)
+  macAddress?: string;
+
+  /**
+   * The IP entity id of this network interface
+   */
+  @visibility(Lifecycle.Read)
+  ipAddressEntityId?: string;
+
+  /**
+   * A list of VLANs of the network interface entity.
+   */
+  @visibility(Lifecycle.Read)
+  vlans?: string[];
 }
 
 /**

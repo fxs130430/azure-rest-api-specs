@@ -12,7 +12,7 @@ using TypeSpec.OpenAPI;
 
 namespace Microsoft.SecurityInsights;
 /**
- * Data connector.
+ * Data connector
  */
 #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "For backward compatibility"
 model DataConnector

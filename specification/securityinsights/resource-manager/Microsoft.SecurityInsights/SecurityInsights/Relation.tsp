@@ -110,6 +110,8 @@ interface BookmarkRelationsOps
         @segment("workspaces")
         @key
         @pattern("^[A-Za-z0-9][A-Za-z0-9-]+[A-Za-z0-9]$")
+        @minLength(1)
+        @maxLength(90)
         workspaceName: string,
       },
       {
@@ -135,6 +137,8 @@ interface BookmarkRelationsOps
         @segment("relations")
         @key
         @pattern("^[a-zA-Z0-9-]{3,63}$")
+        @minLength(3)
+        @maxLength(63)
         relationName: string,
       }
     > {}
@@ -151,7 +155,7 @@ interface BookmarkRelations {
    */
   createOrUpdate is BookmarkRelationsOps.CreateOrUpdateSync<
     Relation,
-    Request = void,
+    Request = Relation,
     ErrorType = CloudError
   >;
 
@@ -239,6 +243,8 @@ interface EntityRelationOps
         @segment("relations")
         @key
         @pattern("^[a-zA-Z0-9-]{3,63}$")
+        @minLength(3)
+        @maxLength(63)
         relationName: string,
       }
     > {}

@@ -14,7 +14,9 @@ namespace Microsoft.SecurityInsights;
 /**
  * Specific entity query template.
  */
-model EntityQueryTemplate is Azure.ResourceManager.ProxyResource<{}> {
+@discriminator("kind")
+model EntityQueryTemplate
+  is Azure.ResourceManager.Legacy.DiscriminatedExtensionResource<EntityQueryTemplateKind> {
   ...ResourceNameParameter<
     Resource = EntityQueryTemplate,
     KeyName = "entityQueryTemplateId",
@@ -23,10 +25,10 @@ model EntityQueryTemplate is Azure.ResourceManager.ProxyResource<{}> {
   >;
 
   /**
-   * the entity query template kind
+   * Etag of the azure resource
    */
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-invalid-envelope-property" "For backward compatibility"
-  kind: EntityQueryTemplateKind;
+  etag?: string;
 }
 
 @armResourceOperations

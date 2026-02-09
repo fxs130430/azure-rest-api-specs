@@ -22,6 +22,12 @@ model Job is Azure.ResourceManager.ProxyResource<JobProperties> {
     SegmentName = "jobs",
     NamePattern = "^[A-Za-z0-9][A-Za-z0-9-]+[A-Za-z0-9]$"
   >;
+
+  /**
+   * Etag of the azure resource
+   */
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-invalid-envelope-property" "For backward compatibility"
+  etag?: string;
 }
 
 @armResourceOperations

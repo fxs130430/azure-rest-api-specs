@@ -14,7 +14,9 @@ namespace Microsoft.SecurityInsights;
 /**
  * Billing statistic
  */
-model BillingStatistic is Azure.ResourceManager.ProxyResource<{}> {
+@discriminator("kind")
+model BillingStatistic
+  is Azure.ResourceManager.Legacy.DiscriminatedExtensionResource<BillingStatisticKind> {
   ...ResourceNameParameter<
     Resource = BillingStatistic,
     KeyName = "billingStatisticName",
@@ -23,16 +25,18 @@ model BillingStatistic is Azure.ResourceManager.ProxyResource<{}> {
   >;
 
   /**
-   * The kind of the billing statistic
+   * Resource Etag.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-invalid-envelope-property" "For backward compatibility"
-  kind: BillingStatisticKind;
+  @visibility(Lifecycle.Read)
+  etag?: string;
 }
 
 alias workspaceExternalResource = Extension.ExternalResource<
   "Microsoft.OperationalInsights",
   "workspaces",
-  "workspaceName"
+  "workspaceName",
+  NamePattern = "^[A-Za-z0-9][A-Za-z0-9-]+[A-Za-z0-9]$",
+  Description = "The name of the workspace."
 >;
 
 @armResourceOperations
@@ -53,3 +57,5 @@ interface BillingStatistics {
 }
 
 @@doc(BillingStatistic.name, "The name of the billing statistic");
+@@minLength(Extension.ExternalResource.name, 1);
+@@maxLength(Extension.ExternalResource.name, 90);

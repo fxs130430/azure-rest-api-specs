@@ -21,6 +21,12 @@ model WorkspaceManagerConfiguration
     SegmentName = "workspaceManagerConfigurations",
     NamePattern = "^[A-Za-z0-9][A-Za-z0-9-]+[A-Za-z0-9]$"
   >;
+
+  /**
+   * Resource Etag.
+   */
+  @visibility(Lifecycle.Read)
+  etag?: string;
 }
 
 @armResourceOperations
