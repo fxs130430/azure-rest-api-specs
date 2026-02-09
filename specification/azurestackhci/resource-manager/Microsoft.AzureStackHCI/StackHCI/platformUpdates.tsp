@@ -12,9 +12,9 @@ using TypeSpec.Versioning;
 @armProviderNamespace("Microsoft.AzureStackHCI")
 namespace Microsoft.AzureStackHCI;
 
-@added(Versions.v2025_11_01_preview)
 @doc("Represents a platform update resource.")
 @parentResource(SubscriptionLocationResource)
+@added(Versions.v2026_02_15_preview)
 model PlatformUpdate
   is Azure.ResourceManager.ProxyResource<PlatformUpdateProperties> {
   ...ResourceNameParameter<
@@ -23,8 +23,8 @@ model PlatformUpdate
   >;
 }
 
-@added(Versions.v2025_11_01_preview)
 @armResourceOperations
+@added(Versions.v2026_02_15_preview)
 interface PlatformUpdates {
   @doc("Get a platform update.")
   get is ArmResourceRead<PlatformUpdate>;
@@ -37,16 +37,16 @@ interface PlatformUpdates {
 }
 
 #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state"
-@added(Versions.v2025_11_01_preview)
 @doc("Represents properties of a platform update resource.")
+@added(Versions.v2026_02_15_preview)
 model PlatformUpdateProperties {
   @doc("Represents applicable platform updates.")
   @Azure.ResourceManager.identifiers(#[])
   platformUpdateDetails: Array<PlatformUpdateDetails>;
 }
 
-@added(Versions.v2025_11_01_preview)
 @doc("Represents details of a specific platform update.")
+@added(Versions.v2026_02_15_preview)
 model PlatformUpdateDetails {
   @doc("Represents validated solution recipe version of a platform update.")
   validatedSolutionRecipeVersion?: string;
@@ -59,8 +59,8 @@ model PlatformUpdateDetails {
   platformPayloads: Array<PlatformPayload>;
 }
 
-@added(Versions.v2025_11_01_preview)
 @doc("Represents details of a specific platform update payload.")
+@added(Versions.v2026_02_15_preview)
 model PlatformPayload {
   @doc("Represents url of a platform update payload.")
   payloadUrl?: string;
