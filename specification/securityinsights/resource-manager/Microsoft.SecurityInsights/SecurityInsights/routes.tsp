@@ -30,8 +30,6 @@ interface DataConnectorsCheckRequirementsOperationGroup {
   /**
    * Get requirements state for a data connector type.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
-  @operationId("DataConnectorsCheckRequirements_Post")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/dataConnectorsCheckRequirements")
   @post
   post(
@@ -230,8 +228,6 @@ interface ThreatIntelligenceOperationGroup {
   /**
    * Gets the count of all TI objects for the workspace.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
-  @operationId("ThreatIntelligence_Count")
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/threatIntelligence/{tiType}/count")
   @post
   count(
@@ -264,8 +260,6 @@ interface ThreatIntelligenceOperationGroup {
   /**
    * Gets all TI objects for the workspace.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
-  @operationId("ThreatIntelligence_Query")
   @list
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/threatIntelligence/{tiType}/query")
   @post

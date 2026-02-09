@@ -259,8 +259,6 @@ interface EntityRelations {
   /**
    * Gets all relations of an entity.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
-  @operationId("EntitiesRelations_List")
   list is EntityRelationOps.List<
     Relation,
     Parameters = {

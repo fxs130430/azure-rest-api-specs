@@ -67,8 +67,6 @@ interface Bookmarks {
   /**
    * Expand an bookmark
    */
-  #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
-  @operationId("Bookmark_Expand")
   expand is Extension.ActionSync<
     OperationalInsights,
     Bookmark,

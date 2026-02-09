@@ -35,22 +35,16 @@ interface Jobs {
   /**
    * Gets a job
    */
-  #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
-  @operationId("WorkspaceManagerAssignmentJobs_Get")
   get is Extension.Read<workspaceExternalResource, Job>;
 
   /**
    * Deletes the specified job from the specified workspace manager assignment
    */
-  #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
-  @operationId("WorkspaceManagerAssignmentJobs_Delete")
   delete is Extension.DeleteSync<workspaceExternalResource, Job>;
 
   /**
    * Get all jobs for the specified workspace manager assignment
    */
-  #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
-  @operationId("WorkspaceManagerAssignmentJobs_List")
   list is Extension.ListByTarget<
     workspaceExternalResource,
     Job,

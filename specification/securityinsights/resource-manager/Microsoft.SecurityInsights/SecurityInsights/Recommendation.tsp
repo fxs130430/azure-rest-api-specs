@@ -34,8 +34,6 @@ interface Recommendations {
   /**
    * Gets a recommendation by its id.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
-  @operationId("Get_SingleRecommendation")
   singleRecommendation is Extension.Read<
     workspaceExternalResource,
     Recommendation,
@@ -45,8 +43,6 @@ interface Recommendations {
   /**
    * Patch a recommendation.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
-  @operationId("Update_Recommendation")
   @patch(#{ implicitOptionality: false })
   recommendation is Extension.CustomPatchSync<
     workspaceExternalResource,
@@ -58,8 +54,6 @@ interface Recommendations {
   /**
    * Gets a list of all recommendations.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
-  @operationId("GetRecommendations_List")
   list is Extension.ListByTarget<
     workspaceExternalResource,
     Recommendation,
@@ -70,8 +64,6 @@ interface Recommendations {
   /**
    * Reevaluate a recommendation.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
-  @operationId("Reevaluate_Recommendation")
   @action("triggerEvaluation")
   reevaluateRecommendation is Extension.ActionSync<
     workspaceExternalResource,

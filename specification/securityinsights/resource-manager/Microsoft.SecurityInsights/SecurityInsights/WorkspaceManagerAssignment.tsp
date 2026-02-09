@@ -83,8 +83,6 @@ interface WorkspaceManagerAssignments {
   /**
    * Create a job for the specified workspace manager assignment
    */
-  #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
-  @operationId("WorkspaceManagerAssignmentJobs_Create")
   @action("jobs")
   create is Extension.ActionSync<
     workspaceExternalResource,
