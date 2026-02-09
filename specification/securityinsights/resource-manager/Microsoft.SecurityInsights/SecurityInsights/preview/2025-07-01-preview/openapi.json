@@ -1739,15 +1739,6 @@
             "minLength": 3,
             "maxLength": 63,
             "pattern": "^[a-zA-Z0-9-]{3,63}$"
-          },
-          {
-            "name": "resource",
-            "in": "body",
-            "description": "Resource create parameters.",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Relation"
-            }
           }
         ],
         "responses": {
