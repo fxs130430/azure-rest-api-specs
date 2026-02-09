@@ -49,7 +49,7 @@ options:
     azure: true
     module-version: 0.1.0
     prefix: "Az"
-    subject-prefix: "EdgeMarketplace"
+    subject-prefix: "EdgeMarketplace" 
     service-name: "EdgeMarketplace"
     module-name: "{prefix}.{service-name}"
     output-folder: "{output-dir}"
