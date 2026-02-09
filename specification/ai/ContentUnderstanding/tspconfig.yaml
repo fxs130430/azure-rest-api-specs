@@ -28,7 +28,6 @@ options:
     package-pprint-name: "Azure AI Content Understanding"
     emitter-output-dir: "{output-dir}/{service-dir}/azure-ai-contentunderstanding"
     namespace: "azure.ai.contentunderstanding"
-    package-version: 1.0.0b1
     generate-test: false
     generate-sample: false
     flavor: azure
