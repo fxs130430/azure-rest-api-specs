@@ -10,12 +10,14 @@ words:
   - aadiam
   - aadip
   - aatp
+  - criterias
   - defanged
   - exfiltrate
   - exfiltration
   - jedobot
   - mcas
   - mdatp
+  - mdti
   - msti
   - nlstext
   - occured
@@ -55,11 +57,6 @@ overrides:
     words:
       - criterias
       - mdti
-  - filename: >-
-      **/specification/securityinsights/resource-manager/Microsoft.SecurityInsights/SecurityInsights/preview/**/*.json
-    words:
-      - Criterias
-      - Mdti
   - filename: >-
       **/specification/securityinsights/data-plane/ThreatIntelligence/**/*.json
     words:
