@@ -2918,6 +2918,7 @@ namespace KnowledgeBaseRetrievalClient {
 @@clientName(PathHierarchyTokenizerV2.`@odata.type`, "odataType");
 @@clientName(PathHierarchyTokenizerV2.`@odata.type`, "odatatype", "javascript");
 @@clientName(ListIndexStatsSummary.value, "IndexesStatistics");
+@@clientName(ListIndexStatsSummary.value, "indexesStatistics", "javascript"); //TODO: verify casing
 @@clientName(Search.BM25SimilarityAlgorithm, "BM25Similarity", "csharp");
 @@clientName(Search.BM25SimilarityAlgorithm, "BM25Similarity", "javascript");
 @@clientName(Search.ClassicSimilarityAlgorithm, "ClassicSimilarity", "csharp");
@@ -2945,6 +2946,18 @@ namespace KnowledgeBaseRetrievalClient {
   "OpenAIClipImageTextEmbeddingsViTLargePatch14336",
   "javascript"
 );
+@@alternateType(Search.SearchOptions.select, string, "javascript");
+@@alternateType(Search.SearchOptions.orderBy, string, "javascript");
+@@alternateType(Search.SearchOptions.searchFields, string, "javascript");
+@@alternateType(Search.SearchRequest.select, string, "javascript");
+@@alternateType(Search.SearchRequest.orderby, string, "javascript");
+@@alternateType(Search.SearchRequest.searchFields, string, "javascript");
+@@alternateType(Search.SuggestOptions.select, string, "javascript");
+@@alternateType(Search.SuggestOptions.orderBy, string, "javascript");
+@@alternateType(Search.SuggestOptions.searchFields, string, "javascript");
+@@alternateType(Search.SuggestRequest.select, string, "javascript");
+@@alternateType(Search.SuggestRequest.orderby, string, "javascript");
+@@alternateType(Search.SuggestRequest.searchFields, string, "javascript");
 
 // Knowledge Base types
 @@clientNamespace(Search.AIServices, "Azure.Search.Documents.KnowledgeBases");

@@ -1,8 +1,10 @@
-﻿import "@azure-tools/typespec-azure-core";
+import "@azure-tools/typespec-azure-core";
+import "@azure-tools/typespec-client-generator-core";
 import "@typespec/rest";
 import "./models-index.tsp";
 
 using TypeSpec.Http;
+using Azure.ClientGenerator.Core;
 
 namespace Search;
 
@@ -83,6 +85,7 @@ interface Documents {
 
       /** List of field names to retrieve for the document; Any field not retrieved will be missing from the returned document. */
       @query("$select")
+      @alternateType(string, "javascript")
       selectedFields?: string[];
     },
     LookupDocument
