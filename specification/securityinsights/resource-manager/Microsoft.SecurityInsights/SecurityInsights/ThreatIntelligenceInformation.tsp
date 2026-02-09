@@ -34,7 +34,7 @@ model ThreatIntelligenceInformation
 }
 
 @armResourceOperations
-interface ThreatIntelligenceInformations {
+interface ThreatIntelligenceInformationOperations {
   /**
    * View a threat intelligence indicator by name.
    */
@@ -124,12 +124,12 @@ interface ThreatIntelligenceInformations {
 @@doc(ThreatIntelligenceInformation.name,
   "Threat intelligence indicator name field."
 );
-@@doc(ThreatIntelligenceInformations.create::parameters.resource,
+@@doc(ThreatIntelligenceInformationOperations.create::parameters.resource,
   "Properties of threat intelligence indicators to create and update."
 );
-@@doc(ThreatIntelligenceInformations.appendTags::parameters.body,
+@@doc(ThreatIntelligenceInformationOperations.appendTags::parameters.body,
   "The threat intelligence append tags request body"
 );
-@@doc(ThreatIntelligenceInformations.replaceTags::parameters.body,
+@@doc(ThreatIntelligenceInformationOperations.replaceTags::parameters.body,
   "Tags in the threat intelligence indicator to be replaced."
 );

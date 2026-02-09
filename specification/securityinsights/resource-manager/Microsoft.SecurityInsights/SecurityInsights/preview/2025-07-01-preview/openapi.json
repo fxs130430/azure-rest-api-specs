@@ -106,7 +106,7 @@
       "name": "SourceControls"
     },
     {
-      "name": "ThreatIntelligenceInformations"
+      "name": "ThreatIntelligenceInformationOperations"
     },
     {
       "name": "Watchlists"
@@ -9193,7 +9193,7 @@
       "get": {
         "operationId": "ThreatIntelligenceIndicators_List",
         "tags": [
-          "ThreatIntelligenceInformations"
+          "ThreatIntelligenceInformationOperations"
         ],
         "description": "Get all threat intelligence indicators.",
         "parameters": [
@@ -9274,7 +9274,7 @@
       "get": {
         "operationId": "ThreatIntelligenceIndicator_Get",
         "tags": [
-          "ThreatIntelligenceInformations"
+          "ThreatIntelligenceInformationOperations"
         ],
         "description": "View a threat intelligence indicator by name.",
         "parameters": [
@@ -9328,7 +9328,7 @@
       "put": {
         "operationId": "ThreatIntelligenceIndicator_Create",
         "tags": [
-          "ThreatIntelligenceInformations"
+          "ThreatIntelligenceInformationOperations"
         ],
         "description": "Update a threat Intelligence indicator.",
         "parameters": [
@@ -9397,7 +9397,7 @@
       "delete": {
         "operationId": "ThreatIntelligenceIndicator_Delete",
         "tags": [
-          "ThreatIntelligenceInformations"
+          "ThreatIntelligenceInformationOperations"
         ],
         "description": "Delete a threat intelligence indicator.",
         "parameters": [
@@ -9453,7 +9453,7 @@
       "post": {
         "operationId": "ThreatIntelligenceIndicator_AppendTags",
         "tags": [
-          "ThreatIntelligenceInformations"
+          "ThreatIntelligenceInformationOperations"
         ],
         "description": "Append tags to a threat intelligence indicator.",
         "parameters": [
@@ -9515,7 +9515,7 @@
       "post": {
         "operationId": "ThreatIntelligenceIndicator_ReplaceTags",
         "tags": [
-          "ThreatIntelligenceInformations"
+          "ThreatIntelligenceInformationOperations"
         ],
         "description": "Replace tags added to a threat intelligence indicator.",
         "parameters": [

@@ -450,31 +450,31 @@ using Microsoft.SecurityInsights;
 #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 @@Legacy.flattenProperty(SourceControl.properties);
 
-@@clientLocation(ThreatIntelligenceInformations.get,
+@@clientLocation(ThreatIntelligenceInformationOperations.get,
   "ThreatIntelligenceIndicator"
 );
-@@clientLocation(ThreatIntelligenceInformations.create,
+@@clientLocation(ThreatIntelligenceInformationOperations.create,
   "ThreatIntelligenceIndicator"
 );
-@@clientName(ThreatIntelligenceInformations.create::parameters.resource,
+@@clientName(ThreatIntelligenceInformationOperations.create::parameters.resource,
   "ThreatIntelligenceProperties"
 );
-@@clientLocation(ThreatIntelligenceInformations.delete,
+@@clientLocation(ThreatIntelligenceInformationOperations.delete,
   "ThreatIntelligenceIndicator"
 );
-@@clientLocation(ThreatIntelligenceInformations.list,
+@@clientLocation(ThreatIntelligenceInformationOperations.list,
   "ThreatIntelligenceIndicators"
 );
-@@clientLocation(ThreatIntelligenceInformations.appendTags,
+@@clientLocation(ThreatIntelligenceInformationOperations.appendTags,
   "ThreatIntelligenceIndicator"
 );
-@@clientName(ThreatIntelligenceInformations.appendTags::parameters.body,
+@@clientName(ThreatIntelligenceInformationOperations.appendTags::parameters.body,
   "ThreatIntelligenceAppendTags"
 );
-@@clientLocation(ThreatIntelligenceInformations.replaceTags,
+@@clientLocation(ThreatIntelligenceInformationOperations.replaceTags,
   "ThreatIntelligenceIndicator"
 );
-@@clientName(ThreatIntelligenceInformations.replaceTags::parameters.body,
+@@clientName(ThreatIntelligenceInformationOperations.replaceTags::parameters.body,
   "ThreatIntelligenceReplaceTags"
 );
 
