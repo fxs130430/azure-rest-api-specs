@@ -2986,7 +2986,6 @@
           "$ref": "#/definitions/MediaStreamingAudioChannelType"
         }
       },
-      "additionalProperties": true,
       "discriminator": "transportType"
     },
     "MediaStreamingStarted": {
@@ -4509,7 +4508,6 @@
           "type": "string"
         }
       },
-      "additionalProperties": true,
       "discriminator": "transportType"
     },
     "TranscriptionResultType": {
@@ -4821,7 +4819,6 @@
           "type": "boolean"
         }
       },
-      "additionalProperties": false,
       "x-ms-discriminator-value": "websocket"
     },
     "WebSocketTranscriptionOptions": {
@@ -4850,7 +4847,6 @@
           "type": "boolean"
         }
       },
-      "additionalProperties": false,
       "x-ms-discriminator-value": "websocket"
     }
   },
@@ -4884,7 +4880,7 @@
   },
   "security": [
     {
-      "Authorization": []
+      "Authorization": [ ]
     }
   ],
   "x-ms-parameterized-host": {
