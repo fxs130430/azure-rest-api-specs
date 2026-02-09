@@ -56,6 +56,11 @@ overrides:
       - criterias
       - mdti
   - filename: >-
+      **/specification/securityinsights/resource-manager/Microsoft.SecurityInsights/SecurityInsights/preview/**/*.json
+    words:
+      - criterias
+      - mdti
+  - filename: >-
       **/specification/securityinsights/data-plane/ThreatIntelligence/**/*.json
     words:
       - stixobjects
