@@ -48,7 +48,7 @@ namespace Azure.AI.Projects {
   }
 
   union _AdditionalOutputItemTypes {
-    remote_tool: "remote_function_call",
+    remote_tool_call: "remote_function_call",
     remote_tool_call_output: "remote_function_call_output",
     item_reference: "item_reference",
   }
