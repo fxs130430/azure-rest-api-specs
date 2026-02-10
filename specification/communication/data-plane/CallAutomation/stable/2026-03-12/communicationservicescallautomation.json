@@ -419,7 +419,7 @@
           {
             "in": "path",
             "name": "callConnectionId",
-            "description": "The call connection id.",
+            "description": "The terminate call request.",
             "required": true,
             "type": "string"
           },
@@ -705,7 +705,7 @@
           {
             "in": "path",
             "name": "callConnectionId",
-            "description": "The call connection id.",
+            "description": "The call connection id",
             "required": true,
             "type": "string"
           },
@@ -755,7 +755,7 @@
           {
             "in": "path",
             "name": "callConnectionId",
-            "description": "The call connection id.",
+            "description": "The call connection id",
             "required": true,
             "type": "string"
           }
@@ -799,7 +799,7 @@
           {
             "in": "path",
             "name": "callConnectionId",
-            "description": "The call connection id.",
+            "description": "The call connection id",
             "required": true,
             "type": "string"
           },
@@ -851,7 +851,7 @@
           {
             "in": "path",
             "name": "callConnectionId",
-            "description": "The call connection id.",
+            "description": "The call connection id",
             "required": true,
             "type": "string"
           },
@@ -903,7 +903,7 @@
           {
             "in": "path",
             "name": "callConnectionId",
-            "description": "The call connection id.",
+            "description": "The call connection id",
             "required": true,
             "type": "string"
           },
@@ -956,7 +956,7 @@
           {
             "in": "path",
             "name": "callConnectionId",
-            "description": "The call connection id.",
+            "description": "The call connection id",
             "required": true,
             "type": "string"
           },
@@ -1234,7 +1234,7 @@
           {
             "in": "path",
             "name": "callConnectionId",
-            "description": "The call connection id.",
+            "description": "The call connection Id",
             "required": true,
             "type": "string"
           }
@@ -1285,7 +1285,7 @@
           {
             "in": "path",
             "name": "callConnectionId",
-            "description": "The call connection id.",
+            "description": "The call connection Id",
             "required": true,
             "type": "string"
           },
@@ -1494,7 +1494,7 @@
           {
             "in": "path",
             "name": "callConnectionId",
-            "description": "The call connection id.",
+            "description": "The call connection Id",
             "required": true,
             "type": "string"
           },
@@ -1564,7 +1564,7 @@
           {
             "in": "path",
             "name": "callConnectionId",
-            "description": "The call connection id.",
+            "description": "The call connection Id",
             "required": true,
             "type": "string"
           },
@@ -1631,14 +1631,14 @@
           {
             "in": "path",
             "name": "callConnectionId",
-            "description": "The call connection id.",
+            "description": "The call connection Id",
             "required": true,
             "type": "string"
           },
           {
             "in": "path",
             "name": "participantRawId",
-            "description": "The participant raw id.",
+            "description": "Raw id of the participant to retrieve.",
             "required": true,
             "type": "string"
           }
@@ -2071,7 +2071,7 @@
       "additionalProperties": false
     },
     "AudioFormat": {
-      "description": "The audio format used for encoding, including sample rate and channel type. The default is Pcm16KMono.",
+      "description": "The format of the audio received from the audio subscription option.",
       "enum": [
         "pcm16KMono",
         "pcm24KMono"
@@ -4916,7 +4916,7 @@
   },
   "security": [
     {
-      "Authorization": []
+      "Authorization": [ ]
     }
   ],
   "x-ms-parameterized-host": {
