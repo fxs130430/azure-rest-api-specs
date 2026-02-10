@@ -1,0 +1,186 @@
+import "@azure-tools/typespec-client-generator-core";
+
+using Azure.ClientGenerator.Core;
+using Microsoft.Kusto;
+
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Property flatten for SDK backward compatibility."
+@@Legacy.flattenProperty(ClusterUpdate.properties);
+
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Property flatten for SDK backward compatibility."
+@@Legacy.flattenProperty(FollowerDatabaseDefinitionGet.properties);
+
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Property flatten for SDK backward compatibility."
+@@Legacy.flattenProperty(OutboundNetworkDependenciesEndpoint.properties);
+
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Property flatten for SDK backward compatibility."
+@@Legacy.flattenProperty(Operation.properties);
+
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Property flatten for SDK backward compatibility."
+@@Legacy.flattenProperty(OperationResult.properties);
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Property flatten for SDK backward compatibility."
+@@Legacy.flattenProperty(OperationResult.error);
+
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Property flatten for SDK backward compatibility."
+@@Legacy.flattenProperty(ReadWriteDatabase.properties);
+
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Property flatten for SDK backward compatibility."
+@@Legacy.flattenProperty(ReadOnlyFollowingDatabase.properties);
+
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Property flatten for SDK backward compatibility."
+@@Legacy.flattenProperty(EventHubDataConnection.properties);
+
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Property flatten for SDK backward compatibility."
+@@Legacy.flattenProperty(IotHubDataConnection.properties);
+
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Property flatten for SDK backward compatibility."
+@@Legacy.flattenProperty(EventGridDataConnection.properties);
+
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Property flatten for SDK backward compatibility."
+@@Legacy.flattenProperty(CosmosDbDataConnection.properties);
+
+@@clientName(Clusters.createOrUpdate::parameters.resource, "parameters");
+@@clientName(Clusters.update::parameters.properties, "parameters");
+@@clientName(Clusters.migrate::parameters.body, "clusterMigrateRequest");
+@@clientName(Clusters.detachFollowerDatabases::parameters.body,
+  "followerDatabaseToRemove"
+);
+@@clientName(Clusters.addCalloutPolicies::parameters.body, "calloutPolicies");
+@@clientName(Clusters.removeCalloutPolicy::parameters.body, "calloutPolicy");
+@@clientName(Clusters.addLanguageExtensions::parameters.body,
+  "languageExtensionsToAdd"
+);
+@@clientName(Clusters.removeLanguageExtensions::parameters.body,
+  "languageExtensionsToRemove"
+);
+@@clientLocation(Clusters.checkNameAvailability, ClusterPrincipalAssignments);
+@@clientName(Clusters.checkNameAvailability::parameters.body,
+  "principalAssignmentName"
+);
+@@clientLocation(Clusters.databasesCheckNameAvailability, Databases);
+@@clientName(Clusters.databasesCheckNameAvailability, "CheckNameAvailability");
+@@clientName(Clusters.databasesCheckNameAvailability::parameters.body,
+  "resourceName"
+);
+@@clientLocation(Clusters.attachedDatabaseConfigurationsCheckNameAvailability,
+  AttachedDatabaseConfigurations
+);
+@@clientName(Clusters.attachedDatabaseConfigurationsCheckNameAvailability,
+  "CheckNameAvailability"
+);
+@@clientName(Clusters.attachedDatabaseConfigurationsCheckNameAvailability::parameters.body,
+  "resourceName"
+);
+@@clientLocation(Clusters.managedPrivateEndpointsCheckNameAvailability,
+  ManagedPrivateEndpoints
+);
+@@clientName(Clusters.managedPrivateEndpointsCheckNameAvailability,
+  "CheckNameAvailability"
+);
+@@clientName(Clusters.managedPrivateEndpointsCheckNameAvailability::parameters.body,
+  "resourceName"
+);
+@@clientLocation(Clusters.sandboxCustomImagesCheckNameAvailability,
+  SandboxCustomImages
+);
+@@clientName(Clusters.sandboxCustomImagesCheckNameAvailability,
+  "CheckNameAvailability"
+);
+@@clientName(Clusters.sandboxCustomImagesCheckNameAvailability::parameters.body,
+  "resourceName"
+);
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Property flatten for SDK backward compatibility."
+@@Legacy.flattenProperty(Cluster.properties);
+
+@@clientName(PrivateEndpointConnections.createOrUpdate::parameters.resource,
+  "parameters"
+);
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Property flatten for SDK backward compatibility."
+@@Legacy.flattenProperty(PrivateEndpointConnection.properties);
+
+@@clientName(ClusterPrincipalAssignments.createOrUpdate::parameters.resource,
+  "parameters"
+);
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Property flatten for SDK backward compatibility."
+@@Legacy.flattenProperty(ClusterPrincipalAssignment.properties);
+
+@@clientName(Databases.createOrUpdate::parameters.resource, "parameters");
+@@clientName(Databases.update::parameters.properties, "parameters");
+@@clientName(Databases.addPrincipals::parameters.body,
+  "databasePrincipalsToAdd"
+);
+@@clientName(Databases.removePrincipals::parameters.body,
+  "databasePrincipalsToRemove"
+);
+@@clientLocation(Databases.inviteFollower, "Database");
+@@clientName(Databases.inviteFollower::parameters.body, "parameters");
+@@clientLocation(Databases.checkNameAvailability, DatabasePrincipalAssignments);
+@@clientName(Databases.checkNameAvailability::parameters.body,
+  "principalAssignmentName"
+);
+@@clientLocation(Databases.scriptsCheckNameAvailability, Scripts);
+@@clientName(Databases.scriptsCheckNameAvailability, "CheckNameAvailability");
+@@clientName(Databases.scriptsCheckNameAvailability::parameters.body,
+  "scriptName"
+);
+@@clientLocation(Databases.dataConnectionValidation, DataConnections);
+@@clientName(Databases.dataConnectionValidation, "dataConnectionValidation");
+@@clientName(Databases.dataConnectionValidation::parameters.body, "parameters");
+@@clientLocation(Databases.dataConnectionsCheckNameAvailability,
+  DataConnections
+);
+@@clientName(Databases.dataConnectionsCheckNameAvailability,
+  "CheckNameAvailability"
+);
+@@clientName(Databases.dataConnectionsCheckNameAvailability::parameters.body,
+  "dataConnectionName"
+);
+
+@@clientName(DatabasePrincipalAssignments.createOrUpdate::parameters.resource,
+  "parameters"
+);
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Property flatten for SDK backward compatibility."
+@@Legacy.flattenProperty(DatabasePrincipalAssignment.properties);
+
+@@clientName(Scripts.createOrUpdate::parameters.resource, "parameters");
+@@clientName(Scripts.update::parameters.properties, "parameters");
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Property flatten for SDK backward compatibility."
+@@Legacy.flattenProperty(Script.properties);
+
+@@clientName(SandboxCustomImages.createOrUpdate::parameters.resource,
+  "parameters"
+);
+@@clientName(SandboxCustomImages.update::parameters.properties, "parameters");
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Property flatten for SDK backward compatibility."
+@@Legacy.flattenProperty(SandboxCustomImage.properties);
+
+@@clientName(ManagedPrivateEndpoints.createOrUpdate::parameters.resource,
+  "parameters"
+);
+@@clientName(ManagedPrivateEndpoints.update::parameters.properties,
+  "parameters"
+);
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Property flatten for SDK backward compatibility."
+@@Legacy.flattenProperty(ManagedPrivateEndpoint.properties);
+
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Property flatten for SDK backward compatibility."
+@@Legacy.flattenProperty(PrivateLinkResource.properties);
+
+@@clientName(AttachedDatabaseConfigurations.createOrUpdate::parameters.resource,
+  "parameters"
+);
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Property flatten for SDK backward compatibility."
+@@Legacy.flattenProperty(AttachedDatabaseConfiguration.properties);
+
+@@clientName(DataConnections.createOrUpdate::parameters.resource, "parameters");
+@@clientName(DataConnections.update::parameters.properties, "parameters");
+
+@@clientLocation(ClustersOperationGroup.listSkus, Clusters);
+@@clientLocation(ClustersOperationGroup.checkNameAvailability, Clusters);
+
+@@clientLocation(SkusOperationGroup.list, "Skus");
+
+@@clientLocation(OperationsResultsOperationGroup.get, "OperationsResults");
+
+// @@clientLocation(OperationsResultsLocationOperationGroup.get,
+//   "OperationsResultsLocation"
+// );
