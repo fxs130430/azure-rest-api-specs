@@ -668,3 +668,4 @@ using Microsoft.SecurityInsights;
 @@clientName(AatpCheckRequirementsProperties,
   "AATPCheckRequirementsProperties"
 );
+@@clientName(BookmarkRelations.createOrUpdate::parameters.resource, "relation");

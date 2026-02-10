@@ -155,7 +155,7 @@ interface BookmarkRelations {
    */
   createOrUpdate is BookmarkRelationsOps.CreateOrUpdateSync<
     Relation,
-    Request = void,
+    Request = Relation,
     ErrorType = CloudError
   >;
 
