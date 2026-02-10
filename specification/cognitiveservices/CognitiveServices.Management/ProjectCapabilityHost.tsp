@@ -15,10 +15,13 @@ namespace Microsoft.CognitiveServices;
  * Azure Resource Manager resource envelope for Project CapabilityHost.
  */
 @parentResource(Project)
-model ProjectCapabilityHostResource
-  is Azure.ResourceManager.ProxyResource<ProjectCapabilityHost, false> {
+model ProjectCapabilityHost
+  is Azure.ResourceManager.ProxyResource<
+    ProjectCapabilityHostProperties,
+    false
+  > {
   ...ResourceNameParameter<
-    Resource = ProjectCapabilityHostResource,
+    Resource = ProjectCapabilityHost,
     KeyName = "capabilityHostName",
     SegmentName = "capabilityHosts",
     NamePattern = "^[a-zA-Z0-9][a-zA-Z0-9\\-_]{0,254}$"
@@ -30,17 +33,17 @@ interface ProjectCapabilityHosts {
   /**
    * Get project capabilityHost.
    */
-  get is ArmResourceRead<ProjectCapabilityHostResource>;
+  get is ArmResourceRead<ProjectCapabilityHost>;
 
   /**
    * Create or update project capabilityHost.
    */
   @Azure.Core.useFinalStateVia("original-uri")
   createOrUpdate is ArmResourceCreateOrReplaceAsync<
-    ProjectCapabilityHostResource,
-    Response = ArmResponse<ProjectCapabilityHostResource> | (ArmResourceCreatedResponse<
-      ProjectCapabilityHostResource,
-      LroHeaders = ArmAsyncOperationHeader<FinalResult = ProjectCapabilityHostResource>
+    ProjectCapabilityHost,
+    Response = ArmResponse<ProjectCapabilityHost> | (ArmResourceCreatedResponse<
+      ProjectCapabilityHost,
+      LroHeaders = ArmAsyncOperationHeader<FinalResult = ProjectCapabilityHost>
     > & {
       /**
        * Timeout for the client to use when polling the asynchronous operation.
@@ -56,7 +59,7 @@ interface ProjectCapabilityHosts {
    * Delete project capabilityHost.
    */
   delete is ArmResourceDeleteWithoutOkAsync<
-    ProjectCapabilityHostResource,
+    ProjectCapabilityHost,
     Response = ArmAcceptedLroResponse<LroHeaders = ArmLroLocationHeader<FinalResult = void> & {
       /**
        * Timeout for the client to use when polling the asynchronous operation.
@@ -72,15 +75,15 @@ interface ProjectCapabilityHosts {
    * List capabilityHost.
    */
   list is ArmResourceListByParent<
-    ProjectCapabilityHostResource,
+    ProjectCapabilityHost,
     Response = ArmResponse<ProjectCapabilityHostResourceArmPaginatedResult>
   >;
 }
 
-@@doc(ProjectCapabilityHostResource.name,
+@@doc(ProjectCapabilityHost.name,
   "The name of the capability host associated with the Cognitive Services Resource"
 );
-@@doc(ProjectCapabilityHostResource.properties,
+@@doc(ProjectCapabilityHost.properties,
   "[Required] Additional attributes of the entity."
 );
 @@doc(ProjectCapabilityHosts.createOrUpdate::parameters.resource,

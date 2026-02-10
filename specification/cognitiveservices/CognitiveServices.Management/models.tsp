@@ -4081,12 +4081,12 @@ model CapabilityHostResourceArmPaginatedResult {
    * An array of objects of type Capability Host.
    */
   @pageItems
-  value?: CapabilityHostResource[];
+  value?: CapabilityHost[];
 }
 
 #suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
-model CapabilityHost extends ResourceBase {
+model CapabilityHostProperties extends ResourceBase {
   /**
    * List of AI services connections.
    */
@@ -4165,11 +4165,11 @@ model ProjectCapabilityHostResourceArmPaginatedResult {
    * An array of objects of type Project Capability Host.
    */
   @pageItems
-  value?: ProjectCapabilityHostResource[];
+  value?: ProjectCapabilityHost[];
 }
 
 #suppress "@azure-tools/typespec-azure-core/documentation-required" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
-model ProjectCapabilityHost {
+model ProjectCapabilityHostProperties {
   /**
    * List of AI services connections.
    */
@@ -4396,14 +4396,14 @@ model AgentApplicationResourceArmPaginatedResult {
    * An array of objects of type Agent Application.
    */
   @pageItems
-  value?: AgentApplicationResource[];
+  value?: AgentApplication[];
 }
 
 /**
  * Resource type representing an agentic application as a management construct.
  */
 #suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
-model AgenticApplication extends ResourceBase {
+model AgenticApplicationProperties extends ResourceBase {
   /**
    * The display name of the application.
    */
@@ -4420,7 +4420,7 @@ model AgenticApplication extends ResourceBase {
    * The list of agent definitions comprising this application, returned as references to the objects under the parent project; use this to obtain a flat list of all agent-version pairs represented by this application.
    */
   #suppress "@azure-tools/typespec-azure-core/no-nullable" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
-  agents?: AgentReference[] | null;
+  agents?: AgentReferenceProperties[] | null;
 
   /**
    * The EntraId Agentic Blueprint of the application.
@@ -4462,7 +4462,7 @@ model AgenticApplication extends ResourceBase {
 /**
  * Type modeling a reference to a version of an agent definition.
  */
-model AgentReference {
+model AgentReferenceProperties {
   /**
    * Gets the agent's unique identifier within the organization (subscription).
    */
@@ -4587,19 +4587,18 @@ model AgentReferenceResourceArmPaginatedResult {
    * An array of objects of type Agent Reference.
    */
   #suppress "@azure-tools/typespec-azure-core/no-nullable" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
-  value?: AgentReferenceResource[] | null;
+  value?: AgentReference[] | null;
 }
 
 /**
  * Agent Reference resource
  */
 #suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
-model AgentReferenceResource
-  extends Azure.ResourceManager.CommonTypes.ProxyResource {
+model AgentReference extends Azure.ResourceManager.CommonTypes.ProxyResource {
   /**
    * [Required] Additional attributes of the entity.
    */
-  properties: AgentReference;
+  properties: AgentReferenceProperties;
 }
 
 /**
@@ -4617,7 +4616,7 @@ model AgentDeploymentResourceArmPaginatedResult {
    * An array of objects of type Agent Deployment.
    */
   @pageItems
-  value?: AgentDeploymentResource[];
+  value?: AgentDeployment[];
 }
 
 /**
@@ -4625,7 +4624,7 @@ model AgentDeploymentResourceArmPaginatedResult {
  */
 #suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 @discriminator("deploymentType")
-model AgentDeployment extends ResourceBase {
+model AgentDeploymentProperties extends ResourceBase {
   /**
    * Gets or sets the display name of the deployment.
    */
@@ -4688,7 +4687,7 @@ model AgentProtocolVersion {
  * Type modeling a reference to a version of an agent definition.
  */
 #suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
-model VersionedAgentReference extends AgentReference {
+model VersionedAgentReference extends AgentReferenceProperties {
   /**
    * Gets the agent's version (unique for each agent lineage).
    */
@@ -5026,7 +5025,7 @@ model FqdnOutboundRule extends OutboundRule {
 /**
  * Represents a managed agent deployment where the underlying infrastructure is managed by the platform in the deployer's subscription.
  */
-model ManagedAgentDeployment extends AgentDeployment {
+model ManagedAgentDeployment extends AgentDeploymentProperties {
   /**
    * Gets or sets the type of deployment for the agent.
    */
@@ -5036,7 +5035,7 @@ model ManagedAgentDeployment extends AgentDeployment {
 /**
  * Represents a hosted agent deployment where the underlying infrastructure is owned by the platform.
  */
-model HostedAgentDeployment extends AgentDeployment {
+model HostedAgentDeployment extends AgentDeploymentProperties {
   /**
    * Gets or sets the minimum number of replicas for this hosted deployment.
    */

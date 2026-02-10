@@ -15,10 +15,10 @@ namespace Microsoft.CognitiveServices;
  * Agent Application resource
  */
 @parentResource(Project)
-model AgentApplicationResource
-  is Azure.ResourceManager.ProxyResource<AgenticApplication, false> {
+model AgentApplication
+  is Azure.ResourceManager.ProxyResource<AgenticApplicationProperties, false> {
   ...ResourceNameParameter<
-    Resource = AgentApplicationResource,
+    Resource = AgentApplication,
     KeyName = "name",
     SegmentName = "applications",
     NamePattern = ""
@@ -31,18 +31,18 @@ interface AgentApplications {
    * Gets an Agent Application by name.
    */
   get is ArmResourceRead<
-    AgentApplicationResource,
-    Response = ArmResponse<AgentApplicationResource>
+    AgentApplication,
+    Response = ArmResponse<AgentApplication>
   >;
 
   /**
    * Creates or updates an Agent Application (asynchronous).
    */
   createOrUpdate is ArmResourceCreateOrReplaceAsync<
-    AgentApplicationResource,
-    Response = ArmResponse<AgentApplicationResource> | ArmResourceCreatedResponse<
-      AgentApplicationResource,
-      LroHeaders = ArmLroLocationHeader<FinalResult = AgentApplicationResource> & {
+    AgentApplication,
+    Response = ArmResponse<AgentApplication> | ArmResourceCreatedResponse<
+      AgentApplication,
+      LroHeaders = ArmLroLocationHeader<FinalResult = AgentApplication> & {
         /**
          * URI to poll for asynchronous operation status.
          */
@@ -63,13 +63,13 @@ interface AgentApplications {
   /**
    * Delete Agent Application.
    */
-  delete is ArmResourceDeleteWithoutOkAsync<AgentApplicationResource>;
+  delete is ArmResourceDeleteWithoutOkAsync<AgentApplication>;
 
   /**
    * Lists Agent Applications in the project.
    */
   list is ArmResourceListByParent<
-    AgentApplicationResource,
+    AgentApplication,
     Parameters = {
       /**
        * Number of agent applications to be retrieved in a page of results.
@@ -121,7 +121,7 @@ interface AgentApplications {
    * Lists agents for an Agent Application.
    */
   listAgents is ArmResourceActionSync<
-    AgentApplicationResource,
+    AgentApplication,
     void,
     ArmResponse<AgentReferenceResourceArmPaginatedResult>
   >;
@@ -129,16 +129,16 @@ interface AgentApplications {
   /**
    * Enables an Agent Application.
    */
-  enable is ArmResourceActionSync<AgentApplicationResource, void, OkResponse>;
+  enable is ArmResourceActionSync<AgentApplication, void, OkResponse>;
 
   /**
    * Disables an Agent Application.
    */
-  disable is ArmResourceActionSync<AgentApplicationResource, void, OkResponse>;
+  disable is ArmResourceActionSync<AgentApplication, void, OkResponse>;
 }
 
-@@doc(AgentApplicationResource.name, "Name for the Agent Application.");
-@@doc(AgentApplicationResource.properties,
+@@doc(AgentApplication.name, "Name for the Agent Application.");
+@@doc(AgentApplication.properties,
   "[Required] Additional attributes of the entity."
 );
 @@doc(AgentApplications.createOrUpdate::parameters.resource,

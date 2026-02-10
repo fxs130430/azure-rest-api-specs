@@ -227,11 +227,10 @@ using Microsoft.CognitiveServices;
   "location"
 );
 
-@@clientName(AgentApplicationResource, "AgentApplication");
-@@clientName(CapabilityHost, "CapabilityHostProperties");
-@@clientName(CapabilityHostResource, "CapabilityHost");
-@@clientName(ProjectCapabilityHostResource, "ProjectCapabilityHost");
-@@clientName(ProjectCapabilityHost, "ProjectCapabilityHostProperties");
+//@@clientName(CapabilityHost, "CapabilityHostProperties");
+//@@clientName(CapabilityHostResource, "CapabilityHost");
+//@@clientName(ProjectCapabilityHostResource, "ProjectCapabilityHost");
+//@@clientName(ProjectCapabilityHost, "ProjectCapabilityHostProperties");
 
 //@@clientName(AgentDeploymentResource, "AgentDeployment");
 //@@clientName(AgentReferenceResource, "AgentReference");

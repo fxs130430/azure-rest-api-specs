@@ -15,10 +15,10 @@ namespace Microsoft.CognitiveServices;
  * Agent Deployment resource
  */
 @parentResource(Project)
-model AgentDeploymentResource
-  is Azure.ResourceManager.ProxyResource<AgentDeployment, false> {
+model AgentDeployment
+  is Azure.ResourceManager.ProxyResource<AgentDeploymentProperties, false> {
   ...ResourceNameParameter<
-    Resource = AgentDeploymentResource,
+    Resource = AgentDeployment,
     KeyName = "deploymentName",
     SegmentName = "deployments",
     NamePattern = ""
@@ -79,16 +79,16 @@ interface AgentDeploymentResources {
   /**
    * Gets an Agent Deployment by name.
    */
-  get is AgentDeploymentResourcesOps.Read<AgentDeploymentResource>;
+  get is AgentDeploymentResourcesOps.Read<AgentDeployment>;
 
   /**
    * Creates or updates an Agent Deployment (asynchronous).
    */
   createOrUpdate is AgentDeploymentResourcesOps.CreateOrUpdateAsync<
-    AgentDeploymentResource,
-    Response = ArmResponse<AgentDeploymentResource> | ArmResourceCreatedResponse<
-      AgentDeploymentResource,
-      LroHeaders = ArmLroLocationHeader<FinalResult = AgentDeploymentResource> & {
+    AgentDeployment,
+    Response = ArmResponse<AgentDeployment> | ArmResourceCreatedResponse<
+      AgentDeployment,
+      LroHeaders = ArmLroLocationHeader<FinalResult = AgentDeployment> & {
         /**
          * URI to poll for asynchronous operation status.
          */
@@ -109,13 +109,13 @@ interface AgentDeploymentResources {
   /**
    * Delete Agent Deployment.
    */
-  delete is AgentDeploymentResourcesOps.DeleteWithoutOkAsync<AgentDeploymentResource>;
+  delete is AgentDeploymentResourcesOps.DeleteWithoutOkAsync<AgentDeployment>;
 
   /**
    * Lists Agent Deployments in the application.
    */
   list is AgentDeploymentResourcesOps.List<
-    AgentDeploymentResource,
+    AgentDeployment,
     Parameters = {
       /**
        * Number of agent deployments to be retrieved in a page of results.
@@ -155,7 +155,7 @@ interface AgentDeploymentResources {
    * Starts an Agent Deployment.
    */
   start is AgentDeploymentResourcesOps.ActionSync<
-    AgentDeploymentResource,
+    AgentDeployment,
     void,
     OkResponse
   >;
@@ -164,16 +164,16 @@ interface AgentDeploymentResources {
    * Stops an Agent Deployment.
    */
   stop is AgentDeploymentResourcesOps.ActionSync<
-    AgentDeploymentResource,
+    AgentDeployment,
     void,
     OkResponse
   >;
 }
 
-@@doc(AgentDeploymentResource.name,
+@@doc(AgentDeployment.name,
   "The name of the deployment associated with the Cognitive Services Account"
 );
-@@doc(AgentDeploymentResource.properties,
+@@doc(AgentDeployment.properties,
   "[Required] Additional attributes of the entity."
 );
 @@doc(AgentDeploymentResources.createOrUpdate::parameters.resource,

@@ -15,8 +15,8 @@ namespace Microsoft.CognitiveServices;
  * Azure Resource Manager resource envelope.
  */
 @parentResource(Account)
-model CapabilityHostResource
-  is Azure.ResourceManager.ProxyResource<CapabilityHost, false> {
+model CapabilityHost
+  is Azure.ResourceManager.ProxyResource<CapabilityHostProperties, false> {
   ...ResourceNameParameter<
     Resource = CapabilityHost,
     KeyName = "capabilityHostName",
@@ -59,8 +59,8 @@ interface CapabilityHosts {
    * Get account capabilityHost.
    */
   get is CapabilityHostOps.Read<
-    CapabilityHostResource,
-    Response = ArmResponse<CapabilityHostResource>
+    CapabilityHost,
+    Response = ArmResponse<CapabilityHost>
   >;
 
   /**
@@ -68,11 +68,11 @@ interface CapabilityHosts {
    */
   @Azure.Core.useFinalStateVia("original-uri")
   createOrUpdate is CapabilityHostOps.CreateOrUpdateAsync<
-    CapabilityHostResource,
-    Request = CapabilityHostResource,
-    Response = ArmResponse<CapabilityHostResource> | ArmResourceCreatedResponse<
-      CapabilityHostResource,
-      LroHeaders = ArmAsyncOperationHeader<FinalResult = CapabilityHostResource> & {
+    CapabilityHost,
+    Request = CapabilityHost,
+    Response = ArmResponse<CapabilityHost> | ArmResourceCreatedResponse<
+      CapabilityHost,
+      LroHeaders = ArmAsyncOperationHeader<FinalResult = CapabilityHost> & {
         /**
          * Timeout for the client to use when polling the asynchronous operation.
          */
@@ -88,7 +88,7 @@ interface CapabilityHosts {
    * Delete account capabilityHost.
    */
   delete is CapabilityHostOps.DeleteWithoutOkAsync<
-    CapabilityHostResource,
+    CapabilityHost,
     Response = ArmAcceptedLroResponse<LroHeaders = ArmLroLocationHeader<FinalResult = void> & {
       /**
        * Timeout for the client to use when polling the asynchronous operation.
@@ -106,15 +106,15 @@ interface CapabilityHosts {
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("AccountCapabilityHosts_List")
   list is ArmResourceListByParent<
-    CapabilityHostResource,
+    CapabilityHost,
     Response = ArmResponse<CapabilityHostResourceArmPaginatedResult>
   >;
 }
 
-@@doc(CapabilityHostResource.name,
+@@doc(CapabilityHost.name,
   "The name of the capability host associated with the Cognitive Services Resource"
 );
-@@doc(CapabilityHostResource.properties,
+@@doc(CapabilityHost.properties,
   "[Required] Additional attributes of the entity."
 );
 @@doc(CapabilityHosts.createOrUpdate::parameters.resource,
