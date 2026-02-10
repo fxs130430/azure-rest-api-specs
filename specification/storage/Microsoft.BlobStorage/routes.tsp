@@ -58,6 +58,23 @@ op StorageOperationNoBody<
   ...ClientRequestIdHeader;
 }) | TError;
 
+/** restype query parameter is used to specify the type of the resource. */
+alias restypeQueryParameter<
+  TValue extends string,
+  TDoc extends valueof string
+> = {
+  @doc(TDoc)
+  @query
+  restype: TValue;
+};
+
+/** comp query parameter is used to specify the operation to perform. */
+alias compQueryParameter<TValue extends string, TDoc extends valueof string> = {
+  @doc(TDoc)
+  @query
+  comp: TValue;
+};
+
 #suppress "@azure-tools/typespec-azure-core/operation-missing-api-version" "Existing API. Storage API version parameter pre-dates current guidance."
 @client
 interface Service {
@@ -65,9 +82,17 @@ interface Service {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   @put
-  @route("?restype=service&comp=properties")
+  @sharedRoute
   setProperties is StorageOperation<
     {
+      ...restypeQueryParameter<
+        "service",
+        "Specifies the type of the resource."
+      >;
+      ...compQueryParameter<
+        "properties",
+        "Specifies that the operation is to set properties."
+      >;
       ...TimeoutParameter;
 
       /** The storage service properties to set. */
@@ -82,15 +107,38 @@ interface Service {
   /** Retrieves properties of a storage account's Blob service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules. */
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
   @get
-  @route("?restype=service&comp=properties")
-  getProperties is StorageOperation<TimeoutParameter, BlobServiceProperties>;
+  @sharedRoute
+  getProperties is StorageOperation<
+    {
+      ...restypeQueryParameter<
+        "service",
+        "Specifies the type of the resource."
+      >;
+      ...compQueryParameter<
+        "properties",
+        "Specifies that the operation is to get properties."
+      >;
+      ...TimeoutParameter;
+    },
+    BlobServiceProperties
+  >;
 
   /** Retrieves statistics related to replication for the Blob service. It is only available on the secondary location endpoint when read-access geo-redundant replication is enabled for the storage account. */
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
   @get
-  @route("?restype=service&comp=stats")
+  @sharedRoute
   getStatistics is StorageOperation<
-    TimeoutParameter,
+    {
+      ...restypeQueryParameter<
+        "service",
+        "Specifies the type of the resource."
+      >;
+      ...compQueryParameter<
+        "stats",
+        "Specifies that the operation is to get statistics."
+      >;
+      ...TimeoutParameter;
+    },
     {
       /** Storage service statistics */
       @body
@@ -103,9 +151,13 @@ interface Service {
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @get
   @list
-  @route("?comp=list")
+  @sharedRoute
   listContainersSegment is StorageOperation<
     {
+      ...compQueryParameter<
+        "list",
+        "Specifies that the operation is to list containers in an account."
+      >;
       ...PrefixParameter;
       ...MarkerParameter;
       ...MaxResultsParameter;
@@ -120,9 +172,18 @@ interface Service {
   /** Retrieves a user delegation key for the Blob service. This is only a valid operation when using bearer token authentication. */
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
   @post
-  @route("?restype=service&comp=userdelegationkey")
+  @sharedRoute
   getUserDelegationKey is StorageOperation<
     {
+      ...restypeQueryParameter<
+        "service",
+        "Specifies the type of the resource."
+      >;
+      ...compQueryParameter<
+        "userdelegationkey",
+        "Specifies that the operation is to get a user delegation key."
+      >;
+
       /** Key information provided in the request */
       @body
       keyInfo: KeyInfo;
@@ -140,10 +201,19 @@ interface Service {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   @get
-  @route("?restype=account&comp=properties")
   @sharedRoute
   getAccountInfo is StorageOperation<
-    TimeoutParameter,
+    {
+      ...restypeQueryParameter<
+        "account",
+        "Specifies the type of the resource."
+      >;
+      ...compQueryParameter<
+        "properties",
+        "Specifies that the operation is to get account properties."
+      >;
+      ...TimeoutParameter;
+    },
     {
       ...SkuNameResponseHeader;
       ...AccountKindResponseHeader;
@@ -158,8 +228,13 @@ interface Service {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   @post
-  @route("?comp=batch")
+  @sharedRoute
   submitBatch(
+    ...compQueryParameter<
+      "batch",
+      "Specifies that the operation is to submit a batch request."
+    >,
+
     /** Required. The value of this header must be multipart/mixed with a batch boundary. Example header value: multipart/mixed; boundary=batch_<GUID> */
     @header("Content-Type")
     @alternateType(string, "javascript")
@@ -187,9 +262,13 @@ interface Service {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @get
-  @route("?comp=blobs")
+  @sharedRoute
   findBlobsByTags is StorageOperation<
     {
+      ...compQueryParameter<
+        "blobs",
+        "Specifies that the operation is to filter blobs by tags."
+      >;
       ...TimeoutParameter;
       ...FilterBlobsWhereParameter;
       ...MarkerParameter;
@@ -212,9 +291,12 @@ interface Container {
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   @put
   @sharedRoute
-  @route("?restype=container")
   create is StorageOperation<
     {
+      ...restypeQueryParameter<
+        "container",
+        "Specifies the type of the resource."
+      >;
       ...TimeoutParameter;
       ...MetadataHeaders;
       ...BlobPublicAccess;
@@ -237,9 +319,12 @@ interface Container {
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   @get
   @sharedRoute
-  @route("?restype=container")
   getProperties is StorageOperation<
     {
+      ...restypeQueryParameter<
+        "container",
+        "Specifies the type of the resource."
+      >;
       ...TimeoutParameter;
       ...LeaseIdOptionalParameter;
     },
@@ -277,9 +362,12 @@ interface Container {
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   @delete
   @sharedRoute
-  @route("?restype=container")
   delete is StorageOperation<
     {
+      ...restypeQueryParameter<
+        "container",
+        "Specifies the type of the resource."
+      >;
       ...TimeoutParameter;
       ...LeaseIdOptionalParameter;
       ...IfModifiedSinceParameter;
@@ -295,9 +383,17 @@ interface Container {
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @put
-  @route("?restype=container&comp=metadata")
+  @sharedRoute
   setMetadata is StorageOperation<
     {
+      ...restypeQueryParameter<
+        "container",
+        "Specifies the type of the resource."
+      >;
+      ...compQueryParameter<
+        "metadata",
+        "Specifies that the operation is to set metadata."
+      >;
       ...TimeoutParameter;
       ...LeaseIdOptionalParameter;
       ...MetadataHeaders;
@@ -312,9 +408,17 @@ interface Container {
   /** gets the permissions for the specified container. The permissions indicate whether container data may be accessed publicly. */
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
   @get
-  @route("?restype=container&comp=acl")
+  @sharedRoute
   getAccessPolicy is StorageOperation<
     {
+      ...restypeQueryParameter<
+        "container",
+        "Specifies the type of the resource."
+      >;
+      ...compQueryParameter<
+        "acl",
+        "Specifies that the operation is to get access policy."
+      >;
       ...TimeoutParameter;
       ...LeaseIdOptionalParameter;
     },
@@ -333,9 +437,18 @@ interface Container {
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @put
-  @route("?restype=container&comp=acl")
+  @sharedRoute
   setAccessPolicy is StorageOperation<
     {
+      ...restypeQueryParameter<
+        "container",
+        "Specifies the type of the resource."
+      >;
+      ...compQueryParameter<
+        "acl",
+        "Specifies that the operation is to set access policy."
+      >;
+
       /** The access control list for the container. */
       #suppress "@azure-tools/typespec-azure-core/request-body-problem" "Existing API"
       @body
@@ -358,9 +471,18 @@ interface Container {
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @put
-  @route("?restype=container&comp=undelete")
+  @sharedRoute
   restore is StorageOperation<
     {
+      ...restypeQueryParameter<
+        "container",
+        "Specifies the type of the resource."
+      >;
+      ...compQueryParameter<
+        "undelete",
+        "Specifies that the operation is to restore a deleted container."
+      >;
+
       /** Optional.  Version 2019-12-12 and later.  Specifies the name of the deleted container to restore. */
       @header("x-ms-deleted-container-name")
       deletedContainerName?: string;
@@ -381,9 +503,18 @@ interface Container {
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @put
-  @route("?restype=container&comp=rename")
+  @sharedRoute
   rename is StorageOperation<
     {
+      ...restypeQueryParameter<
+        "container",
+        "Specifies the type of the resource."
+      >;
+      ...compQueryParameter<
+        "rename",
+        "Specifies that the operation is to rename a container."
+      >;
+
       /** Required.  Specifies the name of the container to rename. */
       @header("x-ms-source-container-name")
       sourceContainerName: string;
@@ -401,8 +532,17 @@ interface Container {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   @post
-  @route("?restype=container&comp=batch")
+  @sharedRoute
   submitBatch(
+    ...restypeQueryParameter<
+      "container",
+      "Specifies the type of the resource."
+    >,
+    ...compQueryParameter<
+      "batch",
+      "Specifies that the operation is to submit a batch request."
+    >,
+
     /** Required. The value of this header must be multipart/mixed with a batch boundary. Example header value: multipart/mixed; boundary=batch_<GUID> */
     @header("Content-Type")
     @alternateType(string, "javascript")
@@ -430,9 +570,17 @@ interface Container {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @get
-  @route("?restype=container&comp=blobs")
+  @sharedRoute
   findBlobsByTags is StorageOperation<
     {
+      ...restypeQueryParameter<
+        "container",
+        "Specifies the type of the resource."
+      >;
+      ...compQueryParameter<
+        "blobs",
+        "Specifies that the operation is to filter blobs by tags."
+      >;
       ...TimeoutParameter;
       ...FilterBlobsWhereParameter;
       ...MarkerParameter;
@@ -452,9 +600,16 @@ interface Container {
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @put
   @sharedRoute
-  @route("?comp=lease&restype=container")
   acquireLease is StorageOperationNoBody<
     {
+      ...compQueryParameter<
+        "lease",
+        "Specifies that the operation is to acquire a lease on the container."
+      >;
+      ...restypeQueryParameter<
+        "container",
+        "Specifies the type of the resource."
+      >;
       ...LeaseDurationHeaderParameter;
       ...TimeoutParameter;
       ...ProposedLeaseIdOptionalParameter;
@@ -476,9 +631,16 @@ interface Container {
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @put
   @sharedRoute
-  @route("?comp=lease&restype=container")
   releaseLease is StorageOperation<
     {
+      ...compQueryParameter<
+        "lease",
+        "Specifies that the operation is to release a lease on the container."
+      >;
+      ...restypeQueryParameter<
+        "container",
+        "Specifies the type of the resource."
+      >;
       ...LeaseIdRequiredParameter;
       ...TimeoutParameter;
       ...IfModifiedSinceParameter;
@@ -497,9 +659,16 @@ interface Container {
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @put
   @sharedRoute
-  @route("?comp=lease&restype=container")
   renewLease is StorageOperation<
     {
+      ...compQueryParameter<
+        "lease",
+        "Specifies that the operation is to renew a lease on the container."
+      >;
+      ...restypeQueryParameter<
+        "container",
+        "Specifies the type of the resource."
+      >;
       ...LeaseIdRequiredParameter;
       ...TimeoutParameter;
       ...IfModifiedSinceParameter;
@@ -518,9 +687,16 @@ interface Container {
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   @put
   @sharedRoute
-  @route("?comp=lease&restype=container")
   breakLease is StorageOperation<
     {
+      ...compQueryParameter<
+        "lease",
+        "Specifies that the operation is to break a lease on the container."
+      >;
+      ...restypeQueryParameter<
+        "container",
+        "Specifies the type of the resource."
+      >;
       ...TimeoutParameter;
       ...IfModifiedSinceParameter;
       ...IfUnmodifiedSinceParameter;
@@ -541,9 +717,16 @@ interface Container {
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @put
   @sharedRoute
-  @route("?comp=lease&restype=container")
   changeLease is StorageOperation<
     {
+      ...compQueryParameter<
+        "lease",
+        "Specifies that the operation is to change a lease on the container."
+      >;
+      ...restypeQueryParameter<
+        "container",
+        "Specifies the type of the resource."
+      >;
       ...LeaseIdRequiredParameter;
       ...ProposedLeaseIdRequiredParameter;
       ...TimeoutParameter;
@@ -564,9 +747,16 @@ interface Container {
   @get
   @list
   @sharedRoute
-  @route("?restype=container&comp=list")
   listBlobFlatSegment is StorageOperation<
     {
+      ...restypeQueryParameter<
+        "container",
+        "Specifies the type of the resource."
+      >;
+      ...compQueryParameter<
+        "list",
+        "Specifies that the operation is to list blobs in a container."
+      >;
       ...PrefixParameter;
       ...MarkerParameter;
       ...MaxResultsParameter;
@@ -587,9 +777,17 @@ interface Container {
   @get
   @list
   @sharedRoute
-  @route("?restype=container&comp=list")
   listBlobHierarchySegment is StorageOperation<
     {
+      ...restypeQueryParameter<
+        "container",
+        "Specifies the type of the resource."
+      >;
+      ...compQueryParameter<
+        "list",
+        "Specifies that the operation is to list blobs in a container."
+      >;
+
       /** When the request includes this parameter, the operation returns a BlobPrefix element in the response body that acts as a placeholder for all blobs whose names begin with the same substring up to the appearance of the delimiter character. The delimiter may be a single character or a string. */
       @query delimiter: string;
 
@@ -611,10 +809,17 @@ interface Container {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   @get
-  @route("?restype=account&comp=properties")
   @sharedRoute
   getAccountInfo is StorageOperation<
     {
+      ...restypeQueryParameter<
+        "account",
+        "Specifies the type of the resource."
+      >;
+      ...compQueryParameter<
+        "properties",
+        "Specifies that the operation is to get account properties."
+      >;
       ...TimeoutParameter;
     },
     {
@@ -633,6 +838,7 @@ interface Blob {
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @get
+  @sharedRoute
   download(
     ...ApiVersionHeader,
     ...ClientRequestIdHeader,
@@ -768,6 +974,7 @@ interface Blob {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   @head
+  @sharedRoute
   getProperties is StorageOperationNoBody<
     {
       ...SnapshotParameter;
@@ -857,6 +1064,7 @@ interface Blob {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   @delete
+  @sharedRoute
   delete is StorageOperation<
     {
       ...SnapshotParameter;
@@ -892,9 +1100,13 @@ interface Blob {
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   @put
-  @route("?comp=undelete")
+  @sharedRoute
   undelete is StorageOperation<
     {
+      ...compQueryParameter<
+        "undelete",
+        "Specifies that the operation is to undelete a blob."
+      >;
       ...TimeoutParameter;
     },
     {}
@@ -905,9 +1117,13 @@ interface Blob {
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   @put
-  @route("?comp=expiry")
+  @sharedRoute
   setExpiry is StorageOperation<
     {
+      ...compQueryParameter<
+        "expiry",
+        "Specifies that the operation is to set expiry time."
+      >;
       ...TimeoutParameter;
       ...BlobExpiryOptionsParameter;
       ...ExpiryTimeHeader;
@@ -924,9 +1140,12 @@ interface Blob {
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @put
   @sharedRoute
-  @route("?comp=properties")
   setProperties is StorageOperation<
     {
+      ...compQueryParameter<
+        "properties",
+        "Specifies that the operation is to set properties."
+      >;
       ...TimeoutParameter;
       ...BlobCacheControlParameter;
       ...BlobContentTypeParameter;
@@ -953,9 +1172,13 @@ interface Blob {
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @put
-  @route("?comp=immutabilityPolicies")
+  @sharedRoute
   setImmutabilityPolicy is StorageOperation<
     {
+      ...compQueryParameter<
+        "immutabilityPolicies",
+        "Specifies that the operation is to set immutability policy."
+      >;
       ...TimeoutParameter;
       ...IfUnmodifiedSinceParameter;
       ...ImmutabilityPolicyExpiryRequiredParameter;
@@ -973,9 +1196,13 @@ interface Blob {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   @delete
-  @route("?comp=immutabilityPolicies")
+  @sharedRoute
   deleteImmutabilityPolicy is StorageOperation<
     {
+      ...compQueryParameter<
+        "immutabilityPolicies",
+        "Specifies that the operation is to delete immutability policy."
+      >;
       ...TimeoutParameter;
       ...SnapshotParameter;
       ...VersionIdParameter;
@@ -988,9 +1215,13 @@ interface Blob {
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @put
-  @route("?comp=legalhold")
+  @sharedRoute
   setLegalHold is StorageOperation<
     {
+      ...compQueryParameter<
+        "legalhold",
+        "Specifies that the operation is to set legal hold."
+      >;
       ...TimeoutParameter;
       ...LegalHoldRequiredParameter;
       ...SnapshotParameter;
@@ -1006,9 +1237,13 @@ interface Blob {
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @put
-  @route("?comp=metadata")
+  @sharedRoute
   setMetadata is StorageOperation<
     {
+      ...compQueryParameter<
+        "metadata",
+        "Specifies that the operation is to set metadata."
+      >;
       ...TimeoutParameter;
       ...MetadataHeaders;
       ...LeaseIdOptionalParameter;
@@ -1038,9 +1273,12 @@ interface Blob {
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @put
   @sharedRoute
-  @route("?comp=lease")
   acquireLease is StorageOperationNoBody<
     {
+      ...compQueryParameter<
+        "lease",
+        "Specifies that the operation is to acquire a lease."
+      >;
       ...TimeoutParameter;
       ...LeaseDurationHeaderParameter;
       ...ProposedLeaseIdOptionalParameter;
@@ -1065,9 +1303,12 @@ interface Blob {
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @put
   @sharedRoute
-  @route("?comp=lease")
   releaseLease is StorageOperation<
     {
+      ...compQueryParameter<
+        "lease",
+        "Specifies that the operation is to release a lease."
+      >;
       ...TimeoutParameter;
       ...LeaseIdRequiredParameter;
       ...IfModifiedSinceParameter;
@@ -1089,9 +1330,12 @@ interface Blob {
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @put
   @sharedRoute
-  @route("?comp=lease")
   renewLease is StorageOperation<
     {
+      ...compQueryParameter<
+        "lease",
+        "Specifies that the operation is to renew a lease."
+      >;
       ...TimeoutParameter;
       ...LeaseIdRequiredParameter;
       ...IfModifiedSinceParameter;
@@ -1114,9 +1358,12 @@ interface Blob {
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @put
   @sharedRoute
-  @route("?comp=lease")
   changeLease is StorageOperation<
     {
+      ...compQueryParameter<
+        "lease",
+        "Specifies that the operation is to change a lease."
+      >;
       ...TimeoutParameter;
       ...LeaseIdRequiredParameter;
       ...ProposedLeaseIdRequiredParameter;
@@ -1139,9 +1386,12 @@ interface Blob {
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   @put
   @sharedRoute
-  @route("?comp=lease")
   breakLease is StorageOperation<
     {
+      ...compQueryParameter<
+        "lease",
+        "Specifies that the operation is to break a lease."
+      >;
       ...TimeoutParameter;
       ...LeaseBreakPeriodParameter;
       ...IfModifiedSinceParameter;
@@ -1164,9 +1414,12 @@ interface Blob {
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   @put
   @sharedRoute
-  @route("?comp=snapshot")
   createSnapshot is StorageOperation<
     {
+      ...compQueryParameter<
+        "snapshot",
+        "Specifies that the operation is to create a snapshot."
+      >;
       ...TimeoutParameter;
       ...MetadataHeaders;
       ...EncryptionKeyParameter;
@@ -1246,9 +1499,12 @@ interface Blob {
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   @put
   @sharedRoute
-  @route("?comp=copy")
   copyFromUrl is StorageOperation<
     {
+      ...compQueryParameter<
+        "copy",
+        "Specifies that the operation is to copy from URL."
+      >;
       ...TimeoutParameter;
       ...MetadataHeaders;
       ...AccessTierHeader;
@@ -1298,9 +1554,12 @@ interface Blob {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
   @put
   @sharedRoute
-  @route("?comp=copy")
   abortCopyFromUrl is StorageOperation<
     {
+      ...compQueryParameter<
+        "copy",
+        "Specifies that the operation is to abort copy from URL."
+      >;
       ...TimeoutParameter;
 
       /** The copy identifier provided in the x-ms-copy-id header of the original Copy Blob operation. */
@@ -1325,9 +1584,12 @@ interface Blob {
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @put
   @sharedRoute
-  @route("?comp=tier")
   setTier is StorageOperation<
     {
+      ...compQueryParameter<
+        "tier",
+        "Specifies that the operation is to set tier."
+      >;
       ...SnapshotParameter;
       ...VersionIdParameter;
       ...TimeoutParameter;
@@ -1351,9 +1613,16 @@ interface Blob {
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   @get
   @sharedRoute
-  @route("?restype=account&comp=properties")
   getAccountInfo is StorageOperation<
     {
+      ...restypeQueryParameter<
+        "account",
+        "Specifies the type of the resource."
+      >;
+      ...compQueryParameter<
+        "properties",
+        "Specifies that the operation is to get account properties."
+      >;
       ...TimeoutParameter;
     },
     {
@@ -1367,9 +1636,12 @@ interface Blob {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
   @get
   @sharedRoute
-  @route("?comp=tags")
   getTags is StorageOperation<
     {
+      ...compQueryParameter<
+        "tags",
+        "Specifies that the operation is to get blob tags."
+      >;
       ...TimeoutParameter;
       ...SnapshotParameter;
       ...VersionIdParameter;
@@ -1390,9 +1662,13 @@ interface Blob {
   /** The Set Tags operation enables users to set tags on a blob. */
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
   @put
-  @route("?comp=tags")
+  @sharedRoute
   setTags is StorageOperation<
     {
+      ...compQueryParameter<
+        "tags",
+        "Specifies that the operation is to set blob tags."
+      >;
       ...TimeoutParameter;
       ...VersionIdParameter;
       ...ContentMd5Parameter;
@@ -1482,9 +1758,13 @@ interface PageBlob {
   #suppress "@azure-tools/typespec-azure-core/byos" "Existing API"
   @put
   @sharedRoute
-  @route("?comp=page")
   uploadPages is StorageOperation<
     {
+      ...compQueryParameter<
+        "page",
+        "Specifies that the operation is to upload pages."
+      >;
+
       /** The data to upload. */
       ...BodyParameter;
 
@@ -1535,9 +1815,13 @@ interface PageBlob {
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @put
   @sharedRoute
-  @route("?comp=page")
   clearPages is StorageOperationNoBody<
     {
+      ...compQueryParameter<
+        "page",
+        "Specifies that the operation is to clear pages."
+      >;
+
       /** value must be 0 when x-ms-page-write is clear */
       @header("Content-Length")
       contentLength: 0;
@@ -1579,9 +1863,12 @@ interface PageBlob {
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   @put
   @sharedRoute
-  @route("?comp=page")
   uploadPagesFromUrl is StorageOperationNoBody<
     {
+      ...compQueryParameter<
+        "page",
+        "Specifies that the operation is to upload pages from URL."
+      >;
       ...SourceUrlParameter;
 
       /** Bytes of source data in the specified range. The length of this range should match the ContentLength header and x-ms-range/Range destination range header. */
@@ -1639,9 +1926,12 @@ interface PageBlob {
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @get
   @sharedRoute
-  @route("?comp=pagelist")
   getPageRanges is StorageOperation<
     {
+      ...compQueryParameter<
+        "pagelist",
+        "Specifies that the operation is to get page ranges."
+      >;
       ...SnapshotParameter;
       ...TimeoutParameter;
       ...RangeParameter;
@@ -1666,9 +1956,12 @@ interface PageBlob {
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @get
   @sharedRoute
-  @route("?comp=pagelist")
   getPageRangesDiff is StorageOperation<
     {
+      ...compQueryParameter<
+        "pagelist",
+        "Specifies that the operation is to get page ranges diff."
+      >;
       ...SnapshotParameter;
       ...TimeoutParameter;
 
@@ -1703,9 +1996,12 @@ interface PageBlob {
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @put
   @sharedRoute
-  @route("?comp=properties")
   resize is StorageOperation<
     {
+      ...compQueryParameter<
+        "properties",
+        "Specifies that the operation is to resize page blob."
+      >;
       ...TimeoutParameter;
       ...LeaseIdOptionalParameter;
       ...EncryptionKeyParameter;
@@ -1732,9 +2028,12 @@ interface PageBlob {
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @put
   @sharedRoute
-  @route("?comp=properties")
   setSequenceNumber is StorageOperation<
     {
+      ...compQueryParameter<
+        "properties",
+        "Specifies that the operation is to set sequence number."
+      >;
       ...TimeoutParameter;
       ...LeaseIdOptionalParameter;
       ...IfModifiedSinceParameter;
@@ -1757,9 +2056,12 @@ interface PageBlob {
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   @put
   @sharedRoute
-  @route("?comp=incrementalcopy")
   copyIncremental is StorageOperation<
     {
+      ...compQueryParameter<
+        "incrementalcopy",
+        "Specifies that the operation is to copy incremental."
+      >;
       ...TimeoutParameter;
       ...IfModifiedSinceParameter;
       ...IfUnmodifiedSinceParameter;
@@ -1838,9 +2140,13 @@ interface AppendBlob {
   #suppress "@azure-tools/typespec-azure-core/byos" "Existing API"
   @put
   @sharedRoute
-  @route("?comp=appendblock")
   appendBlock is StorageOperation<
     {
+      ...compQueryParameter<
+        "appendblock",
+        "Specifies that the operation is to append a block."
+      >;
+
       /** The data to upload. */
       ...BodyParameter;
 
@@ -1885,9 +2191,12 @@ interface AppendBlob {
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @put
   @sharedRoute
-  @route("?comp=appendblock")
   appendBlockFromUrl is StorageOperation<
     {
+      ...compQueryParameter<
+        "appendblock",
+        "Specifies that the operation is to append a block from URL."
+      >;
       ...SourceUrlParameter;
       ...SourceRangeParameter;
       ...SourceContentMd5Parameter;
@@ -1937,9 +2246,12 @@ interface AppendBlob {
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @put
   @sharedRoute
-  @route("?comp=seal")
   seal is StorageOperation<
     {
+      ...compQueryParameter<
+        "seal",
+        "Specifies that the operation is to seal append blob."
+      >;
       ...TimeoutParameter;
       ...LeaseIdOptionalParameter;
       ...IfModifiedSinceParameter;
@@ -2089,9 +2401,12 @@ interface BlockBlob {
   #suppress "@azure-tools/typespec-azure-core/byos" "Existing API"
   @put
   @sharedRoute
-  @route("?comp=block")
   stageBlock is StorageOperation<
     {
+      ...compQueryParameter<
+        "block",
+        "Specifies that the operation is to stage a block."
+      >;
       ...BlockIdParameter;
       ...ContentLengthParameter;
       ...ContentMd5Parameter;
@@ -2124,9 +2439,12 @@ interface BlockBlob {
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @put
   @sharedRoute
-  @route("?comp=block")
   stageBlockFromUrl is StorageOperation<
     {
+      ...compQueryParameter<
+        "block",
+        "Specifies that the operation is to stage a block from URL."
+      >;
       ...BlockIdParameter;
       ...ContentLengthParameter;
       ...SourceUrlParameter;
@@ -2165,9 +2483,12 @@ interface BlockBlob {
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @put
   @sharedRoute
-  @route("?comp=blocklist")
   commitBlockList is StorageOperation<
     {
+      ...compQueryParameter<
+        "blocklist",
+        "Specifies that the operation is to commit block list."
+      >;
       ...TimeoutParameter;
       ...BlobCacheControlParameter;
       ...BlobContentTypeParameter;
@@ -2214,9 +2535,13 @@ interface BlockBlob {
   /** The Get Block List operation retrieves the list of blocks that have been uploaded as part of a block blob. */
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
   @get
-  @route("?comp=blocklist")
+  @sharedRoute
   getBlockList is StorageOperation<
     {
+      ...compQueryParameter<
+        "blocklist",
+        "Specifies that the operation is to get block list."
+      >;
       ...SnapshotParameter;
 
       /** Specifies whether to return the list of committed blocks, the list of uncommitted blocks, or both lists together. */
@@ -2243,9 +2568,14 @@ interface BlockBlob {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
   #suppress "@azure-tools/typespec-azure-core/byos" "Existing API"
   @post
-  @route("?comp=query")
+  @sharedRoute
   query is StorageOperation<
     {
+      ...compQueryParameter<
+        "query",
+        "Specifies that the operation is to query blob data."
+      >;
+
       /** The query request */
       @body
       queryRequest: QueryRequest;
