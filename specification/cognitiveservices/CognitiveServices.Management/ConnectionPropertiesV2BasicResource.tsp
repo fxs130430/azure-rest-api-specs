@@ -53,17 +53,19 @@ interface ConnectionPropertiesV2BasicResourceOps
       }
     > {}
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface ConnectionPropertiesV2BasicResources {
   /**
    * Lists Cognitive Services account connection by name.
    */
+  @tag("AccountConnectionResource")
   get is ConnectionPropertiesV2BasicResourceOps.Read<ConnectionPropertiesV2BasicResource>;
 
   /**
    * Create or update Cognitive Services account connection under the specified account.
    */
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-put-operation-response-codes" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  @tag("AccountConnectionResource")
   create is ConnectionPropertiesV2BasicResourceOps.CreateOrUpdateSync<
     ConnectionPropertiesV2BasicResource,
     Response = ArmResourceUpdatedResponse<ConnectionPropertiesV2BasicResource>,
@@ -73,6 +75,7 @@ interface ConnectionPropertiesV2BasicResources {
   /**
    * Update Cognitive Services account connection under the specified account.
    */
+  @tag("AccountConnectionResource")
   @patch(#{ implicitOptionality: false })
   update is ConnectionPropertiesV2BasicResourceOps.CustomPatchSync<
     ConnectionPropertiesV2BasicResource,
@@ -83,11 +86,13 @@ interface ConnectionPropertiesV2BasicResources {
   /**
    * Delete Cognitive Services account connection by name.
    */
+  @tag("AccountConnectionResource")
   delete is ConnectionPropertiesV2BasicResourceOps.DeleteSync<ConnectionPropertiesV2BasicResource>;
 
   /**
    * Lists all the available  Cognitive Services account connections under the specified account.
    */
+  @tag("AccountConnectionResource")
   list is ConnectionPropertiesV2BasicResourceOps.List<
     ConnectionPropertiesV2BasicResource,
     Parameters = {
@@ -149,17 +154,19 @@ interface ProjectConnectionOps
       }
     > {}
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface ProjectConnections {
   /**
    * Lists Cognitive Services project connection by name.
    */
+  @tag("ProjectConnectionResource")
   get is ProjectConnectionOps.Read<ConnectionPropertiesV2BasicResource>;
 
   /**
    * Create or update Cognitive Services project connection under the specified project.
    */
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-put-operation-response-codes" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  @tag("ProjectConnectionResource")
   create is ProjectConnectionOps.CreateOrUpdateSync<
     ConnectionPropertiesV2BasicResource,
     Response = ArmResourceUpdatedResponse<ConnectionPropertiesV2BasicResource>,
@@ -169,6 +176,7 @@ interface ProjectConnections {
   /**
    * Update Cognitive Services project connection under the specified project.
    */
+  @tag("ProjectConnectionResource")
   @patch(#{ implicitOptionality: false })
   update is ProjectConnectionOps.CustomPatchSync<
     ConnectionPropertiesV2BasicResource,
@@ -179,11 +187,13 @@ interface ProjectConnections {
   /**
    * Delete Cognitive Services project connection by name.
    */
+  @tag("ProjectConnectionResource")
   delete is ProjectConnectionOps.DeleteSync<ConnectionPropertiesV2BasicResource>;
 
   /**
    * Lists all the available Cognitive Services project connections under the specified project.
    */
+  @tag("ProjectConnectionResource")
   list is ProjectConnectionOps.List<
     ConnectionPropertiesV2BasicResource,
     Parameters = {

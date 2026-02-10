@@ -53,11 +53,12 @@ interface CapabilityHostOps
       }
     > {}
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface CapabilityHosts {
   /**
    * Get account capabilityHost.
    */
+  @tag("AccountCapabilityHost")
   get is CapabilityHostOps.Read<
     CapabilityHost,
     Response = ArmResponse<CapabilityHost>
@@ -66,6 +67,7 @@ interface CapabilityHosts {
   /**
    * Create or update account capabilityHost.
    */
+  @tag("AccountCapabilityHost")
   @Azure.Core.useFinalStateVia("original-uri")
   createOrUpdate is CapabilityHostOps.CreateOrUpdateAsync<
     CapabilityHost,
@@ -87,6 +89,7 @@ interface CapabilityHosts {
   /**
    * Delete account capabilityHost.
    */
+  @tag("AccountCapabilityHost")
   delete is CapabilityHostOps.DeleteWithoutOkAsync<
     CapabilityHost,
     Response = ArmAcceptedLroResponse<LroHeaders = ArmLroLocationHeader<FinalResult = void> & {
@@ -106,6 +109,7 @@ interface CapabilityHosts {
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("AccountCapabilityHosts_List")
   @summary("List capabilityHost.")
+  @tag("AccountCapabilityHost")
   list is ArmResourceListByParent<
     CapabilityHost,
     Response = ArmResponse<CapabilityHostResourceArmPaginatedResult>

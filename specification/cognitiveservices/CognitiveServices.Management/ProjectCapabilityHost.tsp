@@ -28,16 +28,18 @@ model ProjectCapabilityHost
   >;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface ProjectCapabilityHosts {
   /**
    * Get project capabilityHost.
    */
+  @tag("ProjectCapabilityHost")
   get is ArmResourceRead<ProjectCapabilityHost>;
 
   /**
    * Create or update project capabilityHost.
    */
+  @tag("ProjectCapabilityHost")
   @Azure.Core.useFinalStateVia("original-uri")
   createOrUpdate is ArmResourceCreateOrReplaceAsync<
     ProjectCapabilityHost,
@@ -58,6 +60,7 @@ interface ProjectCapabilityHosts {
   /**
    * Delete project capabilityHost.
    */
+  @tag("ProjectCapabilityHost")
   delete is ArmResourceDeleteWithoutOkAsync<
     ProjectCapabilityHost,
     Response = ArmAcceptedLroResponse<LroHeaders = ArmLroLocationHeader<FinalResult = void> & {
@@ -75,6 +78,7 @@ interface ProjectCapabilityHosts {
    * List capabilityHost.
    */
   @summary("List capabilityHost.")
+  @tag("ProjectCapabilityHost")
   list is ArmResourceListByParent<
     ProjectCapabilityHost,
     Response = ArmResponse<ProjectCapabilityHostResourceArmPaginatedResult>

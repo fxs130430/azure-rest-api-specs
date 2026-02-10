@@ -23,16 +23,18 @@ model OutboundRuleBasicResource
   >;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface OutboundRuleBasicResources {
   /**
    * The GET API for retrieving a single outbound rule of the managed network associated with the cognitive services account.
    */
+  @tag("ManagedNetwork")
   get is ArmResourceRead<OutboundRuleBasicResource>;
 
   /**
    * The PUT API for creating or updating a single outbound rule of the managed network associated with the cognitive services account.
    */
+  @tag("ManagedNetwork")
   createOrUpdate is ArmResourceCreateOrReplaceAsync<
     OutboundRuleBasicResource,
     LroHeaders = ArmLroLocationHeader<FinalResult = OutboundRuleBasicResource> &
@@ -42,11 +44,13 @@ interface OutboundRuleBasicResources {
   /**
    * The DELETE API for deleting a single outbound rule of the managed network associated with the cognitive services account.
    */
+  @tag("ManagedNetwork")
   delete is ArmResourceDeleteWithoutOkAsync<OutboundRuleBasicResource>;
 
   /**
    * The GET API for retrieving the list of outbound rules of the managed network associated with the cognitive services account.
    */
+  @tag("ManagedNetwork")
   list is ArmResourceListByParent<
     OutboundRuleBasicResource,
     Response = OutboundRuleListResult

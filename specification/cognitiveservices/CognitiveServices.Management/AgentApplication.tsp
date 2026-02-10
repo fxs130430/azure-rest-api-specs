@@ -25,11 +25,12 @@ model AgentApplication
   >;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface AgentApplications {
   /**
    * Gets an Agent Application by name.
    */
+  @tag("AgentApplication")
   get is ArmResourceRead<
     AgentApplication,
     Response = ArmResponse<AgentApplication>
@@ -38,6 +39,7 @@ interface AgentApplications {
   /**
    * Creates or updates an Agent Application (asynchronous).
    */
+  @tag("AgentApplication")
   createOrUpdate is ArmResourceCreateOrReplaceAsync<
     AgentApplication,
     Response = ArmResponse<AgentApplication> | ArmResourceCreatedResponse<
@@ -63,11 +65,13 @@ interface AgentApplications {
   /**
    * Delete Agent Application.
    */
+  @tag("AgentApplication")
   delete is ArmResourceDeleteWithoutOkAsync<AgentApplication>;
 
   /**
    * Lists Agent Applications in the project.
    */
+  @tag("AgentApplication")
   list is ArmResourceListByParent<
     AgentApplication,
     Parameters = {
@@ -120,6 +124,7 @@ interface AgentApplications {
   /**
    * Lists agents for an Agent Application.
    */
+  @tag("AgentApplication")
   listAgents is ArmResourceActionSync<
     AgentApplication,
     void,
@@ -129,11 +134,13 @@ interface AgentApplications {
   /**
    * Enables an Agent Application.
    */
+  @tag("AgentApplication")
   enable is ArmResourceActionSync<AgentApplication, void, OkResponse>;
 
   /**
    * Disables an Agent Application.
    */
+  @tag("AgentApplication")
   disable is ArmResourceActionSync<AgentApplication, void, OkResponse>;
 }
 

@@ -74,16 +74,18 @@ interface AgentDeploymentResourcesOps
       }
     > {}
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface AgentDeploymentResources {
   /**
    * Gets an Agent Deployment by name.
    */
+  @tag("AgentDeployment")
   get is AgentDeploymentResourcesOps.Read<AgentDeployment>;
 
   /**
    * Creates or updates an Agent Deployment (asynchronous).
    */
+  @tag("AgentDeployment")
   createOrUpdate is AgentDeploymentResourcesOps.CreateOrUpdateAsync<
     AgentDeployment,
     Response = ArmResponse<AgentDeployment> | ArmResourceCreatedResponse<
@@ -109,11 +111,13 @@ interface AgentDeploymentResources {
   /**
    * Delete Agent Deployment.
    */
+  @tag("AgentDeployment")
   delete is AgentDeploymentResourcesOps.DeleteWithoutOkAsync<AgentDeployment>;
 
   /**
    * Lists Agent Deployments in the application.
    */
+  @tag("AgentDeployment")
   list is AgentDeploymentResourcesOps.List<
     AgentDeployment,
     Parameters = {
@@ -154,6 +158,7 @@ interface AgentDeploymentResources {
   /**
    * Starts an Agent Deployment.
    */
+  @tag("AgentDeployment")
   start is AgentDeploymentResourcesOps.ActionSync<
     AgentDeployment,
     void,
@@ -163,6 +168,7 @@ interface AgentDeploymentResources {
   /**
    * Stops an Agent Deployment.
    */
+  @tag("AgentDeployment")
   stop is AgentDeploymentResourcesOps.ActionSync<
     AgentDeployment,
     void,

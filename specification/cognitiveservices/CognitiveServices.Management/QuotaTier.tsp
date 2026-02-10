@@ -24,11 +24,12 @@ model QuotaTier is Azure.ResourceManager.ProxyResource<QuotaTierProperties> {
 }
 
 #suppress "@azure-tools/typespec-azure-resource-manager/no-resource-delete-operation" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface QuotaTiers {
   /**
    * Gets the Quota Tier information for the given subscription. QuotaTiers is a subscription wide resource type. It holds current tier information.
    */
+  @tag("QuotaTier")
   get is ArmResourceRead<
     QuotaTier,
     BaseParameters = Azure.ResourceManager.Foundations.SubscriptionBaseParameters
@@ -37,6 +38,7 @@ interface QuotaTiers {
   /**
    * Update the Quota Tier information for the given subscription. QuotaTiers is a subscription wide resource type. It holds current tier information.
    */
+  @tag("QuotaTier")
   createOrUpdate is ArmResourceCreateOrReplaceSync<
     QuotaTier,
     BaseParameters = Azure.ResourceManager.Foundations.SubscriptionBaseParameters
@@ -46,6 +48,7 @@ interface QuotaTiers {
    * Update the Quota Tier information for the given subscription. QuotaTiers is a subscription wide resource type. It holds current tier information.
    */
   #suppress "@azure-tools/typespec-azure-resource-manager/no-resource-delete-operation" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  @tag("QuotaTier")
   @patch(#{ implicitOptionality: false })
   update is ArmCustomPatchSync<
     QuotaTier,
@@ -56,6 +59,7 @@ interface QuotaTiers {
   /**
    * Returns all the resources of a particular type belonging to a subscription.
    */
+  @tag("QuotaTier")
   listBySubscription is ArmResourceListByParent<
     QuotaTier,
     BaseParameters = Azure.ResourceManager.Foundations.SubscriptionBaseParameters,

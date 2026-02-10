@@ -40,13 +40,19 @@
   },
   "tags": [
     {
+      "name": "CognitiveServicesAccounts"
+    },
+    {
       "name": "Operations"
     },
     {
-      "name": "Accounts"
+      "name": "PrivateLinkResources"
     },
     {
-      "name": "DeletedAccounts"
+      "name": "TestRaiExternalSafetyProvider"
+    },
+    {
+      "name": "ManagedNetwork"
     },
     {
       "name": "PrivateEndpointConnections"
@@ -58,10 +64,7 @@
       "name": "CommitmentPlans"
     },
     {
-      "name": "CommitmentPlanOperationGroup"
-    },
-    {
-      "name": "CommitmentPlanAccountAssociations"
+      "name": "CognitiveServicesCommitmentPlans"
     },
     {
       "name": "EncryptionScopes"
@@ -73,16 +76,13 @@
       "name": "SubscriptionRaiPolicy"
     },
     {
-      "name": "RaiBlocklistItems"
-    },
-    {
       "name": "RaiBlocklists"
     },
     {
       "name": "RaiTopics"
     },
     {
-      "name": "RaiExternalSafetyProviderSchemas"
+      "name": "RaiExternalSafetyProvider"
     },
     {
       "name": "RaiToolLabels"
@@ -97,34 +97,43 @@
       "name": "DefenderForAISettings"
     },
     {
-      "name": "Projects"
+      "name": "CognitiveServicesProjects"
     },
     {
-      "name": "ConnectionPropertiesV2BasicResources"
+      "name": "AccountConnectionResource"
     },
     {
-      "name": "ProjectConnections"
+      "name": "ProjectConnectionResource"
     },
     {
-      "name": "CapabilityHosts"
+      "name": "AccountCapabilityHost"
     },
     {
-      "name": "ProjectCapabilityHosts"
+      "name": "ProjectCapabilityHost"
     },
     {
-      "name": "QuotaTiers"
+      "name": "QuotaTier"
     },
     {
-      "name": "OutboundRuleBasicResources"
+      "name": "AgentApplication"
     },
     {
-      "name": "ManagedNetworkSettingsPropertiesBasicResources"
+      "name": "AgentDeployment"
     },
     {
-      "name": "AgentApplications"
+      "name": "Skus"
     },
     {
-      "name": "AgentDeploymentResources"
+      "name": "Usages"
+    },
+    {
+      "name": "CommitmentTiers"
+    },
+    {
+      "name": "Models"
+    },
+    {
+      "name": "ModelCapacities"
     }
   ],
   "paths": {
@@ -168,7 +177,7 @@
       "get": {
         "operationId": "Accounts_List",
         "tags": [
-          "Accounts"
+          "CognitiveServicesAccounts"
         ],
         "description": "Returns all the resources of a particular type belonging to a subscription.",
         "parameters": [
@@ -206,6 +215,9 @@
     "/subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/calculateModelCapacity": {
       "post": {
         "operationId": "calculateModelCapacity",
+        "tags": [
+          "CognitiveServicesAccounts"
+        ],
         "description": "Model capacity calculator.",
         "parameters": [
           {
@@ -248,6 +260,9 @@
     "/subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/checkDomainAvailability": {
       "post": {
         "operationId": "CheckDomainAvailability",
+        "tags": [
+          "CognitiveServicesAccounts"
+        ],
         "description": "Check whether a domain is available.",
         "parameters": [
           {
@@ -291,7 +306,7 @@
       "get": {
         "operationId": "CommitmentPlans_ListPlansBySubscription",
         "tags": [
-          "CommitmentPlanOperationGroup"
+          "CognitiveServicesCommitmentPlans"
         ],
         "description": "Returns all the resources of a particular type belonging to a subscription.",
         "parameters": [
@@ -329,6 +344,9 @@
     "/subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/deletedAccounts": {
       "get": {
         "operationId": "DeletedAccounts_List",
+        "tags": [
+          "CognitiveServicesAccounts"
+        ],
         "description": "Returns all the resources of a particular type belonging to a subscription.",
         "parameters": [
           {
@@ -365,6 +383,9 @@
     "/subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/locations/{location}/checkSkuAvailability": {
       "post": {
         "operationId": "CheckSkuAvailability",
+        "tags": [
+          "CognitiveServicesAccounts"
+        ],
         "description": "Check available SKUs.",
         "parameters": [
           {
@@ -410,6 +431,9 @@
     "/subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/locations/{location}/commitmentTiers": {
       "get": {
         "operationId": "CommitmentTiers_List",
+        "tags": [
+          "CommitmentTiers"
+        ],
         "description": "List Commitment Tiers.",
         "parameters": [
           {
@@ -449,6 +473,9 @@
     "/subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/locations/{location}/modelCapacities": {
       "get": {
         "operationId": "LocationBasedModelCapacities_List",
+        "tags": [
+          "ModelCapacities"
+        ],
         "description": "List Location Based ModelCapacities.",
         "parameters": [
           {
@@ -512,6 +539,9 @@
     "/subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/locations/{location}/models": {
       "get": {
         "operationId": "Models_List",
+        "tags": [
+          "Models"
+        ],
         "description": "List Models.",
         "parameters": [
           {
@@ -641,7 +671,7 @@
       "get": {
         "operationId": "DeletedAccounts_Get",
         "tags": [
-          "DeletedAccounts"
+          "CognitiveServicesAccounts"
         ],
         "description": "Returns a Cognitive Services account specified by the parameters.",
         "parameters": [
@@ -691,7 +721,7 @@
       "delete": {
         "operationId": "DeletedAccounts_Purge",
         "tags": [
-          "DeletedAccounts"
+          "CognitiveServicesAccounts"
         ],
         "description": "Deletes a Cognitive Services account from the resource group.",
         "parameters": [
@@ -760,6 +790,9 @@
     "/subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/locations/{location}/usages": {
       "get": {
         "operationId": "Usages_List",
+        "tags": [
+          "Usages"
+        ],
         "description": "Get usages for the requested subscription",
         "parameters": [
           {
@@ -806,6 +839,9 @@
     "/subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/modelCapacities": {
       "get": {
         "operationId": "ModelCapacities_List",
+        "tags": [
+          "ModelCapacities"
+        ],
         "description": "List ModelCapacities.",
         "parameters": [
           {
@@ -867,7 +903,7 @@
       "get": {
         "operationId": "QuotaTiers_ListBySubscription",
         "tags": [
-          "QuotaTiers"
+          "QuotaTier"
         ],
         "description": "Returns all the resources of a particular type belonging to a subscription.",
         "parameters": [
@@ -906,7 +942,7 @@
       "get": {
         "operationId": "QuotaTiers_Get",
         "tags": [
-          "QuotaTiers"
+          "QuotaTier"
         ],
         "summary": "Gets the Quota Tier for a subscription",
         "description": "Gets the Quota Tier information for the given subscription. QuotaTiers is a subscription wide resource type. It holds current tier information.",
@@ -948,7 +984,7 @@
       "put": {
         "operationId": "QuotaTiers_CreateOrUpdate",
         "tags": [
-          "QuotaTiers"
+          "QuotaTier"
         ],
         "summary": "Updates the Quota Tier resource for a subscription.",
         "description": "Update the Quota Tier information for the given subscription. QuotaTiers is a subscription wide resource type. It holds current tier information.",
@@ -1005,7 +1041,7 @@
       "patch": {
         "operationId": "QuotaTiers_Update",
         "tags": [
-          "QuotaTiers"
+          "QuotaTier"
         ],
         "summary": "Updates the Quota Tier resource for a subscription. The only properties that can be updated are  \"tierUpgradePolicy\"",
         "description": "Update the Quota Tier information for the given subscription. QuotaTiers is a subscription wide resource type. It holds current tier information.",
@@ -1058,7 +1094,7 @@
       "get": {
         "operationId": "RaiExternalSafetyProviders_List",
         "tags": [
-          "RaiExternalSafetyProviderSchemas"
+          "RaiExternalSafetyProvider"
         ],
         "description": "Gets the safety providers associated with the subscription",
         "parameters": [
@@ -1097,7 +1133,7 @@
       "get": {
         "operationId": "RaiExternalSafetyProvider_Get",
         "tags": [
-          "RaiExternalSafetyProviderSchemas"
+          "RaiExternalSafetyProvider"
         ],
         "description": "Gets the specified external safety provider associated with the Subscription",
         "parameters": [
@@ -1139,7 +1175,7 @@
       "put": {
         "operationId": "RaiExternalSafetyProvider_CreateOrUpdate",
         "tags": [
-          "RaiExternalSafetyProviderSchemas"
+          "RaiExternalSafetyProvider"
         ],
         "description": "Create the rai safety provider associated with the subscription.",
         "parameters": [
@@ -1196,7 +1232,7 @@
       "delete": {
         "operationId": "RaiExternalSafetyProvider_Delete",
         "tags": [
-          "RaiExternalSafetyProviderSchemas"
+          "RaiExternalSafetyProvider"
         ],
         "description": "Deletes the specified custom topic associated with the subscription.",
         "parameters": [
@@ -1412,6 +1448,10 @@
     "/subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/skus": {
       "get": {
         "operationId": "ResourceSkus_List",
+        "tags": [
+          "Skus",
+          "CognitiveServicesAccounts"
+        ],
         "description": "Gets the list of Microsoft.CognitiveServices SKUs available for your Subscription.",
         "parameters": [
           {
@@ -1449,7 +1489,7 @@
       "get": {
         "operationId": "Accounts_ListByResourceGroup",
         "tags": [
-          "Accounts"
+          "CognitiveServicesAccounts"
         ],
         "description": "Returns all the resources of a particular type belonging to a resource group",
         "parameters": [
@@ -1491,7 +1531,7 @@
       "get": {
         "operationId": "Accounts_Get",
         "tags": [
-          "Accounts"
+          "CognitiveServicesAccounts"
         ],
         "description": "Returns a Cognitive Services account specified by the parameters.",
         "parameters": [
@@ -1538,7 +1578,7 @@
       "put": {
         "operationId": "Accounts_Create",
         "tags": [
-          "Accounts"
+          "CognitiveServicesAccounts"
         ],
         "description": "Create Cognitive Services Account. Accounts is a resource group wide resource type. It holds the keys for developer to access intelligent APIs. It's also the resource type for billing.",
         "parameters": [
@@ -1632,7 +1672,7 @@
       "patch": {
         "operationId": "Accounts_Update",
         "tags": [
-          "Accounts"
+          "CognitiveServicesAccounts"
         ],
         "description": "Updates a Cognitive Services account",
         "parameters": [
@@ -1710,7 +1750,7 @@
       "delete": {
         "operationId": "Accounts_Delete",
         "tags": [
-          "Accounts"
+          "CognitiveServicesAccounts"
         ],
         "description": "Deletes a Cognitive Services account from the resource group.",
         "parameters": [
@@ -1777,7 +1817,7 @@
       "get": {
         "operationId": "AccountCapabilityHosts_List",
         "tags": [
-          "CapabilityHosts"
+          "AccountCapabilityHost"
         ],
         "summary": "List capabilityHost.",
         "description": "List capabilityHost.",
@@ -1830,7 +1870,7 @@
       "get": {
         "operationId": "AccountCapabilityHosts_Get",
         "tags": [
-          "CapabilityHosts"
+          "AccountCapabilityHost"
         ],
         "summary": "Get account capabilityHost.",
         "description": "Get account capabilityHost.",
@@ -1886,7 +1926,7 @@
       "put": {
         "operationId": "AccountCapabilityHosts_CreateOrUpdate",
         "tags": [
-          "CapabilityHosts"
+          "AccountCapabilityHost"
         ],
         "summary": "Create or update account capabilityHost.",
         "description": "Create or update account capabilityHost.",
@@ -1973,7 +2013,7 @@
       "delete": {
         "operationId": "AccountCapabilityHosts_Delete",
         "tags": [
-          "CapabilityHosts"
+          "AccountCapabilityHost"
         ],
         "summary": "Delete account capabilityHost.",
         "description": "Delete account capabilityHost.",
@@ -2295,7 +2335,7 @@
       "get": {
         "operationId": "AccountConnections_List",
         "tags": [
-          "ConnectionPropertiesV2BasicResources"
+          "AccountConnectionResource"
         ],
         "summary": "Lists all the available  Cognitive Services account connections under the specified account.",
         "description": "Lists all the available  Cognitive Services account connections under the specified account.",
@@ -2370,7 +2410,7 @@
       "get": {
         "operationId": "AccountConnections_Get",
         "tags": [
-          "ConnectionPropertiesV2BasicResources"
+          "AccountConnectionResource"
         ],
         "summary": "Lists Cognitive Services account connection by name.",
         "description": "Lists Cognitive Services account connection by name.",
@@ -2426,7 +2466,7 @@
       "put": {
         "operationId": "AccountConnections_Create",
         "tags": [
-          "ConnectionPropertiesV2BasicResources"
+          "AccountConnectionResource"
         ],
         "summary": "Create or update Cognitive Services account connection under the specified account.",
         "description": "Create or update Cognitive Services account connection under the specified account.",
@@ -2491,7 +2531,7 @@
       "patch": {
         "operationId": "AccountConnections_Update",
         "tags": [
-          "ConnectionPropertiesV2BasicResources"
+          "AccountConnectionResource"
         ],
         "summary": "Update Cognitive Services account connection under the specified account.",
         "description": "Update Cognitive Services account connection under the specified account.",
@@ -2556,7 +2596,7 @@
       "delete": {
         "operationId": "AccountConnections_Delete",
         "tags": [
-          "ConnectionPropertiesV2BasicResources"
+          "AccountConnectionResource"
         ],
         "summary": "Delete Cognitive Services account connection by name.",
         "description": "Delete Cognitive Services account connection by name.",
@@ -3626,7 +3666,7 @@
       "post": {
         "operationId": "Accounts_ListKeys",
         "tags": [
-          "Accounts"
+          "CognitiveServicesAccounts"
         ],
         "description": "Lists the account keys for the specified Cognitive Services account.",
         "parameters": [
@@ -3675,7 +3715,7 @@
       "get": {
         "operationId": "ManagedNetworkSettings_List",
         "tags": [
-          "ManagedNetworkSettingsPropertiesBasicResources"
+          "ManagedNetwork"
         ],
         "summary": "List API for managed network settings of a cognitive services account.",
         "description": "List API for managed network settings of a cognitive services account.",
@@ -3728,7 +3768,7 @@
       "get": {
         "operationId": "ManagedNetworkSettings_Get",
         "tags": [
-          "ManagedNetworkSettingsPropertiesBasicResources"
+          "ManagedNetwork"
         ],
         "summary": "Get API for managed network settings of a cognitive services account.",
         "description": "Get API for managed network settings of a cognitive services account.",
@@ -3784,7 +3824,7 @@
       "put": {
         "operationId": "ManagedNetworkSettings_Put",
         "tags": [
-          "ManagedNetworkSettingsPropertiesBasicResources"
+          "ManagedNetwork"
         ],
         "summary": "PUT API for managed network settings of a cognitive services account.",
         "description": "PUT API for managed network settings of a cognitive services account.",
@@ -3871,7 +3911,7 @@
       "patch": {
         "operationId": "ManagedNetworkSettings_Patch",
         "tags": [
-          "ManagedNetworkSettingsPropertiesBasicResources"
+          "ManagedNetwork"
         ],
         "summary": "Patch API for managed network settings of a cognitive services account.",
         "description": "Patch API for managed network settings of a cognitive services account.",
@@ -3957,7 +3997,7 @@
       "post": {
         "operationId": "OutboundRules_Post",
         "tags": [
-          "ManagedNetworkSettingsPropertiesBasicResources"
+          "ManagedNetwork"
         ],
         "summary": "The POST API for updating the outbound rules of the managed network associated with the cognitive services account.",
         "description": "The POST API for updating the outbound rules of the managed network associated with the cognitive services account.",
@@ -4043,7 +4083,7 @@
       "get": {
         "operationId": "OutboundRule_List",
         "tags": [
-          "OutboundRuleBasicResources"
+          "ManagedNetwork"
         ],
         "summary": "The GET API for retrieving the list of outbound rules of the managed network associated with the cognitive services account.",
         "description": "The GET API for retrieving the list of outbound rules of the managed network associated with the cognitive services account.",
@@ -4104,7 +4144,7 @@
       "get": {
         "operationId": "OutboundRule_Get",
         "tags": [
-          "OutboundRuleBasicResources"
+          "ManagedNetwork"
         ],
         "summary": "The GET API for retrieving a single outbound rule of the managed network associated with the cognitive services account.",
         "description": "The GET API for retrieving a single outbound rule of the managed network associated with the cognitive services account.",
@@ -4168,7 +4208,7 @@
       "put": {
         "operationId": "OutboundRule_CreateOrUpdate",
         "tags": [
-          "OutboundRuleBasicResources"
+          "ManagedNetwork"
         ],
         "summary": "The PUT API for creating or updating a single outbound rule of the managed network associated with the cognitive services account.",
         "description": "The PUT API for creating or updating a single outbound rule of the managed network associated with the cognitive services account.",
@@ -4263,7 +4303,7 @@
       "delete": {
         "operationId": "OutboundRule_Delete",
         "tags": [
-          "OutboundRuleBasicResources"
+          "ManagedNetwork"
         ],
         "summary": "The DELETE API for deleting a single outbound rule of the managed network associated with the cognitive services account.",
         "description": "The DELETE API for deleting a single outbound rule of the managed network associated with the cognitive services account.",
@@ -4344,7 +4384,7 @@
       "get": {
         "operationId": "Accounts_ListModels",
         "tags": [
-          "Accounts"
+          "CognitiveServicesAccounts"
         ],
         "description": "List available Models for the requested Cognitive Services account",
         "parameters": [
@@ -4843,7 +4883,7 @@
       "get": {
         "operationId": "PrivateLinkResources_List",
         "tags": [
-          "Accounts"
+          "PrivateLinkResources"
         ],
         "description": "Gets the private link resources that need to be created for a Cognitive Services account.",
         "parameters": [
@@ -4892,7 +4932,7 @@
       "get": {
         "operationId": "Projects_List",
         "tags": [
-          "Projects"
+          "CognitiveServicesProjects"
         ],
         "description": "Returns all the projects in a Cognitive Services account.",
         "parameters": [
@@ -4944,7 +4984,7 @@
       "get": {
         "operationId": "Projects_Get",
         "tags": [
-          "Projects"
+          "CognitiveServicesProjects"
         ],
         "description": "Returns a Cognitive Services project specified by the parameters.",
         "parameters": [
@@ -5001,7 +5041,7 @@
       "put": {
         "operationId": "Projects_Create",
         "tags": [
-          "Projects"
+          "CognitiveServicesProjects"
         ],
         "description": "Create Cognitive Services Account's Project. Project is a sub-resource of an account which give AI developer it's individual container to work on.",
         "parameters": [
@@ -5105,7 +5145,7 @@
       "patch": {
         "operationId": "Projects_Update",
         "tags": [
-          "Projects"
+          "CognitiveServicesProjects"
         ],
         "description": "Updates a Cognitive Services Project",
         "parameters": [
@@ -5188,7 +5228,7 @@
       "delete": {
         "operationId": "Projects_Delete",
         "tags": [
-          "Projects"
+          "CognitiveServicesProjects"
         ],
         "description": "Deletes a Cognitive Services project from the resource group.",
         "parameters": [
@@ -5262,7 +5302,7 @@
       "get": {
         "operationId": "AgentApplications_List",
         "tags": [
-          "AgentApplications"
+          "AgentApplication"
         ],
         "summary": "Lists Agent Applications in the project.",
         "description": "Lists Agent Applications in the project.",
@@ -5382,7 +5422,7 @@
       "get": {
         "operationId": "AgentApplications_Get",
         "tags": [
-          "AgentApplications"
+          "AgentApplication"
         ],
         "summary": "Gets an Agent Application by name.",
         "description": "Gets an Agent Application by name.",
@@ -5447,7 +5487,7 @@
       "put": {
         "operationId": "AgentApplications_CreateOrUpdate",
         "tags": [
-          "AgentApplications"
+          "AgentApplication"
         ],
         "summary": "Creates or updates an Agent Application (asynchronous).",
         "description": "Creates or updates an Agent Application (asynchronous).",
@@ -5547,7 +5587,7 @@
       "delete": {
         "operationId": "AgentApplications_Delete",
         "tags": [
-          "AgentApplications"
+          "AgentApplication"
         ],
         "summary": "Delete Agent Application.",
         "description": "Delete Agent Application.",
@@ -5629,7 +5669,7 @@
       "get": {
         "operationId": "AgentDeployments_List",
         "tags": [
-          "AgentDeploymentResources"
+          "AgentDeployment"
         ],
         "summary": "Lists Agent Deployments in the application.",
         "description": "Lists Agent Deployments in the application.",
@@ -5742,7 +5782,7 @@
       "get": {
         "operationId": "AgentDeployments_Get",
         "tags": [
-          "AgentDeploymentResources"
+          "AgentDeployment"
         ],
         "summary": "Gets an Agent Deployment by name.",
         "description": "Gets an Agent Deployment by name.",
@@ -5815,7 +5855,7 @@
       "put": {
         "operationId": "AgentDeployments_CreateOrUpdate",
         "tags": [
-          "AgentDeploymentResources"
+          "AgentDeployment"
         ],
         "summary": "Creates or updates an Agent Deployment (asynchronous).",
         "description": "Creates or updates an Agent Deployment (asynchronous).",
@@ -5923,7 +5963,7 @@
       "delete": {
         "operationId": "AgentDeployments_Delete",
         "tags": [
-          "AgentDeploymentResources"
+          "AgentDeployment"
         ],
         "summary": "Delete Agent Deployment.",
         "description": "Delete Agent Deployment.",
@@ -6013,7 +6053,7 @@
       "post": {
         "operationId": "AgentDeployments_Start",
         "tags": [
-          "AgentDeploymentResources"
+          "AgentDeployment"
         ],
         "summary": "Starts an Agent Deployment.",
         "description": "Starts an Agent Deployment.",
@@ -6085,7 +6125,7 @@
       "post": {
         "operationId": "AgentDeployments_Stop",
         "tags": [
-          "AgentDeploymentResources"
+          "AgentDeployment"
         ],
         "summary": "Stops an Agent Deployment.",
         "description": "Stops an Agent Deployment.",
@@ -6157,7 +6197,7 @@
       "post": {
         "operationId": "AgentApplications_Disable",
         "tags": [
-          "AgentApplications"
+          "AgentApplication"
         ],
         "summary": "Disables an Agent Application.",
         "description": "Disables an Agent Application.",
@@ -6221,7 +6261,7 @@
       "post": {
         "operationId": "AgentApplications_Enable",
         "tags": [
-          "AgentApplications"
+          "AgentApplication"
         ],
         "summary": "Enables an Agent Application.",
         "description": "Enables an Agent Application.",
@@ -6285,7 +6325,7 @@
       "post": {
         "operationId": "AgentApplications_ListAgents",
         "tags": [
-          "AgentApplications"
+          "AgentApplication"
         ],
         "summary": "Lists agents for an Agent Application.",
         "description": "Lists agents for an Agent Application.",
@@ -6352,7 +6392,7 @@
       "get": {
         "operationId": "ProjectCapabilityHosts_List",
         "tags": [
-          "ProjectCapabilityHosts"
+          "ProjectCapabilityHost"
         ],
         "summary": "List capabilityHost.",
         "description": "List capabilityHost.",
@@ -6415,7 +6455,7 @@
       "get": {
         "operationId": "ProjectCapabilityHosts_Get",
         "tags": [
-          "ProjectCapabilityHosts"
+          "ProjectCapabilityHost"
         ],
         "summary": "Get project capabilityHost.",
         "description": "Get project capabilityHost.",
@@ -6481,7 +6521,7 @@
       "put": {
         "operationId": "ProjectCapabilityHosts_CreateOrUpdate",
         "tags": [
-          "ProjectCapabilityHosts"
+          "ProjectCapabilityHost"
         ],
         "summary": "Create or update project capabilityHost.",
         "description": "Create or update project capabilityHost.",
@@ -6578,7 +6618,7 @@
       "delete": {
         "operationId": "ProjectCapabilityHosts_Delete",
         "tags": [
-          "ProjectCapabilityHosts"
+          "ProjectCapabilityHost"
         ],
         "summary": "Delete project capabilityHost.",
         "description": "Delete project capabilityHost.",
@@ -6661,7 +6701,7 @@
       "get": {
         "operationId": "ProjectConnections_List",
         "tags": [
-          "ProjectConnections"
+          "ProjectConnectionResource"
         ],
         "summary": "Lists all the available Cognitive Services project connections under the specified project.",
         "description": "Lists all the available Cognitive Services project connections under the specified project.",
@@ -6746,7 +6786,7 @@
       "get": {
         "operationId": "ProjectConnections_Get",
         "tags": [
-          "ProjectConnections"
+          "ProjectConnectionResource"
         ],
         "summary": "Lists Cognitive Services project connection by name.",
         "description": "Lists Cognitive Services project connection by name.",
@@ -6812,7 +6852,7 @@
       "put": {
         "operationId": "ProjectConnections_Create",
         "tags": [
-          "ProjectConnections"
+          "ProjectConnectionResource"
         ],
         "summary": "Create or update Cognitive Services project connection under the specified project.",
         "description": "Create or update Cognitive Services project connection under the specified project.",
@@ -6887,7 +6927,7 @@
       "patch": {
         "operationId": "ProjectConnections_Update",
         "tags": [
-          "ProjectConnections"
+          "ProjectConnectionResource"
         ],
         "summary": "Update Cognitive Services project connection under the specified project.",
         "description": "Update Cognitive Services project connection under the specified project.",
@@ -6962,7 +7002,7 @@
       "delete": {
         "operationId": "ProjectConnections_Delete",
         "tags": [
-          "ProjectConnections"
+          "ProjectConnectionResource"
         ],
         "summary": "Delete Cognitive Services project connection by name.",
         "description": "Delete Cognitive Services project connection by name.",
@@ -7030,7 +7070,7 @@
       "post": {
         "operationId": "ManagedNetworkProvisions_ProvisionManagedNetwork",
         "tags": [
-          "Accounts"
+          "ManagedNetwork"
         ],
         "summary": "Provisions the managed network of a cognitive services account.",
         "description": "Provisions the managed network of a cognitive services account.",
@@ -7481,7 +7521,7 @@
       "get": {
         "operationId": "RaiBlocklistItems_List",
         "tags": [
-          "RaiBlocklistItems"
+          "RaiBlocklists"
         ],
         "description": "Gets the blocklist items associated with the custom blocklist.",
         "parameters": [
@@ -7541,7 +7581,7 @@
       "get": {
         "operationId": "RaiBlocklistItems_Get",
         "tags": [
-          "RaiBlocklistItems"
+          "RaiBlocklists"
         ],
         "description": "Gets the specified custom blocklist Item associated with the custom blocklist.",
         "parameters": [
@@ -7604,7 +7644,7 @@
       "put": {
         "operationId": "RaiBlocklistItems_CreateOrUpdate",
         "tags": [
-          "RaiBlocklistItems"
+          "RaiBlocklists"
         ],
         "description": "Update the state of specified blocklist item associated with the Azure OpenAI account.",
         "parameters": [
@@ -7682,7 +7722,7 @@
       "delete": {
         "operationId": "RaiBlocklistItems_Delete",
         "tags": [
-          "RaiBlocklistItems"
+          "RaiBlocklists"
         ],
         "description": "Deletes the specified blocklist Item associated with the custom blocklist.",
         "parameters": [
@@ -8509,7 +8549,7 @@
       "post": {
         "operationId": "Accounts_RegenerateKey",
         "tags": [
-          "Accounts"
+          "CognitiveServicesAccounts"
         ],
         "description": "Regenerates the specified account key for the specified Cognitive Services account.",
         "parameters": [
@@ -8567,7 +8607,7 @@
       "get": {
         "operationId": "Accounts_ListSkus",
         "tags": [
-          "Accounts"
+          "CognitiveServicesAccounts"
         ],
         "description": "List available SKUs for the requested Cognitive Services account",
         "parameters": [
@@ -8616,7 +8656,7 @@
       "put": {
         "operationId": "TestRaiExternalSafetyProvider_CreateOrUpdate",
         "tags": [
-          "Accounts"
+          "TestRaiExternalSafetyProvider"
         ],
         "description": "Test the rai safety provider associated with the subscription.",
         "parameters": [
@@ -8688,7 +8728,7 @@
       "get": {
         "operationId": "Accounts_ListUsages",
         "tags": [
-          "Accounts"
+          "CognitiveServicesAccounts"
         ],
         "description": "Get usages for the requested Cognitive Services account",
         "parameters": [
@@ -8744,7 +8784,7 @@
       "get": {
         "operationId": "CommitmentPlans_ListPlansByResourceGroup",
         "tags": [
-          "CommitmentPlanOperationGroup"
+          "CognitiveServicesCommitmentPlans"
         ],
         "description": "Returns all the resources of a particular type belonging to a resource group",
         "parameters": [
@@ -8786,7 +8826,7 @@
       "get": {
         "operationId": "CommitmentPlans_GetPlan",
         "tags": [
-          "CommitmentPlanOperationGroup"
+          "CognitiveServicesCommitmentPlans"
         ],
         "description": "Returns a Cognitive Services commitment plan specified by the parameters.",
         "parameters": [
@@ -8831,7 +8871,7 @@
       "put": {
         "operationId": "CommitmentPlans_CreateOrUpdatePlan",
         "tags": [
-          "CommitmentPlanOperationGroup"
+          "CognitiveServicesCommitmentPlans"
         ],
         "description": "Create Cognitive Services commitment plan.",
         "parameters": [
@@ -8907,7 +8947,7 @@
       "patch": {
         "operationId": "CommitmentPlans_UpdatePlan",
         "tags": [
-          "CommitmentPlanOperationGroup"
+          "CognitiveServicesCommitmentPlans"
         ],
         "description": "Create Cognitive Services commitment plan.",
         "parameters": [
@@ -8980,7 +9020,7 @@
       "delete": {
         "operationId": "CommitmentPlans_DeletePlan",
         "tags": [
-          "CommitmentPlanOperationGroup"
+          "CognitiveServicesCommitmentPlans"
         ],
         "description": "Deletes a Cognitive Services commitment plan from the resource group.",
         "parameters": [
@@ -9045,7 +9085,7 @@
       "get": {
         "operationId": "CommitmentPlans_ListAssociations",
         "tags": [
-          "CommitmentPlanAccountAssociations"
+          "CommitmentPlans"
         ],
         "description": "Gets the associations of the Cognitive Services commitment plan.",
         "parameters": [
@@ -9095,7 +9135,7 @@
       "get": {
         "operationId": "CommitmentPlans_GetAssociation",
         "tags": [
-          "CommitmentPlanAccountAssociations"
+          "CommitmentPlans"
         ],
         "description": "Gets the association of the Cognitive Services commitment plan.",
         "parameters": [
@@ -9148,7 +9188,7 @@
       "put": {
         "operationId": "CommitmentPlans_CreateOrUpdateAssociation",
         "tags": [
-          "CommitmentPlanAccountAssociations"
+          "CommitmentPlans"
         ],
         "description": "Create or update the association of the Cognitive Services commitment plan.",
         "parameters": [
@@ -9232,7 +9272,7 @@
       "delete": {
         "operationId": "CommitmentPlans_DeleteAssociation",
         "tags": [
-          "CommitmentPlanAccountAssociations"
+          "CommitmentPlans"
         ],
         "description": "Deletes the association of the Cognitive Services commitment plan.",
         "parameters": [

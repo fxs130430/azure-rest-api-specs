@@ -70,22 +70,25 @@ interface CommitmentPlanAccountAssociationsOps
       }
     > {}
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface CommitmentPlanAccountAssociations {
   /**
    * Gets the association of the Cognitive Services commitment plan.
    */
+  @tag("CommitmentPlans")
   getAssociation is CommitmentPlanAccountAssociationsOps.Read<CommitmentPlanAccountAssociation>;
 
   /**
    * Create or update the association of the Cognitive Services commitment plan.
    */
+  @tag("CommitmentPlans")
   createOrUpdateAssociation is CommitmentPlanAccountAssociationsOps.CreateOrUpdateAsync<CommitmentPlanAccountAssociation>;
 
   /**
    * Deletes the association of the Cognitive Services commitment plan.
    */
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-delete-operation-response-codes" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  @tag("CommitmentPlans")
   deleteAssociation is CommitmentPlanAccountAssociationsOps.DeleteWithoutOkAsync<
     CommitmentPlanAccountAssociation,
     Response = ArmDeletedResponse | ArmDeleteAcceptedLroResponse | ArmDeletedNoContentResponse
@@ -94,6 +97,7 @@ interface CommitmentPlanAccountAssociations {
   /**
    * Gets the associations of the Cognitive Services commitment plan.
    */
+  @tag("CommitmentPlans")
   listAssociations is CommitmentPlanAccountAssociationsOps.List<
     CommitmentPlanAccountAssociation,
     Response = CommitmentPlanAccountAssociationListResult

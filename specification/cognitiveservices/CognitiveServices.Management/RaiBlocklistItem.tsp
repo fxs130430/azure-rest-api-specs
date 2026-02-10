@@ -40,26 +40,30 @@ model RaiBlocklistItem
   tags?: Record<string>;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface RaiBlocklistItems {
   /**
    * Gets the specified custom blocklist Item associated with the custom blocklist.
    */
+  @tag("RaiBlocklists")
   get is ArmResourceRead<RaiBlocklistItem>;
 
   /**
    * Update the state of specified blocklist item associated with the Azure OpenAI account.
    */
+  @tag("RaiBlocklists")
   createOrUpdate is ArmResourceCreateOrReplaceSync<RaiBlocklistItem>;
 
   /**
    * Deletes the specified blocklist Item associated with the custom blocklist.
    */
+  @tag("RaiBlocklists")
   delete is ArmResourceDeleteWithoutOkAsync<RaiBlocklistItem>;
 
   /**
    * Gets the blocklist items associated with the custom blocklist.
    */
+  @tag("RaiBlocklists")
   list is ArmResourceListByParent<
     RaiBlocklistItem,
     Response = ArmResponse<RaiBlockListItemsResult>

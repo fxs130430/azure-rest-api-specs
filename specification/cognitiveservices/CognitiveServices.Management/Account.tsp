@@ -70,11 +70,12 @@ interface AccountOps
       }
     > {}
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface Accounts {
   /**
    * Returns a Cognitive Services account specified by the parameters.
    */
+  @tag("CognitiveServicesAccounts")
   get is AccountOps.Read<Account>;
 
   /**
@@ -82,6 +83,7 @@ interface Accounts {
    */
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-put-operation-response-codes" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   #suppress "@azure-tools/typespec-azure-resource-manager/no-response-body" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  @tag("CognitiveServicesAccounts")
   create is AccountOps.CreateOrUpdateAsync<
     Account,
     Response = ArmResourceUpdatedResponse<Account> | ArmResourceCreatedResponse<Account> | (ArmAcceptedLroResponse<LroHeaders = ArmLroLocationHeader<FinalResult = Account> &
@@ -95,6 +97,7 @@ interface Accounts {
    * Updates a Cognitive Services account
    */
   #suppress "@azure-tools/typespec-azure-resource-manager/no-response-body" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  @tag("CognitiveServicesAccounts")
   @patch(#{ implicitOptionality: false })
   update is AccountOps.CustomPatchAsync<
     Account,
@@ -110,6 +113,7 @@ interface Accounts {
    * Deletes a Cognitive Services account from the resource group.
    */
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-delete-operation-response-codes" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  @tag("CognitiveServicesAccounts")
   delete is AccountOps.DeleteWithoutOkAsync<
     Account,
     Response = ArmDeletedResponse | ArmDeleteAcceptedLroResponse | ArmDeletedNoContentResponse
@@ -118,21 +122,25 @@ interface Accounts {
   /**
    * Returns all the resources of a particular type belonging to a resource group
    */
+  @tag("CognitiveServicesAccounts")
   listByResourceGroup is AccountOps.List<Account, Response = AccountListResult>;
 
   /**
    * Returns all the resources of a particular type belonging to a subscription.
    */
+  @tag("CognitiveServicesAccounts")
   list is ArmListBySubscription<Account, Response = AccountListResult>;
 
   /**
    * Lists the account keys for the specified Cognitive Services account.
    */
+  @tag("CognitiveServicesAccounts")
   listKeys is AccountOps.ActionSync<Account, void, ArmResponse<ApiKeys>>;
 
   /**
    * Regenerates the specified account key for the specified Cognitive Services account.
    */
+  @tag("CognitiveServicesAccounts")
   regenerateKey is AccountOps.ActionSync<
     Account,
     RegenerateKeyParameters,
@@ -142,6 +150,7 @@ interface Accounts {
   /**
    * List available SKUs for the requested Cognitive Services account
    */
+  @tag("CognitiveServicesAccounts")
   @get
   @action("skus")
   listSkus is AccountOps.ActionSync<
@@ -153,6 +162,7 @@ interface Accounts {
   /**
    * Get usages for the requested Cognitive Services account
    */
+  @tag("CognitiveServicesAccounts")
   @get
   @action("usages")
   listUsages is AccountOps.ActionSync<
@@ -171,6 +181,7 @@ interface Accounts {
   /**
    * List available Models for the requested Cognitive Services account
    */
+  @tag("CognitiveServicesAccounts")
   @get
   @action("models")
   @list
@@ -183,6 +194,7 @@ interface Accounts {
   /**
    * Gets the private link resources that need to be created for a Cognitive Services account.
    */
+  @tag("PrivateLinkResources")
   @get
   @action("privateLinkResources")
   privateLinkResourcesList is AccountOps.ActionSync<
@@ -195,6 +207,7 @@ interface Accounts {
    * Test the rai safety provider associated with the subscription.
    */
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-operation-response" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  @tag("TestRaiExternalSafetyProvider")
   @put
   createOrUpdate is AccountOps.CreateOrUpdateSync<
     Account,
@@ -214,6 +227,7 @@ interface Accounts {
   /**
    * Provisions the managed network of a cognitive services account.
    */
+  @tag("ManagedNetwork")
   provisionManagedNetwork is AccountOps.ActionAsync<
     Account,
     Request = ManagedNetworkProvisionOptions,
@@ -251,17 +265,19 @@ interface DeletedAccountOps
       }
     > {}
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface DeletedAccounts {
   /**
    * Returns a Cognitive Services account specified by the parameters.
    */
+  @tag("CognitiveServicesAccounts")
   get is DeletedAccountOps.Read<Account>;
 
   /**
    * Deletes a Cognitive Services account from the resource group.
    */
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-delete-operation-response-codes" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  @tag("CognitiveServicesAccounts")
   purge is DeletedAccountOps.DeleteWithoutOkAsync<
     Account,
     Response = ArmDeletedResponse | ArmDeleteAcceptedLroResponse | ArmDeletedNoContentResponse

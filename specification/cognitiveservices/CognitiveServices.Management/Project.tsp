@@ -38,11 +38,12 @@ model Project
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-invalid-envelope-property" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   identity?: Identity;
 }
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface Projects {
   /**
    * Returns a Cognitive Services project specified by the parameters.
    */
+  @tag("CognitiveServicesProjects")
   get is ArmResourceRead<Project>;
 
   /**
@@ -50,6 +51,7 @@ interface Projects {
    */
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-put-operation-response-codes" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   #suppress "@azure-tools/typespec-azure-resource-manager/no-response-body" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  @tag("CognitiveServicesProjects")
   create is ArmResourceCreateOrReplaceAsync<
     Project,
     Response = ArmResourceUpdatedResponse<Project> | ArmResourceCreatedResponse<Project> | (ArmAcceptedLroResponse<LroHeaders = ArmLroLocationHeader<FinalResult = Project> &
@@ -63,6 +65,7 @@ interface Projects {
    * Updates a Cognitive Services Project
    */
   #suppress "@azure-tools/typespec-azure-resource-manager/no-response-body" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  @tag("CognitiveServicesProjects")
   @patch(#{ implicitOptionality: false })
   update is ArmCustomPatchAsync<
     Project,
@@ -76,11 +79,13 @@ interface Projects {
   /**
    * Deletes a Cognitive Services project from the resource group.
    */
+  @tag("CognitiveServicesProjects")
   delete is ArmResourceDeleteWithoutOkAsync<Project>;
 
   /**
    * Returns all the projects in a Cognitive Services account.
    */
+  @tag("CognitiveServicesProjects")
   list is ArmResourceListByParent<Project, Response = ProjectListResult>;
 }
 

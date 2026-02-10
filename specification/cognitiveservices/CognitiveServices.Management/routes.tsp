@@ -22,6 +22,7 @@ interface DeletedAccountsOperationGroup {
   @get
   @action("deletedAccounts")
   @list
+  @tag("CognitiveServicesAccounts")
   list is ArmProviderActionSync<
     Response = AccountListResult,
     Scope = SubscriptionActionScope,
@@ -38,6 +39,8 @@ interface ResourceSkusOperationGroup {
   @get
   @list
   @action("skus")
+  @tag("Skus")
+  @tag("CognitiveServicesAccounts")
   list is ArmProviderActionSync<
     Response = ResourceSkuListResult,
     Scope = SubscriptionActionScope,
@@ -54,6 +57,7 @@ interface UsagesOperationGroup {
   @get
   @action("usages")
   @list
+  @tag("Usages")
   list is ArmProviderActionSync<
     Response = UsageListResult,
     Scope = SubscriptionActionScope,
@@ -74,6 +78,7 @@ interface UsagesOperationGroup {
  */
 #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-interface-requires-decorator" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 @autoRoute
+@tag("CognitiveServicesAccounts")
 op checkSkuAvailability is ArmProviderActionSync<
   Request = CheckSkuAvailabilityParameter,
   Response = SkuAvailabilityListResult,
@@ -84,6 +89,7 @@ op checkSkuAvailability is ArmProviderActionSync<
  * Check whether a domain is available.
  */
 @autoRoute
+@tag("CognitiveServicesAccounts")
 op checkDomainAvailability is ArmProviderActionSync<
   Request = CheckDomainAvailabilityParameter,
   Response = DomainAvailability,
@@ -96,6 +102,7 @@ op checkDomainAvailability is ArmProviderActionSync<
 #suppress "@azure-tools/typespec-azure-core/no-openapi" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 @operationId("calculateModelCapacity")
 @autoRoute
+@tag("CognitiveServicesAccounts")
 op calculateModelCapacity is ArmProviderActionSync<
   Request = CalculateModelCapacityParameter,
   Response = CalculateModelCapacityResult,
@@ -112,6 +119,7 @@ interface CommitmentTiersOperationGroup {
   @get
   @list
   @action("commitmentTiers")
+  @tag("CommitmentTiers")
   list is ArmProviderActionSync<
     Response = CommitmentTierListResult,
     Scope = SubscriptionActionScope,
@@ -128,6 +136,7 @@ interface ModelsOperationGroup {
   @get
   @list
   @action("models")
+  @tag("Models")
   list is ArmProviderActionSync<
     Response = ModelListResult,
     Scope = SubscriptionActionScope,
@@ -144,6 +153,7 @@ interface LocationBasedModelCapacitiesOperationGroup {
   @get
   @action("modelCapacities")
   @list
+  @tag("ModelCapacities")
   list is ArmProviderActionSync<
     Response = ModelCapacityListResult,
     Scope = SubscriptionActionScope,
@@ -183,6 +193,7 @@ interface ModelCapacitiesOperationGroup {
   @get
   @list
   @action("modelCapacities")
+  @tag("ModelCapacities")
   list is ArmProviderActionSync<
     Response = ModelCapacityListResult,
     Scope = SubscriptionActionScope,

@@ -24,16 +24,18 @@ model ManagedNetworkSettingsPropertiesBasicResource
 }
 
 #suppress "@azure-tools/typespec-azure-resource-manager/no-resource-delete-operation" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface ManagedNetworkSettingsPropertiesBasicResources {
   /**
    * Get API for managed network settings of a cognitive services account.
    */
+  @tag("ManagedNetwork")
   get is ArmResourceRead<ManagedNetworkSettingsPropertiesBasicResource>;
 
   /**
    * PUT API for managed network settings of a cognitive services account.
    */
+  @tag("ManagedNetwork")
   put is ArmResourceCreateOrReplaceAsync<
     ManagedNetworkSettingsPropertiesBasicResource,
     LroHeaders = ArmLroLocationHeader<FinalResult = ManagedNetworkSettingsPropertiesBasicResource> &
@@ -43,6 +45,7 @@ interface ManagedNetworkSettingsPropertiesBasicResources {
   /**
    * Patch API for managed network settings of a cognitive services account.
    */
+  @tag("ManagedNetwork")
   @patch(#{ implicitOptionality: false })
   patch is Azure.ResourceManager.Legacy.CustomPatchAsync<
     ManagedNetworkSettingsPropertiesBasicResource,
@@ -53,6 +56,7 @@ interface ManagedNetworkSettingsPropertiesBasicResources {
   /**
    * List API for managed network settings of a cognitive services account.
    */
+  @tag("ManagedNetwork")
   list is ArmResourceListByParent<
     ManagedNetworkSettingsPropertiesBasicResource,
     Response = ArmResponse<ManagedNetworkListResult>
@@ -61,6 +65,7 @@ interface ManagedNetworkSettingsPropertiesBasicResources {
   /**
    * The POST API for updating the outbound rules of the managed network associated with the cognitive services account.
    */
+  @tag("ManagedNetwork")
   @action("batchOutboundRules")
   post is ArmResourceActionAsync<
     ManagedNetworkSettingsPropertiesBasicResource,
