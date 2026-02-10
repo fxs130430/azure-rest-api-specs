@@ -29,11 +29,12 @@ model Recommendation
   etag?: string;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface Recommendations {
   /**
    * Gets a recommendation by its id.
    */
+  @tag("recommendations")
   singleRecommendation is Extension.Read<
     workspaceExternalResource,
     Recommendation,
@@ -43,6 +44,7 @@ interface Recommendations {
   /**
    * Patch a recommendation.
    */
+  @tag("recommendations")
   @patch(#{ implicitOptionality: false })
   recommendation is Extension.CustomPatchSync<
     workspaceExternalResource,
@@ -54,6 +56,7 @@ interface Recommendations {
   /**
    * Gets a list of all recommendations.
    */
+  @tag("recommendations")
   list is Extension.ListByTarget<
     workspaceExternalResource,
     Recommendation,
@@ -65,6 +68,7 @@ interface Recommendations {
    * Reevaluate a recommendation.
    */
   @action("triggerEvaluation")
+  @tag("recommendations")
   reevaluateRecommendation is Extension.ActionSync<
     workspaceExternalResource,
     Recommendation,

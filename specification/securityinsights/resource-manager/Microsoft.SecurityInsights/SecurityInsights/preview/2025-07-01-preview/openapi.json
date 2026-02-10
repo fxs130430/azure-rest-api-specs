@@ -61,6 +61,9 @@
       "name": "automationRules"
     },
     {
+      "name": "Incidents"
+    },
+    {
       "name": "manualTrigger"
     },
     {
@@ -71,6 +74,9 @@
     },
     {
       "name": "IncidentEntities"
+    },
+    {
+      "name": "Bookmarks"
     },
     {
       "name": "Bookmark"
@@ -145,6 +151,9 @@
       "name": "billingStatistics"
     },
     {
+      "name": "Entities"
+    },
+    {
       "name": "EntityQueries"
     },
     {
@@ -163,7 +172,7 @@
       "name": "Office Consents"
     },
     {
-      "name": "Recommendations"
+      "name": "recommendations"
     },
     {
       "name": "Settings"
@@ -1272,6 +1281,9 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/bookmarks": {
       "get": {
         "operationId": "Bookmarks_List",
+        "tags": [
+          "Bookmarks"
+        ],
         "description": "Gets all bookmarks.",
         "parameters": [
           {
@@ -1321,6 +1333,9 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/bookmarks/{bookmarkId}": {
       "get": {
         "operationId": "Bookmarks_Get",
+        "tags": [
+          "Bookmarks"
+        ],
         "description": "Gets a bookmark.",
         "parameters": [
           {
@@ -1372,6 +1387,9 @@
       },
       "put": {
         "operationId": "Bookmarks_CreateOrUpdate",
+        "tags": [
+          "Bookmarks"
+        ],
         "description": "Creates or updates the bookmark.",
         "parameters": [
           {
@@ -1438,6 +1456,9 @@
       },
       "delete": {
         "operationId": "Bookmarks_Delete",
+        "tags": [
+          "Bookmarks"
+        ],
         "description": "Delete the bookmark.",
         "parameters": [
           {
@@ -3715,6 +3736,9 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/entities": {
       "get": {
         "operationId": "Entities_List",
+        "tags": [
+          "Entities"
+        ],
         "description": "Gets all entities.",
         "parameters": [
           {
@@ -3764,6 +3788,9 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/entities/{entityId}": {
       "get": {
         "operationId": "Entities_Get",
+        "tags": [
+          "Entities"
+        ],
         "description": "Gets an entity.",
         "parameters": [
           {
@@ -3874,6 +3901,9 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/entities/{entityId}/expand": {
       "post": {
         "operationId": "Entities_Expand",
+        "tags": [
+          "Entities"
+        ],
         "description": "Expands an entity.",
         "parameters": [
           {
@@ -3936,6 +3966,9 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/entities/{entityId}/getInsights": {
       "post": {
         "operationId": "Entities_GetInsights",
+        "tags": [
+          "Entities"
+        ],
         "description": "Execute Insights for an entity.",
         "parameters": [
           {
@@ -3998,6 +4031,9 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/entities/{entityId}/getTimeline": {
       "post": {
         "operationId": "EntitiesGetTimeline_list",
+        "tags": [
+          "Entities"
+        ],
         "description": "Timeline for an entity.",
         "parameters": [
           {
@@ -4060,6 +4096,9 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/entities/{entityId}/queries": {
       "get": {
         "operationId": "Entities_Queries",
+        "tags": [
+          "Entities"
+        ],
         "description": "Get Insights and Activities for an entity.",
         "parameters": [
           {
@@ -5919,6 +5958,9 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/incidents": {
       "get": {
         "operationId": "Incidents_List",
+        "tags": [
+          "Incidents"
+        ],
         "description": "Gets all incidents.",
         "parameters": [
           {
@@ -5998,6 +6040,9 @@
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/incidents/{incidentId}": {
       "get": {
         "operationId": "Incidents_Get",
+        "tags": [
+          "Incidents"
+        ],
         "description": "Gets a given incident.",
         "parameters": [
           {
@@ -6049,6 +6094,9 @@
       },
       "put": {
         "operationId": "Incidents_CreateOrUpdate",
+        "tags": [
+          "Incidents"
+        ],
         "description": "Creates or updates an incident.",
         "parameters": [
           {
@@ -6115,6 +6163,9 @@
       },
       "delete": {
         "operationId": "Incidents_Delete",
+        "tags": [
+          "Incidents"
+        ],
         "description": "Deletes a given incident.",
         "parameters": [
           {
@@ -8031,7 +8082,7 @@
       "get": {
         "operationId": "GetRecommendations_List",
         "tags": [
-          "Recommendations"
+          "recommendations"
         ],
         "description": "Gets a list of all recommendations.",
         "parameters": [
@@ -8083,7 +8134,7 @@
       "get": {
         "operationId": "Get_SingleRecommendation",
         "tags": [
-          "Recommendations"
+          "recommendations"
         ],
         "description": "Gets a recommendation by its id.",
         "parameters": [
@@ -8138,7 +8189,7 @@
       "patch": {
         "operationId": "Update_Recommendation",
         "tags": [
-          "Recommendations"
+          "recommendations"
         ],
         "description": "Patch a recommendation.",
         "parameters": [
@@ -8204,7 +8255,7 @@
       "post": {
         "operationId": "Reevaluate_Recommendation",
         "tags": [
-          "Recommendations"
+          "recommendations"
         ],
         "description": "Reevaluate a recommendation.",
         "parameters": [

@@ -34,11 +34,13 @@ interface Bookmarks {
   /**
    * Gets a bookmark.
    */
+  @tag("Bookmarks")
   get is Extension.Read<OperationalInsights, Bookmark, Error = CloudError>;
 
   /**
    * Creates or updates the bookmark.
    */
+  @tag("Bookmarks")
   createOrUpdate is Extension.CreateOrReplaceSync<
     OperationalInsights,
     Bookmark,
@@ -48,6 +50,7 @@ interface Bookmarks {
   /**
    * Delete the bookmark.
    */
+  @tag("Bookmarks")
   delete is Extension.DeleteSync<
     OperationalInsights,
     Bookmark,
@@ -57,6 +60,7 @@ interface Bookmarks {
   /**
    * Gets all bookmarks.
    */
+  @tag("Bookmarks")
   list is Extension.ListByTarget<
     OperationalInsights,
     Bookmark,

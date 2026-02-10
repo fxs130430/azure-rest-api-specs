@@ -31,11 +31,13 @@ interface Entities {
   /**
    * Gets an entity.
    */
+  @tag("Entities")
   get is Extension.Read<workspaceExternalResource, Entity, Error = CloudError>;
 
   /**
    * Gets all entities.
    */
+  @tag("Entities")
   list is Extension.ListByTarget<
     workspaceExternalResource,
     Entity,
@@ -64,6 +66,7 @@ interface Entities {
   /**
    * Expands an entity.
    */
+  @tag("Entities")
   expand is Extension.ActionSync<
     workspaceExternalResource,
     Entity,
@@ -77,6 +80,7 @@ interface Entities {
    */
   @get
   @list
+  @tag("Entities")
   queries is Extension.ActionSync<
     workspaceExternalResource,
     Entity,
@@ -95,6 +99,7 @@ interface Entities {
   /**
    * Execute Insights for an entity.
    */
+  @tag("Entities")
   getInsights is Extension.ActionSync<
     workspaceExternalResource,
     Entity,
@@ -109,6 +114,7 @@ interface Entities {
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @operationId("EntitiesGetTimeline_list")
   @action("getTimeline")
+  @tag("Entities")
   entitiesGetTimelineList is Extension.ActionSync<
     workspaceExternalResource,
     Entity,
