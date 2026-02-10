@@ -38,6 +38,7 @@ using Microsoft.ContainerService;
   "csharp"
 );
 @@clientName(LinuxOSConfig.swapFileSizeMB, "SwapFileSizeInMB", "csharp");
+@@clientName(ManagedClusterAADProfile, "ManagedClusterAadProfile", "csharp");
 @@clientName(ManagedClusterAADProfile.managed, "IsManagedAadEnabled", "csharp");
 @@clientName(ManagedClusterAADProfile.enableAzureRBAC,
   "IsAzureRbacEnabled",
@@ -55,6 +56,9 @@ using Microsoft.ContainerService;
   "csharp"
 );
 @@clientName(Snapshot, "AgentPoolSnapshot", "csharp");
+@@clientName(SnapshotProperties.enableFIPS, "EnableFips", "csharp");
+@@clientName(SnapshotProperties.osSku, "OSSku", "csharp");
+@@clientName(SnapshotProperties.osType, "OSType", "csharp");
 @@clientName(PrivateLinkResource,
   "ContainerServicePrivateLinkResourceData",
   "csharp"
@@ -103,6 +107,10 @@ using Microsoft.ContainerService;
 @@clientName(AzureKeyVaultKms.enabled, "IsEnabled", "csharp");
 @@clientName(KeyVaultNetworkAccessTypes,
   "ManagedClusterKeyVaultNetworkAccessType",
+  "csharp"
+);
+@@clientName(ManagedClusterOIDCIssuerProfile,
+  "ManagedClusterOidcIssuerProfile",
   "csharp"
 );
 @@clientName(ManagedClusterOIDCIssuerProfile.enabled, "IsEnabled", "csharp");
@@ -171,9 +179,14 @@ using Microsoft.ContainerService;
 );
 @@alternateType(MaintenanceWindow.startDate, string, "csharp");
 @@clientName(ManagedCluster.identity, "ClusterIdentity", "csharp");
-@@clientName(ManagedClusterProperties.resourceUID, "ResourceID", "csharp");
+@@alternateType(Azure.ResourceManager.EntityTagProperty.eTag, eTag, "csharp");
+@@clientName(ManagedClusterProperties.resourceUID, "ResourceId", "csharp");
 @@alternateType(ManagedClusterProperties.resourceUID,
   armResourceIdentifier,
+  "csharp"
+);
+@@clientName(ManagedClusterProperties.diskEncryptionSetID,
+  "DiskEncryptionSetId",
   "csharp"
 );
 @@clientName(IstioEgressGateway.enabled, "IsEnabled", "csharp");
@@ -272,10 +285,6 @@ using Microsoft.ContainerService;
   "csharp"
 );
 @@clientName(ManagedCluster, "ContainerServiceManagedCluster", "csharp");
-@@alternateType(ManagedCluster.identity,
-  Azure.ResourceManager.CommonTypes.ManagedServiceIdentity,
-  "csharp"
-);
 @@clientName(PublicNetworkAccess,
   "ContainerServicePublicNetworkAccess",
   "csharp"
@@ -333,6 +342,122 @@ using Microsoft.ContainerService;
   "ManagedClusterLoadBalancerProperties",
   "csharp"
 );
+@@clientName(ManagedClusterAgentPoolProfileProperties.osType,
+  "OSType",
+  "csharp"
+);
+@@clientName(ManagedClusterAgentPoolProfileProperties.enableFIPS,
+  "EnableFips",
+  "csharp"
+);
+@@clientName(ManagedClusterAgentPoolProfileProperties.capacityReservationGroupID,
+  "CapacityReservationGroupId",
+  "csharp"
+);
+@@clientName(ManagedClusterAgentPoolProfileProperties.hostGroupID,
+  "HostGroupId",
+  "csharp"
+);
+@@clientName(ManagedClusterAgentPoolProfileProperties.nodePublicIPPrefixID,
+  "NodePublicIPPrefixId",
+  "csharp"
+);
+@@clientName(ManagedClusterAgentPoolProfileProperties.podSubnetID,
+  "PodSubnetId",
+  "csharp"
+);
+@@clientName(ManagedClusterAgentPoolProfileProperties.proximityPlacementGroupID,
+  "ProximityPlacementGroupId",
+  "csharp"
+);
+@@clientName(ManagedClusterAgentPoolProfileProperties.vnetSubnetID,
+  "VnetSubnetId",
+  "csharp"
+);
+@@clientName(ManagedClusterAgentPoolProfileProperties.type,
+  "TypePropertiesType",
+  "csharp"
+);
+@@clientName(ManagedClusterAgentPoolProfileProperties.enableUltraSSD,
+  "EnableUltraSsd",
+  "csharp"
+);
+@@clientName(ManagedClusterAgentPoolProfileProperties.localDNSProfile,
+  "LocalDnsProfile",
+  "csharp"
+);
+@@clientName(ManagedClusterAgentPoolProfileProperties.osDiskSizeGB,
+  "OSDiskSizeInGB",
+  "csharp"
+);
+@@clientName(ManagedClusterAgentPoolProfileProperties.osDiskType,
+  "OSDiskType",
+  "csharp"
+);
+@@clientName(ManagedClusterAgentPoolProfileProperties.osSKU, "OSSku", "csharp");
+@@clientName(ManagedClusterPoolUpgradeProfile.osType, "OSType", "csharp");
+@@clientName(AgentPoolUpgradeProfileProperties.osType, "OSType", "csharp");
+@@clientName(MachineOSProfile.osType, "OSType", "csharp");
+@@clientName(MachineOSProfile.osSKU, "OSSku", "csharp");
+@@clientName(MachineOSProfile.osDiskSizeGB, "OSDiskSizeInGB", "csharp");
+@@clientName(MachineOSProfile.osDiskType, "OSDiskType", "csharp");
+@@clientName(MachineOSProfile.enableFIPS, "EnableFips", "csharp");
+@@clientName(AgentPoolArtifactStreamingProfile.enabled,
+  "IsArtifactStreamingEnabled",
+  "csharp"
+);
+@@clientName(MachineNetworkProperties.vnetSubnetID, "VnetSubnetId", "csharp");
+@@clientName(MachineNetworkProperties.podSubnetID, "PodSubnetId", "csharp");
+@@clientName(MachineNetworkProperties.nodePublicIPPrefixID,
+  "NodePublicIpPrefixId",
+  "csharp"
+);
+@@clientName(GPUInstanceProfile, "GpuInstanceProfile", "csharp");
+@@clientName(LocalDNSProfile, "LocalDnsProfile", "csharp");
+@@clientName(MaintenanceConfigurationProperties.timeInWeek,
+  "TimesInWeek",
+  "csharp"
+);
+@@clientName(MaintenanceConfigurationProperties.notAllowedTime,
+  "NotAllowedTimes",
+  "csharp"
+);
+@@clientName(ManagedClusterAPIServerAccessProfile,
+  "ManagedClusterApiServerAccessProfile",
+  "csharp"
+);
+@@clientName(ManagedClusterProperties.privateFQDN, "PrivateFqdn", "csharp");
+@@clientName(ManagedClusterProperties.azurePortalFQDN,
+  "AzurePortalFqdn",
+  "csharp"
+);
+@@clientName(ManagedClusterProperties.enableRBAC, "EnableRbac", "csharp");
+@@clientName(ManagedClusterHostedSystemProfile.enabled,
+  "IsHostedSystemAddonsEnabled",
+  "csharp"
+);
+@@clientName(ManagedClusterSKU, "ManagedClusterSku", "csharp");
+@@clientName(ManagedClusterSKUName, "ManagedClusterSkuName", "csharp");
+@@clientName(ManagedClusterSKUTier, "ManagedClusterSkuTier", "csharp");
+@@clientName(PrivateEndpointConnection,
+  "ContainerServicePrivateEndpointConnection",
+  "csharp"
+);
+@@clientName(PrivateEndpointConnectionProperties,
+  "ContainerServicePrivateEndpointConnectionProperties",
+  "csharp"
+);
+@@clientName(PrivateLinkServiceConnectionState.status,
+  "ConnectionState",
+  "csharp"
+);
+@@alternateType(PrivateEndpoint.id, armResourceIdentifier, "csharp");
+@@alternateType(ManagedCluster.extendedLocation,
+  Azure.ResourceManager.CommonTypes.ExtendedLocation,
+  "csharp"
+);
+@@alternateType(MachineProperties.eTag, eTag, "csharp");
+@@alternateType(ManagedClusterAgentPoolProfileProperties.eTag, eTag, "csharp");
 @@clientName(ManagedClusters.listByResourceGroup, "GetAll", "csharp");
 @@clientName(ManagedClusters.list,
   "GetContainerServiceManagedClusters",
@@ -359,6 +484,49 @@ using Microsoft.ContainerService;
   "csharp"
 );
 @@clientName(ManagedClusters.post, "ResolvePrivateLinkServiceId", "csharp");
+
+namespace Azure.ResourceManager.ContainerService.Models {
+  /**
+   * Delegated resource properties - internal use only.
+   */
+  model ManagedClusterDelegatedIdentity {
+    /**
+     * The ARM resource id of the delegated resource - internal use only.
+     */
+    resourceId: armResourceIdentifier;
+
+    /**
+     * The tenant id of the delegated resource - internal use only.
+     */
+    tenantId?: uuid;
+
+    /**
+     * The delegation id of the referral delegation (optional) - internal use only.
+     */
+    referralResource: string;
+
+    /**
+     * The source resource location - internal use only.
+     */
+    location?: azureLocation;
+  }
+
+  @@alternateType(ManagedClusterIdentity.delegatedResources,
+    Record<ManagedClusterDelegatedIdentity>,
+    "csharp"
+  );
+}
+@@alternateType(ManagedClusterIdentity.principalId, uuid, "csharp");
+@@alternateType(ManagedClusterIdentity.tenantId, uuid, "csharp");
+@@alternateType(ManagedClusterIdentity.type,
+  Azure.ResourceManager.CommonTypes.ManagedServiceIdentityType,
+  "csharp"
+);
+@@clientName(ManagedClusterIdentity.type, "ResourceIdentityType", "csharp");
+@@clientName(ManagedClusterHTTPProxyConfig,
+  "ManagedClusterHttpProxyConfig",
+  "csharp"
+);
 
 @@scope(ManagedClusters.operationStatusResultList, "!csharp");
 @@scope(ManagedClusters.operationStatusResultGet, "!csharp");
