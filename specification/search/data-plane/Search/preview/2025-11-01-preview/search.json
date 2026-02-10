@@ -4378,12 +4378,12 @@
         "modelAsString": true,
         "values": [
           {
-            "name": "OpenAICLIPImageTextEmbeddingsVitBasePatch32",
+            "name": "OpenAiClipImageTextEmbeddingsVitBasePatch32",
             "value": "OpenAI-CLIP-Image-Text-Embeddings-vit-base-patch32",
             "description": "OpenAI-CLIP-Image-Text-Embeddings-vit-base-patch32"
           },
           {
-            "name": "OpenAICLIPImageTextEmbeddingsViTLargePatch14336",
+            "name": "OpenAiClipImageTextEmbeddingsViTLargePatch14_336",
             "value": "OpenAI-CLIP-Image-Text-Embeddings-ViT-Large-Patch14-336",
             "description": "OpenAI-CLIP-Image-Text-Embeddings-ViT-Large-Patch14-336"
           },

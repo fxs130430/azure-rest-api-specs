@@ -839,6 +839,7 @@ namespace KnowledgeBaseRetrievalClient {
   "com.azure.search.documents.indexes",
   "java"
 );
+@@clientName(Search.OcrSkillLanguage.`is`, "IsEnum", "python");
 @@clientNamespace(Search.OcrLineEnding, "Azure.Search.Documents.Indexes");
 @@clientNamespace(Search.OcrLineEnding,
   "com.azure.search.documents.indexes",
@@ -878,6 +879,7 @@ namespace KnowledgeBaseRetrievalClient {
   "com.azure.search.documents.indexes",
   "java"
 );
+@@clientName(Search.SplitSkillLanguage.`is`, "IsEnum", "python");
 @@clientNamespace(Search.TextSplitMode, "Azure.Search.Documents.Indexes");
 @@clientNamespace(Search.TextSplitMode,
   "com.azure.search.documents.indexes",
@@ -909,6 +911,7 @@ namespace KnowledgeBaseRetrievalClient {
   "com.azure.search.documents.indexes",
   "java"
 );
+@@clientName(Search.TextTranslationSkillLanguage.`is`, "IsEnum", "python");
 @@clientNamespace(Search.DocumentIntelligenceLayoutSkillOutputMode,
   "Azure.Search.Documents.Indexes"
 );
@@ -2938,11 +2941,11 @@ namespace KnowledgeBaseRetrievalClient {
   "chatCompletionSchemaProperties",
   "javascript"
 );
-@@clientName(Search.AIFoundryModelCatalogName.OpenAICLIPImageTextEmbeddingsVitBasePatch32,
+@@clientName(Search.AIFoundryModelCatalogName.OpenAiClipImageTextEmbeddingsVitBasePatch32,
   "OpenAIClipImageTextEmbeddingsVitBasePatch32",
   "javascript"
 );
-@@clientName(Search.AIFoundryModelCatalogName.OpenAICLIPImageTextEmbeddingsViTLargePatch14336,
+@@clientName(Search.AIFoundryModelCatalogName.OpenAiClipImageTextEmbeddingsViTLargePatch14_336,
   "OpenAIClipImageTextEmbeddingsViTLargePatch14336",
   "javascript"
 );

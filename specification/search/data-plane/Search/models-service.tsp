@@ -845,10 +845,10 @@ union AIFoundryModelCatalogName {
   string,
 
   /** OpenAI-CLIP-Image-Text-Embeddings-vit-base-patch32 */
-  OpenAICLIPImageTextEmbeddingsVitBasePatch32: "OpenAI-CLIP-Image-Text-Embeddings-vit-base-patch32",
+  OpenAiClipImageTextEmbeddingsVitBasePatch32: "OpenAI-CLIP-Image-Text-Embeddings-vit-base-patch32",
 
   /** OpenAI-CLIP-Image-Text-Embeddings-ViT-Large-Patch14-336 */
-  OpenAICLIPImageTextEmbeddingsViTLargePatch14336: "OpenAI-CLIP-Image-Text-Embeddings-ViT-Large-Patch14-336",
+  OpenAiClipImageTextEmbeddingsViTLargePatch14_336: "OpenAI-CLIP-Image-Text-Embeddings-ViT-Large-Patch14-336",
 
   /** Facebook-DinoV2-Image-Embeddings-ViT-Base */
   FacebookDinoV2ImageEmbeddingsViTBase: "Facebook-DinoV2-Image-Embeddings-ViT-Base",
