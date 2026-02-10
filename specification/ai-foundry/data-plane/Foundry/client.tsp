@@ -1,5 +1,5 @@
 //
-// This file is used for emitting the Python client (package azure-ai-projects) and 
+// This file is used for emitting the Python client (package azure-ai-projects) and
 // the JS client (package @azure/ai-projects).
 //
 
@@ -150,4 +150,3 @@ using Azure.AI.Projects;
 
 // Less generic names
 @@clientName(Sku, "ModelDeploymentSku");
-
