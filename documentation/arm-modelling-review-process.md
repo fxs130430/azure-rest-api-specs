@@ -31,14 +31,14 @@ Once the label is added:
 
 To complete the ARM Modelling Review:
 
-1. **Schedule a session**: Contact the ARM review team to schedule attendance at ARM Modelling Office Hours
+1. **Schedule a session**: Visit the [ARM Modelling Office Hours page](https://aka.ms/azsdk/arm-modelling-office-hours) to schedule or join the next available session. You can also contact the ARM review team through the support channel.
 2. **Prepare your design**: Have your API design documentation ready, including:
    - Resource modeling diagrams
    - Sample API requests and responses
    - Rationale for design decisions
    - Any areas where you need specific guidance
 
-3. **Attend the meeting**: Present your API design to the Product Managers
+3. **Attend the meeting**: Present your API design to the Product Managers at the scheduled office hours
 4. **Discuss feedback**: Address any questions or concerns raised during the review
 
 ### 4. Approval
@@ -80,9 +80,9 @@ This can happen if:
 ## Contact Information
 
 For questions about the ARM Modelling Review process:
+- **ARM Modelling Office Hours**: https://aka.ms/azsdk/arm-modelling-office-hours
 - **Teams Channel**: See aka.ms/azsdk/support/specreview-channel
 - **ARM Review Documentation**: https://aka.ms/azsdk/pr-arm-review
-- **Office Hours Scheduling**: Contact the ARM review team through the support channel
 
 ## Related Documentation
 
