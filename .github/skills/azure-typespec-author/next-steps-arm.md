@@ -4,26 +4,12 @@ This skill focuses on Step 6: Follow-up Actions that occur after TypeSpec ARM au
 
 **After completing any TypeSpec authoring case, ALWAYS perform these checks:**
 
-### Step 6.1: Verify Compilation Status
-
-**Goal**: Ensure the changes compile successfully
-
-**Actions**:
-
-1. Check validation results from Step 4
-2. Identify any remaining errors or warnings
-3. Determine if errors are blocking or informational
-
-**Output**:
-
+### Step 6.1: Verify Example folder is update-to-date
 ```
-🔍 Compilation Status
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+verify that examples are correctly updated or added:
 
-✓ No blocking errors
-⚠ [X] warnings (informational only)
-
-Ready for next steps: YES
+1. Check that all example files under the `examples/` folder are present and consistent with the current API version and operations.
+2. If examples are missing, outdated, or incorrect, **repeat from Step 1** — retrieve a new authoring plan specifically to update/add the examples for this version.
 ```
 
 ---
@@ -136,6 +122,8 @@ What would you like to add to this preview version? For example:
 Type your request, or "done" if no additional changes needed:
 ```
 
+
+
 ---
 
 ### Case 2: Add New Stable Version
@@ -168,5 +156,7 @@ What would you like to add to this preview version? For example:
 
 Type your request, or "done" if no additional changes needed:
 ```
+
+
 
 ---

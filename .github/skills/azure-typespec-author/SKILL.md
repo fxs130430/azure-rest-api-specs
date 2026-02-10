@@ -70,6 +70,6 @@ Return:
 2. **Step 6.2**: Check for breaking changes if a stable version was added/modified.
 3. **Step 6.3**: Identify the completed case type and present the corresponding **case-specific follow-up actions** to the user (e.g., asking what features to add to a new preview version, or which preview features to promote for a new stable version).
 
-**Do NOT summarize and end your turn without presenting the follow-up actions from `next-step-arm.md` to the user.** The user must be given the opportunity to request additional changes.
+**Do NOT summarize and end your turn without presenting the follow-up actions from `next-steps-arm.md` to the user.** The user must be given the opportunity to request additional changes.
 
 ---
