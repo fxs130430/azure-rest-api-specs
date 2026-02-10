@@ -414,6 +414,9 @@ model AzureAIBenchmarkPreviewEvalRunDataSource extends EvalRunDataSource {
   /** The type of data source, always `azure_ai_benchmark_preview`. */
   type: "azure_ai_benchmark_preview";
 
+  /** Input messages configuration. */
+  input_messages?: OpenAI.CreateEvalCompletionsRunDataSourceInputMessagesItemReference;
+
   /**
    * The target model or agent to evaluate against the benchmark.
    * When using `azure_ai_model` target, `sampling_params` must not be provided;
