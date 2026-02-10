@@ -4591,7 +4591,7 @@
             "description": "The entity query we want to create or update",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/EntityQuery"
+              "$ref": "#/definitions/CustomEntityQuery"
             }
           }
         ],
