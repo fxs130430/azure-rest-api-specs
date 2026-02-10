@@ -61,10 +61,10 @@ namespace Azure.AI.Projects {
     call_id: string;
 
     /** The name of the function to run. */
-    name: string;
+    name?: string;
 
     /** The label associated with the current object. */
-    label: string;
+    label?: string;
 
     /** A JSON string of the arguments to pass to the function. */
     arguments: string;
@@ -73,7 +73,7 @@ namespace Azure.AI.Projects {
   `incomplete`. Populated when items are returned via API.*/
     #suppress "@azure-tools/typespec-azure-core/no-closed-literal-union" "Auto-suppressed warnings non-applicable rules during import."
     #suppress "@azure-tools/typespec-azure-core/no-unnamed-union" "Auto-suppressed warnings non-applicable rules during import."
-    status?: "in_progress" | "completed" | "incomplete";
+    status: "in_progress" | "completed" | "incomplete";
   }
 
   model OutputItemReference extends OpenAI.OutputItem {
