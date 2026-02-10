@@ -11,6 +11,14 @@ using Azure.Core;
 
 @useAuth(AadOauth2Auth<["https://contoso.azure.com/.default"]>)
 @service(#{ title: "Contoso Widget Manager" })
+@server(
+  "{endpoint}/widget",
+  "widget",
+  {
+    @doc("widget")
+    endpoint: url,
+  }
+)
 @versioned(Contoso.WidgetManager.Versions)
 namespace Azure.Contoso.WidgetManager;
 

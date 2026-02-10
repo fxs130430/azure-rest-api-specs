@@ -15,6 +15,14 @@ using Azure.ResourceManager;
 @armProviderNamespace
 @service(#{ title: "Microsoft.Contoso management service" })
 @versioned(Microsoft.Contoso.Versions)
+@server(
+  "{endpoint}/management",
+  "management",
+  {
+    @doc("management")
+    endpoint: url,
+  }
+)
 namespace Microsoft.Contoso;
 
 /** The available API versions. */
