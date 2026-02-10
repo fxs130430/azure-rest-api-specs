@@ -44,6 +44,12 @@ export const brchHref = href("aka.ms/brch", "https://aka.ms/brch");
 
 export const brchTsg = `To unblock this PR, follow the process at ${brchHref}.`;
 
+export const armModellingReviewTsg =
+  `This PR requires ARM modelling review (label: <code>ARMModellingReviewRequired</code>). ` +
+  `To proceed, you must attend the ARM Modelling Office Hours meeting and discuss the design with the Product Managers (PMs). ` +
+  `After the review is complete, a PM will add the <code>ARMModelling-Approved-OfficeHours</code> label to unblock this PR. ` +
+  `For more information on scheduling and attending office hours, please contact the ARM review team.`;
+
 /**
  * @param {string} message
  * @returns {string}
@@ -65,7 +71,16 @@ export function wrapInArmReviewMessage(message) {
  * @returns {string}
  */
 export function notReadyForArmReviewReason(label) {
-  return `This PR is <code>NotReadyForARMReview</code> because it has the <code>${label}</code> label.<br/>`;
+  const baseMessage = `This PR is <code>NotReadyForARMReview</code> because it has the <code>${label}</code> label.<br/>`;
+  
+  // Add specific guidance for ARMModellingReviewRequired
+  if (label === "ARMModellingReviewRequired") {
+    return baseMessage + 
+      `You must attend the ARM Modelling Office Hours meeting and discuss the design with the Product Managers (PMs). ` +
+      `After the review is complete, a PM will add the <code>ARMModelling-Approved-OfficeHours</code> label to unblock this PR.`;
+  }
+  
+  return baseMessage;
 }
 
 /**
