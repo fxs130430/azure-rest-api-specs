@@ -1,3 +1,6 @@
+parameters:
+  service-dir:
+    default: "sdk/baremetalinfrastructure"
 emit:
   - "@azure-tools/typespec-autorest"
 options:
@@ -8,6 +11,36 @@ options:
     output-file: "{azure-resource-provider-folder}/{service-name}/BareMetalInfrastructure/{version-status}/{version}/baremetalinfrastructure.json"
     emit-lro-options: "all"
     examples-dir: "{project-root}/examples"
+  "@azure-tools/typespec-python":
+    emitter-output-dir: "{output-dir}/{service-dir}/azure-mgmt-baremetalinfrastructure"
+    namespace: "azure.mgmt.baremetalinfrastructure"
+    generate-test: true
+    generate-sample: true
+    flavor: "azure"
+  "@azure-tools/typespec-java":
+    emitter-output-dir: "{output-dir}/{service-dir}/azure-resourcemanager-baremetalinfrastructure"
+    namespace: "com.azure.resourcemanager.baremetalinfrastructure"
+    service-name: "BareMetalInfrastructure"
+    premium: true
+    enable-sync-stack: true
+    client-side-validations: true
+    flavor: azure
+  "@azure-tools/typespec-ts":
+    emitter-output-dir: "{output-dir}/{service-dir}/arm-baremetalinfrastructure"
+    flavor: "azure"
+    experimental-extensible-enums: true
+    package-details:
+      name: "@azure/arm-baremetalinfrastructure"
+  "@azure-tools/typespec-go":
+    service-dir: "sdk/resourcemanager/baremetalinfrastructure"
+    emitter-output-dir: "{output-dir}/{service-dir}/armbaremetalinfrastructure"
+    module: "github.com/Azure/azure-sdk-for-go/{service-dir}/armbaremetalinfrastructure"
+    fix-const-stuttering: true
+    flavor: "azure"
+    generate-samples: true
+    generate-fakes: true
+    head-as-boolean: true
+    inject-spans: true
 linter:
   extends:
     - "@azure-tools/typespec-azure-rulesets/resource-manager"
