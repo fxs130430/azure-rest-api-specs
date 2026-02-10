@@ -89,9 +89,6 @@ namespace Azure.AI.Projects {
     /** The label associated with the current object. */
     label?: string;
 
-    /** A JSON string of the arguments to pass to the function. */
-    arguments: string;
-
     /** A output of the function tool call. */
     output?: unknown;
 
