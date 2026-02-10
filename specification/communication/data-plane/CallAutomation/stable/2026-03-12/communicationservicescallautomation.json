@@ -2921,7 +2921,7 @@
       "additionalProperties": false
     },
     "MediaStreamingAudioChannelType": {
-      "description": "Channel type of media streaming audio",
+      "description": "The audio channel type to stream, e.g., unmixed audio, mixed audio.",
       "enum": [
         "mixed",
         "unmixed"
@@ -3732,6 +3732,7 @@
       }
     },
     "RecordingContentType": {
+      "description": "The content type of call recording.",
       "enum": [
         "audio",
         "audioVideo"
@@ -3832,6 +3833,7 @@
       "additionalProperties": false
     },
     "RecordingStorageKind": {
+      "description": "Defines the kind of external storage",
       "enum": [
         "azureCommunicationServices",
         "azureBlobStorage"
@@ -4516,7 +4518,11 @@
         "final",
         "intermediate"
       ],
-      "type": "string"
+      "type": "string",
+      "x-ms-enum": {
+        "name": "TranscriptionResultTypeDto",
+        "modelAsString": true
+      }
     },
     "TranscriptionStarted": {
       "type": "object",
