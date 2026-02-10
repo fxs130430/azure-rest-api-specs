@@ -7,9 +7,9 @@
 
 Please understand this diagram before proceeding. It explains how to get your PR approved & merged.
 
-![spec_pr_review_workflow_diagram](https://github.com/Azure/azure-rest-api-specs/assets/4429827/5bb5e7ce-8aff-4dbb-a3f8-0d9b68fef5b1)
-
 **Step 2 Details**: For detailed information about the ARM API changes review process (Step 2), including ARM Modelling Review requirements, see the [Step 2: ARM Review Guide](https://github.com/Azure/azure-rest-api-specs/blob/main/documentation/pr-workflow-step2-arm-review.md).
+
+![spec_pr_review_workflow_diagram](https://github.com/Azure/azure-rest-api-specs/assets/4429827/5bb5e7ce-8aff-4dbb-a3f8-0d9b68fef5b1)
 
 ## Purpose of this PR
 
