@@ -72,14 +72,16 @@ export function wrapInArmReviewMessage(message) {
  */
 export function notReadyForArmReviewReason(label) {
   const baseMessage = `This PR is <code>NotReadyForARMReview</code> because it has the <code>${label}</code> label.<br/>`;
-  
+
   // Add specific guidance for ARMModellingReviewRequired
   if (label === "ARMModellingReviewRequired") {
-    return baseMessage + 
+    return (
+      baseMessage +
       `You must attend the ARM Modelling Office Hours meeting and discuss the design with the Product Managers (PMs). ` +
-      `After the review is complete, a PM will add the <code>ARMModelling-Approved-OfficeHours</code> label to unblock this PR.`;
+      `After the review is complete, a PM will add the <code>ARMModelling-Approved-OfficeHours</code> label to unblock this PR.`
+    );
   }
-  
+
   return baseMessage;
 }
 

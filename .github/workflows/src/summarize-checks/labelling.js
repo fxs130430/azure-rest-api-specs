@@ -408,9 +408,7 @@ export const breakingChangesCheckType = {
   ARMModelling: {
     reviewRequiredLabel: "ARMModellingReviewRequired",
     approvalPrefixLabel: "ARMModelling-Approved-*",
-    approvalLabels: [
-      "ARMModelling-Approved-OfficeHours",
-    ],
+    approvalLabels: ["ARMModelling-Approved-OfficeHours"],
   },
 };
 
@@ -737,7 +735,8 @@ function getBlockedOnVersioningPolicy(labelContext) {
     labelContext.present.has("ARMModellingReviewRequired") &&
     !anyApprovalLabelPresent("ARMModelling", [...labelContext.present]);
 
-  const blockedOnVersioningPolicy = pendingVersioningReview || pendingBreakingChangeReview || pendingARMModellingReview;
+  const blockedOnVersioningPolicy =
+    pendingVersioningReview || pendingBreakingChangeReview || pendingARMModellingReview;
   return blockedOnVersioningPolicy;
 }
 
