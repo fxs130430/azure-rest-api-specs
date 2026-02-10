@@ -13,12 +13,26 @@ using TypeSpec.Versioning;
 
 namespace Microsoft.Web;
 
+@doc("The provisioning status of an AI gateway.")
+union AIGatewayProvisioningState {
+  string,
+
+  @doc("Resource has been created.")
+  Succeeded: "Succeeded",
+
+  @doc("Resource creation failed.")
+  Failed: "Failed",
+
+  @doc("Resource creation was canceled.")
+  Canceled: "Canceled",
+}
+
 @added(Versions.v2026_03_01_preview)
 @doc("The properties of an AI gateway.")
 model AiGatewayProperties {
   @visibility(Lifecycle.Read)
   @doc("The status of the last operation.")
-  provisioningState?: ResourceProvisioningState;
+  provisioningState?: AIGatewayProvisioningState;
 
   @doc("The description of the resource.")
   @visibility(Lifecycle.Read)
@@ -42,7 +56,7 @@ model AiGateway is Azure.ResourceManager.TrackedResource<AiGatewayProperties> {
 interface AiGateways {
   get is ArmResourceRead<AiGateway>;
   createOrUpdate is ArmResourceCreateOrReplaceSync<AiGateway>;
-  patch is ArmResourcePatchSync<AiGateway, AiGatewayProperties>;
+  patch is ArmTagsPatchSync<AiGateway>;
   delete is ArmResourceDeleteSync<AiGateway>;
   listBySubscription is ArmListBySubscription<AiGateway>;
   listByResourceGroup is ArmResourceListByParent<

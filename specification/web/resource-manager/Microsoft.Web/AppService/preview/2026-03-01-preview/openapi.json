@@ -2755,7 +2755,7 @@
             "description": "The resource properties to be updated.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/AiGatewayUpdate"
+              "$ref": "#/definitions/AiGatewayTagsUpdate"
             }
           }
         ],
@@ -41860,6 +41860,36 @@
     }
   },
   "definitions": {
+    "AIGatewayProvisioningState": {
+      "type": "string",
+      "description": "The provisioning status of an AI gateway.",
+      "enum": [
+        "Succeeded",
+        "Failed",
+        "Canceled"
+      ],
+      "x-ms-enum": {
+        "name": "AIGatewayProvisioningState",
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Succeeded",
+            "value": "Succeeded",
+            "description": "Resource has been created."
+          },
+          {
+            "name": "Failed",
+            "value": "Failed",
+            "description": "Resource creation failed."
+          },
+          {
+            "name": "Canceled",
+            "value": "Canceled",
+            "description": "Resource creation was canceled."
+          }
+        ]
+      }
+    },
     "AbnormalTimePeriod": {
       "type": "object",
       "description": "Class representing Abnormal Time Period identified in diagnosis",
@@ -42001,7 +42031,7 @@
       "description": "The properties of an AI gateway.",
       "properties": {
         "provisioningState": {
-          "$ref": "#/definitions/Azure.ResourceManager.ResourceProvisioningState",
+          "$ref": "#/definitions/AIGatewayProvisioningState",
           "description": "The status of the last operation.",
           "readOnly": true
         },
@@ -42012,22 +42042,20 @@
         }
       }
     },
-    "AiGatewayUpdate": {
+    "AiGatewayTagsUpdate": {
       "type": "object",
-      "description": "An AI gateway resource.",
+      "description": "The type used for updating tags in AiGateway resources.",
       "properties": {
-        "properties": {
-          "$ref": "#/definitions/AiGatewayProperties",
-          "description": "The resource-specific properties for this resource."
+        "tags": {
+          "type": "object",
+          "description": "Resource tags.",
+          "additionalProperties": {
+            "type": "string"
+          }
         }
       },
-      "allOf": [
-        {
-          "$ref": "#/definitions/Azure.ResourceManager.CommonTypes.TrackedResourceUpdate"
-        }
-      ],
       "xml": {
-        "name": "AiGateway"
+        "name": "TagsUpdateModel"
       }
     },
     "AllowedAudiencesValidation": {
@@ -43503,61 +43531,6 @@
             "path"
           ]
         }
-      }
-    },
-    "Azure.ResourceManager.CommonTypes.TrackedResourceUpdate": {
-      "type": "object",
-      "title": "Tracked Resource",
-      "description": "The resource model definition for an Azure Resource Manager tracked top level resource which has 'tags' and a 'location'",
-      "properties": {
-        "tags": {
-          "type": "object",
-          "description": "Resource tags.",
-          "additionalProperties": {
-            "type": "string"
-          }
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "../../../../../../common-types/resource-management/v5/types.json#/definitions/Resource"
-        }
-      ],
-      "xml": {
-        "name": "TrackedResource"
-      }
-    },
-    "Azure.ResourceManager.ResourceProvisioningState": {
-      "type": "string",
-      "description": "The provisioning state of a resource type.",
-      "enum": [
-        "Succeeded",
-        "Failed",
-        "Canceled"
-      ],
-      "x-ms-enum": {
-        "name": "ResourceProvisioningState",
-        "modelAsString": true,
-        "values": [
-          {
-            "name": "Succeeded",
-            "value": "Succeeded",
-            "description": "Resource has been created."
-          },
-          {
-            "name": "Failed",
-            "value": "Failed",
-            "description": "Resource creation failed."
-          },
-          {
-            "name": "Canceled",
-            "value": "Canceled",
-            "description": "Resource creation was canceled."
-          }
-        ]
-      },
-      "xml": {
-        "name": "ResourceProvisioningState"
       }
     },
     "AzureActiveDirectory": {

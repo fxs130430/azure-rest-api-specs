@@ -9,8 +9,7 @@
     "properties": {
       "tags": {
         "key1": "Value2"
-      },
-      "properties": {}
+      }
     }
   },
   "responses": {
