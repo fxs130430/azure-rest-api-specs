@@ -294,7 +294,10 @@ interface GuestConfigurationAssignmentsVMSS {
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Preserving original VMSS path parameter name"
   @operationId("GuestConfigurationAssignmentsVMSS_Get")
-  @Azure.ResourceManager.Legacy.renamePathParameter("guestConfigurationAssignmentName", "name")
+  @Azure.ResourceManager.Legacy.renamePathParameter(
+    "guestConfigurationAssignmentName",
+    "name"
+  )
   get is Extension.Read<
     VirtualMachineScaleSets,
     GuestConfigurationAssignment,
@@ -308,7 +311,10 @@ interface GuestConfigurationAssignmentsVMSS {
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Preserving original VMSS path parameter name"
   @operationId("GuestConfigurationAssignmentsVMSS_CreateOrUpdate")
-  @Azure.ResourceManager.Legacy.renamePathParameter("guestConfigurationAssignmentName", "name")
+  @Azure.ResourceManager.Legacy.renamePathParameter(
+    "guestConfigurationAssignmentName",
+    "name"
+  )
   createOrUpdate is Extension.CreateOrReplaceSync<
     VirtualMachineScaleSets,
     GuestConfigurationAssignment,
@@ -323,7 +329,10 @@ interface GuestConfigurationAssignmentsVMSS {
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Preserving original VMSS path parameter name"
   @operationId("GuestConfigurationAssignmentsVMSS_Delete")
-  @Azure.ResourceManager.Legacy.renamePathParameter("guestConfigurationAssignmentName", "name")
+  @Azure.ResourceManager.Legacy.renamePathParameter(
+    "guestConfigurationAssignmentName",
+    "name"
+  )
   delete is Extension.DeleteSync<
     VirtualMachineScaleSets,
     GuestConfigurationAssignment,
@@ -351,11 +360,14 @@ interface GuestConfigurationAssignmentsVMSS {
    */
   #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Preserving original VMSS path parameter name"
   @get
   @action("reports")
   @operationId("GuestConfigurationAssignmentReportsVMSS_List")
-  #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Preserving original VMSS path parameter name"
-  @Azure.ResourceManager.Legacy.renamePathParameter("guestConfigurationAssignmentName", "name")
+  @Azure.ResourceManager.Legacy.renamePathParameter(
+    "guestConfigurationAssignmentName",
+    "name"
+  )
   @list
   guestConfigurationAssignmentReportsVMSSList is Extension.Read<
     VirtualMachineScaleSets,
@@ -370,10 +382,13 @@ interface GuestConfigurationAssignmentsVMSS {
    */
   #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Preserving original VMSS path parameter name"
   @get
   @operationId("GuestConfigurationAssignmentReportsVMSS_Get")
-  #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Preserving original VMSS path parameter name"
-  @Azure.ResourceManager.Legacy.renamePathParameter("guestConfigurationAssignmentName", "name")
+  @Azure.ResourceManager.Legacy.renamePathParameter(
+    "guestConfigurationAssignmentName",
+    "name"
+  )
   guestConfigurationAssignmentReportsVMSSGet is Extension.Read<
     VirtualMachineScaleSets,
     GuestConfigurationAssignment,

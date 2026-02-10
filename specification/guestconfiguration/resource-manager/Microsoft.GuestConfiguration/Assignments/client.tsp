@@ -24,14 +24,23 @@ using Microsoft.GuestConfiguration;
   "AssignedGuestConfigurationMachineComplianceStatus",
   "csharp"
 );
-@@clientName(AssignmentReport, "GuestConfigurationAssignmentReportInfo", "csharp");
-@@clientName(ProvisioningState, "GuestConfigurationProvisioningState", "csharp");
+@@clientName(AssignmentReport,
+  "GuestConfigurationAssignmentReportInfo",
+  "csharp"
+);
+@@clientName(ProvisioningState,
+  "GuestConfigurationProvisioningState",
+  "csharp"
+);
 @@clientName(AssignmentType, "GuestConfigurationAssignmentType", "csharp");
 @@clientName(ConfigurationParameter, "GuestConfigurationParameter", "csharp");
 @@clientName(ConfigurationSetting, "LcmConfigurationSetting", "csharp");
 @@clientName(VmssvmInfo, "GuestConfigurationVmssVmInfo", "csharp");
 @@clientName(AssignmentInfo, "GuestConfigurationAssignmentInfo", "csharp");
-@@clientName(AssignmentReportResource, "AssignmentReportResourceInfo", "csharp");
+@@clientName(AssignmentReportResource,
+  "AssignmentReportResourceInfo",
+  "csharp"
+);
 @@clientName(VMInfo, "GuestConfigurationVmInfo", "csharp");
 @@clientName(AssignmentReportDetails,
   "GuestConfigurationAssignmentReportDetails",
@@ -79,13 +88,22 @@ using Microsoft.GuestConfiguration;
 // ============================================================================
 
 // VM operations (GuestConfigurationAssignments interface)
-@@clientName(GuestConfigurationAssignments.get, "GetForVirtualMachine", "csharp");
+@@clientName(GuestConfigurationAssignments.get,
+  "GetForVirtualMachine",
+  "csharp"
+);
 @@clientName(GuestConfigurationAssignments.createOrUpdate,
   "CreateOrUpdateForVirtualMachine",
   "csharp"
 );
-@@clientName(GuestConfigurationAssignments.delete, "DeleteForVirtualMachine", "csharp");
-@@clientName(GuestConfigurationAssignments.list, "GetAllForVirtualMachine", "csharp");
+@@clientName(GuestConfigurationAssignments.delete,
+  "DeleteForVirtualMachine",
+  "csharp"
+);
+@@clientName(GuestConfigurationAssignments.list,
+  "GetAllForVirtualMachine",
+  "csharp"
+);
 
 // HCRP operations (GuestConfigurationHCRPAssignments interface)
 @@clientName(GuestConfigurationHCRPAssignments.get, "GetForMachine", "csharp");
@@ -93,8 +111,14 @@ using Microsoft.GuestConfiguration;
   "CreateOrUpdateForMachine",
   "csharp"
 );
-@@clientName(GuestConfigurationHCRPAssignments.delete, "DeleteForMachine", "csharp");
-@@clientName(GuestConfigurationHCRPAssignments.list, "GetAllForMachine", "csharp");
+@@clientName(GuestConfigurationHCRPAssignments.delete,
+  "DeleteForMachine",
+  "csharp"
+);
+@@clientName(GuestConfigurationHCRPAssignments.list,
+  "GetAllForMachine",
+  "csharp"
+);
 
 // VMSS operations (GuestConfigurationAssignmentsVMSS interface)
 @@clientName(GuestConfigurationAssignmentsVMSS.get, "GetForVmss", "csharp");
@@ -102,7 +126,10 @@ using Microsoft.GuestConfiguration;
   "CreateOrUpdateForVmss",
   "csharp"
 );
-@@clientName(GuestConfigurationAssignmentsVMSS.delete, "DeleteForVmss", "csharp");
+@@clientName(GuestConfigurationAssignmentsVMSS.delete,
+  "DeleteForVmss",
+  "csharp"
+);
 @@clientName(GuestConfigurationAssignmentsVMSS.list, "GetAllForVmss", "csharp");
 
 // VMwarevSphere operations (GuestConfigurationConnectedVMwarevSphereAssignments interface)
