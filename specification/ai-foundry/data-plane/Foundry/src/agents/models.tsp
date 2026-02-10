@@ -365,7 +365,6 @@ model ToolArgumentBinding {
   argument_name: string;
 }
 
-
 /** The type of logs to stream from a container. */
 @extension(
   "x-ms-foundry-meta",

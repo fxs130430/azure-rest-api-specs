@@ -60,7 +60,6 @@ union AgentContainerStatus {
   Updating: "Updating",
 }
 
-
 @doc("The error details of the container operation, if any.")
 @extension(
   "x-ms-foundry-meta",
@@ -212,5 +211,3 @@ model AcceptedAgentContainerOperation {
   @body
   body: AgentContainerOperationObject;
 }
-
-
