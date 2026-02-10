@@ -226,11 +226,3 @@ using Microsoft.CognitiveServices;
 @@TypeSpec.Http.header(Azure.ResourceManager.ArmLroLocationHeader.location,
   "location"
 );
-
-//@@clientName(CapabilityHost, "CapabilityHostProperties");
-//@@clientName(CapabilityHostResource, "CapabilityHost");
-//@@clientName(ProjectCapabilityHostResource, "ProjectCapabilityHost");
-//@@clientName(ProjectCapabilityHost, "ProjectCapabilityHostProperties");
-
-//@@clientName(AgentDeploymentResource, "AgentDeployment");
-//@@clientName(AgentReferenceResource, "AgentReference");

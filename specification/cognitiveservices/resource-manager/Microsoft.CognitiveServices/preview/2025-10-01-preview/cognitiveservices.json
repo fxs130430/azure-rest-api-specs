@@ -134,7 +134,7 @@
         "tags": [
           "Operations"
         ],
-        "description": "List the operations for the provider",
+        "description": "Lists all the available Cognitive Services account operations.",
         "parameters": [
           {
             "$ref": "../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter"
@@ -1779,6 +1779,7 @@
         "tags": [
           "CapabilityHosts"
         ],
+        "summary": "List capabilityHost.",
         "description": "List capabilityHost.",
         "parameters": [
           {
@@ -6353,6 +6354,7 @@
         "tags": [
           "ProjectCapabilityHosts"
         ],
+        "summary": "List capabilityHost.",
         "description": "List capabilityHost.",
         "parameters": [
           {
@@ -10836,7 +10838,7 @@
         },
         "kind": {
           "type": "string",
-          "description": "The Kind of the resource."
+          "description": "The kind (type) of cognitive service account."
         }
       },
       "required": [
@@ -11174,7 +11176,7 @@
       "properties": {
         "kind": {
           "type": "string",
-          "description": "The Kind of the resource."
+          "description": "The kind (type) of cognitive service account."
         },
         "skuName": {
           "type": "string",
@@ -12866,7 +12868,7 @@
         },
         "kind": {
           "type": "string",
-          "description": "The Kind of the resource."
+          "description": "The kind (type) of cognitive service account."
         }
       }
     },
@@ -16439,7 +16441,7 @@
       "properties": {
         "kind": {
           "type": "string",
-          "description": "The Kind of the resource."
+          "description": "The kind (type) of cognitive service account."
         },
         "type": {
           "type": "string",
@@ -16447,7 +16449,7 @@
         },
         "skuName": {
           "type": "string",
-          "description": "The SKU of Cognitive Services account."
+          "description": "The name of SKU."
         },
         "skuAvailable": {
           "type": "boolean",

@@ -105,6 +105,7 @@ interface CapabilityHosts {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("AccountCapabilityHosts_List")
+  @summary("List capabilityHost.")
   list is ArmResourceListByParent<
     CapabilityHost,
     Response = ArmResponse<CapabilityHostResourceArmPaginatedResult>

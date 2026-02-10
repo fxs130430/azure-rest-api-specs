@@ -2494,7 +2494,7 @@ model SkuAvailabilityListResult {
  */
 model SkuAvailability {
   /**
-   * The Kind of the resource.
+   * The kind (type) of cognitive service account.
    */
   kind?: string;
 
@@ -2504,7 +2504,7 @@ model SkuAvailability {
   type?: string;
 
   /**
-   * The SKU of Cognitive Services account.
+   *The name of SKU.
    */
   skuName?: string;
 
@@ -2548,7 +2548,7 @@ model CommitmentTierListResult {
  */
 model CommitmentTier {
   /**
-   * The Kind of the resource.
+   * The kind (type) of cognitive service account.
    */
   kind?: string;
 
@@ -2721,7 +2721,7 @@ model CheckDomainAvailabilityParameter {
   type: string;
 
   /**
-   * The Kind of the resource.
+   * The kind (type) of cognitive service account.
    */
   kind?: string;
 }
@@ -2751,7 +2751,7 @@ model DomainAvailability {
   type?: string;
 
   /**
-   * The Kind of the resource.
+   * The kind (type) of cognitive service account.
    */
   kind?: string;
 }

@@ -74,6 +74,7 @@ interface ProjectCapabilityHosts {
   /**
    * List capabilityHost.
    */
+  @summary("List capabilityHost.")
   list is ArmResourceListByParent<
     ProjectCapabilityHost,
     Response = ArmResponse<ProjectCapabilityHostResourceArmPaginatedResult>
