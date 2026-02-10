@@ -20,20 +20,25 @@ alias SchedulesFilterQueryParams = {
   enabled?: boolean;
 };
 
-alias ScheduleOps = FoundryAzureOperations<WithRequiredFoundryPreviewHeader<FoundryFeaturesOptInKeys.insights_v1_preview>>;
+alias ScheduleOps = FoundryAzureOperations<WithRequiredFoundryPreviewHeader<FoundryFeaturesOptInKeys.schedules_v1_preview>>;
 
 @tag("Schedules")
 interface Schedules {
+
+  // BUG: This operation (see OpenAPI3 file) is missing the "Foundry-Features" header.
   @doc("Delete a schedule.")
   delete is ScheduleOps.ResourceDelete<Schedule>;
 
+  // BUG: This operation (see OpenAPI3 file) is missing the "Foundry-Features" header.
   @doc("Get a schedule by id.")
   get is ScheduleOps.ResourceRead<Schedule>;
 
+  // BUG: This operation (see OpenAPI3 file) is missing the "Foundry-Features" header.
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations"
   @doc("List all schedules.")
   list is ScheduleOps.ResourceList<Schedule, SchedulesFilterQueryParams>;
 
+  // BUG: This operation (see OpenAPI3 file) is missing the "Foundry-Features" header.
   #suppress "@azure-tools/typespec-azure-core/verb-conflict" ""
   @put
   createOrUpdate is ScheduleOps.ResourceCreateOrUpdate<Schedule>;
@@ -52,16 +57,17 @@ interface Schedules {
       @doc("The unique identifier of the schedule run.")
       run_id: string;
 
-      ...WithRequiredFoundryPreviewHeader<FoundryFeaturesOptInKeys.insights_v1_preview>;
+      ...WithRequiredFoundryPreviewHeader<FoundryFeaturesOptInKeys.schedules_v1_preview>;
     },
     OkResponse<ScheduleRun>
   >;
 
+  // BUG: This operation (see OpenAPI3 file) is missing the "Foundry-Features" header.
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations"
   @doc("List all schedule runs.")
   listRuns is ScheduleRunOperations.ResourceList<
     ScheduleRun,
     SchedulesFilterQueryParams &
-      WithRequiredFoundryPreviewHeader<FoundryFeaturesOptInKeys.insights_v1_preview>
+      WithRequiredFoundryPreviewHeader<FoundryFeaturesOptInKeys.schedules_v1_preview>
   >;
 }
