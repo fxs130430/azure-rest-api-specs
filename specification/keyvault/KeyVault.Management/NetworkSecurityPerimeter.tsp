@@ -2,6 +2,7 @@ import "@typespec/rest";
 import "@typespec/http";
 import "@azure-tools/typespec-azure-core";
 import "@azure-tools/typespec-azure-resource-manager";
+import "./models.tsp";
 
 using Azure.ResourceManager;
 using Azure.ResourceManager.Foundations;
@@ -18,7 +19,7 @@ union AccessRuleDirection {
   Inbound: "Inbound",
 
   /** Applies to outbound network traffic from the secured resources */
-  Outbound: "Outbound", 
+  Outbound: "Outbound",
 }
 
 /**
@@ -98,30 +99,13 @@ union Severity {
 }
 
 /**
- * Allow, disallow, or let network security perimeter configuration control public network access to the protected resource. Value is optional but if passed in, it must be 'Enabled', 'Disabled' or 'SecuredByPerimeter'.
- */
-union PublicNetworkAccess {
-  string,
-
-  /** Allows public network access to the resource */
-  Enabled: "Enabled",
-
-  /** Disallows public network access to the resource */
-  Disabled: "Disabled",
-
-  /** The network security perimeter configuration rules allow or disallow public network access to the resource. Requires an associated network security perimeter. */
-  SecuredByPerimeter: "SecuredByPerimeter",
-}
-
-/**
  * Network security perimeter (NSP) configuration resource
  */
-model NetworkSecurityPerimeterConfiguration extends ProxyResource {
-  /**
-   * Properties of the network security perimeter configuration
-   */
-  properties?: NetworkSecurityPerimeterConfigurationProperties;
-}
+model NetworkSecurityPerimeterConfiguration
+  extends Azure.ResourceManager.ProxyResource<
+    NetworkSecurityPerimeterConfigurationProperties,
+    true
+  > {}
 
 /**
  * Network security configuration properties.
@@ -220,7 +204,6 @@ model NetworkSecurityProfile {
   /**
    * Current access rules version
    */
-  @format("int32")
   accessRulesVersion?: int32;
 
   /**
@@ -231,7 +214,6 @@ model NetworkSecurityProfile {
   /**
    * Current diagnostic settings version
    */
-  @format("int32")
   diagnosticSettingsVersion?: int32;
 
   /**
