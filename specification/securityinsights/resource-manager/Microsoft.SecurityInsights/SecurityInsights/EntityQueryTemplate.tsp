@@ -17,7 +17,7 @@ namespace Microsoft.SecurityInsights;
 #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 @discriminator("kind")
 model EntityQueryTemplate
-  is Azure.ResourceManager.Legacy.DiscriminatedExtensionResource<EntityQueryTemplateKind> {
+  is Azure.ResourceManager.Legacy.DiscriminatedProxyResource<EntityQueryTemplateKind> {
   ...ResourceNameParameter<
     Resource = EntityQueryTemplate,
     KeyName = "entityQueryTemplateId",

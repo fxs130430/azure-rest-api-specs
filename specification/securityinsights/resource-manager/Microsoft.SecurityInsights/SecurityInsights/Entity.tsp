@@ -17,7 +17,7 @@ namespace Microsoft.SecurityInsights;
 #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 @discriminator("kind")
 model Entity
-  is Azure.ResourceManager.Legacy.DiscriminatedExtensionResource<EntityKindEnum> {
+  is Azure.ResourceManager.Legacy.DiscriminatedProxyResource<EntityKindEnum> {
   ...ResourceNameParameter<
     Resource = Entity,
     KeyName = "entityId",

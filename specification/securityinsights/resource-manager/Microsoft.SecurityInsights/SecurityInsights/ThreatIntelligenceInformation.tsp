@@ -18,7 +18,7 @@ namespace Microsoft.SecurityInsights;
 @discriminator("kind")
 @parentResource(ThreatIntelligenceMain)
 model ThreatIntelligenceInformation
-  is Azure.ResourceManager.Legacy.DiscriminatedExtensionResource<ThreatIntelligenceResourceInnerKind> {
+  is Azure.ResourceManager.Legacy.DiscriminatedProxyResource<ThreatIntelligenceResourceInnerKind> {
   ...ResourceNameParameter<
     Resource = ThreatIntelligenceInformation,
     KeyName = "name",

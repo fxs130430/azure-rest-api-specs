@@ -17,7 +17,7 @@ namespace Microsoft.SecurityInsights;
 #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 @discriminator("kind")
 model BillingStatistic
-  is Azure.ResourceManager.Legacy.DiscriminatedExtensionResource<BillingStatisticKind> {
+  is Azure.ResourceManager.Legacy.DiscriminatedProxyResource<BillingStatisticKind> {
   ...ResourceNameParameter<
     Resource = BillingStatistic,
     KeyName = "billingStatisticName",

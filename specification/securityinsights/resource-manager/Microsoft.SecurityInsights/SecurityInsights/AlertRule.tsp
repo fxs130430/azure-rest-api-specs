@@ -18,7 +18,7 @@ namespace Microsoft.SecurityInsights;
 #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 @discriminator("kind")
 model AlertRule
-  is Azure.ResourceManager.Legacy.DiscriminatedExtensionResource<AlertRuleKind> {
+  is Azure.ResourceManager.Legacy.DiscriminatedProxyResource<AlertRuleKind> {
   ...ResourceNameParameter<
     Resource = AlertRule,
     KeyName = "ruleId",

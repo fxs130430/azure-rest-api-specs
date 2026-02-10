@@ -16,7 +16,7 @@ namespace Microsoft.SecurityInsights;
  */
 #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model DataConnector
-  is Azure.ResourceManager.Legacy.DiscriminatedExtensionResource<DataConnectorKind> {
+  is Azure.ResourceManager.Legacy.DiscriminatedProxyResource<DataConnectorKind> {
   ...ResourceNameParameter<
     Resource = DataConnector,
     KeyName = "dataConnectorId",
