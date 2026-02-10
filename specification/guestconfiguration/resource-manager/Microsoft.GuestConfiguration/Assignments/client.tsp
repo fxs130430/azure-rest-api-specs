@@ -5,6 +5,76 @@ using Azure.ClientGenerator.Core;
 using Microsoft.GuestConfiguration;
 
 // ============================================================================
+// Type alternate types - fix property types for backward compatibility
+// ============================================================================
+
+@@alternateType(Azure.ResourceManager.CommonTypes.Resource.id,
+  Azure.Core.armResourceIdentifier,
+  "csharp"
+);
+@@alternateType(VmssvmInfo.vmId, Azure.Core.uuid, "csharp");
+@@alternateType(VmssvmInfo.latestReportId, Azure.Core.uuid, "csharp");
+@@alternateType(GuestConfigurationNavigation.contentUri, url, "csharp");
+
+// ============================================================================
+// Type renaming - restore old SDK names for backward compatibility
+// ============================================================================
+
+@@clientName(ComplianceStatus,
+  "AssignedGuestConfigurationMachineComplianceStatus",
+  "csharp"
+);
+@@clientName(AssignmentReport, "GuestConfigurationAssignmentReportInfo", "csharp");
+@@clientName(ProvisioningState, "GuestConfigurationProvisioningState", "csharp");
+@@clientName(AssignmentType, "GuestConfigurationAssignmentType", "csharp");
+@@clientName(ConfigurationParameter, "GuestConfigurationParameter", "csharp");
+@@clientName(ConfigurationSetting, "LcmConfigurationSetting", "csharp");
+@@clientName(VmssvmInfo, "GuestConfigurationVmssVmInfo", "csharp");
+@@clientName(AssignmentInfo, "GuestConfigurationAssignmentInfo", "csharp");
+@@clientName(AssignmentReportResource, "AssignmentReportResourceInfo", "csharp");
+@@clientName(VMInfo, "GuestConfigurationVmInfo", "csharp");
+@@clientName(AssignmentReportDetails,
+  "GuestConfigurationAssignmentReportDetails",
+  "csharp"
+);
+@@clientName(ConfigurationMode, "LcmConfigurationMode", "csharp");
+@@clientName(Type, "GuestConfigurationAssignmentReportType", "csharp");
+@@clientName(ConfigurationInfo, "GuestConfigurationInfo", "csharp");
+
+// ============================================================================
+// Property renaming - restore old SDK property names for backward compatibility
+// ============================================================================
+
+@@clientName(GuestConfigurationAssignmentProperties.lastComplianceStatusChecked,
+  "LastComplianceStatusCheckedOn",
+  "csharp"
+);
+@@clientName(GuestConfigurationNavigation.configurationParameter,
+  "ConfigurationParameters",
+  "csharp"
+);
+@@clientName(GuestConfigurationNavigation.configurationProtectedParameter,
+  "ConfigurationProtectedParameters",
+  "csharp"
+);
+@@clientName(ConfigurationSetting.allowModuleOverwrite,
+  "IsModuleOverwriteAllowed",
+  "csharp"
+);
+@@clientName(ConfigurationSetting.configurationModeFrequencyMins,
+  "ConfigurationModeFrequencyInMins",
+  "csharp"
+);
+@@clientName(ConfigurationSetting.refreshFrequencyMins,
+  "RefreshFrequencyInMins",
+  "csharp"
+);
+@@clientName(AssignmentReportResource.resourceId,
+  "AssignmentResourceSettingName",
+  "csharp"
+);
+
+// ============================================================================
 // Operation renaming - disambiguate methods for different parent resource types
 // ============================================================================
 
@@ -50,5 +120,49 @@ using Microsoft.GuestConfiguration;
 );
 @@clientName(GuestConfigurationConnectedVMwarevSphereAssignments.list,
   "GetAllForConnectedVMwarevSphere",
+  "csharp"
+);
+
+// ============================================================================
+// Report operation renaming - avoid collision with resource Get/GetAsync
+// ============================================================================
+
+// VM report operations
+@@clientName(GuestConfigurationAssignments.guestConfigurationAssignmentReportsList,
+  "GetReports",
+  "csharp"
+);
+@@clientName(GuestConfigurationAssignments.guestConfigurationAssignmentReportsGet,
+  "GetReport",
+  "csharp"
+);
+
+// HCRP report operations
+@@clientName(GuestConfigurationHCRPAssignments.guestConfigurationHCRPAssignmentReportsList,
+  "GetReports",
+  "csharp"
+);
+@@clientName(GuestConfigurationHCRPAssignments.guestConfigurationHCRPAssignmentReportsGet,
+  "GetReport",
+  "csharp"
+);
+
+// VMSS report operations
+@@clientName(GuestConfigurationAssignmentsVMSS.guestConfigurationAssignmentReportsVMSSList,
+  "GetReports",
+  "csharp"
+);
+@@clientName(GuestConfigurationAssignmentsVMSS.guestConfigurationAssignmentReportsVMSSGet,
+  "GetReport",
+  "csharp"
+);
+
+// VMwarevSphere report operations
+@@clientName(GuestConfigurationConnectedVMwarevSphereAssignments.guestConfigurationConnectedVMwarevSphereAssignmentsReportsList,
+  "GetReports",
+  "csharp"
+);
+@@clientName(GuestConfigurationConnectedVMwarevSphereAssignments.guestConfigurationConnectedVMwarevSphereAssignmentsReportsGet,
+  "GetReport",
   "csharp"
 );

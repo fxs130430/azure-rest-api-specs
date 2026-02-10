@@ -65,7 +65,8 @@ alias GuestConfigurationAssignmentOps = Azure.ResourceManager.Legacy.ExtensionOp
     @key
     @segment("guestConfigurationAssignments")
     guestConfigurationAssignmentName: string;
-  }
+  },
+  "GuestConfigurationVmAssignment"
 >;
 
 @armResourceOperations
@@ -113,7 +114,8 @@ interface GuestConfigurationAssignments {
     Extension.Subscription,
     GuestConfigurationAssignment,
     Response = ArmResponse<GuestConfigurationAssignmentList> | NoContentResponse,
-    Error = ErrorResponse
+    Error = ErrorResponse,
+    OverrideResourceName = "GuestConfigurationVmAssignment"
   >;
 
   /**
@@ -187,7 +189,8 @@ alias GuestConfigurationHCRPAssignmentOps = Azure.ResourceManager.Legacy.Extensi
     @key
     @segment("guestConfigurationAssignments")
     guestConfigurationAssignmentName: string;
-  }
+  },
+  "GuestConfigurationHcrpAssignment"
 >;
 
 #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
@@ -234,7 +237,8 @@ interface GuestConfigurationHCRPAssignments {
     HybridCompute,
     GuestConfigurationAssignment,
     Response = ArmResponse<GuestConfigurationAssignmentList>,
-    Error = ErrorResponse
+    Error = ErrorResponse,
+    OverrideResourceName = "GuestConfigurationHcrpAssignment"
   >;
 
   /**
@@ -288,36 +292,45 @@ interface GuestConfigurationAssignmentsVMSS {
    * Get information about a guest configuration assignment for VMSS
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Preserving original VMSS path parameter name"
   @operationId("GuestConfigurationAssignmentsVMSS_Get")
+  @Azure.ResourceManager.Legacy.renamePathParameter("guestConfigurationAssignmentName", "name")
   get is Extension.Read<
     VirtualMachineScaleSets,
     GuestConfigurationAssignment,
-    Error = ErrorResponse
+    Error = ErrorResponse,
+    OverrideResourceName = "GuestConfigurationVmssAssignment"
   >;
 
   /**
    * Creates an association between a VMSS and guest configuration
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Preserving original VMSS path parameter name"
   @operationId("GuestConfigurationAssignmentsVMSS_CreateOrUpdate")
+  @Azure.ResourceManager.Legacy.renamePathParameter("guestConfigurationAssignmentName", "name")
   createOrUpdate is Extension.CreateOrReplaceSync<
     VirtualMachineScaleSets,
     GuestConfigurationAssignment,
     Parameters = {},
-    Error = ErrorResponse
+    Error = ErrorResponse,
+    OverrideResourceName = "GuestConfigurationVmssAssignment"
   >;
 
   /**
    * Delete a guest configuration assignment for VMSS
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Preserving original VMSS path parameter name"
   @operationId("GuestConfigurationAssignmentsVMSS_Delete")
+  @Azure.ResourceManager.Legacy.renamePathParameter("guestConfigurationAssignmentName", "name")
   delete is Extension.DeleteSync<
     VirtualMachineScaleSets,
     GuestConfigurationAssignment,
     Parameters = {},
     Response = ArmResponse<GuestConfigurationAssignment> | ArmDeletedNoContentResponse,
-    Error = ErrorResponse
+    Error = ErrorResponse,
+    OverrideResourceName = "GuestConfigurationVmssAssignment"
   >;
 
   /**
@@ -329,7 +342,8 @@ interface GuestConfigurationAssignmentsVMSS {
     VirtualMachineScaleSets,
     GuestConfigurationAssignment,
     Response = ArmResponse<GuestConfigurationAssignmentList>,
-    Error = ErrorResponse
+    Error = ErrorResponse,
+    OverrideResourceName = "GuestConfigurationVmssAssignment"
   >;
 
   /**
@@ -340,12 +354,15 @@ interface GuestConfigurationAssignmentsVMSS {
   @get
   @action("reports")
   @operationId("GuestConfigurationAssignmentReportsVMSS_List")
+  #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Preserving original VMSS path parameter name"
+  @Azure.ResourceManager.Legacy.renamePathParameter("guestConfigurationAssignmentName", "name")
   @list
   guestConfigurationAssignmentReportsVMSSList is Extension.Read<
     VirtualMachineScaleSets,
     GuestConfigurationAssignment,
     Response = ArmResponse<GuestConfigurationAssignmentReportList>,
-    Error = ErrorResponse
+    Error = ErrorResponse,
+    OverrideResourceName = "GuestConfigurationVmssAssignment"
   >;
 
   /**
@@ -355,6 +372,8 @@ interface GuestConfigurationAssignmentsVMSS {
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @get
   @operationId("GuestConfigurationAssignmentReportsVMSS_Get")
+  #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Preserving original VMSS path parameter name"
+  @Azure.ResourceManager.Legacy.renamePathParameter("guestConfigurationAssignmentName", "name")
   guestConfigurationAssignmentReportsVMSSGet is Extension.Read<
     VirtualMachineScaleSets,
     GuestConfigurationAssignment,
@@ -367,7 +386,8 @@ interface GuestConfigurationAssignmentsVMSS {
       id: string;
     },
     Response = ArmResponse<GuestConfigurationAssignmentReport>,
-    Error = ErrorResponse
+    Error = ErrorResponse,
+    OverrideResourceName = "GuestConfigurationVmssAssignment"
   >;
 }
 
@@ -406,7 +426,8 @@ alias GuestConfigurationConnectedVMwarevSphereAssignmentOps = Azure.ResourceMana
     @segment("guestConfigurationAssignments")
     @pattern("^[^<>%&:\\\\?/#]*$")
     guestConfigurationAssignmentName: string;
-  }
+  },
+  "GuestConfigurationVMwarevSphereAssignment"
 >;
 
 #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"

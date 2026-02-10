@@ -176,7 +176,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmssName}/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/{guestConfigurationAssignmentName}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmssName}/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/{name}": {
       "get": {
         "operationId": "GuestConfigurationAssignmentsVMSS_Get",
         "description": "Get information about a guest configuration assignment for VMSS",
@@ -198,7 +198,7 @@
             "type": "string"
           },
           {
-            "name": "guestConfigurationAssignmentName",
+            "name": "name",
             "in": "path",
             "description": "The guest configuration assignment name.",
             "required": true,
@@ -246,7 +246,7 @@
             "type": "string"
           },
           {
-            "name": "guestConfigurationAssignmentName",
+            "name": "name",
             "in": "path",
             "description": "The guest configuration assignment name.",
             "required": true,
@@ -309,7 +309,7 @@
             "type": "string"
           },
           {
-            "name": "guestConfigurationAssignmentName",
+            "name": "name",
             "in": "path",
             "description": "The guest configuration assignment name.",
             "required": true,
@@ -340,7 +340,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmssName}/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/{guestConfigurationAssignmentName}/reports": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmssName}/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/{name}/reports": {
       "get": {
         "operationId": "GuestConfigurationAssignmentReportsVMSS_List",
         "description": "List all reports for the VMSS guest configuration assignment, latest report first.",
@@ -362,7 +362,7 @@
             "type": "string"
           },
           {
-            "name": "guestConfigurationAssignmentName",
+            "name": "name",
             "in": "path",
             "description": "The guest configuration assignment name.",
             "required": true,
@@ -393,7 +393,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmssName}/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/{guestConfigurationAssignmentName}/reports/{id}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmssName}/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/{name}/reports/{id}": {
       "get": {
         "operationId": "GuestConfigurationAssignmentReportsVMSS_Get",
         "description": "Get a report for the VMSS guest configuration assignment, by reportId.",
@@ -415,7 +415,7 @@
             "type": "string"
           },
           {
-            "name": "guestConfigurationAssignmentName",
+            "name": "name",
             "in": "path",
             "description": "The guest configuration assignment name.",
             "required": true,
