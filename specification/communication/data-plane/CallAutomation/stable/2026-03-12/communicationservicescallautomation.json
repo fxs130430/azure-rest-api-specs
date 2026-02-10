@@ -2958,7 +2958,7 @@
       ],
       "type": "string",
       "x-ms-enum": {
-        "name": "MediaStreamingAudioChannelTypeDto",
+        "name": "MediaStreamingAudioChannelType",
         "modelAsString": true
       }
     },
@@ -2969,7 +2969,7 @@
       ],
       "type": "string",
       "x-ms-enum": {
-        "name": "MediaStreamingContentTypeDto",
+        "name": "MediaStreamingContentType",
         "modelAsString": true
       }
     },
@@ -3141,7 +3141,7 @@
       ],
       "type": "string",
       "x-ms-enum": {
-        "name": "MediaStreamingSubscriptionStateDto",
+        "name": "MediaStreamingSubscriptionState",
         "modelAsString": true
       }
     },
@@ -4550,7 +4550,7 @@
       ],
       "type": "string",
       "x-ms-enum": {
-        "name": "TranscriptionResultTypeDto",
+        "name": "TranscriptionResultType",
         "modelAsString": true
       }
     },
@@ -4683,7 +4683,7 @@
       ],
       "type": "string",
       "x-ms-enum": {
-        "name": "TranscriptionSubscriptionStateDto",
+        "name": "TranscriptionSubscriptionState",
         "modelAsString": true
       }
     },
