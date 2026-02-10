@@ -29,7 +29,7 @@ model Bookmark is Azure.ResourceManager.ProxyResource<BookmarkProperties> {
   etag?: string;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface Bookmarks {
   /**
    * Gets a bookmark.
@@ -67,6 +67,7 @@ interface Bookmarks {
   /**
    * Expand an bookmark
    */
+  @tag("Bookmark")
   expand is Extension.ActionSync<
     OperationalInsights,
     Bookmark,

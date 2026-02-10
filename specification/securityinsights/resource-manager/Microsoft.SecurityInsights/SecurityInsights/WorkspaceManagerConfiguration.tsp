@@ -30,11 +30,12 @@ model WorkspaceManagerConfiguration
   etag?: string;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface WorkspaceManagerConfigurations {
   /**
    * Gets a workspace manager configuration
    */
+  @tag("workspaceManagerConfigurations")
   get is Extension.Read<
     workspaceExternalResource,
     WorkspaceManagerConfiguration
@@ -43,6 +44,7 @@ interface WorkspaceManagerConfigurations {
   /**
    * Creates or updates a workspace manager configuration.
    */
+  @tag("workspaceManagerConfigurations")
   createOrUpdate is Extension.CreateOrReplaceSync<
     workspaceExternalResource,
     WorkspaceManagerConfiguration
@@ -51,6 +53,7 @@ interface WorkspaceManagerConfigurations {
   /**
    * Deletes a workspace manager configuration
    */
+  @tag("workspaceManagerConfigurations")
   delete is Extension.DeleteSync<
     workspaceExternalResource,
     WorkspaceManagerConfiguration
@@ -59,6 +62,7 @@ interface WorkspaceManagerConfigurations {
   /**
    * Gets all workspace manager configurations for a Sentinel workspace.
    */
+  @tag("workspaceManagerConfigurations")
   list is Extension.ListByTarget<
     workspaceExternalResource,
     WorkspaceManagerConfiguration,

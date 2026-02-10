@@ -33,11 +33,12 @@ model ThreatIntelligenceInformation
   etag?: string;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface ThreatIntelligenceInformationOperations {
   /**
    * View a threat intelligence indicator by name.
    */
+  @tag("ThreatIntelligence")
   get is Extension.Read<
     OperationalInsights,
     ThreatIntelligenceInformation,
@@ -47,6 +48,7 @@ interface ThreatIntelligenceInformationOperations {
   /**
    * Update a threat Intelligence indicator.
    */
+  @tag("ThreatIntelligence")
   create is Extension.CreateOrReplaceSync<
     OperationalInsights,
     ThreatIntelligenceIndicatorModel,
@@ -57,6 +59,7 @@ interface ThreatIntelligenceInformationOperations {
   /**
    * Delete a threat intelligence indicator.
    */
+  @tag("ThreatIntelligence")
   delete is Extension.DeleteSync<
     OperationalInsights,
     ThreatIntelligenceInformation,
@@ -66,6 +69,7 @@ interface ThreatIntelligenceInformationOperations {
   /**
    * Get all threat intelligence indicators.
    */
+  @tag("ThreatIntelligence")
   list is Extension.ListByTarget<
     OperationalInsights,
     ThreatIntelligenceInformation,
@@ -101,6 +105,7 @@ interface ThreatIntelligenceInformationOperations {
   /**
    * Append tags to a threat intelligence indicator.
    */
+  @tag("ThreatIntelligence")
   appendTags is Extension.ActionSync<
     OperationalInsights,
     ThreatIntelligenceInformation,
@@ -112,6 +117,7 @@ interface ThreatIntelligenceInformationOperations {
   /**
    * Replace tags added to a threat intelligence indicator.
    */
+  @tag("ThreatIntelligence")
   replaceTags is Extension.ActionSync<
     OperationalInsights,
     ThreatIntelligenceInformation,

@@ -32,11 +32,12 @@ model EntityQueryTemplate
   etag?: string;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface EntityQueryTemplates {
   /**
    * Gets an entity query.
    */
+  @tag("EntityQueries")
   get is Extension.Read<
     workspaceExternalResource,
     EntityQueryTemplate,
@@ -46,6 +47,7 @@ interface EntityQueryTemplates {
   /**
    * Gets all entity query templates.
    */
+  @tag("EntityQueries")
   list is Extension.ListByTarget<
     workspaceExternalResource,
     EntityQueryTemplate,

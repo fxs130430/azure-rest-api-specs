@@ -23,11 +23,12 @@ model OfficeConsent
   >;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface OfficeConsents {
   /**
    * Gets an office365 consent.
    */
+  @tag("Office Consents")
   get is Extension.Read<
     workspaceExternalResource,
     OfficeConsent,
@@ -37,6 +38,7 @@ interface OfficeConsents {
   /**
    * Delete the office365 consent.
    */
+  @tag("Office Consents")
   delete is Extension.DeleteSync<
     workspaceExternalResource,
     OfficeConsent,
@@ -46,6 +48,7 @@ interface OfficeConsents {
   /**
    * Gets all office365 consents.
    */
+  @tag("Office Consents")
   list is Extension.ListByTarget<
     workspaceExternalResource,
     OfficeConsent,

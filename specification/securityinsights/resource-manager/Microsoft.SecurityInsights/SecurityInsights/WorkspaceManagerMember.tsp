@@ -30,16 +30,18 @@ model WorkspaceManagerMember
   etag?: string;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface WorkspaceManagerMembers {
   /**
    * Gets a workspace manager member
    */
+  @tag("workspaceManagerMember")
   get is Extension.Read<workspaceExternalResource, WorkspaceManagerMember>;
 
   /**
    * Creates or updates a workspace manager member
    */
+  @tag("workspaceManagerMember")
   createOrUpdate is Extension.CreateOrReplaceSync<
     workspaceExternalResource,
     WorkspaceManagerMember
@@ -48,6 +50,7 @@ interface WorkspaceManagerMembers {
   /**
    * Deletes a workspace manager member
    */
+  @tag("workspaceManagerMember")
   delete is Extension.DeleteSync<
     workspaceExternalResource,
     WorkspaceManagerMember
@@ -56,6 +59,7 @@ interface WorkspaceManagerMembers {
   /**
    * Gets all workspace manager members that exist for the given Sentinel workspace manager
    */
+  @tag("workspaceManagerMember")
   list is Extension.ListByTarget<
     workspaceExternalResource,
     WorkspaceManagerMember,

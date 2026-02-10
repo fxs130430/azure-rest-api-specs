@@ -26,7 +26,7 @@ model Entity
   >;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface Entities {
   /**
    * Gets an entity.
@@ -51,6 +51,7 @@ interface Entities {
     "entityId",
     "entityIdentifier"
   )
+  @tag("manualTrigger")
   runPlaybook is Extension.ActionSync<
     workspaceExternalResource,
     Entity,

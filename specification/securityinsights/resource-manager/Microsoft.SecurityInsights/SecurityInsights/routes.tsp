@@ -32,6 +32,7 @@ interface DataConnectorsCheckRequirementsOperationGroup {
    */
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/dataConnectorsCheckRequirements")
   @post
+  @tag("Check Data Connector Requirements")
   post(
     ...ApiVersionParameter,
     ...SubscriptionIdParameter,
@@ -62,6 +63,7 @@ interface DataConnectorsCheckRequirementsOperationGroup {
 #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-operation" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/enrichment/{enrichmentType}/listGeodataByIp")
 @post
+@tag("Enrichment")
 op listGeodataByIp(
   ...ApiVersionParameter,
   ...SubscriptionIdParameter,
@@ -95,6 +97,7 @@ op listGeodataByIp(
 #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-operation" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/enrichment/{enrichmentType}/listWhoisByDomain")
 @post
+@tag("Enrichment")
 op listWhoisByDomain(
   ...ApiVersionParameter,
   ...SubscriptionIdParameter,
@@ -134,6 +137,7 @@ interface SourceControlOperationGroup {
   @list
   @post
   @operationId("SourceControl_listRepositories")
+  @tag("Repositories")
   listRepositories(
     ...ApiVersionParameter,
     ...SubscriptionIdParameter,
@@ -184,6 +188,7 @@ interface ThreatIntelligenceIndicatorOperationGroup {
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-post-operation-response-codes" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @autoRoute
   @action("createIndicator")
+  @tag("ThreatIntelligence")
   createIndicator is Extension.ActionSync<
     OperationalInsights,
     ThreatIntelligenceMain,
@@ -200,6 +205,7 @@ interface ThreatIntelligenceIndicatorOperationGroup {
   @autoRoute
   @action("queryIndicators")
   @list
+  @tag("ThreatIntelligence")
   queryIndicators is Extension.ActionSync<
     OperationalInsights,
     ThreatIntelligenceMain,
@@ -217,6 +223,7 @@ interface ThreatIntelligenceIndicatorMetricsOperationGroup {
   @autoRoute
   @get
   @action("metrics")
+  @tag("ThreatIntelligence")
   list is Extension.ActionSync<
     OperationalInsights,
     ThreatIntelligenceMain,
@@ -233,6 +240,7 @@ interface ThreatIntelligenceOperationGroup {
    */
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/threatIntelligence/{tiType}/count")
   @post
+  @tag("ThreatIntelligence")
   count(
     ...ApiVersionParameter,
     ...SubscriptionIdParameter,
@@ -266,6 +274,7 @@ interface ThreatIntelligenceOperationGroup {
   @list
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/threatIntelligence/{tiType}/query")
   @post
+  @tag("ThreatIntelligence")
   query(
     ...ApiVersionParameter,
     ...SubscriptionIdParameter,

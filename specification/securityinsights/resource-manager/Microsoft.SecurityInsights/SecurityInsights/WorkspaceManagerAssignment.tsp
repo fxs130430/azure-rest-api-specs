@@ -30,16 +30,18 @@ model WorkspaceManagerAssignment
   etag?: string;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface WorkspaceManagerAssignments {
   /**
    * Gets a workspace manager assignment
    */
+  @tag("workspaceManagerAssignments")
   get is Extension.Read<workspaceExternalResource, WorkspaceManagerAssignment>;
 
   /**
    * Creates or updates a workspace manager assignment.
    */
+  @tag("workspaceManagerAssignments")
   createOrUpdate is Extension.CreateOrReplaceSync<
     workspaceExternalResource,
     WorkspaceManagerAssignment
@@ -48,6 +50,7 @@ interface WorkspaceManagerAssignments {
   /**
    * Deletes a workspace manager assignment
    */
+  @tag("workspaceManagerAssignments")
   delete is Extension.DeleteSync<
     workspaceExternalResource,
     WorkspaceManagerAssignment
@@ -56,6 +59,7 @@ interface WorkspaceManagerAssignments {
   /**
    * Get all workspace manager assignments for the Sentinel workspace manager.
    */
+  @tag("workspaceManagerAssignments")
   list is Extension.ListByTarget<
     workspaceExternalResource,
     WorkspaceManagerAssignment,
@@ -85,6 +89,7 @@ interface WorkspaceManagerAssignments {
    * Create a job for the specified workspace manager assignment
    */
   @action("jobs")
+  @tag("workspaceManagerAssignments")
   create is Extension.ActionSync<
     workspaceExternalResource,
     WorkspaceManagerAssignment,

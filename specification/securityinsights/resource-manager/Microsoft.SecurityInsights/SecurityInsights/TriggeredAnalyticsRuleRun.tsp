@@ -33,13 +33,14 @@ model TriggeredAnalyticsRuleRun
 }
 
 #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface triggeredAnalyticsRuleRun {
   /**
    * Gets the triggered analytics rule run.
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @operationId("triggeredAnalyticsRuleRun_Get")
+  @tag("triggered analytics rule run")
   get is Extension.Read<
     workspaceExternalResource,
     TriggeredAnalyticsRuleRun,
@@ -51,6 +52,7 @@ interface triggeredAnalyticsRuleRun {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @operationId("getTriggeredAnalyticsRuleRuns_List")
+  @tag("triggered analytics rule runs")
   list is Extension.ListByTarget<
     workspaceExternalResource,
     TriggeredAnalyticsRuleRun,

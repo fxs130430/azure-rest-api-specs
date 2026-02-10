@@ -32,11 +32,12 @@ model Settings
   etag?: string;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface ProductSettings {
   /**
    * Gets a setting.
    */
+  @tag("Settings")
   get is Extension.Read<
     workspaceExternalResource,
     Settings,
@@ -46,6 +47,7 @@ interface ProductSettings {
   /**
    * Updates setting.
    */
+  @tag("Settings")
   update is Extension.CreateOrReplaceSync<
     workspaceExternalResource,
     Settings,
@@ -55,6 +57,7 @@ interface ProductSettings {
   /**
    * Delete setting of the product.
    */
+  @tag("Settings")
   delete is Extension.DeleteSync<
     workspaceExternalResource,
     Settings,
@@ -64,6 +67,7 @@ interface ProductSettings {
   /**
    * List of all the settings
    */
+  @tag("Settings")
   list is Extension.ListByTarget<
     workspaceExternalResource,
     Settings,

@@ -41,16 +41,18 @@ alias workspaceExternalResource = Extension.ExternalResource<
   Description = "The name of the workspace."
 >;
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface BillingStatistics {
   /**
    * Gets a billing statistic
    */
+  @tag("billingStatistics")
   get is Extension.Read<workspaceExternalResource, BillingStatistic>;
 
   /**
    * Gets all Microsoft Sentinel billing statistics.
    */
+  @tag("billingStatistics")
   list is Extension.ListByTarget<
     workspaceExternalResource,
     BillingStatistic,

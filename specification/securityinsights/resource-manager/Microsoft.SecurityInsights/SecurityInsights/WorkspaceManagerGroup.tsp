@@ -30,16 +30,18 @@ model WorkspaceManagerGroup
   etag?: string;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface WorkspaceManagerGroups {
   /**
    * Gets a workspace manager group
    */
+  @tag("workspaceManagerGroups")
   get is Extension.Read<workspaceExternalResource, WorkspaceManagerGroup>;
 
   /**
    * Creates or updates a workspace manager group.
    */
+  @tag("workspaceManagerGroups")
   createOrUpdate is Extension.CreateOrReplaceSync<
     workspaceExternalResource,
     WorkspaceManagerGroup
@@ -48,6 +50,7 @@ interface WorkspaceManagerGroups {
   /**
    * Deletes a workspace manager group
    */
+  @tag("workspaceManagerGroups")
   delete is Extension.DeleteSync<
     workspaceExternalResource,
     WorkspaceManagerGroup
@@ -56,6 +59,7 @@ interface WorkspaceManagerGroups {
   /**
    * Gets all workspace manager groups in the Sentinel workspace manager
    */
+  @tag("workspaceManagerGroups")
   list is Extension.ListByTarget<
     workspaceExternalResource,
     WorkspaceManagerGroup,
