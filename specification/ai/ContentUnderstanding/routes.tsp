@@ -89,21 +89,40 @@ interface ContentAnalyzers {
   @doc("List analyzers.")
   list is Operations.ResourceList<ContentAnalyzer>;
 
+  // analyze/analyzeBinary: Foundations.Operation + explicit @route (not ResourceOperation + @action)
+  // so we can use named model ContentAnalyzerAnalyzeOperationStatus for 202 body and avoid status monitor limitation.
+  // copy (below) uses ResourceOperation + @action/@actionSeparator; do not add @route there (linter warning).
+  #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Use named model for 202 response to avoid status monitor limitation."
   @doc("Extract content and fields from input.")
   @pollingOperation(ContentAnalyzers.getResult)
-  analyze is Operations.LongRunningResourceAction<
-    ContentAnalyzer,
-    AnalyzeRequest,
-    AnalyzeResult
+  @post
+  @route("/analyzers/{analyzerId}:analyze")
+  analyze is Foundations.Operation<
+    Foundations.ItemKeysOf<ContentAnalyzer> & {
+      ...AnalyzeRequest;
+      ...ClientRequestIdHeader;
+    },
+    Foundations.AcceptedResponse<ContentAnalyzerAnalyzeOperationStatus> &
+      Foundations.LongRunningStatusLocation<ContentAnalyzerAnalyzeOperationStatus> &
+      ClientRequestIdHeader,
+    ServiceTraits
   >;
 
+  #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Use named model for 202 response to avoid status monitor limitation."
   @added(Versions.v2025_11_01)
   @doc("Extract content and fields from input.")
   @pollingOperation(ContentAnalyzers.getResult)
-  analyzeBinary is Operations.LongRunningResourceAction<
-    ContentAnalyzer,
-    AnalyzeBinaryRequest,
-    AnalyzeResult
+  @post
+  @route("/analyzers/{analyzerId}:analyzeBinary")
+  analyzeBinary is Foundations.Operation<
+    Foundations.ItemKeysOf<ContentAnalyzer> & {
+      ...AnalyzeBinaryRequest;
+      ...ClientRequestIdHeader;
+    },
+    Foundations.AcceptedResponse<ContentAnalyzerAnalyzeOperationStatus> &
+      Foundations.LongRunningStatusLocation<ContentAnalyzerAnalyzeOperationStatus> &
+      ClientRequestIdHeader,
+    ServiceTraits
   >;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "This is a custom operation status endpoint."

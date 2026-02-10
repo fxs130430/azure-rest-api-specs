@@ -557,30 +557,7 @@
           "202": {
             "description": "The request has been accepted for processing, but processing has not yet completed.",
             "schema": {
-              "type": "object",
-              "description": "Provides status details for long running operations.",
-              "properties": {
-                "id": {
-                  "type": "string",
-                  "description": "The unique ID of the operation."
-                },
-                "status": {
-                  "$ref": "#/definitions/Azure.Core.Foundations.OperationState",
-                  "description": "The status of the operation"
-                },
-                "error": {
-                  "$ref": "#/definitions/Azure.Core.Foundations.Error",
-                  "description": "Error object that describes the error when status is \"Failed\"."
-                },
-                "result": {
-                  "$ref": "#/definitions/AnalyzeResult",
-                  "description": "The result of the operation."
-                }
-              },
-              "required": [
-                "id",
-                "status"
-              ]
+              "$ref": "#/definitions/ContentAnalyzerAnalyzeOperationStatus"
             },
             "headers": {
               "Operation-Location": {
@@ -657,30 +634,7 @@
           "202": {
             "description": "The request has been accepted for processing, but processing has not yet completed.",
             "schema": {
-              "type": "object",
-              "description": "Provides status details for long running operations.",
-              "properties": {
-                "id": {
-                  "type": "string",
-                  "description": "The unique ID of the operation."
-                },
-                "status": {
-                  "$ref": "#/definitions/Azure.Core.Foundations.OperationState",
-                  "description": "The status of the operation"
-                },
-                "error": {
-                  "$ref": "#/definitions/Azure.Core.Foundations.Error",
-                  "description": "Error object that describes the error when status is \"Failed\"."
-                },
-                "result": {
-                  "$ref": "#/definitions/AnalyzeResult",
-                  "description": "The result of the operation."
-                }
-              },
-              "required": [
-                "id",
-                "status"
-              ]
+              "$ref": "#/definitions/ContentAnalyzerAnalyzeOperationStatus"
             },
             "headers": {
               "Operation-Location": {
@@ -966,7 +920,7 @@
       },
       "patch": {
         "operationId": "ContentAnalyzers_UpdateDefaults",
-        "description": "Return default settings for this Content Understanding resource.",
+        "description": "Update default settings for this Content Understanding resource.",
         "consumes": [
           "application/merge-patch+json"
         ],
@@ -1053,7 +1007,7 @@
         },
         "modelDeployments": {
           "type": "object",
-          "description": "Override default mapping of model names to deployments.\nEx. { \"gpt-4.1\": \"myGpt41Deployment\", \"text-embedding-3-large\": \"myTextEmbedding3LargeDeployment\" }.",
+          "description": "Override the resource-level default mapping of supported large language model (LLM) names to model deployment names in Microsoft Foundry. Dictionary of string to string\n(LLM model name -> model deployment name in Microsoft Foundry). Keys must be supported model names for the analyzer you are calling (get them via Get Analyzer, GET /analyzers/{analyzerId}, response.supportedModels).\nValues are model deployment names in your Microsoft Foundry resource.\nTo get more information for a quickstart for REST API, see https://aka.ms/cudoc-quickstart-rest.\nExample: { \"gpt-4.1\": \"myGpt41Deployment\", \"text-embedding-3-large\": \"myTextEmbedding3LargeDeployment\" }.",
           "additionalProperties": {
             "type": "string"
           }
@@ -1991,11 +1945,11 @@
     },
     "ContentUnderstandingDefaults": {
       "type": "object",
-      "description": "default settings for this Content Understanding resource.",
+      "description": "Default settings for this Content Understanding resource. Can include multiple kinds of settings;\nfor example, mapping required large language models to model deployment names in Microsoft Foundry (see modelDeployments).",
       "properties": {
         "modelDeployments": {
           "type": "object",
-          "description": "Mapping of model names to deployments.\nEx. { \"gpt-4.1\": \"myGpt41Deployment\", \"text-embedding-3-large\": \"myTextEmbedding3LargeDeployment\" }.",
+          "description": "Dictionary of supported large language model (LLM) name (key) to your model deployment name in Microsoft Foundry (value). Both keys and values are strings.\nPrebuilt and custom analyzers that use large language models require model deployment names in Microsoft Foundry for their supported models.\nThe mapping applies to all analyzers you intend to use: ensure each supported model for those analyzers is mapped. To get supported model names for a given analyzer, call Get Analyzer (GET /analyzers/{analyzerId}); the response includes supportedModels.\nDeploy the required models in your Microsoft Foundry resource (portal or API); each deployment has a model name and a model deployment name.\nCall Update Defaults (PATCH /defaults) with this dictionary to map each supported LLM name to your model deployment name in Microsoft Foundry.\nTo get more information for a quickstart for REST API, see https://aka.ms/cudoc-quickstart-rest.\nExample: { \"gpt-4.1\": \"myGpt41Deployment\", \"gpt-4.1-mini\": \"myGpt41MiniDeployment\", \"text-embedding-3-large\": \"myEmbeddingDeployment\" }.",
           "additionalProperties": {
             "type": "string"
           },
@@ -2012,11 +1966,11 @@
     },
     "ContentUnderstandingDefaultsMergePatchUpdate": {
       "type": "object",
-      "description": "default settings for this Content Understanding resource.",
+      "description": "Default settings for this Content Understanding resource. Can include multiple kinds of settings;\nfor example, mapping required large language models to model deployment names in Microsoft Foundry (see modelDeployments).",
       "properties": {
         "modelDeployments": {
           "type": "object",
-          "description": "Mapping of model names to deployments.\nEx. { \"gpt-4.1\": \"myGpt41Deployment\", \"text-embedding-3-large\": \"myTextEmbedding3LargeDeployment\" }.",
+          "description": "Dictionary of supported large language model (LLM) name (key) to your model deployment name in Microsoft Foundry (value). Both keys and values are strings.\nPrebuilt and custom analyzers that use large language models require model deployment names in Microsoft Foundry for their supported models.\nThe mapping applies to all analyzers you intend to use: ensure each supported model for those analyzers is mapped. To get supported model names for a given analyzer, call Get Analyzer (GET /analyzers/{analyzerId}); the response includes supportedModels.\nDeploy the required models in your Microsoft Foundry resource (portal or API); each deployment has a model name and a model deployment name.\nCall Update Defaults (PATCH /defaults) with this dictionary to map each supported LLM name to your model deployment name in Microsoft Foundry.\nTo get more information for a quickstart for REST API, see https://aka.ms/cudoc-quickstart-rest.\nExample: { \"gpt-4.1\": \"myGpt41Deployment\", \"gpt-4.1-mini\": \"myGpt41MiniDeployment\", \"text-embedding-3-large\": \"myEmbeddingDeployment\" }.",
           "additionalProperties": {
             "type": "string"
           }
