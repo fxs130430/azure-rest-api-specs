@@ -40,7 +40,7 @@
   },
   "tags": [
     {
-      "name": "Operations"
+      "name": "Common"
     },
     {
       "name": "Bare Metal Instances"
@@ -57,9 +57,10 @@
       "get": {
         "operationId": "Operations_List",
         "tags": [
-          "Operations"
+          "Common"
         ],
-        "description": "List the operations for the provider",
+        "summary": "Lists all of the available consumption REST API operations.",
+        "description": "Gets a list of AzureBareMetal management operations.",
         "parameters": [
           {
             "$ref": "../../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"

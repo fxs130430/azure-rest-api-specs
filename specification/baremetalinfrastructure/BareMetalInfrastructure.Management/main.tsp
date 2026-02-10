@@ -41,4 +41,17 @@ enum Versions {
   v2024_08_01_preview: "2024-08-01-preview",
 }
 
-interface Operations extends Azure.ResourceManager.Operations {}
+interface Operations {
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-operation" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  @tag("Common")
+  @autoRoute
+  @doc("Gets a list of AzureBareMetal management operations.")
+  @segment("operations")
+  @get
+  @list
+  @summary("Lists all of the available consumption REST API operations.")
+  list(
+    ...ApiVersionParameter,
+    ...Azure.ResourceManager.Legacy.Provider,
+  ): ArmResponse<OperationListResult> | ErrorResponse;
+}
