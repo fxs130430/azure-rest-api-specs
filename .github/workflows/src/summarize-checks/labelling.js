@@ -153,7 +153,7 @@ export const ImpactAssessmentSchema = z.object({
  * @typedef {Object} BreakingChangesCheckConfig
  * @property {ReviewRequiredLabel} reviewRequiredLabel
  * @property {ReviewApprovalPrefixLabel} approvalPrefixLabel
- * @property {(ValidVersioningApproval | ValidBreakingChangeApproval)[]} approvalLabels
+ * @property {(ValidVersioningApproval | ValidBreakingChangeApproval | ValidARMModellingApproval)[]} approvalLabels
  * @property {string} [deprecatedReviewRequiredLabel]
  */
 
