@@ -7,8 +7,33 @@ using Azure.ResourceManager;
 
 @@clientName(Microsoft.CognitiveServices,
   "CognitiveServicesManagementClient",
-  "javascript"
+  "javascript,python"
 );
+
+@@clientName(AgentProtocol.A2A, "A2_A", "python");
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Legacy decorator required for Python SDK compatibility"
+@@Azure.ClientGenerator.Core.Legacy.clientDefaultValue(ConnectionsListParameters.includeAll,
+  false,
+  "python"
+);
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Legacy decorator required for Python SDK compatibility"
+@@Azure.ClientGenerator.Core.Legacy.clientDefaultValue(AgentDeploymentsListParameters.count, 30, "python");
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Legacy decorator required for Python SDK compatibility"
+@@Azure.ClientGenerator.Core.Legacy.clientDefaultValue(AgentDeploymentsListParameters.orderByAsc,
+  false,
+  "python"
+);
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Legacy decorator required for Python SDK compatibility"
+@@Azure.ClientGenerator.Core.Legacy.clientDefaultValue(AgentApplicationsListParameters.count,
+  30,
+  "python"
+);
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Legacy decorator required for Python SDK compatibility"
+@@Azure.ClientGenerator.Core.Legacy.clientDefaultValue(AgentApplicationsListParameters.orderByAsc,
+  false,
+  "python"
+);
+
 #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-operation" "customization"
 #suppress "@azure-tools/typespec-azure-core/documentation-required" "override"
 op checkDomainAvailabilityCustom(

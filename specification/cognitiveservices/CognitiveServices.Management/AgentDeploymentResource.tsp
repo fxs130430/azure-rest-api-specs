@@ -11,6 +11,40 @@ using TypeSpec.Http;
 using TypeSpec.OpenAPI;
 
 namespace Microsoft.CognitiveServices;
+
+alias AgentDeploymentsListParameters = {
+  /**
+   * Number of agent deployments to be retrieved in a page of results.
+   */
+  @query("count")
+  count?: int32 = 30;
+
+  /**
+   * Continuation token for pagination.
+   */
+  @query("$skipToken")
+  $skipToken?: string;
+
+  /**
+   * Names of agent deployments to retrieve.
+   */
+  #suppress "@azure-tools/typespec-azure-core/no-query-explode" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+  @query(#{ name: "names", explode: true })
+  names?: string[];
+
+  /**
+   * Field to order by.
+   */
+  @query("orderBy")
+  orderBy?: string;
+
+  /**
+   * Whether to order in ascending order.
+   */
+  @query("orderByAsc")
+  orderByAsc?: boolean = false;
+};
+
 /**
  * Agent Deployment resource
  */
@@ -120,38 +154,7 @@ interface AgentDeploymentResources {
   @tag("AgentDeployment")
   list is AgentDeploymentResourcesOps.List<
     AgentDeployment,
-    Parameters = {
-      /**
-       * Number of agent deployments to be retrieved in a page of results.
-       */
-      @query("count")
-      count?: int32 = 30;
-
-      /**
-       * Continuation token for pagination.
-       */
-      @query("$skipToken")
-      $skipToken?: string;
-
-      /**
-       * Names of agent deployments to retrieve.
-       */
-      #suppress "@azure-tools/typespec-azure-core/no-query-explode" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
-      @query(#{ name: "names", explode: true })
-      names?: string[];
-
-      /**
-       * Field to order by.
-       */
-      @query("orderBy")
-      orderBy?: string;
-
-      /**
-       * Whether to order in ascending order.
-       */
-      @query("orderByAsc")
-      orderByAsc?: boolean = false;
-    },
+    Parameters = AgentDeploymentsListParameters,
     Response = ArmResponse<AgentDeploymentResourceArmPaginatedResult>
   >;
 

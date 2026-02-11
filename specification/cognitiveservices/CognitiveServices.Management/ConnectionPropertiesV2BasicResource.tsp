@@ -11,6 +11,27 @@ using TypeSpec.Http;
 using TypeSpec.OpenAPI;
 
 namespace Microsoft.CognitiveServices;
+
+alias ConnectionsListParameters = {
+  /**
+   * Target of the connection.
+   */
+  @query("target")
+  target?: string;
+
+  /**
+   * Category of the connection.
+   */
+  @query("category")
+  category?: string;
+
+  /**
+   * query parameter that indicates if get connection call should return both connections and datastores
+   */
+  @query("includeAll")
+  includeAll?: boolean = false;
+};
+
 /**
  * Connection base resource schema.
  */
@@ -95,25 +116,7 @@ interface ConnectionPropertiesV2BasicResources {
   @tag("AccountConnectionResource")
   list is ConnectionPropertiesV2BasicResourceOps.List<
     ConnectionPropertiesV2BasicResource,
-    Parameters = {
-      /**
-       * Target of the connection.
-       */
-      @query("target")
-      target?: string;
-
-      /**
-       * Category of the connection.
-       */
-      @query("category")
-      category?: string;
-
-      /**
-       * query parameter that indicates if get connection call should return both connections and datastores
-       */
-      @query("includeAll")
-      includeAll?: boolean = false;
-    },
+    Parameters = ConnectionsListParameters,
     Response = ArmResponse<ConnectionPropertiesV2BasicResourceArmPaginatedResult>
   >;
 }
@@ -196,25 +199,7 @@ interface ProjectConnections {
   @tag("ProjectConnectionResource")
   list is ProjectConnectionOps.List<
     ConnectionPropertiesV2BasicResource,
-    Parameters = {
-      /**
-       * Target of the connection.
-       */
-      @query("target")
-      target?: string;
-
-      /**
-       * Category of the connection.
-       */
-      @query("category")
-      category?: string;
-
-      /**
-       * query parameter that indicates if get connection call should return both connections and datastores
-       */
-      @query("includeAll")
-      includeAll?: boolean = false;
-    },
+    Parameters = ConnectionsListParameters,
     Response = ArmResponse<ConnectionPropertiesV2BasicResourceArmPaginatedResult>
   >;
 }
