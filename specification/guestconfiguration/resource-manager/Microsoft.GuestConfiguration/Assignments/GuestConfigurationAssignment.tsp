@@ -22,13 +22,8 @@ model GuestConfigurationAssignment
   @segment("guestConfigurationAssignments")
   @path
   @visibility(Lifecycle.Read)
+  @pattern("^[a-zA-Z0-9._-]+$")
   name: string;
-
-  /**
-   *  Azure Resource Manager metadata containing createdBy and modifiedBy information.
-   */
-  @visibility(Lifecycle.Read)
-  systemData?: Azure.ResourceManager.CommonTypes.SystemData;
 }
 
 alias GuestConfigurationAssignmentOps = Azure.ResourceManager.Legacy.ExtensionOperations<

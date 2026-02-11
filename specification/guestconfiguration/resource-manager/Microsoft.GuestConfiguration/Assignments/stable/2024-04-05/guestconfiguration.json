@@ -202,7 +202,8 @@
             "in": "path",
             "description": "The guest configuration assignment name.",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9._-]+$"
           }
         ],
         "responses": {
@@ -250,7 +251,8 @@
             "in": "path",
             "description": "The guest configuration assignment name.",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9._-]+$"
           },
           {
             "name": "parameters",
@@ -313,7 +315,8 @@
             "in": "path",
             "description": "The guest configuration assignment name.",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9._-]+$"
           }
         ],
         "responses": {
@@ -366,7 +369,8 @@
             "in": "path",
             "description": "The guest configuration assignment name.",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9._-]+$"
           }
         ],
         "responses": {
@@ -419,7 +423,8 @@
             "in": "path",
             "description": "The guest configuration assignment name.",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9._-]+$"
           },
           {
             "name": "id",
@@ -1861,11 +1866,6 @@
         "properties": {
           "$ref": "#/definitions/GuestConfigurationAssignmentProperties",
           "description": "Properties of the Guest configuration assignment."
-        },
-        "systemData": {
-          "$ref": "../../../../../../common-types/resource-management/v3/types.json#/definitions/systemData",
-          "description": "Azure Resource Manager metadata containing createdBy and modifiedBy information.",
-          "readOnly": true
         }
       },
       "allOf": [
