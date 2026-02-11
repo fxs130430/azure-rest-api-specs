@@ -14,6 +14,7 @@ using Azure.ResourceManager;
 op checkDomainAvailabilityCustom(
   ...ApiVersionParameter,
   ...SubscriptionIdParameter,
+  ...SubscriptionActionScope,
   ...Azure.ResourceManager.Legacy.Provider,
   subdomainName: string,
   type: string,
@@ -28,6 +29,7 @@ op checkDomainAvailabilityCustom(
 op checkSkuAvailabilityCustom(
   ...ApiVersionParameter,
   ...SubscriptionIdParameter,
+  ...SubscriptionActionScope,
   ...Azure.ResourceManager.Legacy.Provider,
   location: string,
   skus: string[],
