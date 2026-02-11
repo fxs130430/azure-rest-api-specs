@@ -2655,7 +2655,6 @@ alias BodyParameter = {
 alias MultipartBodyParameter = {
   /** The body of the request. */
   @multipartBody body: {
-    name: HttpPart<string>;
     body: HttpPart<bytes>;
   };
 };
