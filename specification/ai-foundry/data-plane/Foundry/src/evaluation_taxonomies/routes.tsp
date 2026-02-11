@@ -24,7 +24,6 @@ alias EvaluationTaxonomiesFilterQueryParamsTraits = {
 #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "We are using service specific operation templates"
 @tag("Evaluation Taxonomies")
 interface EvaluationTaxonomies {
-
   // BUG: This operation (see OpenAPI3 file) is missing the "Foundry-Features" header.
   @doc("Get an evaluation run by name.")
   get is EvaluationTaxonomiesOperations.ResourceRead<EvaluationTaxonomy>;

@@ -24,7 +24,6 @@ alias ScheduleOps = FoundryAzureOperations<WithRequiredFoundryPreviewHeader<Foun
 
 @tag("Schedules")
 interface Schedules {
-
   // BUG: This operation (see OpenAPI3 file) is missing the "Foundry-Features" header.
   @doc("Delete a schedule.")
   delete is ScheduleOps.ResourceDelete<Schedule>;
