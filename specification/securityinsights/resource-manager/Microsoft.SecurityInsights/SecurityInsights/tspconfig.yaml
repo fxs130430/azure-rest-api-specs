@@ -25,8 +25,9 @@ options:
     model-namespace: true
     namespace: "Azure.ResourceManager.SecurityInsights"
   "@azure-tools/typespec-python":
-    emitter-output-dir: "{output-dir}/{service-dir}/azure-mgmt-securityinsights"
-    namespace: "azure.mgmt.securityinsights"
+    service-dir: "sdk/securityinsight"
+    emitter-output-dir: "{output-dir}/{service-dir}/azure-mgmt-securityinsight"
+    namespace: "azure.mgmt.securityinsight"
     generate-test: true
     generate-sample: true
     flavor: "azure"
