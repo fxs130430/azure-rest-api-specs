@@ -15,7 +15,6 @@ op checkDomainAvailabilityCustom(
   ...ApiVersionParameter,
   ...SubscriptionIdParameter,
   ...Azure.ResourceManager.Legacy.Provider,
-  name: string,
   subdomainName: string,
   type: string,
   kind?: string,
@@ -30,7 +29,6 @@ op checkSkuAvailabilityCustom(
   ...ApiVersionParameter,
   ...SubscriptionIdParameter,
   ...Azure.ResourceManager.Legacy.Provider,
-  name: string,
   location: string,
   skus: string[],
   type: string,
@@ -43,7 +41,6 @@ op calculateModelCapacityCustom(
   ...ApiVersionParameter,
   ...SubscriptionIdParameter,
   ...Azure.ResourceManager.Legacy.Provider,
-  name: string,
   `model`?: DeploymentModel,
   skuName?: string,
 
