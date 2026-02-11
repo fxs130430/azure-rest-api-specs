@@ -15,6 +15,7 @@ options:
     output-file: "{azure-resource-provider-folder}/{service-name}/{version-status}/{version}/openapi.json"
     examples-dir: "{project-root}/examples"
     xml-strategy: none
+    version: "2026-04-15"
   "@azure-tools/typespec-python":
     emitter-output-dir: "{output-dir}/{service-dir}/azure-planetarycomputer"
     namespace: "azure.planetarycomputer"
