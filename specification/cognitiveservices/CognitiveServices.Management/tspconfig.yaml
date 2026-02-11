@@ -30,7 +30,6 @@ options:
     use-object-for-unknown: true
   "@azure-tools/typespec-ts":
     emitter-output-dir: "{output-dir}/{service-dir}/arm-cognitiveservices"
-    compatibility-lro: true
     flavor: azure
     experimental-extensible-enums: true
     package-details:
