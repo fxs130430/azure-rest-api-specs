@@ -147,8 +147,6 @@ suppressions:
     reason: Pre-existing API behavior, property name uses acronym CMK (Customer Managed Key) which is industry standard.
     where:
       - $.definitions.WorkspaceProperties.properties.enableServiceSideCMKEncryption
-  - code: ProvisioningStateMustBeReadOnly
-    reason: Pre-existing API behavior, provisioningState properties are read-only in the API response.
   - code: ParametersSchemaAsTypeObject
     reason: Pre-existing API behavior, PATCH for abstract classes requires polymorphic type discriminator.
   - code: ProvisioningStateSpecifiedForLROPut
