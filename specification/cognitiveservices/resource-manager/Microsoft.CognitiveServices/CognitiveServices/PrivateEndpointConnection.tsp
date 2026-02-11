@@ -23,6 +23,7 @@ model PrivateEndpointConnection
     SegmentName = "privateEndpointConnections",
     NamePattern = ""
   >;
+  #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "For backward compatibility"
   ...Azure.ResourceManager.Legacy.EntityTagProperty;
 
   /**

@@ -22,12 +22,14 @@ model RaiExternalSafetyProviderSchema
     SegmentName = "raiExternalSafetyProviders",
     NamePattern = "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$"
   >;
+  #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "For backward compatibility"
   ...Azure.ResourceManager.Legacy.EntityTagProperty;
 
   /**
    * Resource tags.
    */
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-invalid-envelope-property" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
   @visibility(Lifecycle.Read)
   tags?: Record<string>;
 }
@@ -47,6 +49,7 @@ interface RaiExternalSafetyProviderSchemas {
   /**
    * Create the rai safety provider associated with the subscription.
    */
+  #suppress "@azure-tools/typespec-azure-core/response-schema-problem" "For backward compatibility"
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("RaiExternalSafetyProvider_CreateOrUpdate")
   createOrUpdate is ArmResourceCreateOrReplaceSync<

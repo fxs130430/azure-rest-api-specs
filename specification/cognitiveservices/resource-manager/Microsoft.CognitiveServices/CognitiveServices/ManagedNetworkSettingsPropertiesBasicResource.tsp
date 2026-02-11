@@ -24,6 +24,7 @@ model ManagedNetworkSettingsPropertiesBasicResource
 }
 
 @armResourceOperations
+#suppress "@azure-tools/typespec-azure-resource-manager/no-resource-delete-operation" "For backward compatibility"
 interface ManagedNetworkSettingsPropertiesBasicResources {
   /**
    * Get API for managed network settings of a cognitive services account.

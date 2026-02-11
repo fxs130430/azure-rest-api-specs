@@ -29,12 +29,14 @@ model Deployment is Azure.ResourceManager.ProxyResource<DeploymentProperties> {
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-invalid-envelope-property" "For backward compatibility"
   sku?: Sku;
 
+  #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "For backward compatibility"
   ...Azure.ResourceManager.Legacy.EntityTagProperty;
 
   /**
    * Resource tags.
    */
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-invalid-envelope-property" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
   @visibility(Lifecycle.Read, Lifecycle.Create, Lifecycle.Update)
   tags?: Record<string>;
 }
@@ -54,6 +56,7 @@ interface Deployments {
   /**
    * Update specified deployments associated with the Cognitive Services account.
    */
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-patch" "For backward compatibility"
   @patch(#{ implicitOptionality: false })
   update is ArmCustomPatchAsync<
     Deployment,

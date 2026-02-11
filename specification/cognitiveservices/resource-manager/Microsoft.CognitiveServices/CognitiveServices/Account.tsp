@@ -13,6 +13,7 @@ namespace Microsoft.CognitiveServices;
 /**
  * Cognitive Services account is an Azure resource representing the provisioned account, it's type, location and SKU.
  */
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "For backward compatibility"
 model Account
   is Azure.ResourceManager.Legacy.TrackedResourceWithOptionalLocation<AccountProperties> {
   ...ResourceNameParameter<
@@ -21,6 +22,7 @@ model Account
     SegmentName = "accounts",
     NamePattern = "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$"
   >;
+  #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "For backward compatibility"
   ...Azure.ResourceManager.Legacy.EntityTagProperty;
 
   /**
@@ -47,6 +49,22 @@ alias AccountOps = Azure.ResourceManager.Legacy.LegacyOperations<
     ...ApiVersionParameter;
     ...SubscriptionIdParameter;
     ...ResourceGroupParameter;
+    ...Azure.ResourceManager.Legacy.Provider;
+  },
+  {
+    /** The name of Cognitive Services account. */
+    @path
+    @segment("accounts")
+    @key
+    @pattern("^[a-zA-Z0-9][a-zA-Z0-9_.-]*$")
+    accountName: string;
+  }
+>;
+
+alias AccountBySubscriptionOps = Azure.ResourceManager.Legacy.LegacyOperations<
+  {
+    ...ApiVersionParameter;
+    ...SubscriptionIdParameter;
     ...Azure.ResourceManager.Legacy.Provider;
   },
   {
@@ -114,7 +132,7 @@ interface Accounts {
   /**
    * Returns all the resources of a particular type belonging to a subscription.
    */
-  list is AccountOps.ListBySubscription<Account>;
+  list is AccountBySubscriptionOps.List<Account>;
 
   /**
    * Lists the account keys for the specified Cognitive Services account.
@@ -190,6 +208,7 @@ interface Accounts {
   /**
    * Test the rai safety provider associated with the subscription.
    */
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-operation-response" "For backward compatibility"
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("TestRaiExternalSafetyProvider_CreateOrUpdate")
   @put

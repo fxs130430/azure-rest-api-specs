@@ -22,12 +22,14 @@ model RaiPolicy is Azure.ResourceManager.ProxyResource<RaiPolicyProperties> {
     SegmentName = "raiPolicies",
     NamePattern = "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$"
   >;
+  #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "For backward compatibility"
   ...Azure.ResourceManager.Legacy.EntityTagProperty;
 
   /**
    * Resource tags.
    */
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-invalid-envelope-property" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
   @visibility(Lifecycle.Read, Lifecycle.Create, Lifecycle.Update)
   tags?: Record<string>;
 }

@@ -5908,7 +5908,7 @@
           "default": {
             "description": "Error response describing why the operation failed",
             "schema": {
-              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -6051,7 +6051,7 @@
           "default": {
             "description": "Error response describing why the operation failed. If the resource does not exist, 404 (NotFound) should be returned.",
             "schema": {
-              "$ref": "../../../../../common-types/resource-management/v2/types.json#/definitions/ErrorResponse"
+              "$ref": "../../../../../common-types/resource-management/v3/types.json#/definitions/ErrorResponse"
             }
           }
         },
@@ -12831,7 +12831,7 @@
           "$ref": "#/definitions/AgentReference"
         }
       },
-      "x-ms-client-name": "AgentReference",
+      "x-ms-client-name": "AgentReferenceResource",
       "additionalProperties": false
     },
     "AgentReferenceResourceArmPaginatedResult": {
@@ -12871,7 +12871,7 @@
           "$ref": "#/definitions/AgentDeployment"
         }
       },
-      "x-ms-client-name": "AgentDeployment",
+      "x-ms-client-name": "AgentDeploymentResource",
       "additionalProperties": false
     },
     "AgentDeploymentResourceArmPaginatedResult": {

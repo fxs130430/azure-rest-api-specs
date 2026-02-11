@@ -65,19 +65,19 @@ list is ArmProviderActionSync<Response = UsageListResult,Scope = SubscriptionAct
 * Check available SKUs.
 */
 @autoRoute
-checkSkuAvailability is ArmProviderActionSync<Request = CheckSkuAvailabilityParameter,Response = SkuAvailabilityListResult,Scope = SubscriptionActionScope,Parameters = LocationParameter>
+op checkSkuAvailability is ArmProviderActionSync<Request = CheckSkuAvailabilityParameter,Response = SkuAvailabilityListResult,Scope = SubscriptionActionScope,Parameters = LocationParameter>;
 /**
 * Check whether a domain is available.
 */
 @autoRoute
-checkDomainAvailability is ArmProviderActionSync<Request = CheckDomainAvailabilityParameter,Response = DomainAvailability,Scope = SubscriptionActionScope>
+op checkDomainAvailability is ArmProviderActionSync<Request = CheckDomainAvailabilityParameter,Response = DomainAvailability,Scope = SubscriptionActionScope>;
 /**
 * Model capacity calculator.
 */
 #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
 @operationId("calculateModelCapacity")
 @autoRoute
-calculateModelCapacity is ArmProviderActionSync<Request = CalculateModelCapacityParameter,Response = CalculateModelCapacityResult,Scope = SubscriptionActionScope>
+op calculateModelCapacity is ArmProviderActionSync<Request = CalculateModelCapacityParameter,Response = CalculateModelCapacityResult,Scope = SubscriptionActionScope>;
 
 #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-interface-requires-decorator" "For backward compatibility"
 interface CommitmentTiersOperationGroup {

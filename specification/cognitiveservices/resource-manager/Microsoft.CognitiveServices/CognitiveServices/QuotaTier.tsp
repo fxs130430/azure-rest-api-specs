@@ -24,6 +24,7 @@ model QuotaTier is Azure.ResourceManager.ProxyResource<QuotaTierProperties> {
 }
 
 @armResourceOperations
+#suppress "@azure-tools/typespec-azure-resource-manager/no-resource-delete-operation" "For backward compatibility"
 interface QuotaTiers {
   /**
    * Gets the Quota Tier information for the given subscription. QuotaTiers is a subscription wide resource type. It holds current tier information.
@@ -60,7 +61,7 @@ interface QuotaTiers {
   >;
 }
 
-@@doc(QuotaTier.name, "Default parameter. Leave the value as ", default, ".");
+@@doc(QuotaTier.name, "Default parameter. Leave the value as \"default\".");
 @@doc(QuotaTier.properties, "Properties of quota tier resource.");
 @@doc(QuotaTiers.createOrUpdate::parameters.resource,
   "The parameters to provide for the quota tier resource."

@@ -2360,6 +2360,7 @@ model AccountProperties {
   /**
    * Resource migration token.
    */
+  @secret
   migrationToken?: string;
 
   /**
@@ -2490,6 +2491,7 @@ model AccountProperties {
   raiMonitorConfig?: RaiMonitorConfig;
 
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  @identifiers(#[])
   networkInjections?: NetworkInjection[];
 
   /**
@@ -2705,6 +2707,7 @@ model ApiProperties {
   /**
    * (QnAMaker Only) The Azure Search endpoint key of QnAMaker.
    */
+  @secret
   qnaAzureSearchEndpointKey?: string;
 
   /**
@@ -2778,6 +2781,7 @@ model CallRateLimit {
 #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
 model ThrottlingRule {
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  #suppress "@azure-tools/typespec-azure-resource-manager/secret-prop" "Not a secret."
   key?: string;
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
   renewalPeriod?: float32;
@@ -3539,6 +3543,7 @@ model Model {
   /**
    * Cognitive Services account Model.
    */
+  #suppress "@azure-tools/typespec-client-generator-core/property-name-conflict" "For backward compatibility"
   `model`?: AccountModel;
 
   /**
@@ -4066,6 +4071,7 @@ model RaiPolicyProperties {
    * Content Filters policy type.
    */
   @visibility(Lifecycle.Read)
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-duplicate-property" "For backward compatibility"
   type?: RaiPolicyType;
 
   /**
@@ -4455,6 +4461,7 @@ model RaiToolLabelProperties {
   /**
    * List of project-level tool label definitions.
    */
+  @identifiers(#["project"])
   projectScopes?: RaiToolLabelPropertiesProjectScopesItem[];
 }
 
@@ -4496,6 +4503,7 @@ model RaiContentFilterProperties {
   /**
    * Name of Content Filter.
    */
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-duplicate-property" "For backward compatibility"
   name?: string;
 
   /**
@@ -4724,12 +4732,14 @@ model NetworkSecurityPerimeterProfileInfo {
 /**
  * The list of cognitive services Defender for AI Settings.
  */
+#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
 model DefenderForAISettingResult is Azure.Core.Page<DefenderForAISetting>;
 
 /**
  * The Defender for AI resource properties.
  */
 #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
 model DefenderForAISettingProperties {
   /**
    * Defender for AI state on the AI resource.
@@ -5026,6 +5036,7 @@ model OutboundRule {
   /**
    * Type of a managed network Outbound Rule of a cognitive services account.
    */
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-duplicate-property" "For backward compatibility"
   type: RuleType;
 
   /**
@@ -5148,6 +5159,7 @@ model AgenticApplication extends ResourceBase {
   /**
    * The list of agent definitions comprising this application, returned as references to the objects under the parent project; use this to obtain a flat list of all agent-version pairs represented by this application.
    */
+  @identifiers(#["agentId"])
   agents?: AgentReference[];
 
   /**
@@ -5262,6 +5274,7 @@ model ApplicationTrafficRoutingPolicy {
   /**
    * Gets or sets the collection of traffic routing rules.
    */
+  @identifiers(#["ruleId"])
   rules?: TrafficRoutingRule[];
 }
 
@@ -5386,6 +5399,7 @@ model VersionedAgentReference extends AgentReference {
 }
 
 #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
 model PATAuthTypeConnectionProperties extends ConnectionPropertiesV2 {
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
   credentials?: ConnectionPersonalAccessToken;
@@ -5437,11 +5451,13 @@ model UsernamePasswordAuthTypeConnectionProperties
 #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
 model ConnectionUsernamePassword {
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  @secret
   password?: string;
 
   /**
    * Optional, required by connections like SalesForce for extra security in addition to UsernamePassword
    */
+  @secret
   securityToken?: string;
 
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
@@ -5457,6 +5473,7 @@ model NoneAuthTypeConnectionProperties extends ConnectionPropertiesV2 {
 }
 
 #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
 model SASAuthTypeConnectionProperties extends ConnectionPropertiesV2 {
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
   credentials?: ConnectionSharedAccessSignature;
@@ -5493,6 +5510,7 @@ model AccountKeyAuthTypeConnectionProperties extends ConnectionPropertiesV2 {
  */
 model ConnectionAccountKey {
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  @secret
   key?: string;
 }
 
@@ -5513,6 +5531,7 @@ model ConnectionServicePrincipal {
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
   clientId?: string;
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  @secret
   clientSecret?: string;
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
   tenantId?: string;
@@ -5534,6 +5553,7 @@ model ConnectionAccessKey {
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
   accessKeyId?: string;
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  @secret
   secretAccessKey?: string;
 }
 
@@ -5576,6 +5596,7 @@ model ApiKeyAuthConnectionProperties extends ConnectionPropertiesV2 {
  */
 model ConnectionApiKey {
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  @secret
   key?: string;
 }
 
@@ -5610,6 +5631,7 @@ model CustomKeys {
 }
 
 #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
 model OAuth2AuthTypeConnectionProperties extends ConnectionPropertiesV2 {
   /**
    * ClientId and ClientSecret are required. Other properties are optional
@@ -5627,6 +5649,7 @@ model OAuth2AuthTypeConnectionProperties extends ConnectionPropertiesV2 {
  * ClientId and ClientSecret are required. Other properties are optional
  * depending on each OAuth2 provider's implementation.
  */
+#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
 model ConnectionOAuth2 {
   /**
    * Required by Concur connection category
@@ -5641,20 +5664,24 @@ model ConnectionOAuth2 {
   clientId?: string;
 
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  @secret
   clientSecret?: string;
 
   /**
    * Required by GoogleAdWords connection category
    */
+  @secret
   developerToken?: string;
 
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "For backward compatibility"
+  @secret
   password?: string;
 
   /**
    * Required by GoogleBigQuery, GoogleAdWords, Hubspot, QuickBooks, Square, Xero, Zoho
    * where user needs to get RefreshToken offline
    */
+  @secret
   refreshToken?: string;
 
   /**
@@ -5672,6 +5699,7 @@ model ConnectionOAuth2 {
 /**
  * This connection type covers the AAD auth for any applicable Azure service
  */
+#suppress "@azure-tools/typespec-azure-core/casing-style" "For backward compatibility"
 model AADAuthTypeConnectionProperties extends ConnectionPropertiesV2 {
   /**
    * Authentication type of the connection target

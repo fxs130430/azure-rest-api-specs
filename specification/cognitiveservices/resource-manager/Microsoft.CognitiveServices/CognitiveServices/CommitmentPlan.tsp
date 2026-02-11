@@ -15,6 +15,7 @@ namespace Microsoft.CognitiveServices;
  * Cognitive Services account commitment plan.
  */
 @parentResource(Account)
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "For backward compatibility"
 model CommitmentPlan
   is Azure.ResourceManager.Legacy.TrackedResourceWithOptionalLocation<CommitmentPlanProperties> {
   ...ResourceNameParameter<
@@ -23,6 +24,7 @@ model CommitmentPlan
     SegmentName = "commitmentPlans",
     NamePattern = ""
   >;
+  #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "For backward compatibility"
   ...Azure.ResourceManager.Legacy.EntityTagProperty;
 
   /**
@@ -104,6 +106,22 @@ alias CommitmentPlanOperationGroupOps = Azure.ResourceManager.Legacy.LegacyOpera
   }
 >;
 
+alias CommitmentPlanOperationGroupBySubscriptionOps = Azure.ResourceManager.Legacy.LegacyOperations<
+  {
+    ...ApiVersionParameter;
+    ...SubscriptionIdParameter;
+    ...Azure.ResourceManager.Legacy.Provider;
+  },
+  {
+    /** The name of the commitmentPlan associated with the Cognitive Services Account */
+    @path
+    @segment("commitmentPlans")
+    @key
+    @pattern("^[a-zA-Z0-9][a-zA-Z0-9_.-]*$")
+    commitmentPlanName: string;
+  }
+>;
+
 @armResourceOperations
 interface CommitmentPlanOperationGroup {
   /**
@@ -125,6 +143,7 @@ interface CommitmentPlanOperationGroup {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("CommitmentPlans_UpdatePlan")
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-patch" "For backward compatibility"
   @patch(#{ implicitOptionality: false })
   updatePlan is CommitmentPlanOperationGroupOps.CustomPatchAsync<
     CommitmentPlan,
@@ -154,7 +173,7 @@ interface CommitmentPlanOperationGroup {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("CommitmentPlans_ListPlansBySubscription")
-  listPlansBySubscription is CommitmentPlanOperationGroupOps.ListBySubscription<CommitmentPlan>;
+  listPlansBySubscription is CommitmentPlanOperationGroupBySubscriptionOps.List<CommitmentPlan>;
 }
 
 @@doc(CommitmentPlan.name,

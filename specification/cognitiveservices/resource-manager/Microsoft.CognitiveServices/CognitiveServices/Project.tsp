@@ -15,6 +15,7 @@ namespace Microsoft.CognitiveServices;
  * Cognitive Services project is an Azure resource representing the provisioned account's project, it's type, location and SKU.
  */
 @parentResource(Account)
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "For backward compatibility"
 model Project
   is Azure.ResourceManager.Legacy.TrackedResourceWithOptionalLocation<ProjectProperties> {
   ...ResourceNameParameter<
@@ -23,6 +24,7 @@ model Project
     SegmentName = "projects",
     NamePattern = "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$"
   >;
+  #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "For backward compatibility"
   ...Azure.ResourceManager.Legacy.EntityTagProperty;
 
   /**
