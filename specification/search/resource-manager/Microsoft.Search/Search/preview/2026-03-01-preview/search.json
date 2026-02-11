@@ -2214,6 +2214,7 @@
       "description": "Describes the properties of an existing private endpoint connection to the search service."
     },
     "PrivateEndpointConnectionListResult": {
+      "type": "object",
       "properties": {
         "value": {
           "readOnly": true,
@@ -2992,6 +2993,7 @@
       "x-ms-external": true
     },
     "OperationListResult": {
+      "type": "object",
       "description": "The result of the request to list REST API operations. It contains a list of operations and a URL to get the next set of results.",
       "properties": {
         "value": {
