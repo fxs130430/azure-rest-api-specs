@@ -2740,21 +2740,21 @@
             "explode": false
           },
           {
-            "$ref": "#/components/parameters/Azure.Core.ClientRequestIdHeader"
+            "name": "Foundry-Features",
+            "in": "header",
+            "required": true,
+            "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Evaluations=V1Preview"
+              ]
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "The request has succeeded.",
-            "headers": {
-              "x-ms-client-request-id": {
-                "required": false,
-                "description": "An opaque, globally-unique, client-generated string identifier for the request.",
-                "schema": {
-                  "$ref": "#/components/schemas/Azure.Core.uuid"
-                }
-              }
-            },
             "content": {
               "application/json": {
                 "schema": {
@@ -2806,21 +2806,21 @@
             }
           },
           {
-            "$ref": "#/components/parameters/Azure.Core.ClientRequestIdHeader"
+            "name": "Foundry-Features",
+            "in": "header",
+            "required": true,
+            "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Evaluations=V1Preview"
+              ]
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "The request has succeeded.",
-            "headers": {
-              "x-ms-client-request-id": {
-                "required": false,
-                "description": "An opaque, globally-unique, client-generated string identifier for the request.",
-                "schema": {
-                  "$ref": "#/components/schemas/Azure.Core.uuid"
-                }
-              }
-            },
             "content": {
               "application/json": {
                 "schema": {
@@ -2870,21 +2870,21 @@
             }
           },
           {
-            "$ref": "#/components/parameters/Azure.Core.ClientRequestIdHeader"
+            "name": "Foundry-Features",
+            "in": "header",
+            "required": true,
+            "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Evaluations=V1Preview"
+              ]
+            }
           }
         ],
         "responses": {
           "204": {
-            "description": "There is no content to send for this request, but the headers may be useful. ",
-            "headers": {
-              "x-ms-client-request-id": {
-                "required": false,
-                "description": "An opaque, globally-unique, client-generated string identifier for the request.",
-                "schema": {
-                  "$ref": "#/components/schemas/Azure.Core.uuid"
-                }
-              }
-            }
+            "description": "There is no content to send for this request, but the headers may be useful."
           },
           "default": {
             "description": "An unexpected error response.",
@@ -2924,6 +2924,18 @@
             "description": "Unique identifier for the evaluation rule.",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "Foundry-Features",
+            "in": "header",
+            "required": true,
+            "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Evaluations=V1Preview"
+              ]
             }
           }
         ],
@@ -3013,21 +3025,21 @@
             "explode": false
           },
           {
-            "$ref": "#/components/parameters/Azure.Core.ClientRequestIdHeader"
+            "name": "Foundry-Features",
+            "in": "header",
+            "required": true,
+            "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Evaluations=V1Preview"
+              ]
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "The request has succeeded.",
-            "headers": {
-              "x-ms-client-request-id": {
-                "required": false,
-                "description": "An opaque, globally-unique, client-generated string identifier for the request.",
-                "schema": {
-                  "$ref": "#/components/schemas/Azure.Core.uuid"
-                }
-              }
-            },
             "content": {
               "application/json": {
                 "schema": {
@@ -3079,21 +3091,21 @@
             }
           },
           {
-            "$ref": "#/components/parameters/Azure.Core.ClientRequestIdHeader"
+            "name": "Foundry-Features",
+            "in": "header",
+            "required": true,
+            "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Evaluations=V1Preview"
+              ]
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "The request has succeeded.",
-            "headers": {
-              "x-ms-client-request-id": {
-                "required": false,
-                "description": "An opaque, globally-unique, client-generated string identifier for the request.",
-                "schema": {
-                  "$ref": "#/components/schemas/Azure.Core.uuid"
-                }
-              }
-            },
             "content": {
               "application/json": {
                 "schema": {
@@ -3143,21 +3155,21 @@
             }
           },
           {
-            "$ref": "#/components/parameters/Azure.Core.ClientRequestIdHeader"
+            "name": "Foundry-Features",
+            "in": "header",
+            "required": true,
+            "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Evaluations=V1Preview"
+              ]
+            }
           }
         ],
         "responses": {
           "204": {
-            "description": "There is no content to send for this request, but the headers may be useful. ",
-            "headers": {
-              "x-ms-client-request-id": {
-                "required": false,
-                "description": "An opaque, globally-unique, client-generated string identifier for the request.",
-                "schema": {
-                  "$ref": "#/components/schemas/Azure.Core.uuid"
-                }
-              }
-            }
+            "description": "There is no content to send for this request, but the headers may be useful."
           },
           "default": {
             "description": "An unexpected error response.",
@@ -4272,21 +4284,21 @@
             "explode": false
           },
           {
-            "$ref": "#/components/parameters/Azure.Core.ClientRequestIdHeader"
+            "name": "Foundry-Features",
+            "in": "header",
+            "required": true,
+            "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Insights=V1Preview"
+              ]
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "The request has succeeded.",
-            "headers": {
-              "x-ms-client-request-id": {
-                "required": false,
-                "description": "An opaque, globally-unique, client-generated string identifier for the request.",
-                "schema": {
-                  "$ref": "#/components/schemas/Azure.Core.uuid"
-                }
-              }
-            },
             "content": {
               "application/json": {
                 "schema": {
@@ -4338,6 +4350,18 @@
             }
           },
           {
+            "name": "Foundry-Features",
+            "in": "header",
+            "required": true,
+            "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Insights=V1Preview"
+              ]
+            }
+          },
+          {
             "name": "includeCoordinates",
             "in": "query",
             "required": false,
@@ -4346,23 +4370,11 @@
               "type": "boolean"
             },
             "explode": false
-          },
-          {
-            "$ref": "#/components/parameters/Azure.Core.ClientRequestIdHeader"
           }
         ],
         "responses": {
           "200": {
             "description": "The request has succeeded.",
-            "headers": {
-              "x-ms-client-request-id": {
-                "required": false,
-                "description": "An opaque, globally-unique, client-generated string identifier for the request.",
-                "schema": {
-                  "$ref": "#/components/schemas/Azure.Core.uuid"
-                }
-              }
-            },
             "content": {
               "application/json": {
                 "schema": {
@@ -7988,21 +8000,21 @@
             "$ref": "#/components/parameters/Azure.Core.Foundations.ApiVersionParameter"
           },
           {
-            "$ref": "#/components/parameters/Azure.Core.ClientRequestIdHeader"
+            "name": "Foundry-Features",
+            "in": "header",
+            "required": true,
+            "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "RedTeams=V1Preview"
+              ]
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "The request has succeeded.",
-            "headers": {
-              "x-ms-client-request-id": {
-                "required": false,
-                "description": "An opaque, globally-unique, client-generated string identifier for the request.",
-                "schema": {
-                  "$ref": "#/components/schemas/Azure.Core.uuid"
-                }
-              }
-            },
             "content": {
               "application/json": {
                 "schema": {
@@ -8054,21 +8066,21 @@
             }
           },
           {
-            "$ref": "#/components/parameters/Azure.Core.ClientRequestIdHeader"
+            "name": "Foundry-Features",
+            "in": "header",
+            "required": true,
+            "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "RedTeams=V1Preview"
+              ]
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "The request has succeeded.",
-            "headers": {
-              "x-ms-client-request-id": {
-                "required": false,
-                "description": "An opaque, globally-unique, client-generated string identifier for the request.",
-                "schema": {
-                  "$ref": "#/components/schemas/Azure.Core.uuid"
-                }
-              }
-            },
             "content": {
               "application/json": {
                 "schema": {
@@ -8177,21 +8189,41 @@
             "$ref": "#/components/parameters/Azure.Core.Foundations.ApiVersionParameter"
           },
           {
-            "$ref": "#/components/parameters/Azure.Core.ClientRequestIdHeader"
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "description": "Filter by the type of schedule.",
+            "schema": {
+              "$ref": "#/components/schemas/ScheduleTaskType"
+            },
+            "explode": false
+          },
+          {
+            "name": "enabled",
+            "in": "query",
+            "required": false,
+            "description": "Filter by the enabled status.",
+            "schema": {
+              "type": "boolean"
+            },
+            "explode": false
+          },
+          {
+            "name": "Foundry-Features",
+            "in": "header",
+            "required": true,
+            "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Schedules=V1Preview"
+              ]
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "The request has succeeded.",
-            "headers": {
-              "x-ms-client-request-id": {
-                "required": false,
-                "description": "An opaque, globally-unique, client-generated string identifier for the request.",
-                "schema": {
-                  "$ref": "#/components/schemas/Azure.Core.uuid"
-                }
-              }
-            },
             "content": {
               "application/json": {
                 "schema": {
@@ -8243,21 +8275,21 @@
             }
           },
           {
-            "$ref": "#/components/parameters/Azure.Core.ClientRequestIdHeader"
+            "name": "Foundry-Features",
+            "in": "header",
+            "required": true,
+            "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Schedules=V1Preview"
+              ]
+            }
           }
         ],
         "responses": {
           "204": {
-            "description": "There is no content to send for this request, but the headers may be useful. ",
-            "headers": {
-              "x-ms-client-request-id": {
-                "required": false,
-                "description": "An opaque, globally-unique, client-generated string identifier for the request.",
-                "schema": {
-                  "$ref": "#/components/schemas/Azure.Core.uuid"
-                }
-              }
-            }
+            "description": "There is no content to send for this request, but the headers may be useful."
           },
           "default": {
             "description": "An unexpected error response.",
@@ -8300,21 +8332,21 @@
             }
           },
           {
-            "$ref": "#/components/parameters/Azure.Core.ClientRequestIdHeader"
+            "name": "Foundry-Features",
+            "in": "header",
+            "required": true,
+            "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Schedules=V1Preview"
+              ]
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "The request has succeeded.",
-            "headers": {
-              "x-ms-client-request-id": {
-                "required": false,
-                "description": "An opaque, globally-unique, client-generated string identifier for the request.",
-                "schema": {
-                  "$ref": "#/components/schemas/Azure.Core.uuid"
-                }
-              }
-            },
             "content": {
               "application/json": {
                 "schema": {
@@ -8364,21 +8396,21 @@
             }
           },
           {
-            "$ref": "#/components/parameters/Azure.Core.ClientRequestIdHeader"
+            "name": "Foundry-Features",
+            "in": "header",
+            "required": true,
+            "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Schedules=V1Preview"
+              ]
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "The request has succeeded.",
-            "headers": {
-              "x-ms-client-request-id": {
-                "required": false,
-                "description": "An opaque, globally-unique, client-generated string identifier for the request.",
-                "schema": {
-                  "$ref": "#/components/schemas/Azure.Core.uuid"
-                }
-              }
-            },
             "content": {
               "application/json": {
                 "schema": {
@@ -8389,15 +8421,6 @@
           },
           "201": {
             "description": "The request has succeeded and a new resource has been created as a result.",
-            "headers": {
-              "x-ms-client-request-id": {
-                "required": false,
-                "description": "An opaque, globally-unique, client-generated string identifier for the request.",
-                "schema": {
-                  "$ref": "#/components/schemas/Azure.Core.uuid"
-                }
-              }
-            },
             "content": {
               "application/json": {
                 "schema": {
@@ -8432,7 +8455,7 @@
         "requestBody": {
           "required": true,
           "content": {
-            "application/merge-patch+json": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/Schedule"
               }
@@ -8460,21 +8483,41 @@
             }
           },
           {
-            "$ref": "#/components/parameters/Azure.Core.ClientRequestIdHeader"
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "description": "Filter by the type of schedule.",
+            "schema": {
+              "$ref": "#/components/schemas/ScheduleTaskType"
+            },
+            "explode": false
+          },
+          {
+            "name": "enabled",
+            "in": "query",
+            "required": false,
+            "description": "Filter by the enabled status.",
+            "schema": {
+              "type": "boolean"
+            },
+            "explode": false
+          },
+          {
+            "name": "Foundry-Features",
+            "in": "header",
+            "required": true,
+            "description": "A feature flag opt-in required when using preview operations or modifying persisted preview resources.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Schedules=V1Preview"
+              ]
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "The request has succeeded.",
-            "headers": {
-              "x-ms-client-request-id": {
-                "required": false,
-                "description": "An opaque, globally-unique, client-generated string identifier for the request.",
-                "schema": {
-                  "$ref": "#/components/schemas/Azure.Core.uuid"
-                }
-              }
-            },
             "content": {
               "application/json": {
                 "schema": {

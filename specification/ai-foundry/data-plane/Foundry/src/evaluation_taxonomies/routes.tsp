@@ -1,15 +1,11 @@
+import "../common/models.tsp";
 import "./models.tsp";
 
 using TypeSpec.Http;
-using Azure.Core.Traits;
 
 namespace Azure.AI.Projects;
 
-alias EvaluationTaxonomiesServiceTraits = SupportsClientRequestId &
-  NoRepeatableRequests &
-  NoConditionalRequests;
-
-alias EvaluationTaxonomiesOperations = Azure.Core.ResourceOperations<EvaluationTaxonomiesServiceTraits>;
+alias EvaluationTaxonomiesPreviewHeader = WithRequiredFoundryPreviewHeader<FoundryFeaturesOptInKeys.evaluations_v1_preview>;
 
 alias EvaluationTaxonomiesFilterQueryParamsTraits = {
   @query("inputName")
@@ -24,27 +20,40 @@ alias EvaluationTaxonomiesFilterQueryParamsTraits = {
 #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "We are using service specific operation templates"
 @tag("Evaluation Taxonomies")
 interface EvaluationTaxonomies {
-  // BUG: This operation (see OpenAPI3 file) is missing the "Foundry-Features" header.
   @doc("Get an evaluation run by name.")
-  get is EvaluationTaxonomiesOperations.ResourceRead<EvaluationTaxonomy>;
-
-  // BUG: This operation (see OpenAPI3 file) is missing the "Foundry-Features" header.
-  @doc("List evaluation taxonomies")
-  list is EvaluationTaxonomiesOperations.ResourceList<
+  get is Azure.Core.Foundations.ResourceOperation<
     EvaluationTaxonomy,
-    ListQueryParametersTrait<EvaluationTaxonomiesFilterQueryParamsTraits>
+    {
+      ...EvaluationTaxonomiesPreviewHeader;
+    },
+    Azure.Core.Foundations.ResourceOkResponse<EvaluationTaxonomy>
   >;
 
-  // BUG: This operation (see OpenAPI3 file) is missing the "Foundry-Features" header.
+  #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "We need explicit definition for header support"
+  @doc("List evaluation taxonomies")
+  @Rest.listsResource(EvaluationTaxonomy)
+  list is Azure.Core.Foundations.ResourceList<
+    EvaluationTaxonomy,
+    EvaluationTaxonomiesFilterQueryParamsTraits & EvaluationTaxonomiesPreviewHeader,
+    Azure.Core.Page<EvaluationTaxonomy>
+  >;
+
   @doc("Delete an evaluation taxonomy by name.")
-  delete is EvaluationTaxonomiesOperations.ResourceDelete<EvaluationTaxonomy>;
+  @Http.delete
+  delete is Azure.Core.Foundations.ResourceOperation<
+    EvaluationTaxonomy,
+    {
+      ...EvaluationTaxonomiesPreviewHeader;
+    },
+    Http.NoContentResponse
+  >;
 
   @doc("Create an evaluation taxonomy.")
   @put
   @route("/evaluationtaxonomies/{name}")
   create is Azure.Core.Foundations.Operation<
     {
-      ...WithRequiredFoundryPreviewHeader<FoundryFeaturesOptInKeys.evaluations_v1_preview>;
+      ...EvaluationTaxonomiesPreviewHeader;
 
       @doc("The name of the evaluation taxonomy.")
       @path
@@ -62,7 +71,7 @@ interface EvaluationTaxonomies {
   @route("/evaluationtaxonomies/{name}")
   update is Azure.Core.Foundations.Operation<
     {
-      ...WithRequiredFoundryPreviewHeader<FoundryFeaturesOptInKeys.evaluations_v1_preview>;
+      ...EvaluationTaxonomiesPreviewHeader;
 
       @doc("The name of the evaluation taxonomy.")
       @path
