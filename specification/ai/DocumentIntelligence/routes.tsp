@@ -87,6 +87,10 @@ model DocumentModelAnalyzeRequestParams {
   @doc("Additional outputs to generate during analysis.")
   @query
   output?: AnalyzeOutputOption[];
+
+  @doc("Priority of the analyze request.")
+  @query
+  priority?: string;
 }
 
 @doc("Document classifier analyze request parameters.")
