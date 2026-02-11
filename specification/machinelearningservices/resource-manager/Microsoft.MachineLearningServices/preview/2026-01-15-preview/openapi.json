@@ -22056,20 +22056,6 @@
         }
       }
     },
-    "AgenticApplicationIsolationKeySource": {
-      "type": "object",
-      "description": "Isolation key source for an agentic application.",
-      "required": [
-        "type"
-      ],
-      "properties": {
-        "type": {
-          "description": "Specifies the source type for an isolation key.",
-          "$ref": "#/definitions/IsolationKeySourceType"
-        }
-      },
-      "discriminator": "type"
-    },
     "AksComputeSecrets": {
       "type": "object",
       "description": "Secrets related to a Machine Learning compute based on AKS.",
@@ -30080,16 +30066,6 @@
         ]
       }
     },
-    "EntraIsolationKeySource": {
-      "type": "object",
-      "allOf": [
-        {
-          "$ref": "#/definitions/AgenticApplicationIsolationKeySource"
-        }
-      ],
-      "x-ms-discriminator-value": "Entra",
-      "additionalProperties": false
-    },
     "EnvironmentContainer": {
       "type": "object",
       "description": "Azure Resource Manager resource envelope.",
@@ -32039,26 +32015,6 @@
         }
       }
     },
-    "HeaderIsolationKeySource": {
-      "type": "object",
-      "allOf": [
-        {
-          "$ref": "#/definitions/AgenticApplicationIsolationKeySource"
-        }
-      ],
-      "properties": {
-        "chatHeaderName": {
-          "type": "string",
-          "x-nullable": true
-        },
-        "userHeaderName": {
-          "type": "string",
-          "x-nullable": true
-        }
-      },
-      "x-ms-discriminator-value": "Header",
-      "additionalProperties": false
-    },
     "IPRule": {
       "type": "object",
       "description": "Contains an IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78). Value could be 'Allow' or  'Deny'.",
@@ -33689,27 +33645,6 @@
           }
         }
       }
-    },
-    "IsolationKeySourceType": {
-      "description": "Specifies the source type for an isolation key.",
-      "enum": [
-        "Entra",
-        "Header"
-      ],
-      "type": "string",
-      "x-ms-enum": {
-        "name": "IsolationKeySourceType",
-        "modelAsString": true,
-        "values": [
-          {
-            "value": "Entra"
-          },
-          {
-            "value": "Header"
-          }
-        ]
-      },
-      "additionalProperties": false
     },
     "IsolationMode": {
       "type": "string",
