@@ -41860,36 +41860,6 @@
     }
   },
   "definitions": {
-    "AIGatewayProvisioningState": {
-      "type": "string",
-      "description": "The provisioning status of an AI gateway.",
-      "enum": [
-        "Succeeded",
-        "Failed",
-        "Canceled"
-      ],
-      "x-ms-enum": {
-        "name": "AIGatewayProvisioningState",
-        "modelAsString": true,
-        "values": [
-          {
-            "name": "Succeeded",
-            "value": "Succeeded",
-            "description": "Resource has been created."
-          },
-          {
-            "name": "Failed",
-            "value": "Failed",
-            "description": "Resource creation failed."
-          },
-          {
-            "name": "Canceled",
-            "value": "Canceled",
-            "description": "Resource creation was canceled."
-          }
-        ]
-      }
-    },
     "AbnormalTimePeriod": {
       "type": "object",
       "description": "Class representing Abnormal Time Period identified in diagnosis",
@@ -42030,11 +42000,6 @@
       "type": "object",
       "description": "The properties of an AI gateway.",
       "properties": {
-        "provisioningState": {
-          "$ref": "#/definitions/AIGatewayProvisioningState",
-          "description": "The status of the last operation.",
-          "readOnly": true
-        },
         "aiGatewayId": {
           "type": "string",
           "description": "The description of the resource.",

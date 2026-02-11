@@ -23,7 +23,6 @@
           "key1": "Value2"
         },
         "properties": {
-          "provisioningState": "Succeeded",
           "aiGatewayId": "b8f4c0c2-1e52-4c88-9a64-2c1f59b854e5"
         }
       }

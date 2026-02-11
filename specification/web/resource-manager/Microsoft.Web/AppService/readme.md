@@ -88,9 +88,6 @@ directive:
   - suppress: XMS_EXAMPLE_NOTFOUND_ERROR
     from: openapi.json
     reason: Retroactive addition of missing examples out of scope at this time.
-  - suppress: ProvisioningStateMustBeReadOnly
-    from: openapi.json
-    reason: Existing provisioning state properties were not marked readOnly in prior versions. Adding readOnly would be a breaking change for stable versions.
 ```
 
 ### Tag: package-2026-03-01-preview
