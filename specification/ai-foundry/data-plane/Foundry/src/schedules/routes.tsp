@@ -16,14 +16,14 @@ alias SchedulesFilterQueryParams = {
   enabled?: boolean;
 };
 
-model SchedulesCreateOrUpdateParams {
+alias SchedulesCreateOrUpdateParams = {
   ...SchedulesPreviewHeader;
 
   @doc("The resource instance.")
   @Http.bodyRoot
   @TypeSpec.OpenAPI.extension("x-ms-client-name", "resource")
   resource: Schedule;
-}
+};
 
 @tag("Schedules")
 interface Schedules {
