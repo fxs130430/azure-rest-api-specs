@@ -1,7 +1,6 @@
 import "./models.tsp";
 
 using TypeSpec.Http;
-using Azure.Core.Traits;
 
 namespace Azure.AI.Projects;
 
@@ -16,6 +15,15 @@ alias SchedulesFilterQueryParams = {
   @doc("Filter by the enabled status.")
   enabled?: boolean;
 };
+
+model SchedulesCreateOrUpdateParams {
+  ...SchedulesPreviewHeader;
+
+  @doc("The resource instance.")
+  @Http.bodyRoot
+  @TypeSpec.OpenAPI.extension("x-ms-client-name", "resource")
+  resource: Schedule;
+}
 
 @tag("Schedules")
 interface Schedules {
@@ -54,14 +62,7 @@ interface Schedules {
   @Http.put
   createOrUpdate is Azure.Core.Foundations.ResourceOperation<
     Schedule,
-    {
-      ...SchedulesPreviewHeader;
-
-      @doc("The resource instance.")
-      @Http.bodyRoot
-      @TypeSpec.OpenAPI.extension("x-ms-client-name", "resource")
-      resource: Schedule;
-    },
+    SchedulesCreateOrUpdateParams,
     Azure.Core.Foundations.ResourceCreatedOrOkResponse<Schedule>
   >;
 

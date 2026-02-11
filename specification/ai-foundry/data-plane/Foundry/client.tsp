@@ -138,7 +138,7 @@ using Azure.AI.Projects;
 // Schedules sub‐client
 // --------------------------------------------------------------------------------
 
-@@clientName(Azure.Core.Foundations.ResourceBody.resource, "schedule");
+@@clientName(SchedulesCreateOrUpdateParams.resource, "schedule");
 
 // --------------------------------------------------------------------------------
 // Connections sub‐client
