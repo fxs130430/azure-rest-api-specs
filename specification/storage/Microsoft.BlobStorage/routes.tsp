@@ -125,7 +125,10 @@ interface Service {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
   @get
   @route("?restype=service&comp=properties")
-  getProperties is StorageOperation<TimeoutParameter, BlobServiceProperties>;
+  getProperties is StorageOperationResponseBody<
+    TimeoutParameter,
+    BlobServiceProperties
+  >;
 
   /** Retrieves statistics related to replication for the Blob service. It is only available on the secondary location endpoint when read-access geo-redundant replication is enabled for the storage account. */
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
