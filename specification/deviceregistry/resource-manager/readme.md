@@ -58,6 +58,7 @@ suppressions:
       - $.definitions.Messaging.properties.endpoints
       - $.definitions.NamespaceAssetProperties.properties.attributes
       - $.definitions.NamespaceAssetUpdateProperties.properties.attributes
+      - $.definitions.NamespaceAssetExecuteActionRequest.properties.payload
       - $.definitions.NamespaceDiscoveredAssetProperties.properties.attributes
       - $.definitions.NamespaceDiscoveredAssetUpdateProperties.properties.attributes
       - $.definitions.NamespaceDeviceProperties.properties.attributes
