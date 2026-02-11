@@ -2759,6 +2759,10 @@ namespace KnowledgeBaseRetrievalClient {
 @@clientName(UaxUrlEmailTokenizer.`@odata.type`, "odatatype", "javascript");
 @@clientName(AsciiFoldingTokenFilter.`@odata.type`, "odataType");
 @@clientName(AsciiFoldingTokenFilter.`@odata.type`, "odatatype", "javascript");
+@@clientName(Search.ChatCompletionSkill.`@odata.type`,
+  "odatatype",
+  "javascript"
+);
 @@clientName(CjkBigramTokenFilter.`@odata.type`, "odataType");
 @@clientName(CjkBigramTokenFilter.`@odata.type`, "odatatype", "javascript");
 @@clientName(CommonGramTokenFilter.`@odata.type`, "odataType");
@@ -2948,6 +2952,10 @@ namespace KnowledgeBaseRetrievalClient {
 );
 @@clientName(Search.ChatCompletionCommonModelParameters,
   "CommonModelParameters",
+  "javascript"
+);
+@@clientName(Search.ChatCompletionCommonModelParameters.modelName,
+  "model",
   "javascript"
 );
 @@clientName(Search.SearchServiceCounters, "ServiceCounters", "javascript");
