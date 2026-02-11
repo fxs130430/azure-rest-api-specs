@@ -129,8 +129,9 @@ interface GuestConfigurationAssignments {
    * Get a report for the guest configuration assignment, by reportId.
    */
   @get
-  guestConfigurationAssignmentReportsGet is GuestConfigurationAssignmentOps.Read<
+  guestConfigurationAssignmentReportsGet is GuestConfigurationAssignmentOps.ActionSync<
     GuestConfigurationAssignment,
+    void,
     Parameters = {
       /**
        * The GUID for the guest configuration assignment report.
@@ -258,8 +259,9 @@ interface GuestConfigurationHCRPAssignments {
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @get
   @operationId("GuestConfigurationHCRPAssignmentReports_Get")
-  guestConfigurationHCRPAssignmentReportsGet is GuestConfigurationHCRPAssignmentOps.Read<
+  guestConfigurationHCRPAssignmentReportsGet is GuestConfigurationHCRPAssignmentOps.ActionSync<
     GuestConfigurationAssignment,
+    void,
     Parameters = {
       /**
        * The GUID for the guest configuration assignment report.
@@ -364,9 +366,10 @@ interface GuestConfigurationAssignmentsVMSS {
     "name"
   )
   @list
-  guestConfigurationAssignmentReportsVMSSList is Extension.Read<
+  guestConfigurationAssignmentReportsVMSSList is Extension.ActionSync<
     VirtualMachineScaleSets,
     GuestConfigurationAssignment,
+    void,
     Response = ArmResponse<GuestConfigurationAssignmentReportList>,
     Error = ErrorResponse,
     OverrideResourceName = "GuestConfigurationVmssAssignment"
@@ -384,9 +387,10 @@ interface GuestConfigurationAssignmentsVMSS {
     "guestConfigurationAssignmentName",
     "name"
   )
-  guestConfigurationAssignmentReportsVMSSGet is Extension.Read<
+  guestConfigurationAssignmentReportsVMSSGet is Extension.ActionSync<
     VirtualMachineScaleSets,
     GuestConfigurationAssignment,
+    void,
     Parameters = {
       /**
        * The GUID for the guest configuration assignment report.
@@ -494,8 +498,9 @@ interface GuestConfigurationConnectedVMwarevSphereAssignments {
    */
   #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @get
-  guestConfigurationConnectedVMwarevSphereAssignmentsReportsGet is GuestConfigurationConnectedVMwarevSphereAssignmentOps.Read<
+  guestConfigurationConnectedVMwarevSphereAssignmentsReportsGet is GuestConfigurationConnectedVMwarevSphereAssignmentOps.ActionSync<
     GuestConfigurationAssignment,
+    void,
     Response = ArmResponse<GuestConfigurationAssignmentReport>,
     Parameters = {
       /**

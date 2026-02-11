@@ -14,7 +14,25 @@ using Microsoft.GuestConfiguration;
 );
 @@alternateType(VmssvmInfo.vmId, Azure.Core.uuid, "csharp");
 @@alternateType(VmssvmInfo.latestReportId, Azure.Core.uuid, "csharp");
+@@alternateType(VmssvmInfo.vmResourceId, Azure.Core.armResourceIdentifier, "csharp");
 @@alternateType(GuestConfigurationNavigation.contentUri, url, "csharp");
+@@alternateType(VMInfo.id, Azure.Core.armResourceIdentifier, "csharp");
+@@alternateType(VMInfo.uuid, Azure.Core.uuid, "csharp");
+@@alternateType(GuestConfigurationAssignmentProperties.latestReportId,
+  Azure.Core.armResourceIdentifier,
+  "csharp"
+);
+@@alternateType(AssignmentReport.id, Azure.Core.armResourceIdentifier, "csharp");
+@@alternateType(AssignmentReport.reportId, Azure.Core.uuid, "csharp");
+@@alternateType(GuestConfigurationAssignmentReport.id,
+  Azure.Core.armResourceIdentifier,
+  "csharp"
+);
+@@alternateType(GuestConfigurationAssignmentReportProperties.reportId,
+  Azure.Core.uuid,
+  "csharp"
+);
+@@alternateType(AssignmentReportDetails.jobId, Azure.Core.uuid, "csharp");
 
 // ============================================================================
 // Type renaming - restore old SDK names for backward compatibility
@@ -36,6 +54,11 @@ using Microsoft.GuestConfiguration;
 @@clientName(ConfigurationParameter, "GuestConfigurationParameter", "csharp");
 @@clientName(ConfigurationSetting, "LcmConfigurationSetting", "csharp");
 @@clientName(VmssvmInfo, "GuestConfigurationVmssVmInfo", "csharp");
+@@clientName(VmssvmInfo.lastComplianceChecked, "LastComplianceCheckedOn", "csharp");
+@@clientName(GuestConfigurationAssignmentProperties.vmssVMList,
+  "VmssVmList",
+  "csharp"
+);
 @@clientName(AssignmentInfo, "GuestConfigurationAssignmentInfo", "csharp");
 @@clientName(AssignmentReportResource,
   "AssignmentReportResourceInfo",
@@ -47,6 +70,7 @@ using Microsoft.GuestConfiguration;
   "csharp"
 );
 @@clientName(ConfigurationMode, "LcmConfigurationMode", "csharp");
+@@clientName(Kind.DSC, "Dsc", "csharp");
 @@clientName(Type, "GuestConfigurationAssignmentReportType", "csharp");
 @@clientName(ConfigurationInfo, "GuestConfigurationInfo", "csharp");
 
