@@ -39,11 +39,9 @@ interface ManagedPrivateEndpoints {
   #suppress "@azure-tools/typespec-azure-resource-manager/no-response-body" "For backward compatibility"
   createOrUpdate is ArmResourceCreateOrReplaceAsync<
     ManagedPrivateEndpoint,
-    Response = ArmResourceUpdatedResponse<ManagedPrivateEndpoint> | ArmResourceCreatedResponse<
-      ManagedPrivateEndpoint,
-      ArmLroLocationHeader<FinalResult = ManagedPrivateEndpoint> &
-        Azure.Core.Foundations.RetryAfterHeader
-    > | (ArmAcceptedLroResponse & {
+    Response = ArmResourceUpdatedResponse<ManagedPrivateEndpoint> | ArmResourceCreatedResponse<ManagedPrivateEndpoint> | (ArmAcceptedLroResponse<LroHeaders = ArmLroLocationHeader<FinalResult = ManagedPrivateEndpoint> &
+      ArmAsyncOperationHeader<FinalResult = ManagedPrivateEndpoint> &
+      Azure.Core.Foundations.RetryAfterHeader> & {
       @bodyRoot
       _: ManagedPrivateEndpoint;
     })
@@ -59,7 +57,9 @@ interface ManagedPrivateEndpoints {
     PatchModel = ManagedPrivateEndpoint,
     Response = ArmResponse<ManagedPrivateEndpoint> | (ArmAcceptedLroResponse<
       "Managed private endpoint update accepted.",
-      LroHeaders = ArmLroLocationHeader<FinalResult = ManagedPrivateEndpoint>
+      LroHeaders = ArmLroLocationHeader<FinalResult = ManagedPrivateEndpoint> &
+        ArmAsyncOperationHeader<FinalResult = ManagedPrivateEndpoint> &
+        Azure.Core.Foundations.RetryAfterHeader
     > & {
       @bodyRoot
       _: ManagedPrivateEndpoint;
@@ -72,7 +72,9 @@ interface ManagedPrivateEndpoints {
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-delete-operation-response-codes" "For backward compatibility"
   delete is ArmResourceDeleteWithoutOkAsync<
     ManagedPrivateEndpoint,
-    Response = ArmDeletedResponse | ArmDeleteAcceptedLroResponse | ArmDeletedNoContentResponse
+    Response = ArmDeletedResponse | ArmDeleteAcceptedLroResponse<LroHeaders = ArmLroLocationHeader &
+      ArmAsyncOperationHeader &
+      Azure.Core.Foundations.RetryAfterHeader> | ArmDeletedNoContentResponse
   >;
 
   /**

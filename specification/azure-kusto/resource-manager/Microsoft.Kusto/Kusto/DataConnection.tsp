@@ -15,14 +15,21 @@ namespace Microsoft.Kusto;
 /**
  * Class representing an data connection.
  */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" ""
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-custom-resource-usage-discourage" ""
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" ""
+#suppress "@azure-tools/typespec-azure-core/no-private-usage" ""
 @parentResource(Database)
-model DataConnection is Azure.ResourceManager.ProxyResource<{}> {
-  ...ResourceNameParameter<
-    Resource = DataConnection,
-    KeyName = "dataConnectionName",
-    SegmentName = "dataConnections",
-    NamePattern = "^.*$"
-  >;
+@discriminator("kind")
+@Azure.ResourceManager.Legacy.customAzureResource(#{ isAzureResource: true })
+@Http.Private.includeInapplicableMetadataInPayload(false)
+model DataConnection extends Azure.ResourceManager.Foundations.ProxyResource {
+  @visibility(Lifecycle.Read)
+  @path
+  @key("dataConnectionName")
+  @segment("dataConnections")
+  @pattern("^.*$")
+  name: string;
 
   /**
    * Resource location.
@@ -55,7 +62,8 @@ interface DataConnections {
       @body body: DataConnection;
     }) | (ArmAcceptedLroResponse<
       "Create or update accepted.",
-      LroHeaders = ArmLroLocationHeader<FinalResult = DataConnection>
+      LroHeaders = ArmLroLocationHeader<FinalResult = DataConnection> &
+        ArmAsyncOperationHeader<FinalResult = DataConnection>
     > & {
       @bodyRoot
       _: DataConnection;
@@ -70,9 +78,16 @@ interface DataConnections {
   update is ArmCustomPatchAsync<
     DataConnection,
     PatchModel = DataConnection,
-    Response = ArmResponse<DataConnection> | ArmResourceCreatedResponse<DataConnection> | (ArmAcceptedLroResponse<
+    Response = ArmResponse<DataConnection> | ArmResourceCreatedResponse<
+      DataConnection,
+      LroHeaders = ArmLroLocationHeader<FinalResult = DataConnection> &
+        ArmAsyncOperationHeader<FinalResult = DataConnection> &
+        Azure.Core.Foundations.RetryAfterHeader
+    > | (ArmAcceptedLroResponse<
       "Update accepted.",
-      LroHeaders = ArmLroLocationHeader<FinalResult = DataConnection>
+      LroHeaders = ArmLroLocationHeader<FinalResult = DataConnection> &
+        ArmAsyncOperationHeader<FinalResult = DataConnection> &
+        Azure.Core.Foundations.RetryAfterHeader
     > & {
       @bodyRoot
       _: DataConnection;
@@ -85,7 +100,9 @@ interface DataConnections {
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-delete-operation-response-codes" "For backward compatibility"
   delete is ArmResourceDeleteWithoutOkAsync<
     DataConnection,
-    Response = ArmDeletedResponse | ArmDeleteAcceptedLroResponse | ArmDeletedNoContentResponse
+    Response = ArmDeletedResponse | ArmDeleteAcceptedLroResponse<LroHeaders = ArmLroLocationHeader &
+      ArmAsyncOperationHeader &
+      Azure.Core.Foundations.RetryAfterHeader> | ArmDeletedNoContentResponse
   >;
 
   /**

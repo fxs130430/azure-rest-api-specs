@@ -3694,3 +3694,8 @@ model CosmosDbDataConnection extends DataConnection {
    */
   kind: "CosmosDb";
 }
+
+/**
+ * The list Kusto sandbox custom images operation response.
+ */
+model SandboxCustomImagesListResult is Azure.Core.Page<SandboxCustomImage>;

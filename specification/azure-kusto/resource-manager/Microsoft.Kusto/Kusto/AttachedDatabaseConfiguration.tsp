@@ -45,11 +45,9 @@ interface AttachedDatabaseConfigurations {
   #suppress "@azure-tools/typespec-azure-resource-manager/no-response-body" "For backward compatibility"
   createOrUpdate is ArmResourceCreateOrReplaceAsync<
     AttachedDatabaseConfiguration,
-    Response = ArmResourceUpdatedResponse<AttachedDatabaseConfiguration> | ArmResourceCreatedResponse<
-      AttachedDatabaseConfiguration,
-      ArmLroLocationHeader<FinalResult = AttachedDatabaseConfiguration> &
-        Azure.Core.Foundations.RetryAfterHeader
-    > | (ArmAcceptedLroResponse & {
+    Response = ArmResourceUpdatedResponse<AttachedDatabaseConfiguration> | ArmResourceCreatedResponse<AttachedDatabaseConfiguration> | (ArmAcceptedLroResponse<LroHeaders = ArmLroLocationHeader<FinalResult = AttachedDatabaseConfiguration> &
+      ArmAsyncOperationHeader<FinalResult = AttachedDatabaseConfiguration> &
+      Azure.Core.Foundations.RetryAfterHeader> & {
       @bodyRoot
       _: AttachedDatabaseConfiguration;
     })
@@ -61,7 +59,9 @@ interface AttachedDatabaseConfigurations {
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-delete-operation-response-codes" "For backward compatibility"
   delete is ArmResourceDeleteWithoutOkAsync<
     AttachedDatabaseConfiguration,
-    Response = ArmDeletedResponse | ArmDeleteAcceptedLroResponse | ArmDeletedNoContentResponse
+    Response = ArmDeletedResponse | ArmDeleteAcceptedLroResponse<LroHeaders = ArmLroLocationHeader &
+      ArmAsyncOperationHeader &
+      Azure.Core.Foundations.RetryAfterHeader> | ArmDeletedNoContentResponse
   >;
 
   /**

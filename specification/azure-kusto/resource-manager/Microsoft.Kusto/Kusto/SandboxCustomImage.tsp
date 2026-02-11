@@ -51,7 +51,9 @@ interface SandboxCustomImages {
     PatchModel = SandboxCustomImage,
     Response = ArmResponse<SandboxCustomImage> | ArmResourceCreatedResponse<SandboxCustomImage> | (ArmAcceptedLroResponse<
       "Update accepted.",
-      LroHeaders = ArmLroLocationHeader<FinalResult = SandboxCustomImage>
+      LroHeaders = ArmLroLocationHeader<FinalResult = SandboxCustomImage> &
+        ArmAsyncOperationHeader<FinalResult = SandboxCustomImage> &
+        Azure.Core.Foundations.RetryAfterHeader
     > & {
       @bodyRoot
       _: SandboxCustomImage;
@@ -64,13 +66,18 @@ interface SandboxCustomImages {
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-delete-operation-response-codes" "For backward compatibility"
   delete is ArmResourceDeleteWithoutOkAsync<
     SandboxCustomImage,
-    Response = ArmDeletedResponse | ArmDeleteAcceptedLroResponse | ArmDeletedNoContentResponse
+    Response = ArmDeletedResponse | ArmDeleteAcceptedLroResponse<LroHeaders = ArmLroLocationHeader &
+      ArmAsyncOperationHeader &
+      Azure.Core.Foundations.RetryAfterHeader> | ArmDeletedNoContentResponse
   >;
 
   /**
    * Returns the list of the existing sandbox custom images of the given Kusto cluster.
    */
-  listByCluster is ArmResourceListByParent<SandboxCustomImage>;
+  listByCluster is ArmResourceListByParent<
+    SandboxCustomImage,
+    Response = ArmResponse<SandboxCustomImagesListResult>
+  >;
 }
 
 @@doc(SandboxCustomImage.name, "The name of the sandbox custom image.");

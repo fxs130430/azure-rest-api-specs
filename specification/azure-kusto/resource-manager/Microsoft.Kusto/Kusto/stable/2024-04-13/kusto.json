@@ -179,7 +179,7 @@
             "$ref": "../../../../../../common-types/resource-management/v3/types.json#/parameters/LocationParameter"
           },
           {
-            "name": "body",
+            "name": "clusterName",
             "in": "body",
             "description": "The request body",
             "required": true,
@@ -296,7 +296,7 @@
       }
     },
     "/subscriptions/{subscriptionId}/providers/Microsoft.Kusto/skus": {
-      "post": {
+      "get": {
         "operationId": "Clusters_ListSkus",
         "description": "Lists eligible SKUs for Kusto resource provider.",
         "parameters": [
@@ -444,7 +444,7 @@
             "pattern": "^.*$"
           },
           {
-            "name": "if-match",
+            "name": "If-Match",
             "in": "header",
             "description": "The ETag of the cluster. Omit this value to always overwrite the current cluster. Specify the last-seen ETag value to prevent accidentally overwriting concurrent changes.",
             "required": false,
@@ -452,7 +452,7 @@
             "x-ms-client-name": "IfMatch"
           },
           {
-            "name": "if-none-match",
+            "name": "If-None-Match",
             "in": "header",
             "description": "Set to '*' to allow a new cluster to be created, but to prevent updating an existing cluster. Other values will result in a 412 Pre-condition Failed response.",
             "required": false,
@@ -536,7 +536,7 @@
             "pattern": "^.*$"
           },
           {
-            "name": "if-match",
+            "name": "If-Match",
             "in": "header",
             "description": "The ETag of the cluster. Omit this value to always overwrite the current cluster. Specify the last-seen ETag value to prevent accidentally overwriting concurrent changes.",
             "required": false,
@@ -566,6 +566,14 @@
               "$ref": "#/definitions/Cluster"
             },
             "headers": {
+              "Azure-AsyncOperation": {
+                "type": "string",
+                "description": "A link to the status monitor"
+              },
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              },
               "Retry-After": {
                 "type": "integer",
                 "format": "int32",
@@ -579,9 +587,18 @@
               "$ref": "#/definitions/Cluster"
             },
             "headers": {
+              "Azure-AsyncOperation": {
+                "type": "string",
+                "description": "A link to the status monitor"
+              },
               "Location": {
                 "type": "string",
                 "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              },
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
               }
             }
           },
@@ -635,6 +652,10 @@
           "202": {
             "description": "Resource deletion accepted.",
             "headers": {
+              "Azure-AsyncOperation": {
+                "type": "string",
+                "description": "A link to the status monitor"
+              },
               "Location": {
                 "type": "string",
                 "description": "The Location header contains the URL where the status of the long running operation can be checked."
@@ -706,6 +727,24 @@
           "200": {
             "description": "The request has succeeded."
           },
+          "202": {
+            "description": "Resource operation accepted.",
+            "headers": {
+              "Azure-AsyncOperation": {
+                "type": "string",
+                "description": "A link to the status monitor"
+              },
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              },
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              }
+            }
+          },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
@@ -717,7 +756,11 @@
           "KustoClusterAddCalloutPolicy": {
             "$ref": "./examples/KustoClusterAddCalloutPolicies.json"
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "x-ms-long-running-operation": true
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kusto/clusters/{clusterName}/addLanguageExtensions": {
@@ -759,6 +802,24 @@
           "200": {
             "description": "The request has succeeded."
           },
+          "202": {
+            "description": "Resource operation accepted.",
+            "headers": {
+              "Azure-AsyncOperation": {
+                "type": "string",
+                "description": "A link to the status monitor"
+              },
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              },
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              }
+            }
+          },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
@@ -770,14 +831,17 @@
           "KustoClusterAddLanguageExtensions": {
             "$ref": "./examples/KustoClusterAddLanguageExtensions.json"
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "x-ms-long-running-operation": true
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kusto/clusters/{clusterName}/attachedDatabaseConfigurationCheckNameAvailability": {
       "post": {
         "operationId": "AttachedDatabaseConfigurations_CheckNameAvailability",
         "tags": [
-          "Clusters",
           "AttachedDatabaseConfigurations"
         ],
         "description": "Checks that the attached database configuration resource name is valid and is not already in use.",
@@ -989,10 +1053,6 @@
               "$ref": "#/definitions/AttachedDatabaseConfiguration"
             },
             "headers": {
-              "Location": {
-                "type": "string",
-                "description": "The Location header contains the URL where the status of the long running operation can be checked."
-              },
               "Retry-After": {
                 "type": "integer",
                 "format": "int32",
@@ -1006,6 +1066,10 @@
               "$ref": "#/definitions/AttachedDatabaseConfiguration"
             },
             "headers": {
+              "Azure-AsyncOperation": {
+                "type": "string",
+                "description": "A link to the status monitor"
+              },
               "Location": {
                 "type": "string",
                 "description": "The Location header contains the URL where the status of the long running operation can be checked."
@@ -1075,6 +1139,10 @@
           "202": {
             "description": "Resource deletion accepted.",
             "headers": {
+              "Azure-AsyncOperation": {
+                "type": "string",
+                "description": "A link to the status monitor"
+              },
               "Location": {
                 "type": "string",
                 "description": "The Location header contains the URL where the status of the long running operation can be checked."
@@ -1111,7 +1179,6 @@
       "post": {
         "operationId": "Databases_CheckNameAvailability",
         "tags": [
-          "Clusters",
           "Databases"
         ],
         "description": "Checks that the databases resource name is valid and is not already in use.",
@@ -1168,7 +1235,6 @@
       "post": {
         "operationId": "ClusterPrincipalAssignments_CheckNameAvailability",
         "tags": [
-          "Clusters",
           "ClusterPrincipalAssignments"
         ],
         "description": "Checks that the principal assignment name is valid and is not already in use.",
@@ -1431,11 +1497,6 @@
               "Location": {
                 "type": "string",
                 "description": "The Location header contains the URL where the status of the long running operation can be checked."
-              },
-              "Retry-After": {
-                "type": "integer",
-                "format": "int32",
-                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
               }
             }
           },
@@ -1445,6 +1506,10 @@
               "$ref": "#/definitions/Database"
             },
             "headers": {
+              "Azure-AsyncOperation": {
+                "type": "string",
+                "description": "A link to the status monitor"
+              },
               "Location": {
                 "type": "string",
                 "description": "The Location header contains the URL where the status of the long running operation can be checked."
@@ -1560,10 +1625,13 @@
               "$ref": "#/definitions/Database"
             },
             "headers": {
-              "Retry-After": {
-                "type": "integer",
-                "format": "int32",
-                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              "Azure-AsyncOperation": {
+                "type": "string",
+                "description": "A link to the status monitor"
+              },
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
               }
             }
           },
@@ -1573,6 +1641,10 @@
               "$ref": "#/definitions/Database"
             },
             "headers": {
+              "Azure-AsyncOperation": {
+                "type": "string",
+                "description": "A link to the status monitor"
+              },
               "Location": {
                 "type": "string",
                 "description": "The Location header contains the URL where the status of the long running operation can be checked."
@@ -1590,7 +1662,12 @@
           "KustoDatabasesUpdate": {
             "$ref": "./examples/KustoDatabasesUpdate.json"
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location",
+          "final-state-schema": "#/definitions/Database"
+        },
+        "x-ms-long-running-operation": true
       },
       "delete": {
         "operationId": "Databases_Delete",
@@ -1632,6 +1709,10 @@
           "202": {
             "description": "Resource deletion accepted.",
             "headers": {
+              "Azure-AsyncOperation": {
+                "type": "string",
+                "description": "A link to the status monitor"
+              },
               "Location": {
                 "type": "string",
                 "description": "The Location header contains the URL where the status of the long running operation can be checked."
@@ -1732,7 +1813,6 @@
       "post": {
         "operationId": "DataConnections_CheckNameAvailability",
         "tags": [
-          "Databases",
           "DataConnections"
         ],
         "description": "Checks that the data connection name is valid and is not already in use.",
@@ -1797,7 +1877,6 @@
       "post": {
         "operationId": "DatabasePrincipalAssignments_CheckNameAvailability",
         "tags": [
-          "Databases",
           "DatabasePrincipalAssignments"
         ],
         "description": "Checks that the database principal assignment is valid and is not already in use.",
@@ -1862,7 +1941,6 @@
       "post": {
         "operationId": "DataConnections_dataConnectionValidation",
         "tags": [
-          "Databases",
           "DataConnections"
         ],
         "description": "Checks that the data connection parameters are valid.",
@@ -1909,6 +1987,24 @@
               "$ref": "#/definitions/DataConnectionValidationListResult"
             }
           },
+          "202": {
+            "description": "Data connection validation request accepted.",
+            "headers": {
+              "Azure-AsyncOperation": {
+                "type": "string",
+                "description": "A link to the status monitor"
+              },
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              },
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              }
+            }
+          },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
@@ -1923,7 +2019,12 @@
           "KustoDataConnectionValidation": {
             "$ref": "./examples/KustoDataConnectionValidationAsync.json"
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location",
+          "final-state-schema": "#/definitions/DataConnectionValidationListResult"
+        },
+        "x-ms-long-running-operation": true
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kusto/clusters/{clusterName}/databases/{databaseName}/dataConnections": {
@@ -2121,6 +2222,10 @@
               "$ref": "#/definitions/DataConnection"
             },
             "headers": {
+              "Azure-AsyncOperation": {
+                "type": "string",
+                "description": "A link to the status monitor"
+              },
               "Location": {
                 "type": "string",
                 "description": "The Location header contains the URL where the status of the long running operation can be checked."
@@ -2214,6 +2319,14 @@
               "$ref": "#/definitions/DataConnection"
             },
             "headers": {
+              "Azure-AsyncOperation": {
+                "type": "string",
+                "description": "A link to the status monitor"
+              },
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              },
               "Retry-After": {
                 "type": "integer",
                 "format": "int32",
@@ -2227,9 +2340,18 @@
               "$ref": "#/definitions/DataConnection"
             },
             "headers": {
+              "Azure-AsyncOperation": {
+                "type": "string",
+                "description": "A link to the status monitor"
+              },
               "Location": {
                 "type": "string",
                 "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              },
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
               }
             }
           },
@@ -2250,7 +2372,12 @@
           "KustoDataConnectionsUpdate": {
             "$ref": "./examples/KustoDataConnectionsUpdate.json"
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location",
+          "final-state-schema": "#/definitions/DataConnection"
+        },
+        "x-ms-long-running-operation": true
       },
       "delete": {
         "operationId": "DataConnections_Delete",
@@ -2300,6 +2427,10 @@
           "202": {
             "description": "Resource deletion accepted.",
             "headers": {
+              "Azure-AsyncOperation": {
+                "type": "string",
+                "description": "A link to the status monitor"
+              },
               "Location": {
                 "type": "string",
                 "description": "The Location header contains the URL where the status of the long running operation can be checked."
@@ -2714,6 +2845,10 @@
           "202": {
             "description": "Resource deletion accepted.",
             "headers": {
+              "Azure-AsyncOperation": {
+                "type": "string",
+                "description": "A link to the status monitor"
+              },
               "Location": {
                 "type": "string",
                 "description": "The Location header contains the URL where the status of the long running operation can be checked."
@@ -2814,7 +2949,6 @@
       "get": {
         "operationId": "Scripts_ListByDatabase",
         "tags": [
-          "Scripts",
           "scripts"
         ],
         "description": "Returns the list of database scripts for given database.",
@@ -2994,10 +3128,6 @@
               "$ref": "#/definitions/Script"
             },
             "headers": {
-              "Location": {
-                "type": "string",
-                "description": "The Location header contains the URL where the status of the long running operation can be checked."
-              },
               "Retry-After": {
                 "type": "integer",
                 "format": "int32",
@@ -3011,6 +3141,10 @@
               "$ref": "#/definitions/Script"
             },
             "headers": {
+              "Azure-AsyncOperation": {
+                "type": "string",
+                "description": "A link to the status monitor"
+              },
               "Location": {
                 "type": "string",
                 "description": "The Location header contains the URL where the status of the long running operation can be checked."
@@ -3103,9 +3237,18 @@
               "$ref": "#/definitions/Script"
             },
             "headers": {
+              "Azure-AsyncOperation": {
+                "type": "string",
+                "description": "A link to the status monitor"
+              },
               "Location": {
                 "type": "string",
                 "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              },
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
               }
             }
           },
@@ -3175,6 +3318,10 @@
           "202": {
             "description": "Resource deletion accepted.",
             "headers": {
+              "Azure-AsyncOperation": {
+                "type": "string",
+                "description": "A link to the status monitor"
+              },
               "Location": {
                 "type": "string",
                 "description": "The Location header contains the URL where the status of the long running operation can be checked."
@@ -3211,7 +3358,6 @@
       "post": {
         "operationId": "Scripts_CheckNameAvailability",
         "tags": [
-          "Databases",
           "Scripts"
         ],
         "description": "Checks that the script name is valid and is not already in use.",
@@ -3311,6 +3457,24 @@
           "200": {
             "description": "The request has succeeded."
           },
+          "202": {
+            "description": "Resource operation accepted.",
+            "headers": {
+              "Azure-AsyncOperation": {
+                "type": "string",
+                "description": "A link to the status monitor"
+              },
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              },
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              }
+            }
+          },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
@@ -3322,7 +3486,11 @@
           "KustoClusterDetachFollowerDatabases": {
             "$ref": "./examples/KustoClusterDetachFollowerDatabases.json"
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "x-ms-long-running-operation": true
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kusto/clusters/{clusterName}/diagnoseVirtualNetwork": {
@@ -3358,6 +3526,24 @@
               "$ref": "#/definitions/DiagnoseVirtualNetworkResult"
             }
           },
+          "202": {
+            "description": "Diagnose virtual network request accepted.",
+            "headers": {
+              "Azure-AsyncOperation": {
+                "type": "string",
+                "description": "A link to the status monitor"
+              },
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              },
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              }
+            }
+          },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
@@ -3369,7 +3555,12 @@
           "KustoClusterDiagnoseVirtualNetwork": {
             "$ref": "./examples/KustoClustersDiagnoseVirtualNetwork.json"
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location",
+          "final-state-schema": "#/definitions/DiagnoseVirtualNetworkResult"
+        },
+        "x-ms-long-running-operation": true
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kusto/clusters/{clusterName}/listCalloutPolicies": {
@@ -3729,10 +3920,6 @@
               "$ref": "#/definitions/ManagedPrivateEndpoint"
             },
             "headers": {
-              "Location": {
-                "type": "string",
-                "description": "The Location header contains the URL where the status of the long running operation can be checked."
-              },
               "Retry-After": {
                 "type": "integer",
                 "format": "int32",
@@ -3746,6 +3933,10 @@
               "$ref": "#/definitions/ManagedPrivateEndpoint"
             },
             "headers": {
+              "Azure-AsyncOperation": {
+                "type": "string",
+                "description": "A link to the status monitor"
+              },
               "Location": {
                 "type": "string",
                 "description": "The Location header contains the URL where the status of the long running operation can be checked."
@@ -3830,9 +4021,18 @@
               "$ref": "#/definitions/ManagedPrivateEndpoint"
             },
             "headers": {
+              "Azure-AsyncOperation": {
+                "type": "string",
+                "description": "A link to the status monitor"
+              },
               "Location": {
                 "type": "string",
                 "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              },
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
               }
             }
           },
@@ -3894,6 +4094,10 @@
           "202": {
             "description": "Resource deletion accepted.",
             "headers": {
+              "Azure-AsyncOperation": {
+                "type": "string",
+                "description": "A link to the status monitor"
+              },
               "Location": {
                 "type": "string",
                 "description": "The Location header contains the URL where the status of the long running operation can be checked."
@@ -3930,7 +4134,6 @@
       "post": {
         "operationId": "ManagedPrivateEndpoints_CheckNameAvailability",
         "tags": [
-          "Clusters",
           "ManagedPrivateEndpoints"
         ],
         "description": "Checks that the managed private endpoints resource name is valid and is not already in use.",
@@ -4022,6 +4225,24 @@
           "200": {
             "description": "The request has succeeded."
           },
+          "202": {
+            "description": "Resource operation accepted.",
+            "headers": {
+              "Azure-AsyncOperation": {
+                "type": "string",
+                "description": "A link to the status monitor"
+              },
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              },
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              }
+            }
+          },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
@@ -4033,14 +4254,17 @@
           "KustoClusterMigrate": {
             "$ref": "./examples/KustoClusterMigrate.json"
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "x-ms-long-running-operation": true
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kusto/clusters/{clusterName}/outboundNetworkDependenciesEndpoints": {
       "get": {
         "operationId": "Clusters_ListOutboundNetworkDependenciesEndpoints",
         "tags": [
-          "Clusters",
           "OutboundNetworkDependenciesEndpoints"
         ],
         "description": "Gets the network endpoints of all outbound dependencies of a Kusto cluster",
@@ -4315,6 +4539,10 @@
           "202": {
             "description": "Resource deletion accepted.",
             "headers": {
+              "Azure-AsyncOperation": {
+                "type": "string",
+                "description": "A link to the status monitor"
+              },
               "Location": {
                 "type": "string",
                 "description": "The Location header contains the URL where the status of the long running operation can be checked."
@@ -4575,6 +4803,10 @@
           "202": {
             "description": "Resource deletion accepted.",
             "headers": {
+              "Azure-AsyncOperation": {
+                "type": "string",
+                "description": "A link to the status monitor"
+              },
               "Location": {
                 "type": "string",
                 "description": "The Location header contains the URL where the status of the long running operation can be checked."
@@ -4751,6 +4983,24 @@
           "200": {
             "description": "The request has succeeded."
           },
+          "202": {
+            "description": "Resource operation accepted.",
+            "headers": {
+              "Azure-AsyncOperation": {
+                "type": "string",
+                "description": "A link to the status monitor"
+              },
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              },
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              }
+            }
+          },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
@@ -4762,7 +5012,11 @@
           "KustoClusterDropCalloutPolicy": {
             "$ref": "./examples/KustoClusterRemoveCalloutPolicy.json"
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "x-ms-long-running-operation": true
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kusto/clusters/{clusterName}/removeLanguageExtensions": {
@@ -4804,6 +5058,24 @@
           "200": {
             "description": "The request has succeeded."
           },
+          "202": {
+            "description": "Resource operation accepted.",
+            "headers": {
+              "Azure-AsyncOperation": {
+                "type": "string",
+                "description": "A link to the status monitor"
+              },
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              },
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              }
+            }
+          },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
@@ -4815,7 +5087,11 @@
           "KustoClusterRemoveLanguageExtensions": {
             "$ref": "./examples/KustoClusterRemoveLanguageExtensions.json"
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "x-ms-long-running-operation": true
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kusto/clusters/{clusterName}/sandboxCustomImages": {
@@ -4848,7 +5124,7 @@
           "200": {
             "description": "Azure operation completed successfully.",
             "schema": {
-              "$ref": "#/definitions/SandboxCustomImageListResult"
+              "$ref": "#/definitions/SandboxCustomImagesListResult"
             }
           },
           "default": {
@@ -5080,9 +5356,18 @@
               "$ref": "#/definitions/SandboxCustomImage"
             },
             "headers": {
+              "Azure-AsyncOperation": {
+                "type": "string",
+                "description": "A link to the status monitor"
+              },
               "Location": {
                 "type": "string",
                 "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              },
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
               }
             }
           },
@@ -5144,6 +5429,10 @@
           "202": {
             "description": "Resource deletion accepted.",
             "headers": {
+              "Azure-AsyncOperation": {
+                "type": "string",
+                "description": "A link to the status monitor"
+              },
               "Location": {
                 "type": "string",
                 "description": "The Location header contains the URL where the status of the long running operation can be checked."
@@ -5180,7 +5469,6 @@
       "post": {
         "operationId": "SandboxCustomImages_CheckNameAvailability",
         "tags": [
-          "Clusters",
           "SandboxCustomImages"
         ],
         "description": "Checks that the sandbox custom image resource name is valid and is not already in use.",
@@ -5313,6 +5601,24 @@
           "200": {
             "description": "The request has succeeded."
           },
+          "202": {
+            "description": "Resource operation accepted.",
+            "headers": {
+              "Azure-AsyncOperation": {
+                "type": "string",
+                "description": "A link to the status monitor"
+              },
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              },
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              }
+            }
+          },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
@@ -5324,7 +5630,11 @@
           "KustoClustersStart": {
             "$ref": "./examples/KustoClustersStart.json"
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "x-ms-long-running-operation": true
       }
     },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kusto/clusters/{clusterName}/stop": {
@@ -5357,6 +5667,24 @@
           "200": {
             "description": "The request has succeeded."
           },
+          "202": {
+            "description": "Resource operation accepted.",
+            "headers": {
+              "Azure-AsyncOperation": {
+                "type": "string",
+                "description": "A link to the status monitor"
+              },
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              },
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              }
+            }
+          },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
@@ -5368,7 +5696,11 @@
           "KustoClustersStop": {
             "$ref": "./examples/KustoClustersStop.json"
           }
-        }
+        },
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "x-ms-long-running-operation": true
       }
     }
   },
@@ -6735,26 +7067,14 @@
           "$ref": "#/definitions/CosmosDbDataConnectionProperties",
           "description": "The properties of the CosmosDb data connection.",
           "x-ms-client-flatten": true
-        },
-        "kind": {
-          "type": "string",
-          "description": "Kind of the endpoint for the data connection",
-          "enum": [
-            "CosmosDb"
-          ],
-          "x-ms-enum": {
-            "modelAsString": false
-          }
         }
       },
-      "required": [
-        "kind"
-      ],
       "allOf": [
         {
           "$ref": "#/definitions/DataConnection"
         }
-      ]
+      ],
+      "x-ms-discriminator-value": "CosmosDb"
     },
     "CosmosDbDataConnectionProperties": {
       "type": "object",
@@ -6812,10 +7132,6 @@
       "type": "object",
       "description": "Class representing an data connection.",
       "properties": {
-        "properties": {
-          "type": "object",
-          "description": "The resource-specific properties for this resource."
-        },
         "location": {
           "type": "string",
           "description": "Resource location."
@@ -6825,6 +7141,7 @@
           "description": "Kind of the endpoint for the data connection"
         }
       },
+      "discriminator": "kind",
       "required": [
         "kind"
       ],
@@ -6832,7 +7149,8 @@
         {
           "$ref": "../../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
         }
-      ]
+      ],
+      "x-ms-azure-resource": true
     },
     "DataConnectionCheckNameRequest": {
       "type": "object",
@@ -6952,10 +7270,6 @@
       "type": "object",
       "description": "Class representing a Kusto database.",
       "properties": {
-        "properties": {
-          "type": "object",
-          "description": "The resource-specific properties for this resource."
-        },
         "location": {
           "type": "string",
           "description": "Resource location."
@@ -6965,6 +7279,7 @@
           "description": "Kind of the database"
         }
       },
+      "discriminator": "kind",
       "required": [
         "kind"
       ],
@@ -6972,7 +7287,8 @@
         {
           "$ref": "../../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
         }
-      ]
+      ],
+      "x-ms-azure-resource": true
     },
     "DatabaseInviteFollowerRequest": {
       "type": "object",
@@ -7486,26 +7802,14 @@
           "$ref": "#/definitions/EventGridConnectionProperties",
           "description": "The properties of the Event Grid data connection.",
           "x-ms-client-flatten": true
-        },
-        "kind": {
-          "type": "string",
-          "description": "Kind of the endpoint for the data connection",
-          "enum": [
-            "EventGrid"
-          ],
-          "x-ms-enum": {
-            "modelAsString": false
-          }
         }
       },
-      "required": [
-        "kind"
-      ],
       "allOf": [
         {
           "$ref": "#/definitions/DataConnection"
         }
-      ]
+      ],
+      "x-ms-discriminator-value": "EventGrid"
     },
     "EventGridDataFormat": {
       "type": "string",
@@ -7708,26 +8012,14 @@
           "$ref": "#/definitions/EventHubConnectionProperties",
           "description": "The Event Hub data connection properties to validate.",
           "x-ms-client-flatten": true
-        },
-        "kind": {
-          "type": "string",
-          "description": "Kind of the endpoint for the data connection",
-          "enum": [
-            "EventHub"
-          ],
-          "x-ms-enum": {
-            "modelAsString": false
-          }
         }
       },
-      "required": [
-        "kind"
-      ],
       "allOf": [
         {
           "$ref": "#/definitions/DataConnection"
         }
-      ]
+      ],
+      "x-ms-discriminator-value": "EventHub"
     },
     "EventHubDataFormat": {
       "type": "string",
@@ -8082,26 +8374,14 @@
           "$ref": "#/definitions/IotHubConnectionProperties",
           "description": "The Iot Hub data connection properties.",
           "x-ms-client-flatten": true
-        },
-        "kind": {
-          "type": "string",
-          "description": "Kind of the endpoint for the data connection",
-          "enum": [
-            "IotHub"
-          ],
-          "x-ms-enum": {
-            "modelAsString": false
-          }
         }
       },
-      "required": [
-        "kind"
-      ],
       "allOf": [
         {
           "$ref": "#/definitions/DataConnection"
         }
-      ]
+      ],
+      "x-ms-discriminator-value": "IotHub"
     },
     "IotHubDataFormat": {
       "type": "string",
@@ -9039,26 +9319,14 @@
           "$ref": "#/definitions/ReadOnlyFollowingDatabaseProperties",
           "description": "The database properties.",
           "x-ms-client-flatten": true
-        },
-        "kind": {
-          "type": "string",
-          "description": "Kind of the database",
-          "enum": [
-            "ReadOnlyFollowing"
-          ],
-          "x-ms-enum": {
-            "modelAsString": false
-          }
         }
       },
-      "required": [
-        "kind"
-      ],
       "allOf": [
         {
           "$ref": "#/definitions/Database"
         }
-      ]
+      ],
+      "x-ms-discriminator-value": "ReadOnlyFollowing"
     },
     "ReadOnlyFollowingDatabaseProperties": {
       "type": "object",
@@ -9130,26 +9398,14 @@
           "$ref": "#/definitions/ReadWriteDatabaseProperties",
           "description": "The database properties.",
           "x-ms-client-flatten": true
-        },
-        "kind": {
-          "type": "string",
-          "description": "Kind of the database",
-          "enum": [
-            "ReadWrite"
-          ],
-          "x-ms-enum": {
-            "modelAsString": false
-          }
         }
       },
-      "required": [
-        "kind"
-      ],
       "allOf": [
         {
           "$ref": "#/definitions/Database"
         }
-      ]
+      ],
+      "x-ms-discriminator-value": "ReadWrite"
     },
     "ReadWriteDatabaseProperties": {
       "type": "object",
@@ -9272,27 +9528,6 @@
         }
       ]
     },
-    "SandboxCustomImageListResult": {
-      "type": "object",
-      "description": "The response of a SandboxCustomImage list operation.",
-      "properties": {
-        "value": {
-          "type": "array",
-          "description": "The SandboxCustomImage items on this page",
-          "items": {
-            "$ref": "#/definitions/SandboxCustomImage"
-          }
-        },
-        "nextLink": {
-          "type": "string",
-          "format": "uri",
-          "description": "The link to the next page of items"
-        }
-      },
-      "required": [
-        "value"
-      ]
-    },
     "SandboxCustomImageProperties": {
       "type": "object",
       "description": "A class representing the properties of a sandbox custom image object.",
@@ -9345,6 +9580,27 @@
       "required": [
         "name",
         "type"
+      ]
+    },
+    "SandboxCustomImagesListResult": {
+      "type": "object",
+      "description": "The list Kusto sandbox custom images operation response.",
+      "properties": {
+        "value": {
+          "type": "array",
+          "description": "The SandboxCustomImage items on this page",
+          "items": {
+            "$ref": "#/definitions/SandboxCustomImage"
+          }
+        },
+        "nextLink": {
+          "type": "string",
+          "format": "uri",
+          "description": "The link to the next page of items"
+        }
+      },
+      "required": [
+        "value"
       ]
     },
     "Script": {

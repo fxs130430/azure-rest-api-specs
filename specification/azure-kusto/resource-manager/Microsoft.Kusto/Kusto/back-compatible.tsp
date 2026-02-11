@@ -181,6 +181,6 @@ using Microsoft.Kusto;
 
 @@clientLocation(OperationsResultsOperationGroup.get, "OperationsResults");
 
-// @@clientLocation(OperationsResultsLocationOperationGroup.get,
-//   "OperationsResultsLocation"
-// );
+@@clientName(ClustersOperationGroup.checkNameAvailability::parameters.body,
+  "clusterName"
+);

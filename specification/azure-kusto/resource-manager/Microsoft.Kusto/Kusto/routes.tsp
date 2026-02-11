@@ -22,6 +22,7 @@ interface ClustersOperationGroup {
   @operationId("Clusters_ListSkus")
   @autoRoute
   @list
+  @get
   @action("skus")
   listSkus is ArmProviderActionSync<
     Response = SkuDescriptionList,

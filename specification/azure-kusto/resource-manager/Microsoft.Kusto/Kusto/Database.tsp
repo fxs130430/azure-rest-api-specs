@@ -15,14 +15,21 @@ namespace Microsoft.Kusto;
 /**
  * Class representing a Kusto database.
  */
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" ""
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-custom-resource-usage-discourage" ""
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" ""
+#suppress "@azure-tools/typespec-azure-core/no-private-usage" ""
 @parentResource(Cluster)
-model Database is Azure.ResourceManager.ProxyResource<{}> {
-  ...ResourceNameParameter<
-    Resource = Database,
-    KeyName = "databaseName",
-    SegmentName = "databases",
-    NamePattern = "^.*$"
-  >;
+@discriminator("kind")
+@Azure.ResourceManager.Legacy.customAzureResource(#{ isAzureResource: true })
+@Http.Private.includeInapplicableMetadataInPayload(false)
+model Database extends Azure.ResourceManager.Foundations.ProxyResource {
+  @visibility(Lifecycle.Read)
+  @path
+  @key("databaseName")
+  @segment("databases")
+  @pattern("^.*$")
+  name: string;
 
   /**
    * Resource location.
@@ -37,11 +44,12 @@ model Database is Azure.ResourceManager.ProxyResource<{}> {
   kind: Kind;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface Databases {
   /**
    * Returns a database.
    */
+  @tag("Databases")
   get is ArmResourceRead<Database>;
 
   /**
@@ -49,6 +57,7 @@ interface Databases {
    */
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-put-operation-response-codes" "For backward compatibility"
   #suppress "@azure-tools/typespec-azure-resource-manager/no-response-body" "For backward compatibility"
+  @tag("Databases")
   createOrUpdate is ArmResourceCreateOrReplaceAsync<
     Database,
     Parameters = {
@@ -60,9 +69,10 @@ interface Databases {
     },
     Response = ArmResourceUpdatedResponse<Database> | ArmResourceCreatedResponse<
       Database,
-      ArmLroLocationHeader<FinalResult = Database> &
-        Azure.Core.Foundations.RetryAfterHeader
-    > | (ArmAcceptedLroResponse & {
+      LroHeaders = ArmLroLocationHeader<FinalResult = Database>
+    > | (ArmAcceptedLroResponse<LroHeaders = ArmLroLocationHeader<FinalResult = Database> &
+      ArmAsyncOperationHeader<FinalResult = Database> &
+      Azure.Core.Foundations.RetryAfterHeader> & {
       @bodyRoot
       _: Database;
     })
@@ -72,6 +82,7 @@ interface Databases {
    * Updates a database.
    */
   #suppress "@azure-tools/typespec-azure-resource-manager/no-response-body" "For backward compatibility"
+  @tag("Databases")
   @patch(#{ implicitOptionality: false })
   update is ArmCustomPatchAsync<
     Database,
@@ -83,7 +94,14 @@ interface Databases {
       @query("callerRole")
       callerRole?: CallerRole = CallerRole.Admin;
     },
-    Response = ArmResponse<Database> | ArmResourceCreatedResponse<Database> | (ArmAcceptedLroResponse & {
+    Response = ArmResponse<Database> | ArmResourceCreatedResponse<
+      Database,
+      LroHeaders = ArmLroLocationHeader<FinalResult = Database> &
+        ArmAsyncOperationHeader<FinalResult = Database &
+          Azure.Core.Foundations.RetryAfterHeader>
+    > | (ArmAcceptedLroResponse<LroHeaders = ArmLroLocationHeader<FinalResult = Database> &
+      ArmAsyncOperationHeader<FinalResult = Database &
+        Azure.Core.Foundations.RetryAfterHeader>> & {
       @bodyRoot
       _: Database;
     })
@@ -93,14 +111,18 @@ interface Databases {
    * Deletes the database with the given name.
    */
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-delete-operation-response-codes" "For backward compatibility"
+  @tag("Databases")
   delete is ArmResourceDeleteWithoutOkAsync<
     Database,
-    Response = ArmDeletedResponse | ArmDeleteAcceptedLroResponse | ArmDeletedNoContentResponse
+    Response = ArmDeletedResponse | ArmDeleteAcceptedLroResponse<LroHeaders = ArmLroLocationHeader &
+      ArmAsyncOperationHeader &
+      Azure.Core.Foundations.RetryAfterHeader> | ArmDeletedNoContentResponse
   >;
 
   /**
    * Returns the list of databases of the given Kusto cluster.
    */
+  @tag("Databases")
   listByCluster is ArmResourceListByParent<
     Database,
     Parameters = {
@@ -123,6 +145,7 @@ interface Databases {
   /**
    * Returns a list of database principals of the given Kusto cluster and database.
    */
+  @tag("Databases")
   @list
   listPrincipals is ArmResourceActionSync<
     Database,
@@ -133,6 +156,7 @@ interface Databases {
   /**
    * Add Database principals permissions.
    */
+  @tag("Databases")
   addPrincipals is ArmResourceActionSync<
     Database,
     DatabasePrincipalListRequest,
@@ -142,6 +166,7 @@ interface Databases {
   /**
    * Remove Database principals permissions.
    */
+  @tag("Databases")
   removePrincipals is ArmResourceActionSync<
     Database,
     DatabasePrincipalListRequest,
@@ -153,6 +178,7 @@ interface Databases {
    */
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("Database_InviteFollower")
+  @tag("Databases")
   inviteFollower is ArmResourceActionSync<
     Database,
     DatabaseInviteFollowerRequest,
@@ -190,13 +216,16 @@ interface Databases {
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
   @operationId("DataConnections_dataConnectionValidation")
   @tag("DataConnections")
-  dataConnectionValidation is ArmResourceActionAsync<
+  dataConnectionValidation is ArmResourceActionAsyncBase<
     Database,
     DataConnectionValidation,
     ArmAcceptedLroResponse<
       "Data connection validation request accepted.",
-      LroHeaders = ArmLroLocationHeader<FinalResult = DataConnectionValidationListResult>
-    > | ArmResponse<DataConnectionValidationListResult>
+      LroHeaders = ArmLroLocationHeader<FinalResult = DataConnectionValidationListResult> &
+        ArmAsyncOperationHeader<FinalResult = DataConnectionValidationListResult> &
+        Azure.Core.Foundations.RetryAfterHeader
+    > | ArmResponse<DataConnectionValidationListResult>,
+    Azure.ResourceManager.Foundations.DefaultBaseParameters<Database>
   >;
 
   /**

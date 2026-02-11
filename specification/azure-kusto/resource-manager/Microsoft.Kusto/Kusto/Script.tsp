@@ -24,11 +24,12 @@ model Script is Azure.ResourceManager.ProxyResource<ScriptProperties> {
   >;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface Scripts {
   /**
    * Gets a Kusto cluster database script.
    */
+  @tag("Scripts")
   get is ArmResourceRead<Script>;
 
   /**
@@ -36,13 +37,12 @@ interface Scripts {
    */
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-put-operation-response-codes" "For backward compatibility"
   #suppress "@azure-tools/typespec-azure-resource-manager/no-response-body" "For backward compatibility"
+  @tag("Scripts")
   createOrUpdate is ArmResourceCreateOrReplaceAsync<
     Script,
-    Response = ArmResourceUpdatedResponse<Script> | ArmResourceCreatedResponse<
-      Script,
-      ArmLroLocationHeader<FinalResult = Script> &
-        Azure.Core.Foundations.RetryAfterHeader
-    > | (ArmAcceptedLroResponse & {
+    Response = ArmResourceUpdatedResponse<Script> | ArmResourceCreatedResponse<Script> | (ArmAcceptedLroResponse<LroHeaders = ArmLroLocationHeader<FinalResult = Script> &
+      ArmAsyncOperationHeader<FinalResult = Script> &
+      Azure.Core.Foundations.RetryAfterHeader> & {
       @bodyRoot
       _: Script;
     })
@@ -52,13 +52,16 @@ interface Scripts {
    * Updates a database script.
    */
   #suppress "@azure-tools/typespec-azure-resource-manager/no-response-body" "For backward compatibility"
+  @tag("Scripts")
   @patch(#{ implicitOptionality: false })
   update is ArmCustomPatchAsync<
     Script,
     PatchModel = Script,
     Response = ArmResponse<Script> | (ArmAcceptedLroResponse<
       "Update accepted.",
-      LroHeaders = ArmLroLocationHeader<FinalResult = Script>
+      LroHeaders = ArmLroLocationHeader<FinalResult = Script> &
+        ArmAsyncOperationHeader<FinalResult = Script> &
+        Azure.Core.Foundations.RetryAfterHeader
     > & {
       @bodyRoot
       _: Script;
@@ -69,9 +72,12 @@ interface Scripts {
    * Deletes a Kusto database script.
    */
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-delete-operation-response-codes" "For backward compatibility"
+  @tag("Scripts")
   delete is ArmResourceDeleteWithoutOkAsync<
     Script,
-    Response = ArmDeletedResponse | ArmDeleteAcceptedLroResponse | ArmDeletedNoContentResponse
+    Response = ArmDeletedResponse | ArmDeleteAcceptedLroResponse<LroHeaders = ArmLroLocationHeader &
+      ArmAsyncOperationHeader &
+      Azure.Core.Foundations.RetryAfterHeader> | ArmDeletedNoContentResponse
   >;
 
   /**

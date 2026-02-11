@@ -1,4 +1,4 @@
-import "@azure-tools/typespec-azure-core";
+﻿import "@azure-tools/typespec-azure-core";
 import "@azure-tools/typespec-azure-resource-manager";
 import "@typespec/openapi";
 import "@typespec/rest";
@@ -38,29 +38,31 @@ model Cluster is Azure.ResourceManager.TrackedResource<ClusterProperties> {
   ...Azure.ResourceManager.Legacy.EntityTagProperty;
 }
 
-@armResourceOperations
+@armResourceOperations(#{ omitTags: true })
 interface Clusters {
   /**
    * Gets a Kusto cluster.
    */
+  @tag("Clusters")
   get is ArmResourceRead<Cluster>;
 
   /**
    * Create or update a Kusto cluster.
    */
+  @tag("Clusters")
   createOrUpdate is ArmResourceCreateOrReplaceAsync<
     Cluster,
     Parameters = {
       /**
        * The ETag of the cluster. Omit this value to always overwrite the current cluster. Specify the last-seen ETag value to prevent accidentally overwriting concurrent changes.
        */
-      @header
+      @header("If-Match")
       IfMatch?: string;
 
       /**
        * Set to '*' to allow a new cluster to be created, but to prevent updating an existing cluster. Other values will result in a 412 Pre-condition Failed response.
        */
-      @header
+      @header("If-None-Match")
       IfNoneMatch?: string;
     },
     LroHeaders = ArmLroLocationHeader<FinalResult = Cluster> &
@@ -71,6 +73,7 @@ interface Clusters {
    * Update a Kusto cluster.
    */
   #suppress "@azure-tools/typespec-azure-resource-manager/no-response-body" "For backward compatibility"
+  @tag("Clusters")
   @patch(#{ implicitOptionality: false })
   update is ArmCustomPatchAsync<
     Cluster,
@@ -79,12 +82,19 @@ interface Clusters {
       /**
        * The ETag of the cluster. Omit this value to always overwrite the current cluster. Specify the last-seen ETag value to prevent accidentally overwriting concurrent changes.
        */
-      @header
+      @header("If-Match")
       IfMatch?: string;
     },
-    Response = ArmResponse<Cluster> | ArmResourceCreatedResponse<Cluster> | (ArmAcceptedLroResponse<
+    Response = ArmResponse<Cluster> | ArmResourceCreatedResponse<
+      Cluster,
+      LroHeaders = ArmLroLocationHeader<FinalResult = Cluster> &
+        ArmAsyncOperationHeader<FinalResult = Cluster> &
+        Azure.Core.Foundations.RetryAfterHeader
+    > | (ArmAcceptedLroResponse<
       "Update accepted.",
-      LroHeaders = ArmLroLocationHeader<FinalResult = Cluster>
+      LroHeaders = ArmLroLocationHeader<FinalResult = Cluster> &
+        ArmAsyncOperationHeader<FinalResult = Cluster> &
+        Azure.Core.Foundations.RetryAfterHeader
     > & {
       @bodyRoot
       _: Cluster;
@@ -95,14 +105,18 @@ interface Clusters {
    * Deletes a Kusto cluster.
    */
   #suppress "@azure-tools/typespec-azure-resource-manager/arm-delete-operation-response-codes" "For backward compatibility"
+  @tag("Clusters")
   delete is ArmResourceDeleteWithoutOkAsync<
     Cluster,
-    Response = ArmDeletedResponse | ArmDeleteAcceptedLroResponse | ArmDeletedNoContentResponse
+    Response = ArmDeletedResponse | ArmDeleteAcceptedLroResponse<LroHeaders = ArmLroLocationHeader &
+      ArmAsyncOperationHeader &
+      Azure.Core.Foundations.RetryAfterHeader> | ArmDeletedNoContentResponse
   >;
 
   /**
    * Lists all Kusto clusters within a resource group.
    */
+  @tag("Clusters")
   listByResourceGroup is ArmResourceListByParent<
     Cluster,
     Response = ArmResponse<ClusterListResult>
@@ -111,6 +125,7 @@ interface Clusters {
   /**
    * Lists all Kusto clusters within a subscription.
    */
+  @tag("Clusters")
   list is ArmListBySubscription<
     Cluster,
     Response = ArmResponse<ClusterListResult>
@@ -119,21 +134,55 @@ interface Clusters {
   /**
    * Stops a Kusto cluster.
    */
-  stop is ArmResourceActionSync<Cluster, void, OkResponse>;
+  @tag("Clusters")
+  stop is ArmResourceActionAsyncBase<
+    Cluster,
+    void,
+    ArmAcceptedLroResponse<
+      "Resource operation accepted.",
+      LroHeaders = ArmLroLocationHeader &
+        ArmAsyncOperationHeader &
+        Azure.Core.Foundations.RetryAfterHeader
+    > | OkResponse,
+    Azure.ResourceManager.Foundations.DefaultBaseParameters<Cluster>
+  >;
 
   /**
    * Starts a Kusto cluster.
    */
-  start is ArmResourceActionSync<Cluster, void, OkResponse>;
+  @tag("Clusters")
+  start is ArmResourceActionAsyncBase<
+    Cluster,
+    void,
+    ArmAcceptedLroResponse<
+      "Resource operation accepted.",
+      LroHeaders = ArmLroLocationHeader &
+        ArmAsyncOperationHeader &
+        Azure.Core.Foundations.RetryAfterHeader
+    > | OkResponse,
+    Azure.ResourceManager.Foundations.DefaultBaseParameters<Cluster>
+  >;
 
   /**
    * Migrate data from a Kusto cluster to another cluster.
    */
-  migrate is ArmResourceActionSync<Cluster, ClusterMigrateRequest, OkResponse>;
+  @tag("Clusters")
+  migrate is ArmResourceActionAsyncBase<
+    Cluster,
+    ClusterMigrateRequest,
+    ArmAcceptedLroResponse<
+      "Resource operation accepted.",
+      LroHeaders = ArmLroLocationHeader &
+        ArmAsyncOperationHeader &
+        Azure.Core.Foundations.RetryAfterHeader
+    > | OkResponse,
+    Azure.ResourceManager.Foundations.DefaultBaseParameters<Cluster>
+  >;
 
   /**
    * Returns a list of databases that are owned by this cluster and were followed by another cluster.
    */
+  @tag("Clusters")
   @list
   @get
   @action("listFollowerDatabases")
@@ -146,6 +195,7 @@ interface Clusters {
   /**
    * Returns a list of databases that are owned by this cluster and were followed by another cluster.
    */
+  @tag("Clusters")
   @list
   listFollowerDatabases is ArmResourceActionSync<
     Cluster,
@@ -156,27 +206,39 @@ interface Clusters {
   /**
    * Detaches all followers of a database owned by this cluster.
    */
-  detachFollowerDatabases is ArmResourceActionSync<
+  @tag("Clusters")
+  detachFollowerDatabases is ArmResourceActionAsyncBase<
     Cluster,
     FollowerDatabaseDefinition,
-    OkResponse
+    ArmAcceptedLroResponse<
+      "Resource operation accepted.",
+      LroHeaders = ArmLroLocationHeader &
+        ArmAsyncOperationHeader &
+        Azure.Core.Foundations.RetryAfterHeader
+    > | OkResponse,
+    Azure.ResourceManager.Foundations.DefaultBaseParameters<Cluster>
   >;
 
   /**
    * Diagnoses network connectivity status for external resources on which the service is dependent on.
    */
-  diagnoseVirtualNetwork is ArmResourceActionAsync<
+  @tag("Clusters")
+  diagnoseVirtualNetwork is ArmResourceActionAsyncBase<
     Cluster,
     void,
     ArmAcceptedLroResponse<
       "Diagnose virtual network request accepted.",
-      LroHeaders = ArmLroLocationHeader<FinalResult = DiagnoseVirtualNetworkResult>
-    > | ArmResponse<DiagnoseVirtualNetworkResult>
+      LroHeaders = ArmLroLocationHeader<FinalResult = DiagnoseVirtualNetworkResult> &
+        ArmAsyncOperationHeader<FinalResult = DiagnoseVirtualNetworkResult> &
+        Azure.Core.Foundations.RetryAfterHeader
+    > | ArmResponse<DiagnoseVirtualNetworkResult>,
+    Azure.ResourceManager.Foundations.DefaultBaseParameters<Cluster>
   >;
 
   /**
    * Returns the SKUs available for the provided resource.
    */
+  @tag("Clusters")
   @list
   @get
   @action("skus")
@@ -202,24 +264,39 @@ interface Clusters {
   /**
    * Adds a list of callout policies for engine services.
    */
-  addCalloutPolicies is ArmResourceActionSync<
+  @tag("Clusters")
+  addCalloutPolicies is ArmResourceActionAsyncBase<
     Cluster,
     CalloutPoliciesList,
-    OkResponse
+    ArmAcceptedLroResponse<
+      "Resource operation accepted.",
+      LroHeaders = ArmLroLocationHeader &
+        ArmAsyncOperationHeader &
+        Azure.Core.Foundations.RetryAfterHeader
+    > | OkResponse,
+    Azure.ResourceManager.Foundations.DefaultBaseParameters<Cluster>
   >;
 
   /**
    * Removes callout policy for engine services.
    */
-  removeCalloutPolicy is ArmResourceActionSync<
+  @tag("Clusters")
+  removeCalloutPolicy is ArmResourceActionAsyncBase<
     Cluster,
     CalloutPolicyToRemove,
-    OkResponse
+    ArmAcceptedLroResponse<
+      "Resource operation accepted.",
+      LroHeaders = ArmLroLocationHeader &
+        ArmAsyncOperationHeader &
+        Azure.Core.Foundations.RetryAfterHeader
+    > | OkResponse,
+    Azure.ResourceManager.Foundations.DefaultBaseParameters<Cluster>
   >;
 
   /**
    * Returns the allowed callout policies for the specified service.
    */
+  @tag("Clusters")
   @list
   listCalloutPolicies is ArmResourceActionSync<
     Cluster,
@@ -230,6 +307,7 @@ interface Clusters {
   /**
    * Returns a list of language extensions that can run within KQL queries.
    */
+  @tag("Clusters")
   @list
   listLanguageExtensions is ArmResourceActionSync<
     Cluster,
@@ -240,19 +318,33 @@ interface Clusters {
   /**
    * Add a list of language extensions that can run within KQL queries.
    */
-  addLanguageExtensions is ArmResourceActionSync<
+  @tag("Clusters")
+  addLanguageExtensions is ArmResourceActionAsyncBase<
     Cluster,
     LanguageExtensionsList,
-    OkResponse
+    ArmAcceptedLroResponse<
+      "Resource operation accepted.",
+      LroHeaders = ArmLroLocationHeader &
+        ArmAsyncOperationHeader &
+        Azure.Core.Foundations.RetryAfterHeader
+    > | OkResponse,
+    Azure.ResourceManager.Foundations.DefaultBaseParameters<Cluster>
   >;
 
   /**
    * Remove a list of language extensions that can run within KQL queries.
    */
-  removeLanguageExtensions is ArmResourceActionSync<
+  @tag("Clusters")
+  removeLanguageExtensions is ArmResourceActionAsyncBase<
     Cluster,
     LanguageExtensionsList,
-    OkResponse
+    ArmAcceptedLroResponse<
+      "Resource operation accepted.",
+      LroHeaders = ArmLroLocationHeader &
+        ArmAsyncOperationHeader &
+        Azure.Core.Foundations.RetryAfterHeader
+    > | OkResponse,
+    Azure.ResourceManager.Foundations.DefaultBaseParameters<Cluster>
   >;
 
   /**
