@@ -446,11 +446,7 @@
             "$ref": "../../../../../../common-types/resource-management/v6/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "searchServiceName",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": "The name of the Azure AI Search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be unique since they are part of the service URI (https://<name>.search.windows.net). You cannot change the service name after the service is created."
+            "$ref": "#/parameters/SearchServiceNameParameter"
           },
           {
             "name": "service",
@@ -542,11 +538,7 @@
             "$ref": "../../../../../../common-types/resource-management/v6/types.json#/parameters/ResourceGroupNameParameter"
           },
           {
-            "name": "searchServiceName",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": "The name of the Azure AI Search service to update."
+            "$ref": "#/parameters/SearchServiceNameParameter"
           },
           {
             "name": "service",
@@ -1045,7 +1037,13 @@
             }
           },
           "202": {
-            "description": "The shared private link resource create or update operation has been accepted and will complete asynchronously."
+            "description": "The shared private link resource create or update operation has been accepted and will complete asynchronously.",
+            "headers": {
+              "Location": {
+                "description": "The URL of the resource used to check the status of the asynchronous operation.",
+                "type": "string"
+              }
+            }
           },
           "default": {
             "description": "HTTP 400 (Bad Request): The given shared private link resource name or the shared private link resource definition is invalid; See the error code and message in the response for details. HTTP 404 (Not Found): The subscription, resource group, search service or shared private link resource could not be found. HTTP 409 (Conflict): The specified subscription is disabled.",
@@ -1144,7 +1142,13 @@
         ],
         "responses": {
           "202": {
-            "description": "The shared private link resource deletion operation was accepted and will complete asynchronously."
+            "description": "The shared private link resource deletion operation was accepted and will complete asynchronously.",
+            "headers": {
+              "Location": {
+                "description": "The URL of the resource used to check the status of the asynchronous operation.",
+                "type": "string"
+              }
+            }
           },
           "204": {
             "description": "The backing private endpoint for the shared private link resource could not be found."
@@ -1677,6 +1681,7 @@
       "description": "Output of check name availability API."
     },
     "AdminKeyResult": {
+      "type": "object",
       "properties": {
         "primaryKey": {
           "readOnly": true,
@@ -1692,6 +1697,7 @@
       "description": "Response containing the primary and secondary admin API keys for a given Azure AI Search service."
     },
     "QueryKey": {
+      "type": "object",
       "properties": {
         "name": {
           "readOnly": true,
@@ -1707,6 +1713,7 @@
       "description": "Describes an API key for a given Azure AI Search service that conveys read-only permissions on the docs collection of an index."
     },
     "ListQueryKeysResult": {
+      "type": "object",
       "properties": {
         "value": {
           "readOnly": true,
@@ -1726,6 +1733,7 @@
       "x-ms-external": true
     },
     "Sku": {
+      "type": "object",
       "properties": {
         "name": {
           "type": "string",
@@ -1922,6 +1930,7 @@
       "description": "Describes a policy that determines how resources within the search service are to be encrypted with customer managed keys."
     },
     "PrivateEndpointConnection": {
+      "type": "object",
       "properties": {
         "properties": {
           "$ref": "#/definitions/PrivateEndpointConnectionProperties",
@@ -1936,6 +1945,7 @@
       "description": "Describes an existing private endpoint connection to the Azure AI Search service."
     },
     "NetworkRuleSet": {
+      "type": "object",
       "properties": {
         "ipRules": {
           "type": "array",
@@ -1978,6 +1988,7 @@
       "description": "Network specific rules that determine how the Azure AI Search service may be reached."
     },
     "IpRule": {
+      "type": "object",
       "properties": {
         "value": {
           "type": "string",
@@ -2084,8 +2095,10 @@
       "description": "Credentials of a registered application created for your search service, used for authenticated access to the encryption keys stored in Azure Key Vault."
     },
     "PrivateEndpointConnectionProperties": {
+      "type": "object",
       "properties": {
         "privateEndpoint": {
+          "type": "object",
           "properties": {
             "id": {
               "type": "string",
@@ -2250,6 +2263,7 @@
       "description": "Sets options that control the availability of semantic search. This configuration is only possible for certain Azure AI Search SKUs in certain locations."
     },
     "SharedPrivateLinkResource": {
+      "type": "object",
       "properties": {
         "properties": {
           "$ref": "#/definitions/SharedPrivateLinkResourceProperties",
@@ -2264,6 +2278,7 @@
       "description": "Describes a shared private link resource managed by the Azure AI Search service."
     },
     "SharedPrivateLinkResourceProperties": {
+      "type": "object",
       "properties": {
         "privateLinkResourceId": {
           "type": "string",
@@ -2329,6 +2344,7 @@
             "Deleting",
             "Failed",
             "Succeeded",
+            "Canceled",
             "Incomplete"
           ],
           "x-ms-enum": {
@@ -2367,6 +2383,7 @@
       "description": "Describes the properties of an existing shared private link resource managed by the Azure AI Search service."
     },
     "SharedPrivateLinkResourceListResult": {
+      "type": "object",
       "properties": {
         "value": {
           "readOnly": true,
@@ -2385,6 +2402,7 @@
       "x-ms-external": true
     },
     "PrivateLinkResourcesResult": {
+      "type": "object",
       "properties": {
         "value": {
           "readOnly": true,
@@ -2393,12 +2411,18 @@
             "$ref": "#/definitions/PrivateLinkResource"
           },
           "description": "The list of supported Private Link Resources."
+        },
+        "nextLink": {
+          "type": "string",
+          "readOnly": true,
+          "description": "The URL to get the next set of supported private link resources, if there are any."
         }
       },
       "description": "Response containing a list of supported Private Link Resources.",
       "x-ms-external": true
     },
     "PrivateLinkResource": {
+      "type": "object",
       "properties": {
         "properties": {
           "$ref": "#/definitions/PrivateLinkResourceProperties",
@@ -2414,6 +2438,7 @@
       "description": "Describes a supported private link resource for the Azure AI Search service."
     },
     "PrivateLinkResourceProperties": {
+      "type": "object",
       "properties": {
         "groupId": {
           "readOnly": true,
@@ -2448,6 +2473,7 @@
       "description": "Describes the properties of a supported private link resource for the Azure AI Search service. For a given API version, this represents the 'supported' groupIds when creating a shared private link resource."
     },
     "ShareablePrivateLinkResourceType": {
+      "type": "object",
       "properties": {
         "name": {
           "readOnly": true,
@@ -2463,6 +2489,7 @@
       "description": "Describes an resource type that has been onboarded to private link service, supported by Azure AI Search."
     },
     "ShareablePrivateLinkResourceProperties": {
+      "type": "object",
       "properties": {
         "type": {
           "readOnly": true,
@@ -2483,6 +2510,7 @@
       "description": "Describes the properties of a resource type that has been onboarded to private link service, supported by Azure AI Search."
     },
     "SearchService": {
+      "type": "object",
       "properties": {
         "properties": {
           "x-ms-client-flatten": true,
@@ -2514,6 +2542,7 @@
       "description": "Describes an Azure AI Search service and its current state."
     },
     "SearchServiceUpdate": {
+      "type": "object",
       "properties": {
         "properties": {
           "x-ms-client-flatten": true,
@@ -2563,6 +2592,7 @@
       "description": "The parameters used to update an Azure AI Search service."
     },
     "SearchServiceProperties": {
+      "type": "object",
       "properties": {
         "replicaCount": {
           "type": "integer",
@@ -2731,7 +2761,8 @@
           "enum": [
             "succeeded",
             "provisioning",
-            "failed"
+            "failed",
+            "canceled"
           ],
           "x-ms-enum": {
             "name": "ProvisioningState",
@@ -2751,6 +2782,11 @@
                 "value": "failed",
                 "name": "Failed",
                 "description": "The last provisioning operation has failed."
+              },
+              {
+                "value": "canceled",
+                "name": "Canceled",
+                "description": "The last provisioning operation has been canceled."
               }
             ]
           }
@@ -2876,6 +2912,7 @@
       "description": "Properties of the search service."
     },
     "SearchServiceListResult": {
+      "type": "object",
       "properties": {
         "value": {
           "readOnly": true,
@@ -2973,6 +3010,7 @@
       }
     },
     "Identity": {
+      "type": "object",
       "properties": {
         "principalId": {
           "readOnly": true,
@@ -3251,7 +3289,8 @@
       "in": "path",
       "required": true,
       "type": "string",
-      "description": "The unique identifier for a Microsoft Azure subscription. You can obtain this value from the Azure Resource Manager API or the portal."
+      "description": "The unique identifier for a Microsoft Azure subscription. You can obtain this value from the Azure Resource Manager API or the portal.",
+      "x-ms-parameter-location": "client"
     },
     "SkuNameParameter": {
       "name": "skuName",
