@@ -176,8 +176,6 @@ interface Databases {
   /**
    * Generates an invitation token that allows attaching a follower database to this database.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
-  @operationId("Database_InviteFollower")
   @tag("Databases")
   inviteFollower is ArmResourceActionSync<
     Database,
@@ -188,8 +186,6 @@ interface Databases {
   /**
    * Checks that the database principal assignment is valid and is not already in use.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
-  @operationId("DatabasePrincipalAssignments_CheckNameAvailability")
   @tag("DatabasePrincipalAssignments")
   @action("checkPrincipalAssignmentNameAvailability")
   checkNameAvailability is ArmResourceActionSync<
@@ -201,8 +197,6 @@ interface Databases {
   /**
    * Checks that the script name is valid and is not already in use.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
-  @operationId("Scripts_CheckNameAvailability")
   @tag("Scripts")
   scriptsCheckNameAvailability is ArmResourceActionSync<
     Database,
@@ -213,7 +207,7 @@ interface Databases {
   /**
    * Checks that the data connection parameters are valid.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
+  #suppress "@azure-tools/typespec-azure-core/no-openapi" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @operationId("DataConnections_dataConnectionValidation")
   @tag("DataConnections")
   dataConnectionValidation is ArmResourceActionAsyncBase<
@@ -231,8 +225,6 @@ interface Databases {
   /**
    * Checks that the data connection name is valid and is not already in use.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
-  @operationId("DataConnections_CheckNameAvailability")
   @tag("DataConnections")
   @action("checkNameAvailability")
   dataConnectionsCheckNameAvailability is ArmResourceActionSync<

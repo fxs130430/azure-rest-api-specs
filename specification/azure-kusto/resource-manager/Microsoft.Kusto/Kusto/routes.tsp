@@ -18,8 +18,6 @@ interface ClustersOperationGroup {
   /**
    * Lists eligible SKUs for Kusto resource provider.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
-  @operationId("Clusters_ListSkus")
   @autoRoute
   @list
   @get
@@ -31,8 +29,6 @@ interface ClustersOperationGroup {
   /**
    * Checks that the cluster name is valid and is not already in use.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
-  @operationId("Clusters_CheckNameAvailability")
   @tag("Clusters")
   @autoRoute
   checkNameAvailability is ArmProviderActionSync<
@@ -48,8 +44,6 @@ interface SkusOperationGroup {
   /**
    * Lists eligible region SKUs for Kusto resource provider by Azure region.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
-  @operationId("Skus_List")
   @autoRoute
   @list
   @get
@@ -66,8 +60,6 @@ interface OperationsResultsOperationGroup {
   /**
    * Returns operation results.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
-  @operationId("OperationsResults_Get")
   @tag("OperationResults")
   @route("/subscriptions/{subscriptionId}/providers/Microsoft.Kusto/locations/{location}/operationResults/{operationId}")
   @get

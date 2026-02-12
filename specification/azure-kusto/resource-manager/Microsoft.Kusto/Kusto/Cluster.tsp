@@ -354,8 +354,6 @@ interface Clusters {
   /**
    * Checks that the principal assignment name is valid and is not already in use.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
-  @operationId("ClusterPrincipalAssignments_CheckNameAvailability")
   @tag("ClusterPrincipalAssignments")
   @action("checkPrincipalAssignmentNameAvailability")
   checkNameAvailability is ArmResourceActionSync<
@@ -367,8 +365,6 @@ interface Clusters {
   /**
    * Checks that the databases resource name is valid and is not already in use.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
-  @operationId("Databases_CheckNameAvailability")
   @tag("Databases")
   @action("checkNameAvailability")
   databasesCheckNameAvailability is ArmResourceActionSync<
@@ -380,8 +376,6 @@ interface Clusters {
   /**
    * Checks that the attached database configuration resource name is valid and is not already in use.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
-  @operationId("AttachedDatabaseConfigurations_CheckNameAvailability")
   @tag("AttachedDatabaseConfigurations")
   @action("attachedDatabaseConfigurationCheckNameAvailability")
   attachedDatabaseConfigurationsCheckNameAvailability is ArmResourceActionSync<
@@ -393,8 +387,6 @@ interface Clusters {
   /**
    * Checks that the managed private endpoints resource name is valid and is not already in use.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
-  @operationId("ManagedPrivateEndpoints_CheckNameAvailability")
   @tag("ManagedPrivateEndpoints")
   managedPrivateEndpointsCheckNameAvailability is ArmResourceActionSync<
     Cluster,
@@ -405,8 +397,6 @@ interface Clusters {
   /**
    * Checks that the sandbox custom image resource name is valid and is not already in use.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-openapi" "non-standard operations"
-  @operationId("SandboxCustomImages_CheckNameAvailability")
   @tag("SandboxCustomImages")
   sandboxCustomImagesCheckNameAvailability is ArmResourceActionSync<
     Cluster,
