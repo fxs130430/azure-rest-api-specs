@@ -1,0 +1,23 @@
+{"level":"silly","message":"Initializing OpenApiDiff class"}
+{"level":"debug","message":"Initialized OpenApiDiff class with options = { consoleLogLevel: 'warn', logFilepath: undefined, json: true }"}
+{"level":"silly","message":"compare is being called"}
+{"level":"silly","message":"processViaAutoRest is being called"}
+{"level":"debug","message":"swaggerPath = \"specification/search/resource-manager/Microsoft.Search/Search/stable/2025-05-01/search.json\""}
+{"level":"debug","message":"outputFileName = \"old\""}
+{"level":"silly","message":"autoRestFileArgs is being called"}
+{"level":"silly","message":"Found autoRest:E:\\repos\\azure-rest-api-specs\\node_modules\\autorest\\dist\\app.js "}
+{"level":"debug","message":"Executing: \"node E:\\repos\\azure-rest-api-specs\\node_modules\\autorest\\dist\\app.js --input-file=specification/search/resource-manager/Microsoft.Search/Search/stable/2025-05-01/search.json --v2 --output-artifact=swagger-document.json --output-artifact=swagger-document.map --output-file=old --output-folder=C:\\Users\\YANGYL~1.NOR\\AppData\\Local\\Temp\\oad-ZLXkbq\""}
+{"level":"debug","message":"outputFilePath: \"C:\\Users\\YANGYL~1.NOR\\AppData\\Local\\Temp\\oad-ZLXkbq\\old.json\""}
+{"level":"silly","message":"processViaAutoRest is being called"}
+{"level":"debug","message":"swaggerPath = \"specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json\""}
+{"level":"debug","message":"outputFileName = \"new\""}
+{"level":"silly","message":"autoRestFileArgs is being called"}
+{"level":"silly","message":"Found autoRest:E:\\repos\\azure-rest-api-specs\\node_modules\\autorest\\dist\\app.js "}
+{"level":"debug","message":"Executing: \"node E:\\repos\\azure-rest-api-specs\\node_modules\\autorest\\dist\\app.js --input-file=specification/search/resource-manager/Microsoft.Search/Search/preview/2026-03-01-preview/search.json --v2 --output-artifact=swagger-document.json --output-artifact=swagger-document.map --output-file=new --output-folder=C:\\Users\\YANGYL~1.NOR\\AppData\\Local\\Temp\\oad-Iqq7gP\""}
+{"level":"debug","message":"outputFilePath: \"C:\\Users\\YANGYL~1.NOR\\AppData\\Local\\Temp\\oad-Iqq7gP\\new.json\""}
+{"level":"silly","message":"processViaOpenApiDiff is being called"}
+{"level":"debug","message":"oldSwagger = \"C:\\Users\\YANGYL~1.NOR\\AppData\\Local\\Temp\\oad-ZLXkbq\\old-resolved.json\""}
+{"level":"debug","message":"newSwagger = \"C:\\Users\\YANGYL~1.NOR\\AppData\\Local\\Temp\\oad-Iqq7gP\\new-resolved.json\""}
+{"level":"silly","message":"dotNetPath is being called"}
+{"level":"silly","message":"openApiDiffDllPath is being called"}
+{"level":"debug","message":"Executing: \"dotnet E:\\repos\\azure-rest-api-specs\\node_modules\\@azure\\oad\\dlls\\OpenApiDiff.dll -o C:\\Users\\YANGYL~1.NOR\\AppData\\Local\\Temp\\oad-ZLXkbq\\old-resolved.json -n C:\\Users\\YANGYL~1.NOR\\AppData\\Local\\Temp\\oad-Iqq7gP\\new-resolved.json\""}
