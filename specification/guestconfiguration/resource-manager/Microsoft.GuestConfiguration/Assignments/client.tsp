@@ -233,8 +233,14 @@ using Microsoft.GuestConfiguration;
 // ============================================================================
 
 #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "migration"
-@@markAsPageable(GuestConfigurationAssignments.guestConfigurationAssignmentReportsList, "csharp");
+@@markAsPageable(GuestConfigurationAssignments.guestConfigurationAssignmentReportsList,
+  "csharp"
+);
 #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "migration"
-@@markAsPageable(GuestConfigurationHCRPAssignments.guestConfigurationHCRPAssignmentReportsList, "csharp");
+@@markAsPageable(GuestConfigurationHCRPAssignments.guestConfigurationHCRPAssignmentReportsList,
+  "csharp"
+);
 #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "migration"
-@@markAsPageable(GuestConfigurationConnectedVMwarevSphereAssignments.guestConfigurationConnectedVMwarevSphereAssignmentsReportsList, "csharp");
+@@markAsPageable(GuestConfigurationConnectedVMwarevSphereAssignments.guestConfigurationConnectedVMwarevSphereAssignmentsReportsList,
+  "csharp"
+);
