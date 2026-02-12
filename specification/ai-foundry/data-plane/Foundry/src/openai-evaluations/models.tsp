@@ -112,7 +112,6 @@ model AzureAIBenchmarkDataSourceConfig extends AzureAIDataSourceConfig {
     | OpenAI.CreateEvalLogsDataSourceConfig
     | OpenAI.CreateEvalStoredCompletionsDataSourceConfig
     | AzureAIDataSourceConfig
-    | AzureAIBenchmarkDataSourceConfig
 );
 
 /** Adding Azure AI Evaluator type to testing criteria for foundry extension. */
@@ -158,7 +157,6 @@ model Eval is OpenAI.Eval {
     | OpenAI.CreateEvalLogsDataSourceConfig
     | OpenAI.CreateEvalStoredCompletionsDataSourceConfig
     | AzureAIDataSourceConfig
-    | AzureAIBenchmarkDataSourceConfig
 );
 
 /** Adding Azure AI Evaluator type to testing criteria for foundry extension. */
