@@ -149,7 +149,7 @@ interface Service {
   @get
   @list
   @route("?comp=list")
-  listContainers is StorageOperation<
+  listContainers is StorageOperationResponseBody<
     {
       ...PrefixParameter;
       ...MarkerParameter;
@@ -1678,7 +1678,7 @@ interface PageBlob {
   @get
   @sharedRoute
   @route("?comp=pagelist")
-  getPageRanges is StorageOperation<
+  getPageRanges is StorageOperationResponseBody<
     {
       ...SnapshotParameter;
       ...TimeoutParameter;
@@ -1705,7 +1705,7 @@ interface PageBlob {
   @get
   @sharedRoute
   @route("?comp=pagelist")
-  getPageRangesDiff is StorageOperation<
+  getPageRangesDiff is StorageOperationResponseBody<
     {
       ...SnapshotParameter;
       ...TimeoutParameter;
