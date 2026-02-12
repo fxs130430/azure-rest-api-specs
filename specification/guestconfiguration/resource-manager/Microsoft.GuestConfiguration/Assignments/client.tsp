@@ -237,6 +237,4 @@ using Microsoft.GuestConfiguration;
 #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "migration"
 @@markAsPageable(GuestConfigurationHCRPAssignments.guestConfigurationHCRPAssignmentReportsList, "csharp");
 #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "migration"
-@@markAsPageable(GuestConfigurationAssignmentsVMSS.guestConfigurationAssignmentReportsVMSSList, "csharp");
-#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "migration"
 @@markAsPageable(GuestConfigurationConnectedVMwarevSphereAssignments.guestConfigurationConnectedVMwarevSphereAssignmentsReportsList, "csharp");
