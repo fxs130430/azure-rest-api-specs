@@ -219,7 +219,9 @@ export async function getLabelActionImpl({ owner, repo, issue_number, head_sha, 
     requiredStatuses.every((status) => status.state === CommitStatusState.SUCCESS)
   ) {
     core.info("All requirements met for auto-signoff");
-    const autoIncrementalTSPAction = armAnalysisResult.incrementalTypeSpec ? LabelAction.Add : LabelAction.Remove;
+    const autoIncrementalTSPAction = armAnalysisResult.incrementalTypeSpec
+      ? LabelAction.Add
+      : LabelAction.Remove;
     const trivialAction = armAnalysisResult.isTrivial ? LabelAction.Add : LabelAction.Remove;
 
     // Keep labels in sync with current analysis results.
