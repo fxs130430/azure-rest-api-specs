@@ -2,6 +2,7 @@ import "./main.tsp";
 import "@azure-tools/typespec-client-generator-core";
 
 using Azure.ClientGenerator.Core;
+using Azure.ClientGenerator.Core.Legacy;
 using Microsoft.GuestConfiguration;
 
 // ============================================================================
@@ -226,3 +227,16 @@ using Microsoft.GuestConfiguration;
   "GetReport",
   "csharp"
 );
+
+// ============================================================================
+// Mark report list operations as pageable for backward compatibility
+// ============================================================================
+
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "migration"
+@@markAsPageable(GuestConfigurationAssignments.guestConfigurationAssignmentReportsList, "csharp");
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "migration"
+@@markAsPageable(GuestConfigurationHCRPAssignments.guestConfigurationHCRPAssignmentReportsList, "csharp");
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "migration"
+@@markAsPageable(GuestConfigurationAssignmentsVMSS.guestConfigurationAssignmentReportsVMSSList, "csharp");
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "migration"
+@@markAsPageable(GuestConfigurationConnectedVMwarevSphereAssignments.guestConfigurationConnectedVMwarevSphereAssignmentsReportsList, "csharp");
