@@ -24,7 +24,6 @@ options:
     use-read-only-status-schema: true
     arm-types-dir: "{project-root}/../../../../common-types/resource-management"
   #  "@azure-tools/typespec-providerhub-controller":
-  #     emitter-output-dir: "{azure-resource-provider-folder}/{service-name}/{version-status}/{version}/generated"
   #     code-kind: model
   "@azure-tools/typespec-ts":
     experimental-extensible-enums: true
