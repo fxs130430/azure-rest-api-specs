@@ -93,10 +93,7 @@ model BenchmarkMetadata {
 }
 
 /** Data source configuration for benchmark evaluations. */
-model AzureAIBenchmarkDataSourceConfig extends DataSourceConfig {
-  /** The object type, which is always `azure_ai_source`. */
-  type: "azure_ai_source";
-
+model AzureAIBenchmarkDataSourceConfig extends AzureAIDataSourceConfig {
   /** Data schema scenario, always `benchmark` for benchmark evaluations. */
   scenario: "benchmark_preview";
 
