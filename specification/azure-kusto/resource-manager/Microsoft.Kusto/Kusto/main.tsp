@@ -51,4 +51,5 @@ enum Versions {
   v2024_04_13: "2024-04-13",
 }
 
-interface Operations extends Azure.ResourceManager.Operations {}
+interface Operations
+  extends Azure.ResourceManager.Legacy.Operations<ArmResponse<OperationListResult>> {}

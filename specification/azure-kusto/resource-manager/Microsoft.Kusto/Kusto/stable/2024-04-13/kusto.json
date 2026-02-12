@@ -102,7 +102,7 @@
           "200": {
             "description": "Azure operation completed successfully.",
             "schema": {
-              "$ref": "../../../../../../common-types/resource-management/v3/types.json#/definitions/OperationListResult"
+              "$ref": "#/definitions/OperationListResult"
             }
           },
           "default": {
@@ -6384,6 +6384,7 @@
         "nextLink": {
           "type": "string",
           "format": "uri",
+          "title": "The URL to get the next set of callout policies list results if there are any.",
           "description": "The link to the next page of items"
         }
       },
@@ -6803,7 +6804,8 @@
           "description": "The cluster's external tenants.",
           "items": {
             "$ref": "#/definitions/TrustedExternalTenant"
-          }
+          },
+          "x-ms-identifiers": []
         },
         "optimizedAutoscale": {
           "$ref": "#/definitions/OptimizedAutoscale",
@@ -6811,11 +6813,13 @@
         },
         "enableDiskEncryption": {
           "type": "boolean",
-          "description": "A boolean value that indicates if the cluster's disks are encrypted."
+          "description": "A boolean value that indicates if the cluster's disks are encrypted.",
+          "default": false
         },
         "enableStreamingIngest": {
           "type": "boolean",
-          "description": "A boolean value that indicates if the streaming ingest is enabled."
+          "description": "A boolean value that indicates if the streaming ingest is enabled.",
+          "default": false
         },
         "virtualNetworkConfiguration": {
           "$ref": "#/definitions/VirtualNetworkConfiguration",
@@ -6827,7 +6831,8 @@
         },
         "enablePurge": {
           "type": "boolean",
-          "description": "A boolean value that indicates if the purge operations are enabled."
+          "description": "A boolean value that indicates if the purge operations are enabled.",
+          "default": false
         },
         "languageExtensions": {
           "$ref": "#/definitions/LanguageExtensionsList",
@@ -6835,7 +6840,8 @@
         },
         "enableDoubleEncryption": {
           "type": "boolean",
-          "description": "A boolean value that indicates if double encryption is enabled."
+          "description": "A boolean value that indicates if double encryption is enabled.",
+          "default": false
         },
         "publicNetworkAccess": {
           "type": "string",
@@ -6899,7 +6905,8 @@
           "description": "The cluster's accepted audiences.",
           "items": {
             "$ref": "#/definitions/AcceptedAudiences"
-          }
+          },
+          "x-ms-identifiers": []
         },
         "enableAutoStop": {
           "type": "boolean",
@@ -6943,7 +6950,8 @@
           "description": "List of callout policies for egress from Cluster.",
           "items": {
             "$ref": "#/definitions/CalloutPolicy"
-          }
+          },
+          "x-ms-identifiers": []
         },
         "publicIPType": {
           "type": "string",
@@ -6972,10 +6980,12 @@
         },
         "virtualClusterGraduationProperties": {
           "type": "string",
+          "format": "password",
           "description": "Virtual Cluster graduation properties",
           "x-ms-mutability": [
             "create"
-          ]
+          ],
+          "x-ms-secret": true
         },
         "privateEndpointConnections": {
           "type": "array",
@@ -7252,7 +7262,8 @@
           "description": "The list of Kusto data connection validation errors.",
           "items": {
             "$ref": "#/definitions/DataConnectionValidationResult"
-          }
+          },
+          "x-ms-identifiers": []
         }
       }
     },
@@ -7590,30 +7601,6 @@
         ]
       }
     },
-    "DatabaseRouting": {
-      "type": "string",
-      "description": "Indication for database routing information from the data connection, by default only database routing information is allowed",
-      "enum": [
-        "Single",
-        "Multi"
-      ],
-      "x-ms-enum": {
-        "name": "DatabaseRouting",
-        "modelAsString": true,
-        "values": [
-          {
-            "name": "Single",
-            "value": "Single",
-            "description": "Single"
-          },
-          {
-            "name": "Multi",
-            "value": "Multi",
-            "description": "Multi"
-          }
-        ]
-      }
-    },
     "DatabaseShareOrigin": {
       "type": "string",
       "description": "The origin of the following setup.",
@@ -7710,7 +7697,8 @@
           "description": "The ports used when connecting to DomainName.",
           "items": {
             "$ref": "#/definitions/EndpointDetail"
-          }
+          },
+          "x-ms-identifiers": []
         }
       }
     },
@@ -7779,8 +7767,29 @@
           "readOnly": true
         },
         "databaseRouting": {
-          "$ref": "#/definitions/DatabaseRouting",
-          "description": "Indication for database routing information from the data connection, by default only database routing information is allowed"
+          "type": "string",
+          "description": "Indication for database routing information from the data connection, by default only database routing information is allowed",
+          "default": "Single",
+          "enum": [
+            "Single",
+            "Multi"
+          ],
+          "x-ms-enum": {
+            "name": "DatabaseRouting",
+            "modelAsString": true,
+            "values": [
+              {
+                "name": "Single",
+                "value": "Single",
+                "description": "Single"
+              },
+              {
+                "name": "Multi",
+                "value": "Multi",
+                "description": "Multi"
+              }
+            ]
+          }
         },
         "provisioningState": {
           "$ref": "#/definitions/ProvisioningState",
@@ -7952,7 +7961,7 @@
         },
         "compression": {
           "type": "string",
-          "description": "The event hub messages compression type",
+          "description": "The compression type",
           "default": "None",
           "enum": [
             "None",
@@ -7990,8 +7999,29 @@
           "readOnly": true
         },
         "databaseRouting": {
-          "$ref": "#/definitions/DatabaseRouting",
-          "description": "Indication for database routing information from the data connection, by default only database routing information is allowed"
+          "type": "string",
+          "description": "Indication for database routing information from the data connection, by default only database routing information is allowed",
+          "default": "Single",
+          "enum": [
+            "Single",
+            "Multi"
+          ],
+          "x-ms-enum": {
+            "name": "DatabaseRouting",
+            "modelAsString": true,
+            "values": [
+              {
+                "name": "Single",
+                "value": "Single",
+                "description": "Single"
+              },
+              {
+                "name": "Multi",
+                "value": "Multi",
+                "description": "Multi"
+              }
+            ]
+          }
         },
         "retrievalStartDate": {
           "type": "string",
@@ -8182,7 +8212,8 @@
           "description": "The list of follower database result.",
           "items": {
             "$ref": "#/definitions/FollowerDatabaseDefinition"
-          }
+          },
+          "x-ms-identifiers": []
         },
         "nextLink": {
           "type": "string",
@@ -8346,8 +8377,29 @@
           "description": "The name of the share access policy"
         },
         "databaseRouting": {
-          "$ref": "#/definitions/DatabaseRouting",
-          "description": "Indication for database routing information from the data connection, by default only database routing information is allowed"
+          "type": "string",
+          "description": "Indication for database routing information from the data connection, by default only database routing information is allowed",
+          "default": "Single",
+          "enum": [
+            "Single",
+            "Multi"
+          ],
+          "x-ms-enum": {
+            "name": "DatabaseRouting",
+            "modelAsString": true,
+            "values": [
+              {
+                "name": "Single",
+                "value": "Single",
+                "description": "Single"
+              },
+              {
+                "name": "Multi",
+                "value": "Multi",
+                "description": "Multi"
+              }
+            ]
+          }
         },
         "retrievalStartDate": {
           "type": "string",
@@ -8497,19 +8549,23 @@
       "properties": {
         "keyName": {
           "type": "string",
-          "description": "The name of the key vault key."
+          "description": "The name of the key vault key.",
+          "x-ms-client-name": "KeyName"
         },
         "keyVersion": {
           "type": "string",
-          "description": "The version of the key vault key."
+          "description": "The version of the key vault key.",
+          "x-ms-client-name": "KeyVersion"
         },
         "keyVaultUri": {
           "type": "string",
-          "description": "The Uri of the key vault."
+          "description": "The Uri of the key vault.",
+          "x-ms-client-name": "KeyVaultUri"
         },
         "userIdentity": {
           "type": "string",
-          "description": "The user assigned identity (ARM resource id) that has access to the key."
+          "description": "The user assigned identity (ARM resource id) that has access to the key.",
+          "x-ms-client-name": "UserIdentity"
         }
       }
     },
@@ -8569,7 +8625,7 @@
         },
         "languageExtensionCustomImageName": {
           "type": "string",
-          "description": "The language extension custom image name."
+          "description": "The sandbox custom image name that should be enabled as the active language extension. Sandbox custom image is a cluster sub resource. When this property is set, LanguageExtensionImageName should be set to 'PythonCustomImage'."
         }
       }
     },
@@ -8660,7 +8716,8 @@
           "description": "The list of language extensions.",
           "items": {
             "$ref": "#/definitions/LanguageExtension"
-          }
+          },
+          "x-ms-identifiers": []
         },
         "nextLink": {
           "type": "string",
@@ -8677,7 +8734,8 @@
           "description": "The collection of available SKUs for an existing resource.",
           "items": {
             "$ref": "#/definitions/AzureResourceSku"
-          }
+          },
+          "x-ms-identifiers": []
         },
         "nextLink": {
           "type": "string",
@@ -8823,6 +8881,79 @@
         ]
       }
     },
+    "Operation": {
+      "type": "object",
+      "title": "A REST API operation",
+      "description": "A REST API operation",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "The operation name.",
+          "description": "This is of the format {provider}/{resource}/{operation}."
+        },
+        "display": {
+          "$ref": "#/definitions/OperationDisplay",
+          "title": "The object that describes the operation.",
+          "description": "The object that describes the operation."
+        },
+        "origin": {
+          "type": "string",
+          "title": "The intended executor of the operation.",
+          "description": "The intended executor of the operation."
+        },
+        "properties": {
+          "title": "Properties of the operation.",
+          "description": "Properties of the operation.",
+          "x-ms-client-flatten": true
+        }
+      }
+    },
+    "OperationDisplay": {
+      "type": "object",
+      "description": "The object that describes the operation.",
+      "properties": {
+        "provider": {
+          "type": "string",
+          "title": "Friendly name of the resource provider.",
+          "description": "Friendly name of the resource provider."
+        },
+        "operation": {
+          "type": "string",
+          "title": "The operation type.",
+          "description": "For example: read, write, delete."
+        },
+        "resource": {
+          "type": "string",
+          "title": "The resource type on which the operation is performed.",
+          "description": "The resource type on which the operation is performed."
+        },
+        "description": {
+          "type": "string",
+          "title": "The friendly name of the operation.",
+          "description": "The friendly name of the operation."
+        }
+      }
+    },
+    "OperationListResult": {
+      "type": "object",
+      "title": "Result of the request to list REST API operations. It contains a list of operations and a URL nextLink to get the next set of results.",
+      "description": "Result of the request to list REST API operations. It contains a list of operations and a URL nextLink to get the next set of results.",
+      "properties": {
+        "value": {
+          "type": "array",
+          "title": "The list of operations supported by the resource provider.",
+          "description": "The list of operations supported by the resource provider.",
+          "items": {
+            "$ref": "#/definitions/Operation"
+          }
+        },
+        "nextLink": {
+          "type": "string",
+          "title": "The URL to get the next set of operation list results if there are any.",
+          "description": "Link to the next page of results."
+        }
+      }
+    },
     "OperationResult": {
       "type": "object",
       "description": "Operation Result Entity.",
@@ -8856,6 +8987,7 @@
           "type": "number",
           "format": "double",
           "description": "Percentage completed.",
+          "minimum": 0,
           "maximum": 100
         },
         "properties": {
@@ -9013,7 +9145,8 @@
           "description": "The endpoints that the Kusto Service Environment reaches the service at.",
           "items": {
             "$ref": "#/definitions/EndpointDependency"
-          }
+          },
+          "x-ms-identifiers": []
         },
         "provisioningState": {
           "$ref": "#/definitions/ProvisioningState",
@@ -9694,17 +9827,21 @@
         },
         "scriptUrlSasToken": {
           "type": "string",
+          "format": "password",
           "description": "The SaS token that provide read access to the file which contain the script. Must be provided when using scriptUrl property.",
           "x-ms-mutability": [
             "create"
-          ]
+          ],
+          "x-ms-secret": true
         },
         "scriptContent": {
           "type": "string",
+          "format": "password",
           "description": "The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with scriptUrl and scriptUrlSasToken properties.",
           "x-ms-mutability": [
             "create"
-          ]
+          ],
+          "x-ms-secret": true
         },
         "forceUpdateTag": {
           "type": "string",
@@ -9712,7 +9849,8 @@
         },
         "continueOnErrors": {
           "type": "boolean",
-          "description": "Flag that indicates whether to continue if one of the command fails."
+          "description": "Flag that indicates whether to continue if one of the command fails.",
+          "default": false
         },
         "provisioningState": {
           "$ref": "#/definitions/ProvisioningState",
@@ -9762,7 +9900,8 @@
           "items": {
             "$ref": "#/definitions/SkuLocationInfoItem"
           },
-          "readOnly": true
+          "readOnly": true,
+          "x-ms-identifiers": []
         },
         "restrictions": {
           "type": "array",

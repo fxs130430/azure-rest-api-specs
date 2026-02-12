@@ -184,3 +184,10 @@ using Microsoft.Kusto;
 @@clientName(ClustersOperationGroup.checkNameAvailability::parameters.body,
   "clusterName"
 );
+@@summary(CalloutPoliciesList.nextLink,
+  "The URL to get the next set of callout policies list results if there are any."
+);
+@@clientName(KeyVaultProperties.keyName, "KeyName");
+@@clientName(KeyVaultProperties.keyVersion, "KeyVersion");
+@@clientName(KeyVaultProperties.keyVaultUri, "KeyVaultUri");
+@@clientName(KeyVaultProperties.userIdentity, "UserIdentity");

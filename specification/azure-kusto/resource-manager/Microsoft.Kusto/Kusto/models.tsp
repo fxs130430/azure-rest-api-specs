@@ -1538,6 +1538,7 @@ model ClusterProperties {
   /**
    * The cluster's external tenants.
    */
+  @identifiers(#[])
   trustedExternalTenants?: TrustedExternalTenant[];
 
   /**
@@ -1548,12 +1549,12 @@ model ClusterProperties {
   /**
    * A boolean value that indicates if the cluster's disks are encrypted.
    */
-  enableDiskEncryption?: boolean;
+  enableDiskEncryption?: boolean = false;
 
   /**
    * A boolean value that indicates if the streaming ingest is enabled.
    */
-  enableStreamingIngest?: boolean;
+  enableStreamingIngest?: boolean = false;
 
   /**
    * Virtual network definition.
@@ -1568,7 +1569,7 @@ model ClusterProperties {
   /**
    * A boolean value that indicates if the purge operations are enabled.
    */
-  enablePurge?: boolean;
+  enablePurge?: boolean = false;
 
   /**
    * List of the cluster's language extensions.
@@ -1578,7 +1579,7 @@ model ClusterProperties {
   /**
    * A boolean value that indicates if double encryption is enabled.
    */
-  enableDoubleEncryption?: boolean;
+  enableDoubleEncryption?: boolean = false;
 
   /**
    * Public network access to the cluster is enabled by default. When disabled, only private endpoint connection to the cluster is allowed
@@ -1598,6 +1599,7 @@ model ClusterProperties {
   /**
    * The cluster's accepted audiences.
    */
+  @identifiers(#[])
   acceptedAudiences?: AcceptedAudiences[];
 
   /**
@@ -1618,17 +1620,20 @@ model ClusterProperties {
   /**
    * List of callout policies for egress from Cluster.
    */
+  @identifiers(#[])
   calloutPolicies?: CalloutPolicy[];
 
   /**
    * Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6)
    */
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   publicIPType?: PublicIPType = PublicIPType.IPv4;
 
   /**
    * Virtual Cluster graduation properties
    */
   @visibility(Lifecycle.Create)
+  @secret
   virtualClusterGraduationProperties?: string;
 
   /**
@@ -1746,6 +1751,7 @@ model LanguageExtensionsList {
    * The list of language extensions.
    */
   @pageItems
+  @identifiers(#[])
   value?: LanguageExtension[];
 
   /**
@@ -1770,7 +1776,7 @@ model LanguageExtension {
   languageExtensionImageName?: LanguageExtensionImageName;
 
   /**
-   * The language extension custom image name.
+   * The sandbox custom image name that should be enabled as the active language extension. Sandbox custom image is a cluster sub resource. When this property is set, LanguageExtensionImageName should be set to 'PythonCustomImage'.
    */
   languageExtensionCustomImageName?: string;
 }
@@ -2157,6 +2163,7 @@ model FollowerDatabaseListResult {
    * The list of follower database result.
    */
   @pageItems
+  @identifiers(#[])
   value?: FollowerDatabaseDefinition[];
 
   /**
@@ -2274,6 +2281,7 @@ model SkuDescription {
    * Locations and zones
    */
   @visibility(Lifecycle.Read)
+  @identifiers(#[])
   locationInfo?: SkuLocationInfoItem[];
 
   /**
@@ -2407,6 +2415,7 @@ model ListResourceSkusResult {
    * The collection of available SKUs for an existing resource.
    */
   @pageItems
+  @identifiers(#[])
   value?: AzureResourceSku[];
 
   /**
@@ -2664,12 +2673,14 @@ model ScriptProperties {
   /**
    * The SaS token that provide read access to the file which contain the script. Must be provided when using scriptUrl property.
    */
+  @secret
   @visibility(Lifecycle.Create)
   scriptUrlSasToken?: string;
 
   /**
    * The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with scriptUrl and scriptUrlSasToken properties.
    */
+  @secret
   @visibility(Lifecycle.Create)
   scriptContent?: string;
 
@@ -2681,7 +2692,7 @@ model ScriptProperties {
   /**
    * Flag that indicates whether to continue if one of the command fails.
    */
-  continueOnErrors?: boolean;
+  continueOnErrors?: boolean = false;
 
   /**
    * The provisioned state of the resource.
@@ -2882,6 +2893,7 @@ model OutboundNetworkDependenciesEndpointProperties {
   /**
    * The endpoints that the Kusto Service Environment reaches the service at.
    */
+  @identifiers(#[])
   endpoints?: EndpointDependency[];
 
   /**
@@ -2903,6 +2915,7 @@ model EndpointDependency {
   /**
    * The ports used when connecting to DomainName.
    */
+  @identifiers(#[])
   endpointDetails?: EndpointDetail[];
 }
 
@@ -3025,6 +3038,7 @@ model DataConnectionValidationListResult {
    * The list of Kusto data connection validation errors.
    */
   @pageItems
+  @identifiers(#[])
   value?: DataConnectionValidationResult[];
 }
 
@@ -3069,27 +3083,53 @@ model ScriptCheckNameRequest {
 }
 
 /**
+ * Result of the request to list REST API operations. It contains a list of operations and a URL nextLink to get the next set of results.
+ */
+@summary("Result of the request to list REST API operations. It contains a list of operations and a URL nextLink to get the next set of results.")
+model OperationListResult {
+  /**
+   * The list of operations supported by the resource provider.
+   */
+  @summary("The list of operations supported by the resource provider.")
+  @pageItems
+  value?: Operation[];
+
+  /**
+   * Link to the next page of results.
+   */
+  @summary("The URL to get the next set of operation list results if there are any.")
+  @nextLink
+  nextLink?: string;
+}
+
+/**
  * A REST API operation
  */
+@summary("A REST API operation")
 model Operation {
   /**
    * This is of the format {provider}/{resource}/{operation}.
    */
+  @summary("The operation name.")
   name?: string;
 
   /**
    * The object that describes the operation.
    */
+  @summary("The object that describes the operation.")
   display?: OperationDisplay;
 
   /**
    * The intended executor of the operation.
    */
+  @summary("The intended executor of the operation.")
   origin?: string;
 
   /**
    * Properties of the operation.
    */
+  #suppress "@azure-tools/typespec-azure-core/no-unknown" ""
+  @summary("Properties of the operation.")
   properties?: unknown;
 }
 
@@ -3100,21 +3140,25 @@ model OperationDisplay {
   /**
    * Friendly name of the resource provider.
    */
+  @summary("Friendly name of the resource provider.")
   provider?: string;
 
   /**
    * For example: read, write, delete.
    */
+  @summary("The operation type.")
   operation?: string;
 
   /**
    * The resource type on which the operation is performed.
    */
+  @summary("The resource type on which the operation is performed.")
   resource?: string;
 
   /**
    * The friendly name of the operation.
    */
+  @summary("The friendly name of the operation.")
   description?: string;
 }
 
@@ -3170,6 +3214,7 @@ model OperationResult {
   /**
    * Percentage completed.
    */
+  @minValue(0)
   @maxValue(100)
   percentComplete?: float64;
 
@@ -3390,7 +3435,7 @@ model EventHubConnectionProperties {
   eventSystemProperties?: string[];
 
   /**
-   * The event hub messages compression type
+   * The compression type
    */
   compression?: Compression = Compression.None;
 
@@ -3414,7 +3459,7 @@ model EventHubConnectionProperties {
   /**
    * Indication for database routing information from the data connection, by default only database routing information is allowed
    */
-  databaseRouting?: DatabaseRouting;
+  databaseRouting?: DatabaseRouting = "Single";
 
   /**
    * When defined, the data connection retrieves existing Event hub events created since the Retrieval start date. It can only retrieve events retained by the Event hub, based on its retention period.
@@ -3465,7 +3510,7 @@ model IotHubConnectionProperties {
   /**
    * Indication for database routing information from the data connection, by default only database routing information is allowed
    */
-  databaseRouting?: DatabaseRouting;
+  databaseRouting?: DatabaseRouting = "Single";
 
   /**
    * When defined, the data connection retrieves existing Event hub events created since the Retrieval start date. It can only retrieve events retained by the Event hub, based on its retention period.
@@ -3543,7 +3588,7 @@ model EventGridConnectionProperties {
   /**
    * Indication for database routing information from the data connection, by default only database routing information is allowed
    */
-  databaseRouting?: DatabaseRouting;
+  databaseRouting?: DatabaseRouting = "Single";
 
   /**
    * The provisioned state of the resource.
@@ -3608,6 +3653,7 @@ model CosmosDbDataConnectionProperties {
 /**
  * Class representing a read write database.
  */
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-custom-resource-usage-discourage" ""
 model ReadWriteDatabase extends Database {
   /**
    * The database properties.
@@ -3623,6 +3669,7 @@ model ReadWriteDatabase extends Database {
 /**
  * Class representing a read only following database.
  */
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-custom-resource-usage-discourage" ""
 model ReadOnlyFollowingDatabase extends Database {
   /**
    * The database properties.
@@ -3638,6 +3685,7 @@ model ReadOnlyFollowingDatabase extends Database {
 /**
  * Class representing an event hub data connection.
  */
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-custom-resource-usage-discourage" ""
 model EventHubDataConnection extends DataConnection {
   /**
    * The Event Hub data connection properties to validate.
@@ -3653,6 +3701,7 @@ model EventHubDataConnection extends DataConnection {
 /**
  * Class representing an iot hub data connection.
  */
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-custom-resource-usage-discourage" ""
 model IotHubDataConnection extends DataConnection {
   /**
    * The Iot Hub data connection properties.
@@ -3668,6 +3717,7 @@ model IotHubDataConnection extends DataConnection {
 /**
  * Class representing an Event Grid data connection.
  */
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-custom-resource-usage-discourage" ""
 model EventGridDataConnection extends DataConnection {
   /**
    * The properties of the Event Grid data connection.
@@ -3683,6 +3733,7 @@ model EventGridDataConnection extends DataConnection {
 /**
  * Class representing a CosmosDb data connection.
  */
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-custom-resource-usage-discourage" ""
 model CosmosDbDataConnection extends DataConnection {
   /**
    * The properties of the CosmosDb data connection.
