@@ -724,7 +724,7 @@
           "PrivateLinkResources"
         ],
         "x-ms-pageable": {
-          "nextLinkName": null
+          "nextLinkName": "nextLink"
         },
         "operationId": "PrivateLinkResources_ListSupported",
         "x-ms-examples": {
@@ -1011,6 +1011,9 @@
             "$ref": "#/parameters/SharedPrivateLinkResourceNameParameter"
           },
           {
+            "$ref": "#/parameters/ClientRequestIdParameter"
+          },
+          {
             "name": "sharedPrivateLinkResource",
             "in": "body",
             "required": true,
@@ -1018,9 +1021,6 @@
               "$ref": "#/definitions/SharedPrivateLinkResource"
             },
             "description": "The definition of the shared private link resource to create or update."
-          },
-          {
-            "$ref": "#/parameters/ClientRequestIdParameter"
           },
           {
             "$ref": "../../../../../../common-types/resource-management/v6/types.json#/parameters/ApiVersionParameter"
@@ -1040,6 +1040,10 @@
             "description": "The shared private link resource create or update operation has been accepted and will complete asynchronously.",
             "headers": {
               "Location": {
+                "description": "The URL of the resource used to check the status of the asynchronous operation.",
+                "type": "string"
+              },
+              "Azure-AsyncOperation": {
                 "description": "The URL of the resource used to check the status of the asynchronous operation.",
                 "type": "string"
               }
@@ -1147,6 +1151,15 @@
               "Location": {
                 "description": "The URL of the resource used to check the status of the asynchronous operation.",
                 "type": "string"
+              },
+              "Azure-AsyncOperation": {
+                "description": "The URL of the resource used to check the status of the asynchronous operation.",
+                "type": "string"
+              },
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
               }
             }
           },
@@ -1587,7 +1600,13 @@
             "description": "The long running operation for upgrading the service to the latest version was queued successfully. You can check the status of the operation through the provisioningState property returned in the response for a Get Service request.",
             "headers": {
               "Location": {
+                "description": "The Location header contains the URL where the status of the long running operation can be checked.",
                 "type": "string"
+              },
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
               }
             }
           },
@@ -1997,6 +2016,66 @@
       },
       "description": "The IP restriction rule of the Azure AI Search service."
     },
+    "ProvisioningState": {
+      "type": "string",
+      "description": "The state of the last provisioning operation performed on the search service. Provisioning is an intermediate state that occurs while service capacity is being established. After capacity is set up, provisioningState changes to either 'Succeeded' or 'Failed'. Client applications can poll provisioning status (the recommended polling interval is from 30 seconds to one minute) by using the Get Search Service operation to see when an operation is completed. If you are using the free service, this value tends to come back as 'Succeeded' directly in the call to Create search service. This is because the free service uses capacity that is already set up.",
+      "enum": [
+        "succeeded",
+        "provisioning",
+        "failed",
+        "canceled"
+      ],
+      "x-ms-enum": {
+        "name": "ProvisioningState",
+        "modelAsString": false,
+        "values": [
+          {
+            "name": "Succeeded",
+            "value": "succeeded",
+            "description": "The last provisioning operation has completed successfully."
+          },
+          {
+            "name": "Provisioning",
+            "value": "provisioning",
+            "description": "The search service is being provisioned or scaled up or down."
+          },
+          {
+            "name": "Failed",
+            "value": "failed",
+            "description": "The last provisioning operation has failed."
+          },
+          {
+            "name": "Canceled",
+            "value": "canceled",
+            "description": "The last provisioning operation has been canceled."
+          }
+        ]
+      }
+    },
+    "ComputeType": {
+      "type": "string",
+      "description": "Configure this property to support the search service using either the Default Compute or Azure Confidential Compute.",
+      "enum": [
+        "Default",
+        "Confidential"
+      ],
+      "x-ms-enum": {
+        "name": "ComputeType",
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Default",
+            "value": "Default",
+            "description": "Create the service with the Default Compute."
+          },
+          {
+            "name": "Confidential",
+            "value": "Confidential",
+            "description": "Create the service with Azure Confidential Compute."
+          }
+        ]
+      }
+    },
     "SearchResourceEncryptionKey": {
       "type": "object",
       "properties": {
@@ -2373,6 +2452,11 @@
                 "description": "The shared private link resource has finished provisioning and is ready for approval."
               },
               {
+                "value": "Canceled",
+                "name": "Canceled",
+                "description": "Provisioning request for the shared private link resource has been canceled."
+              },
+              {
                 "value": "Incomplete",
                 "name": "Incomplete",
                 "description": "Provisioning request for the shared private link resource has been accepted but the process of creation has not commenced yet."
@@ -2642,28 +2726,8 @@
           }
         },
         "computeType": {
-          "type": "string",
-          "description": "Configure this property to support the search service using either the Default Compute or Azure Confidential Compute.",
-          "enum": [
-            "Default",
-            "Confidential"
-          ],
-          "x-ms-enum": {
-            "name": "ComputeType",
-            "modelAsString": true,
-            "values": [
-              {
-                "value": "Default",
-                "name": "Default",
-                "description": "Create the service with the Default Compute."
-              },
-              {
-                "value": "Confidential",
-                "name": "Confidential",
-                "description": "Create the service with Azure Confidential Compute."
-              }
-            ]
-          }
+          "$ref": "#/definitions/ComputeType",
+          "description": "Configure this property to support the search service using either the Default Compute or Azure Confidential Compute."
         },
         "publicNetworkAccess": {
           "type": "string",
@@ -2757,40 +2821,8 @@
         },
         "provisioningState": {
           "readOnly": true,
-          "type": "string",
-          "description": "The state of the last provisioning operation performed on the search service. Provisioning is an intermediate state that occurs while service capacity is being established. After capacity is set up, provisioningState changes to either 'Succeeded' or 'Failed'. Client applications can poll provisioning status (the recommended polling interval is from 30 seconds to one minute) by using the Get Search Service operation to see when an operation is completed. If you are using the free service, this value tends to come back as 'Succeeded' directly in the call to Create search service. This is because the free service uses capacity that is already set up.",
-          "enum": [
-            "succeeded",
-            "provisioning",
-            "failed",
-            "canceled"
-          ],
-          "x-ms-enum": {
-            "name": "ProvisioningState",
-            "modelAsString": false,
-            "values": [
-              {
-                "value": "succeeded",
-                "name": "Succeeded",
-                "description": "The last provisioning operation has completed successfully."
-              },
-              {
-                "value": "provisioning",
-                "name": "Provisioning",
-                "description": "The search service is being provisioned or scaled up or down."
-              },
-              {
-                "value": "failed",
-                "name": "Failed",
-                "description": "The last provisioning operation has failed."
-              },
-              {
-                "value": "canceled",
-                "name": "Canceled",
-                "description": "The last provisioning operation has been canceled."
-              }
-            ]
-          }
+          "$ref": "#/definitions/ProvisioningState",
+          "description": "The state of the last provisioning operation performed on the search service. Provisioning is an intermediate state that occurs while service capacity is being established. After capacity is set up, provisioningState changes to either 'Succeeded' or 'Failed'. Client applications can poll provisioning status (the recommended polling interval is from 30 seconds to one minute) by using the Get Search Service operation to see when an operation is completed. If you are using the free service, this value tends to come back as 'Succeeded' directly in the call to Create search service. This is because the free service uses capacity that is already set up."
         },
         "networkRuleSet": {
           "$ref": "#/definitions/NetworkRuleSet",
