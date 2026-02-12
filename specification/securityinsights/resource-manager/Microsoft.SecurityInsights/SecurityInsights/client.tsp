@@ -54,4 +54,3 @@ using Azure.ClientGenerator.Core;
   "python"
 );
 @@clientName(FileHashAlgorithm.SHA256AC, "SHA256_AC", "python");
-
