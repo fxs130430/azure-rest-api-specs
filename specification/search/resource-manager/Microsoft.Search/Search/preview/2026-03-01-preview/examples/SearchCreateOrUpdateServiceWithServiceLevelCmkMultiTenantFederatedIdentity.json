@@ -3,7 +3,7 @@
     "searchServiceName": "mysearchservice",
     "resourceGroupName": "rg1",
     "api-version": "2026-03-01-preview",
-    "subscriptionId": "subid",
+    "subscriptionId": "00000000-0000-0000-0000-000000000000",
     "service": {
       "location": "westus",
       "tags": {
@@ -16,26 +16,26 @@
         "replicaCount": 3,
         "partitionCount": 1,
         "hostingMode": "Default",
-        "computeType": "Default"
+        "computeType": "Default",
+        "encryptionWithCmk": {
+          "enforcement": "Enabled",
+          "encryptionComplianceStatus": "Compliant",
+          "serviceLevelEncryptionKey": {
+            "keyVaultKeyName": "myUserManagedEncryptionKey-createdinAzureKeyVault",
+            "keyVaultKeyVersion": "myKeyVersion-32charAlphaNumericString",
+            "keyVaultUri": "https://myKeyVault.vault.azure.net",
+            "identity": {
+              "@odata.type": "#Microsoft.Azure.Search.DataUserAssignedIdentity",
+              "userAssignedIdentity": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/user-mi",
+              "federatedIdentityClientId": "f83c6b1b-4d34-47e4-bb34-9d83df58b540"
+            }
+          }
+        }
       },
       "identity": {
         "type": "SystemAssigned, UserAssigned",
         "userAssignedIdentities": {
           "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/user-mi": {}
-        }
-      },
-      "encryptionWithCmk": {
-        "enforcement": "Enabled",
-        "encryptionComplianceStatus": "Compliant",
-        "serviceLevelEncryptionKey": {
-          "keyVaultKeyName": "myUserManagedEncryptionKey-createdinAzureKeyVault",
-          "keyVaultKeyVersion": "myKeyVersion-32charAlphaNumericString",
-          "keyVaultUri": "https://myKeyVault.vault.azure.net",
-          "identity": {
-            "@odata.type": "#Microsoft.Azure.Search.DataUserAssignedIdentity",
-            "userAssignedIdentity": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/user-mi",
-            "federatedIdentityClientId": "f83c6b1b-4d34-47e4-bb34-9d83df58b540"
-          }
         }
       }
     }

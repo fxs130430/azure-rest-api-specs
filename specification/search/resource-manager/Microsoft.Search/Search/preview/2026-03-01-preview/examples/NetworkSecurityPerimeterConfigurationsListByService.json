@@ -1,6 +1,6 @@
 {
   "parameters": {
-    "subscriptionId": "subid",
+    "subscriptionId": "00000000-0000-0000-0000-000000000000",
     "resourceGroupName": "rg1",
     "searchServiceName": "mysearchservice",
     "api-version": "2026-03-01-preview"

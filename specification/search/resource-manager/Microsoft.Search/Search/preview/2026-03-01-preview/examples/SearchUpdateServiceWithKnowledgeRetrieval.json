@@ -3,7 +3,7 @@
     "searchServiceName": "mysearchservice",
     "resourceGroupName": "rg1",
     "api-version": "2026-03-01-preview",
-    "subscriptionId": "subid",
+    "subscriptionId": "00000000-0000-0000-0000-000000000000",
     "service": {
       "tags": {
         "app-name": "My e-commerce app",
@@ -35,10 +35,10 @@
           "endpoint": "https://mysearchservice.search.windows.net/",
           "status": "provisioning",
           "statusDetails": "",
-          "hostingMode": "default",
-          "computeType": "default",
+          "hostingMode": "Default",
+          "computeType": "Default",
           "provisioningState": "provisioning",
-          "publicNetworkAccess": "enabled",
+          "publicNetworkAccess": "Enabled",
           "networkRuleSet": {
             "ipRules": [],
             "bypass": "None"

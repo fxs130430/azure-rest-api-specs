@@ -1,6 +1,6 @@
 {
   "parameters": {
-    "subscriptionId": "subid",
+    "subscriptionId": "00000000-0000-0000-0000-000000000000",
     "resourceGroupName": "rg1",
     "searchServiceName": "mysearchservice",
     "nspConfigName": "00000001-2222-3333-4444-111144444444.assoc1",

@@ -1,0 +1,720 @@
+{
+  message: 'Validating "examples" and "x-ms-examples" in  .\\search_new.json:\n',
+  level: '\x1B[32minfo\x1B[39m'
+}
+Error reported:
+
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\SearchCheckNameAvailability.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 4, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'Services_CheckNameAvailability',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\GetQuotaUsagesList.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 5, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'Usages_ListBySubscription',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\GetQuotaUsage.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 5, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'UsageBySubscriptionSku',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\SearchListServicesBySubscription.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 4, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'Services_ListBySubscription',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\SearchListServicesByResourceGroup.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 5, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'Services_ListByResourceGroup',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\SearchGetService.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'Services_Get',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\SearchCreateOrUpdateService.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'Services_CreateOrUpdate',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\SearchCreateOrUpdateServiceAuthOptions.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'Services_CreateOrUpdate',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\SearchCreateOrUpdateServiceDisableLocalAuth.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'Services_CreateOrUpdate',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\SearchCreateOrUpdateServiceToAllowAccessFromPrivateEndpoints.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'Services_CreateOrUpdate',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\SearchCreateOrUpdateServiceToAllowAccessFromPublicCustomIPs.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'Services_CreateOrUpdate',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\SearchCreateOrUpdateServiceToAllowAccessFromPublicCustomIPsAndBypass.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'Services_CreateOrUpdate',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\SearchCreateOrUpdateServiceWithCmkEnforcement.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'Services_CreateOrUpdate',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\SearchCreateOrUpdateServiceWithServiceLevelCmkMultiTenantFederatedIdentity.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'Services_CreateOrUpdate',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\SearchCreateOrUpdateServiceWithDataExfiltration.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'Services_CreateOrUpdate',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\SearchCreateOrUpdateServiceWithIdentity.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'Services_CreateOrUpdate',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\SearchCreateOrUpdateWithSemanticSearch.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'Services_CreateOrUpdate',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\SearchCreateOrUpdateWithKnowledgeRetrieval.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'Services_CreateOrUpdate',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\SearchCreateAutoGeneratedDomainNameLabel.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'Services_CreateOrUpdate',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\SearchCreateOrUpdateServiceWithServerless.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'Services_CreateOrUpdate',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\SearchUpdateService.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'Services_Update',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\SearchUpdateServiceAuthOptions.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'Services_Update',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\SearchUpdateServiceDisableLocalAuth.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'Services_Update',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\SearchUpdateServiceToAllowAccessFromPrivateEndpoints.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'Services_Update',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\SearchUpdateServiceToAllowAccessFromPublicCustomIPs.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'Services_Update',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\SearchUpdateServiceToAllowAccessFromPublicCustomIPsAndBypass.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'Services_Update',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\SearchUpdateServiceToRemoveIdentity.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'Services_Update',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\SearchUpdateServiceWithCmkEnforcement.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'Services_Update',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\SearchUpdateServiceWithDataExfiltration.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'Services_Update',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\SearchUpdateServiceWithSemanticSearch.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'Services_Update',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\SearchUpdateServiceWithKnowledgeRetrieval.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'Services_Update',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\SearchUpdateServiceWithSku.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'Services_Update',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\SearchDeleteService.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'Services_Delete',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\SearchCreateQueryKey.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 7, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'QueryKeys_Create',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\SearchDeleteQueryKey.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 7, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'QueryKeys_Delete',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\SearchGetAdminKeys.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'AdminKeys_Get',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\SearchListQueryKeysBySearchService.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'QueryKeys_ListBySearchService',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\NetworkSecurityPerimeterConfigurationsListByService.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 3, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'NetworkSecurityPerimeterConfigurations_ListByService',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\NetworkSecurityPerimeterConfigurationsGet.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 3, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'NetworkSecurityPerimeterConfigurations_Get',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\NetworkSecurityPerimeterConfigurationsReconcile.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 3, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'NetworkSecurityPerimeterConfigurations_Reconcile',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\ListPrivateEndpointConnectionsByService.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'PrivateEndpointConnections_ListByService',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\GetPrivateEndpointConnection.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'PrivateEndpointConnections_Get',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\UpdatePrivateEndpointConnection.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'PrivateEndpointConnections_Update',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\DeletePrivateEndpointConnection.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'PrivateEndpointConnections_Delete',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\ListSupportedPrivateLinkResources.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'PrivateLinkResources_ListSupported',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\SearchRegenerateAdminKey.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 7, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'AdminKeys_Regenerate',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\ListSharedPrivateLinkResourcesByService.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'SharedPrivateLinkResources_ListByService',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\GetSharedPrivateLinkResource.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'SharedPrivateLinkResources_Get',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\CreateOrUpdateSharedPrivateLinkResource.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'SharedPrivateLinkResources_CreateOrUpdate',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\DeleteSharedPrivateLinkResource.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'SharedPrivateLinkResources_Delete',
+  level: '\x1B[31merror\x1B[39m'
+}
+{
+  code: 'INVALID_FORMAT',
+  message: "Object didn't pass validation for format uuid: subid",
+  schemaUrl: '.\\search_new.json',
+  exampleUrl: 'examples\\UpgradeSearchServiceToLatestVersion.json',
+  schemaPosition: { line: 663, column: 32 },
+  schemaJsonPath: 'subscriptionId/format',
+  examplePosition: { line: 6, column: 23 },
+  exampleJsonPath: '$parameters.subscriptionId',
+  severity: 0,
+  source: 'request',
+  operationId: 'Services_Upgrade',
+  level: '\x1B[31merror\x1B[39m'
+}
