@@ -106,6 +106,10 @@ namespace SearchIndexClient {
 
     #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Pre-existing API contract"
     #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Pre-existing API contract"
+    listWithSelectedProperties is Search.Indexes.listWithSelectedProperties;
+
+    #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Pre-existing API contract"
+    #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Pre-existing API contract"
     create is Search.Indexes.create;
 
     #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Pre-existing API contract"
@@ -399,6 +403,7 @@ namespace KnowledgeBaseRetrievalClient {
 @@access(SearchIndexClient.Indexes.delete, Access.internal, "python");
 @@access(SearchIndexClient.Indexes.analyze, Access.internal, "python");
 @@access(SearchIndexClient.Indexes.getStatistics, Access.internal, "python");
+@@access(SearchIndexClient.Indexes.list, Access.internal, "python");
 @@access(SearchIndexClient.Aliases.createOrUpdate, Access.internal);
 @@access(SearchIndexClient.Aliases.delete, Access.internal, "python");
 @@access(SearchIndexClient.KnowledgeBases.createOrUpdate, Access.internal);
@@ -842,6 +847,8 @@ namespace KnowledgeBaseRetrievalClient {
   "com.azure.search.documents.indexes",
   "java"
 );
+@@clientName(Search.OcrSkillLanguage.`is`, "IsEnum", "python");
+@@clientName(Search.ScoringStatistics.Global, "GlobalEnum", "python");
 @@clientNamespace(Search.OcrLineEnding, "Azure.Search.Documents.Indexes");
 @@clientNamespace(Search.OcrLineEnding,
   "com.azure.search.documents.indexes",
@@ -881,6 +888,7 @@ namespace KnowledgeBaseRetrievalClient {
   "com.azure.search.documents.indexes",
   "java"
 );
+@@clientName(Search.SplitSkillLanguage.`is`, "IsEnum", "python");
 @@clientNamespace(Search.TextSplitMode, "Azure.Search.Documents.Indexes");
 @@clientNamespace(Search.TextSplitMode,
   "com.azure.search.documents.indexes",
@@ -912,6 +920,7 @@ namespace KnowledgeBaseRetrievalClient {
   "com.azure.search.documents.indexes",
   "java"
 );
+@@clientName(Search.TextTranslationSkillLanguage.`is`, "IsEnum", "python");
 @@clientNamespace(Search.DocumentIntelligenceLayoutSkillOutputMode,
   "Azure.Search.Documents.Indexes"
 );
@@ -1284,6 +1293,11 @@ namespace KnowledgeBaseRetrievalClient {
 @@access(Search.ListSynonymMapsResult, Access.public, "java");
 @@clientNamespace(Search.SearchIndex, "Azure.Search.Documents.Indexes");
 @@clientNamespace(Search.SearchIndex,
+  "com.azure.search.documents.indexes",
+  "java"
+);
+@@clientNamespace(Search.SearchIndexResponse, "Azure.Search.Documents.Indexes");
+@@clientNamespace(Search.SearchIndexResponse,
   "com.azure.search.documents.indexes",
   "java"
 );
@@ -2485,6 +2499,9 @@ namespace KnowledgeBaseRetrievalClient {
 @@clientName(SearchClient.Documents.count, "getDocumentCount");
 @@clientName(SearchClient.Documents.get, "getDocument");
 @@clientName(SearchIndexClient.Indexes.list, "listIndexes");
+@@clientName(SearchIndexClient.Indexes.listWithSelectedProperties,
+  "listIndexesWithSelectedProperties"
+);
 @@clientName(SearchIndexClient.Indexes.get, "getIndex");
 @@clientName(SearchIndexClient.Indexes.getStatistics, "getIndexStatistics");
 @@clientName(SearchIndexClient.Indexes.delete, "deleteIndex");
@@ -2553,7 +2570,7 @@ namespace KnowledgeBaseRetrievalClient {
 @@clientName(SearchIndexerClient.Skillsets.delete, "deleteSkillset");
 
 @@clientName(VectorQuery.k, "kNearestNeighbors");
-@@clientName(VectorQuery.k, "kNearestNeighborsCount", "csharp");
+@@clientName(VectorQuery.k, "kNearestNeighborsCount", "csharp,javascript");
 @@clientName(SearchDocumentsResult.value, "results");
 @@clientName(SearchRequest.count, "includeTotalCount");
 @@clientName(SearchRequest.highlight, "highlightFields");
@@ -2685,6 +2702,10 @@ namespace KnowledgeBaseRetrievalClient {
 );
 @@clientName(SearchIndexerSkill.`@odata.type`, "odataType");
 @@clientName(SearchIndexerSkill.`@odata.type`, "odatatype", "javascript");
+@@clientName(ContentUnderstandingSkill.`@odata.type`,
+  "odatatype",
+  "javascript"
+);
 @@clientName(CognitiveServicesAccount.`@odata.type`, "odataType");
 @@clientName(CognitiveServicesAccount.`@odata.type`, "odatatype", "javascript");
 @@clientName(LexicalAnalyzer.`@odata.type`, "odataType");
@@ -2742,6 +2763,10 @@ namespace KnowledgeBaseRetrievalClient {
 @@clientName(UaxUrlEmailTokenizer.`@odata.type`, "odatatype", "javascript");
 @@clientName(AsciiFoldingTokenFilter.`@odata.type`, "odataType");
 @@clientName(AsciiFoldingTokenFilter.`@odata.type`, "odatatype", "javascript");
+@@clientName(Search.ChatCompletionSkill.`@odata.type`,
+  "odatatype",
+  "javascript"
+);
 @@clientName(CjkBigramTokenFilter.`@odata.type`, "odataType");
 @@clientName(CjkBigramTokenFilter.`@odata.type`, "odatatype", "javascript");
 @@clientName(CommonGramTokenFilter.`@odata.type`, "odataType");
@@ -2921,6 +2946,7 @@ namespace KnowledgeBaseRetrievalClient {
 @@clientName(PathHierarchyTokenizerV2.`@odata.type`, "odataType");
 @@clientName(PathHierarchyTokenizerV2.`@odata.type`, "odatatype", "javascript");
 @@clientName(ListIndexStatsSummary.value, "IndexesStatistics");
+@@clientName(ListIndexStatsSummary.value, "indexesStatistics", "javascript"); //TODO: verify casing
 @@clientName(Search.BM25SimilarityAlgorithm, "BM25Similarity", "csharp");
 @@clientName(Search.BM25SimilarityAlgorithm, "BM25Similarity", "javascript");
 @@clientName(Search.ClassicSimilarityAlgorithm, "ClassicSimilarity", "csharp");
@@ -2932,6 +2958,10 @@ namespace KnowledgeBaseRetrievalClient {
   "CommonModelParameters",
   "javascript"
 );
+@@clientName(Search.ChatCompletionCommonModelParameters.modelName,
+  "model",
+  "javascript"
+);
 @@clientName(Search.SearchServiceCounters, "ServiceCounters", "javascript");
 @@clientName(Search.SearchServiceLimits, "ServiceLimits", "javascript");
 @@clientName(Search.SearchAlias.eTag, "etag", "javascript");
@@ -2940,14 +2970,26 @@ namespace KnowledgeBaseRetrievalClient {
   "chatCompletionSchemaProperties",
   "javascript"
 );
-@@clientName(Search.AIFoundryModelCatalogName.OpenAICLIPImageTextEmbeddingsVitBasePatch32,
+@@clientName(Search.AIFoundryModelCatalogName.OpenAiClipImageTextEmbeddingsVitBasePatch32,
   "OpenAIClipImageTextEmbeddingsVitBasePatch32",
   "javascript"
 );
-@@clientName(Search.AIFoundryModelCatalogName.OpenAICLIPImageTextEmbeddingsViTLargePatch14336,
+@@clientName(Search.AIFoundryModelCatalogName.OpenAiClipImageTextEmbeddingsViTLargePatch14_336,
   "OpenAIClipImageTextEmbeddingsViTLargePatch14336",
   "javascript"
 );
+@@alternateType(Search.SearchOptions.select, string, "javascript");
+@@alternateType(Search.SearchOptions.orderBy, string, "javascript");
+@@alternateType(Search.SearchOptions.searchFields, string, "javascript");
+@@alternateType(Search.SearchRequest.select, string, "javascript");
+@@alternateType(Search.SearchRequest.orderby, string, "javascript");
+@@alternateType(Search.SearchRequest.searchFields, string, "javascript");
+@@alternateType(Search.SuggestOptions.select, string, "javascript");
+@@alternateType(Search.SuggestOptions.orderBy, string, "javascript");
+@@alternateType(Search.SuggestOptions.searchFields, string, "javascript");
+@@alternateType(Search.SuggestRequest.select, string, "javascript");
+@@alternateType(Search.SuggestRequest.orderby, string, "javascript");
+@@alternateType(Search.SuggestRequest.searchFields, string, "javascript");
 
 // Knowledge Base types
 @@clientNamespace(Search.AIServices, "Azure.Search.Documents.KnowledgeBases");
