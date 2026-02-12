@@ -1148,6 +1148,195 @@ union HighSpeedInterconnectPlacement {
 }
 
 /**
+ * The action that will be applied to a target resource in the virtual machine scale set lifecycle hook event if the platform does not receive a response from the customer for the target resource before waitUntil.
+ */
+@added(Versions.v2025_11_01)
+union LifecycleHookAction {
+  string,
+
+  /** The lifecycle hook of a target resource in a lifecycle hook event will be approved. */
+  Approve: "Approve",
+
+  /** The lifecycle hook of a target resource in a lifecycle hook event will be rejected. */
+  Reject: "Reject",
+}
+
+/**
+ * Describes a lifecycle hook.
+ */
+@added(Versions.v2025_11_01)
+model LifecycleHook {
+  /**
+   * Specifies the type of the lifecycle hook.
+   */
+  type?: VMScaleSetLifecycleHookEventType;
+
+  /**
+   * Specifies the time duration a virtual machine scale set lifecycle hook event sent to the customer waits for a response from the customer. It should be in ISO 8601 format.
+   */
+  waitDuration?: duration;
+
+  /**
+   * Specifies the action that will be applied to a target resource in the virtual machine scale set lifecycle hook event if the platform does not receive a response from the customer for the target resource before waitUntil.
+   */
+  defaultAction?: LifecycleHookAction;
+}
+
+/**
+ * Specifies the lifecycle hooks profile for the virtual machine scale set.
+ */
+@added(Versions.v2025_11_01)
+model LifecycleHooksProfile {
+  /**
+   * Specifies the lifecycle hooks configured for the virtual machine scale set.
+   */
+  @identifiers(#["type"])
+  lifecycleHooks?: LifecycleHook[];
+}
+
+/**
+ * Approval status of a target resource in a virtual machine scale set lifecycle hook event.
+ */
+@added(Versions.v2025_11_01)
+union LifecycleHookActionState {
+  string,
+
+  /** The lifecycle hook for the target resource is waiting for approval. */
+  Waiting: "Waiting",
+
+  /** The lifecycle hook for the target resource is approved. */
+  Approved: "Approved",
+
+  /** The lifecycle hook for the target resource is rejected. */
+  Rejected: "Rejected",
+}
+
+/**
+ * The states that a virtual machine scale set lifecycle hook event can be in. This is not settable by the customer. It is set only by the platform.
+ */
+@added(Versions.v2025_11_01)
+union VMScaleSetLifecycleHookEventState {
+  string,
+
+  /** The lifecycle hook event is active. E.g., waiting on a response from the customer. */
+  Active: "Active",
+
+  /** The lifecycle hook event is completed. i.e., all the target resources in the event have moved to a terminal state. */
+  Completed: "Completed",
+}
+
+/**
+ * Define a single target ARM resource in a virtual machine scale set lifecycle hook event. Currently, this can be a virtual machine scale set resource or an individual virtual machine resource within a VMScaleSet.
+ */
+@added(Versions.v2025_11_01)
+model VMScaleSetLifecycleHookEventTargetResource {
+  /**
+   * Specifies the target ARM resource. Currently, this can be a virtual machine scale set resource or an individual virtual machine resource within a VMScaleSet.
+   */
+  resource?: ApiEntityReference;
+
+  /**
+   * State of the lifecycle hook for the target resource. The customer can patch this property to move the lifecycle hook to a terminal state.
+   */
+  actionState?: LifecycleHookActionState;
+}
+
+/**
+ * Defines the virtual machine scale set lifecycle hook event properties.
+ */
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-provisioning-state" "For backward compatibility"
+@added(Versions.v2025_11_01)
+model VMScaleSetLifecycleHookEventProperties {
+  /**
+   * Defines the type or scenario for sending a virtual machine scale set lifecycle hook event to the customer.
+   */
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-duplicate-property" "backcompat"
+  type?: VMScaleSetLifecycleHookEventType;
+
+  /**
+   * Specifies the exact UTC timestamp in ISO 8601 format till which the event would remain in the current lifecycle state waiting for an action from the customer. Beyond this timestamp, the platform will apply the defaultAction for the event.
+   */
+  waitUntil?: string;
+
+  /**
+   * Specifies the exact UTC timestamp in ISO 8601 format till when the customer can delay the lifecycle hook event. The customer will not be allowed to delay the event to a timestamp beyond this.
+   */
+  maxWaitUntil?: string;
+
+  /**
+   * The UTC timestamp in ISO 8601 format at which the platform creates the virtual machine scale set lifecycle hook event entity.
+   */
+  timeCreated?: string;
+
+  /**
+   * Specify the action that will be applied on the a target resource in the virtual machine scale set lifecycle hook event if the platform does not get a response from the customer for the target resource before waitUntil.
+   */
+  defaultAction?: LifecycleHookAction;
+
+  /**
+   * List of target resources which are getting processed in the virtual machine scale set lifecycle hook event.
+   */
+  @identifiers(#["resource"])
+  targetResources?: VMScaleSetLifecycleHookEventTargetResource[];
+
+  /**
+   * Additional key-value pairs set on the lifecycle hook event that gives customer some useful context/data.
+   * The keys in this dictionary are specific to the lifecycle hook type. Different lifecycle hook events can have different sets of keys in the additional context depending on the lifecycle hook type.
+   * For example, for a lifecycle hook event with UpgradeAutoOSScheduling type,
+   * the additional context can contain the key "priority" that helps customer identify the priority of the Auto OS Upgrade operation triggered on the virtual machine scale set.
+   */
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-no-record" "For backward compatibility"
+  additionalContext?: VMScaleSetLifecycleHookEventAdditionalContext;
+
+  /**
+   * Specifies the state of the virtual machine scale set lifecycle hook event.
+   */
+  state?: VMScaleSetLifecycleHookEventState;
+}
+
+/**
+ * Additional key-value pairs set on the lifecycle hook event that gives customer some useful context/data.
+ * The keys in this dictionary are specific to the lifecycle hook type. Different lifecycle hook events can have different sets of keys in the additional context depending on the lifecycle hook type.
+ * For example, for a lifecycle hook event with UpgradeAutoOSScheduling type,
+ * the additional context can contain the key "priority" that helps customer identify the priority of the Auto OS Upgrade operation triggered on the virtual machine scale set.
+ */
+@added(Versions.v2025_11_01)
+model VMScaleSetLifecycleHookEventAdditionalContext {
+  /**
+   * Can only be present for a lifecycle hook event of type "UpgradeAutoOSScheduling".
+   * Denotes the priority of the virtual machine scale set lifecycle hook event for the Auto OS Upgrade scheduled on the virtual machine scale set.
+   */
+  priority?: string;
+}
+
+/**
+ * Specifies the scenario for which the customer is interested in receiving virtual machine scale set lifecycle hook events.
+ */
+@added(Versions.v2025_11_01)
+union VMScaleSetLifecycleHookEventType {
+  string,
+
+  /** Lifecycle hook event sent to the customer before an Auto OS Upgrade operation starts on the virtual machine scale set. */
+  UpgradeAutoOSScheduling: "UpgradeAutoOSScheduling",
+
+  /** Lifecycle hook event sent to the customer before upgrade starts on a batch of virtual machines belonging to a virtual machine scale set during an Auto OS Upgrade operation. */
+  UpgradeAutoOSRollingBatchStarting: "UpgradeAutoOSRollingBatchStarting",
+}
+
+/**
+ * Specifies information about the virtual machine scale set lifecycle hook event.
+ */
+@added(Versions.v2025_11_01)
+model VMScaleSetLifecycleHookEventUpdate {
+  /**
+   * virtual machine scale set lifecycle hook event properties.
+   */
+  #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Backward compatibility"
+  @Azure.ClientGenerator.Core.Legacy.flattenProperty
+  properties?: VMScaleSetLifecycleHookEventProperties;
+}
+
+/**
  * VM disk types which are disallowed.
  */
 union VmDiskTypes {
@@ -1812,6 +2001,12 @@ model VirtualMachineScaleSetProperties {
    */
   @added(Versions.v2025_04_01)
   highSpeedInterconnectPlacement?: HighSpeedInterconnectPlacement;
+
+  /**
+   * Specifies the lifecycle hooks profile for the virtual machine scale set.
+   */
+  @added(Versions.v2025_11_01)
+  lifecycleHooksProfile?: LifecycleHooksProfile;
 
   /**
    * Specifies the external health policy for the virtual machine scale set.
@@ -3784,6 +3979,12 @@ model VirtualMachineScaleSetUpdateProperties {
    * Specifies the sku profile for the virtual machine scale set.
    */
   skuProfile?: SkuProfile;
+
+  /**
+   * Specifies the lifecycle hooks profile for the virtual machine scale set.
+   */
+  @added(Versions.v2025_11_01)
+  lifecycleHooksProfile?: LifecycleHooksProfile;
 }
 
 /**
