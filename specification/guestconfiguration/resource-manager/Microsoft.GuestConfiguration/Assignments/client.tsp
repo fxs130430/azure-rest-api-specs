@@ -14,7 +14,10 @@ using Microsoft.GuestConfiguration;
 );
 @@alternateType(VmssvmInfo.vmId, Azure.Core.uuid, "csharp");
 @@alternateType(VmssvmInfo.latestReportId, Azure.Core.uuid, "csharp");
-@@alternateType(VmssvmInfo.vmResourceId, Azure.Core.armResourceIdentifier, "csharp");
+@@alternateType(VmssvmInfo.vmResourceId,
+  Azure.Core.armResourceIdentifier,
+  "csharp"
+);
 @@alternateType(GuestConfigurationNavigation.contentUri, url, "csharp");
 @@alternateType(VMInfo.id, Azure.Core.armResourceIdentifier, "csharp");
 @@alternateType(VMInfo.uuid, Azure.Core.uuid, "csharp");
@@ -22,7 +25,10 @@ using Microsoft.GuestConfiguration;
   Azure.Core.armResourceIdentifier,
   "csharp"
 );
-@@alternateType(AssignmentReport.id, Azure.Core.armResourceIdentifier, "csharp");
+@@alternateType(AssignmentReport.id,
+  Azure.Core.armResourceIdentifier,
+  "csharp"
+);
 @@alternateType(AssignmentReport.reportId, Azure.Core.uuid, "csharp");
 @@alternateType(GuestConfigurationAssignmentReport.id,
   Azure.Core.armResourceIdentifier,
@@ -54,7 +60,10 @@ using Microsoft.GuestConfiguration;
 @@clientName(ConfigurationParameter, "GuestConfigurationParameter", "csharp");
 @@clientName(ConfigurationSetting, "LcmConfigurationSetting", "csharp");
 @@clientName(VmssvmInfo, "GuestConfigurationVmssVmInfo", "csharp");
-@@clientName(VmssvmInfo.lastComplianceChecked, "LastComplianceCheckedOn", "csharp");
+@@clientName(VmssvmInfo.lastComplianceChecked,
+  "LastComplianceCheckedOn",
+  "csharp"
+);
 @@clientName(GuestConfigurationAssignmentProperties.vmssVMList,
   "VmssVmList",
   "csharp"
