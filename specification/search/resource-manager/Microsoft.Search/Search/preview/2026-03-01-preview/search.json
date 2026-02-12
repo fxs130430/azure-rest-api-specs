@@ -478,6 +478,17 @@
             "description": "If you requested creation of a free search service, the service is now provisioned and ready to use, subject to DNS propagation delay. For other SKU types, provisioning happens asynchronously. You can check the status of a scale operation through the provisioningState property returned in the response for a Get Service request.",
             "schema": {
               "$ref": "#/definitions/SearchService"
+            },
+            "headers": {
+              "Location": {
+                "type": "string",
+                "description": "The Location header contains the URL where the status of the long running operation can be checked."
+              },
+              "Retry-After": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
+              }
             }
           },
           "default": {
@@ -1455,7 +1466,7 @@
           "200": {
             "description": "Successfully retrieved the list of configurations.",
             "schema": {
-              "$ref": "../../../../../../common-types/resource-management/v5/networksecurityperimeter.json#/definitions/NetworkSecurityPerimeterConfigurationListResult"
+              "$ref": "../../../../../../common-types/resource-management/v6/networksecurityperimeter.json#/definitions/NetworkSecurityPerimeterConfigurationListResult"
             }
           },
           "default": {
@@ -1500,7 +1511,7 @@
           "200": {
             "description": "Successfully retrieved the configuration.",
             "schema": {
-              "$ref": "../../../../../../common-types/resource-management/v5/networksecurityperimeter.json#/definitions/NetworkSecurityPerimeterConfiguration"
+              "$ref": "../../../../../../common-types/resource-management/v6/networksecurityperimeter.json#/definitions/NetworkSecurityPerimeterConfiguration"
             }
           },
           "default": {
@@ -2735,7 +2746,8 @@
           "description": "This value can be set to 'Enabled' to avoid breaking changes on existing customer resources and templates. If set to 'Disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.",
           "enum": [
             "Enabled",
-            "Disabled"
+            "Disabled",
+            "SecuredByPerimeter"
           ],
           "x-ms-enum": {
             "name": "PublicNetworkAccess",
