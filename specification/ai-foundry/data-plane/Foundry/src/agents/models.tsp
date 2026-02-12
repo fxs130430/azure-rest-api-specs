@@ -1,7 +1,3 @@
-import "@typespec/http";
-import "@typespec/openapi";
-import "@azure-tools/typespec-azure-core";
-
 import "../openai-responses/models.tsp";
 
 using TypeSpec.Http;
@@ -11,15 +7,10 @@ namespace Azure.AI.Projects;
 
 const AllConditionalAgentDefinitionPreviews = #{
   conditional_previews: #[
-    FoundryPreviewOptInKeys.hosted_agents_v1,
-    FoundryPreviewOptInKeys.container_agents_v1,
-    FoundryPreviewOptInKeys.workflow_agents_v1,
-    FoundryPreviewOptInKeys.memory_stores_v1
+    FoundryFeaturesOptInKeys.hosted_agents_v1_preview,
+    FoundryFeaturesOptInKeys.container_agents_v1_preview,
+    FoundryFeaturesOptInKeys.workflow_agents_v1_preview
   ],
-};
-
-const MemoryStoreConditionalPreviews = #{
-  conditional_previews: #[FoundryPreviewOptInKeys.memory_stores_v1],
 };
 
 @extension("x-ms-foundry-meta", AllConditionalAgentDefinitionPreviews)
@@ -62,7 +53,6 @@ model CreateAgentFromManifestRequest {
   ...CreateAgentVersionFromManifestRequest;
 }
 
-@extension("x-ms-foundry-meta", MemoryStoreConditionalPreviews)
 model UpdateAgentFromManifestRequest {
   ...CreateAgentVersionFromManifestRequest;
 }
@@ -81,14 +71,21 @@ model CreateAgentRequest {
   ...CreateAgentVersionRequest;
 }
 
-@extension("x-ms-foundry-meta", MemoryStoreConditionalPreviews)
 model UpdateAgentRequest {
   ...CreateAgentVersionRequest;
 }
 
+union AgentObjectType {
+  agent: "agent",
+  agentVersion: "agent.version",
+  agentDeleted: "agent.deleted",
+  agentVersionDeleted: "agent.version.deleted",
+  agentContainer: "agent.container",
+}
+
 model AgentObject {
   @doc("The object type, which is always 'agent'.")
-  object: "agent";
+  object: AgentObjectType.agent;
 
   @doc("The unique identifier of the agent.")
   id: string;
@@ -107,7 +104,7 @@ model AgentVersionObject {
   ...MetadataPropertyForResponse;
 
   @doc("The object type, which is always 'agent.version'.")
-  object: "agent.version";
+  object: AgentObjectType.agentVersion;
 
   @doc("The unique identifier of the agent version.")
   id: string;
@@ -199,7 +196,7 @@ model PromptAgentDefinition extends AgentDefinition {
 
   #suppress "@azure-tools/typespec-azure-core/no-unnamed-union" ""
   @doc("""
-    How the model should select which tool (or tools) to use when generating a response. 
+    How the model should select which tool (or tools) to use when generating a response.
     See the `tools` parameter to see how to specify which tools the model can call.
     """)
   tool_choice?: string | OpenAI.ToolChoiceParam;
@@ -223,7 +220,7 @@ model PromptAgentDefinitionTextOptions {
 @doc("The workflow agent definition.")
 @extension(
   "x-ms-foundry-meta",
-  #{ required_previews: #[FoundryPreviewOptInKeys.workflow_agents_v1] }
+  #{ required_previews: #[FoundryFeaturesOptInKeys.workflow_agents_v1_preview] }
 )
 model WorkflowAgentDefinition extends AgentDefinition {
   kind: AgentKind.workflow;
@@ -233,10 +230,9 @@ model WorkflowAgentDefinition extends AgentDefinition {
 }
 
 @doc("The hosted agent definition.")
-@discriminator("kind")
 @extension(
   "x-ms-foundry-meta",
-  #{ required_previews: #[FoundryPreviewOptInKeys.hosted_agents_v1] }
+  #{ required_previews: #[FoundryFeaturesOptInKeys.hosted_agents_v1_preview] }
 )
 model HostedAgentDefinition extends AgentDefinition {
   kind: AgentKind.hosted;
@@ -278,7 +274,9 @@ model HostedAgentDefinition extends AgentDefinition {
 @doc("The container app agent definition.")
 @extension(
   "x-ms-foundry-meta",
-  #{ required_previews: #[FoundryPreviewOptInKeys.container_agents_v1] }
+  #{
+    required_previews: #[FoundryFeaturesOptInKeys.container_agents_v1_preview],
+  }
 )
 model ContainerAppAgentDefinition extends AgentDefinition {
   kind: AgentKind.container_app;
@@ -320,7 +318,7 @@ alias ListAgentQueryParameters = {
 @doc("A deleted agent Object")
 model DeleteAgentResponse {
   @doc("The object type. Always 'agent.deleted'.")
-  object: "agent.deleted";
+  object: AgentObjectType.agentDeleted;
 
   @doc("The name of the agent.")
   name: string;
@@ -331,8 +329,8 @@ model DeleteAgentResponse {
 
 @doc("A deleted agent version Object")
 model DeleteAgentVersionResponse {
-  @doc("The object type. Always 'agent.deleted'.")
-  object: "agent.version.deleted";
+  @doc("The object type. Always 'agent.version.deleted'.")
+  object: AgentObjectType.agentVersionDeleted;
 
   @doc("The name of the agent.")
   name: string;
@@ -367,200 +365,12 @@ model ToolArgumentBinding {
   argument_name: string;
 }
 
-@doc("The details of the container of a specific version of an agent.")
-@extension(
-  "x-ms-foundry-meta",
-  #{ required_previews: #[FoundryPreviewOptInKeys.container_agents_v1] }
-)
-model AgentContainerObject {
-  @doc("The object type, which is always 'agent.container'.")
-  @visibility(Lifecycle.Read)
-  object: "agent.container";
-
-  @doc("The identifier of the container.")
-  @visibility(Lifecycle.Read)
-  id?: string;
-
-  @doc("The status of the container of a specific version of an agent.")
-  @visibility(Lifecycle.Read)
-  status: AgentContainerStatus;
-
-  @doc("The maximum number of replicas for the container. Default is 1.")
-  @example(10)
-  max_replicas?: int32;
-
-  @doc("The minimum number of replicas for the container. Default is 1.")
-  @example(1)
-  min_replicas?: int32;
-
-  @doc("The error message if the container failed to operate, if any.")
-  @visibility(Lifecycle.Read)
-  error_message?: string;
-
-  @doc("The creation time of the container.")
-  @visibility(Lifecycle.Read)
-  created_at: utcDateTime;
-
-  @doc("The last update time of the container.")
-  @visibility(Lifecycle.Read)
-  updated_at: utcDateTime;
-
-  @doc("The detailed container information.")
-  @visibility(Lifecycle.Read)
-  container?: ContainerDetails;
-}
-
-@doc("Detailed information about the container.")
-@extension(
-  "x-ms-foundry-meta",
-  #{ required_previews: #[FoundryPreviewOptInKeys.container_agents_v1] }
-)
-model ContainerDetails {
-  @doc("The provisioning state of the container.")
-  provisioning_state: string;
-
-  @doc("The provisioning error of the container, if any.")
-  provisioning_error?: string;
-
-  @doc("The state of the container.")
-  state: string;
-
-  @doc("The health state of the container.")
-  health_state: string;
-
-  @doc("The list of replicas in the container.")
-  replicas: ContainerReplica[];
-
-  @doc("The last update time of the container.")
-  updated_on: utcDateTime;
-}
-
-@doc("Information about a container replica.")
-@extension(
-  "x-ms-foundry-meta",
-  #{ required_previews: #[FoundryPreviewOptInKeys.container_agents_v1] }
-)
-model ContainerReplica {
-  @doc("The name of the replica.")
-  name: string;
-
-  @doc("The state of the replica.")
-  state: string;
-
-  @doc("The container state of the replica.")
-  container_state: string;
-}
-
-@doc("Status of the container of a specific version of an agent.")
-@extension(
-  "x-ms-foundry-meta",
-  #{ required_previews: #[FoundryPreviewOptInKeys.container_agents_v1] }
-)
-union AgentContainerStatus {
-  @doc("The container is starting.")
-  Starting: "Starting",
-
-  @doc("The container is running.")
-  Running: "Running",
-
-  @doc("The container is stopping.")
-  Stopping: "Stopping",
-
-  @doc("The container is stopped.")
-  Stopped: "Stopped",
-
-  @doc("The container has failed.")
-  Failed: "Failed",
-
-  @doc("The container is deleting.")
-  Deleting: "Deleting",
-
-  @doc("The container is deleted.")
-  Deleted: "Deleted",
-
-  @doc("The container is updating.")
-  Updating: "Updating",
-}
-
-@doc("The container operation for a specific version of an agent.")
-@extension(
-  "x-ms-foundry-meta",
-  #{ required_previews: #[FoundryPreviewOptInKeys.container_agents_v1] }
-)
-model AgentContainerOperationObject {
-  @doc("The ID of the container operation. This id is unique identifier across the system.")
-  id: string;
-
-  @doc("The ID of the agent.")
-  agent_id: string;
-
-  @doc("The ID of the agent version.")
-  agent_version_id: string;
-
-  @doc("The status of the container operation.")
-  status: AgentContainerOperationStatus;
-
-  @doc("The error of the container operation, if any.")
-  error?: AgentContainerOperationError;
-
-  @doc("The container of the specific version of an agent.")
-  container?: AgentContainerObject;
-}
-
-@doc("The error details of the container operation, if any.")
-@extension(
-  "x-ms-foundry-meta",
-  #{ required_previews: #[FoundryPreviewOptInKeys.container_agents_v1] }
-)
-model AgentContainerOperationError {
-  @doc("The error code of the container operation, if any.")
-  code: string;
-
-  @doc("The error type of the container operation, if any.")
-  type: string;
-
-  @doc("The error message of the container operation, if any.")
-  message: string;
-}
-
-@doc("Status of the container operation for a specific version of an agent.")
-@extension(
-  "x-ms-foundry-meta",
-  #{ required_previews: #[FoundryPreviewOptInKeys.container_agents_v1] }
-)
-union AgentContainerOperationStatus {
-  @doc("The container operation is not started.")
-  NotStarted: "NotStarted",
-
-  @doc("The container operation is in progress.")
-  InProgress: "InProgress",
-
-  @doc("The container operation has succeeded.")
-  Succeeded: "Succeeded",
-
-  @doc("The container operation has failed.")
-  Failed: "Failed",
-}
-
-@extension(
-  "x-ms-foundry-meta",
-  #{ required_previews: #[FoundryPreviewOptInKeys.container_agents_v1] }
-)
-model AcceptedAgentContainerOperation {
-  @statusCode
-  code: 202;
-
-  @header("Operation-Location")
-  location: url;
-
-  @body
-  body: AgentContainerOperationObject;
-}
-
 /** The type of logs to stream from a container. */
 @extension(
   "x-ms-foundry-meta",
-  #{ required_previews: #[FoundryPreviewOptInKeys.container_agents_v1] }
+  #{
+    required_previews: #[FoundryFeaturesOptInKeys.container_agents_v1_preview],
+  }
 )
 union ContainerLogKind {
   /** Console logs from the container. */

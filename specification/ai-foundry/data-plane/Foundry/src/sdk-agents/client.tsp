@@ -1,7 +1,7 @@
-import "@azure-tools/typespec-client-generator-core";
 import "./main.tsp";
 
 using Azure.ClientGenerator.Core;
+using Azure.Core.Experimental;
 
 using Azure.AI.Projects;
 
@@ -21,8 +21,6 @@ using Azure.AI.Projects;
 
 @@clientName(AgentObject, "AgentDetails");
 @@clientName(AgentVersionObject, "AgentVersionDetails");
-@@clientName(AgentContainerObject, "AgentContainerDetails");
-@@clientName(AgentContainerOperationObject, "AgentContainerOperationDetails");
 
 @@clientName(MemoryStoreObject, "MemoryStoreDetails");
 
@@ -33,22 +31,16 @@ using Azure.AI.Projects;
 @@clientName(OpenAI.FileSearchTool.max_num_results, "maxResults");
 @@clientName(OpenAI.MCPApprovalResponse.approve, "approved");
 
-// ------------------------------------------------------------------------------------------------
-// Operation scope customizations - don't generate agent container operations
-// ------------------------------------------------------------------------------------------------
-@@scope(Agents.startAgentContainer, "!java");
-@@scope(Agents.stopAgentContainer, "!java");
-@@scope(Agents.updateAgentContainer, "!java");
-@@scope(Agents.deleteAgentContainer, "!java");
-@@scope(Agents.getAgentContainer, "!java");
-@@scope(Agents.getAgentContainerOperation, "!java");
-@@scope(Agents.listAgentContainerOperations, "!java");
-@@scope(Agents.listAgentVersionContainerOperations, "!java");
-@@scope(Agents.getAgentContainerOperation, "!java");
-
 // --------------------------------------------------------------------------------
 // Usage / Public accessibility overrides
 // --------------------------------------------------------------------------------
+
+// The original type is string | OpenAI.ToolChoiceParam . Making this just string
+// Prevents the emission of the full ToolChoiceParam class tree in Java, which
+// is already exposed by the Stainless library. Currently there aren't any azure-isms.
+@@changePropertyType(PromptAgentDefinition.tool_choice, string);
+
+@@access(FoundryFeaturesOptInKeys, Access.public);
 
 @@usage(OpenAI.IncludeEnum, Usage.input);
 @@access(OpenAI.IncludeEnum, Access.public);

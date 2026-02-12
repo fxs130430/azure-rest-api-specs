@@ -1,19 +1,10 @@
-import "@typespec/rest";
-import "@azure-tools/typespec-autorest";
-import "@azure-tools/typespec-azure-core";
-
 import "./models.tsp";
 
 using TypeSpec.Http;
-using Azure.Core.Traits;
 
 namespace Azure.AI.Projects;
 
-alias InsightsServiceTraits = SupportsClientRequestId &
-  NoRepeatableRequests &
-  NoConditionalRequests;
-
-alias InsightsOperations = FoundryAzureOperations<WithConditionalFoundryPreviewHeader<FoundryPreviewOptInKeys.insights_v1>>;
+alias InsightsPreviewHeader = WithRequiredFoundryPreviewHeader<FoundryFeaturesOptInKeys.insights_v1_preview>;
 
 alias IncludeCoordinatesTrait = {
   @query("includeCoordinates")
@@ -49,7 +40,7 @@ interface Insights {
   @route("insights")
   generate is Azure.Core.Foundations.Operation<
     {
-      ...WithRequiredFoundryPreviewHeader<FoundryPreviewOptInKeys.insights_v1>;
+      ...InsightsPreviewHeader;
 
       @header("Repeatability-Request-ID")
       @doc("Unique, client-generated identifier for ensuring request idempotency. Use the same ID for retries to prevent duplicate evaluations.")
@@ -66,17 +57,23 @@ interface Insights {
     ResourceCreatedResponse<Insight>
   >;
 
+  #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "We need explicit definition for header support"
   @doc("Get a specific insight by Id.")
-  @get
-  get is InsightsOperations.ResourceRead<
+  get is Azure.Core.Foundations.ResourceOperation<
     Insight,
-    QueryParametersTrait<IncludeCoordinatesTrait, TraitContext.Read>
+    {
+      ...InsightsPreviewHeader;
+      ...IncludeCoordinatesTrait;
+    },
+    Azure.Core.Foundations.ResourceOkResponse<Insight>
   >;
 
+  #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "We need explicit definition for header support"
   @doc("List all insights in reverse chronological order (newest first).")
-  @get
-  list is InsightsOperations.ResourceList<
+  @Rest.listsResource(Insight)
+  list is Azure.Core.Foundations.ResourceList<
     Insight,
-    ListQueryParametersTrait<FilterQueryParamsTraits>
+    FilterQueryParamsTraits & InsightsPreviewHeader,
+    Azure.Core.Page<Insight>
   >;
 }

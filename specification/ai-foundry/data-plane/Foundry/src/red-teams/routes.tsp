@@ -1,23 +1,32 @@
-import "@typespec/rest";
-import "@azure-tools/typespec-autorest";
-import "@azure-tools/typespec-azure-core";
-
 import "./models.tsp";
 
 using TypeSpec.Http;
 
 namespace Azure.AI.Projects;
 
-alias RedTeamOps = FoundryAzureOperations<WithConditionalFoundryPreviewHeader<FoundryPreviewOptInKeys.red_teams_v1>>;
+alias RedTeamsPreviewHeader = WithRequiredFoundryPreviewHeader<FoundryFeaturesOptInKeys.red_teams_v1_preview>;
 
 @route("redTeams")
 @tag("Redteams")
 interface RedTeams {
+  #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "We need explicit definition for header support"
   @doc("Get a redteam by name.")
-  get is RedTeamOps.ResourceRead<RedTeam>;
+  get is Azure.Core.Foundations.ResourceOperation<
+    RedTeam,
+    {
+      ...RedTeamsPreviewHeader;
+    },
+    Azure.Core.Foundations.ResourceOkResponse<RedTeam>
+  >;
 
+  #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "We need explicit definition for header support"
   @doc("List a redteam by name.")
-  list is RedTeamOps.ResourceList<RedTeam>;
+  @Rest.listsResource(RedTeam)
+  list is Azure.Core.Foundations.ResourceList<
+    RedTeam,
+    RedTeamsPreviewHeader,
+    Azure.Core.Page<RedTeam>
+  >;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations"
   @doc("Creates a redteam run.")
@@ -25,7 +34,7 @@ interface RedTeams {
   @post
   create is FoundryDataPlaneOperation<
     {
-      ...WithConditionalFoundryPreviewHeader<FoundryPreviewOptInKeys.red_teams_v1>;
+      ...RedTeamsPreviewHeader;
 
       @doc("Redteam to be run")
       @body

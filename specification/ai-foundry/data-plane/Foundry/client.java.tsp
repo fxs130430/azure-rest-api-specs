@@ -1,5 +1,3 @@
-import "@azure-tools/typespec-client-generator-core";
-
 import "./src/common/service.tsp";
 
 import "./src/connections/routes.tsp";
@@ -7,10 +5,10 @@ import "./src/datasets/routes.tsp";
 import "./src/indexes/routes.tsp";
 import "./src/deployments/routes.tsp";
 import "./src/red-teams/routes.tsp";
-import "./src/evaluationrules/routes.tsp";
+import "./src/evaluation-rules/routes.tsp";
 // Don't import openai-evaluations, we'll use Stainless SDK like in AgentsV2
 // import "./openai-evaluations/routes.tsp";
-import "./src/evaluation_taxonomies/routes.tsp";
+import "./src/evaluation-taxonomies/routes.tsp";
 import "./src/evaluators/routes.tsp";
 import "./src/insights/routes.tsp";
 import "./src/schedules/routes.tsp";
@@ -45,7 +43,6 @@ namespace Azure.AI.Projects;
 
 @@clientName(EntraIDCredentials, "EntraIdCredentials");
 
-@@clientName(EvalCompareReport, "EvaluationCompareReport");
 @@clientName(EvalResult, "EvaluationResult");
 @@clientName(EvalRun, "EvaluationRun");
 @@clientName(EvalRunDataSource, "EvaluationRunDataSource");
@@ -55,9 +52,13 @@ namespace Azure.AI.Projects;
 @@clientName(EvalRunResultComparison, "EvaluationRunResultComparison");
 @@clientName(EvalRunResultSummary, "EvaluationRunResultSummary");
 
+@@clientName(Azure.Core.Foundations.ResourceBody.resource, "schedule");
 // --------------------------------------------------------------------------------
 // Usage / Public accessibility overrides
 // --------------------------------------------------------------------------------
+
+// Needs forceful exposition
+@@access(FoundryFeaturesOptInKeys, Access.public);
 
 // Default name produces a style violation
 @@clientName(SASCredentials, "SasCredentials", "java");

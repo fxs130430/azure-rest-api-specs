@@ -4,18 +4,19 @@ info:
   version: v1
 tags:
   - name: Agents
+  - name: Agent Containers
   - name: Connections
   - name: Datasets
   - name: Deployments
-  - name: EvaluationTaxonomies
-  - name: EvaluationRules
+  - name: Evaluation Taxonomies
+  - name: Evaluation Rules
   - name: Evaluators
-  - name: Fine-tuning
   - name: Indexes
   - name: Insights
   - name: Memory Stores
   - name: Conversations
   - name: Evals
+  - name: Fine-Tuning
   - name: Responses
   - name: Redteams
   - name: Schedules
@@ -25,7 +26,7 @@ paths:
       operationId: Agents_createAgent
       description: Creates the agent.
       parameters:
-        - name: Foundry-Beta
+        - name: Foundry-Features
           in: header
           required: false
           description: A feature flag opt-in required when using preview operations or modifying persisted preview resources.
@@ -33,16 +34,13 @@ paths:
             anyOf:
               - type: string
                 enum:
-                  - ContainerAgents=v1
+                  - ContainerAgents=V1Preview
               - type: string
                 enum:
-                  - HostedAgents=v1
+                  - HostedAgents=V1Preview
               - type: string
                 enum:
-                  - WorkflowAgents=v1
-              - type: string
-                enum:
-                  - MemoryStores=v1
+                  - WorkflowAgents=V1Preview
         - name: api-version
           in: query
           required: true
@@ -73,10 +71,9 @@ paths:
               $ref: '#/components/schemas/CreateAgentRequest'
       x-ms-foundry-meta:
         conditional_previews:
-          - HostedAgents=v1
-          - ContainerAgents=v1
-          - WorkflowAgents=v1
-          - MemoryStores=v1
+          - HostedAgents=V1Preview
+          - ContainerAgents=V1Preview
+          - WorkflowAgents=V1Preview
     get:
       operationId: Agents_listAgents
       description: Returns the list of all agents.
@@ -208,14 +205,21 @@ paths:
         Updates the agent by adding a new version if there are any changes to the agent definition.
         If no changes, returns the existing agent version.
       parameters:
-        - name: Foundry-Beta
+        - name: Foundry-Features
           in: header
           required: false
           description: A feature flag opt-in required when using preview operations or modifying persisted preview resources.
           schema:
-            type: string
-            enum:
-              - MemoryStores=v1
+            anyOf:
+              - type: string
+                enum:
+                  - ContainerAgents=V1Preview
+              - type: string
+                enum:
+                  - HostedAgents=V1Preview
+              - type: string
+                enum:
+                  - WorkflowAgents=V1Preview
         - name: agent_name
           in: path
           required: true
@@ -250,25 +254,10 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/UpdateAgentRequest'
-      x-ms-foundry-meta:
-        conditional_previews:
-          - MemoryStores=v1
     delete:
       operationId: Agents_deleteAgent
       description: Deletes an agent.
       parameters:
-        - name: Foundry-Beta
-          in: header
-          required: false
-          description: A feature flag opt-in required when using preview operations or modifying persisted preview resources.
-          schema:
-            anyOf:
-              - type: string
-                enum:
-                  - ContainerAgents=v1
-              - type: string
-                enum:
-                  - HostedAgents=v1
         - name: agent_name
           in: path
           required: true
@@ -304,14 +293,6 @@ paths:
         Updates the agent from a manifest by adding a new version if there are any changes to the agent definition.
         If no changes, returns the existing agent version.
       parameters:
-        - name: Foundry-Beta
-          in: header
-          required: false
-          description: A feature flag opt-in required when using preview operations or modifying persisted preview resources.
-          schema:
-            type: string
-            enum:
-              - MemoryStores=v1
         - name: agent_name
           in: path
           required: true
@@ -348,17 +329,17 @@ paths:
               $ref: '#/components/schemas/UpdateAgentFromManifestRequest'
   /agents/{agent_name}/operations:
     get:
-      operationId: Agents_listAgentContainerOperations
+      operationId: AgentContainers_listAgentContainerOperations
       description: List container operations for an agent.
       parameters:
-        - name: Foundry-Beta
+        - name: Foundry-Features
           in: header
           required: false
           description: A feature flag opt-in required when using preview operations or modifying persisted preview resources.
           schema:
             type: string
             enum:
-              - ContainerAgents=v1
+              - ContainerAgents=V1Preview
         - name: agent_name
           in: path
           required: true
@@ -445,23 +426,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApiErrorResponse'
       tags:
-        - Agents
+        - Agent Containers
       x-ms-foundry-meta:
         required_previews:
-          - ContainerAgents=v1
+          - ContainerAgents=V1Preview
   /agents/{agent_name}/operations/{operation_id}:
     get:
-      operationId: Agents_getAgentContainerOperation
+      operationId: AgentContainers_getAgentContainerOperation
       description: Get the status of a container operation for an agent.
       parameters:
-        - name: Foundry-Beta
+        - name: Foundry-Features
           in: header
           required: false
           description: A feature flag opt-in required when using preview operations or modifying persisted preview resources.
           schema:
             type: string
             enum:
-              - ContainerAgents=v1
+              - ContainerAgents=V1Preview
         - name: agent_name
           in: path
           required: true
@@ -495,16 +476,16 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApiErrorResponse'
       tags:
-        - Agents
+        - Agent Containers
       x-ms-foundry-meta:
         required_previews:
-          - ContainerAgents=v1
+          - ContainerAgents=V1Preview
   /agents/{agent_name}/versions:
     post:
       operationId: Agents_createAgentVersion
       description: Create a new agent version.
       parameters:
-        - name: Foundry-Beta
+        - name: Foundry-Features
           in: header
           required: false
           description: A feature flag opt-in required when using preview operations or modifying persisted preview resources.
@@ -512,16 +493,13 @@ paths:
             anyOf:
               - type: string
                 enum:
-                  - ContainerAgents=v1
+                  - ContainerAgents=V1Preview
               - type: string
                 enum:
-                  - HostedAgents=v1
+                  - HostedAgents=V1Preview
               - type: string
                 enum:
-                  - WorkflowAgents=v1
-              - type: string
-                enum:
-                  - MemoryStores=v1
+                  - WorkflowAgents=V1Preview
         - name: agent_name
           in: path
           required: true
@@ -563,10 +541,9 @@ paths:
               $ref: '#/components/schemas/CreateAgentVersionRequest'
       x-ms-foundry-meta:
         conditional_previews:
-          - HostedAgents=v1
-          - ContainerAgents=v1
-          - WorkflowAgents=v1
-          - MemoryStores=v1
+          - HostedAgents=V1Preview
+          - ContainerAgents=V1Preview
+          - WorkflowAgents=V1Preview
     get:
       operationId: Agents_listAgentVersions
       description: Returns the list of versions of an agent.
@@ -701,18 +678,6 @@ paths:
       operationId: Agents_deleteAgentVersion
       description: Deletes a specific version of an agent.
       parameters:
-        - name: Foundry-Beta
-          in: header
-          required: false
-          description: A feature flag opt-in required when using preview operations or modifying persisted preview resources.
-          schema:
-            anyOf:
-              - type: string
-                enum:
-                  - ContainerAgents=v1
-              - type: string
-                enum:
-                  - HostedAgents=v1
         - name: agent_name
           in: path
           required: true
@@ -749,17 +714,17 @@ paths:
         - Agents
   /agents/{agent_name}/versions/{agent_version}/containers/default:
     get:
-      operationId: Agents_getAgentContainer
+      operationId: AgentContainers_getAgentContainer
       description: Get a container for a specific version of an agent.
       parameters:
-        - name: Foundry-Beta
+        - name: Foundry-Features
           in: header
           required: false
           description: A feature flag opt-in required when using preview operations or modifying persisted preview resources.
           schema:
             type: string
             enum:
-              - ContainerAgents=v1
+              - ContainerAgents=V1Preview
         - name: agent_name
           in: path
           required: true
@@ -793,23 +758,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApiErrorResponse'
       tags:
-        - Agents
+        - Agent Containers
       x-ms-foundry-meta:
         required_previews:
-          - ContainerAgents=v1
+          - ContainerAgents=V1Preview
   /agents/{agent_name}/versions/{agent_version}/containers/default/operations:
     get:
-      operationId: Agents_listAgentVersionContainerOperations
+      operationId: AgentContainers_listAgentVersionContainerOperations
       description: List container operations for a specific version of an agent.
       parameters:
-        - name: Foundry-Beta
+        - name: Foundry-Features
           in: header
           required: false
           description: A feature flag opt-in required when using preview operations or modifying persisted preview resources.
           schema:
             type: string
             enum:
-              - ContainerAgents=v1
+              - ContainerAgents=V1Preview
         - name: agent_name
           in: path
           required: true
@@ -902,26 +867,26 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApiErrorResponse'
       tags:
-        - Agents
+        - Agent Containers
       x-ms-foundry-meta:
         required_previews:
-          - ContainerAgents=v1
+          - ContainerAgents=V1Preview
   /agents/{agent_name}/versions/{agent_version}/containers/default:delete:
     post:
-      operationId: Agents_deleteAgentContainer
+      operationId: AgentContainers_deleteAgentContainer
       description: |-
         Delete a container for a specific version of an agent. If the container doesn't exist, the operation will be no-op.
         The operation is a long-running operation. Following the design guidelines for long-running operations in Azure REST APIs.
         https://github.com/microsoft/api-guidelines/blob/vNext/azure/ConsiderationsForServiceDesign.md#action-operations
       parameters:
-        - name: Foundry-Beta
+        - name: Foundry-Features
           in: header
           required: false
           description: A feature flag opt-in required when using preview operations or modifying persisted preview resources.
           schema:
             type: string
             enum:
-              - ContainerAgents=v1
+              - ContainerAgents=V1Preview
         - name: agent_name
           in: path
           required: true
@@ -961,13 +926,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApiErrorResponse'
       tags:
-        - Agents
+        - Agent Containers
       x-ms-foundry-meta:
         required_previews:
-          - ContainerAgents=v1
+          - ContainerAgents=V1Preview
   /agents/{agent_name}/versions/{agent_version}/containers/default:logstream:
     post:
-      operationId: Agents_streamAgentContainerLogs
+      operationId: AgentContainers_streamAgentContainerLogs
       description: |-
         Container log entry streamed from the container as text chunks.
         Each chunk is a UTF-8 string that may be either a plain text log line
@@ -986,14 +951,14 @@ paths:
         2025-12-15T08:34:29.0649033Z stdout F INFO:     127.0.0.1:60246 - "GET /readiness HTTP/1.1" 200 OK
         2025-12-15T08:34:59.0644467Z stdout F INFO:     127.0.0.1:43994 - "GET /readiness HTTP/1.1" 200 OK
       parameters:
-        - name: Foundry-Beta
+        - name: Foundry-Features
           in: header
           required: false
           description: A feature flag opt-in required when using preview operations or modifying persisted preview resources.
           schema:
             type: string
             enum:
-              - ContainerAgents=v1
+              - ContainerAgents=V1Preview
         - name: agent_name
           in: path
           required: true
@@ -1045,26 +1010,26 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApiErrorResponse'
       tags:
-        - Agents
+        - Agent Containers
       x-ms-foundry-meta:
         required_previews:
-          - ContainerAgents=v1
+          - ContainerAgents=V1Preview
   /agents/{agent_name}/versions/{agent_version}/containers/default:start:
     post:
-      operationId: Agents_startAgentContainer
+      operationId: AgentContainers_startAgentContainer
       description: |-
         Start a container for a specific version of an agent. If the container is already running, the operation will be no-op.
         The operation is a long-running operation. Following the design guidelines for long-running operations in Azure REST APIs.
         https://github.com/microsoft/api-guidelines/blob/vNext/azure/ConsiderationsForServiceDesign.md#action-operations
       parameters:
-        - name: Foundry-Beta
+        - name: Foundry-Features
           in: header
           required: false
           description: A feature flag opt-in required when using preview operations or modifying persisted preview resources.
           schema:
             type: string
             enum:
-              - ContainerAgents=v1
+              - ContainerAgents=V1Preview
         - name: agent_name
           in: path
           required: true
@@ -1104,7 +1069,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApiErrorResponse'
       tags:
-        - Agents
+        - Agent Containers
       requestBody:
         required: true
         content:
@@ -1124,23 +1089,23 @@ paths:
                   default: 1
       x-ms-foundry-meta:
         required_previews:
-          - ContainerAgents=v1
+          - ContainerAgents=V1Preview
   /agents/{agent_name}/versions/{agent_version}/containers/default:stop:
     post:
-      operationId: Agents_stopAgentContainer
+      operationId: AgentContainers_stopAgentContainer
       description: |-
         Stop a container for a specific version of an agent. If the container is not running, or already stopped, the operation will be no-op.
         The operation is a long-running operation. Following the design guidelines for long-running operations in Azure REST APIs.
         https://github.com/microsoft/api-guidelines/blob/vNext/azure/ConsiderationsForServiceDesign.md#action-operations
       parameters:
-        - name: Foundry-Beta
+        - name: Foundry-Features
           in: header
           required: false
           description: A feature flag opt-in required when using preview operations or modifying persisted preview resources.
           schema:
             type: string
             enum:
-              - ContainerAgents=v1
+              - ContainerAgents=V1Preview
         - name: agent_name
           in: path
           required: true
@@ -1180,26 +1145,26 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApiErrorResponse'
       tags:
-        - Agents
+        - Agent Containers
       x-ms-foundry-meta:
         required_previews:
-          - ContainerAgents=v1
+          - ContainerAgents=V1Preview
   /agents/{agent_name}/versions/{agent_version}/containers/default:update:
     post:
-      operationId: Agents_updateAgentContainer
+      operationId: AgentContainers_updateAgentContainer
       description: |-
         Update a container for a specific version of an agent. If the container is not running, the operation will be no-op.
         The operation is a long-running operation. Following the design guidelines for long-running operations in Azure REST APIs.
         https://github.com/microsoft/api-guidelines/blob/vNext/azure/ConsiderationsForServiceDesign.md#action-operations
       parameters:
-        - name: Foundry-Beta
+        - name: Foundry-Features
           in: header
           required: false
           description: A feature flag opt-in required when using preview operations or modifying persisted preview resources.
           schema:
             type: string
             enum:
-              - ContainerAgents=v1
+              - ContainerAgents=V1Preview
         - name: agent_name
           in: path
           required: true
@@ -1239,7 +1204,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApiErrorResponse'
       tags:
-        - Agents
+        - Agent Containers
       requestBody:
         required: true
         content:
@@ -1257,7 +1222,7 @@ paths:
                   description: The maximum number of replicas.
       x-ms-foundry-meta:
         required_previews:
-          - ContainerAgents=v1
+          - ContainerAgents=V1Preview
   /agents/{agent_name}/versions:import:
     post:
       operationId: Agents_createAgentVersionFromManifest
@@ -1307,18 +1272,6 @@ paths:
       operationId: Agents_createAgentFromManifest
       description: Creates an agent from a manifest.
       parameters:
-        - name: Foundry-Beta
-          in: header
-          required: false
-          description: A feature flag opt-in required when using preview operations or modifying persisted preview resources.
-          schema:
-            anyOf:
-              - type: string
-                enum:
-                  - ContainerAgents=v1
-              - type: string
-                enum:
-                  - HostedAgents=v1
         - name: api-version
           in: query
           required: true
@@ -1893,7 +1846,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Azure.Core.Foundations.ErrorResponse'
       tags:
-        - EvaluationRules
+        - Evaluation Rules
   /evaluationrules/{id}:
     get:
       operationId: EvaluationRules_get
@@ -1933,7 +1886,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Azure.Core.Foundations.ErrorResponse'
       tags:
-        - EvaluationRules
+        - Evaluation Rules
     delete:
       operationId: EvaluationRules_delete
       description: Delete an evaluation rule.
@@ -1968,7 +1921,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Azure.Core.Foundations.ErrorResponse'
       tags:
-        - EvaluationRules
+        - Evaluation Rules
     put:
       operationId: EvaluationRules_createOrUpdate
       description: Create or update an evaluation rule.
@@ -2006,7 +1959,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Azure.Core.Foundations.ErrorResponse'
       tags:
-        - EvaluationRules
+        - Evaluation Rules
       requestBody:
         required: true
         content:
@@ -2061,7 +2014,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Azure.Core.Foundations.ErrorResponse'
       tags:
-        - EvaluationTaxonomies
+        - Evaluation Taxonomies
   /evaluationtaxonomies/{name}:
     get:
       operationId: EvaluationTaxonomies_get
@@ -2101,7 +2054,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Azure.Core.Foundations.ErrorResponse'
       tags:
-        - EvaluationTaxonomies
+        - Evaluation Taxonomies
     delete:
       operationId: EvaluationTaxonomies_delete
       description: Delete an evaluation taxonomy by name.
@@ -2136,20 +2089,20 @@ paths:
               schema:
                 $ref: '#/components/schemas/Azure.Core.Foundations.ErrorResponse'
       tags:
-        - EvaluationTaxonomies
+        - Evaluation Taxonomies
     put:
       operationId: EvaluationTaxonomies_create
       description: Create an evaluation taxonomy.
       parameters:
         - $ref: '#/components/parameters/Azure.Core.Foundations.ApiVersionParameter'
-        - name: Foundry-Beta
+        - name: Foundry-Features
           in: header
-          required: false
+          required: true
           description: A feature flag opt-in required when using preview operations or modifying persisted preview resources.
           schema:
             type: string
             enum:
-              - Evaluations=v1
+              - Evaluations=V1Preview
         - name: name
           in: path
           required: true
@@ -2182,7 +2135,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Azure.Core.Foundations.ErrorResponse'
       tags:
-        - EvaluationTaxonomies
+        - Evaluation Taxonomies
       requestBody:
         required: true
         content:
@@ -2195,14 +2148,14 @@ paths:
       description: Update an evaluation taxonomy.
       parameters:
         - $ref: '#/components/parameters/Azure.Core.Foundations.ApiVersionParameter'
-        - name: Foundry-Beta
+        - name: Foundry-Features
           in: header
-          required: false
+          required: true
           description: A feature flag opt-in required when using preview operations or modifying persisted preview resources.
           schema:
             type: string
             enum:
-              - Evaluations=v1
+              - Evaluations=V1Preview
         - name: name
           in: path
           required: true
@@ -2229,7 +2182,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Azure.Core.Foundations.ErrorResponse'
       tags:
-        - EvaluationTaxonomies
+        - Evaluation Taxonomies
       requestBody:
         required: true
         content:
@@ -2263,14 +2216,14 @@ paths:
             format: int32
             default: 20
           explode: false
-        - name: Foundry-Beta
+        - name: Foundry-Features
           in: header
           required: true
           description: A feature flag opt-in required when using preview operations or modifying persisted preview resources.
           schema:
             type: string
             enum:
-              - Evaluations=v1
+              - Evaluations=V1Preview
       responses:
         '200':
           description: The request has succeeded.
@@ -2324,14 +2277,14 @@ paths:
             format: int32
             default: 20
           explode: false
-        - name: Foundry-Beta
+        - name: Foundry-Features
           in: header
           required: true
           description: A feature flag opt-in required when using preview operations or modifying persisted preview resources.
           schema:
             type: string
             enum:
-              - Evaluations=v1
+              - Evaluations=V1Preview
       responses:
         '200':
           description: The request has succeeded.
@@ -2364,14 +2317,14 @@ paths:
           description: The name of the resource
           schema:
             type: string
-        - name: Foundry-Beta
+        - name: Foundry-Features
           in: header
           required: true
           description: A feature flag opt-in required when using preview operations or modifying persisted preview resources.
           schema:
             type: string
             enum:
-              - Evaluations=v1
+              - Evaluations=V1Preview
       responses:
         '201':
           description: The request has succeeded and a new resource has been created as a result.
@@ -2411,14 +2364,14 @@ paths:
           description: The name of the resource
           schema:
             type: string
-        - name: Foundry-Beta
+        - name: Foundry-Features
           in: header
           required: true
           description: A feature flag opt-in required when using preview operations or modifying persisted preview resources.
           schema:
             type: string
             enum:
-              - Evaluations=v1
+              - Evaluations=V1Preview
         - name: version
           in: path
           required: true
@@ -2457,14 +2410,14 @@ paths:
           description: The name of the resource
           schema:
             type: string
-        - name: Foundry-Beta
+        - name: Foundry-Features
           in: header
           required: true
           description: A feature flag opt-in required when using preview operations or modifying persisted preview resources.
           schema:
             type: string
             enum:
-              - Evaluations=v1
+              - Evaluations=V1Preview
         - name: version
           in: path
           required: true
@@ -2499,14 +2452,14 @@ paths:
           description: The name of the resource
           schema:
             type: string
-        - name: Foundry-Beta
+        - name: Foundry-Features
           in: header
           required: true
           description: A feature flag opt-in required when using preview operations or modifying persisted preview resources.
           schema:
             type: string
             enum:
-              - Evaluations=v1
+              - Evaluations=V1Preview
         - name: version
           in: path
           required: true
@@ -2731,14 +2684,14 @@ paths:
       description: Generate Insights
       parameters:
         - $ref: '#/components/parameters/Azure.Core.Foundations.ApiVersionParameter'
-        - name: Foundry-Beta
+        - name: Foundry-Features
           in: header
           required: true
           description: A feature flag opt-in required when using preview operations or modifying persisted preview resources.
           schema:
             type: string
             enum:
-              - Insights=v1
+              - Insights=V1Preview
         - name: Repeatability-Request-ID
           in: header
           required: false
@@ -2900,14 +2853,14 @@ paths:
       operationId: createMemoryStore
       description: Create a memory store.
       parameters:
-        - name: Foundry-Beta
+        - name: Foundry-Features
           in: header
           required: true
           description: A feature flag opt-in required when using preview operations or modifying persisted preview resources.
           schema:
             type: string
             enum:
-              - MemoryStores=v1
+              - MemoryStores=V1Preview
         - name: api-version
           in: query
           required: true
@@ -2959,7 +2912,7 @@ paths:
                 - definition
       x-ms-foundry-meta:
         conditional_previews:
-          - MemoryStores=v1
+          - MemoryStores=V1Preview
     get:
       operationId: listMemoryStores
       description: List all memory stores.
@@ -3004,14 +2957,14 @@ paths:
           schema:
             type: string
           explode: false
-        - name: Foundry-Beta
+        - name: Foundry-Features
           in: header
           required: true
           description: A feature flag opt-in required when using preview operations or modifying persisted preview resources.
           schema:
             type: string
             enum:
-              - MemoryStores=v1
+              - MemoryStores=V1Preview
         - name: api-version
           in: query
           required: true
@@ -3055,7 +3008,7 @@ paths:
         - Memory Stores
       x-ms-foundry-meta:
         conditional_previews:
-          - MemoryStores=v1
+          - MemoryStores=V1Preview
   /memory_stores/{name}:
     post:
       operationId: updateMemoryStore
@@ -3067,14 +3020,14 @@ paths:
           description: The name of the memory store to update.
           schema:
             type: string
-        - name: Foundry-Beta
+        - name: Foundry-Features
           in: header
           required: true
           description: A feature flag opt-in required when using preview operations or modifying persisted preview resources.
           schema:
             type: string
             enum:
-              - MemoryStores=v1
+              - MemoryStores=V1Preview
         - name: api-version
           in: query
           required: true
@@ -3115,7 +3068,7 @@ paths:
                   description: Arbitrary key-value metadata to associate with the memory store.
       x-ms-foundry-meta:
         conditional_previews:
-          - MemoryStores=v1
+          - MemoryStores=V1Preview
     get:
       operationId: getMemoryStore
       description: Retrieve a memory store.
@@ -3126,14 +3079,14 @@ paths:
           description: The name of the memory store to retrieve.
           schema:
             type: string
-        - name: Foundry-Beta
+        - name: Foundry-Features
           in: header
           required: true
           description: A feature flag opt-in required when using preview operations or modifying persisted preview resources.
           schema:
             type: string
             enum:
-              - MemoryStores=v1
+              - MemoryStores=V1Preview
         - name: api-version
           in: query
           required: true
@@ -3158,7 +3111,7 @@ paths:
         - Memory Stores
       x-ms-foundry-meta:
         conditional_previews:
-          - MemoryStores=v1
+          - MemoryStores=V1Preview
     delete:
       operationId: deleteMemoryStore
       description: Delete a memory store.
@@ -3169,14 +3122,14 @@ paths:
           description: The name of the memory store to delete.
           schema:
             type: string
-        - name: Foundry-Beta
+        - name: Foundry-Features
           in: header
           required: true
           description: A feature flag opt-in required when using preview operations or modifying persisted preview resources.
           schema:
             type: string
             enum:
-              - MemoryStores=v1
+              - MemoryStores=V1Preview
         - name: api-version
           in: query
           required: true
@@ -3201,7 +3154,7 @@ paths:
         - Memory Stores
       x-ms-foundry-meta:
         conditional_previews:
-          - MemoryStores=v1
+          - MemoryStores=V1Preview
   /memory_stores/{name}/updates/{update_id}:
     get:
       operationId: getUpdateResult
@@ -3219,14 +3172,14 @@ paths:
           description: The ID of the memory update operation.
           schema:
             type: string
-        - name: Foundry-Beta
+        - name: Foundry-Features
           in: header
           required: true
           description: A feature flag opt-in required when using preview operations or modifying persisted preview resources.
           schema:
             type: string
             enum:
-              - MemoryStores=v1
+              - MemoryStores=V1Preview
         - name: api-version
           in: query
           required: true
@@ -3251,7 +3204,7 @@ paths:
         - Memory Stores
       x-ms-foundry-meta:
         conditional_previews:
-          - MemoryStores=v1
+          - MemoryStores=V1Preview
   /memory_stores/{name}:delete_scope:
     post:
       operationId: deleteScopeMemories
@@ -3263,14 +3216,14 @@ paths:
           description: The name of the memory store.
           schema:
             type: string
-        - name: Foundry-Beta
+        - name: Foundry-Features
           in: header
           required: true
           description: A feature flag opt-in required when using preview operations or modifying persisted preview resources.
           schema:
             type: string
             enum:
-              - MemoryStores=v1
+              - MemoryStores=V1Preview
         - name: api-version
           in: query
           required: true
@@ -3307,7 +3260,7 @@ paths:
                 - scope
       x-ms-foundry-meta:
         conditional_previews:
-          - MemoryStores=v1
+          - MemoryStores=V1Preview
   /memory_stores/{name}:search_memories:
     post:
       operationId: searchMemories
@@ -3319,14 +3272,14 @@ paths:
           description: The name of the memory store to search.
           schema:
             type: string
-        - name: Foundry-Beta
+        - name: Foundry-Features
           in: header
           required: true
           description: A feature flag opt-in required when using preview operations or modifying persisted preview resources.
           schema:
             type: string
             enum:
-              - MemoryStores=v1
+              - MemoryStores=V1Preview
         - name: api-version
           in: query
           required: true
@@ -3375,7 +3328,7 @@ paths:
                 - scope
       x-ms-foundry-meta:
         conditional_previews:
-          - MemoryStores=v1
+          - MemoryStores=V1Preview
   /memory_stores/{name}:update_memories:
     post:
       operationId: updateMemories
@@ -3387,14 +3340,14 @@ paths:
           description: The name of the memory store to update.
           schema:
             type: string
-        - name: Foundry-Beta
+        - name: Foundry-Features
           in: header
           required: true
           description: A feature flag opt-in required when using preview operations or modifying persisted preview resources.
           schema:
             type: string
             enum:
-              - MemoryStores=v1
+              - MemoryStores=V1Preview
         - name: api-version
           in: query
           required: true
@@ -3455,320 +3408,7 @@ paths:
                 - scope
       x-ms-foundry-meta:
         conditional_previews:
-          - MemoryStores=v1
-  /openai/fine-tuning/jobs:
-    post:
-      operationId: createFineTuningJob
-      description: |-
-        Creates a fine-tuning job which begins the process of creating a new model from a given dataset.
-
-        Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.
-
-        [Learn more about fine-tuning](https://platform.openai.com/docs/guides/fine-tuning)
-      parameters:
-        - name: api-version
-          in: query
-          required: true
-          description: The API version to use for this operation.
-          schema:
-            type: string
-          explode: false
-      responses:
-        '200':
-          description: The request has succeeded.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/OpenAI.FineTuningJob'
-        default:
-          description: An unexpected error response.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiErrorResponse'
-      tags:
-        - Fine-tuning
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/OpenAI.CreateFineTuningJobRequest'
-    get:
-      operationId: listPaginatedFineTuningJobs
-      description: List your organization's fine-tuning jobs
-      parameters:
-        - name: after
-          in: query
-          required: false
-          description: Identifier for the last job from the previous pagination request.
-          schema:
-            type: string
-          explode: false
-        - name: limit
-          in: query
-          required: false
-          description: Number of fine-tuning jobs to retrieve.
-          schema:
-            type: integer
-            format: int32
-            default: 20
-          explode: false
-        - name: api-version
-          in: query
-          required: true
-          description: The API version to use for this operation.
-          schema:
-            type: string
-          explode: false
-      responses:
-        '200':
-          description: The request has succeeded.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/OpenAI.ListPaginatedFineTuningJobsResponse'
-        default:
-          description: An unexpected error response.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiErrorResponse'
-      tags:
-        - Fine-tuning
-  /openai/fine-tuning/jobs/{fine_tuning_job_id}:
-    get:
-      operationId: retrieveFineTuningJob
-      description: |-
-        Get info about a fine-tuning job.
-
-        [Learn more about fine-tuning](https://platform.openai.com/docs/guides/fine-tuning)
-      parameters:
-        - name: fine_tuning_job_id
-          in: path
-          required: true
-          description: The ID of the fine-tuning job.
-          schema:
-            type: string
-        - name: api-version
-          in: query
-          required: true
-          description: The API version to use for this operation.
-          schema:
-            type: string
-          explode: false
-      responses:
-        '200':
-          description: The request has succeeded.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/OpenAI.FineTuningJob'
-        default:
-          description: An unexpected error response.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiErrorResponse'
-      tags:
-        - Fine-tuning
-  /openai/fine-tuning/jobs/{fine_tuning_job_id}/cancel:
-    post:
-      operationId: cancelFineTuningJob
-      description: Immediately cancel a fine-tune job.
-      parameters:
-        - name: fine_tuning_job_id
-          in: path
-          required: true
-          description: The ID of the fine-tuning job to cancel.
-          schema:
-            type: string
-        - name: api-version
-          in: query
-          required: true
-          description: The API version to use for this operation.
-          schema:
-            type: string
-          explode: false
-      responses:
-        '200':
-          description: The request has succeeded.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/OpenAI.FineTuningJob'
-        default:
-          description: An unexpected error response.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiErrorResponse'
-      tags:
-        - Fine-tuning
-  /openai/fine-tuning/jobs/{fine_tuning_job_id}/checkpoints:
-    get:
-      operationId: listFineTuningJobCheckpoints
-      description: List checkpoints for a fine-tuning job.
-      parameters:
-        - name: fine_tuning_job_id
-          in: path
-          required: true
-          description: The ID of the fine-tuning job to get checkpoints for.
-          schema:
-            type: string
-        - name: after
-          in: query
-          required: false
-          description: Identifier for the last checkpoint ID from the previous pagination request.
-          schema:
-            type: string
-          explode: false
-        - name: limit
-          in: query
-          required: false
-          description: Number of checkpoints to retrieve.
-          schema:
-            type: integer
-            format: int32
-            default: 10
-          explode: false
-        - name: api-version
-          in: query
-          required: true
-          description: The API version to use for this operation.
-          schema:
-            type: string
-          explode: false
-      responses:
-        '200':
-          description: The request has succeeded.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/OpenAI.ListFineTuningJobCheckpointsResponse'
-        default:
-          description: An unexpected error response.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiErrorResponse'
-      tags:
-        - Fine-tuning
-  /openai/fine-tuning/jobs/{fine_tuning_job_id}/events:
-    get:
-      operationId: listFineTuningJobEvents
-      description: Get fine-grained status updates for a fine-tuning job.
-      parameters:
-        - name: fine_tuning_job_id
-          in: path
-          required: true
-          description: The ID of the fine-tuning job to get events for.
-          schema:
-            type: string
-        - name: after
-          in: query
-          required: false
-          description: Identifier for the last event from the previous pagination request.
-          schema:
-            type: string
-          explode: false
-        - name: limit
-          in: query
-          required: false
-          description: Number of events to retrieve.
-          schema:
-            type: integer
-            format: int32
-            default: 20
-          explode: false
-        - name: api-version
-          in: query
-          required: true
-          description: The API version to use for this operation.
-          schema:
-            type: string
-          explode: false
-      responses:
-        '200':
-          description: The request has succeeded.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/OpenAI.ListFineTuningJobEventsResponse'
-        default:
-          description: An unexpected error response.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiErrorResponse'
-      tags:
-        - Fine-tuning
-  /openai/fine-tuning/jobs/{fine_tuning_job_id}/pause:
-    post:
-      operationId: pauseFineTuningJob
-      description: Pause a running fine-tune job.
-      parameters:
-        - name: fine_tuning_job_id
-          in: path
-          required: true
-          description: The ID of the fine-tuning job to pause.
-          schema:
-            type: string
-        - name: api-version
-          in: query
-          required: true
-          description: The API version to use for this operation.
-          schema:
-            type: string
-          explode: false
-      responses:
-        '200':
-          description: The request has succeeded.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/OpenAI.FineTuningJob'
-        default:
-          description: An unexpected error response.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiErrorResponse'
-      tags:
-        - Fine-tuning
-  /openai/fine-tuning/jobs/{fine_tuning_job_id}/resume:
-    post:
-      operationId: resumeFineTuningJob
-      description: Resume a paused fine-tune job.
-      parameters:
-        - name: fine_tuning_job_id
-          in: path
-          required: true
-          description: The ID of the fine-tuning job to resume.
-          schema:
-            type: string
-        - name: api-version
-          in: query
-          required: true
-          description: The API version to use for this operation.
-          schema:
-            type: string
-          explode: false
-      responses:
-        '200':
-          description: The request has succeeded.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/OpenAI.FineTuningJob'
-        default:
-          description: An unexpected error response.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ApiErrorResponse'
-      tags:
-        - Fine-tuning
+          - MemoryStores=V1Preview
   /openai/v1/conversations:
     post:
       operationId: createConversation
@@ -4016,9 +3656,7 @@ paths:
                 items:
                   type: array
                   items:
-                    anyOf:
-                      - $ref: '#/components/schemas/OpenAI.Item'
-                      - $ref: '#/components/schemas/OpenAI.EasyInputMessage'
+                    $ref: '#/components/schemas/OpenAI.Item'
                   maxItems: 20
                   description: The items to add to the conversation. You may add up to 20 items at a time.
               required:
@@ -4094,7 +3732,7 @@ paths:
                   data:
                     type: array
                     items:
-                      $ref: '#/components/schemas/OpenAI.ItemResource'
+                      $ref: '#/components/schemas/OpenAI.OutputItem'
                     description: The requested list of items.
                   first_id:
                     type: string
@@ -4137,7 +3775,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OpenAI.ItemResource'
+                $ref: '#/components/schemas/OpenAI.OutputItem'
         default:
           description: An unexpected error response.
           content:
@@ -4709,6 +4347,319 @@ paths:
                 $ref: '#/components/schemas/ApiErrorResponse'
       tags:
         - Evals
+  /openai/v1/fine_tuning/jobs:
+    post:
+      operationId: createFineTuningJob
+      description: |-
+        Creates a fine-tuning job which begins the process of creating a new model from a given dataset.
+
+        Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.
+
+        [Learn more about fine-tuning](https://platform.openai.com/docs/guides/fine-tuning)
+      parameters:
+        - name: api-version
+          in: query
+          required: true
+          description: The API version to use for this operation.
+          schema:
+            type: string
+          explode: false
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OpenAI.FineTuningJob'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+      tags:
+        - Fine-Tuning
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OpenAI.CreateFineTuningJobRequest'
+    get:
+      operationId: listPaginatedFineTuningJobs
+      description: List your organization's fine-tuning jobs
+      parameters:
+        - name: after
+          in: query
+          required: false
+          description: Identifier for the last job from the previous pagination request.
+          schema:
+            type: string
+          explode: false
+        - name: limit
+          in: query
+          required: false
+          description: Number of fine-tuning jobs to retrieve.
+          schema:
+            type: integer
+            format: int32
+            default: 20
+          explode: false
+        - name: api-version
+          in: query
+          required: true
+          description: The API version to use for this operation.
+          schema:
+            type: string
+          explode: false
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OpenAI.ListPaginatedFineTuningJobsResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+      tags:
+        - Fine-Tuning
+  /openai/v1/fine_tuning/jobs/{fine_tuning_job_id}:
+    get:
+      operationId: retrieveFineTuningJob
+      description: |-
+        Get info about a fine-tuning job.
+
+        [Learn more about fine-tuning](https://platform.openai.com/docs/guides/fine-tuning)
+      parameters:
+        - name: fine_tuning_job_id
+          in: path
+          required: true
+          description: The ID of the fine-tuning job.
+          schema:
+            type: string
+        - name: api-version
+          in: query
+          required: true
+          description: The API version to use for this operation.
+          schema:
+            type: string
+          explode: false
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OpenAI.FineTuningJob'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+      tags:
+        - Fine-Tuning
+  /openai/v1/fine_tuning/jobs/{fine_tuning_job_id}/cancel:
+    post:
+      operationId: cancelFineTuningJob
+      description: Immediately cancel a fine-tune job.
+      parameters:
+        - name: fine_tuning_job_id
+          in: path
+          required: true
+          description: The ID of the fine-tuning job to cancel.
+          schema:
+            type: string
+        - name: api-version
+          in: query
+          required: true
+          description: The API version to use for this operation.
+          schema:
+            type: string
+          explode: false
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OpenAI.FineTuningJob'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+      tags:
+        - Fine-Tuning
+  /openai/v1/fine_tuning/jobs/{fine_tuning_job_id}/checkpoints:
+    get:
+      operationId: listFineTuningJobCheckpoints
+      description: List checkpoints for a fine-tuning job.
+      parameters:
+        - name: fine_tuning_job_id
+          in: path
+          required: true
+          description: The ID of the fine-tuning job to get checkpoints for.
+          schema:
+            type: string
+        - name: after
+          in: query
+          required: false
+          description: Identifier for the last checkpoint ID from the previous pagination request.
+          schema:
+            type: string
+          explode: false
+        - name: limit
+          in: query
+          required: false
+          description: Number of checkpoints to retrieve.
+          schema:
+            type: integer
+            format: int32
+            default: 10
+          explode: false
+        - name: api-version
+          in: query
+          required: true
+          description: The API version to use for this operation.
+          schema:
+            type: string
+          explode: false
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OpenAI.ListFineTuningJobCheckpointsResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+      tags:
+        - Fine-Tuning
+  /openai/v1/fine_tuning/jobs/{fine_tuning_job_id}/events:
+    get:
+      operationId: listFineTuningJobEvents
+      description: Get fine-grained status updates for a fine-tuning job.
+      parameters:
+        - name: fine_tuning_job_id
+          in: path
+          required: true
+          description: The ID of the fine-tuning job to get events for.
+          schema:
+            type: string
+        - name: after
+          in: query
+          required: false
+          description: Identifier for the last event from the previous pagination request.
+          schema:
+            type: string
+          explode: false
+        - name: limit
+          in: query
+          required: false
+          description: Number of events to retrieve.
+          schema:
+            type: integer
+            format: int32
+            default: 20
+          explode: false
+        - name: api-version
+          in: query
+          required: true
+          description: The API version to use for this operation.
+          schema:
+            type: string
+          explode: false
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OpenAI.ListFineTuningJobEventsResponse'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+      tags:
+        - Fine-Tuning
+  /openai/v1/fine_tuning/jobs/{fine_tuning_job_id}/pause:
+    post:
+      operationId: pauseFineTuningJob
+      description: Pause a running fine-tune job.
+      parameters:
+        - name: fine_tuning_job_id
+          in: path
+          required: true
+          description: The ID of the fine-tuning job to pause.
+          schema:
+            type: string
+        - name: api-version
+          in: query
+          required: true
+          description: The API version to use for this operation.
+          schema:
+            type: string
+          explode: false
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OpenAI.FineTuningJob'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+      tags:
+        - Fine-Tuning
+  /openai/v1/fine_tuning/jobs/{fine_tuning_job_id}/resume:
+    post:
+      operationId: resumeFineTuningJob
+      description: Resume a paused fine-tune job.
+      parameters:
+        - name: fine_tuning_job_id
+          in: path
+          required: true
+          description: The ID of the fine-tuning job to resume.
+          schema:
+            type: string
+        - name: api-version
+          in: query
+          required: true
+          description: The API version to use for this operation.
+          schema:
+            type: string
+          explode: false
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OpenAI.FineTuningJob'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+      tags:
+        - Fine-Tuning
   /openai/v1/responses:
     post:
       operationId: createResponse_createResponseStream
@@ -5085,6 +5036,32 @@ paths:
                 $ref: '#/components/schemas/ApiErrorResponse'
       tags:
         - Responses
+  /openai/v1/responses/compact:
+    post:
+      operationId: compactResponseConversation
+      description: Produces a compaction of a responses conversation.
+      parameters: []
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OpenAI.CompactResource'
+        default:
+          description: An unexpected error response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+      tags:
+        - Responses
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OpenAI.CompactResponseMethodPublicBody'
   /openai/v1/responses/{response_id}:
     get:
       operationId: getResponse_getResponseStream
@@ -5356,14 +5333,14 @@ paths:
       operationId: RedTeams_create
       description: Creates a redteam run.
       parameters:
-        - name: Foundry-Beta
+        - name: Foundry-Features
           in: header
-          required: false
+          required: true
           description: A feature flag opt-in required when using preview operations or modifying persisted preview resources.
           schema:
             type: string
             enum:
-              - RedTeams=v1
+              - RedTeams=V1Preview
         - name: api-version
           in: query
           required: true
@@ -5617,14 +5594,14 @@ paths:
           description: The unique identifier of the schedule run.
           schema:
             type: string
-        - name: Foundry-Beta
+        - name: Foundry-Features
           in: header
           required: true
           description: A feature flag opt-in required when using preview operations or modifying persisted preview resources.
           schema:
             type: string
             enum:
-              - Insights=v1
+              - Schedules=V1Preview
         - name: api-version
           in: query
           required: true
@@ -5812,7 +5789,7 @@ components:
       description: The details of the container of a specific version of an agent.
       x-ms-foundry-meta:
         required_previews:
-          - ContainerAgents=v1
+          - ContainerAgents=V1Preview
     AgentContainerOperationError:
       type: object
       required:
@@ -5832,7 +5809,7 @@ components:
       description: The error details of the container operation, if any.
       x-ms-foundry-meta:
         required_previews:
-          - ContainerAgents=v1
+          - ContainerAgents=V1Preview
     AgentContainerOperationObject:
       type: object
       required:
@@ -5865,7 +5842,7 @@ components:
       description: The container operation for a specific version of an agent.
       x-ms-foundry-meta:
         required_previews:
-          - ContainerAgents=v1
+          - ContainerAgents=V1Preview
     AgentContainerOperationStatus:
       type: string
       enum:
@@ -5876,7 +5853,7 @@ components:
       description: Status of the container operation for a specific version of an agent.
       x-ms-foundry-meta:
         required_previews:
-          - ContainerAgents=v1
+          - ContainerAgents=V1Preview
     AgentContainerStatus:
       type: string
       enum:
@@ -5891,7 +5868,7 @@ components:
       description: Status of the container of a specific version of an agent.
       x-ms-foundry-meta:
         required_previews:
-          - ContainerAgents=v1
+          - ContainerAgents=V1Preview
     AgentDefinition:
       type: object
       required:
@@ -5912,10 +5889,9 @@ components:
           container_app: '#/components/schemas/ContainerAppAgentDefinition'
       x-ms-foundry-meta:
         conditional_previews:
-          - HostedAgents=v1
-          - ContainerAgents=v1
-          - WorkflowAgents=v1
-          - MemoryStores=v1
+          - HostedAgents=V1Preview
+          - ContainerAgents=V1Preview
+          - WorkflowAgents=V1Preview
     AgentKind:
       anyOf:
         - type: string
@@ -6281,7 +6257,8 @@ components:
           enum:
             - red_team
             - responses
-            - traces
+            - traces_preview
+            - synthetic_data_gen_preview
           description: Data schema scenario.
       allOf:
         - $ref: '#/components/schemas/DataSourceConfig'
@@ -6338,7 +6315,7 @@ components:
           description: The type of data source, always `azure_ai_responses`.
         item_generation_params:
           allOf:
-            - $ref: '#/components/schemas/ContinuousEvalItemGenerationParams'
+            - $ref: '#/components/schemas/ResponseRetrievalItemGenerationParams'
           description: The parameters for item generation.
         max_runs_hourly:
           type: integer
@@ -6452,6 +6429,8 @@ components:
               type: string
               description: A description of what the function does, used by the model to choose when and how to call the function.
             parameters:
+              type: object
+              additionalProperties: {}
               description: The parameters the functions accepts, described as a JSON Schema object.
           required:
             - name
@@ -6754,7 +6733,7 @@ components:
       description: A memory item containing a summary extracted from conversations.
       x-ms-foundry-meta:
         conditional_previews:
-          - MemoryStores=v1
+          - MemoryStores=V1Preview
     ClusterInsightResult:
       type: object
       required:
@@ -6943,7 +6922,7 @@ components:
       description: The container app agent definition.
       x-ms-foundry-meta:
         required_previews:
-          - ContainerAgents=v1
+          - ContainerAgents=V1Preview
     ContainerDetails:
       type: object
       required:
@@ -6977,7 +6956,7 @@ components:
       description: Detailed information about the container.
       x-ms-foundry-meta:
         required_previews:
-          - ContainerAgents=v1
+          - ContainerAgents=V1Preview
     ContainerLogKind:
       type: string
       enum:
@@ -6986,7 +6965,7 @@ components:
       description: The type of logs to stream from a container.
       x-ms-foundry-meta:
         required_previews:
-          - ContainerAgents=v1
+          - ContainerAgents=V1Preview
     ContainerReplica:
       type: object
       required:
@@ -7006,37 +6985,7 @@ components:
       description: Information about a container replica.
       x-ms-foundry-meta:
         required_previews:
-          - ContainerAgents=v1
-    ContinuousEvalItemGenerationParams:
-      type: object
-      required:
-        - type
-        - max_num_turns
-        - data_mapping
-        - source
-      properties:
-        type:
-          type: string
-          enum:
-            - response_retrieval
-          description: The type of item generation parameters, always `response_retrieval`.
-        max_num_turns:
-          type: integer
-          format: int32
-          description: The maximum number of turns of chat history to evaluate.
-        data_mapping:
-          type: object
-          additionalProperties:
-            type: string
-          description: Mapping from source fields to response_id field, required for retrieving chat history.
-        source:
-          anyOf:
-            - $ref: '#/components/schemas/OpenAI.EvalJsonlFileContentSource'
-            - $ref: '#/components/schemas/OpenAI.EvalJsonlFileIdSource'
-          description: The source from which JSONL content is read.
-      allOf:
-        - $ref: '#/components/schemas/ItemGenerationParams'
-      description: Represents the parameters for continuous evaluation item generation.
+          - ContainerAgents=V1Preview
     ContinuousEvaluationRuleAction:
       type: object
       required:
@@ -7157,16 +7106,14 @@ components:
           description: The agent definition. This can be a workflow, hosted agent, or a simple agent definition.
           x-ms-foundry-meta:
             conditional_previews:
-              - HostedAgents=v1
-              - ContainerAgents=v1
-              - WorkflowAgents=v1
-              - MemoryStores=v1
+              - HostedAgents=V1Preview
+              - ContainerAgents=V1Preview
+              - WorkflowAgents=V1Preview
       x-ms-foundry-meta:
         conditional_previews:
-          - HostedAgents=v1
-          - ContainerAgents=v1
-          - WorkflowAgents=v1
-          - MemoryStores=v1
+          - HostedAgents=V1Preview
+          - ContainerAgents=V1Preview
+          - WorkflowAgents=V1Preview
     CreateAgentVersionFromManifestRequest:
       type: object
       required:
@@ -7223,16 +7170,14 @@ components:
           description: The agent definition. This can be a workflow, hosted agent, or a simple agent definition.
           x-ms-foundry-meta:
             conditional_previews:
-              - HostedAgents=v1
-              - ContainerAgents=v1
-              - WorkflowAgents=v1
-              - MemoryStores=v1
+              - HostedAgents=V1Preview
+              - ContainerAgents=V1Preview
+              - WorkflowAgents=V1Preview
       x-ms-foundry-meta:
         conditional_previews:
-          - HostedAgents=v1
-          - ContainerAgents=v1
-          - WorkflowAgents=v1
-          - MemoryStores=v1
+          - HostedAgents=V1Preview
+          - ContainerAgents=V1Preview
+          - WorkflowAgents=V1Preview
     CreateEvalRequest:
       type: object
       required:
@@ -7509,7 +7454,7 @@ components:
           type: string
           enum:
             - agent.version.deleted
-          description: The object type. Always 'agent.deleted'.
+          description: The object type. Always 'agent.version.deleted'.
         name:
           type: string
           description: The name of the agent.
@@ -7574,7 +7519,7 @@ components:
           description: Whether the memory store was successfully deleted.
       x-ms-foundry-meta:
         conditional_previews:
-          - MemoryStores=v1
+          - MemoryStores=V1Preview
     DeleteResponseResult:
       type: object
       required:
@@ -8081,6 +8026,7 @@ components:
         propertyName: type
         mapping:
           azure_ai_traces_preview: '#/components/schemas/TracesPreviewEvalRunDataSource'
+          azure_ai_synthetic_data_gen_preview: '#/components/schemas/SyntheticDataGenerationPreviewEvalRunDataSource'
           azure_ai_responses: '#/components/schemas/AzureAIResponsesEvalRunDataSource'
           azure_ai_target_completions: '#/components/schemas/TargetCompletionEvalRunDataSource'
           azure_ai_red_team: '#/components/schemas/RedTeamEvalRunDataSource'
@@ -8711,8 +8657,12 @@ components:
             - $ref: '#/components/schemas/EvaluatorDefinitionType'
           description: The type of evaluator definition
         init_parameters:
+          type: object
+          additionalProperties: {}
           description: The JSON schema (Draft 2020-12) for the evaluator's input parameters. This includes parameters like type, properties, required.
         data_schema:
+          type: object
+          additionalProperties: {}
           description: The JSON schema (Draft 2020-12) for the evaluator's input data. This includes parameters like type, properties, required.
         metrics:
           type: object
@@ -9031,14 +8981,12 @@ components:
           type: string
           description: The image ID for the agent, applicable to image-based hosted agents.
           example: my-registry.azurecr.io/my-hosted-agent:latest
-      discriminator:
-        propertyName: kind
       allOf:
         - $ref: '#/components/schemas/AgentDefinition'
       description: The hosted agent definition.
       x-ms-foundry-meta:
         required_previews:
-          - HostedAgents=v1
+          - HostedAgents=V1Preview
     HourlyRecurrenceSchedule:
       type: object
       required:
@@ -9359,6 +9307,7 @@ components:
           red_team: '#/components/schemas/RedTeamItemGenerationParams'
           red_team_seed_prompts: '#/components/schemas/RedTeamSeedPromptsItemGenerationParams'
           red_team_taxonomy: '#/components/schemas/RedTeamTaxonomyItemGenerationParams'
+          response_retrieval: '#/components/schemas/ResponseRetrievalItemGenerationParams'
       description: Represents the set of parameters used to control item generation operations.
     ItemGenerationParamsType:
       anyOf:
@@ -9369,6 +9318,7 @@ components:
             - response_retrieval
             - red_team_seed_prompts
             - red_team_taxonomy
+            - synthetic_data_gen_preview
       description: The types of parameters for red team item generation.
     ManagedAzureAISearchIndex:
       type: object
@@ -9430,7 +9380,7 @@ components:
       description: A single memory item stored in the memory store, containing content and metadata.
       x-ms-foundry-meta:
         conditional_previews:
-          - MemoryStores=v1
+          - MemoryStores=V1Preview
     MemoryItemKind:
       anyOf:
         - type: string
@@ -9441,7 +9391,7 @@ components:
       description: Memory item kind.
       x-ms-foundry-meta:
         conditional_previews:
-          - MemoryStores=v1
+          - MemoryStores=V1Preview
     MemoryOperation:
       type: object
       required:
@@ -9459,7 +9409,7 @@ components:
       description: Represents a single memory operation (create, update, or delete) performed on a memory item.
       x-ms-foundry-meta:
         conditional_previews:
-          - MemoryStores=v1
+          - MemoryStores=V1Preview
     MemoryOperationKind:
       anyOf:
         - type: string
@@ -9471,7 +9421,7 @@ components:
       description: Memory operation kind.
       x-ms-foundry-meta:
         conditional_previews:
-          - MemoryStores=v1
+          - MemoryStores=V1Preview
     MemorySearchItem:
       type: object
       required:
@@ -9484,7 +9434,7 @@ components:
       description: A retrieved memory item from memory search.
       x-ms-foundry-meta:
         conditional_previews:
-          - MemoryStores=v1
+          - MemoryStores=V1Preview
     MemorySearchOptions:
       type: object
       properties:
@@ -9495,7 +9445,7 @@ components:
       description: Memory search options.
       x-ms-foundry-meta:
         conditional_previews:
-          - MemoryStores=v1
+          - MemoryStores=V1Preview
     MemorySearchPreviewTool:
       type: object
       required:
@@ -9574,7 +9524,7 @@ components:
           nullable: true
           description: The results returned from the memory search.
       allOf:
-        - $ref: '#/components/schemas/OpenAI.ItemResource'
+        - $ref: '#/components/schemas/OpenAI.OutputItem'
     MemoryStoreDefaultDefinition:
       type: object
       required:
@@ -9602,7 +9552,7 @@ components:
       description: Default memory store implementation.
       x-ms-foundry-meta:
         conditional_previews:
-          - MemoryStores=v1
+          - MemoryStores=V1Preview
     MemoryStoreDefaultOptions:
       type: object
       required:
@@ -9623,7 +9573,7 @@ components:
       description: Default memory store configurations.
       x-ms-foundry-meta:
         conditional_previews:
-          - MemoryStores=v1
+          - MemoryStores=V1Preview
     MemoryStoreDefinition:
       type: object
       required:
@@ -9640,7 +9590,7 @@ components:
       description: Base definition for memory store configurations.
       x-ms-foundry-meta:
         conditional_previews:
-          - MemoryStores=v1
+          - MemoryStores=V1Preview
     MemoryStoreDeleteScopeResponse:
       type: object
       required:
@@ -9666,7 +9616,7 @@ components:
       description: Response for deleting memories from a scope.
       x-ms-foundry-meta:
         conditional_previews:
-          - MemoryStores=v1
+          - MemoryStores=V1Preview
     MemoryStoreKind:
       anyOf:
         - type: string
@@ -9676,7 +9626,7 @@ components:
       description: The type of memory store implementation to use.
       x-ms-foundry-meta:
         conditional_previews:
-          - MemoryStores=v1
+          - MemoryStores=V1Preview
     MemoryStoreObject:
       type: object
       required:
@@ -9723,7 +9673,7 @@ components:
       description: A memory store that can store and retrieve user memories.
       x-ms-foundry-meta:
         conditional_previews:
-          - MemoryStores=v1
+          - MemoryStores=V1Preview
     MemoryStoreOperationUsage:
       type: object
       required:
@@ -9761,7 +9711,7 @@ components:
       description: Usage statistics of a memory store operation.
       x-ms-foundry-meta:
         conditional_previews:
-          - MemoryStores=v1
+          - MemoryStores=V1Preview
     MemoryStoreSearchResponse:
       type: object
       required:
@@ -9784,7 +9734,7 @@ components:
       description: Memory search response.
       x-ms-foundry-meta:
         conditional_previews:
-          - MemoryStores=v1
+          - MemoryStores=V1Preview
     MemoryStoreUpdateCompletedResult:
       type: object
       required:
@@ -9803,7 +9753,7 @@ components:
       description: Memory update result.
       x-ms-foundry-meta:
         conditional_previews:
-          - MemoryStores=v1
+          - MemoryStores=V1Preview
     MemoryStoreUpdateResponse:
       type: object
       required:
@@ -9831,7 +9781,7 @@ components:
       description: Provides the status of a memory store update operation.
       x-ms-foundry-meta:
         conditional_previews:
-          - MemoryStores=v1
+          - MemoryStores=V1Preview
     MemoryStoreUpdateStatus:
       type: string
       enum:
@@ -9843,7 +9793,7 @@ components:
       description: Status of a memory store update operation.
       x-ms-foundry-meta:
         conditional_previews:
-          - MemoryStores=v1
+          - MemoryStores=V1Preview
     MicrosoftFabricPreviewTool:
       type: object
       required:
@@ -9986,7 +9936,7 @@ components:
       allOf:
         - $ref: '#/components/schemas/BaseCredentials'
       description: Credentials that do not require authentication
-    OAuthConsentRequestItemResource:
+    OAuthConsentRequestOutputItem:
       type: object
       required:
         - id
@@ -10007,7 +9957,7 @@ components:
           type: string
           description: The server label for the OAuth consent request.
       allOf:
-        - $ref: '#/components/schemas/OpenAI.ItemResource'
+        - $ref: '#/components/schemas/OpenAI.OutputItem'
       description: Request from the service for the user to perform OAuth consent.
     OneTimeTrigger:
       type: object
@@ -10214,74 +10164,6 @@ components:
             - create_file
             - delete_file
             - update_file
-    OpenAI.ApplyPatchToolCallItemParam:
-      type: object
-      required:
-        - type
-        - call_id
-        - status
-        - operation
-      properties:
-        type:
-          type: string
-          enum:
-            - apply_patch_call
-          description: The type of the item. Always `apply_patch_call`.
-          x-stainless-const: true
-          default: apply_patch_call
-        id:
-          type: string
-          nullable: true
-        call_id:
-          type: string
-          minLength: 1
-          maxLength: 64
-          description: The unique ID of the apply patch tool call generated by the model.
-        status:
-          allOf:
-            - $ref: '#/components/schemas/OpenAI.ApplyPatchCallStatusParam'
-          description: The status of the apply patch tool call. One of `in_progress` or `completed`.
-        operation:
-          allOf:
-            - $ref: '#/components/schemas/OpenAI.ApplyPatchOperationParam'
-          description: The specific create, delete, or update instruction for the apply_patch tool call.
-      allOf:
-        - $ref: '#/components/schemas/OpenAI.Item'
-      description: A tool call representing a request to create, delete, or update files using diff patches.
-      title: Apply patch tool call
-    OpenAI.ApplyPatchToolCallOutputItemParam:
-      type: object
-      required:
-        - type
-        - call_id
-        - status
-      properties:
-        type:
-          type: string
-          enum:
-            - apply_patch_call_output
-          description: The type of the item. Always `apply_patch_call_output`.
-          x-stainless-const: true
-          default: apply_patch_call_output
-        id:
-          type: string
-          nullable: true
-        call_id:
-          type: string
-          minLength: 1
-          maxLength: 64
-          description: The unique ID of the apply patch tool call generated by the model.
-        status:
-          allOf:
-            - $ref: '#/components/schemas/OpenAI.ApplyPatchCallOutputStatusParam'
-          description: The status of the apply patch tool call output. One of `completed` or `failed`.
-        output:
-          type: string
-          nullable: true
-      allOf:
-        - $ref: '#/components/schemas/OpenAI.Item'
-      description: The streamed output emitted by an apply patch tool call.
-      title: Apply patch tool call output
     OpenAI.ApplyPatchToolParam:
       type: object
       required:
@@ -10388,6 +10270,82 @@ components:
           $ref: '#/components/schemas/OpenAI.FunctionObject'
       description: A function tool that can be used to generate a response.
       title: Function tool
+    OpenAI.ChatModel:
+      type: string
+      enum:
+        - gpt-5.2
+        - gpt-5.2-2025-12-11
+        - gpt-5.2-chat-latest
+        - gpt-5.2-pro
+        - gpt-5.2-pro-2025-12-11
+        - gpt-5.1
+        - gpt-5.1-2025-11-13
+        - gpt-5.1-codex
+        - gpt-5.1-mini
+        - gpt-5.1-chat-latest
+        - gpt-5
+        - gpt-5-mini
+        - gpt-5-nano
+        - gpt-5-2025-08-07
+        - gpt-5-mini-2025-08-07
+        - gpt-5-nano-2025-08-07
+        - gpt-5-chat-latest
+        - gpt-4.1
+        - gpt-4.1-mini
+        - gpt-4.1-nano
+        - gpt-4.1-2025-04-14
+        - gpt-4.1-mini-2025-04-14
+        - gpt-4.1-nano-2025-04-14
+        - o4-mini
+        - o4-mini-2025-04-16
+        - o3
+        - o3-2025-04-16
+        - o3-mini
+        - o3-mini-2025-01-31
+        - o1
+        - o1-2024-12-17
+        - o1-preview
+        - o1-preview-2024-09-12
+        - o1-mini
+        - o1-mini-2024-09-12
+        - gpt-4o
+        - gpt-4o-2024-11-20
+        - gpt-4o-2024-08-06
+        - gpt-4o-2024-05-13
+        - gpt-4o-audio-preview
+        - gpt-4o-audio-preview-2024-10-01
+        - gpt-4o-audio-preview-2024-12-17
+        - gpt-4o-audio-preview-2025-06-03
+        - gpt-4o-mini-audio-preview
+        - gpt-4o-mini-audio-preview-2024-12-17
+        - gpt-4o-search-preview
+        - gpt-4o-mini-search-preview
+        - gpt-4o-search-preview-2025-03-11
+        - gpt-4o-mini-search-preview-2025-03-11
+        - chatgpt-4o-latest
+        - codex-mini-latest
+        - gpt-4o-mini
+        - gpt-4o-mini-2024-07-18
+        - gpt-4-turbo
+        - gpt-4-turbo-2024-04-09
+        - gpt-4-0125-preview
+        - gpt-4-turbo-preview
+        - gpt-4-1106-preview
+        - gpt-4-vision-preview
+        - gpt-4
+        - gpt-4-0314
+        - gpt-4-0613
+        - gpt-4-32k
+        - gpt-4-32k-0314
+        - gpt-4-32k-0613
+        - gpt-3.5-turbo
+        - gpt-3.5-turbo-16k
+        - gpt-3.5-turbo-0301
+        - gpt-3.5-turbo-0613
+        - gpt-3.5-turbo-1106
+        - gpt-3.5-turbo-0125
+        - gpt-3.5-turbo-16k-0613
+      x-stainless-nominal: false
     OpenAI.ClickButtonType:
       type: string
       enum:
@@ -10515,30 +10473,59 @@ components:
         - $ref: '#/components/schemas/OpenAI.Tool'
       description: A tool that runs Python code to help generate a response to a prompt.
       title: Code interpreter
-    OpenAI.CompactionSummaryItemParam:
+    OpenAI.CompactResource:
       type: object
       required:
-        - type
-        - encrypted_content
+        - id
+        - object
+        - output
+        - created_at
+        - usage
       properties:
         id:
           type: string
-          nullable: true
-        type:
+          description: The unique identifier for the compacted response.
+        object:
           type: string
           enum:
-            - compaction
-          description: The type of the item. Always `compaction`.
+            - response.compaction
+          description: The object type. Always `response.compaction`.
           x-stainless-const: true
-          default: compaction
-        encrypted_content:
+          default: response.compaction
+        output:
+          type: array
+          items:
+            $ref: '#/components/schemas/OpenAI.OutputItem'
+          description: The compacted list of output items. This is a list of all user messages, followed by a single compaction item.
+        created_at:
+          type: integer
+          format: unixtime
+          description: Unix timestamp (in seconds) when the compacted conversation was created.
+        usage:
+          allOf:
+            - $ref: '#/components/schemas/OpenAI.ResponseUsage'
+          description: Token accounting for the compaction pass, including cached, reasoning, and total tokens.
+      title: The compacted response object
+    OpenAI.CompactResponseMethodPublicBody:
+      type: object
+      required:
+        - model
+      properties:
+        model:
+          $ref: '#/components/schemas/OpenAI.ModelIdsCompaction'
+        input:
+          anyOf:
+            - type: string
+            - type: array
+              items:
+                $ref: '#/components/schemas/OpenAI.InputItem'
+          nullable: true
+        previous_response_id:
           type: string
-          maxLength: 10485760
-          description: The encrypted content of the compaction summary.
-      allOf:
-        - $ref: '#/components/schemas/OpenAI.Item'
-      description: A compaction item generated by the [`v1/responses/compact` API](https://platform.openai.com/docs/api-reference/responses/compact).
-      title: Compaction item
+          nullable: true
+        instructions:
+          type: string
+          nullable: true
     OpenAI.ComparisonFilter:
       type: object
       required:
@@ -10642,43 +10629,6 @@ components:
             - scroll
             - type
             - wait
-    OpenAI.ComputerCallOutputItemParam:
-      type: object
-      required:
-        - call_id
-        - type
-        - output
-      properties:
-        id:
-          type: string
-          nullable: true
-        call_id:
-          type: string
-          minLength: 1
-          maxLength: 64
-          description: The ID of the computer tool call that produced the output.
-        type:
-          type: string
-          enum:
-            - computer_call_output
-          description: The type of the computer tool call output. Always `computer_call_output`.
-          x-stainless-const: true
-          default: computer_call_output
-        output:
-          $ref: '#/components/schemas/OpenAI.ComputerScreenshotImage'
-        acknowledged_safety_checks:
-          type: array
-          items:
-            $ref: '#/components/schemas/OpenAI.ComputerCallSafetyCheckParam'
-          nullable: true
-        status:
-          allOf:
-            - $ref: '#/components/schemas/OpenAI.FunctionCallItemStatus'
-          nullable: true
-      allOf:
-        - $ref: '#/components/schemas/OpenAI.Item'
-      description: The output of a computer tool call.
-      title: Computer tool call output
     OpenAI.ComputerCallSafetyCheckParam:
       type: object
       required:
@@ -12623,6 +12573,15 @@ components:
             - message
           description: The type of the message input. Always `message`.
           x-stainless-const: true
+        status:
+          type: string
+          enum:
+            - in_progress
+            - completed
+            - incomplete
+          description: |-
+            The status of item. One of `in_progress`, `completed`, or
+              `incomplete`. Populated when items are returned via API.
       allOf:
         - $ref: '#/components/schemas/OpenAI.InputItem'
       description: |-
@@ -14047,46 +14006,6 @@ components:
         - in_progress
         - completed
         - incomplete
-    OpenAI.FunctionCallOutputItemParam:
-      type: object
-      required:
-        - call_id
-        - type
-        - output
-      properties:
-        id:
-          type: string
-          nullable: true
-        call_id:
-          type: string
-          minLength: 1
-          maxLength: 64
-          description: The unique ID of the function tool call generated by the model.
-        type:
-          type: string
-          enum:
-            - function_call_output
-          description: The type of the function tool call output. Always `function_call_output`.
-          x-stainless-const: true
-          default: function_call_output
-        output:
-          anyOf:
-            - type: string
-            - type: array
-              items:
-                anyOf:
-                  - $ref: '#/components/schemas/OpenAI.InputTextContentParam'
-                  - $ref: '#/components/schemas/OpenAI.InputImageContentParamAutoParam'
-                  - $ref: '#/components/schemas/OpenAI.InputFileContentParam'
-          description: Text, image, or file output of the function tool call.
-        status:
-          allOf:
-            - $ref: '#/components/schemas/OpenAI.FunctionCallItemStatus'
-          nullable: true
-      allOf:
-        - $ref: '#/components/schemas/OpenAI.Item'
-      description: The output of a function tool call.
-      title: Function tool call output
     OpenAI.FunctionObject:
       type: object
       required:
@@ -14154,40 +14073,6 @@ components:
           nullable: true
       description: Commands and limits describing how to run the shell tool call.
       title: Shell action
-    OpenAI.FunctionShellCallItemParam:
-      type: object
-      required:
-        - call_id
-        - type
-        - action
-      properties:
-        id:
-          type: string
-          nullable: true
-        call_id:
-          type: string
-          minLength: 1
-          maxLength: 64
-          description: The unique ID of the shell tool call generated by the model.
-        type:
-          type: string
-          enum:
-            - shell_call
-          description: The type of the item. Always `shell_call`.
-          x-stainless-const: true
-          default: shell_call
-        action:
-          allOf:
-            - $ref: '#/components/schemas/OpenAI.FunctionShellActionParam'
-          description: The shell commands and limits that describe how to run the tool call.
-        status:
-          allOf:
-            - $ref: '#/components/schemas/OpenAI.FunctionShellCallItemStatus'
-          nullable: true
-      allOf:
-        - $ref: '#/components/schemas/OpenAI.Item'
-      description: A tool representing a request to execute one or more shell commands.
-      title: Shell tool call
     OpenAI.FunctionShellCallItemStatus:
       type: string
       enum:
@@ -14281,42 +14166,6 @@ components:
         - $ref: '#/components/schemas/OpenAI.FunctionShellCallOutputOutcomeParam'
       description: Indicates that the shell commands finished and returned an exit code.
       title: Shell call exit outcome
-    OpenAI.FunctionShellCallOutputItemParam:
-      type: object
-      required:
-        - call_id
-        - type
-        - output
-      properties:
-        id:
-          type: string
-          nullable: true
-        call_id:
-          type: string
-          minLength: 1
-          maxLength: 64
-          description: The unique ID of the shell tool call generated by the model.
-        type:
-          type: string
-          enum:
-            - shell_call_output
-          description: The type of the item. Always `shell_call_output`.
-          x-stainless-const: true
-          default: shell_call_output
-        output:
-          type: array
-          items:
-            $ref: '#/components/schemas/OpenAI.FunctionShellCallOutputContentParam'
-          description: Captured chunks of stdout and stderr output, along with their associated outcomes.
-        max_output_length:
-          type: integer
-          allOf:
-            - $ref: '#/components/schemas/OpenAI.integer'
-          nullable: true
-      allOf:
-        - $ref: '#/components/schemas/OpenAI.Item'
-      description: The streamed output items emitted by a shell tool call.
-      title: Shell tool call output
     OpenAI.FunctionShellCallOutputOutcome:
       type: object
       required:
@@ -15193,13 +15042,899 @@ components:
         mapping:
           message: '#/components/schemas/OpenAI.EasyInputMessage'
           item_reference: '#/components/schemas/OpenAI.ItemReferenceParam'
+          output_message: '#/components/schemas/OpenAI.InputItemOutputMessage'
+          file_search_call: '#/components/schemas/OpenAI.InputItemFileSearchToolCall'
+          computer_call: '#/components/schemas/OpenAI.InputItemComputerToolCall'
+          computer_call_output: '#/components/schemas/OpenAI.InputItemComputerCallOutputItemParam'
+          web_search_call: '#/components/schemas/OpenAI.InputItemWebSearchToolCall'
+          function_call: '#/components/schemas/OpenAI.InputItemFunctionToolCall'
+          function_call_output: '#/components/schemas/OpenAI.InputItemFunctionCallOutputItemParam'
+          reasoning: '#/components/schemas/OpenAI.InputItemReasoningItem'
+          compaction: '#/components/schemas/OpenAI.InputItemCompactionSummaryItemParam'
+          image_generation_call: '#/components/schemas/OpenAI.InputItemImageGenToolCall'
+          code_interpreter_call: '#/components/schemas/OpenAI.InputItemCodeInterpreterToolCall'
+          local_shell_call: '#/components/schemas/OpenAI.InputItemLocalShellToolCall'
+          local_shell_call_output: '#/components/schemas/OpenAI.InputItemLocalShellToolCallOutput'
+          shell_call: '#/components/schemas/OpenAI.InputItemFunctionShellCallItemParam'
+          shell_call_output: '#/components/schemas/OpenAI.InputItemFunctionShellCallOutputItemParam'
+          apply_patch_call: '#/components/schemas/OpenAI.InputItemApplyPatchToolCallItemParam'
+          apply_patch_call_output: '#/components/schemas/OpenAI.InputItemApplyPatchToolCallOutputItemParam'
+          mcp_list_tools: '#/components/schemas/OpenAI.InputItemMcpListTools'
+          mcp_approval_request: '#/components/schemas/OpenAI.InputItemMcpApprovalRequest'
+          mcp_approval_response: '#/components/schemas/OpenAI.InputItemMcpApprovalResponse'
+          mcp_call: '#/components/schemas/OpenAI.InputItemMcpToolCall'
+          custom_tool_call_output: '#/components/schemas/OpenAI.InputItemCustomToolCallOutput'
+          custom_tool_call: '#/components/schemas/OpenAI.InputItemCustomToolCall'
+      description: |-
+        An item representing part of the context for the response to be
+        generated by the model. Can contain text, images, and audio inputs,
+        as well as previous assistant responses and tool call outputs.
+    OpenAI.InputItemApplyPatchToolCallItemParam:
+      type: object
+      required:
+        - type
+        - call_id
+        - status
+        - operation
+      properties:
+        type:
+          type: string
+          enum:
+            - apply_patch_call
+          description: The type of the item. Always `apply_patch_call`.
+          x-stainless-const: true
+          default: apply_patch_call
+        id:
+          type: string
+          nullable: true
+        call_id:
+          type: string
+          minLength: 1
+          maxLength: 64
+          description: The unique ID of the apply patch tool call generated by the model.
+        status:
+          allOf:
+            - $ref: '#/components/schemas/OpenAI.ApplyPatchCallStatusParam'
+          description: The status of the apply patch tool call. One of `in_progress` or `completed`.
+        operation:
+          allOf:
+            - $ref: '#/components/schemas/OpenAI.ApplyPatchOperationParam'
+          description: The specific create, delete, or update instruction for the apply_patch tool call.
+      allOf:
+        - $ref: '#/components/schemas/OpenAI.InputItem'
+      description: A tool call representing a request to create, delete, or update files using diff patches.
+      title: Apply patch tool call
+    OpenAI.InputItemApplyPatchToolCallOutputItemParam:
+      type: object
+      required:
+        - type
+        - call_id
+        - status
+      properties:
+        type:
+          type: string
+          enum:
+            - apply_patch_call_output
+          description: The type of the item. Always `apply_patch_call_output`.
+          x-stainless-const: true
+          default: apply_patch_call_output
+        id:
+          type: string
+          nullable: true
+        call_id:
+          type: string
+          minLength: 1
+          maxLength: 64
+          description: The unique ID of the apply patch tool call generated by the model.
+        status:
+          allOf:
+            - $ref: '#/components/schemas/OpenAI.ApplyPatchCallOutputStatusParam'
+          description: The status of the apply patch tool call output. One of `completed` or `failed`.
+        output:
+          type: string
+          nullable: true
+      allOf:
+        - $ref: '#/components/schemas/OpenAI.InputItem'
+      description: The streamed output emitted by an apply patch tool call.
+      title: Apply patch tool call output
+    OpenAI.InputItemCodeInterpreterToolCall:
+      type: object
+      required:
+        - type
+        - id
+        - status
+        - container_id
+        - code
+        - outputs
+      properties:
+        type:
+          type: string
+          enum:
+            - code_interpreter_call
+          description: The type of the code interpreter tool call. Always `code_interpreter_call`.
+          x-stainless-const: true
+          default: code_interpreter_call
+        id:
+          type: string
+          description: The unique ID of the code interpreter tool call.
+        status:
+          type: string
+          enum:
+            - in_progress
+            - completed
+            - incomplete
+            - interpreting
+            - failed
+          description: The status of the code interpreter tool call. Valid values are `in_progress`, `completed`, `incomplete`, `interpreting`, and `failed`.
+        container_id:
+          type: string
+          description: The ID of the container used to run the code.
+        code:
+          type: string
+          nullable: true
+        outputs:
+          type: array
+          items:
+            anyOf:
+              - $ref: '#/components/schemas/OpenAI.CodeInterpreterOutputLogs'
+              - $ref: '#/components/schemas/OpenAI.CodeInterpreterOutputImage'
+          nullable: true
+      allOf:
+        - $ref: '#/components/schemas/OpenAI.InputItem'
+      description: A tool call to run code.
+      title: Code interpreter tool call
+    OpenAI.InputItemCompactionSummaryItemParam:
+      type: object
+      required:
+        - type
+        - encrypted_content
+      properties:
+        id:
+          type: string
+          nullable: true
+        type:
+          type: string
+          enum:
+            - compaction
+          description: The type of the item. Always `compaction`.
+          x-stainless-const: true
+          default: compaction
+        encrypted_content:
+          type: string
+          maxLength: 10485760
+          description: The encrypted content of the compaction summary.
+      allOf:
+        - $ref: '#/components/schemas/OpenAI.InputItem'
+      description: A compaction item generated by the [`v1/responses/compact` API](https://platform.openai.com/docs/api-reference/responses/compact).
+      title: Compaction item
+    OpenAI.InputItemComputerCallOutputItemParam:
+      type: object
+      required:
+        - call_id
+        - type
+        - output
+      properties:
+        id:
+          type: string
+          nullable: true
+        call_id:
+          type: string
+          minLength: 1
+          maxLength: 64
+          description: The ID of the computer tool call that produced the output.
+        type:
+          type: string
+          enum:
+            - computer_call_output
+          description: The type of the computer tool call output. Always `computer_call_output`.
+          x-stainless-const: true
+          default: computer_call_output
+        output:
+          $ref: '#/components/schemas/OpenAI.ComputerScreenshotImage'
+        acknowledged_safety_checks:
+          type: array
+          items:
+            $ref: '#/components/schemas/OpenAI.ComputerCallSafetyCheckParam'
+          nullable: true
+        status:
+          allOf:
+            - $ref: '#/components/schemas/OpenAI.FunctionCallItemStatus'
+          nullable: true
+      allOf:
+        - $ref: '#/components/schemas/OpenAI.InputItem'
+      description: The output of a computer tool call.
+      title: Computer tool call output
+    OpenAI.InputItemComputerToolCall:
+      type: object
+      required:
+        - type
+        - id
+        - call_id
+        - action
+        - pending_safety_checks
+        - status
+      properties:
+        type:
+          type: string
+          enum:
+            - computer_call
+          description: The type of the computer call. Always `computer_call`.
+          default: computer_call
+        id:
+          type: string
+          description: The unique ID of the computer call.
+        call_id:
+          type: string
+          description: An identifier used when responding to the tool call with output.
+        action:
+          $ref: '#/components/schemas/OpenAI.ComputerAction'
+        pending_safety_checks:
+          type: array
+          items:
+            $ref: '#/components/schemas/OpenAI.ComputerCallSafetyCheckParam'
+          description: The pending safety checks for the computer call.
+        status:
+          type: string
+          enum:
+            - in_progress
+            - completed
+            - incomplete
+          description: |-
+            The status of the item. One of `in_progress`, `completed`, or
+              `incomplete`. Populated when items are returned via API.
+      allOf:
+        - $ref: '#/components/schemas/OpenAI.InputItem'
+      description: |-
+        A tool call to a computer use tool. See the
+        [computer use guide](https://platform.openai.com/docs/guides/tools-computer-use) for more information.
+      title: Computer tool call
+    OpenAI.InputItemCustomToolCall:
+      type: object
+      required:
+        - type
+        - call_id
+        - name
+        - input
+      properties:
+        type:
+          type: string
+          enum:
+            - custom_tool_call
+          description: The type of the custom tool call. Always `custom_tool_call`.
+          x-stainless-const: true
+        id:
+          type: string
+          description: The unique ID of the custom tool call in the OpenAI platform.
+        call_id:
+          type: string
+          description: An identifier used to map this custom tool call to a tool call output.
+        name:
+          type: string
+          description: The name of the custom tool being called.
+        input:
+          type: string
+          description: The input for the custom tool call generated by the model.
+      allOf:
+        - $ref: '#/components/schemas/OpenAI.InputItem'
+      description: A call to a custom tool created by the model.
+      title: Custom tool call
+    OpenAI.InputItemCustomToolCallOutput:
+      type: object
+      required:
+        - type
+        - call_id
+        - output
+      properties:
+        type:
+          type: string
+          enum:
+            - custom_tool_call_output
+          description: The type of the custom tool call output. Always `custom_tool_call_output`.
+          x-stainless-const: true
+        id:
+          type: string
+          description: The unique ID of the custom tool call output in the OpenAI platform.
+        call_id:
+          type: string
+          description: The call ID, used to map this custom tool call output to a custom tool call.
+        output:
+          anyOf:
+            - type: string
+            - type: array
+              items:
+                $ref: '#/components/schemas/OpenAI.FunctionAndCustomToolCallOutput'
+          description: |-
+            The output from the custom tool call generated by your code.
+              Can be a string or an list of output content.
+      allOf:
+        - $ref: '#/components/schemas/OpenAI.InputItem'
+      description: The output of a custom tool call from your code, being sent back to the model.
+      title: Custom tool call output
+    OpenAI.InputItemFileSearchToolCall:
+      type: object
+      required:
+        - id
+        - type
+        - status
+        - queries
+      properties:
+        id:
+          type: string
+          description: The unique ID of the file search tool call.
+        type:
+          type: string
+          enum:
+            - file_search_call
+          description: The type of the file search tool call. Always `file_search_call`.
+          x-stainless-const: true
+        status:
+          type: string
+          enum:
+            - in_progress
+            - searching
+            - completed
+            - incomplete
+            - failed
+          description: |-
+            The status of the file search tool call. One of `in_progress`,
+              `searching`, `incomplete` or `failed`,
+        queries:
+          type: array
+          items:
+            type: string
+          description: The queries used to search for files.
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/OpenAI.FileSearchToolCallResults'
+          nullable: true
+      allOf:
+        - $ref: '#/components/schemas/OpenAI.InputItem'
+      description: |-
+        The results of a file search tool call. See the
+        [file search guide](https://platform.openai.com/docs/guides/tools-file-search) for more information.
+      title: File search tool call
+    OpenAI.InputItemFunctionCallOutputItemParam:
+      type: object
+      required:
+        - call_id
+        - type
+        - output
+      properties:
+        id:
+          type: string
+          nullable: true
+        call_id:
+          type: string
+          minLength: 1
+          maxLength: 64
+          description: The unique ID of the function tool call generated by the model.
+        type:
+          type: string
+          enum:
+            - function_call_output
+          description: The type of the function tool call output. Always `function_call_output`.
+          x-stainless-const: true
+          default: function_call_output
+        output:
+          anyOf:
+            - type: string
+            - type: array
+              items:
+                anyOf:
+                  - $ref: '#/components/schemas/OpenAI.InputTextContentParam'
+                  - $ref: '#/components/schemas/OpenAI.InputImageContentParamAutoParam'
+                  - $ref: '#/components/schemas/OpenAI.InputFileContentParam'
+          description: Text, image, or file output of the function tool call.
+        status:
+          allOf:
+            - $ref: '#/components/schemas/OpenAI.FunctionCallItemStatus'
+          nullable: true
+      allOf:
+        - $ref: '#/components/schemas/OpenAI.InputItem'
+      description: The output of a function tool call.
+      title: Function tool call output
+    OpenAI.InputItemFunctionShellCallItemParam:
+      type: object
+      required:
+        - call_id
+        - type
+        - action
+      properties:
+        id:
+          type: string
+          nullable: true
+        call_id:
+          type: string
+          minLength: 1
+          maxLength: 64
+          description: The unique ID of the shell tool call generated by the model.
+        type:
+          type: string
+          enum:
+            - shell_call
+          description: The type of the item. Always `shell_call`.
+          x-stainless-const: true
+          default: shell_call
+        action:
+          allOf:
+            - $ref: '#/components/schemas/OpenAI.FunctionShellActionParam'
+          description: The shell commands and limits that describe how to run the tool call.
+        status:
+          allOf:
+            - $ref: '#/components/schemas/OpenAI.FunctionShellCallItemStatus'
+          nullable: true
+      allOf:
+        - $ref: '#/components/schemas/OpenAI.InputItem'
+      description: A tool representing a request to execute one or more shell commands.
+      title: Shell tool call
+    OpenAI.InputItemFunctionShellCallOutputItemParam:
+      type: object
+      required:
+        - call_id
+        - type
+        - output
+      properties:
+        id:
+          type: string
+          nullable: true
+        call_id:
+          type: string
+          minLength: 1
+          maxLength: 64
+          description: The unique ID of the shell tool call generated by the model.
+        type:
+          type: string
+          enum:
+            - shell_call_output
+          description: The type of the item. Always `shell_call_output`.
+          x-stainless-const: true
+          default: shell_call_output
+        output:
+          type: array
+          items:
+            $ref: '#/components/schemas/OpenAI.FunctionShellCallOutputContentParam'
+          description: Captured chunks of stdout and stderr output, along with their associated outcomes.
+        max_output_length:
+          type: integer
+          allOf:
+            - $ref: '#/components/schemas/OpenAI.integer'
+          nullable: true
+      allOf:
+        - $ref: '#/components/schemas/OpenAI.InputItem'
+      description: The streamed output items emitted by a shell tool call.
+      title: Shell tool call output
+    OpenAI.InputItemFunctionToolCall:
+      type: object
+      required:
+        - type
+        - call_id
+        - name
+        - arguments
+      properties:
+        id:
+          type: string
+          description: The unique ID of the function tool call.
+        type:
+          type: string
+          enum:
+            - function_call
+          description: The type of the function tool call. Always `function_call`.
+          x-stainless-const: true
+        call_id:
+          type: string
+          description: The unique ID of the function tool call generated by the model.
+        name:
+          type: string
+          description: The name of the function to run.
+        arguments:
+          type: string
+          description: A JSON string of the arguments to pass to the function.
+        status:
+          type: string
+          enum:
+            - in_progress
+            - completed
+            - incomplete
+          description: |-
+            The status of the item. One of `in_progress`, `completed`, or
+              `incomplete`. Populated when items are returned via API.
+      allOf:
+        - $ref: '#/components/schemas/OpenAI.InputItem'
+      description: |-
+        A tool call to run a function. See the
+        [function calling guide](https://platform.openai.com/docs/guides/function-calling) for more information.
+      title: Function tool call
+    OpenAI.InputItemImageGenToolCall:
+      type: object
+      required:
+        - type
+        - id
+        - status
+        - result
+      properties:
+        type:
+          type: string
+          enum:
+            - image_generation_call
+          description: The type of the image generation call. Always `image_generation_call`.
+          x-stainless-const: true
+        id:
+          type: string
+          description: The unique ID of the image generation call.
+        status:
+          type: string
+          enum:
+            - in_progress
+            - completed
+            - generating
+            - failed
+          description: The status of the image generation call.
+        result:
+          type: string
+          nullable: true
+      allOf:
+        - $ref: '#/components/schemas/OpenAI.InputItem'
+      description: An image generation request made by the model.
+      title: Image generation call
+    OpenAI.InputItemLocalShellToolCall:
+      type: object
+      required:
+        - type
+        - id
+        - call_id
+        - action
+        - status
+      properties:
+        type:
+          type: string
+          enum:
+            - local_shell_call
+          description: The type of the local shell call. Always `local_shell_call`.
+          x-stainless-const: true
+        id:
+          type: string
+          description: The unique ID of the local shell call.
+        call_id:
+          type: string
+          description: The unique ID of the local shell tool call generated by the model.
+        action:
+          $ref: '#/components/schemas/OpenAI.LocalShellExecAction'
+        status:
+          type: string
+          enum:
+            - in_progress
+            - completed
+            - incomplete
+          description: The status of the local shell call.
+      allOf:
+        - $ref: '#/components/schemas/OpenAI.InputItem'
+      description: A tool call to run a command on the local shell.
+      title: Local shell call
+    OpenAI.InputItemLocalShellToolCallOutput:
+      type: object
+      required:
+        - type
+        - id
+        - output
+      properties:
+        type:
+          type: string
+          enum:
+            - local_shell_call_output
+          description: The type of the local shell tool call output. Always `local_shell_call_output`.
+          x-stainless-const: true
+        id:
+          type: string
+          description: The unique ID of the local shell tool call generated by the model.
+        output:
+          type: string
+          description: A JSON string of the output of the local shell tool call.
+        status:
+          type: string
+          enum:
+            - in_progress
+            - completed
+            - incomplete
+          nullable: true
+      allOf:
+        - $ref: '#/components/schemas/OpenAI.InputItem'
+      description: The output of a local shell tool call.
+      title: Local shell call output
+    OpenAI.InputItemMcpApprovalRequest:
+      type: object
+      required:
+        - type
+        - id
+        - server_label
+        - name
+        - arguments
+      properties:
+        type:
+          type: string
+          enum:
+            - mcp_approval_request
+          description: The type of the item. Always `mcp_approval_request`.
+          x-stainless-const: true
+        id:
+          type: string
+          description: The unique ID of the approval request.
+        server_label:
+          type: string
+          description: The label of the MCP server making the request.
+        name:
+          type: string
+          description: The name of the tool to run.
+        arguments:
+          type: string
+          description: A JSON string of arguments for the tool.
+      allOf:
+        - $ref: '#/components/schemas/OpenAI.InputItem'
+      description: A request for human approval of a tool invocation.
+      title: MCP approval request
+    OpenAI.InputItemMcpApprovalResponse:
+      type: object
+      required:
+        - type
+        - approval_request_id
+        - approve
+      properties:
+        type:
+          type: string
+          enum:
+            - mcp_approval_response
+          description: The type of the item. Always `mcp_approval_response`.
+          x-stainless-const: true
+        id:
+          type: string
+          nullable: true
+        approval_request_id:
+          type: string
+          description: The ID of the approval request being answered.
+        approve:
+          type: boolean
+          description: Whether the request was approved.
+        reason:
+          type: string
+          nullable: true
+      allOf:
+        - $ref: '#/components/schemas/OpenAI.InputItem'
+      description: A response to an MCP approval request.
+      title: MCP approval response
+    OpenAI.InputItemMcpListTools:
+      type: object
+      required:
+        - type
+        - id
+        - server_label
+        - tools
+      properties:
+        type:
+          type: string
+          enum:
+            - mcp_list_tools
+          description: The type of the item. Always `mcp_list_tools`.
+          x-stainless-const: true
+        id:
+          type: string
+          description: The unique ID of the list.
+        server_label:
+          type: string
+          description: The label of the MCP server.
+        tools:
+          type: array
+          items:
+            $ref: '#/components/schemas/OpenAI.MCPListToolsTool'
+          description: The tools available on the server.
+        error:
+          type: string
+          nullable: true
+      allOf:
+        - $ref: '#/components/schemas/OpenAI.InputItem'
+      description: A list of tools available on an MCP server.
+      title: MCP list tools
+    OpenAI.InputItemMcpToolCall:
+      type: object
+      required:
+        - type
+        - id
+        - server_label
+        - name
+        - arguments
+      properties:
+        type:
+          type: string
+          enum:
+            - mcp_call
+          description: The type of the item. Always `mcp_call`.
+          x-stainless-const: true
+        id:
+          type: string
+          description: The unique ID of the tool call.
+        server_label:
+          type: string
+          description: The label of the MCP server running the tool.
+        name:
+          type: string
+          description: The name of the tool that was run.
+        arguments:
+          type: string
+          description: A JSON string of the arguments passed to the tool.
+        output:
+          type: string
+          nullable: true
+        error:
+          type: string
+          nullable: true
+        status:
+          allOf:
+            - $ref: '#/components/schemas/OpenAI.MCPToolCallStatus'
+          description: The status of the tool call. One of `in_progress`, `completed`, `incomplete`, `calling`, or `failed`.
+        approval_request_id:
+          type: string
+          nullable: true
+      allOf:
+        - $ref: '#/components/schemas/OpenAI.InputItem'
+      description: An invocation of a tool on an MCP server.
+      title: MCP tool call
+    OpenAI.InputItemOutputMessage:
+      type: object
+      required:
+        - id
+        - type
+        - role
+        - content
+        - status
+      properties:
+        id:
+          type: string
+          description: The unique ID of the output message.
+          x-stainless-go-json: omitzero
+        type:
+          type: string
+          enum:
+            - output_message
+          description: The type of the output message. Always `message`.
+          x-stainless-const: true
+        role:
+          type: string
+          enum:
+            - assistant
+          description: The role of the output message. Always `assistant`.
+          x-stainless-const: true
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/OpenAI.OutputMessageContent'
+          description: The content of the output message.
+        status:
+          type: string
+          enum:
+            - in_progress
+            - completed
+            - incomplete
+          description: |-
+            The status of the message input. One of `in_progress`, `completed`, or
+              `incomplete`. Populated when input items are returned via API.
+      allOf:
+        - $ref: '#/components/schemas/OpenAI.InputItem'
+      description: An output message from the model.
+      title: Output message
+    OpenAI.InputItemReasoningItem:
+      type: object
+      required:
+        - type
+        - id
+        - summary
+      properties:
+        type:
+          type: string
+          enum:
+            - reasoning
+          description: The type of the object. Always `reasoning`.
+          x-stainless-const: true
+        id:
+          type: string
+          description: The unique identifier of the reasoning content.
+        encrypted_content:
+          type: string
+          nullable: true
+        summary:
+          type: array
+          items:
+            $ref: '#/components/schemas/OpenAI.Summary'
+          description: Reasoning summary content.
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/OpenAI.ReasoningTextContent'
+          description: Reasoning text content.
+        status:
+          type: string
+          enum:
+            - in_progress
+            - completed
+            - incomplete
+          description: |-
+            The status of the item. One of `in_progress`, `completed`, or
+              `incomplete`. Populated when items are returned via API.
+      allOf:
+        - $ref: '#/components/schemas/OpenAI.InputItem'
+      description: |-
+        A description of the chain of thought used by a reasoning model while generating
+        a response. Be sure to include these items in your `input` to the Responses API
+        for subsequent turns of a conversation if you are manually
+        [managing context](https://platform.openai.com/docs/guides/conversation-state).
+      title: Reasoning
     OpenAI.InputItemType:
       anyOf:
         - type: string
         - type: string
           enum:
             - message
+            - output_message
+            - file_search_call
+            - computer_call
+            - computer_call_output
+            - web_search_call
+            - function_call
+            - function_call_output
+            - reasoning
+            - compaction
+            - image_generation_call
+            - code_interpreter_call
+            - local_shell_call
+            - local_shell_call_output
+            - shell_call
+            - shell_call_output
+            - apply_patch_call
+            - apply_patch_call_output
+            - mcp_list_tools
+            - mcp_approval_request
+            - mcp_approval_response
+            - mcp_call
+            - custom_tool_call_output
+            - custom_tool_call
             - item_reference
+    OpenAI.InputItemWebSearchToolCall:
+      type: object
+      required:
+        - id
+        - type
+        - status
+        - action
+      properties:
+        id:
+          type: string
+          description: The unique ID of the web search tool call.
+        type:
+          type: string
+          enum:
+            - web_search_call
+          description: The type of the web search tool call. Always `web_search_call`.
+          x-stainless-const: true
+        status:
+          type: string
+          enum:
+            - in_progress
+            - searching
+            - completed
+            - failed
+          description: The status of the web search tool call.
+        action:
+          anyOf:
+            - $ref: '#/components/schemas/OpenAI.WebSearchActionSearch'
+            - $ref: '#/components/schemas/OpenAI.WebSearchActionOpenPage'
+            - $ref: '#/components/schemas/OpenAI.WebSearchActionFind'
+          description: |-
+            An object describing the specific action taken in this web search call.
+              Includes details on how the model used the web (search, open_page, find).
+      allOf:
+        - $ref: '#/components/schemas/OpenAI.InputItem'
+      description: |-
+        The results of a web search tool call. See the
+        [web search guide](https://platform.openai.com/docs/guides/tools-web-search) for more information.
+      title: Web search tool call
     OpenAI.InputMessage:
       type: object
       required:
@@ -15346,30 +16081,98 @@ components:
         mapping:
           memory_search_call: '#/components/schemas/MemorySearchToolCallItemParam'
           message: '#/components/schemas/OpenAI.InputMessage'
-          computer_call_output: '#/components/schemas/OpenAI.ComputerCallOutputItemParam'
-          function_call_output: '#/components/schemas/OpenAI.FunctionCallOutputItemParam'
-          compaction: '#/components/schemas/OpenAI.CompactionSummaryItemParam'
-          shell_call: '#/components/schemas/OpenAI.FunctionShellCallItemParam'
-          shell_call_output: '#/components/schemas/OpenAI.FunctionShellCallOutputItemParam'
-          apply_patch_call: '#/components/schemas/OpenAI.ApplyPatchToolCallItemParam'
-          apply_patch_call_output: '#/components/schemas/OpenAI.ApplyPatchToolCallOutputItemParam'
-          mcp_approval_response: '#/components/schemas/OpenAI.MCPApprovalResponse'
           output_message: '#/components/schemas/OpenAI.ItemOutputMessage'
           file_search_call: '#/components/schemas/OpenAI.ItemFileSearchToolCall'
           computer_call: '#/components/schemas/OpenAI.ItemComputerToolCall'
+          computer_call_output: '#/components/schemas/OpenAI.ItemComputerCallOutputItemParam'
           web_search_call: '#/components/schemas/OpenAI.ItemWebSearchToolCall'
           function_call: '#/components/schemas/OpenAI.ItemFunctionToolCall'
+          function_call_output: '#/components/schemas/OpenAI.ItemFunctionCallOutputItemParam'
           reasoning: '#/components/schemas/OpenAI.ItemReasoningItem'
+          compaction: '#/components/schemas/OpenAI.ItemCompactionSummaryItemParam'
           image_generation_call: '#/components/schemas/OpenAI.ItemImageGenToolCall'
           code_interpreter_call: '#/components/schemas/OpenAI.ItemCodeInterpreterToolCall'
           local_shell_call: '#/components/schemas/OpenAI.ItemLocalShellToolCall'
           local_shell_call_output: '#/components/schemas/OpenAI.ItemLocalShellToolCallOutput'
+          shell_call: '#/components/schemas/OpenAI.ItemFunctionShellCallItemParam'
+          shell_call_output: '#/components/schemas/OpenAI.ItemFunctionShellCallOutputItemParam'
+          apply_patch_call: '#/components/schemas/OpenAI.ItemApplyPatchToolCallItemParam'
+          apply_patch_call_output: '#/components/schemas/OpenAI.ItemApplyPatchToolCallOutputItemParam'
           mcp_list_tools: '#/components/schemas/OpenAI.ItemMcpListTools'
           mcp_approval_request: '#/components/schemas/OpenAI.ItemMcpApprovalRequest'
+          mcp_approval_response: '#/components/schemas/OpenAI.ItemMcpApprovalResponse'
           mcp_call: '#/components/schemas/OpenAI.ItemMcpToolCall'
           custom_tool_call_output: '#/components/schemas/OpenAI.ItemCustomToolCallOutput'
           custom_tool_call: '#/components/schemas/OpenAI.ItemCustomToolCall'
       description: Content item used to generate a response.
+    OpenAI.ItemApplyPatchToolCallItemParam:
+      type: object
+      required:
+        - type
+        - call_id
+        - status
+        - operation
+      properties:
+        type:
+          type: string
+          enum:
+            - apply_patch_call
+          description: The type of the item. Always `apply_patch_call`.
+          x-stainless-const: true
+          default: apply_patch_call
+        id:
+          type: string
+          nullable: true
+        call_id:
+          type: string
+          minLength: 1
+          maxLength: 64
+          description: The unique ID of the apply patch tool call generated by the model.
+        status:
+          allOf:
+            - $ref: '#/components/schemas/OpenAI.ApplyPatchCallStatusParam'
+          description: The status of the apply patch tool call. One of `in_progress` or `completed`.
+        operation:
+          allOf:
+            - $ref: '#/components/schemas/OpenAI.ApplyPatchOperationParam'
+          description: The specific create, delete, or update instruction for the apply_patch tool call.
+      allOf:
+        - $ref: '#/components/schemas/OpenAI.Item'
+      description: A tool call representing a request to create, delete, or update files using diff patches.
+      title: Apply patch tool call
+    OpenAI.ItemApplyPatchToolCallOutputItemParam:
+      type: object
+      required:
+        - type
+        - call_id
+        - status
+      properties:
+        type:
+          type: string
+          enum:
+            - apply_patch_call_output
+          description: The type of the item. Always `apply_patch_call_output`.
+          x-stainless-const: true
+          default: apply_patch_call_output
+        id:
+          type: string
+          nullable: true
+        call_id:
+          type: string
+          minLength: 1
+          maxLength: 64
+          description: The unique ID of the apply patch tool call generated by the model.
+        status:
+          allOf:
+            - $ref: '#/components/schemas/OpenAI.ApplyPatchCallOutputStatusParam'
+          description: The status of the apply patch tool call output. One of `completed` or `failed`.
+        output:
+          type: string
+          nullable: true
+      allOf:
+        - $ref: '#/components/schemas/OpenAI.Item'
+      description: The streamed output emitted by an apply patch tool call.
+      title: Apply patch tool call output
     OpenAI.ItemCodeInterpreterToolCall:
       type: object
       required:
@@ -15416,6 +16219,67 @@ components:
         - $ref: '#/components/schemas/OpenAI.Item'
       description: A tool call to run code.
       title: Code interpreter tool call
+    OpenAI.ItemCompactionSummaryItemParam:
+      type: object
+      required:
+        - type
+        - encrypted_content
+      properties:
+        id:
+          type: string
+          nullable: true
+        type:
+          type: string
+          enum:
+            - compaction
+          description: The type of the item. Always `compaction`.
+          x-stainless-const: true
+          default: compaction
+        encrypted_content:
+          type: string
+          maxLength: 10485760
+          description: The encrypted content of the compaction summary.
+      allOf:
+        - $ref: '#/components/schemas/OpenAI.Item'
+      description: A compaction item generated by the [`v1/responses/compact` API](https://platform.openai.com/docs/api-reference/responses/compact).
+      title: Compaction item
+    OpenAI.ItemComputerCallOutputItemParam:
+      type: object
+      required:
+        - call_id
+        - type
+        - output
+      properties:
+        id:
+          type: string
+          nullable: true
+        call_id:
+          type: string
+          minLength: 1
+          maxLength: 64
+          description: The ID of the computer tool call that produced the output.
+        type:
+          type: string
+          enum:
+            - computer_call_output
+          description: The type of the computer tool call output. Always `computer_call_output`.
+          x-stainless-const: true
+          default: computer_call_output
+        output:
+          $ref: '#/components/schemas/OpenAI.ComputerScreenshotImage'
+        acknowledged_safety_checks:
+          type: array
+          items:
+            $ref: '#/components/schemas/OpenAI.ComputerCallSafetyCheckParam'
+          nullable: true
+        status:
+          allOf:
+            - $ref: '#/components/schemas/OpenAI.FunctionCallItemStatus'
+          nullable: true
+      allOf:
+        - $ref: '#/components/schemas/OpenAI.Item'
+      description: The output of a computer tool call.
+      title: Computer tool call output
     OpenAI.ItemComputerToolCall:
       type: object
       required:
@@ -15566,6 +16430,116 @@ components:
         The results of a file search tool call. See the
         [file search guide](https://platform.openai.com/docs/guides/tools-file-search) for more information.
       title: File search tool call
+    OpenAI.ItemFunctionCallOutputItemParam:
+      type: object
+      required:
+        - call_id
+        - type
+        - output
+      properties:
+        id:
+          type: string
+          nullable: true
+        call_id:
+          type: string
+          minLength: 1
+          maxLength: 64
+          description: The unique ID of the function tool call generated by the model.
+        type:
+          type: string
+          enum:
+            - function_call_output
+          description: The type of the function tool call output. Always `function_call_output`.
+          x-stainless-const: true
+          default: function_call_output
+        output:
+          anyOf:
+            - type: string
+            - type: array
+              items:
+                anyOf:
+                  - $ref: '#/components/schemas/OpenAI.InputTextContentParam'
+                  - $ref: '#/components/schemas/OpenAI.InputImageContentParamAutoParam'
+                  - $ref: '#/components/schemas/OpenAI.InputFileContentParam'
+          description: Text, image, or file output of the function tool call.
+        status:
+          allOf:
+            - $ref: '#/components/schemas/OpenAI.FunctionCallItemStatus'
+          nullable: true
+      allOf:
+        - $ref: '#/components/schemas/OpenAI.Item'
+      description: The output of a function tool call.
+      title: Function tool call output
+    OpenAI.ItemFunctionShellCallItemParam:
+      type: object
+      required:
+        - call_id
+        - type
+        - action
+      properties:
+        id:
+          type: string
+          nullable: true
+        call_id:
+          type: string
+          minLength: 1
+          maxLength: 64
+          description: The unique ID of the shell tool call generated by the model.
+        type:
+          type: string
+          enum:
+            - shell_call
+          description: The type of the item. Always `shell_call`.
+          x-stainless-const: true
+          default: shell_call
+        action:
+          allOf:
+            - $ref: '#/components/schemas/OpenAI.FunctionShellActionParam'
+          description: The shell commands and limits that describe how to run the tool call.
+        status:
+          allOf:
+            - $ref: '#/components/schemas/OpenAI.FunctionShellCallItemStatus'
+          nullable: true
+      allOf:
+        - $ref: '#/components/schemas/OpenAI.Item'
+      description: A tool representing a request to execute one or more shell commands.
+      title: Shell tool call
+    OpenAI.ItemFunctionShellCallOutputItemParam:
+      type: object
+      required:
+        - call_id
+        - type
+        - output
+      properties:
+        id:
+          type: string
+          nullable: true
+        call_id:
+          type: string
+          minLength: 1
+          maxLength: 64
+          description: The unique ID of the shell tool call generated by the model.
+        type:
+          type: string
+          enum:
+            - shell_call_output
+          description: The type of the item. Always `shell_call_output`.
+          x-stainless-const: true
+          default: shell_call_output
+        output:
+          type: array
+          items:
+            $ref: '#/components/schemas/OpenAI.FunctionShellCallOutputContentParam'
+          description: Captured chunks of stdout and stderr output, along with their associated outcomes.
+        max_output_length:
+          type: integer
+          allOf:
+            - $ref: '#/components/schemas/OpenAI.integer'
+          nullable: true
+      allOf:
+        - $ref: '#/components/schemas/OpenAI.Item'
+      description: The streamed output items emitted by a shell tool call.
+      title: Shell tool call output
     OpenAI.ItemFunctionToolCall:
       type: object
       required:
@@ -15734,6 +16708,35 @@ components:
         - $ref: '#/components/schemas/OpenAI.Item'
       description: A request for human approval of a tool invocation.
       title: MCP approval request
+    OpenAI.ItemMcpApprovalResponse:
+      type: object
+      required:
+        - type
+        - approval_request_id
+        - approve
+      properties:
+        type:
+          type: string
+          enum:
+            - mcp_approval_response
+          description: The type of the item. Always `mcp_approval_response`.
+          x-stainless-const: true
+        id:
+          type: string
+          nullable: true
+        approval_request_id:
+          type: string
+          description: The ID of the approval request being answered.
+        approve:
+          type: boolean
+          description: Whether the request was approved.
+        reason:
+          type: string
+          nullable: true
+      allOf:
+        - $ref: '#/components/schemas/OpenAI.Item'
+      description: A response to an MCP approval request.
+      title: MCP approval response
     OpenAI.ItemMcpListTools:
       type: object
       required:
@@ -15926,20 +16929,9 @@ components:
       properties:
         type:
           $ref: '#/components/schemas/OpenAI.ItemResourceType'
-        agent_reference:
-          allOf:
-            - $ref: '#/components/schemas/AgentReference'
-          description: The agent that created the item.
-        response_id:
-          type: string
-          description: The response on which the item is created.
       discriminator:
         propertyName: type
         mapping:
-          structured_outputs: '#/components/schemas/StructuredOutputsItemResource'
-          workflow_preview_action: '#/components/schemas/WorkflowPreviewActionOutputItemResource'
-          oauth_consent_request: '#/components/schemas/OAuthConsentRequestItemResource'
-          memory_search_call: '#/components/schemas/MemorySearchToolCallItemResource'
           message: '#/components/schemas/OpenAI.InputMessageResource'
           output_message: '#/components/schemas/OpenAI.ItemResourceOutputMessage'
           file_search_call: '#/components/schemas/OpenAI.ItemResourceFileSearchToolCall'
@@ -16664,8 +17656,8 @@ components:
             - mcp_call
             - structured_outputs
             - oauth_consent_request
-            - memory_search_preview_call
-            - workflow_preview_action
+            - memory_search_call
+            - workflow_action
     OpenAI.ItemResourceWebSearchToolCall:
       type: object
       required:
@@ -16736,8 +17728,8 @@ components:
             - custom_tool_call
             - structured_outputs
             - oauth_consent_request
-            - memory_search_preview_call
-            - workflow_preview_action
+            - memory_search_call
+            - workflow_action
     OpenAI.ItemWebSearchToolCall:
       type: object
       required:
@@ -16941,35 +17933,6 @@ components:
             $ref: '#/components/schemas/OpenAI.TopLogProb'
       description: The log probability of a token.
       title: Log probability
-    OpenAI.MCPApprovalResponse:
-      type: object
-      required:
-        - type
-        - approval_request_id
-        - approve
-      properties:
-        type:
-          type: string
-          enum:
-            - mcp_approval_response
-          description: The type of the item. Always `mcp_approval_response`.
-          x-stainless-const: true
-        id:
-          type: string
-          nullable: true
-        approval_request_id:
-          type: string
-          description: The ID of the approval request being answered.
-        approve:
-          type: boolean
-          description: Whether the request was approved.
-        reason:
-          type: string
-          nullable: true
-      allOf:
-        - $ref: '#/components/schemas/OpenAI.Item'
-      description: A response to an MCP approval request.
-      title: MCP approval response
     OpenAI.MCPListToolsTool:
       type: object
       required:
@@ -17147,6 +18110,39 @@ components:
         Keys are strings with a maximum length of 64 characters. Values are strings
         with a maximum length of 512 characters.
       x-oaiTypeLabel: map
+    OpenAI.ModelIdsCompaction:
+      anyOf:
+        - allOf:
+            - $ref: '#/components/schemas/OpenAI.ModelIdsResponses'
+          description: Model ID used to generate the response, like `gpt-5` or `o3`. OpenAI offers a wide range of models with different capabilities, performance characteristics, and price points. Refer to the [model guide](https://platform.openai.com/docs/models) to browse and compare available models.
+          nullable: true
+        - type: string
+          description: Model ID used to generate the response, like `gpt-5` or `o3`. OpenAI offers a wide range of models with different capabilities, performance characteristics, and price points. Refer to the [model guide](https://platform.openai.com/docs/models) to browse and compare available models.
+          nullable: true
+      description: Model ID used to generate the response, like `gpt-5` or `o3`. OpenAI offers a wide range of models with different capabilities, performance characteristics, and price points. Refer to the [model guide](https://platform.openai.com/docs/models) to browse and compare available models.
+    OpenAI.ModelIdsResponses:
+      anyOf:
+        - $ref: '#/components/schemas/OpenAI.ModelIdsShared'
+        - type: string
+          enum:
+            - o1-pro
+            - o1-pro-2025-03-19
+            - o3-pro
+            - o3-pro-2025-06-10
+            - o3-deep-research
+            - o3-deep-research-2025-06-26
+            - o4-mini-deep-research
+            - o4-mini-deep-research-2025-06-26
+            - computer-use-preview
+            - computer-use-preview-2025-03-11
+            - gpt-5-codex
+            - gpt-5-pro
+            - gpt-5-pro-2025-10-06
+            - gpt-5.1-codex-max
+    OpenAI.ModelIdsShared:
+      anyOf:
+        - type: string
+        - $ref: '#/components/schemas/OpenAI.ChatModel'
     OpenAI.Move:
       type: object
       required:
@@ -17252,9 +18248,20 @@ components:
       properties:
         type:
           $ref: '#/components/schemas/OpenAI.OutputItemType'
+        agent_reference:
+          allOf:
+            - $ref: '#/components/schemas/AgentReference'
+          description: The agent that created the item.
+        response_id:
+          type: string
+          description: The response on which the item is created.
       discriminator:
         propertyName: type
         mapping:
+          structured_outputs: '#/components/schemas/StructuredOutputsOutputItem'
+          workflow_action: '#/components/schemas/WorkflowActionOutputItem'
+          oauth_consent_request: '#/components/schemas/OAuthConsentRequestOutputItem'
+          memory_search_call: '#/components/schemas/MemorySearchToolCallItemResource'
           output_message: '#/components/schemas/OpenAI.OutputItemOutputMessage'
           file_search_call: '#/components/schemas/OpenAI.OutputItemFileSearchToolCall'
           function_call: '#/components/schemas/OpenAI.OutputItemFunctionToolCall'
@@ -17938,6 +18945,10 @@ components:
             - mcp_list_tools
             - mcp_approval_request
             - custom_tool_call
+            - structured_outputs
+            - oauth_consent_request
+            - memory_search_call
+            - workflow_action
     OpenAI.OutputItemWebSearchToolCall:
       type: object
       required:
@@ -21910,6 +22921,8 @@ components:
                 type: string
                 description: A description of what the function does, used by the model to choose when and how to call the function.
               parameters:
+                type: object
+                additionalProperties: {}
                 description: The parameters the functions accepts, described as a JSON Schema object.
             required:
               - name
@@ -22257,7 +23270,7 @@ components:
             - type: string
             - $ref: '#/components/schemas/OpenAI.ToolChoiceParam'
           description: |-
-            How the model should select which tool (or tools) to use when generating a response. 
+            How the model should select which tool (or tools) to use when generating a response.
             See the `tools` parameter to see how to specify which tools the model can call.
         text:
           allOf:
@@ -22535,6 +23548,36 @@ components:
       allOf:
         - $ref: '#/components/schemas/ItemGenerationParams'
       description: Represents the parameters for red team taxonomy item generation.
+    ResponseRetrievalItemGenerationParams:
+      type: object
+      required:
+        - type
+        - max_num_turns
+        - data_mapping
+        - source
+      properties:
+        type:
+          type: string
+          enum:
+            - response_retrieval
+          description: The type of item generation parameters, always `response_retrieval`.
+        max_num_turns:
+          type: integer
+          format: int32
+          description: The maximum number of turns of chat history to evaluate.
+        data_mapping:
+          type: object
+          additionalProperties:
+            type: string
+          description: Mapping from source fields to response_id field, required for retrieving chat history.
+        source:
+          anyOf:
+            - $ref: '#/components/schemas/OpenAI.EvalJsonlFileContentSource'
+            - $ref: '#/components/schemas/OpenAI.EvalJsonlFileIdSource'
+          description: The source from which JSONL content is read.
+      allOf:
+        - $ref: '#/components/schemas/ItemGenerationParams'
+      description: Represents the parameters for response retrieval item generation.
     RiskCategory:
       anyOf:
         - type: string
@@ -22782,6 +23825,8 @@ components:
         default_value:
           description: The default value for the input if no run-time value is provided.
         schema:
+          type: object
+          additionalProperties: {}
           description: The JSON schema for the structured input (optional).
         required:
           type: boolean
@@ -22803,13 +23848,15 @@ components:
           type: string
           description: A description of the output to emit. Used by the model to determine when to emit the output.
         schema:
+          type: object
+          additionalProperties: {}
           description: The JSON schema for the structured output.
         strict:
           type: boolean
           nullable: true
           description: Whether to enforce strict validation. Default `true`.
       description: A structured output that can be produced by the agent.
-    StructuredOutputsItemResource:
+    StructuredOutputsOutputItem:
       type: object
       required:
         - type
@@ -22822,7 +23869,71 @@ components:
         output:
           description: The structured output captured during the response.
       allOf:
-        - $ref: '#/components/schemas/OpenAI.ItemResource'
+        - $ref: '#/components/schemas/OpenAI.OutputItem'
+    SyntheticDataGenerationPreviewEvalRunDataSource:
+      type: object
+      required:
+        - type
+        - item_generation_params
+        - target
+      properties:
+        type:
+          type: string
+          enum:
+            - azure_ai_synthetic_data_gen_preview
+          description: The type of data source, always `azure_ai_synthetic_data_gen_preview`.
+        item_generation_params:
+          allOf:
+            - $ref: '#/components/schemas/SyntheticDataGenerationPreviewItemGenerationParams'
+          description: The parameters for item generation.
+        target:
+          allOf:
+            - $ref: '#/components/schemas/Target'
+          description: The target configuration for the evaluation.
+        input_messages:
+          allOf:
+            - $ref: '#/components/schemas/OpenAI.CreateEvalResponsesRunDataSourceInputMessagesTemplate'
+          description: Input messages template configuration applicable only if target is of type 'azure_ai_model'
+      allOf:
+        - $ref: '#/components/schemas/EvalRunDataSource'
+      description: Represents a data source for evaluation runs that evaluates based on generated synthetic data for testing purposes.
+    SyntheticDataGenerationPreviewItemGenerationParams:
+      type: object
+      required:
+        - type
+        - samples_count
+        - model_deployment_name
+        - sources
+      properties:
+        type:
+          type: string
+          enum:
+            - synthetic_data_gen_preview
+          description: The type of item generation parameters.
+        samples_count:
+          type: integer
+          format: int32
+          description: The maximum number of data samples to generate.
+        prompt:
+          type: string
+          description: The prompt used for generating synthetic data. This is option if target is of type 'azure_ai_agent' with instructions configured in agent.
+        model_deployment_name:
+          type: string
+          description: The name of the model deployment to use for generating synthetic data.
+        output_dataset_name:
+          type: string
+          description: The name of the output dataset where generated synthetic data will be stored. If not provided, service generates dataset name automatically.
+        output_dataset_id:
+          type: string
+          description: The identifier of the output dataset where generated synthetic data is stored. The generated data is a jsonl file with columns id, query and test_description.
+          readOnly: true
+        sources:
+          type: array
+          items:
+            $ref: '#/components/schemas/OpenAI.EvalJsonlFileIdSource'
+          description: The optional seed data content source files for data generation.
+      allOf:
+        - $ref: '#/components/schemas/ItemGenerationParams'
     Target:
       type: object
       required:
@@ -23078,9 +24189,6 @@ components:
           type: object
           additionalProperties: {}
           description: The inputs to the manifest that will result in a fully materialized Agent.
-      x-ms-foundry-meta:
-        conditional_previews:
-          - MemoryStores=v1
     UpdateAgentRequest:
       type: object
       required:
@@ -23108,13 +24216,9 @@ components:
           description: The agent definition. This can be a workflow, hosted agent, or a simple agent definition.
           x-ms-foundry-meta:
             conditional_previews:
-              - HostedAgents=v1
-              - ContainerAgents=v1
-              - WorkflowAgents=v1
-              - MemoryStores=v1
-      x-ms-foundry-meta:
-        conditional_previews:
-          - MemoryStores=v1
+              - HostedAgents=V1Preview
+              - ContainerAgents=V1Preview
+              - WorkflowAgents=V1Preview
     UpdateEvalParametersBody:
       type: object
       properties:
@@ -23147,7 +24251,7 @@ components:
       description: A memory item specifically containing user profile information extracted from conversations, such as preferences, interests, and personal details.
       x-ms-foundry-meta:
         conditional_previews:
-          - MemoryStores=v1
+          - MemoryStores=V1Preview
     WebSearchConfiguration:
       type: object
       required:
@@ -23180,25 +24284,7 @@ components:
       allOf:
         - $ref: '#/components/schemas/RecurrenceSchedule'
       description: Weekly recurrence schedule.
-    WorkflowAgentDefinition:
-      type: object
-      required:
-        - kind
-      properties:
-        kind:
-          type: string
-          enum:
-            - workflow
-        workflow:
-          type: string
-          description: The CSDL YAML definition of the workflow.
-      allOf:
-        - $ref: '#/components/schemas/AgentDefinition'
-      description: The workflow agent definition.
-      x-ms-foundry-meta:
-        required_previews:
-          - WorkflowAgents=v1
-    WorkflowPreviewActionOutputItemResource:
+    WorkflowActionOutputItem:
       type: object
       required:
         - type
@@ -23209,7 +24295,7 @@ components:
         type:
           type: string
           enum:
-            - workflow_preview_action
+            - workflow_action
         kind:
           type: string
           description: The kind of CSDL action (e.g., 'SetVariable', 'InvokeAzureAgent').
@@ -23231,7 +24317,25 @@ components:
             - cancelled
           description: Status of the action (e.g., 'in_progress', 'completed', 'failed', 'cancelled').
       allOf:
-        - $ref: '#/components/schemas/OpenAI.ItemResource'
+        - $ref: '#/components/schemas/OpenAI.OutputItem'
+    WorkflowAgentDefinition:
+      type: object
+      required:
+        - kind
+      properties:
+        kind:
+          type: string
+          enum:
+            - workflow
+        workflow:
+          type: string
+          description: The CSDL YAML definition of the workflow.
+      allOf:
+        - $ref: '#/components/schemas/AgentDefinition'
+      description: The workflow agent definition.
+      x-ms-foundry-meta:
+        required_previews:
+          - WorkflowAgents=V1Preview
     integer:
       type: integer
       format: int64

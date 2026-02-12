@@ -1,25 +1,16 @@
-import "@typespec/http";
-import "@typespec/rest";
-import "@typespec/versioning";
-import "@azure-tools/typespec-azure-core";
-import "@azure-tools/typespec-azure-resource-manager";
-
 import "./src/common/service.tsp";
-
 import "./src/connections/routes.tsp";
 import "./src/datasets/routes.tsp";
 import "./src/indexes/routes.tsp";
 import "./src/deployments/routes.tsp";
 import "./src/red-teams/routes.tsp";
-import "./src/evaluationrules/routes.tsp";
-import "./src/evaluation_taxonomies/routes.tsp";
+import "./src/evaluation-rules/routes.tsp";
+import "./src/evaluation-taxonomies/routes.tsp";
 import "./src/evaluators/routes.tsp";
 import "./src/insights/routes.tsp";
 import "./src/schedules/routes.tsp";
 import "./src/agents/routes.tsp";
-import "./src/memory_stores/routes.tsp";
-
-import "@azure-tools/typespec-client-generator-core";
+import "./src/memory-stores/routes.tsp";
 
 using Azure.ClientGenerator.Core;
 namespace Azure.AI.Projects;
@@ -52,16 +43,6 @@ namespace Azure.AI.Projects;
 @@clientName(MemoryStoreUpdateCompletedResult, "MemoryUpdateResultDetails");
 
 @@clientName(MemorySearchOptions, "MemorySearchResultOptions");
-
-@@scope(Agents.startAgentContainer, "!csharp");
-@@scope(Agents.stopAgentContainer, "!csharp");
-@@scope(Agents.updateAgentContainer, "!csharp");
-@@scope(Agents.deleteAgentContainer, "!csharp");
-@@scope(Agents.getAgentContainer, "!csharp");
-@@scope(Agents.getAgentContainerOperation, "!csharp");
-@@scope(Agents.listAgentContainerOperations, "!csharp");
-@@scope(Agents.listAgentVersionContainerOperations, "!csharp");
-@@scope(Agents.getAgentContainerOperation, "!csharp");
 
 // Shorter method names for SDK datasets operations
 @@clientName(Datasets.listLatest, "list");
@@ -146,3 +127,9 @@ namespace Azure.AI.Projects;
 
 // Evaluators
 @@access(EvaluatorDefinitionType, Access.public);
+
+// --------------------------------------------------------------------------------
+// Schedules sub‐client
+// --------------------------------------------------------------------------------
+
+@@clientName(Azure.Core.Foundations.ResourceBody.resource, "schedule");
