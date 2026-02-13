@@ -25,7 +25,7 @@
         "operationId": "Usages_ListByInstancePool",
         "parameters": [
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ResourceGroupParameter"
+            "$ref": "./common/v1/types.json#/parameters/ResourceGroupParameter"
           },
           {
             "name": "instancePoolName",
@@ -42,10 +42,10 @@
             "type": "boolean"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "./common/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "./common/v1/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {

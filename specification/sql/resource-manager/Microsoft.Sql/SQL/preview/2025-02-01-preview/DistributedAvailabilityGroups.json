@@ -25,16 +25,16 @@
         "operationId": "DistributedAvailabilityGroups_ListByInstance",
         "parameters": [
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ResourceGroupParameter"
+            "$ref": "./common/v1/types.json#/parameters/ResourceGroupParameter"
           },
           {
             "$ref": "#/parameters/ManagedInstanceNameParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "./common/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "./common/v1/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -70,7 +70,7 @@
         "operationId": "DistributedAvailabilityGroups_Get",
         "parameters": [
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ResourceGroupParameter"
+            "$ref": "./common/v1/types.json#/parameters/ResourceGroupParameter"
           },
           {
             "$ref": "#/parameters/ManagedInstanceNameParameter"
@@ -83,10 +83,10 @@
             "type": "string"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "./common/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "./common/v1/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -117,7 +117,7 @@
         "operationId": "DistributedAvailabilityGroups_CreateOrUpdate",
         "parameters": [
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ResourceGroupParameter"
+            "$ref": "./common/v1/types.json#/parameters/ResourceGroupParameter"
           },
           {
             "$ref": "#/parameters/ManagedInstanceNameParameter"
@@ -139,10 +139,10 @@
             }
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "./common/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "./common/v1/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -191,7 +191,7 @@
         "operationId": "DistributedAvailabilityGroups_Delete",
         "parameters": [
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ResourceGroupParameter"
+            "$ref": "./common/v1/types.json#/parameters/ResourceGroupParameter"
           },
           {
             "$ref": "#/parameters/ManagedInstanceNameParameter"
@@ -204,10 +204,10 @@
             "type": "string"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "./common/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "./common/v1/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -247,7 +247,7 @@
         "operationId": "DistributedAvailabilityGroups_Update",
         "parameters": [
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ResourceGroupParameter"
+            "$ref": "./common/v1/types.json#/parameters/ResourceGroupParameter"
           },
           {
             "$ref": "#/parameters/ManagedInstanceNameParameter"
@@ -269,10 +269,10 @@
             }
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "./common/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "./common/v1/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -314,7 +314,7 @@
         "operationId": "DistributedAvailabilityGroups_Failover",
         "parameters": [
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ResourceGroupParameter"
+            "$ref": "./common/v1/types.json#/parameters/ResourceGroupParameter"
           },
           {
             "name": "managedInstanceName",
@@ -346,10 +346,10 @@
             }
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "./common/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "./common/v1/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -394,7 +394,7 @@
         "operationId": "DistributedAvailabilityGroups_SetRole",
         "parameters": [
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ResourceGroupParameter"
+            "$ref": "./common/v1/types.json#/parameters/ResourceGroupParameter"
           },
           {
             "$ref": "#/parameters/ManagedInstanceNameParameter"
@@ -416,10 +416,10 @@
             }
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "./common/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "./common/v1/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -479,7 +479,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "../../../common/v1/types.json#/definitions/ProxyResource"
+          "$ref": "./common/v1/types.json#/definitions/ProxyResource"
         }
       ],
       "properties": {

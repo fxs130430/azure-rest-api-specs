@@ -25,7 +25,7 @@
         "operationId": "SyncAgents_ListByServer",
         "parameters": [
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ResourceGroupParameter"
+            "$ref": "./common/v1/types.json#/parameters/ResourceGroupParameter"
           },
           {
             "name": "serverName",
@@ -35,10 +35,10 @@
             "type": "string"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "./common/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "./common/v1/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -74,7 +74,7 @@
         "operationId": "SyncAgents_Get",
         "parameters": [
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ResourceGroupParameter"
+            "$ref": "./common/v1/types.json#/parameters/ResourceGroupParameter"
           },
           {
             "name": "serverName",
@@ -91,10 +91,10 @@
             "type": "string"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "./common/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "./common/v1/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -125,7 +125,7 @@
         "operationId": "SyncAgents_CreateOrUpdate",
         "parameters": [
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ResourceGroupParameter"
+            "$ref": "./common/v1/types.json#/parameters/ResourceGroupParameter"
           },
           {
             "name": "serverName",
@@ -151,10 +151,10 @@
             }
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "./common/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "./common/v1/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -203,7 +203,7 @@
         "operationId": "SyncAgents_Delete",
         "parameters": [
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ResourceGroupParameter"
+            "$ref": "./common/v1/types.json#/parameters/ResourceGroupParameter"
           },
           {
             "name": "serverName",
@@ -220,10 +220,10 @@
             "type": "string"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "./common/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "./common/v1/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -265,7 +265,7 @@
         "operationId": "SyncAgents_GenerateKey",
         "parameters": [
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ResourceGroupParameter"
+            "$ref": "./common/v1/types.json#/parameters/ResourceGroupParameter"
           },
           {
             "name": "serverName",
@@ -282,10 +282,10 @@
             "type": "string"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "./common/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "./common/v1/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -318,7 +318,7 @@
         "operationId": "SyncAgents_ListLinkedDatabases",
         "parameters": [
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ResourceGroupParameter"
+            "$ref": "./common/v1/types.json#/parameters/ResourceGroupParameter"
           },
           {
             "name": "serverName",
@@ -335,10 +335,10 @@
             "type": "string"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "./common/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "./common/v1/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -372,7 +372,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "../../../common/v1/types.json#/definitions/ProxyResource"
+          "$ref": "./common/v1/types.json#/definitions/ProxyResource"
         }
       ],
       "properties": {
@@ -399,7 +399,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "../../../common/v1/types.json#/definitions/ProxyResource"
+          "$ref": "./common/v1/types.json#/definitions/ProxyResource"
         }
       ],
       "properties": {

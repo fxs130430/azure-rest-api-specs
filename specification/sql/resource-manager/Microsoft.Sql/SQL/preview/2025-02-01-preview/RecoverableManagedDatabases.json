@@ -25,16 +25,16 @@
         "operationId": "RecoverableManagedDatabases_ListByInstance",
         "parameters": [
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ResourceGroupParameter"
+            "$ref": "./common/v1/types.json#/parameters/ResourceGroupParameter"
           },
           {
             "$ref": "#/parameters/ManagedInstanceNameParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "./common/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "./common/v1/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -70,7 +70,7 @@
         "operationId": "RecoverableManagedDatabases_Get",
         "parameters": [
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ResourceGroupParameter"
+            "$ref": "./common/v1/types.json#/parameters/ResourceGroupParameter"
           },
           {
             "$ref": "#/parameters/ManagedInstanceNameParameter"
@@ -82,10 +82,10 @@
             "type": "string"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "./common/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "./common/v1/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -116,7 +116,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "../../../common/v1/types.json#/definitions/ProxyResource"
+          "$ref": "./common/v1/types.json#/definitions/ProxyResource"
         }
       ],
       "properties": {

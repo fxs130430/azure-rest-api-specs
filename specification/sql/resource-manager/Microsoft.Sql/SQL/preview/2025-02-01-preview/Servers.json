@@ -34,10 +34,10 @@
             }
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "./common/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "./common/v1/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -83,10 +83,10 @@
             "type": "string"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "./common/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "./common/v1/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -125,7 +125,7 @@
         "operationId": "Servers_ListByResourceGroup",
         "parameters": [
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ResourceGroupParameter"
+            "$ref": "./common/v1/types.json#/parameters/ResourceGroupParameter"
           },
           {
             "name": "$expand",
@@ -135,10 +135,10 @@
             "type": "string"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "./common/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "./common/v1/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -177,7 +177,7 @@
         "operationId": "Servers_Get",
         "parameters": [
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ResourceGroupParameter"
+            "$ref": "./common/v1/types.json#/parameters/ResourceGroupParameter"
           },
           {
             "$ref": "#/parameters/ServerNameParameter"
@@ -190,10 +190,10 @@
             "type": "string"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "./common/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "./common/v1/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -227,7 +227,7 @@
         "operationId": "Servers_CreateOrUpdate",
         "parameters": [
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ResourceGroupParameter"
+            "$ref": "./common/v1/types.json#/parameters/ResourceGroupParameter"
           },
           {
             "$ref": "#/parameters/ServerNameParameter"
@@ -242,10 +242,10 @@
             }
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "./common/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "./common/v1/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -291,16 +291,16 @@
         "operationId": "Servers_Delete",
         "parameters": [
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ResourceGroupParameter"
+            "$ref": "./common/v1/types.json#/parameters/ResourceGroupParameter"
           },
           {
             "$ref": "#/parameters/ServerNameParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "./common/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "./common/v1/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -340,7 +340,7 @@
         "operationId": "Servers_Update",
         "parameters": [
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ResourceGroupParameter"
+            "$ref": "./common/v1/types.json#/parameters/ResourceGroupParameter"
           },
           {
             "$ref": "#/parameters/ServerNameParameter"
@@ -355,10 +355,10 @@
             }
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "./common/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "./common/v1/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -400,7 +400,7 @@
         "operationId": "Servers_ImportDatabase",
         "parameters": [
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ResourceGroupParameter"
+            "$ref": "./common/v1/types.json#/parameters/ResourceGroupParameter"
           },
           {
             "$ref": "#/parameters/ServerNameParameter"
@@ -415,10 +415,10 @@
             }
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "./common/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "./common/v1/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -466,16 +466,16 @@
         "operationId": "Servers_ListByServer",
         "parameters": [
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ResourceGroupParameter"
+            "$ref": "./common/v1/types.json#/parameters/ResourceGroupParameter"
           },
           {
             "$ref": "#/parameters/ServerNameParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "./common/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "./common/v1/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -511,16 +511,16 @@
         "operationId": "Servers_RefreshStatus",
         "parameters": [
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ResourceGroupParameter"
+            "$ref": "./common/v1/types.json#/parameters/ResourceGroupParameter"
           },
           {
             "$ref": "#/parameters/ServerNameParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/SubscriptionIdParameter"
+            "$ref": "./common/v1/types.json#/parameters/SubscriptionIdParameter"
           },
           {
-            "$ref": "../../../common/v1/types.json#/parameters/ApiVersionParameter"
+            "$ref": "./common/v1/types.json#/parameters/ApiVersionParameter"
           }
         ],
         "responses": {
@@ -620,7 +620,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "../../../common/v1/types.json#/definitions/ProxyResource"
+          "$ref": "./common/v1/types.json#/definitions/ProxyResource"
         }
       ],
       "properties": {
@@ -925,7 +925,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "../../../common/v1/types.json#/definitions/ProxyResource"
+          "$ref": "./common/v1/types.json#/definitions/ProxyResource"
         }
       ],
       "properties": {
@@ -981,7 +981,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "../../../common/v1/types.json#/definitions/TrackedResource"
+          "$ref": "./common/v1/types.json#/definitions/TrackedResource"
         }
       ],
       "properties": {
@@ -1073,7 +1073,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "../../../common/v1/types.json#/definitions/ProxyResource"
+          "$ref": "./common/v1/types.json#/definitions/ProxyResource"
         }
       ],
       "properties": {
