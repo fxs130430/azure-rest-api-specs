@@ -1012,7 +1012,10 @@
             "type": "string"
           }
         }
-      }
+      },
+      "required": [
+        "inputs"
+      ]
     },
     "AnalyzeResult": {
       "type": "object",
