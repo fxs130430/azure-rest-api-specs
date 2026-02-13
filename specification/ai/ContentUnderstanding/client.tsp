@@ -103,6 +103,7 @@ interface ContentUnderstandingClient {
 // Custom parameter order for analyzeBinary: put required 'input' before optional parameters with defaults.
 // This ensures 'contentType' (which has a default) appears after the required body parameter.
 // stringEncoding is required - each SDK will set the appropriate default via language-specific customization.
+/** Analyzes binary document content using the specified analyzer. */
 op analyzeBinaryCustomSignature(
   @doc("The unique identifier of the analyzer.")
   @path
@@ -140,6 +141,7 @@ op analyzeBinaryCustomSignature(
 
 // Custom parameter order for analyze: put main input data before optional processing parameters.
 // stringEncoding is required - each SDK will set the appropriate default via language-specific customization.
+/** Analyzes content using the specified analyzer. Supports multiple inputs in pro mode. */
 op analyzeCustomSignature(
   @doc("The unique identifier of the analyzer.")
   @path
