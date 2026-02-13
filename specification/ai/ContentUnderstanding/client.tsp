@@ -18,8 +18,10 @@ interface ContentUnderstandingClient {
   // Flatten all ContentAnalyzers operations to client level
   // LRO operations will automatically get "begin_" prefix in Python
 
+  #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
   analyze is ContentAnalyzers.analyze;
 
+  #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
   analyzeBinary is ContentAnalyzers.analyzeBinary;
 
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Doesn't fit standard ops"
@@ -103,6 +105,7 @@ interface ContentUnderstandingClient {
 // Custom parameter order for analyzeBinary: put required 'input' before optional parameters with defaults.
 // This ensures 'contentType' (which has a default) appears after the required body parameter.
 // stringEncoding is required - each SDK will set the appropriate default via language-specific customization.
+#suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Custom parameter order for SDK ergonomics"
 /** Analyzes binary document content using the specified analyzer. */
 op analyzeBinaryCustomSignature(
   @doc("The unique identifier of the analyzer.")
@@ -141,6 +144,7 @@ op analyzeBinaryCustomSignature(
 
 // Custom parameter order for analyze: put main input data before optional processing parameters.
 // stringEncoding is required - each SDK will set the appropriate default via language-specific customization.
+#suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Custom parameter order for SDK ergonomics"
 /** Analyzes content using the specified analyzer. Supports multiple inputs in pro mode. */
 op analyzeCustomSignature(
   @doc("The unique identifier of the analyzer.")
