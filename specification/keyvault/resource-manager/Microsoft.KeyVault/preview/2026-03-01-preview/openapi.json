@@ -5998,13 +5998,6 @@
         "tokenBindingParameters": {
           "$ref": "#/definitions/TokenBindingParameters",
           "description": "Configuration for Token Binding for Entra tokens"
-        },
-        "certificateManagementMode": {
-          "type": "array",
-          "description": "The Certificate Management Mode, instructs Azure Key Vault how to manage certificate lifecycle actions including auto rotation and distribution. This property is currently intended for internal use only.",
-          "items": {
-            "type": "string"
-          }
         }
       }
     },
@@ -6108,13 +6101,6 @@
         "tokenBindingParameters": {
           "$ref": "#/definitions/TokenBindingParameters",
           "description": "Configuration for Token Binding for Entra tokens"
-        },
-        "certificateManagementMode": {
-          "type": "array",
-          "description": "The Certificate Management Mode, instructs Azure Key Vault how to manage certificate lifecycle actions including auto rotation and distribution. This property is currently intended for internal use only.",
-          "items": {
-            "type": "string"
-          }
         }
       },
       "required": [

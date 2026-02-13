@@ -1147,12 +1147,6 @@ model VaultProperties {
    */
   @Versioning.added(KeyVault.Versions.v2026_03_01_preview)
   tokenBindingParameters?: TokenBindingParameters;
-
-  /**
-   * The Certificate Management Mode, instructs Azure Key Vault how to manage certificate lifecycle actions including auto rotation and distribution. This property is currently intended for internal use only.
-   */
-  @Versioning.added(KeyVault.Versions.v2026_03_01_preview)
-  certificateManagementMode?: string[];
 }
 
 /**
@@ -1481,12 +1475,6 @@ model VaultPatchProperties {
    */
   @Versioning.added(KeyVault.Versions.v2026_03_01_preview)
   tokenBindingParameters?: TokenBindingParameters;
-
-  /**
-   * The Certificate Management Mode, instructs Azure Key Vault how to manage certificate lifecycle actions including auto rotation and distribution. This property is currently intended for internal use only.
-   */
-  @Versioning.added(KeyVault.Versions.v2026_03_01_preview)
-  certificateManagementMode?: string[];
 }
 
 /**
