@@ -2,7 +2,7 @@
 name: azure-typespec-author
 description: |
   Author or modify Azure TypeSpec API specifications in the azure-rest-api-specs repository.
-  USE FOR: Adding new API versions (preview or stable), adding a new api version, add a new preview version, add a new stable version, add preview api version, add stable api version, add api version for service, add version for resource manager, creating or modifying ARM resources or data-plane services, defining models/enums/unions, adding operations to resources or interfaces, updating TypeSpec definitions for Azure services, fixing TypeSpec compilation errors, converting swagger to TypeSpec, add resource type, add ARM resource, add operation to resource, modify properties, add enum, add union, add model, remove property, deprecate resource, fix tsp compile errors, versioning decorators.
+  USE FOR: Any task that creates, modifies, or troubleshoots .tsp files or TypeSpec API specifications — including but not limited to API versioning, ARM or data-plane resource definitions (tracked, proxy, extension, child resources), resource operations (CRUD, PATCH, custom actions, async/LRO), models, enums, unions, properties, decorators, constraints, and swagger-to-TypeSpec conversion.
   DO NOT USE FOR: SDK generation from TypeSpec, releasing SDK packages, single MCP tool calls that do not require multi-step workflows.
   TOOLS/COMMANDS: azsdk_typespec_generate_authoring_plan, azsdk_run_typespec_validation
 ---
