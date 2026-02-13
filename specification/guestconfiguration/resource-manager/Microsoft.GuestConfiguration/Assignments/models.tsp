@@ -1,14 +1,39 @@
 import "@typespec/rest";
 import "@typespec/http";
+import "@typespec/openapi";
 import "@azure-tools/typespec-azure-core";
 import "@azure-tools/typespec-azure-resource-manager";
 
 using TypeSpec.Rest;
 using TypeSpec.Http;
+using TypeSpec.OpenAPI;
 using Azure.Core;
 using Azure.ResourceManager;
 
 namespace Microsoft.GuestConfiguration;
+
+/**
+ * ARM proxy resource.
+ */
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Custom resource base model for GuestConfiguration"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-custom-resource-usage-discourage" "Required for custom resource hierarchy"
+@Azure.ResourceManager.Legacy.customAzureResource
+model ProxyResource extends Azure.ResourceManager.Foundations.ProxyResource {
+  /**
+   * Name of the guest configuration assignment.
+   */
+  #suppress "@azure-tools/typespec-azure-core/key-visibility-required" "Matching original swagger where name is not readOnly"
+  @key
+  @segment("guestConfigurationAssignments")
+  name: string;
+
+  /**
+   * Region where the VM is located.
+   */
+  #suppress "@azure-tools/typespec-azure-core/no-openapi" "Required for x-ms-mutability on location property"
+  @extension("x-ms-mutability", #["read", "create"])
+  location?: string;
+}
 
 /**
  * Error response of an operation failure.

@@ -13,17 +13,22 @@ namespace Microsoft.GuestConfiguration;
 /**
  * Guest configuration assignment is an association between a machine and guest configuration.
  */
-model GuestConfigurationAssignment
-  is Azure.ResourceManager.ProxyResource<GuestConfigurationAssignmentProperties> {
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "Custom resource hierarchy"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-custom-resource-no-key" "Key defined in model"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-custom-resource-usage-discourage" "Required for custom resource hierarchy"
+model GuestConfigurationAssignment extends ProxyResource {
   /**
    * Name of the guest configuration assignment.
    */
+  #suppress "@azure-tools/typespec-azure-core/key-visibility-required" "Matching original swagger where name is not readOnly"
   @key("guestConfigurationAssignmentName")
-  @segment("guestConfigurationAssignments")
-  @path
-  @visibility(Lifecycle.Read)
   @pattern("^[a-zA-Z0-9._-]+$")
   name: string;
+
+  /**
+   * Properties of the Guest configuration assignment.
+   */
+  properties?: GuestConfigurationAssignmentProperties;
 }
 
 alias GuestConfigurationAssignmentOps = Azure.ResourceManager.Legacy.ExtensionOperations<
@@ -64,7 +69,33 @@ alias GuestConfigurationAssignmentOps = Azure.ResourceManager.Legacy.ExtensionOp
   "GuestConfigurationVmAssignment"
 >;
 
-@armResourceOperations
+alias GuestConfigurationAssignmentReportOps = Azure.ResourceManager.Legacy.RoutedOperations<
+  {
+    ...ApiVersionParameter;
+    ...SubscriptionIdParameter;
+    ...ResourceGroupParameter;
+
+    /**
+     * The name of the virtual machine.
+     */
+    @path
+    @segment("virtualMachines")
+    vmName: string;
+  },
+  {
+    /**
+     * The guest configuration assignment name.
+     */
+    @path
+    @segment("guestConfigurationAssignments")
+    guestConfigurationAssignmentName: string;
+  },
+  ResourceRoute = #{
+    route: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/{guestConfigurationAssignmentName}/reports",
+  }
+>;
+
+@armResourceOperations(#{ allowStaticRoutes: true })
 interface GuestConfigurationAssignments {
   /**
    * Get information about a guest configuration assignment
@@ -129,18 +160,19 @@ interface GuestConfigurationAssignments {
    * Get a report for the guest configuration assignment, by reportId.
    */
   @get
-  guestConfigurationAssignmentReportsGet is GuestConfigurationAssignmentOps.Read<
+  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/{guestConfigurationAssignmentName}/reports/{reportId}")
+  guestConfigurationAssignmentReportsGet is GuestConfigurationAssignmentReportOps.ActionSync<
     GuestConfigurationAssignment,
+    void,
+    ArmResponse<GuestConfigurationAssignmentReport>,
     Parameters = {
       /**
        * The GUID for the guest configuration assignment report.
        */
       @path
-      @segment("reports")
       reportId: string;
     },
-    Response = ArmResponse<GuestConfigurationAssignmentReport>,
-    ErrorType = ErrorResponse
+    OverrideErrorType = ErrorResponse
   >;
 }
 
@@ -188,8 +220,34 @@ alias GuestConfigurationHCRPAssignmentOps = Azure.ResourceManager.Legacy.Extensi
   "GuestConfigurationHcrpAssignment"
 >;
 
+alias GuestConfigurationHCRPAssignmentReportOps = Azure.ResourceManager.Legacy.RoutedOperations<
+  {
+    ...ApiVersionParameter;
+    ...SubscriptionIdParameter;
+    ...ResourceGroupParameter;
+
+    /**
+     * The name of the ARC machine.
+     */
+    @path
+    @segment("machines")
+    machineName: string;
+  },
+  {
+    /**
+     * The guest configuration assignment name.
+     */
+    @path
+    @segment("guestConfigurationAssignments")
+    guestConfigurationAssignmentName: string;
+  },
+  ResourceRoute = #{
+    route: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridCompute/machines/{machineName}/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/{guestConfigurationAssignmentName}/reports",
+  }
+>;
+
 #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
-@armResourceOperations
+@armResourceOperations(#{ allowStaticRoutes: true })
 interface GuestConfigurationHCRPAssignments {
   /**
    * Get information about a guest configuration assignment
@@ -258,18 +316,19 @@ interface GuestConfigurationHCRPAssignments {
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @get
   @operationId("GuestConfigurationHCRPAssignmentReports_Get")
-  guestConfigurationHCRPAssignmentReportsGet is GuestConfigurationHCRPAssignmentOps.Read<
+  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridCompute/machines/{machineName}/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/{guestConfigurationAssignmentName}/reports/{reportId}")
+  guestConfigurationHCRPAssignmentReportsGet is GuestConfigurationHCRPAssignmentReportOps.ActionSync<
     GuestConfigurationAssignment,
+    void,
+    ArmResponse<GuestConfigurationAssignmentReport>,
     Parameters = {
       /**
        * The GUID for the guest configuration assignment report.
        */
       @path
-      @segment("reports")
       reportId: string;
     },
-    Response = ArmResponse<GuestConfigurationAssignmentReport>,
-    ErrorType = ErrorResponse
+    OverrideErrorType = ErrorResponse
   >;
 }
 
@@ -280,8 +339,34 @@ alias VirtualMachineScaleSets = Extension.ExternalResource<
   Description = "The name of the virtual machine scale set."
 >;
 
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-interface-requires-decorator" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+alias GuestConfigurationVMSSAssignmentReportOps = Azure.ResourceManager.Legacy.RoutedOperations<
+  {
+    ...ApiVersionParameter;
+    ...SubscriptionIdParameter;
+    ...ResourceGroupParameter;
+
+    /**
+     * The name of the virtual machine scale set.
+     */
+    @path
+    @segment("virtualMachineScaleSets")
+    vmssName: string;
+  },
+  {
+    /**
+     * The guest configuration assignment name.
+     */
+    @path
+    @segment("guestConfigurationAssignments")
+    name: string;
+  },
+  ResourceRoute = #{
+    route: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmssName}/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/{name}/reports",
+  }
+>;
+
 #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+@armResourceOperations(#{ allowStaticRoutes: true })
 interface GuestConfigurationAssignmentsVMSS {
   /**
    * Get information about a guest configuration assignment for VMSS
@@ -378,26 +463,21 @@ interface GuestConfigurationAssignmentsVMSS {
    */
   #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
-  #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Preserving original VMSS path parameter name"
   @get
   @operationId("GuestConfigurationAssignmentReportsVMSS_Get")
-  @Azure.ResourceManager.Legacy.renamePathParameter(
-    "guestConfigurationAssignmentName",
-    "name"
-  )
-  guestConfigurationAssignmentReportsVMSSGet is Extension.Read<
-    VirtualMachineScaleSets,
+  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmssName}/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/{name}/reports/{id}")
+  guestConfigurationAssignmentReportsVMSSGet is GuestConfigurationVMSSAssignmentReportOps.ActionSync<
     GuestConfigurationAssignment,
+    void,
+    ArmResponse<GuestConfigurationAssignmentReport>,
     Parameters = {
       /**
        * The GUID for the guest configuration assignment report.
        */
       @path
-      @segment("reports")
       id: string;
     },
-    Response = ArmResponse<GuestConfigurationAssignmentReport>,
-    Error = ErrorResponse,
+    OverrideErrorType = ErrorResponse,
     OverrideResourceName = "GuestConfigurationVmssAssignment"
   >;
 }
@@ -441,8 +521,34 @@ alias GuestConfigurationConnectedVMwarevSphereAssignmentOps = Azure.ResourceMana
   "GuestConfigurationVMwarevSphereAssignment"
 >;
 
+alias GuestConfigurationVMwarevSphereAssignmentReportOps = Azure.ResourceManager.Legacy.RoutedOperations<
+  {
+    ...ApiVersionParameter;
+    ...SubscriptionIdParameter;
+    ...ResourceGroupParameter;
+
+    /**
+     * The name of the virtual machine.
+     */
+    @path
+    @segment("virtualmachines")
+    vmName: string;
+  },
+  {
+    /**
+     * The guest configuration assignment name.
+     */
+    @path
+    @segment("guestConfigurationAssignments")
+    guestConfigurationAssignmentName: string;
+  },
+  ResourceRoute = #{
+    route: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ConnectedVMwarevSphere/virtualmachines/{vmName}/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/{guestConfigurationAssignmentName}/reports",
+  }
+>;
+
 #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
-@armResourceOperations
+@armResourceOperations(#{ allowStaticRoutes: true })
 interface GuestConfigurationConnectedVMwarevSphereAssignments {
   /**
    * Get information about a guest configuration assignment
@@ -495,18 +601,19 @@ interface GuestConfigurationConnectedVMwarevSphereAssignments {
    */
   #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @get
-  guestConfigurationConnectedVMwarevSphereAssignmentsReportsGet is GuestConfigurationConnectedVMwarevSphereAssignmentOps.Read<
+  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ConnectedVMwarevSphere/virtualmachines/{vmName}/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/{guestConfigurationAssignmentName}/reports/{reportId}")
+  guestConfigurationConnectedVMwarevSphereAssignmentsReportsGet is GuestConfigurationVMwarevSphereAssignmentReportOps.ActionSync<
     GuestConfigurationAssignment,
-    Response = ArmResponse<GuestConfigurationAssignmentReport>,
+    void,
+    ArmResponse<GuestConfigurationAssignmentReport>,
     Parameters = {
       /**
        * The GUID for the guest configuration assignment report.
        */
       @path
-      @segment("reports")
       reportId: string;
     },
-    ErrorType = ErrorResponse
+    OverrideErrorType = ErrorResponse
   >;
 }
 

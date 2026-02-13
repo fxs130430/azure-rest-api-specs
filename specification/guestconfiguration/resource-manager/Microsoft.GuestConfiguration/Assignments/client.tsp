@@ -13,6 +13,7 @@ using Microsoft.GuestConfiguration;
   Azure.Core.armResourceIdentifier,
   "csharp"
 );
+@@alternateType(ProxyResource.location, Azure.Core.azureLocation, "csharp");
 @@alternateType(VmssvmInfo.vmId, Azure.Core.uuid, "csharp");
 @@alternateType(VmssvmInfo.latestReportId, Azure.Core.uuid, "csharp");
 @@alternateType(VmssvmInfo.vmResourceId,
@@ -83,6 +84,7 @@ using Microsoft.GuestConfiguration;
 @@clientName(Kind.DSC, "Dsc", "csharp");
 @@clientName(Type, "GuestConfigurationAssignmentReportType", "csharp");
 @@clientName(ConfigurationInfo, "GuestConfigurationInfo", "csharp");
+@@clientName(ProxyResource, "GuestConfigurationResourceData", "csharp");
 
 // ============================================================================
 // Property renaming - restore old SDK property names for backward compatibility
