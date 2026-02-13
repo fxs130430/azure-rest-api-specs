@@ -13,10 +13,10 @@
         "targetAzureResourceArmId": "veaa",
         "associatedInventoryResourceId": "z",
         "inventoryDisplayName": "aje",
-        "associatedAssessmentId": "lsdrsipnfpf",
-        "associatedWaveId": "pgwihtmhmmjsnaztuwmozacovyhugc",
+        "associatedAssessmentId": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/MyResourceGroup/providers/Microsoft.Migrate/assessmentprojects/myAssessmentProject/assessments/myAssessment",
+        "associatedWaveId": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/MyResourceGroup/providers/Microsoft.Migrate/migrateProjects/MyMigrateProject/waves/wave1",
         "associatedMigrationEntityGroupIds": [
-          "ucbwr"
+          "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/MyResourceGroup/providers/Microsoft.Migrate/migrateProjects/MyMigrateProject/migrationEntityGroups/group1"
         ],
         "target": "anenonptqbrzszgdlfypqltgifinq",
         "migrationStrategy": "None",
@@ -38,10 +38,10 @@
           "targetAzureResourceArmId": "veaa",
           "associatedInventoryResourceId": "z",
           "inventoryDisplayName": "aje",
-          "associatedAssessmentId": "lsdrsipnfpf",
-          "associatedWaveId": "pgwihtmhmmjsnaztuwmozacovyhugc",
+          "associatedAssessmentId": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/MyResourceGroup/providers/Microsoft.Migrate/assessmentprojects/myAssessmentProject/assessments/myAssessment",
+          "associatedWaveId": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/MyResourceGroup/providers/Microsoft.Migrate/migrateProjects/MyMigrateProject/waves/wave1",
           "associatedMigrationEntityGroupIds": [
-            "ucbwr"
+            "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/MyResourceGroup/providers/Microsoft.Migrate/migrateProjects/MyMigrateProject/migrationEntityGroups/group1"
           ],
           "executionStartDate": "2026-02-12T12:54:24.783Z",
           "target": "anenonptqbrzszgdlfypqltgifinq",
@@ -57,7 +57,7 @@
           "assessedEntityArmId": "k"
         },
         "eTag": "zdjjdovl",
-        "id": "xtpoqpqglfjznnb",
+        "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/MyResourceGroup/providers/Microsoft.Migrate/migrateProjects/MyMigrateProject/migrationEntities/entity1",
         "name": "qctntejaxi",
         "type": "hhnhk",
         "systemData": {
@@ -81,10 +81,10 @@
           "targetAzureResourceArmId": "veaa",
           "associatedInventoryResourceId": "z",
           "inventoryDisplayName": "aje",
-          "associatedAssessmentId": "lsdrsipnfpf",
-          "associatedWaveId": "pgwihtmhmmjsnaztuwmozacovyhugc",
+          "associatedAssessmentId": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/MyResourceGroup/providers/Microsoft.Migrate/assessmentprojects/myAssessmentProject/assessments/myAssessment",
+          "associatedWaveId": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/MyResourceGroup/providers/Microsoft.Migrate/migrateProjects/MyMigrateProject/waves/wave1",
           "associatedMigrationEntityGroupIds": [
-            "ucbwr"
+            "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/MyResourceGroup/providers/Microsoft.Migrate/migrateProjects/MyMigrateProject/migrationEntityGroups/group1"
           ],
           "executionStartDate": "2026-02-12T12:54:24.783Z",
           "target": "anenonptqbrzszgdlfypqltgifinq",
@@ -100,7 +100,7 @@
           "assessedEntityArmId": "k"
         },
         "eTag": "zdjjdovl",
-        "id": "xtpoqpqglfjznnb",
+        "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/MyResourceGroup/providers/Microsoft.Migrate/migrateProjects/MyMigrateProject/migrationEntities/entity1",
         "name": "qctntejaxi",
         "type": "hhnhk",
         "systemData": {

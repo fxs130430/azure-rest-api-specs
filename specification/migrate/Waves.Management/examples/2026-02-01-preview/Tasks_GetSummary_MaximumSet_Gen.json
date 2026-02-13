@@ -7,7 +7,7 @@
     "resourceGroupName": "rgwaves",
     "projectName": "project1",
     "body": {
-      "scopeId": "xxrlwcvwfwluucgeevxdszlddzx"
+      "scopeId": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/MyResourceGroup/providers/Microsoft.Migrate/migrateProjects/MyMigrateProject/waves/wave1"
     }
   },
   "responses": {
@@ -29,7 +29,7 @@
               {
                 "properties": {
                   "provisioningState": "Succeeded",
-                  "scopeId": "lvcsjznbduewxuigitszjduhuqg",
+                  "scopeId": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/MyResourceGroup/providers/Microsoft.Migrate/migrateProjects/MyMigrateProject/waves/wave1",
                   "stage": "suwwllyupuonhzwrsl",
                   "taskType": "UserDefined",
                   "displayName": "rbxtqbeapvifcdgmlqmgsibudjd",
@@ -40,7 +40,7 @@
                   "completionDate": "2026-02-12T12:54:26.148Z"
                 },
                 "eTag": "nwdstjhordioahfek",
-                "id": "xflvbwdcbcenlxmhyntffwptsg",
+                "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/MyResourceGroup/providers/Microsoft.Migrate/migrateProjects/MyMigrateProject/tasks/task1",
                 "name": "uloyktrgfiqhbwsnasntaf",
                 "type": "zgqe",
                 "systemData": {

@@ -15,16 +15,16 @@
           "provisioningState": "Succeeded",
           "applicationId": "xjovxgurinimcoikyvov",
           "applicationDisplayName": "mwp",
-          "associatedAssessmentId": "vwqgwwuj",
+          "associatedAssessmentId": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/MyResourceGroup/providers/Microsoft.Migrate/assessmentprojects/myAssessmentProject/assessments/myAssessment",
           "associatedWaveIds": [
-            "flqvpogfuawdmt"
+            "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/MyResourceGroup/providers/Microsoft.Migrate/migrateProjects/MyMigrateProject/waves/wave1"
           ],
           "executionStatus": "tahaxxyjxzhqakfairsgsm",
           "executionStartDate": "2026-02-12T12:54:25.434Z",
           "migrationPath": "yq"
         },
         "eTag": "mhbq",
-        "id": "yryqdrufanpkcxecjqvgycw",
+        "id": "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/MyResourceGroup/providers/Microsoft.Migrate/migrateProjects/MyMigrateProject/migrationEntityGroups/group1",
         "name": "gpoobkqsctmzzifvhtkokrx",
         "type": "xrwjsolwsuol",
         "systemData": {
