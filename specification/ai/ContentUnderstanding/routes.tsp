@@ -28,7 +28,7 @@ alias AllowReplaceParameter = {
 alias ServiceTraits = Traits.NoRepeatableRequests &
   Traits.NoConditionalRequests &
   Traits.SupportsClientRequestId;
-alias Operations<Trait> = ResourceOperations<ServiceTraits & Trait>;
+alias Operations = ResourceOperations<ServiceTraits>;
 
 interface ContentAnalyzers {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "This is a custom operation status endpoint."
