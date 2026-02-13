@@ -16,7 +16,59 @@ runs:
   using: "composite"
 
   steps:
-    - uses: actions/setup-node@v4
+    # Workaround for https://github.com/actions/setup-node/issues/1492
+    # Check if the current Node version matches the requested version to avoid unnecessary downloads
+    - id: check-node-version
+      run: |
+        REQUESTED_VERSION="${{ inputs.node-version }}"
+        CURRENT_VERSION=$(node -v 2>/dev/null | sed 's/^v//' || echo "none")
+        
+        echo "Requested version: $REQUESTED_VERSION"
+        echo "Current version: $CURRENT_VERSION"
+        
+        # If no version is requested (empty string), skip setup
+        if [ -z "$REQUESTED_VERSION" ]; then
+          echo "skip-setup=true" >> $GITHUB_OUTPUT
+          echo "No specific version requested, using current Node version"
+          exit 0
+        fi
+        
+        # If node is not installed, we need setup
+        if [ "$CURRENT_VERSION" = "none" ]; then
+          echo "skip-setup=false" >> $GITHUB_OUTPUT
+          echo "Node not found, will run setup-node"
+          exit 0
+        fi
+        
+        # Normalize versions for comparison
+        # Handle patterns like "24", "24.x", "24.13.0"
+        REQUESTED_MAJOR=$(echo "$REQUESTED_VERSION" | cut -d. -f1)
+        CURRENT_MAJOR=$(echo "$CURRENT_VERSION" | cut -d. -f1)
+        
+        # Check if requested version is just major version or has .x suffix
+        if [[ "$REQUESTED_VERSION" =~ ^[0-9]+$ ]] || [[ "$REQUESTED_VERSION" =~ ^[0-9]+\.x$ ]]; then
+          # Compare only major version
+          if [ "$CURRENT_MAJOR" = "$REQUESTED_MAJOR" ]; then
+            echo "skip-setup=true" >> $GITHUB_OUTPUT
+            echo "Current Node major version $CURRENT_MAJOR matches requested $REQUESTED_VERSION"
+          else
+            echo "skip-setup=false" >> $GITHUB_OUTPUT
+            echo "Current Node major version $CURRENT_MAJOR does not match requested $REQUESTED_VERSION"
+          fi
+        else
+          # Exact version match required
+          if [ "$CURRENT_VERSION" = "$REQUESTED_VERSION" ]; then
+            echo "skip-setup=true" >> $GITHUB_OUTPUT
+            echo "Current Node version $CURRENT_VERSION matches requested $REQUESTED_VERSION"
+          else
+            echo "skip-setup=false" >> $GITHUB_OUTPUT
+            echo "Current Node version $CURRENT_VERSION does not match requested $REQUESTED_VERSION"
+          fi
+        fi
+      shell: bash
+
+    - if: steps.check-node-version.outputs.skip-setup != 'true'
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ inputs.node-version }}
 
