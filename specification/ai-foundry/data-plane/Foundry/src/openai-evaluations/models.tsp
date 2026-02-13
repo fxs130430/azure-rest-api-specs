@@ -79,7 +79,8 @@ model AzureAIDataSourceConfig extends DataSourceConfig {
     | "red_team"
     | "responses"
     | "traces_preview"
-    | "synthetic_data_gen_preview";
+    | "synthetic_data_gen_preview"
+    | "benchmark_preview";
 }
 
 /** Metadata for benchmark evaluation configuration. */
