@@ -21,7 +21,7 @@ runs:
     - id: check-node-version
       run: |
         REQUESTED_VERSION="${{ inputs.node-version }}"
-        CURRENT_VERSION=$(node -v 2>/dev/null | sed 's/^v//' || echo "none")
+        CURRENT_VERSION=$(node -v 2>/dev/null | sed 's/^v//' || echo "")
         
         echo "Requested version: $REQUESTED_VERSION"
         echo "Current version: $CURRENT_VERSION"
@@ -34,7 +34,7 @@ runs:
         fi
         
         # If node is not installed, we need setup
-        if [ "$CURRENT_VERSION" = "none" ]; then
+        if [ -z "$CURRENT_VERSION" ]; then
           echo "skip-setup=false" >> $GITHUB_OUTPUT
           echo "Node not found, will run setup-node"
           exit 0
@@ -45,7 +45,8 @@ runs:
         REQUESTED_MAJOR=$(echo "$REQUESTED_VERSION" | cut -d. -f1)
         CURRENT_MAJOR=$(echo "$CURRENT_VERSION" | cut -d. -f1)
         
-        # Check if requested version is just major version or has .x suffix
+        # Check if requested version is just major version (e.g., "24") or has .x suffix (e.g., "24.x")
+        # Using two separate checks is more explicit and easier to understand than a combined regex
         if [[ "$REQUESTED_VERSION" =~ ^[0-9]+$ ]] || [[ "$REQUESTED_VERSION" =~ ^[0-9]+\.x$ ]]; then
           # Compare only major version
           if [ "$CURRENT_MAJOR" = "$REQUESTED_MAJOR" ]; then
