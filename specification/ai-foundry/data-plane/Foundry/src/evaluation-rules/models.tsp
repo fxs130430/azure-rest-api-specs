@@ -1,8 +1,14 @@
 import "../common/models.tsp";
 
+using TypeSpec.OpenAPI;
 using TypeSpec.Rest;
+using TypeSpec.Versioning;
 
 namespace Azure.AI.Projects;
+
+const AllConditionalEvaluationRuleActionPreviews = #{
+  conditional_previews: #[FoundryFeaturesOptInKeys.evaluations_v1_preview],
+};
 
 @doc("Type of the evaluation action.")
 union EvaluationRuleActionType {
@@ -13,6 +19,9 @@ union EvaluationRuleActionType {
 
   @doc("Human evaluation.")
   humanEvaluation: "humanEvaluation",
+
+  @doc("Human evaluation preview.")
+  humanEvaluationPreview: "humanEvaluationPreview",
 }
 
 @doc("Evaluation action model.")
@@ -34,8 +43,17 @@ model ContinuousEvaluationRuleAction extends EvaluationRuleAction {
 }
 
 @doc("Evaluation rule action for human evaluation.")
+@removed(Versions.v1)
 model HumanEvaluationRuleAction extends EvaluationRuleAction {
   type: EvaluationRuleActionType.humanEvaluation;
+
+  @doc("Human evaluation template Id.")
+  templateId: AssetId;
+}
+
+@doc("Evaluation rule action for human evaluation.")
+model HumanEvaluationPreviewRuleAction extends EvaluationRuleAction {
+  type: EvaluationRuleActionType.humanEvaluationPreview;
 
   @doc("Human evaluation template Id.")
   templateId: AssetId;
@@ -76,6 +94,7 @@ model EvaluationRule {
   description?: string;
 
   @doc("Definition of the evaluation rule action.")
+  @extension("x-ms-foundry-meta", AllConditionalEvaluationRuleActionPreviews)
   action: EvaluationRuleAction;
 
   @doc("Filter condition of the evaluation rule.")
