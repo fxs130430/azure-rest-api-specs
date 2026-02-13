@@ -28,6 +28,8 @@ options:
     namespace: "com.azure.resourcemanager.testedgeactions"
     service-name: "TestEdgeActions"
     service-dir: "sdk/testedgeactions"
+    premium: true
+    enable-sync-stack: false
     flavor: azure
   "@azure-tools/typespec-ts":
     service-dir: sdk/testedgeactions

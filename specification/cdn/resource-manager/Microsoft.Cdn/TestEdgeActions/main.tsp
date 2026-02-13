@@ -44,7 +44,8 @@ model TestEdgeAction is TrackedResource<TestEdgeActionProperties> {
 @@extension(TestEdgeAction.properties, "x-ms-mutability", #["read", "create"]);
 
 @parentResource(TestEdgeAction)
-model TestEdgeActionVersion is TrackedResource<TestEdgeActionVersionProperties> {
+model TestEdgeActionVersion
+  is TrackedResource<TestEdgeActionVersionProperties> {
   @path
   @doc("The name of the Test Edge Action version")
   @segment("versions")
@@ -73,7 +74,10 @@ model TestEdgeActionExecutionFilter
 }
 
 #suppress "@azure-tools/typespec-azure-core/no-openapi" "Extension needed for backwards compatibility"
-@@extension(TestEdgeActionExecutionFilter.properties, "x-ms-client-flatten", true);
+@@extension(TestEdgeActionExecutionFilter.properties,
+  "x-ms-client-flatten",
+  true
+);
 #suppress "@azure-tools/typespec-azure-core/no-openapi" "Extension needed for backwards compatibility"
 @@extension(TestEdgeActionExecutionFilter.properties,
   "x-ms-mutability",
