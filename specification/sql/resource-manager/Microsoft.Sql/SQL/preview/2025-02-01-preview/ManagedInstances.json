@@ -968,7 +968,7 @@
       ],
       "properties": {
         "identity": {
-          "$ref": "../../../common/v2/types.json#/definitions/ResourceIdentity",
+          "$ref": "./common/v2/types.json#/definitions/ResourceIdentity",
           "description": "The Azure Active Directory identity of the managed instance.",
           "x-ms-mutability": [
             "read",
@@ -1493,7 +1493,7 @@
           "description": "Managed instance sku"
         },
         "identity": {
-          "$ref": "../../../common/v2/types.json#/definitions/ResourceIdentity",
+          "$ref": "./common/v2/types.json#/definitions/ResourceIdentity",
           "description": "Managed instance identity"
         },
         "properties": {

@@ -986,7 +986,7 @@
       ],
       "properties": {
         "identity": {
-          "$ref": "../../../common/v2/types.json#/definitions/ResourceIdentity",
+          "$ref": "./common/v2/types.json#/definitions/ResourceIdentity",
           "description": "The Azure Active Directory identity of the server."
         },
         "kind": {
@@ -1348,7 +1348,7 @@
       "type": "object",
       "properties": {
         "identity": {
-          "$ref": "../../../common/v2/types.json#/definitions/ResourceIdentity",
+          "$ref": "./common/v2/types.json#/definitions/ResourceIdentity",
           "description": "Server identity"
         },
         "properties": {
