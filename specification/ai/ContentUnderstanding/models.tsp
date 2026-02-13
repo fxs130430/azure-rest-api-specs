@@ -538,7 +538,7 @@ model AnalyzeRequest {
 
   // @added(Versions.v2025_05_01_preview)
   @doc("Inputs to analyze.  Currently, only pro mode supports multiple inputs.")
-  inputs?: AnalyzeInput[];
+  inputs: AnalyzeInput[];
 
   @added(Versions.v2025_11_01)
   @doc("""
