@@ -8,10 +8,10 @@
     "projectName": "project1",
     "body": {
       "migrationEntityIds": [
-        "mdodonmgyabkp"
+        "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/MyResourceGroup/providers/Microsoft.Migrate/migrateProjects/MyMigrateProject/migrationEntities/entity1"
       ],
       "migrationEntityGroupIds": [
-        "sbakn"
+        "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/MyResourceGroup/providers/Microsoft.Migrate/migrateProjects/MyMigrateProject/migrationEntityGroups/group1"
       ]
     }
   },
@@ -19,10 +19,10 @@
     "200": {
       "body": {
         "migrationEntityIds": [
-          "mdodonmgyabkp"
+          "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/MyResourceGroup/providers/Microsoft.Migrate/migrateProjects/MyMigrateProject/migrationEntities/entity1"
         ],
         "migrationEntityGroupIds": [
-          "sbakn"
+          "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/MyResourceGroup/providers/Microsoft.Migrate/migrateProjects/MyMigrateProject/migrationEntityGroups/group1"
         ]
       }
     },
