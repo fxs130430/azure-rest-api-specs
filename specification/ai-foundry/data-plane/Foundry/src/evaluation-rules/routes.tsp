@@ -6,7 +6,7 @@ using TypeSpec.Http;
 
 namespace Azure.AI.Projects;
 
-alias EvaluationRulesPreviewHeader = WithRequiredFoundryPreviewHeader<FoundryFeaturesOptInKeys.evaluations_v1_preview>;
+alias EvaluationRulesPreviewHeader = WithConditionalFoundryPreviewHeader<FoundryFeaturesOptInKeys.evaluations_v1_preview>;
 
 alias EvaluationRulesFilterQueryParams = {
   @query("actionType")
