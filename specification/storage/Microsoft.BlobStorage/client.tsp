@@ -7,19 +7,66 @@ using Storage.Blob;
 
 namespace Customizations;
 
+#suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
+@client(
+  {
+    service: Storage.Blob,
+  },
+  "rust"
+)
+interface BlobServiceClient extends Storage.Blob.Service {}
+
+#suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
+@client(
+  {
+    service: Storage.Blob,
+  },
+  "rust"
+)
+interface BlobContainerClient extends Storage.Blob.Container {}
+
+#suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
+@client(
+  {
+    service: Storage.Blob,
+  },
+  "rust"
+)
+interface BlobClient extends Storage.Blob.Blob {}
+
+#suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
+@client(
+  {
+    service: Storage.Blob,
+  },
+  "rust"
+)
+interface AppendBlobClient extends Storage.Blob.AppendBlob {}
+
+#suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
+@client(
+  {
+    service: Storage.Blob,
+  },
+  "rust"
+)
+interface BlockBlobClient extends Storage.Blob.BlockBlob {}
+
+#suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
+@client(
+  {
+    service: Storage.Blob,
+  },
+  "rust"
+)
+interface PageBlobClient extends Storage.Blob.PageBlob {}
+
 @@clientNamespace(Storage.Blob, "Azure.Storage.Blobs");
 @@clientNamespace(Storage.Blob.Container, "Azure.Storage.Blobs");
 @@clientNamespace(Storage.Blob.Blob, "Azure.Storage.Blobs");
 @@clientNamespace(Storage.Blob.AppendBlob, "Azure.Storage.Blobs");
 @@clientNamespace(Storage.Blob.BlockBlob, "Azure.Storage.Blobs");
 @@clientNamespace(Storage.Blob.PageBlob, "Azure.Storage.Blobs");
-
-@@clientName(Storage.Blob.Service, "BlobServiceClient", "rust");
-@@clientName(Storage.Blob.Container, "BlobContainerClient", "rust");
-@@clientName(Storage.Blob.Blob, "BlobClient", "rust");
-@@clientName(Storage.Blob.AppendBlob, "AppendBlobClient", "rust");
-@@clientName(Storage.Blob.BlockBlob, "BlockBlobClient", "rust");
-@@clientName(Storage.Blob.PageBlob, "PageBlobClient", "rust");
 
 @@clientName(Storage.Blob.BlockBlob.upload, "upload_internal", "rust");
 @@clientName(Storage.Blob.Blob.download, "download_internal", "rust");
