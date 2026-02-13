@@ -12,7 +12,6 @@
           {
             "name": "AuditSecureProtocol2",
             "id": "/subscriptions/subscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.ConnectedVMwarevSphere/virtualmachines/myvm/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/AuditSecureProtocol2",
-            "location": "centraluseuap",
             "properties": {
               "assignmentHash": "content hash",
               "complianceStatus": "Compliant",
@@ -34,7 +33,6 @@
           {
             "name": "myAssignment",
             "id": "/subscriptions/subscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.ConnectedVMwarevSphere/virtualmachines/myvm/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/myAssignment",
-            "location": "centraluseuap",
             "properties": {
               "assignmentHash": "content hash",
               "complianceStatus": "Compliant",

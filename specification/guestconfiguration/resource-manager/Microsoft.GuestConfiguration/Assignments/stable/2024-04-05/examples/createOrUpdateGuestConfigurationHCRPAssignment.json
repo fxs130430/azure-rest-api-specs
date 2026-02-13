@@ -4,8 +4,6 @@
     "guestConfigurationAssignmentName": "NotInstalledApplicationForWindows",
     "machineName": "myMachineName",
     "parameters": {
-      "name": "NotInstalledApplicationForWindows",
-      "location": "westcentralus",
       "properties": {
         "context": "Azure policy",
         "guestConfiguration": {
@@ -31,7 +29,6 @@
       "body": {
         "name": "NotInstalledApplicationForWindows",
         "id": "/subscriptions/mysubscriptionid/resourceGroups/myResourceGroupName/providers/HybridRP.Compute/virtualMachines/myvm/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/NotInstalledApplicationForWindows",
-        "location": "westcentralus",
         "properties": {
           "assignmentHash": "abcdr453g",
           "complianceStatus": "Pending",
@@ -61,7 +58,6 @@
       "body": {
         "name": "NotInstalledApplicationForWindows",
         "id": "/subscriptions/mysubscriptionid/resourceGroups/myResourceGroupName/providers/HybridRP.Compute/virtualMachines/myvm/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/NotInstalledApplicationForWindows",
-        "location": "westcentralus",
         "properties": {
           "assignmentHash": "abcdr453g",
           "complianceStatus": "Pending",

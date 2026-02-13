@@ -11,7 +11,6 @@
       "body": {
         "name": "AuditSecureProtocol",
         "id": "/subscriptions/subscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.HybridCompute/machines/myMachineName/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/AuditSecureProtocol",
-        "location": "centraluseuap",
         "properties": {
           "assignmentHash": "E0D8941DD713F284284561648C00C18FA76C8602943C7CD38AFD73B56AE4C35F.E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
           "complianceStatus": "Compliant",

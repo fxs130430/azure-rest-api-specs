@@ -3,8 +3,6 @@
     "name": "NotInstalledApplicationForWindows",
     "api-version": "2024-04-05",
     "parameters": {
-      "name": "NotInstalledApplicationForWindows",
-      "location": "westcentralus",
       "properties": {
         "context": "Azure policy",
         "guestConfiguration": {
@@ -32,7 +30,6 @@
       "body": {
         "name": "NotInstalledApplicationForWindows",
         "id": "/subscriptions/mysubscriptionid/resourceGroups/myResourceGroupName/providers/Microsoft.Compute/virtualmachinescalesets/myvmssname/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/NotInstalledApplicationForWindows",
-        "location": "westcentralus",
         "properties": {
           "assignmentHash": null,
           "complianceStatus": "Pending",
@@ -66,7 +63,6 @@
       "body": {
         "name": "NotInstalledApplicationForWindows",
         "id": "/subscriptions/mysubscriptionid/resourceGroups/myResourceGroupName/providers/Microsoft.Compute/virtualmachinescalesets/myvmssname/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/NotInstalledApplicationForWindows",
-        "location": "westcentralus",
         "properties": {
           "assignmentHash": null,
           "complianceStatus": "Pending",

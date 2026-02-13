@@ -129,9 +129,8 @@ interface GuestConfigurationAssignments {
    * Get a report for the guest configuration assignment, by reportId.
    */
   @get
-  guestConfigurationAssignmentReportsGet is GuestConfigurationAssignmentOps.ActionSync<
+  guestConfigurationAssignmentReportsGet is GuestConfigurationAssignmentOps.Read<
     GuestConfigurationAssignment,
-    void,
     Parameters = {
       /**
        * The GUID for the guest configuration assignment report.
@@ -259,9 +258,8 @@ interface GuestConfigurationHCRPAssignments {
   #suppress "@azure-tools/typespec-azure-core/no-openapi" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @get
   @operationId("GuestConfigurationHCRPAssignmentReports_Get")
-  guestConfigurationHCRPAssignmentReportsGet is GuestConfigurationHCRPAssignmentOps.ActionSync<
+  guestConfigurationHCRPAssignmentReportsGet is GuestConfigurationHCRPAssignmentOps.Read<
     GuestConfigurationAssignment,
-    void,
     Parameters = {
       /**
        * The GUID for the guest configuration assignment report.
@@ -387,10 +385,9 @@ interface GuestConfigurationAssignmentsVMSS {
     "guestConfigurationAssignmentName",
     "name"
   )
-  guestConfigurationAssignmentReportsVMSSGet is Extension.ActionSync<
+  guestConfigurationAssignmentReportsVMSSGet is Extension.Read<
     VirtualMachineScaleSets,
     GuestConfigurationAssignment,
-    void,
     Parameters = {
       /**
        * The GUID for the guest configuration assignment report.
@@ -498,9 +495,8 @@ interface GuestConfigurationConnectedVMwarevSphereAssignments {
    */
   #suppress "@azure-tools/typespec-azure-core/casing-style" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
   @get
-  guestConfigurationConnectedVMwarevSphereAssignmentsReportsGet is GuestConfigurationConnectedVMwarevSphereAssignmentOps.ActionSync<
+  guestConfigurationConnectedVMwarevSphereAssignmentsReportsGet is GuestConfigurationConnectedVMwarevSphereAssignmentOps.Read<
     GuestConfigurationAssignment,
-    void,
     Response = ArmResponse<GuestConfigurationAssignmentReport>,
     Parameters = {
       /**
