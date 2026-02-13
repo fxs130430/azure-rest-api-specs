@@ -16,6 +16,12 @@ using Microsoft.DataBox;
 @@clientName(Microsoft.DataBox, "DataBoxManagementClient", "javascript");
 @@clientName(Microsoft.DataBox, "DataBoxManagementClient", "python");
 
+// rename for duplicate model from Azure.ResourceManager.CommonTypes
+@@clientName(Azure.ResourceManager.CommonTypes.ErrorDetail,
+  "ArmErrorDetail",
+  "go"
+);
+
 @@clientName(JobResource, "DataBoxJob", "csharp");
 @@clientName(JobResourceUpdateParameter, "DataBoxJobPatch", "csharp");
 @@clientName(JobResourceList, "DataBoxJobListResult", "csharp");
