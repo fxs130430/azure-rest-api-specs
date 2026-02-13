@@ -367,6 +367,7 @@ namespace KnowledgeBaseRetrievalClient {
 @@access(RemoteSharePointKnowledgeSource, Access.public);
 @@usage(RemoteSharePointKnowledgeSource, Usage.input);
 @@usage(SearchRequest, Usage.input | Usage.output, "java");
+@@access(SearchIndexResponse, Access.public, "python");
 
 @@access(SearchClient.Documents.searchGet, Access.internal);
 @@access(SearchClient.Documents.searchPost, Access.internal);
@@ -401,6 +402,7 @@ namespace KnowledgeBaseRetrievalClient {
 @@access(SearchIndexClient.Indexes.analyze, Access.internal, "python");
 @@access(SearchIndexClient.Indexes.getStatistics, Access.internal, "python");
 @@access(SearchIndexClient.Indexes.list, Access.internal, "python");
+@@access(SearchIndexClient.Indexes.listWithSelectedProperties, Access.internal, "python");
 @@access(SearchIndexClient.Aliases.createOrUpdate, Access.internal);
 @@access(SearchIndexClient.Aliases.delete, Access.internal, "python");
 @@access(SearchIndexClient.KnowledgeBases.createOrUpdate, Access.internal);
