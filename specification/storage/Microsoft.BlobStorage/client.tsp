@@ -123,6 +123,26 @@ interface PageBlobClient extends Storage.Blob.PageBlob {}
 @@clientName(UserDelegationKey.signedTid, "signedTenantId", "javascript");
 @@clientName(UserDelegationKey.signedStart, "signedStartsOn", "javascript");
 @@clientName(UserDelegationKey.signedExpiry, "signedExpiresOn", "javascript");
+@@clientName(FilterBlobSegment.nextMarker, "continuationToken", "javascript");
+@@clientName(ListContainersSegmentResponse.NextMarker,
+  "continuationToken",
+  "javascript"
+);
+@@clientName(ListContainersSegmentResponse.maxResults,
+  "maxPageSize",
+  "javascript"
+);
+@@clientName(ListBlobsResponse.nextMarker, "continuationToken", "javascript");
+@@clientName(ListBlobsResponse.maxResults, "maxPageSize", "javascript");
+@@clientName(PageList.nextMarker, "continuationToken", "javascript");
+@@clientName(ListBlobsHierarchySegmentResponse.nextMarker,
+  "continuationToken",
+  "javascript"
+);
+@@clientName(ListBlobsHierarchySegmentResponse.maxResults,
+  "maxPageSize",
+  "javascript"
+);
 @@alternateType(BlobProperties.contentLength, uint64, "rust");
 @@alternateType(BlobContentLengthRequired.size, uint64, "rust");
 @@alternateType(ContentLengthResponseHeader.contentLength, uint64, "rust");
