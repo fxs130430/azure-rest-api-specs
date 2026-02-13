@@ -53,10 +53,9 @@ options:
     generate-sample: false
     flavor: "azure"
   "@azure-tools/typespec-go":
+    service-dir: "sdk/containers"
     emitter-output-dir: "{output-dir}/{service-dir}/azcontainerregistry"
-    module-name: "github.com/Azure/azure-sdk-for-go/sdk/containers/azcontainerregistry"
-    package-name: "azcontainerregistry"
-    package-version: "0.2.4"
+    module: "github.com/Azure/azure-sdk-for-go/{service-dir}/azcontainerregistry"
     inject-spans: true
     generate-test: false
     generate-sample: false
