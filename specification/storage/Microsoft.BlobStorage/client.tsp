@@ -7,6 +7,60 @@ using Storage.Blob;
 
 namespace Customizations;
 
+#suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
+@client(
+  {
+    service: Storage.Blob,
+  },
+  "rust"
+)
+interface BlobServiceClient extends Storage.Blob.Service {}
+
+#suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
+@client(
+  {
+    service: Storage.Blob,
+  },
+  "rust"
+)
+interface BlobContainerClient extends Storage.Blob.Container {}
+
+#suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
+@client(
+  {
+    service: Storage.Blob,
+  },
+  "rust"
+)
+interface BlobClient extends Storage.Blob.Blob {}
+
+#suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
+@client(
+  {
+    service: Storage.Blob,
+  },
+  "rust"
+)
+interface AppendBlobClient extends Storage.Blob.AppendBlob {}
+
+#suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
+@client(
+  {
+    service: Storage.Blob,
+  },
+  "rust"
+)
+interface BlockBlobClient extends Storage.Blob.BlockBlob {}
+
+#suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
+@client(
+  {
+    service: Storage.Blob,
+  },
+  "rust"
+)
+interface PageBlobClient extends Storage.Blob.PageBlob {}
+
 @@clientNamespace(Storage.Blob, "Azure.Storage.Blobs");
 @@clientNamespace(Storage.Blob.Container, "Azure.Storage.Blobs");
 @@clientNamespace(Storage.Blob.Blob, "Azure.Storage.Blobs");
@@ -14,12 +68,8 @@ namespace Customizations;
 @@clientNamespace(Storage.Blob.BlockBlob, "Azure.Storage.Blobs");
 @@clientNamespace(Storage.Blob.PageBlob, "Azure.Storage.Blobs");
 
-@@clientName(Storage.Blob.Service, "BlobServiceClient", "rust");
-@@clientName(Storage.Blob.Container, "BlobContainerClient", "rust");
-@@clientName(Storage.Blob.Blob, "BlobClient", "rust");
-@@clientName(Storage.Blob.AppendBlob, "AppendBlobClient", "rust");
-@@clientName(Storage.Blob.BlockBlob, "BlockBlobClient", "rust");
-@@clientName(Storage.Blob.PageBlob, "PageBlobClient", "rust");
+@@clientName(Storage.Blob.BlockBlob.upload, "upload_internal", "rust");
+@@clientName(Storage.Blob.Blob.download, "download_internal", "rust");
 
 @@clientName(ContainerProperties.denyEncryptionScopeOverride,
   "PreventEncryptionScopeOverride"
@@ -27,10 +77,10 @@ namespace Customizations;
 @@clientName(ContainerProperties.immutableStorageWithVersioningEnabled,
   "IsImmutableStorageWithVersioningEnabled"
 );
-@@clientName(BlobPropertiesInternal.expiryTime, "ExpiresOn");
-@@clientName(BlobPropertiesInternal.sealed, "IsSealed");
-@@clientName(BlobPropertiesInternal.lastAccessTime, "LastAccessedOn");
-@@clientName(BlobPropertiesInternal.immutabilityPolicyUntilDate,
+@@clientName(BlobProperties.expiryTime, "ExpiresOn");
+@@clientName(BlobProperties.sealed, "IsSealed");
+@@clientName(BlobProperties.lastAccessTime, "LastAccessedOn");
+@@clientName(BlobProperties.immutabilityPolicyUntilDate,
   "ImmutabilityPolicyExpiresOn"
 );
 @@clientName(MetadataHeaders.metadata, "metadata", "rust");
@@ -47,17 +97,17 @@ namespace Customizations;
 @@clientName(AccessPolicy.start, "startsOn", "javascript");
 @@clientName(AccessPolicy.expiry, "expiresOn", "javascript");
 @@clientName(AccessPolicy.permission, "permissions", "javascript");
-@@clientName(BlobPropertiesInternal.accessTierChangeTime,
+@@clientName(BlobProperties.accessTierChangeTime,
   "accessTierChangedOn",
   "javascript"
 );
-@@clientName(BlobPropertiesInternal.creationTime, "createdOn", "javascript");
-@@clientName(BlobPropertiesInternal.copyCompletionTime,
+@@clientName(BlobProperties.creationTime, "createdOn", "javascript");
+@@clientName(BlobProperties.copyCompletionTime,
   "copyCompletedOn",
   "javascript"
 );
-@@clientName(BlobPropertiesInternal.deletedTime, "deletedOn", "javascript");
-@@clientName(BlobPropertiesInternal.eTag, "etag", "javascript");
+@@clientName(BlobProperties.deletedTime, "deletedOn", "javascript");
+@@clientName(BlobProperties.eTag, "etag", "javascript");
 @@clientName(ContainerProperties.deletedTime, "deletedOn", "javascript");
 @@clientName(ContainerProperties.eTag, "etag", "javascript");
 @@clientName(EtagResponseHeader.eTag, "etag", "javascript");
@@ -73,8 +123,7 @@ namespace Customizations;
 @@clientName(UserDelegationKey.signedTid, "signedTenantId", "javascript");
 @@clientName(UserDelegationKey.signedStart, "signedStartsOn", "javascript");
 @@clientName(UserDelegationKey.signedExpiry, "signedExpiresOn", "javascript");
-
-@@alternateType(BlobPropertiesInternal.contentLength, uint64, "rust");
+@@alternateType(BlobProperties.contentLength, uint64, "rust");
 @@alternateType(BlobContentLengthRequired.size, uint64, "rust");
 @@alternateType(ContentLengthResponseHeader.contentLength, uint64, "rust");
 @@alternateType(ContentLengthParameter.contentLength, uint64, "rust");
@@ -90,13 +139,13 @@ namespace Customizations;
 @@scope(Storage.Blob.Container.submitBatch, "!rust");
 @@scope(Storage.Blob.Service.submitBatch, "!rust");
 
-@@clientName(BlobPropertiesInternal, "BlobProperties", "go");
-@@clientName(BlobItemInternal, "BlobItem", "go");
+@@clientName(BlobProperties, "BlobProperties", "go");
+@@clientName(BlobItem, "BlobItem", "go");
 @@clientName(UserDelegationKey.signedOid, "SignedOID", "go");
 @@clientName(UserDelegationKey.signedTid, "SignedTID", "go");
 @@alternateType(AccessPolicy.start, utcDateTime, "go");
 @@alternateType(AccessPolicy.expiry, utcDateTime, "go");
-@@alternateType(BlobItemInternal.name, string, "go");
+@@alternateType(BlobItem.name, string, "go");
 @@alternateType(BlobPrefix.name, string, "go");
 
 @@alternateType(AccessPolicy.start, string, "python");
@@ -118,13 +167,11 @@ namespace Customizations;
 
 @@alternateType(BlockIdParameter.blockid, string, "python");
 
-@@Legacy.disablePageable(Storage.Blob.Container.listBlobFlatSegment,
-  "python,javascript"
-);
+@@Legacy.disablePageable(Storage.Blob.Container.listBlobs, "python,javascript");
 @@Legacy.disablePageable(Storage.Blob.Container.listBlobHierarchySegment,
   "python,javascript"
 );
-@@Legacy.disablePageable(Storage.Blob.Service.listContainersSegment,
+@@Legacy.disablePageable(Storage.Blob.Service.listContainers,
   "python,javascript"
 );
 
@@ -134,3 +181,14 @@ namespace Customizations;
 @@clientOption(Storage.Blob.PageBlob, "includeRootSlash", false, "python");
 @@clientOption(Storage.Blob.BlockBlob, "includeRootSlash", false, "python");
 @@clientOption(Storage.Blob.AppendBlob, "includeRootSlash", false, "python");
+@@scope(Storage.Blob.Service.getUserDelegationKey, "!rust");
+@@scope(Storage.Blob.Container.listBlobHierarchySegment, "!rust");
+@@scope(Storage.Blob.Container.rename, "!rust");
+@@scope(Storage.Blob.Container.restore, "!rust");
+@@scope(Storage.Blob.Blob.abortCopyFromUrl, "!rust");
+@@scope(Storage.Blob.Blob.copyFromUrl, "!rust");
+@@scope(Storage.Blob.Blob.setExpiry, "!rust");
+@@scope(Storage.Blob.Blob.startCopyFromUrl, "!rust");
+@@scope(Storage.Blob.BlockBlob.query, "!rust");
+@@scope(Storage.Blob.PageBlob.copyIncremental, "!rust");
+@@scope(Storage.Blob.PageBlob.getPageRangesDiff, "!rust");

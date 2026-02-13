@@ -59,7 +59,6 @@ op StorageOperationNoBody<
 }) | TError;
 
 #suppress "@azure-tools/typespec-azure-core/operation-missing-api-version" "Existing API. Storage API version parameter pre-dates current guidance."
-@client
 interface Service {
   /** Sets properties for a storage account's Blob service endpoint, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules */
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
@@ -104,7 +103,7 @@ interface Service {
   @get
   @list
   @route("?comp=list")
-  listContainersSegment is StorageOperation<
+  listContainers is StorageOperation<
     {
       ...PrefixParameter;
       ...MarkerParameter;
@@ -205,7 +204,6 @@ interface Service {
 }
 
 #suppress "@azure-tools/typespec-azure-core/operation-missing-api-version" "Existing API. Storage API version parameter pre-dates current guidance."
-@client
 interface Container {
   /** Creates a new container under the specified account. If the container with the same name already exists, the operation fails. */
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
@@ -565,7 +563,7 @@ interface Container {
   @list
   @sharedRoute
   @route("?restype=container&comp=list")
-  listBlobFlatSegment is StorageOperation<
+  listBlobs is StorageOperation<
     {
       ...PrefixParameter;
       ...MarkerParameter;
@@ -577,7 +575,7 @@ interface Container {
     {
       /** The list of blobs in the container */
       @body
-      enumerationResults: ListBlobsFlatSegmentResponse;
+      enumerationResults: ListBlobsResponse;
     }
   >;
 
@@ -626,7 +624,6 @@ interface Container {
 }
 
 #suppress "@azure-tools/typespec-azure-core/operation-missing-api-version" "Existing API. Storage API version parameter pre-dates current guidance."
-@client
 interface Blob {
   /** The Download operation reads or downloads a blob from the system, including its metadata and properties. You can also call Download to read a snapshot. */
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
@@ -1416,7 +1413,6 @@ interface Blob {
 }
 
 #suppress "@azure-tools/typespec-azure-core/operation-missing-api-version" "Existing API. Storage API version parameter pre-dates current guidance."
-@client
 interface PageBlob {
   /** The Create operation creates a new page blob. */
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
@@ -1779,7 +1775,6 @@ interface PageBlob {
 }
 
 #suppress "@azure-tools/typespec-azure-core/operation-missing-api-version" "Existing API. Storage API version parameter pre-dates current guidance."
-@client
 interface AppendBlob {
   /** The Create operation creates a new append blob. */
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
@@ -1957,7 +1952,6 @@ interface AppendBlob {
 }
 
 #suppress "@azure-tools/typespec-azure-core/operation-missing-api-version" "Existing API. Storage API version parameter pre-dates current guidance."
-@client
 interface BlockBlob {
   /** The Upload Block Blob operation updates the content of an existing block blob. Updating an existing block blob overwrites any existing metadata on the blob. Partial updates are not supported with Put Blob; the content of the existing blob is overwritten with the content of the new blob. To perform a partial update of the content of a block blob, use the Put Block List operation. */
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
