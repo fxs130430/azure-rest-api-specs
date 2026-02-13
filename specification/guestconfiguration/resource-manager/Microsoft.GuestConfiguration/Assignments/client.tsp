@@ -13,7 +13,6 @@ using Microsoft.GuestConfiguration;
   Azure.Core.armResourceIdentifier,
   "csharp"
 );
-@@alternateType(ProxyResource.location, Azure.Core.azureLocation, "csharp");
 @@alternateType(VmssvmInfo.vmId, Azure.Core.uuid, "csharp");
 @@alternateType(VmssvmInfo.latestReportId, Azure.Core.uuid, "csharp");
 @@alternateType(VmssvmInfo.vmResourceId,
