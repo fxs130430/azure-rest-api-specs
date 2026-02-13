@@ -281,4 +281,8 @@ suppressions:
     from: search.json
     where: $.paths["/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}"].patch.parameters[2].schema.properties.properties
     reason: PATCH body uses a polymorphic properties payload that requires '@odata.type' as a discriminator for type resolution; making it optional would break update semantics.
+  - code: PatchBodyParametersSchema
+    from: search.json
+    where: $.definitions.DataIdentity.required[0]
+    reason: The @odata.type property is a discriminator that must remain required per OpenAPI 2.0 specification for polymorphic type resolution, even in PATCH operations.
 ```
