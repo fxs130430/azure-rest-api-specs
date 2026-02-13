@@ -45,6 +45,7 @@ model Policy is ProxyResource<PolicyProperties> {
 }
 
 @added(Versions.v2025_11_01_preview)
+@removed(Versions.v2026_04_01)
 @doc("Details of the Credential Policy.")
 model PolicyProperties {
   @visibility(Lifecycle.Read)
@@ -56,6 +57,7 @@ model PolicyProperties {
 }
 
 @added(Versions.v2025_11_01_preview)
+@removed(Versions.v2026_04_01)
 @doc("The certificate configuration.")
 model CertificateConfiguration {
   @doc("The configuration to set up an ICA.")
@@ -66,6 +68,7 @@ model CertificateConfiguration {
 }
 
 @added(Versions.v2025_11_01_preview)
+@removed(Versions.v2026_04_01)
 @doc("The configuration to set up an ICA.")
 model CertificateAuthorityConfiguration {
   @doc("Crypto type: ECC.")
@@ -111,6 +114,7 @@ model BringYourOwnRoot {
 }
 
 @added(Versions.v2025_11_01_preview)
+@removed(Versions.v2026_04_01)
 @doc("Supported key types.")
 union SupportedKeyType {
   string,
@@ -120,6 +124,7 @@ union SupportedKeyType {
 }
 
 @added(Versions.v2025_11_01_preview)
+@removed(Versions.v2026_04_01)
 @doc("The leaf certificate configuration.")
 model LeafCertificateConfiguration {
   @doc("The validity period in days.")
