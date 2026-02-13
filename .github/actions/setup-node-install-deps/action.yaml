@@ -21,30 +21,31 @@ runs:
     - id: check-node-version
       run: |
         REQUESTED_VERSION="${{ inputs.node-version }}"
-        CURRENT_VERSION=$(node -v 2>/dev/null | sed 's/^v//' || echo "")
-        
+        CURRENT_VERSION=$(node -v 2>/dev/null || echo "")
+        CURRENT_VERSION=${CURRENT_VERSION#v}
+
         echo "Requested version: $REQUESTED_VERSION"
         echo "Current version: $CURRENT_VERSION"
-        
+
         # If no version is requested (empty string), skip setup
         if [ -z "$REQUESTED_VERSION" ]; then
           echo "skip-setup=true" >> $GITHUB_OUTPUT
           echo "No specific version requested, using current Node version"
           exit 0
         fi
-        
+
         # If node is not installed, we need setup
         if [ -z "$CURRENT_VERSION" ]; then
           echo "skip-setup=false" >> $GITHUB_OUTPUT
           echo "Node not found, will run setup-node"
           exit 0
         fi
-        
+
         # Normalize versions for comparison
         # Handle patterns like "24", "24.x", "24.13.0"
         REQUESTED_MAJOR=$(echo "$REQUESTED_VERSION" | cut -d. -f1)
         CURRENT_MAJOR=$(echo "$CURRENT_VERSION" | cut -d. -f1)
-        
+
         # Check if requested version is just major version (e.g., "24") or has .x suffix (e.g., "24.x")
         # Using two separate checks is more explicit and easier to understand than a combined regex
         if [[ "$REQUESTED_VERSION" =~ ^[0-9]+$ ]] || [[ "$REQUESTED_VERSION" =~ ^[0-9]+\.x$ ]]; then
