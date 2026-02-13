@@ -3880,7 +3880,6 @@
         },
         "federatedIdentityClientId": {
           "type": "string",
-          "format": "uuid",
           "description": "Optional for Multi-tenant User-Assigned Managed Identity CMK Support: The client id (as a UUID) of the multi-tenant App Registration that has been configured to federate with the userAssignedIdentity."
         }
       },
