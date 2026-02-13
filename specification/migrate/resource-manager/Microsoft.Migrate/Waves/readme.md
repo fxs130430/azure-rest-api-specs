@@ -27,20 +27,6 @@ openapi-type: arm
 tag: package-preview-2026-02
 ```
 
-### Tag: package-preview-2025-12
-
-These settings apply only when `--tag=package-preview-2025-12` is specified on the command line.
-
-```yaml $(tag) == 'package-preview-2025-12'
-input-file:
-  - preview/2025-12-01-preview/waves.json
-suppressions:
-  - code: AvoidAdditionalProperties
-    reason: AMH feature is widely adopted and requires additionalProperties for these swagger properties.
-  - code: DescriptionMustNotBeNodeName
-    reason: Migrate Project swagger is not in typespec.
-```
-
 ### Tag: package-preview-2026-02
 
 These settings apply only when `--tag=package-preview-2026-02` is specified on the command line.
@@ -48,6 +34,20 @@ These settings apply only when `--tag=package-preview-2026-02` is specified on t
 ```yaml $(tag) == 'package-preview-2026-02'
 input-file:
   - preview/2026-02-01-preview/waves.json
+suppressions:
+  - code: AvoidAdditionalProperties
+    reason: AMH feature is widely adopted and requires additionalProperties for these swagger properties.
+  - code: DescriptionMustNotBeNodeName
+    reason: Migrate Project swagger is not in typespec.
+```
+
+### Tag: package-preview-2025-12
+
+These settings apply only when `--tag=package-preview-2025-12` is specified on the command line.
+
+```yaml $(tag) == 'package-preview-2025-12'
+input-file:
+  - preview/2025-12-01-preview/waves.json
 suppressions:
   - code: AvoidAdditionalProperties
     reason: AMH feature is widely adopted and requires additionalProperties for these swagger properties.

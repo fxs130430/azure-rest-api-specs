@@ -2089,14 +2089,32 @@
           "type": "array",
           "description": "List of migration entity ARM IDs to refresh. Each ID must be a fully qualified ARM resource ID belonging to the same subscription and resource group as the migrate project.",
           "items": {
-            "type": "string"
+            "type": "string",
+            "format": "arm-id",
+            "description": "A type definition that refers the id to an Azure Resource Manager resource.",
+            "x-ms-arm-id-details": {
+              "allowedResources": [
+                {
+                  "type": "Microsoft.Migrate/migrateProjects/migrationEntities"
+                }
+              ]
+            }
           }
         },
         "migrationEntityGroupIds": {
           "type": "array",
           "description": "List of migration entity group ARM IDs. All entities within these groups will be refreshed. Each ID must be a fully qualified ARM resource ID belonging to the same subscription and resource group as the migrate project.",
           "items": {
-            "type": "string"
+            "type": "string",
+            "format": "arm-id",
+            "description": "A type definition that refers the id to an Azure Resource Manager resource.",
+            "x-ms-arm-id-details": {
+              "allowedResources": [
+                {
+                  "type": "Microsoft.Migrate/migrateProjects/migrationEntityGroups"
+                }
+              ]
+            }
           }
         }
       }
@@ -2109,7 +2127,16 @@
           "type": "array",
           "description": "List of migration entity ARM IDs being refreshed.",
           "items": {
-            "type": "string"
+            "type": "string",
+            "format": "arm-id",
+            "description": "A type definition that refers the id to an Azure Resource Manager resource.",
+            "x-ms-arm-id-details": {
+              "allowedResources": [
+                {
+                  "type": "Microsoft.Migrate/migrateProjects/migrationEntities"
+                }
+              ]
+            }
           },
           "readOnly": true
         },
@@ -2117,7 +2144,16 @@
           "type": "array",
           "description": "List of migration entity group ARM IDs being refreshed.",
           "items": {
-            "type": "string"
+            "type": "string",
+            "format": "arm-id",
+            "description": "A type definition that refers the id to an Azure Resource Manager resource.",
+            "x-ms-arm-id-details": {
+              "allowedResources": [
+                {
+                  "type": "Microsoft.Migrate/migrateProjects/migrationEntityGroups"
+                }
+              ]
+            }
           },
           "readOnly": true
         }
