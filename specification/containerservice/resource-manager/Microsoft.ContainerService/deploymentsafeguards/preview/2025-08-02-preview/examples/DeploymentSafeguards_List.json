@@ -32,6 +32,9 @@
                 "gatekeeper-system"
               ],
               "podSecurityStandardsLevel": "Baseline",
+              "excludedRules": [
+                "container-restricted-image-pulls"
+              ],
               "provisioningState": "Succeeded"
             }
           }

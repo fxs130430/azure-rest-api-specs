@@ -370,6 +370,13 @@
         "podSecurityStandardsLevel": {
           "$ref": "#/definitions/PodSecurityStandardsLevel",
           "description": "The pod security standards level"
+        },
+        "excludedRules": {
+          "type": "array",
+          "description": "User defined list of specific safeguard rules to exclude. Deployments will not be checked against these rules even if they are in scope",
+          "items": {
+            "type": "string"
+          }
         }
       },
       "required": [

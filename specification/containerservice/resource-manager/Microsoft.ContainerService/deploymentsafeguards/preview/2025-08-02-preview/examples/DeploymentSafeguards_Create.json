@@ -7,7 +7,10 @@
     "resource": {
       "properties": {
         "level": "Warn",
-        "podSecurityStandardsLevel": "Baseline"
+        "podSecurityStandardsLevel": "Baseline",
+        "excludedRules": [
+          "container-restricted-image-pulls"
+        ]
       }
     }
   },
@@ -38,6 +41,9 @@
             "gatekeeper-system"
           ],
           "podSecurityStandardsLevel": "Baseline",
+          "excludedRules": [
+            "container-restricted-image-pulls"
+          ],
           "provisioningState": "Succeeded"
         }
       }
@@ -68,6 +74,9 @@
             "gatekeeper-system"
           ],
           "podSecurityStandardsLevel": "Baseline",
+          "excludedRules": [
+            "container-restricted-image-pulls"
+          ],
           "provisioningState": "Succeeded"
         }
       }
