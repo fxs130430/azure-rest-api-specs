@@ -3786,7 +3786,7 @@ model AutomaticOsUpgradePolicy {
   disableAutomaticRollback?: boolean;
 
   #suppress "@azure-tools/typespec-azure-core/casing-style" "The names of Property types must use camelCase"
-  @doc("Indicates whether OS upgrades should automatically be applied to scale set instances in a rolling fashion when a newer version of the OS image becomes available. <br /><br /> If this is set to true for Windows based pools, WindowsConfiguration.enableAutomaticUpdates cannot be set to true. [Learn more](https://learn.microsoft.com/en-us/azure/batch/batch-upgrade-policy)")
+  @doc("Indicates whether OS upgrades should automatically be applied to scale set instances in a rolling fashion when a newer version of the OS image becomes available. <br /><br /> If this is set to true for Windows based pools, [WindowsConfiguration.enableAutomaticUpdates](https://learn.microsoft.com/rest/api/batchservice/pools/create-pool#windowsconfiguration) cannot be set to true.")
   @clientName("enableAutomaticOsUpgrade")
   enableAutomaticOSUpgrade?: boolean;
 
