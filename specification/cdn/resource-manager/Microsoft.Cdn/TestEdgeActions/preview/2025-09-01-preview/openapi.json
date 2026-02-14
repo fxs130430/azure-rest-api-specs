@@ -66,7 +66,7 @@
         ],
         "responses": {
           "200": {
-            "description": "ARM operation completed successfully.",
+            "description": "Azure operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/TestEdgeActionListResult"
             }
@@ -108,7 +108,7 @@
         ],
         "responses": {
           "200": {
-            "description": "ARM operation completed successfully.",
+            "description": "Azure operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/TestEdgeActionListResult"
             }
@@ -159,7 +159,7 @@
         ],
         "responses": {
           "200": {
-            "description": "ARM operation completed successfully.",
+            "description": "Azure operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/TestEdgeAction"
             }
@@ -290,7 +290,7 @@
         ],
         "responses": {
           "200": {
-            "description": "ARM operation completed successfully.",
+            "description": "Azure operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/TestEdgeAction"
             }
@@ -426,7 +426,7 @@
         ],
         "responses": {
           "200": {
-            "description": "ARM operation completed successfully.",
+            "description": "Azure operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/TestEdgeActionAttachmentResponse"
             }
@@ -564,7 +564,7 @@
         ],
         "responses": {
           "200": {
-            "description": "ARM operation completed successfully.",
+            "description": "Azure operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/TestEdgeActionExecutionFilterListResult"
             }
@@ -624,7 +624,7 @@
         ],
         "responses": {
           "200": {
-            "description": "ARM operation completed successfully.",
+            "description": "Azure operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/TestEdgeActionExecutionFilter"
             }
@@ -773,7 +773,7 @@
         ],
         "responses": {
           "200": {
-            "description": "ARM operation completed successfully.",
+            "description": "Azure operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/TestEdgeActionExecutionFilter"
             }
@@ -909,7 +909,7 @@
         ],
         "responses": {
           "200": {
-            "description": "ARM operation completed successfully.",
+            "description": "Azure operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/TestEdgeActionVersionListResult"
             }
@@ -969,7 +969,7 @@
         ],
         "responses": {
           "200": {
-            "description": "ARM operation completed successfully.",
+            "description": "Azure operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/TestEdgeActionVersion"
             }
@@ -1118,7 +1118,7 @@
         ],
         "responses": {
           "200": {
-            "description": "ARM operation completed successfully.",
+            "description": "Azure operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/TestEdgeActionVersion"
             }
@@ -1272,7 +1272,7 @@
         ],
         "responses": {
           "200": {
-            "description": "ARM operation completed successfully.",
+            "description": "Azure operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/TestEdgeActionVersionProperties"
             }
@@ -1347,7 +1347,7 @@
         ],
         "responses": {
           "200": {
-            "description": "ARM operation completed successfully.",
+            "description": "Azure operation completed successfully.",
             "schema": {
               "$ref": "#/definitions/TestVersionCode"
             }
@@ -1632,19 +1632,53 @@
     },
     "TestEdgeActionExecutionFilterUpdate": {
       "type": "object",
-      "description": "Concrete tracked resource types can be created by aliasing this type using a specific property type.",
+      "description": "The type used for update operations of the TestEdgeActionExecutionFilter.",
       "properties": {
+        "tags": {
+          "type": "object",
+          "description": "Resource tags.",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
         "properties": {
-          "$ref": "#/definitions/TestEdgeActionExecutionFilterProperties",
-          "description": "The resource-specific properties for this resource.",
-          "x-ms-client-flatten": true
+          "$ref": "#/definitions/TestEdgeActionExecutionFilterUpdateProperties",
+          "description": "The resource-specific properties for this resource."
         }
-      },
-      "allOf": [
-        {
-          "$ref": "../../../../../../common-types/resource-management/v6/types.json#/definitions/TrackedResource"
+      }
+    },
+    "TestEdgeActionExecutionFilterUpdateProperties": {
+      "type": "object",
+      "description": "The updatable properties of the TestEdgeActionExecutionFilter.",
+      "properties": {
+        "versionId": {
+          "$ref": "#/definitions/TestEdgeActionVersionId",
+          "description": "The referenced versionId of the test edge action version",
+          "x-ms-mutability": [
+            "read",
+            "update",
+            "create"
+          ]
+        },
+        "executionFilterIdentifierHeaderName": {
+          "type": "string",
+          "description": "Custom Header Key associated with the execution filter",
+          "x-ms-mutability": [
+            "read",
+            "update",
+            "create"
+          ]
+        },
+        "executionFilterIdentifierHeaderValue": {
+          "type": "string",
+          "description": "Custom Header Value associated with the execution filter",
+          "x-ms-mutability": [
+            "read",
+            "update",
+            "create"
+          ]
         }
-      ]
+      }
     },
     "TestEdgeActionIsDefaultVersion": {
       "type": "string",
@@ -1713,10 +1747,18 @@
         "attachments"
       ]
     },
+    "TestEdgeActionPropertiesUpdate": {
+      "type": "object",
+      "description": "Represents a test edge action properties"
+    },
     "TestEdgeActionUpdate": {
       "type": "object",
       "description": "The type used for update operations of the TestEdgeAction.",
       "properties": {
+        "properties": {
+          "$ref": "#/definitions/TestEdgeActionPropertiesUpdate",
+          "description": "The resource-specific properties for this resource."
+        },
         "sku": {
           "$ref": "#/definitions/TestSkuType",
           "description": "The sku type of the test edge action"
@@ -1861,19 +1903,44 @@
     },
     "TestEdgeActionVersionUpdate": {
       "type": "object",
-      "description": "Concrete tracked resource types can be created by aliasing this type using a specific property type.",
+      "description": "The type used for update operations of the TestEdgeActionVersion.",
       "properties": {
+        "tags": {
+          "type": "object",
+          "description": "Resource tags.",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
         "properties": {
-          "$ref": "#/definitions/TestEdgeActionVersionProperties",
-          "description": "The resource-specific properties for this resource.",
-          "x-ms-client-flatten": true
+          "$ref": "#/definitions/TestEdgeActionVersionUpdateProperties",
+          "description": "The resource-specific properties for this resource."
         }
-      },
-      "allOf": [
-        {
-          "$ref": "../../../../../../common-types/resource-management/v6/types.json#/definitions/TrackedResource"
+      }
+    },
+    "TestEdgeActionVersionUpdateProperties": {
+      "type": "object",
+      "description": "The updatable properties of the TestEdgeActionVersion.",
+      "properties": {
+        "deploymentType": {
+          "$ref": "#/definitions/TestEdgeActionVersionDeploymentType",
+          "description": "The deployment type",
+          "x-ms-mutability": [
+            "read",
+            "update",
+            "create"
+          ]
+        },
+        "isDefaultVersion": {
+          "$ref": "#/definitions/TestEdgeActionIsDefaultVersion",
+          "description": "The active state",
+          "x-ms-mutability": [
+            "read",
+            "update",
+            "create"
+          ]
         }
-      ]
+      }
     },
     "TestEdgeActionVersionValidationStatus": {
       "type": "string",
@@ -1955,7 +2022,11 @@
           "type": "string",
           "description": "The tier of the SKU"
         }
-      }
+      },
+      "required": [
+        "name",
+        "tier"
+      ]
     },
     "TestVersionCode": {
       "type": "object",
