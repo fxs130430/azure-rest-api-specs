@@ -13,22 +13,19 @@ namespace Microsoft.GuestConfiguration;
 /**
  * Guest configuration assignment is an association between a machine and guest configuration.
  */
-#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "Custom resource hierarchy"
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-custom-resource-no-key" "Key defined in model"
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-custom-resource-usage-discourage" "Required for custom resource hierarchy"
+#suppress "@azure-tools/typespec-azure-core/composition-over-inheritance" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-custom-resource-usage-discourage" "FIXME: Update justification, follow aka.ms/tsp/conversion-fix for details"
 model GuestConfigurationAssignment extends ProxyResource {
-  /**
-   * Name of the guest configuration assignment.
-   */
-  #suppress "@azure-tools/typespec-azure-core/key-visibility-required" "Matching original swagger where name is not readOnly"
-  @key("guestConfigurationAssignmentName")
-  @pattern("^[a-zA-Z0-9._-]+$")
-  name: string;
-
   /**
    * Properties of the Guest configuration assignment.
    */
   properties?: GuestConfigurationAssignmentProperties;
+
+  /**
+   *  Azure Resource Manager metadata containing createdBy and modifiedBy information.
+   */
+  @visibility(Lifecycle.Read)
+  systemData?: Azure.ResourceManager.CommonTypes.SystemData;
 }
 
 alias GuestConfigurationAssignmentOps = Azure.ResourceManager.Legacy.ExtensionOperations<

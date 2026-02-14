@@ -91,7 +91,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/providers/Microsoft.GuestConfiguration": {
+    "/subscriptions/{subscriptionId}/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments": {
       "get": {
         "operationId": "GuestConfigurationAssignments_SubscriptionList",
         "tags": [
@@ -133,7 +133,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmssName}/providers/Microsoft.GuestConfiguration": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmssName}/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments": {
       "get": {
         "operationId": "GuestConfigurationAssignmentsVMSS_List",
         "tags": [
@@ -182,7 +182,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmssName}/providers/Microsoft.GuestConfiguration/{name}": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmssName}/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/{name}": {
       "get": {
         "operationId": "GuestConfigurationAssignmentsVMSS_Get",
         "tags": [
@@ -211,8 +211,7 @@
             "in": "path",
             "description": "The guest configuration assignment name.",
             "required": true,
-            "type": "string",
-            "pattern": "^[a-zA-Z0-9._-]+$"
+            "type": "string"
           }
         ],
         "responses": {
@@ -263,8 +262,7 @@
             "in": "path",
             "description": "The guest configuration assignment name.",
             "required": true,
-            "type": "string",
-            "pattern": "^[a-zA-Z0-9._-]+$"
+            "type": "string"
           },
           {
             "name": "parameters",
@@ -330,8 +328,7 @@
             "in": "path",
             "description": "The guest configuration assignment name.",
             "required": true,
-            "type": "string",
-            "pattern": "^[a-zA-Z0-9._-]+$"
+            "type": "string"
           }
         ],
         "responses": {
@@ -358,7 +355,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmssName}/providers/Microsoft.GuestConfiguration/{name}/reports": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmssName}/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/{name}/reports": {
       "get": {
         "operationId": "GuestConfigurationAssignmentReportsVMSS_List",
         "tags": [
@@ -387,8 +384,7 @@
             "in": "path",
             "description": "The guest configuration assignment name.",
             "required": true,
-            "type": "string",
-            "pattern": "^[a-zA-Z0-9._-]+$"
+            "type": "string"
           }
         ],
         "responses": {
@@ -475,7 +471,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/providers/Microsoft.GuestConfiguration": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments": {
       "get": {
         "operationId": "GuestConfigurationAssignments_List",
         "tags": [
@@ -809,7 +805,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ConnectedVMwarevSphere/virtualmachines/{vmName}/providers/Microsoft.GuestConfiguration": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ConnectedVMwarevSphere/virtualmachines/{vmName}/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments": {
       "get": {
         "operationId": "GuestConfigurationConnectedVMwarevSphereAssignments_List",
         "tags": [
@@ -1192,7 +1188,7 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridCompute/machines/{machineName}/providers/Microsoft.GuestConfiguration": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridCompute/machines/{machineName}/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments": {
       "get": {
         "operationId": "GuestConfigurationHCRPAssignments_List",
         "tags": [
@@ -1733,6 +1729,10 @@
         ]
       }
     },
+    "Azure.Core.armResourceType": {
+      "type": "string",
+      "description": "Represents an Azure Resource Type."
+    },
     "ComplianceStatus": {
       "type": "string",
       "description": "A value indicating compliance status of the machine for the assigned guest configuration.",
@@ -1880,19 +1880,16 @@
       "type": "object",
       "description": "Guest configuration assignment is an association between a machine and guest configuration.",
       "properties": {
-        "name": {
-          "type": "string",
-          "description": "The guest configuration assignment name.",
-          "pattern": "^[a-zA-Z0-9._-]+$"
-        },
         "properties": {
           "$ref": "#/definitions/GuestConfigurationAssignmentProperties",
           "description": "Properties of the Guest configuration assignment."
+        },
+        "systemData": {
+          "$ref": "../../../../../../common-types/resource-management/v3/types.json#/definitions/systemData",
+          "description": "Azure Resource Manager metadata containing createdBy and modifiedBy information.",
+          "readOnly": true
         }
       },
-      "required": [
-        "name"
-      ],
       "allOf": [
         {
           "$ref": "#/definitions/ProxyResource"
@@ -2270,26 +2267,28 @@
       "type": "object",
       "description": "ARM proxy resource.",
       "properties": {
+        "id": {
+          "type": "string",
+          "format": "arm-id",
+          "description": "ARM resource id of the guest configuration assignment.",
+          "readOnly": true
+        },
         "name": {
           "type": "string",
-          "description": "Name of the guest configuration assignment."
+          "description": "The guest configuration assignment name."
         },
         "location": {
           "type": "string",
-          "description": "Region where the VM is located.",
-          "x-ms-mutability": [
-            "read",
-            "create"
-          ]
+          "description": "Region where the VM is located."
+        },
+        "type": {
+          "$ref": "#/definitions/Azure.Core.armResourceType",
+          "description": "The type of the resource.",
+          "readOnly": true
         }
       },
       "required": [
         "name"
-      ],
-      "allOf": [
-        {
-          "$ref": "../../../../../../common-types/resource-management/v3/types.json#/definitions/ProxyResource"
-        }
       ]
     },
     "Type": {
