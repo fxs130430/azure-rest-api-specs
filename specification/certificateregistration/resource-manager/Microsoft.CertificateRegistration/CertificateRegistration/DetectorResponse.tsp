@@ -6,6 +6,7 @@ import "./models.tsp";
 import "./AppServiceCertificateOrder.tsp";
 
 using TypeSpec.Rest;
+using Azure.ClientGenerator.Core;
 using Azure.ResourceManager;
 using TypeSpec.Http;
 using TypeSpec.OpenAPI;
@@ -43,12 +44,14 @@ interface CertificateOrdersDiagnostics {
        * The start time for detector response.
        */
       @query("startTime")
+      @clientName("startOn", "csharp")
       startTime?: utcDateTime;
 
       /**
        * The end time for the detector response.
        */
       @query("endTime")
+      @clientName("endOn", "csharp")
       endTime?: utcDateTime;
 
       /**
