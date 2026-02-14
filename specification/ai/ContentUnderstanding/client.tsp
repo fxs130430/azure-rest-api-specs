@@ -152,7 +152,7 @@ op analyzeCustomSignature(
   analyzerId: string,
 
   @doc("Inputs to analyze. Currently, only pro mode supports multiple inputs.")
-  inputs?: AnalyzeInput[],
+  inputs: AnalyzeInput[],
 
   @doc("The string encoding format for content spans in the response. Possible values are 'codePoint', 'utf16', and 'utf8'.")
   @query
