@@ -767,7 +767,8 @@
             "in": "path",
             "description": "The name of the virtual machine.",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][-a-zA-Z0-9_.]*[a-zA-Z0-9]$"
           },
           {
             "name": "guestConfigurationAssignmentName",
@@ -1108,14 +1109,16 @@
             "in": "path",
             "description": "The name of the virtual machine.",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][-a-zA-Z0-9_.]*[a-zA-Z0-9]$"
           },
           {
             "name": "guestConfigurationAssignmentName",
             "in": "path",
             "description": "The guest configuration assignment name.",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "pattern": "^[^<>%&:\\\\?/#]*$"
           },
           {
             "name": "reportId",

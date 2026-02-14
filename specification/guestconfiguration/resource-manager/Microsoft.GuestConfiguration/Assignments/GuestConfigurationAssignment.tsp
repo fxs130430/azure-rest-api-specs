@@ -77,6 +77,7 @@ alias GuestConfigurationAssignmentReportOps = Azure.ResourceManager.Legacy.Route
      */
     @path
     @segment("virtualMachines")
+    @pattern("^[a-zA-Z0-9][-a-zA-Z0-9_.]*[a-zA-Z0-9]$")
     vmName: string;
   },
   {
@@ -529,6 +530,7 @@ alias GuestConfigurationVMwarevSphereAssignmentReportOps = Azure.ResourceManager
      */
     @path
     @segment("virtualmachines")
+    @pattern("^[a-zA-Z0-9][-a-zA-Z0-9_.]*[a-zA-Z0-9]$")
     vmName: string;
   },
   {
@@ -537,6 +539,7 @@ alias GuestConfigurationVMwarevSphereAssignmentReportOps = Azure.ResourceManager
      */
     @path
     @segment("guestConfigurationAssignments")
+    @pattern("^[^<>%&:\\\\?/#]*$")
     guestConfigurationAssignmentName: string;
   },
   ResourceRoute = #{
