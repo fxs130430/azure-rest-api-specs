@@ -7,13 +7,11 @@ using Azure.ClientGenerator.Core;
 namespace Microsoft.BareMetalInfrastructure;
 
 #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Back compatibility"
-@@Azure.ClientGenerator.Core.Legacy.flattenProperty(AzureBareMetalInstance.properties,
-  "!javascript"
+@@Azure.ClientGenerator.Core.Legacy.flattenProperty(AzureBareMetalInstance.properties
 );
 
 #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "Back compatibility"
-@@Azure.ClientGenerator.Core.Legacy.flattenProperty(AzureBareMetalStorageInstance.properties,
-  "!javascript"
+@@Azure.ClientGenerator.Core.Legacy.flattenProperty(AzureBareMetalStorageInstance.properties
 );
 
 @@clientName(AzureBareMetalInstances.create::parameters.resource,
