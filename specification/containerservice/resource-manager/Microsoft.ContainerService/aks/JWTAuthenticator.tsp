@@ -231,7 +231,7 @@ model JWTAuthenticatorExtraClaimMappingExpression {
   /**
    * The key of the extra attribute.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/secret-prop" "This property may contain credential-like data but is required for API functionality and is handled securely."
+  #suppress "@azure-tools/typespec-azure-resource-manager/secret-prop" "The 'key' property refers to the key of an extra claim mapping attribute, not a secret or credential."
   key: string;
 
   /**

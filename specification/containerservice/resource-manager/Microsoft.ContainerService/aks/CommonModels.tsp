@@ -1404,22 +1404,23 @@ union SnapshotType {
 /**
  * The type of identity used for the managed cluster. For more information see [use managed identities in AKS](https://docs.microsoft.com/azure/aks/use-managed-identity).
  */
-#suppress "@azure-tools/typespec-azure-core/no-enum" "Enum is used here for backward compatibility with the existing API contract."
-enum ResourceIdentityType {
+union ResourceIdentityType {
+  string,
+
   /**
    * Use an implicitly created system assigned managed identity to manage cluster resources. Master components in the control plane such as kube-controller-manager will use the system assigned managed identity to manipulate Azure resources.
    */
-  SystemAssigned,
+  SystemAssigned: "SystemAssigned",
 
   /**
    * Use a user-specified identity to manage cluster resources. Master components in the control plane such as kube-controller-manager will use the specified user assigned managed identity to manipulate Azure resources.
    */
-  UserAssigned,
+  UserAssigned: "UserAssigned",
 
   /**
    * Do not use a managed identity for the Managed Cluster, service principal will be used instead.
    */
-  None,
+  None: "None",
 }
 
 /**
@@ -1968,7 +1969,7 @@ model ManagedClusterWindowsProfile {
    */
   adminUsername: string;
 
-  #suppress "@azure-tools/typespec-azure-resource-manager/secret-prop" "This property may contain credential-like data but is required for API functionality and is handled securely."
+  @secret
   @doc("Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\\W_]) <br><br> **Disallowed values:** \"abc@123\", \"P@$$w0rd\", \"P@ssw0rd\", \"P@ssword123\", \"Pa$$word\", \"pass@word1\", \"Password!\", \"Password1\", \"Password22\", \"iloveyou!\"")
   adminPassword?: string;
 
@@ -2021,7 +2022,7 @@ model ManagedClusterServicePrincipalProfile {
   /**
    * The secret password associated with the service principal in plain text.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/secret-prop" "This property may contain credential-like data but is required for API functionality and is handled securely."
+  @secret
   secret?: string;
 }
 
@@ -2664,7 +2665,7 @@ model ManagedClusterAADProfile {
   /**
    * (DEPRECATED) The server AAD application secret. Learn more at https://aka.ms/aks/aad-legacy.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/secret-prop" "This property may contain credential-like data but is required for API functionality and is handled securely."
+  @secret
   serverAppSecret?: string;
 
   /**

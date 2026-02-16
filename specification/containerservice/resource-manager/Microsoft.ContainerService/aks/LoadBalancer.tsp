@@ -159,7 +159,7 @@ model LabelSelectorRequirement {
   /**
    * key is the label key that the selector applies to.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/secret-prop" "This property may contain credential-like data but is required for API functionality and is handled securely."
+  #suppress "@azure-tools/typespec-azure-resource-manager/secret-prop" "The 'key' property refers to a Kubernetes label selector key, not a secret or credential."
   key?: string;
 
   /**
