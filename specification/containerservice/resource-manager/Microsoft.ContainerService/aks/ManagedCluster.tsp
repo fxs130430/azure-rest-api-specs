@@ -493,29 +493,27 @@ interface ManagedClusters {
   /**
    * This can only be performed on Azure Virtual Machine Scale set backed clusters. Stopping a cluster stops the control plane and agent nodes entirely, while maintaining all object and cluster state. A cluster does not accrue charges while it is stopped. See [stopping a cluster](https://docs.microsoft.com/azure/aks/start-stop-cluster) for more details about stopping a cluster.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-post-operation-response-codes" "This operation returns 202 for async operations, which is the correct behavior for this long-running action."
   @tag("ManagedClusters")
   @summary("Stops a Managed Cluster")
-  stop is ArmResourceActionAsync<
+  stop is ArmResourceActionAsyncBase<
     ManagedCluster,
     void,
-    NoContentResponse,
-    LroHeaders = ArmLroLocationHeader<FinalResult = void> &
-      Azure.Core.Foundations.RetryAfterHeader
+    ArmAcceptedLroResponse<LroHeaders = ArmLroLocationHeader<FinalResult = void> &
+      Azure.Core.Foundations.RetryAfterHeader>,
+    BaseParameters = Azure.ResourceManager.Foundations.DefaultBaseParameters<ManagedCluster>
   >;
 
   /**
    * See [starting a cluster](https://docs.microsoft.com/azure/aks/start-stop-cluster) for more details about starting a cluster.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-post-operation-response-codes" "This operation returns 202 for async operations, which is the correct behavior for this long-running action."
   @tag("ManagedClusters")
   @summary("Starts a previously stopped Managed Cluster")
-  start is ArmResourceActionAsync<
+  start is ArmResourceActionAsyncBase<
     ManagedCluster,
     void,
-    NoContentResponse,
-    LroHeaders = ArmLroLocationHeader<FinalResult = void> &
-      Azure.Core.Foundations.RetryAfterHeader
+    ArmAcceptedLroResponse<LroHeaders = ArmLroLocationHeader<FinalResult = void> &
+      Azure.Core.Foundations.RetryAfterHeader>,
+    BaseParameters = Azure.ResourceManager.Foundations.DefaultBaseParameters<ManagedCluster>
   >;
 
   /**
