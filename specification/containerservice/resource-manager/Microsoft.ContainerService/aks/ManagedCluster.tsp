@@ -468,16 +468,15 @@ interface ManagedClusters {
   /**
    * Aborts the currently running operation on the managed cluster. The Managed Cluster will be moved to a Canceling state and eventually to a Canceled state when cancellation finishes. If the operation completes before cancellation can take place, a 409 error code is returned.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-post-operation-response-codes" "This operation returns 202 for async operations, which is the correct behavior for this long-running action."
   @tag("ManagedClusters")
   @action("abort")
   @summary("Aborts last operation running on managed cluster.")
-  abortLatestOperation is ArmResourceActionAsync<
+  abortLatestOperation is ArmResourceActionAsyncBase<
     ManagedCluster,
     void,
-    NoContentResponse,
-    LroHeaders = ArmCombinedLroHeaders<FinalResult = void> &
-      Azure.Core.Foundations.RetryAfterHeader
+    ArmAcceptedLroResponse<LroHeaders = ArmCombinedLroHeaders<FinalResult = void> &
+      Azure.Core.Foundations.RetryAfterHeader>,
+    BaseParameters = Azure.ResourceManager.Foundations.DefaultBaseParameters<ManagedCluster>
   >;
 
   /**

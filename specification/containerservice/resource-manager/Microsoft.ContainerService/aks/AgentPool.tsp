@@ -82,15 +82,14 @@ interface AgentPools {
   /**
    * Aborts the currently running operation on the agent pool. The Agent Pool will be moved to a Canceling state and eventually to a Canceled state when cancellation finishes. If the operation completes before cancellation can take place, a 409 error code is returned.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-post-operation-response-codes" "This operation returns 202 for async operations, which is the correct behavior for this long-running action."
   @action("abort")
   @summary("Aborts last operation running on agent pool.")
-  abortLatestOperation is ArmResourceActionAsync<
+  abortLatestOperation is ArmResourceActionAsyncBase<
     AgentPool,
     void,
-    NoContentResponse,
-    LroHeaders = ArmCombinedLroHeaders<FinalResult = void> &
-      Azure.Core.Foundations.RetryAfterHeader
+    ArmAcceptedLroResponse<LroHeaders = ArmCombinedLroHeaders<FinalResult = void> &
+      Azure.Core.Foundations.RetryAfterHeader>,
+    BaseParameters = Azure.ResourceManager.Foundations.DefaultBaseParameters<AgentPool>
   >;
 
   /**
