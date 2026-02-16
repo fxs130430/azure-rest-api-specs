@@ -454,15 +454,14 @@ interface ManagedClusters {
   /**
    * See [Certificate rotation](https://docs.microsoft.com/azure/aks/certificate-rotation) for more details about rotating managed cluster certificates.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-post-operation-response-codes" "This operation returns 202 for async operations, which is the correct behavior for this long-running action."
   @tag("ManagedClusters")
   @summary("Rotates the certificates of a managed cluster.")
-  rotateClusterCertificates is ArmResourceActionAsync<
+  rotateClusterCertificates is ArmResourceActionAsyncBase<
     ManagedCluster,
     void,
-    NoContentResponse,
-    LroHeaders = ArmLroLocationHeader<FinalResult = void> &
-      Azure.Core.Foundations.RetryAfterHeader
+    ArmAcceptedLroResponse<LroHeaders = ArmLroLocationHeader<FinalResult = void> &
+      Azure.Core.Foundations.RetryAfterHeader>,
+    BaseParameters = Azure.ResourceManager.Foundations.DefaultBaseParameters<ManagedCluster>
   >;
 
   /**
@@ -482,14 +481,13 @@ interface ManagedClusters {
   /**
    * Rotates the service account signing keys of a managed cluster.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-post-operation-response-codes" "This operation returns 202 for async operations, which is the correct behavior for this long-running action."
   @tag("ManagedClusters")
-  rotateServiceAccountSigningKeys is ArmResourceActionAsync<
+  rotateServiceAccountSigningKeys is ArmResourceActionAsyncBase<
     ManagedCluster,
     void,
-    NoContentResponse,
-    LroHeaders = ArmLroLocationHeader<FinalResult = void> &
-      Azure.Core.Foundations.RetryAfterHeader
+    ArmAcceptedLroResponse<LroHeaders = ArmLroLocationHeader<FinalResult = void> &
+      Azure.Core.Foundations.RetryAfterHeader>,
+    BaseParameters = Azure.ResourceManager.Foundations.DefaultBaseParameters<ManagedCluster>
   >;
 
   /**
