@@ -234,7 +234,7 @@ model ManagedCluster
   /**
    * The managed cluster SKU.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-invalid-envelope-property" "Property intentionally at envelope level for this resource. This is a published API pattern that cannot be changed without breaking existing clients."
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-invalid-envelope-property" "This field is allowed at the top-level as per the ARM resource specification."
   sku?: ManagedClusterSKU;
 
   /**
@@ -246,13 +246,13 @@ model ManagedCluster
   /**
    * The identity of the managed cluster, if configured.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-invalid-envelope-property" "Property intentionally at envelope level for this resource. This is a published API pattern that cannot be changed without breaking existing clients."
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-invalid-envelope-property" "This field is allowed at the top-level as per the ARM resource specification."
   identity?: ManagedClusterIdentity;
 
   /**
    * This is primarily used to expose different UI experiences in the portal for different kinds
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-invalid-envelope-property" "Property intentionally at envelope level for this resource. This is a published API pattern that cannot be changed without breaking existing clients."
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-invalid-envelope-property" "This field is allowed at the top-level as per the ARM resource specification."
   kind?: string;
 }
 
