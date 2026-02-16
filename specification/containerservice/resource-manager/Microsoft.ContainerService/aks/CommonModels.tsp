@@ -3927,7 +3927,7 @@ model CredentialResult {
 /**
  * Tags object for patch operations.
  */
-#suppress "@azure-tools/typespec-azure-resource-manager/patch-envelope" "TagsObject is a standard ARM pattern for PATCH operations to update resource tags independently."
+#suppress "@azure-tools/typespec-azure-resource-manager/patch-envelope" "AKS RP only supports updating tags via PATCH; envelope properties like identity and sku are not yet supported in the PATCH endpoint."
 model TagsObject {
   /**
    * Resource tags.
