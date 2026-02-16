@@ -2918,10 +2918,8 @@ model PrivateLinkResource {
   id?: string;
 
   /**
-   * The name of the private link resource.
+   * The name of the private link resource. See [naming rules](https://aka.ms/search-naming-rules) for more details.
    */
-  #suppress "@azure-tools/typespec-azure-core/no-openapi" "OpenAPI extension is required for specific API behavior that cannot be expressed in TypeSpec."
-  @OpenAPI.externalDocs("https://aka.ms/search-naming-rules")
   name?: string;
 
   /**

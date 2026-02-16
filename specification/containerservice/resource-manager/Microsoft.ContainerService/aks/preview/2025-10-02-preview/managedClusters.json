@@ -13459,10 +13459,7 @@
         },
         "name": {
           "type": "string",
-          "description": "The name of the private link resource.",
-          "externalDocs": {
-            "url": "https://aka.ms/search-naming-rules"
-          }
+          "description": "The name of the private link resource. See [naming rules](https://aka.ms/search-naming-rules) for more details."
         },
         "type": {
           "type": "string",
