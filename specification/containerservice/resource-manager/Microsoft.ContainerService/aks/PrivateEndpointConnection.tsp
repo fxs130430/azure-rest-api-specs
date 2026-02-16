@@ -54,12 +54,7 @@ interface PrivateEndpointConnections {
   /**
    * Deletes a private endpoint connection.
    */
-  #suppress "@azure-tools/typespec-azure-resource-manager/arm-delete-operation-response-codes" "Delete operation response codes follow existing AKS API contract for backward compatibility."
-  delete is ArmResourceDeleteWithoutOkAsync<
-    PrivateEndpointConnection,
-    Response = ArmDeletedResponse | ArmDeleteAcceptedLroResponse<ArmLroLocationHeader &
-      Azure.Core.Foundations.RetryAfterHeader> | ArmDeletedNoContentResponse
-  >;
+  delete is ArmResourceDeleteWithoutOkAsync<PrivateEndpointConnection>;
 
   /**
    * To learn more about private clusters, see: https://docs.microsoft.com/azure/aks/private-clusters
