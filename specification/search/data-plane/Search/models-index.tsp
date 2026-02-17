@@ -585,10 +585,12 @@ model SearchOptions {
   debug?: QueryDebugMode;
 
   /** The language of the query. */
+  @removed(Versions.v2026_04_01)
   @query
   queryLanguage?: QueryLanguage;
 
   /** Improve search recall by spell-correcting individual search query terms. */
+  @removed(Versions.v2026_04_01)
   @query
   speller?: QuerySpellerType;
 

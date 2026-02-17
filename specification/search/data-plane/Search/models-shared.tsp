@@ -105,6 +105,7 @@ alias knowledgeBaseNamePath = {
 
 alias querySourceAuthorizationHeader = {
   /** Token identifying the user for which the query is being executed. This token is used to enforce security restrictions on documents. */
+  @removed(Versions.v2026_04_01)
   @header("x-ms-query-source-authorization")
   querySourceAuthorization?: string;
 };

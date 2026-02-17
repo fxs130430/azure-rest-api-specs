@@ -21,6 +21,7 @@ interface DataSources {
       ...preferHeader;
 
       /** Ignores cache reset requirements. */
+      @removed(Versions.v2026_04_01)
       @query("ignoreResetRequirements")
       skipIndexerResetRequirementForCache?: boolean;
 
@@ -185,10 +186,12 @@ interface Indexers {
       ...preferHeader;
 
       /** Ignores cache reset requirements. */
+      @removed(Versions.v2026_04_01)
       @query("ignoreResetRequirements")
       skipIndexerResetRequirementForCache?: boolean;
 
       /** Disables cache reprocessing change detection. */
+      @removed(Versions.v2026_04_01)
       @query("disableCacheReprocessingChangeDetection")
       disableCacheReprocessingChangeDetection?: boolean;
 
@@ -291,10 +294,12 @@ interface Skillsets {
       ...preferHeader;
 
       /** Ignores cache reset requirements. */
+      @removed(Versions.v2026_04_01)
       @query("ignoreResetRequirements")
       skipIndexerResetRequirementForCache?: boolean;
 
       /** Disables cache reprocessing change detection. */
+      @removed(Versions.v2026_04_01)
       @query("disableCacheReprocessingChangeDetection")
       disableCacheReprocessingChangeDetection?: boolean;
 
