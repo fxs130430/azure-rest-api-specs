@@ -169,7 +169,6 @@ union IotHubAuthenticationType {
   SystemAssigned: "SystemAssigned",
 }
 
-
 /**
  * Allocation policy to be used by this provisioning service.
  */
