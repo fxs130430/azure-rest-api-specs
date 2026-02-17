@@ -21,9 +21,7 @@ interface KnowledgeRetrieval {
       @path
       knowledgeBaseName: string;
 
-      /** Token identifying the user for which the query is being executed. This token is used to enforce security restrictions on documents. */
-      @header("x-ms-query-source-authorization")
-      querySourceAuthorization?: string;
+      ...querySourceAuthorizationHeader;
 
       /** The retrieval request to process. */
       @body
