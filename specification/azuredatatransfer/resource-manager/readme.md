@@ -36,7 +36,7 @@ tag: package-2026-02-06-preview
 
 These settings apply only when `--tag=package-2026-02-06-preview` is specified on the command line.
 
-```yaml $(tag) == 'package-2025-02-06-preview'
+```yaml $(tag) == 'package-2026-02-06-preview'
 input-file:
   - Microsoft.AzureDataTransfer/preview/2026-02-06-preview/azuredatatransfer.json
 ```
