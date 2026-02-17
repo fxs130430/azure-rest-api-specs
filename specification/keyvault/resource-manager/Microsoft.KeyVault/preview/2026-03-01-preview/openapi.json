@@ -5671,28 +5671,22 @@
       "type": "string",
       "description": "This specifies whether token binding is disabled, enabled or enforced.",
       "enum": [
-        "NotSupported",
-        "Enabled",
-        "Enforced"
+        "Enforced",
+        "NotEnforced"
       ],
       "x-ms-enum": {
         "name": "TokenBindingMode",
         "modelAsString": true,
         "values": [
           {
-            "name": "NotSupported",
-            "value": "NotSupported",
-            "description": "Token  binding is not enabled for the vault.  Bounded tokens will be rejects."
-          },
-          {
-            "name": "Enabled",
-            "value": "Enabled",
-            "description": "Token binding is enabled for the vault. Bounded tokens and bearer tokens will be accepted."
-          },
-          {
             "name": "Enforced",
             "value": "Enforced",
-            "description": "Token binding is enforced for the vault. Only bounded tokens will be accepted.  Bearer tokens will be rejected."
+            "description": "Token binding is enforced for the vault. Only bounded tokens will be accepted. Bearer tokens will be rejected."
+          },
+          {
+            "name": "NotEnforced",
+            "value": "NotEnforced",
+            "description": "Token binding is not enforced for the vault. Bounded tokens will be rejected."
           }
         ]
       }

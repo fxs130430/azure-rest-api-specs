@@ -494,14 +494,11 @@ union ManagedHsmSkuFamily {
 union TokenBindingMode {
   string,
 
-  /** Token  binding is not enabled for the vault.  Bounded tokens will be rejects. */
-  NotSupported: "NotSupported",
-
-  /** Token binding is enabled for the vault. Bounded tokens and bearer tokens will be accepted. */
-  Enabled: "Enabled",
-
-  /** Token binding is enforced for the vault. Only bounded tokens will be accepted.  Bearer tokens will be rejected. */
+  /** Token binding is enforced for the vault. Only bounded tokens will be accepted. Bearer tokens will be rejected. */
   Enforced: "Enforced",
+
+  /** Token binding is not enforced for the vault. Bounded tokens will be rejected. */
+  NotEnforced: "NotEnforced",
 }
 
 /**
