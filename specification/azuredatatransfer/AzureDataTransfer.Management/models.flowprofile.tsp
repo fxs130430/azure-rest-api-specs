@@ -137,40 +137,90 @@ model FlowProfileProperties {
 }
 
 /**
- * The allowed set of configurable rulesets for a FlowProfile resource, used during data replication. All rulesets are optional, and any ruleset configured will be applied to every applicable replicating data. Any data that fails a ruleset will be denied replication. If a ruleset is not configured then the ruleset is considered disabled and will not apply towards replicating data.
+ * The allowed set of configurable rulesets for a FlowProfile resource, used during data replication.
+ * All rulesets are optional, and any ruleset configured will be applied to every applicable replicating
+ * data. Any data that fails a ruleset will be denied replication. If a ruleset is not configured
+ * then the ruleset is considered disabled and will not apply towards replicating data.
  */
 @added(Versions.v2025_05_30_preview)
 model FlowProfileRulesets {
   /**
    * Antivirus scanning rules for replicated data.
    */
-  antivirus?: AntivirusRuleset;
+  @removed(Versions.v2026_02_06_preview)
+  @renamedFrom(Versions.v2026_02_06_preview, "antivirus")
+  antivirusRule?: AntivirusRuleset;
+
+  /**
+   * Antivirus scanning rules for replicated data.
+   */
+  @added(Versions.v2026_02_06_preview)
+  antivirus?: AntivirusRulesetActions;
 
   /**
    * Rules for handling archive files during replication.
    */
+  @removed(Versions.v2026_02_06_preview)
   archives?: ArchiveRuleset;
 
   /**
    * Rules that enforce minimum and maximum data size limits.
    */
+  @removed(Versions.v2026_02_06_preview)
   dataSize?: DataSizeRuleset;
 
   /**
    * Rules for filtering files based on MIME types.
    */
+  @removed(Versions.v2026_02_06_preview)
   mimeFilters?: MimeFilterRuleset;
 
   /**
    * Rules for filtering XML content using XSD schemas.
    */
+  @removed(Versions.v2026_02_06_preview)
   xmlFilters?: XmlFilterRuleset;
 
   /**
    * Rules for detecting and blocking specific text patterns.
    */
+  @removed(Versions.v2026_02_06_preview)
   textMatching?: TextMatchingRuleset;
 }
+
+/**
+ * A set of actions that allow each ruleset to specify what happens upon data transfer failing its
+ * provided rule.
+ * @template The ruleset to specify actions against.
+ */
+@added(Versions.v2026_02_06_preview)
+model RulesetActions<Ruleset> {
+
+  /**
+   * Failures of this rule will not block data transfers but will provide an audit log
+   * of the failure occurring.
+   */
+  audit?: Ruleset;
+
+  /**
+   * Failures of this rule will block data transfers for manual review. Upon manual review
+   * the transfer can be rejected (to stop the transfer completely) or released (to allow the data
+   * to transfer).
+   */
+  quarantine?: Ruleset;
+
+  /**
+   * Failures of this rule will block data transfers with no further review.
+   */
+  deny?: Ruleset;
+}
+
+/**
+ * Actions applied to data transfers when Antivirus scanning rules indicate the data transfer is potentially
+ * unwated.
+ */
+@added(Versions.v2026_02_06_preview)
+model AntivirusRulesetActions is RulesetActions<AntivirusRuleset>;
 
 /**
  * Antivirus scanning rules for replicating data. By default, all antivirus scanning solutions are disabled.
@@ -202,7 +252,19 @@ union AntivirusSolutions {
 }
 
 /**
- * Rules for regulating supported archive files (BZip2, Cpio, Deb, GZip, Rpm, Tar, Zip) during data replication. All properties are optional and only the configured options will be applied against archives. As an example, suppose minimumSizeForExpansion is 10 MiB and maximumExpansionSizeLimit is 1 GiB. Then all archives smaller than 10 MiB will be treated as though the archive ruleset is disabled, although other rulesets will apply as usual. Furthermore, all archives at least 10 MiB in size but with a decompressed size greater than 1 GiB will fail the ruleset. All other archives will have their contents extracted and each extracted element will be applied to all rulesets.
+ * Actions applied when supported archive based data transfers fail the ArchiveRuleset(s) specified.
+ */
+@added(Versions.v2026_02_06_preview)
+model ArchiveRulesetActions is RulesetActions<ArchiveRuleset>;
+
+/**
+ * Rules for regulating supported archive files (BZip2, Cpio, Deb, GZip, Rpm, Tar, Zip) during data
+ * replication. All properties are optional and only the configured options will be applied against
+ * archives. As an example, suppose minimumSizeForExpansion is 10 MiB and maximumExpansionSizeLimit
+ * is 1 GiB. Then all archives smaller than 10 MiB will be treated as though the archive ruleset is
+ * disabled, although other rulesets will apply as usual. Furthermore, all archives at least 10 MiB
+ * in size but with a decompressed size greater than 1 GiB will fail the ruleset. All other archives
+ * will have their contents extracted and each extracted element will be applied to all rulesets.
  */
 @added(Versions.v2025_05_30_preview)
 model ArchiveRuleset {
@@ -232,6 +294,12 @@ model ArchiveRuleset {
 }
 
 /**
+ * Actions applied when data transfers fail the DataSizeRuleset(s) specified.
+ */
+@added(Versions.v2026_02_06_preview)
+model DataSizeRulesetActions is RulesetActions<DataSizeRuleset>;
+
+/**
  * Defines rules that enforce minimum and maximum file size limits for data replication.
  */
 @added(Versions.v2025_05_30_preview)
@@ -248,6 +316,12 @@ model DataSizeRuleset {
   @minValue(0)
   minimum?: int64 = 0;
 }
+
+/**
+ * Actions applied when data transfers fail the MimeFilterRuleset(s) specified.
+ */
+@added(Versions.v2026_02_06_preview)
+model MimeFilterRulesetActions is RulesetActions<MimeFilterRuleset>;
 
 /**
  * Rules for filtering files based on Media types (f.k.a MIME types).
@@ -305,6 +379,12 @@ union FilterType {
 }
 
 /**
+ * Actions applied when data transfers fail the XmlFilterRuleset(s) specified.
+ */
+@added(Versions.v2026_02_06_preview)
+model XmlFilterRulesetActions is RulesetActions<XmlFilterRuleset>;
+
+/**
  * Rules for filtering XML content using XSD schemas.
  */
 @added(Versions.v2025_05_30_preview)
@@ -337,6 +417,15 @@ union XmlReferenceType {
    */
   Inline: "Inline",
 }
+
+/**
+ * Actions applied when data transfers fail the TextMatches specified.
+ */
+@added(Versions.v2026_02_06_preview)
+model TextMatchingRulesetActions is RulesetActions<TextMatch[]>;
+@@identifiers(TextMatchingRulesetActions.audit, #["text", "matchType", "caseSensitivity"]);
+@@identifiers(TextMatchingRulesetActions.deny, #["text", "matchType", "caseSensitivity"]);
+@@identifiers(TextMatchingRulesetActions.quarantine, #["text", "matchType", "caseSensitivity"]);
 
 /**
  * Rules for detecting and blocking specific text patterns. If a file contains a text pattern that is part of the configured deny list, the file will be denied.
