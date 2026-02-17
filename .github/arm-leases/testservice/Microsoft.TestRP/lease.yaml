@@ -1,0 +1,5 @@
+lease:
+  resource-provider: Microsoft.TestRP
+  startdate: 2026-07-15
+  duration-days: P180D
+  reviewer: Test Reviewer
