@@ -39,6 +39,12 @@ input-file:
   - Microsoft.DependencyMap/preview/2025-01-31-preview/dependencyMap.json
 ```
 
+```yaml
+openapi-type: arm
+openapi-subtype: rpaas
+tag: package-2025-01-31-preview
+```
+
 ---
 
 ### Tag: package-2025-05-01-preview
