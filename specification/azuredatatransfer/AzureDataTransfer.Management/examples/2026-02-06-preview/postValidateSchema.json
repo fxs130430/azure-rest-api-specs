@@ -16,5 +16,3 @@
   "operationId": "AzureDataTransfer_validateSchema",
   "title": "Performs action request"
 }
-
-

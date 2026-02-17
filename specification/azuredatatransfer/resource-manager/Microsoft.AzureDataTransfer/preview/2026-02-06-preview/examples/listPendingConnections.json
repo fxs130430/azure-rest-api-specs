@@ -34,5 +34,3 @@
   "operationId": "ListPendingConnections_List",
   "title": "Lists a list of pending connections"
 }
-
-

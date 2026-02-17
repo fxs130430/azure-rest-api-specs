@@ -21,5 +21,3 @@
   "operationId": "AzureDataTransfer_listApprovedSchemas",
   "title": "Performs action request"
 }
-
-

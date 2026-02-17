@@ -24,5 +24,3 @@
   "operationId": "ListSchemas_List",
   "title": "Lists schemas for a pipeline"
 }
-
-
