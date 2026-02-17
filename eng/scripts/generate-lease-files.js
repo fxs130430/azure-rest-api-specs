@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 // Generate lease.yaml files from resource provider data
-// Usage: node generate-lease-files.js --input <file> --reviewer <name> [--startdate <YYYY-MM-DD>] [--duration <P#D>]
-//        node generate-lease-files.js --service <name> --resource-provider <name> --reviewer <name> [--service-groups <g1,g2>]
 
 const fs = require('fs');
 const path = require('path');
@@ -10,9 +8,6 @@ const readline = require('readline');
 const DEFAULT_DURATION = 'P180D';
 const LEASE_BASE_PATH = '.github/arm-leases';
 
-/**
- * Parse command line arguments
- */
 function parseArgs() {
     const args = {
         input: null,
@@ -76,9 +71,6 @@ function parseArgs() {
     return args;
 }
 
-/**
- * Print usage help
- */
 function printHelp() {
     console.log(`
 Generate lease.yaml files for Azure Resource Providers
@@ -149,9 +141,6 @@ Output:
 `);
 }
 
-/**
- * Find repository root
- */
 function findRepoRoot(startPath = process.cwd()) {
     let current = path.resolve(startPath);
     for (let i = 0; i < 6; i++) {
@@ -165,9 +154,6 @@ function findRepoRoot(startPath = process.cwd()) {
     throw new Error('Could not find repository root. Run from within azure-rest-api-specs.');
 }
 
-/**
- * Validate startdate format
- */
 function validateStartDate(date) {
     if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
         throw new Error(`Invalid date format: ${date}. Expected YYYY-MM-DD`);
@@ -183,9 +169,6 @@ function validateStartDate(date) {
     return date;
 }
 
-/**
- * Validate duration format
- */
 function validateDuration(duration) {
     const match = duration.match(/^P(\d+)D$/i);
     if (!match) {
@@ -200,9 +183,6 @@ function validateDuration(duration) {
     return duration.toUpperCase();
 }
 
-/**
- * Validate resource provider name
- */
 function validateResourceProvider(rp) {
     const parts = rp.split('.');
     for (const part of parts) {
@@ -213,9 +193,6 @@ function validateResourceProvider(rp) {
     return rp;
 }
 
-/**
- * Validate service name
- */
 function validateServiceName(service) {
     if (!/^[a-z0-9]+$/.test(service)) {
         throw new Error(`Service name must be lowercase alphanumeric: ${service}`);
@@ -223,17 +200,12 @@ function validateServiceName(service) {
     return service;
 }
 
-/**
- * Parse a line from input file
- */
 function parseInputLine(line) {
     line = line.trim();
     if (!line || line.startsWith('#')) {
         return null;
     }
 
-    // Parse format: service, resource_provider, [group1, group2, ...]
-    // or: service, resource_provider
     const match = line.match(/^([^,]+),\s*([^,\[]+)(?:,\s*\[([^\]]+)\])?$/);
     if (!match) {
         console.warn(`Skipping invalid line: ${line}`);
@@ -250,9 +222,6 @@ function parseInputLine(line) {
     return { service, resourceProvider, serviceGroups };
 }
 
-/**
- * Generate lease.yaml content
- */
 function generateLeaseYaml(resourceProvider, startdate, duration, reviewer) {
     return `lease:
   resource-provider: ${resourceProvider}
@@ -262,9 +231,6 @@ function generateLeaseYaml(resourceProvider, startdate, duration, reviewer) {
 `;
 }
 
-/**
- * Get lease file path
- */
 function getLeasePath(repoRoot, service, resourceProvider, serviceGroup = null) {
     const basePath = path.join(repoRoot, LEASE_BASE_PATH, service, resourceProvider);
     if (serviceGroup) {
@@ -273,9 +239,6 @@ function getLeasePath(repoRoot, service, resourceProvider, serviceGroup = null) 
     return path.join(basePath, 'lease.yaml');
 }
 
-/**
- * Create lease file
- */
 function createLeaseFile(filePath, content, dryRun = false) {
     if (dryRun) {
         console.log(`[DRY RUN] Would create: ${filePath}`);
@@ -298,9 +261,6 @@ function createLeaseFile(filePath, content, dryRun = false) {
     console.log(`Created: ${filePath}`);
 }
 
-/**
- * Process a single resource provider entry
- */
 function processEntry(entry, args, repoRoot) {
     const { service, resourceProvider, serviceGroups } = entry;
     const { startdate, duration, reviewer, dryRun } = args;
@@ -312,11 +272,9 @@ function processEntry(entry, args, repoRoot) {
         const content = generateLeaseYaml(resourceProvider, startdate, duration, reviewer);
 
         if (serviceGroups.length === 0) {
-            // No service groups - create single lease file
             const leasePath = getLeasePath(repoRoot, service, resourceProvider);
             createLeaseFile(leasePath, content, dryRun);
         } else {
-            // Create lease file for each service group
             for (const group of serviceGroups) {
                 const leasePath = getLeasePath(repoRoot, service, resourceProvider, group);
                 createLeaseFile(leasePath, content, dryRun);
@@ -327,9 +285,6 @@ function processEntry(entry, args, repoRoot) {
     }
 }
 
-/**
- * Prompt for input in interactive mode
- */
 async function promptInteractive() {
     const rl = readline.createInterface({
         input: process.stdin,
@@ -383,21 +338,14 @@ async function promptInteractive() {
     };
 }
 
-/**
- * Get today's date in YYYY-MM-DD format
- */
 function getTodayDate() {
     const today = new Date();
     return today.toISOString().split('T')[0];
 }
 
-/**
- * Main function
- */
 async function main() {
     let args = parseArgs();
 
-    // Interactive mode
     if (args.interactive) {
         const interactive = await promptInteractive();
         args.reviewer = interactive.reviewer;
@@ -409,7 +357,6 @@ async function main() {
             return 1;
         }
 
-        // Process interactive entries
         try {
             const repoRoot = args.repoRoot ? path.resolve(args.repoRoot) : findRepoRoot();
             const startdate = validateStartDate(args.startdate);
@@ -432,14 +379,12 @@ async function main() {
         }
     }
 
-    // Validate required arguments for non-interactive mode
     if (!args.reviewer) {
         console.error('Error: --reviewer is required');
         console.error('Use --help for usage information');
         return 1;
     }
 
-    // Set default startdate if not provided
     if (!args.startdate) {
         args.startdate = getTodayDate();
     }
@@ -456,7 +401,6 @@ async function main() {
 
         const entries = [];
 
-        // Process input file
         if (args.input) {
             const inputPath = path.resolve(args.input);
             if (!fs.existsSync(inputPath)) {
@@ -477,9 +421,7 @@ async function main() {
                 console.warn('Warning: No valid entries found in input file');
                 return 0;
             }
-        }
-        // Process single entry
-        else if (args.service && args.resourceProvider) {
+        } else if (args.service && args.resourceProvider) {
             entries.push({
                 service: args.service,
                 resourceProvider: args.resourceProvider,
@@ -491,7 +433,6 @@ async function main() {
             return 1;
         }
 
-        // Process all entries
         for (const entry of entries) {
             processEntry(entry, { ...args, startdate, duration }, repoRoot);
         }
