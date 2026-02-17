@@ -404,6 +404,10 @@ namespace KnowledgeBaseRetrievalClient {
 @@access(SearchIndexClient.Indexes.analyze, Access.internal, "python");
 @@access(SearchIndexClient.Indexes.getStatistics, Access.internal, "python");
 @@access(SearchIndexClient.Indexes.list, Access.internal, "python");
+@@access(SearchIndexClient.Indexes.listWithSelectedProperties,
+  Access.internal,
+  "python"
+);
 @@access(SearchIndexClient.Aliases.createOrUpdate, Access.internal);
 @@access(SearchIndexClient.Aliases.delete, Access.internal, "python");
 @@access(SearchIndexClient.KnowledgeBases.createOrUpdate, Access.internal);
