@@ -252,7 +252,7 @@ model RulesetActions<Ruleset> {
 
 /**
  * Actions applied to data transfers when Antivirus scanning rules indicate the data transfer is potentially
- * unwated.
+ * unwanted.
  */
 @added(Versions.v2026_02_06_preview)
 model AntivirusRulesetActions is RulesetActions<AntivirusRuleset>;

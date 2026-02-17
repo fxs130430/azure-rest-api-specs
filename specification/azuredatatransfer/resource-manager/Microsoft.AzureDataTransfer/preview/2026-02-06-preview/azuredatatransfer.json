@@ -2891,7 +2891,7 @@
     },
     "AntivirusRulesetActions": {
       "type": "object",
-      "description": "Actions applied to data transfers when Antivirus scanning rules indicate the data transfer is potentially\nunwated.",
+      "description": "Actions applied to data transfers when Antivirus scanning rules indicate the data transfer is potentially\nunwanted.",
       "properties": {
         "audit": {
           "$ref": "#/definitions/AntivirusRuleset",
