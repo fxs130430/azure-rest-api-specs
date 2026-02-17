@@ -27,7 +27,22 @@ These are the global settings for the Dependency Map RP.
 ```yaml
 openapi-type: arm
 openapi-subtype: rpaas
-tag: package-2025-07-01-preview
+tag: package-2026-03-01-preview
+```
+
+### Tag: package-2024-06-01-preview
+
+These settings apply only when `--tag=package-2024-06-01-preview` is specified on the command line.
+
+```yaml $(tag) == 'package-2024-06-01-preview'
+input-file:
+  - Microsoft.DependencyMap/preview/2024-06-01-preview/dependencyMap.json
+```
+
+```yaml
+openapi-type: arm
+openapi-subtype: rpaas
+tag: package-2024-06-01-preview
 ```
 
 ### Tag: package-2025-01-31-preview
@@ -65,4 +80,22 @@ These settings apply only when `--tag=package-2025-07-01-preview` is specified o
 ```yaml $(tag) == 'package-2025-07-01-preview'
 input-file:
   - Microsoft.DependencyMap/preview/2025-07-01-preview/dependencyMap.json
+```
+
+---
+
+### Tag: package-2026-03-01-preview
+
+These settings apply only when `--tag=package-2026-03-01-preview` is specified on the command line.
+
+```yaml $(tag) == 'package-2026-03-01-preview'
+input-file:
+  - Microsoft.DependencyMap/preview/2026-03-01-preview/dependencyMap.json
+suppressions:
+  - code: PostResponseCodes
+    from: dependencyMap.json
+    reason: Pre-existing issue inherited from prior API versions. LRO POST response codes pattern is consistent with previous versions.
+  - code: LatestVersionOfCommonTypesMustBeUsed
+    from: dependencyMap.json
+    reason: Using common types v3 for backward compatibility with existing API versions.
 ```
