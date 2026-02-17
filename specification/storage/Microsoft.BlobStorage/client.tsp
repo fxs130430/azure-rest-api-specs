@@ -202,36 +202,8 @@ interface PageBlobClient extends Storage.Blob.PageBlob {}
   "python"
 );
 
-@@clientOption(Storage.Blob.Container,
-  "includeRootSlash",
-  false,
-  "python,javascript"
-);
-@@clientOption(Storage.Blob.Service,
-  "includeRootSlash",
-  false,
-  "python,javascript"
-);
-@@clientOption(Storage.Blob.Blob,
-  "includeRootSlash",
-  false,
-  "python,javascript"
-);
-@@clientOption(Storage.Blob.PageBlob,
-  "includeRootSlash",
-  false,
-  "python,javascript"
-);
-@@clientOption(Storage.Blob.BlockBlob,
-  "includeRootSlash",
-  false,
-  "python,javascript"
-);
-@@clientOption(Storage.Blob.AppendBlob,
-  "includeRootSlash",
-  false,
-  "python,javascript"
-);
+@@clientOption(Storage.Blob, "includeRootSlash", false, "python,javascript");
+
 @@scope(Storage.Blob.Service.getUserDelegationKey, "!rust");
 @@scope(Storage.Blob.Container.listBlobHierarchySegment, "!rust");
 @@scope(Storage.Blob.Container.rename, "!rust");
