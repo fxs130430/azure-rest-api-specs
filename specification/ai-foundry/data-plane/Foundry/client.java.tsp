@@ -53,6 +53,8 @@ namespace Azure.AI.Projects;
 @@clientName(EvalRunResultSummary, "EvaluationRunResultSummary");
 
 @@clientName(Azure.Core.Foundations.ResourceBody.resource, "schedule");
+
+@@clientName(OpenAI.Error, "OpenAIError"); // prevents codegen conflict
 // --------------------------------------------------------------------------------
 // Usage / Public accessibility overrides
 // --------------------------------------------------------------------------------
