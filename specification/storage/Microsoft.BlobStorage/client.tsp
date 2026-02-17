@@ -89,7 +89,8 @@ interface PageBlobClient extends Storage.Blob.PageBlob {}
   "rust"
 );
 @@clientName(ImmutabilityPolicyExpiryRequiredParameter.immutabilityPolicyExpiry,
-  "expiry"
+  "expiry",
+  "!python"
 );
 
 @@alternateType(AccessPolicy.start, string, "javascript");
@@ -193,6 +194,12 @@ interface PageBlobClient extends Storage.Blob.PageBlob {}
 );
 @@Legacy.disablePageable(Storage.Blob.Service.listContainers,
   "python,javascript"
+);
+
+@@clientName(Storage.Blob.Container.listBlobs, "listBlobFlatSegment", "python");
+@@clientName(Storage.Blob.Service.listContainers,
+  "listContainersSegment",
+  "python"
 );
 
 @@clientOption(Storage.Blob.Container,
