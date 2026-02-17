@@ -8,12 +8,11 @@ using Azure.Core;
 
 namespace Search;
 
-@route("/knowledgebases('{knowledgeBaseName}')")
 interface KnowledgeRetrieval {
   /** KnowledgeBase retrieves relevant data from backing stores. */
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Pre-existing API contract"
-  @route("/retrieve")
   @post
+  @route("/knowledgebases('{knowledgeBaseName}')/retrieve")
   retrieve is Foundations.Operation<
     {
       ...acceptHeaderMinimal;
