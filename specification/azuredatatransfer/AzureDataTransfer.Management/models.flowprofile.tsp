@@ -149,7 +149,7 @@ model FlowProfileRulesets {
    */
   @removed(Versions.v2026_02_06_preview)
   @renamedFrom(Versions.v2026_02_06_preview, "antivirus")
-  antivirusRule?: AntivirusRuleset;
+  antivirusRuleset?: AntivirusRuleset;
 
   /**
    * Antivirus scanning rules for replicated data.
@@ -161,31 +161,66 @@ model FlowProfileRulesets {
    * Rules for handling archive files during replication.
    */
   @removed(Versions.v2026_02_06_preview)
-  archives?: ArchiveRuleset;
+  @renamedFrom(Versions.v2026_02_06_preview, "archives")
+  archivesRuleset?: ArchiveRuleset;
+
+  /**
+   * Rules for handling archive files during replication.
+   */
+  @added(Versions.v2026_02_06_preview)
+  archives?: ArchiveRulesetActions;
 
   /**
    * Rules that enforce minimum and maximum data size limits.
    */
   @removed(Versions.v2026_02_06_preview)
-  dataSize?: DataSizeRuleset;
+  @renamedFrom(Versions.v2026_02_06_preview, "dataSize")
+  dataSizeRuleset?: DataSizeRuleset;
+
+  /**
+   * Rules that enforce minimum and maximum data size limits.
+   */
+  @added(Versions.v2026_02_06_preview)
+  dataSize?: DataSizeRulesetActions;
 
   /**
    * Rules for filtering files based on MIME types.
    */
   @removed(Versions.v2026_02_06_preview)
-  mimeFilters?: MimeFilterRuleset;
+  @renamedFrom(Versions.v2026_02_06_preview, "mimeFilters")
+  mimeFiltersRuleset?: MimeFilterRuleset;
+
+  /**
+   * Rules for filtering files based on MIME types.
+   */
+  @added(Versions.v2026_02_06_preview)
+  mimeFilters?: MimeFilterRulesetActions;
 
   /**
    * Rules for filtering XML content using XSD schemas.
    */
   @removed(Versions.v2026_02_06_preview)
-  xmlFilters?: XmlFilterRuleset;
+  @renamedFrom(Versions.v2026_02_06_preview, "xmlFilters")
+  xmlFiltersRuleset?: XmlFilterRuleset;
+
+  /**
+   * Rules for filtering XML content using XSD schemas.
+   */
+  @added(Versions.v2026_02_06_preview)
+  xmlFilters?: XmlFilterRulesetActions;
 
   /**
    * Rules for detecting and blocking specific text patterns.
    */
   @removed(Versions.v2026_02_06_preview)
-  textMatching?: TextMatchingRuleset;
+  @renamedFrom(Versions.v2026_02_06_preview, "textMatching")
+  textMatchingRuleset?: TextMatchingRuleset;
+
+  /**
+   * Rules for detecting and blocking specific text patterns.
+   */
+  @added(Versions.v2026_02_06_preview)
+  textMatching?: TextMatchingRulesetActions;
 }
 
 /**

@@ -3001,6 +3001,55 @@
         ]
       }
     },
+    "ArchiveRuleset": {
+      "type": "object",
+      "description": "Rules for regulating supported archive files (BZip2, Cpio, Deb, GZip, Rpm, Tar, Zip) during data\nreplication. All properties are optional and only the configured options will be applied against\narchives. As an example, suppose minimumSizeForExpansion is 10 MiB and maximumExpansionSizeLimit\nis 1 GiB. Then all archives smaller than 10 MiB will be treated as though the archive ruleset is\ndisabled, although other rulesets will apply as usual. Furthermore, all archives at least 10 MiB\nin size but with a decompressed size greater than 1 GiB will fail the ruleset. All other archives\nwill have their contents extracted and each extracted element will be applied to all rulesets.",
+      "properties": {
+        "minimumSizeForExpansion": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Optional. Default is 0. The minimum archive file size (in bytes) required to trigger expansion during replication. Any archive file size below the configured threshold will skip the rest of the configured rulesets for archives.",
+          "default": 0,
+          "minimum": 0
+        },
+        "maximumExpansionSizeLimit": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Optional. The combined maximum size (in bytes) of all extracted files that an expanded archive is allowed to reach. Archives exceeding the max limit will be denied for replication.",
+          "minimum": 0
+        },
+        "maximumDepthLimit": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Optional. The maximum depth of nested archives that can be expanded. Limits how many layers of embedded archives will be processed. Archives exceeding the max limit will be denied for replication.",
+          "minimum": 0
+        },
+        "maximumCompressionRatioLimit": {
+          "type": "number",
+          "format": "double",
+          "description": "Optional. Provides the multiplication value for an archive in total based on the initial object being validated. This value takes the root object size and multiplies it by this value to create a maximum. Once this maximum is exceeded, the archive is failed. Used to detect and block archives with suspiciously high compression (e.g., zip bombs).",
+          "minimum": 0
+        }
+      }
+    },
+    "ArchiveRulesetActions": {
+      "type": "object",
+      "description": "Actions applied when supported archive based data transfers fail the ArchiveRuleset(s) specified.",
+      "properties": {
+        "audit": {
+          "$ref": "#/definitions/ArchiveRuleset",
+          "description": "Failures of this rule will not block data transfers but will provide an audit log\nof the failure occurring."
+        },
+        "quarantine": {
+          "$ref": "#/definitions/ArchiveRuleset",
+          "description": "Failures of this rule will block data transfers for manual review. Upon manual review\nthe transfer can be rejected (to stop the transfer completely) or released (to allow the data\nto transfer)."
+        },
+        "deny": {
+          "$ref": "#/definitions/ArchiveRuleset",
+          "description": "Failures of this rule will block data transfers with no further review."
+        }
+      }
+    },
     "ArmConnectionResponse": {
       "type": "object",
       "description": "Azure operation completed successfully.",
@@ -3442,6 +3491,43 @@
         ]
       }
     },
+    "DataSizeRuleset": {
+      "type": "object",
+      "description": "Defines rules that enforce minimum and maximum file size limits for data replication.",
+      "properties": {
+        "maximum": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Optional. Specifies the maximum allowed size (in bytes) for files to be replicated. Any file size greater than maximum will be denied replication.",
+          "minimum": 0
+        },
+        "minimum": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Optional. Default is 0. Specifies the minimum required size (in bytes) for a file to be eligible for replication. Any file size less than minimum will be denied replication.",
+          "default": 0,
+          "minimum": 0
+        }
+      }
+    },
+    "DataSizeRulesetActions": {
+      "type": "object",
+      "description": "Actions applied when data transfers fail the DataSizeRuleset(s) specified.",
+      "properties": {
+        "audit": {
+          "$ref": "#/definitions/DataSizeRuleset",
+          "description": "Failures of this rule will not block data transfers but will provide an audit log\nof the failure occurring."
+        },
+        "quarantine": {
+          "$ref": "#/definitions/DataSizeRuleset",
+          "description": "Failures of this rule will block data transfers for manual review. Upon manual review\nthe transfer can be rejected (to stop the transfer completely) or released (to allow the data\nto transfer)."
+        },
+        "deny": {
+          "$ref": "#/definitions/DataSizeRuleset",
+          "description": "Failures of this rule will block data transfers with no further review."
+        }
+      }
+    },
     "DataType": {
       "type": "string",
       "description": "Transfer Storage Blobs or Tables",
@@ -3486,6 +3572,30 @@
             "name": "Receive",
             "value": "Receive",
             "description": "The direction is on the receiving side side of a pipeline, connection, or flow."
+          }
+        ]
+      }
+    },
+    "FilterType": {
+      "type": "string",
+      "description": "Specifies whether the filter applies an allow or deny policy.",
+      "enum": [
+        "Allow",
+        "Deny"
+      ],
+      "x-ms-enum": {
+        "name": "FilterType",
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Allow",
+            "value": "Allow",
+            "description": "Defines an allow filter used for allowlist."
+          },
+          {
+            "name": "Deny",
+            "value": "Deny",
+            "description": "Defines a denying filter used for blocklisting."
           }
         ]
       }
@@ -3730,6 +3840,26 @@
         "antivirus": {
           "$ref": "#/definitions/AntivirusRulesetActions",
           "description": "Antivirus scanning rules for replicated data."
+        },
+        "archives": {
+          "$ref": "#/definitions/ArchiveRulesetActions",
+          "description": "Rules for handling archive files during replication."
+        },
+        "dataSize": {
+          "$ref": "#/definitions/DataSizeRulesetActions",
+          "description": "Rules that enforce minimum and maximum data size limits."
+        },
+        "mimeFilters": {
+          "$ref": "#/definitions/MimeFilterRulesetActions",
+          "description": "Rules for filtering files based on MIME types."
+        },
+        "xmlFilters": {
+          "$ref": "#/definitions/XmlFilterRulesetActions",
+          "description": "Rules for filtering XML content using XSD schemas."
+        },
+        "textMatching": {
+          "$ref": "#/definitions/TextMatchingRulesetActions",
+          "description": "Rules for detecting and blocking specific text patterns."
         }
       }
     },
@@ -4301,6 +4431,63 @@
                 "description": "Represents a disabled status."
               }
             ]
+          }
+        }
+      }
+    },
+    "MimeFilterRuleset": {
+      "type": "object",
+      "description": "Rules for filtering files based on Media types (f.k.a MIME types).",
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/FilterType",
+          "description": "Specifies whether the filter is an allow list or deny list. For more detail, please refer to the FilterType model."
+        },
+        "filters": {
+          "type": "array",
+          "description": "Defines the Media types (f.k.a MIME types) and associated file extensions to be filtered. For more detail, please refer to the MimeTypeFiler model.",
+          "items": {
+            "$ref": "#/definitions/MimeTypeFilter"
+          },
+          "x-ms-identifiers": [
+            "media",
+            "extensions"
+          ]
+        }
+      }
+    },
+    "MimeFilterRulesetActions": {
+      "type": "object",
+      "description": "Actions applied when data transfers fail the MimeFilterRuleset(s) specified.",
+      "properties": {
+        "audit": {
+          "$ref": "#/definitions/MimeFilterRuleset",
+          "description": "Failures of this rule will not block data transfers but will provide an audit log\nof the failure occurring."
+        },
+        "quarantine": {
+          "$ref": "#/definitions/MimeFilterRuleset",
+          "description": "Failures of this rule will block data transfers for manual review. Upon manual review\nthe transfer can be rejected (to stop the transfer completely) or released (to allow the data\nto transfer)."
+        },
+        "deny": {
+          "$ref": "#/definitions/MimeFilterRuleset",
+          "description": "Failures of this rule will block data transfers with no further review."
+        }
+      }
+    },
+    "MimeTypeFilter": {
+      "type": "object",
+      "description": "Defines a list of Media types (f.k.a MIME Types) and associated file extensions subject to filtering.",
+      "properties": {
+        "media": {
+          "type": "string",
+          "description": "The Media Types (f.k.a MIME types), following IANA standards (e.g., application/json, image/png). For a more detailed list of allowed media types please refer to the Tika documentation: https://github.com/apache/tika/blob/main/tika-core/src/main/resources/org/apache/tika/mime/tika-mimetypes.xml",
+          "pattern": "^[a-z]+/[a-zA-Z0-9+\\-\\+.]+$"
+        },
+        "extensions": {
+          "type": "array",
+          "description": "A list of file extensions associated with the specified Media type (e.g., .json, .png). To specify files with no extension, use an empty string \"\".\"",
+          "items": {
+            "type": "string"
           }
         }
       }
@@ -5355,6 +5542,113 @@
         ]
       }
     },
+    "TextMatch": {
+      "type": "object",
+      "description": "Configuration options for the text matching ruleset. For example, if the configuration is to deny \"hello world\" for partial case-insensitive words then \"chello worlds\" would get detected and the resulting file would be denied.",
+      "properties": {
+        "text": {
+          "type": "string",
+          "description": "The word or phrase to match against replicated content. A phrase with spaces will be considered a single substring."
+        },
+        "matchType": {
+          "type": "string",
+          "description": "Specifies the text matching condition for text comparison. For more detail please refer to the MatchType model.",
+          "default": "Partial",
+          "enum": [
+            "Partial",
+            "Complete"
+          ],
+          "x-ms-enum": {
+            "name": "MatchType",
+            "modelAsString": true,
+            "values": [
+              {
+                "name": "Partial",
+                "value": "Partial",
+                "description": "The option to pattern match substrings within all text content. For example, \"hello world\" would be found in \"chello worlds\"."
+              },
+              {
+                "name": "Complete",
+                "value": "Complete",
+                "description": "The option to pattern match the entire string explicitly. For example, \"hello world\" would NOT be found in \"chello worlds\"."
+              }
+            ]
+          }
+        },
+        "caseSensitivity": {
+          "type": "string",
+          "description": "Specifies the text matching conditions based on casing. For more detail please refer to the Casing model.",
+          "default": "Insensitive",
+          "enum": [
+            "Insensitive",
+            "Sensitive"
+          ],
+          "x-ms-enum": {
+            "name": "Casing",
+            "modelAsString": true,
+            "values": [
+              {
+                "name": "Insensitive",
+                "value": "Insensitive",
+                "description": "Ignores casing when performing pattern matching. For example, \"Hello World\" would be found in \"hello world\"."
+              },
+              {
+                "name": "Sensitive",
+                "value": "Sensitive",
+                "description": "Requires exact casing for the pattern match. For example, \"Hello World\" would NOT not be found in \"hello world\"."
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "text",
+        "matchType",
+        "caseSensitivity"
+      ]
+    },
+    "TextMatchingRulesetActions": {
+      "type": "object",
+      "description": "Actions applied when data transfers fail the TextMatches specified.",
+      "properties": {
+        "audit": {
+          "type": "array",
+          "description": "Failures of this rule will not block data transfers but will provide an audit log\nof the failure occurring.",
+          "items": {
+            "$ref": "#/definitions/TextMatch"
+          },
+          "x-ms-identifiers": [
+            "text",
+            "matchType",
+            "caseSensitivity"
+          ]
+        },
+        "quarantine": {
+          "type": "array",
+          "description": "Failures of this rule will block data transfers for manual review. Upon manual review\nthe transfer can be rejected (to stop the transfer completely) or released (to allow the data\nto transfer).",
+          "items": {
+            "$ref": "#/definitions/TextMatch"
+          },
+          "x-ms-identifiers": [
+            "text",
+            "matchType",
+            "caseSensitivity"
+          ]
+        },
+        "deny": {
+          "type": "array",
+          "description": "Failures of this rule will block data transfers with no further review.",
+          "items": {
+            "$ref": "#/definitions/TextMatch"
+          },
+          "x-ms-identifiers": [
+            "text",
+            "matchType",
+            "caseSensitivity"
+          ]
+        }
+      }
+    },
     "ValidateSchemaResult": {
       "type": "object",
       "description": "Result of the schema validation. ValidateSchemaResult has reached end of life support starting version 2025-05-30-preview. Please manage schemas with a FlowProfile resource instead.",
@@ -5393,6 +5687,60 @@
         ]
       },
       "readOnly": true
+    },
+    "XmlFilterRuleset": {
+      "type": "object",
+      "description": "Rules for filtering XML content using XSD schemas.",
+      "properties": {
+        "defaultNamespace": {
+          "type": "string",
+          "description": "The default XML namespace used for schema validation."
+        },
+        "reference": {
+          "$ref": "#/definitions/XmlReferenceType",
+          "description": "Defines the method for referencing the xml schema."
+        },
+        "schema": {
+          "type": "string",
+          "description": "The inline XSD schema to be used for validation."
+        }
+      }
+    },
+    "XmlFilterRulesetActions": {
+      "type": "object",
+      "description": "Actions applied when data transfers fail the XmlFilterRuleset(s) specified.",
+      "properties": {
+        "audit": {
+          "$ref": "#/definitions/XmlFilterRuleset",
+          "description": "Failures of this rule will not block data transfers but will provide an audit log\nof the failure occurring."
+        },
+        "quarantine": {
+          "$ref": "#/definitions/XmlFilterRuleset",
+          "description": "Failures of this rule will block data transfers for manual review. Upon manual review\nthe transfer can be rejected (to stop the transfer completely) or released (to allow the data\nto transfer)."
+        },
+        "deny": {
+          "$ref": "#/definitions/XmlFilterRuleset",
+          "description": "Failures of this rule will block data transfers with no further review."
+        }
+      }
+    },
+    "XmlReferenceType": {
+      "type": "string",
+      "description": "Specifies how to reference the XML for processing.",
+      "enum": [
+        "Inline"
+      ],
+      "x-ms-enum": {
+        "name": "XmlReferenceType",
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Inline",
+            "value": "Inline",
+            "description": "Defines a referencing procedure where the xml schema will be provided inline."
+          }
+        ]
+      }
     }
   },
   "parameters": {}
