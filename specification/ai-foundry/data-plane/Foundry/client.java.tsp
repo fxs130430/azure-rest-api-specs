@@ -22,17 +22,65 @@ namespace Azure.AI.Projects;
 @@clientName(Azure.AI.Projects, "AIProjectClient");
 
 // --------------------------------------------------------------------------------
-// Renames
+// Renames - operations
 // --------------------------------------------------------------------------------
+
+// Connections
 @@clientName(Connections.list, "listConnections");
 @@clientName(Connections.get, "getConnection");
 @@clientName(Connections.getWithCredentials, "getConnectionWithCredentials");
 
+// Datasets
 @@clientName(Datasets.getVersion, "getDatasetVersion");
 @@clientName(Datasets.startPendingUploadVersion, "pendingUpload");
+@@clientName(Datasets.listLatest, "listLatestVersion");
 
-// Shorter method names for SDK Index operations
-@@clientName(Indexes.createOrUpdateVersion, "createOrUpdate");
+// Deployments
+@@clientName(Deployments.list, "listDeployments");
+@@clientName(Deployments.get, "getDeployment");
+
+// Evaluation rules
+@@clientName(EvaluationRules.list, "listEvaluationRules");
+@@clientName(EvaluationRules.get, "getEvaluationRule");
+@@clientName(EvaluationRules.createOrUpdate, "createOrUpdateEvaluationRule");
+@@clientName(EvaluationRules.delete, "deleteEvaluationRule");
+
+// Evaluation taxonomies
+@@clientName(EvaluationTaxonomies.list, "listEvaluationTaxonomies");
+@@clientName(EvaluationTaxonomies.get, "getEvaluationTaxonomy");
+@@clientName(EvaluationTaxonomies.create, "createEvaluationTaxonomy");
+@@clientName(EvaluationTaxonomies.delete, "deleteEvaluationTaxonomy");
+@@clientName(EvaluationTaxonomies.update, "updateEvaluationTaxonomy");
+
+// Evaluators
+// no renames
+
+// Indexes 
+// removed because convention dictates names need to be `verbNoun`
+// @@clientName(Indexes.createOrUpdateVersion, "createOrUpdate");
+
+// Insights
+@@clientName(Insights.list, "listInsights");
+@@clientName(Insights.get, "getInsight");
+@@clientName(Insights.generate, "generateInsight");
+
+// Red Teams
+@@clientName(RedTeams.list, "listRedTeams");
+@@clientName(RedTeams.get, "getRedTeam");
+@@clientName(RedTeams.create, "createRedTeamRun");
+
+// Schedules
+@@clientName(Schedules.list, "listSchedules");
+@@clientName(Schedules.get, "getSchedule");
+@@clientName(Schedules.createOrUpdate, "createOrUpdateSchedule");
+@@clientName(Schedules.delete, "deleteSchedule");
+@@clientName(Schedules.getRun, "getScheduleRun");
+@@clientName(Schedules.listRuns, "listScheduleRuns");
+
+// --------------------------------------------------------------------------------
+// Renames - models
+// --------------------------------------------------------------------------------
+
 
 // // Less generic names
 @@clientName(Sku, "ModelDeploymentSku");
