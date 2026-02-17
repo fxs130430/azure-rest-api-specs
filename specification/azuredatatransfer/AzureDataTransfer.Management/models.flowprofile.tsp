@@ -147,79 +147,37 @@ model FlowProfileRulesets {
   /**
    * Antivirus scanning rules for replicated data.
    */
-  @removed(Versions.v2026_02_06_preview)
-  @renamedFrom(Versions.v2026_02_06_preview, "antivirus")
-  antivirusRuleset?: AntivirusRuleset;
-
-  /**
-   * Antivirus scanning rules for replicated data.
-   */
-  @added(Versions.v2026_02_06_preview)
+  @typeChangedFrom(Versions.v2026_02_06_preview, AntivirusRuleset)
   antivirus?: AntivirusRulesetActions;
 
   /**
    * Rules for handling archive files during replication.
    */
-  @removed(Versions.v2026_02_06_preview)
-  @renamedFrom(Versions.v2026_02_06_preview, "archives")
-  archivesRuleset?: ArchiveRuleset;
-
-  /**
-   * Rules for handling archive files during replication.
-   */
-  @added(Versions.v2026_02_06_preview)
+  @typeChangedFrom(Versions.v2026_02_06_preview, ArchiveRuleset)
   archives?: ArchiveRulesetActions;
 
   /**
    * Rules that enforce minimum and maximum data size limits.
    */
-  @removed(Versions.v2026_02_06_preview)
-  @renamedFrom(Versions.v2026_02_06_preview, "dataSize")
-  dataSizeRuleset?: DataSizeRuleset;
-
-  /**
-   * Rules that enforce minimum and maximum data size limits.
-   */
-  @added(Versions.v2026_02_06_preview)
+  @typeChangedFrom(Versions.v2026_02_06_preview, DataSizeRuleset)
   dataSize?: DataSizeRulesetActions;
 
   /**
    * Rules for filtering files based on MIME types.
    */
-  @removed(Versions.v2026_02_06_preview)
-  @renamedFrom(Versions.v2026_02_06_preview, "mimeFilters")
-  mimeFiltersRuleset?: MimeFilterRuleset;
-
-  /**
-   * Rules for filtering files based on MIME types.
-   */
-  @added(Versions.v2026_02_06_preview)
+  @typeChangedFrom(Versions.v2026_02_06_preview, MimeFilterRuleset)
   mimeFilters?: MimeFilterRulesetActions;
 
   /**
    * Rules for filtering XML content using XSD schemas.
    */
-  @removed(Versions.v2026_02_06_preview)
-  @renamedFrom(Versions.v2026_02_06_preview, "xmlFilters")
-  xmlFiltersRuleset?: XmlFilterRuleset;
-
-  /**
-   * Rules for filtering XML content using XSD schemas.
-   */
-  @added(Versions.v2026_02_06_preview)
+  @typeChangedFrom(Versions.v2026_02_06_preview, XmlFilterRuleset)
   xmlFilters?: XmlFilterRulesetActions;
 
   /**
    * Rules for detecting and blocking specific text patterns.
    */
-  @removed(Versions.v2026_02_06_preview)
-  @renamedFrom(Versions.v2026_02_06_preview, "textMatching")
-  textMatchingRuleset?: TextMatchingRuleset;
-
-  /**
-   * Rules for detecting and blocking specific text patterns.
-   */
-  @added(Versions.v2026_02_06_preview)
+  @typeChangedFrom(Versions.v2026_02_06_preview, TextMatchingRuleset)
   textMatching?: TextMatchingRulesetActions;
 }
 
@@ -230,7 +188,6 @@ model FlowProfileRulesets {
  */
 @added(Versions.v2026_02_06_preview)
 model RulesetActions<Ruleset> {
-
   /**
    * Failures of this rule will not block data transfers but will provide an audit log
    * of the failure occurring.
@@ -458,9 +415,15 @@ union XmlReferenceType {
  */
 @added(Versions.v2026_02_06_preview)
 model TextMatchingRulesetActions is RulesetActions<TextMatch[]>;
-@@identifiers(TextMatchingRulesetActions.audit, #["text", "matchType", "caseSensitivity"]);
-@@identifiers(TextMatchingRulesetActions.deny, #["text", "matchType", "caseSensitivity"]);
-@@identifiers(TextMatchingRulesetActions.quarantine, #["text", "matchType", "caseSensitivity"]);
+@@identifiers(TextMatchingRulesetActions.audit,
+  #["text", "matchType", "caseSensitivity"]
+);
+@@identifiers(TextMatchingRulesetActions.deny,
+  #["text", "matchType", "caseSensitivity"]
+);
+@@identifiers(TextMatchingRulesetActions.quarantine,
+  #["text", "matchType", "caseSensitivity"]
+);
 
 /**
  * Rules for detecting and blocking specific text patterns. If a file contains a text pattern that is part of the configured deny list, the file will be denied.
