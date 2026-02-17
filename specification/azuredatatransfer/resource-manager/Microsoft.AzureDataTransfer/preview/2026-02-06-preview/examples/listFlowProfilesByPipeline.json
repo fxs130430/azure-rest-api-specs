@@ -21,18 +21,20 @@
               "status": "Enabled",
               "description": "Hello world description",
               "rulesets": {
-                "mimeFilters": {
-                  "type": "Allow",
-                  "filters": [
-                    {
-                      "media": "application/json",
-                      "extensions": [
-                        ".json",
-                        ".app",
-                        ".js"
-                      ]
-                    }
-                  ]
+                "deny": {
+                  "mimeFilters": {
+                    "type": "Allow",
+                    "filters": [
+                      {
+                        "media": "application/json",
+                        "extensions": [
+                          ".json",
+                          ".app",
+                          ".js"
+                        ]
+                      }
+                    ]
+                  }
                 },
                 "textMatching": {
                   "deny": [
@@ -49,25 +51,33 @@
                   ]
                 },
                 "antivirus": {
-                  "avSolutions": [
-                    "Defender",
-                    "ClamAv"
-                  ]
+                  "audit": {
+                    "avSolutions": [
+                      "Defender",
+                      "ClamAv"
+                    ]
+                  }
                 },
                 "archives": {
-                  "minimumSizeForExpansion": 1,
-                  "maximumExpansionSizeLimit": 123456,
-                  "maximumDepthLimit": 12,
-                  "maximumCompressionRatioLimit": 123
+                  "quarantine": {
+                    "minimumSizeForExpansion": 1,
+                    "maximumExpansionSizeLimit": 123456,
+                    "maximumDepthLimit": 12,
+                    "maximumCompressionRatioLimit": 123
+                  }
                 },
                 "dataSize": {
-                  "maximum": 123456789,
-                  "minimum": 1
+                  "deny": {
+                    "maximum": 123456789,
+                    "minimum": 1
+                  }
                 },
                 "xmlFilters": {
-                  "defaultNamespace": "testnamespace",
-                  "reference": "Inline",
-                  "schema": "<?xml version=\"1.0\" encoding=\"UTF-8\" ?> <xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\"></xs:schema>"
+                  "deny": {
+                    "defaultNamespace": "testnamespace",
+                    "reference": "Inline",
+                    "schema": "<?xml version=\"1.0\" encoding=\"UTF-8\" ?> <xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\"></xs:schema>"
+                  }
                 }
               },
               "provisioningState": "Accepted"
@@ -83,18 +93,20 @@
               "status": "Enabled",
               "description": "Hello world description",
               "rulesets": {
-                "mimeFilters": {
-                  "type": "Allow",
-                  "filters": [
-                    {
-                      "media": "application/json",
-                      "extensions": [
-                        ".json",
-                        ".app",
-                        ".js"
-                      ]
-                    }
-                  ]
+                "deny": {
+                  "mimeFilters": {
+                    "type": "Allow",
+                    "filters": [
+                      {
+                        "media": "application/json",
+                        "extensions": [
+                          ".json",
+                          ".app",
+                          ".js"
+                        ]
+                      }
+                    ]
+                  }
                 },
                 "textMatching": {
                   "deny": [
@@ -111,25 +123,33 @@
                   ]
                 },
                 "antivirus": {
-                  "avSolutions": [
-                    "Defender",
-                    "ClamAv"
-                  ]
+                  "audit": {
+                    "avSolutions": [
+                      "Defender",
+                      "ClamAv"
+                    ]
+                  }
                 },
                 "archives": {
-                  "minimumSizeForExpansion": 1,
-                  "maximumExpansionSizeLimit": 123456,
-                  "maximumDepthLimit": 12,
-                  "maximumCompressionRatioLimit": 123
+                  "quarantine": {
+                    "minimumSizeForExpansion": 1,
+                    "maximumExpansionSizeLimit": 123456,
+                    "maximumDepthLimit": 12,
+                    "maximumCompressionRatioLimit": 123
+                  }
                 },
                 "dataSize": {
-                  "maximum": 123456789,
-                  "minimum": 1
+                  "deny": {
+                    "maximum": 123456789,
+                    "minimum": 1
+                  }
                 },
                 "xmlFilters": {
-                  "defaultNamespace": "testnamespace",
-                  "reference": "Inline",
-                  "schema": "<?xml version=\"1.0\" encoding=\"UTF-8\" ?> <xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\"></xs:schema>"
+                  "deny": {
+                    "defaultNamespace": "testnamespace",
+                    "reference": "Inline",
+                    "schema": "<?xml version=\"1.0\" encoding=\"UTF-8\" ?> <xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\"></xs:schema>"
+                  }
                 }
               },
               "provisioningState": "Accepted"
