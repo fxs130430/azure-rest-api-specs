@@ -24,8 +24,8 @@
           "description": "Hello world description",
           "flowProfileId": "00000000-0000-0000-0000-000000000000",
           "rulesets": {
-            "deny": {
-              "mimeFilters": {
+            "mimeFilters": {
+              "deny": {
                 "type": "Allow",
                 "filters": [
                   {
