@@ -93,8 +93,8 @@
               "status": "Enabled",
               "description": "Hello world description",
               "rulesets": {
-                "deny": {
-                  "mimeFilters": {
+                "mimeFilters": {
+                  "deny": {
                     "type": "Allow",
                     "filters": [
                       {
