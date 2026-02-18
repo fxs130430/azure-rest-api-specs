@@ -7,6 +7,9 @@ in order to enable preview features on these GA routes (e.g. Agent tools in prev
 
 | Operation Group | Operation | Method | Path | Foundry-Features Header Value |
 |-----------------|-----------|--------|------|-------------------------------|
+| Agents | Create | POST | `/agents` | Optional: `ContainerAgents=V1Preview`, `HostedAgents=V1Preview`, `WorkflowAgents=V1Preview` |
+| Agents | Update | POST | `/agents/{agent_name}` | Optional: `ContainerAgents=V1Preview`, `HostedAgents=V1Preview`, `WorkflowAgents=V1Preview` |
+| Agents | Create Version | POST | `/agents/{agent_name}/versions` | Optional: `ContainerAgents=V1Preview`, `HostedAgents=V1Preview`, `WorkflowAgents=V1Preview` |
 | Evaluation Rules | List | GET | `/evaluationrules` | Optional: `Evaluations=V1Preview` |
 | Evaluation Rules | Get | GET | `/evaluationrules/{id}` | Optional: `Evaluations=V1Preview` |
 | Evaluation Rules | Delete | DELETE | `/evaluationrules/{id}` | Optional: `Evaluations=V1Preview` |
