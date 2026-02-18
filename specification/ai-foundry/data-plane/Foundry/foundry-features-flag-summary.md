@@ -1,9 +1,9 @@
 # "Foundry-Features" HTTP request headers and the routes where it is required or optional
 
-## v1 GA routes with optional "Foundry-Features" HTTP request header
+## v1 GA routes with optional "Foundry-Features" HTTP request header to enable preview features
 
 You will need to include this HTTP request header, with the value(s) specified below,
-in order to enable preview features on these GA routes.
+in order to enable preview features on these GA routes (e.g. Agent tools in preview).
 
 | Operation Group | Operation | Method | Path | Foundry-Features Header Value |
 |-----------------|-----------|--------|------|-------------------------------|
@@ -12,10 +12,10 @@ in order to enable preview features on these GA routes.
 | Evaluation Rules | Delete | DELETE | `/evaluationrules/{id}` | Optional: `Evaluations=V1Preview` |
 | Evaluation Rules | CreateOrUpdate | PUT | `/evaluationrules/{id}` | Optional: `Evaluations=V1Preview` |
 
-## v1 Preview routes with required headers to enable preview features
+## v1 Preview routes with required "Foundry-Features" HTTP header to enable preview features
 
 You must include this HTTP request header, with the value specified below,
-in order to succesfully complate operations in these routes.
+in order to succesfully complete operations using these routes.
 
 | Operation Group | Operation | Method | Path | Foundry-Features Header Value |
 |-----------------|-----------|--------|------|-------------------------------|
