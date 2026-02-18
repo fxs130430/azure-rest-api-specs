@@ -1150,6 +1150,9 @@
               }
             }
           },
+          "204": {
+            "description": "There is no content to send for this request, but the headers may be useful."
+          },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
@@ -1657,6 +1660,9 @@
                 "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
               }
             }
+          },
+          "204": {
+            "description": "There is no content to send for this request, but the headers may be useful."
           },
           "default": {
             "description": "An unexpected error response.",
@@ -5076,6 +5082,9 @@
               }
             }
           },
+          "204": {
+            "description": "There is no content to send for this request, but the headers may be useful."
+          },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
@@ -5136,6 +5145,9 @@
                 "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
               }
             }
+          },
+          "204": {
+            "description": "There is no content to send for this request, but the headers may be useful."
           },
           "default": {
             "description": "An unexpected error response.",
@@ -5277,6 +5289,9 @@
               }
             }
           },
+          "204": {
+            "description": "There is no content to send for this request, but the headers may be useful."
+          },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
@@ -5338,6 +5353,9 @@
                 "description": "The Retry-After header can indicate how long the client should wait before polling the operation status."
               }
             }
+          },
+          "204": {
+            "description": "There is no content to send for this request, but the headers may be useful."
           },
           "default": {
             "description": "An unexpected error response.",
