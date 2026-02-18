@@ -705,11 +705,13 @@ model UserDelegationKey {
 
   /** The date-time the key is active. */
   @encode("rfc7231")
+  @alternateType(string, "javascript")
   @Xml.name("SignedStart")
   signedStart: utcDateTime;
 
   /** The date-time the key expires. */
   @encode("rfc7231")
+  @alternateType(string, "javascript")
   @Xml.name("SignedExpiry")
   signedExpiry: utcDateTime;
 
