@@ -1,5 +1,13 @@
 # "Foundry-Features" HTTP request header
 
+## Guidelines
+
+Guidelines on when an opt-in HTTP request header is needed:
+
+1. If the entire operation is preview, require a header for everything (all HTTP methods and sub-paths) and do not require intensive, viral adoption of "preview" infixes on schema component names and discriminator values.
+1. If a preview instead conditionally impacts behavior in an otherwise GA API, only require the header when creating or updating a persisted preview-enabled "thing," and apply "preview" infixes wherever possible to component names and discriminator values.
+1. GA APIs referencing an already-created preview "thing" don't expressly require a header, nor do get/list/delete operations.
+
 ## v1 GA routes with optional "Foundry-Features" HTTP request header to enable preview features
 
 You will need to include this HTTP request header, with a value specified below,
