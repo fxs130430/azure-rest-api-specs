@@ -124,3 +124,9 @@ namespace Azure.AI.Projects;
 
 // The fix for ambiguous import of OperationState
 @@clientName(Azure.Core.Foundations.OperationState, "operationStatus", "java");
+
+// --------------------------------------------------------------------------------
+// Type replacements / encodings
+// --------------------------------------------------------------------------------
+
+@@alternateType(WeeklyRecurrenceSchedule.daysOfWeek, { identity: "java.time.DayOfWeek" }, "java");
