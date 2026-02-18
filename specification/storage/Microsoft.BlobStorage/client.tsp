@@ -95,6 +95,9 @@ interface PageBlobClient extends Storage.Blob.PageBlob {}
 
 @@alternateType(AccessPolicy.start, string, "javascript");
 @@alternateType(AccessPolicy.expiry, string, "javascript");
+@@alternateType(UserDelegationKey.signedStart, string, "javascript");
+@@alternateType(UserDelegationKey.signedExpiry, string, "javascript");
+
 @@clientName(AccessPolicy.start, "startsOn", "javascript");
 @@clientName(AccessPolicy.expiry, "expiresOn", "javascript");
 @@clientName(AccessPolicy.permission, "permissions", "javascript");
