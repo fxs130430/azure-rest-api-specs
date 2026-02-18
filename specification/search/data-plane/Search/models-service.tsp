@@ -3315,6 +3315,7 @@ model SearchIndexerStatus {
   status: IndexerStatus;
 
   /** Snapshot of the indexer's cumulative runtime consumption for the service over the current UTC period. */
+  @removed(Versions.v2026_04_01)
   @visibility(Lifecycle.Read)
   runtime: IndexerRuntime;
 
@@ -4652,6 +4653,7 @@ model SearchServiceStatistics {
   limits: SearchServiceLimits;
 
   /** Service level indexer runtime consumption. */
+  @removed(Versions.v2026_04_01)
   indexersRuntime: ServiceIndexersRuntime;
 }
 

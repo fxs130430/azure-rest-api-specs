@@ -9408,7 +9408,7 @@
           "format": "int32",
           "description": "The maximum runtime in seconds."
         },
-        "maxOutputSize": {
+        "maxOutputSizeInTokens": {
           "type": "integer",
           "format": "int32",
           "description": "Limits the maximum size of the content in the output."
@@ -9634,26 +9634,6 @@
         ]
       }
     },
-    "KnowledgeRetrievalLowReasoningEffort": {
-      "type": "object",
-      "description": "Run knowledge retrieval with low reasoning effort.",
-      "allOf": [
-        {
-          "$ref": "#/definitions/KnowledgeRetrievalReasoningEffort"
-        }
-      ],
-      "x-ms-discriminator-value": "low"
-    },
-    "KnowledgeRetrievalMediumReasoningEffort": {
-      "type": "object",
-      "description": "Run knowledge retrieval with medium reasoning effort.",
-      "allOf": [
-        {
-          "$ref": "#/definitions/KnowledgeRetrievalReasoningEffort"
-        }
-      ],
-      "x-ms-discriminator-value": "medium"
-    },
     "KnowledgeRetrievalMinimalReasoningEffort": {
       "type": "object",
       "description": "Run knowledge retrieval with minimal reasoning effort.",
@@ -9706,9 +9686,7 @@
       "type": "string",
       "description": "The amount of effort to use during retrieval.",
       "enum": [
-        "minimal",
-        "low",
-        "medium"
+        "minimal"
       ],
       "x-ms-enum": {
         "name": "KnowledgeRetrievalReasoningEffortKind",
@@ -9718,16 +9696,6 @@
             "name": "minimal",
             "value": "minimal",
             "description": "Does not perform any source selections, query planning, or iterative search."
-          },
-          {
-            "name": "low",
-            "value": "low",
-            "description": "Use low reasoning during retrieval."
-          },
-          {
-            "name": "medium",
-            "value": "medium",
-            "description": "Use a moderate amount of reasoning during retrieval."
           }
         ]
       }
@@ -16005,11 +15973,6 @@
           "description": "Overall indexer status.",
           "readOnly": true
         },
-        "runtime": {
-          "$ref": "#/definitions/IndexerRuntime",
-          "description": "Snapshot of the indexer's cumulative runtime consumption for the service over the current UTC period.",
-          "readOnly": true
-        },
         "lastResult": {
           "$ref": "#/definitions/IndexerExecutionResult",
           "description": "The result of the most recent or an in-progress indexer execution.",
@@ -16037,7 +16000,6 @@
       "required": [
         "name",
         "status",
-        "runtime",
         "executionHistory",
         "limits"
       ]
@@ -16464,16 +16426,11 @@
         "limits": {
           "$ref": "#/definitions/SearchServiceLimits",
           "description": "Service level general limits."
-        },
-        "indexersRuntime": {
-          "$ref": "#/definitions/ServiceIndexersRuntime",
-          "description": "Service level indexer runtime consumption."
         }
       },
       "required": [
         "counters",
-        "limits",
-        "indexersRuntime"
+        "limits"
       ]
     },
     "SearchSuggester": {

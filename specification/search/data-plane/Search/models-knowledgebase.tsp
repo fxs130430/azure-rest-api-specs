@@ -23,7 +23,12 @@ model KnowledgeBaseRetrievalRequest {
   maxRuntimeInSeconds?: int32;
 
   /** Limits the maximum size of the content in the output. */
+  @removed(Versions.v2026_04_01)
   maxOutputSize?: int32;
+
+  /** Limits the maximum size of the content in the output. */
+  @added(Versions.v2026_04_01)
+  maxOutputSizeInTokens?: int32;
 
   /** The retrieval reasoning effort configuration. */
   retrievalReasoningEffort?: KnowledgeRetrievalReasoningEffort;
@@ -65,6 +70,7 @@ model KnowledgeRetrievalMinimalReasoningEffort
 }
 
 /** Run knowledge retrieval with low reasoning effort. */
+@removed(Versions.v2026_04_01)
 model KnowledgeRetrievalLowReasoningEffort
   extends KnowledgeRetrievalReasoningEffort {
   /** The discriminator value. */
@@ -72,6 +78,7 @@ model KnowledgeRetrievalLowReasoningEffort
 }
 
 /** Run knowledge retrieval with medium reasoning effort. */
+@removed(Versions.v2026_04_01)
 model KnowledgeRetrievalMediumReasoningEffort
   extends KnowledgeRetrievalReasoningEffort {
   /** The discriminator value. */
@@ -86,9 +93,11 @@ union KnowledgeRetrievalReasoningEffortKind {
   minimal: "minimal",
 
   /** Use low reasoning during retrieval. */
+  @removed(Versions.v2026_04_01)
   low: "low",
 
   /** Use a moderate amount of reasoning during retrieval. */
+  @removed(Versions.v2026_04_01)
   medium: "medium",
 }
 
