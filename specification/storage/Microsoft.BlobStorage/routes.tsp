@@ -248,7 +248,6 @@ interface Container {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   @put
-  @sharedRoute
   @route("?restype=container")
   create is StorageOperationNoBody<
     {
@@ -273,7 +272,6 @@ interface Container {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   @get
-  @sharedRoute
   @route("?restype=container")
   getProperties is StorageOperationNoBody<
     {
@@ -313,7 +311,6 @@ interface Container {
   #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   @delete
-  @sharedRoute
   @route("?restype=container")
   delete is StorageOperationNoBody<
     {
