@@ -120,6 +120,7 @@ interface PageBlobClient extends Storage.Blob.PageBlob {}
   "javascript"
 );
 @@clientName(Logging.delete, "deleteProperty", "javascript");
+@@clientName(Metrics.includeApis, "includeAPIs", "javascript");
 @@clientName(UserDelegationKey.signedOid, "signedObjectId", "javascript");
 @@clientName(UserDelegationKey.signedTid, "signedTenantId", "javascript");
 @@clientName(UserDelegationKey.signedStart, "signedStartsOn", "javascript");
@@ -142,6 +143,11 @@ interface PageBlobClient extends Storage.Blob.PageBlob {}
 );
 @@clientName(ListBlobsHierarchySegmentResponse.maxResults,
   "maxPageSize",
+  "javascript"
+);
+@@clientName(BlobPublicAccess.access, "blobPublicAccess", "javascript");
+@@clientName(LeaseDurationResponseHeader.duration,
+  "leaseDuration",
   "javascript"
 );
 @@alternateType(BlobProperties.contentLength, uint64, "rust");
