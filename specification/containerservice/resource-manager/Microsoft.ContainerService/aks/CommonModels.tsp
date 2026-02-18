@@ -16,6 +16,32 @@ using Versioning;
 namespace Microsoft.ContainerService;
 
 /**
+ * Provides both Azure-AsyncOperation and Location headers with
+ * final-state-via set to azure-async-operation.
+ * Unlike ArmCombinedLroHeaders which places @finalLocation on Location
+ * (resulting in final-state-via: location), this model places @finalLocation
+ * on Azure-AsyncOperation so the emitter outputs final-state-via: azure-async-operation.
+ */
+model ArmAsyncOperationHeaderWithLocation<
+  StatusMonitor extends {} = ArmOperationStatus,
+  FinalResult extends {} | void = never,
+  PollingUrlValue extends string = ResourceLocation<StatusMonitor>,
+  FinalUrlValue extends string = string
+> {
+  /** A link to the status monitor */
+  @Azure.Core.pollingLocation(
+    Azure.Core.StatusMonitorPollingOptions<StatusMonitor>
+  )
+  @Azure.Core.finalLocation(FinalResult)
+  @header("Azure-AsyncOperation")
+  azureAsyncOperation?: PollingUrlValue;
+
+  /** The Location header contains the URL where the status of the long running operation can be checked. */
+  @header("Location")
+  location?: FinalUrlValue;
+}
+
+/**
  * Different support tiers for AKS managed clusters
  */
 union KubernetesSupportPlan {

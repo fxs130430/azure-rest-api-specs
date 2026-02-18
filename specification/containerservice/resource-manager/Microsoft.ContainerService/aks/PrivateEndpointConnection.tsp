@@ -54,7 +54,7 @@ interface PrivateEndpointConnections {
   /**
    * Deletes a private endpoint connection.
    */
-  delete is ArmResourceDeleteWithoutOkAsync<PrivateEndpointConnection>;
+  delete is ArmResourceDeleteSync<PrivateEndpointConnection>;
 
   /**
    * To learn more about private clusters, see: https://docs.microsoft.com/azure/aks/private-clusters

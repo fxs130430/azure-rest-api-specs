@@ -55,17 +55,17 @@ interface TrustedAccessRoleBindings {
    * Create or update a trusted access role binding
    */
   @tag("TrustedAccess")
-  createOrUpdate is ArmResourceCreateOrReplaceAsync<
-    TrustedAccessRoleBinding,
-    LroHeaders = ArmLroLocationHeader<FinalResult = TrustedAccessRoleBinding> &
-      Azure.Core.Foundations.RetryAfterHeader
-  >;
+  createOrUpdate is ArmResourceCreateOrReplaceAsync<TrustedAccessRoleBinding>;
 
   /**
    * Delete a trusted access role binding.
    */
   @tag("TrustedAccess")
-  delete is ArmResourceDeleteWithoutOkAsync<TrustedAccessRoleBinding>;
+  delete is ArmResourceDeleteWithoutOkAsync<
+    TrustedAccessRoleBinding,
+    LroHeaders = ArmAsyncOperationHeaderWithLocation &
+      Azure.Core.Foundations.RetryAfterHeader
+  >;
 
   /**
    * List trusted access role bindings.

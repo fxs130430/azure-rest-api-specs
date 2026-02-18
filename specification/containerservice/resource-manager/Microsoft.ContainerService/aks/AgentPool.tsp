@@ -48,9 +48,7 @@ interface AgentPools {
        */
       @header
       ifNoneMatch?: string;
-    },
-    LroHeaders = ArmLroLocationHeader<FinalResult = AgentPool> &
-      Azure.Core.Foundations.RetryAfterHeader
+    }
   >;
 
   /**
@@ -58,6 +56,8 @@ interface AgentPools {
    */
   delete is ArmResourceDeleteWithoutOkAsync<
     AgentPool,
+    LroHeaders = ArmAsyncOperationHeaderWithLocation &
+      Azure.Core.Foundations.RetryAfterHeader,
     Parameters = {
       /**
        * ignore-pod-disruption-budget=true to delete those pods on a node without considering Pod Disruption Budget
@@ -111,7 +111,8 @@ interface AgentPools {
   deleteMachines is ArmResourceActionAsyncBase<
     AgentPool,
     AgentPoolDeleteMachinesParameter,
-    ArmAcceptedLroResponse,
+    ArmAcceptedLroResponse<LroHeaders = ArmAsyncOperationHeaderWithLocation &
+      Azure.Core.Foundations.RetryAfterHeader>,
     BaseParameters = Azure.ResourceManager.Foundations.DefaultBaseParameters<AgentPool>
   >;
 

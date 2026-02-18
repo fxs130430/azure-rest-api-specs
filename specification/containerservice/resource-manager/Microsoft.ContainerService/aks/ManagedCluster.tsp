@@ -282,9 +282,7 @@ interface ManagedClusters {
        */
       @header
       ifNoneMatch?: string;
-    },
-    LroHeaders = ArmLroLocationHeader<FinalResult = ManagedCluster> &
-      Azure.Core.Foundations.RetryAfterHeader
+    }
   >;
 
   /**
@@ -295,6 +293,8 @@ interface ManagedClusters {
   updateTags is ArmCustomPatchAsync<
     ManagedCluster,
     PatchModel = TagsObject,
+    LroHeaders = ArmAsyncOperationHeaderWithLocation<FinalResult = ManagedCluster> &
+      Azure.Core.Foundations.RetryAfterHeader,
     Parameters = {
       /**
        * The request should only proceed if an entity matches this string.
@@ -310,6 +310,8 @@ interface ManagedClusters {
   @tag("ManagedClusters")
   delete is ArmResourceDeleteWithoutOkAsync<
     ManagedCluster,
+    LroHeaders = ArmAsyncOperationHeaderWithLocation &
+      Azure.Core.Foundations.RetryAfterHeader,
     Parameters = {
       /**
        * The request should only proceed if an entity matches this string.

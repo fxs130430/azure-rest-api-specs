@@ -64,7 +64,7 @@ interface ManagedNamespaces {
    */
   delete is ArmResourceDeleteWithoutOkAsync<
     ManagedNamespace,
-    LroHeaders = ArmCombinedLroHeaders<FinalResult = void> &
+    LroHeaders = ArmAsyncOperationHeaderWithLocation &
       Azure.Core.Foundations.RetryAfterHeader
   >;
 
