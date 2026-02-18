@@ -102,6 +102,9 @@ namespace Azure.AI.Projects;
 
 @@clientName(Azure.Core.Foundations.ResourceBody.resource, "schedule");
 
+@@clientName(BlobReference.blobUri, "blobUrl");
+@@clientName(SasCredential.sasUri, "sasUrl");
+
 @@clientName(OpenAI.Error, "OpenAIError"); // prevents codegen conflict
 // --------------------------------------------------------------------------------
 // Usage / Public accessibility overrides
