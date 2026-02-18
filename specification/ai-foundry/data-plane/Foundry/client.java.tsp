@@ -130,3 +130,5 @@ namespace Azure.AI.Projects;
 // --------------------------------------------------------------------------------
 
 @@alternateType(WeeklyRecurrenceSchedule.daysOfWeek, { identity: "java.time.DayOfWeek" }, "java");
+
+@@access(DayOfWeek, Access.internal);
