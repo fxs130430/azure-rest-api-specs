@@ -50,4 +50,10 @@ enum Versions {
    */
   @armCommonTypesVersion(Azure.ResourceManager.CommonTypes.Versions.v3)
   v2025_01_02: "2025-01-02",
+
+  /**
+   * The 2026-05-02 API version.
+   */
+  @armCommonTypesVersion(Azure.ResourceManager.CommonTypes.Versions.v3)
+  v2026_05_02: "2026-05-02",
 }
