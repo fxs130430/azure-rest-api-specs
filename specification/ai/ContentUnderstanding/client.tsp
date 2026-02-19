@@ -71,6 +71,21 @@ interface ContentUnderstandingClient {
 @@clientName(TimeField.type, "fieldType");
 @@clientName(JsonField.type, "fieldType");
 
+// .NET: ContentField sub-types use "Value" for the typed value property (e.g. BooleanField.Value).
+// ContentField has a convenience property Value (object) for polymorphic access; each sub-type's Value hides it with the strongly-typed value.
+@@clientName(StringField.valueString, "Value", "csharp");
+@@clientName(DateField.valueDate, "Value", "csharp");
+@@clientName(TimeField.valueTime, "Value", "csharp");
+@@clientName(NumberField.valueNumber, "Value", "csharp");
+@@clientName(IntegerField.valueInteger, "Value", "csharp");
+@@clientName(BooleanField.valueBoolean, "Value", "csharp");
+@@clientName(ArrayField.valueArray, "Value", "csharp");
+@@clientName(ObjectField.valueObject, "Value", "csharp");
+@@clientName(JsonField.valueJson, "Value", "csharp");
+
+// .NET: type name "DateTimeOffsetField" to align with value type DateTimeOffset.
+@@clientName(DateField, "DateTimeOffsetField", "csharp");
+
 // Rename 'items' to avoid conflict with built-in 'items' method.
 @@clientName(ContentFieldDefinition.items, "itemDefinition");
 
@@ -79,6 +94,18 @@ interface ContentUnderstandingClient {
 // Rename 'range' to 'inputRange' for clarity that it specifies input range.
 @@clientName(AnalyzeInput.range, "inputRange");
 @@clientName(AnalyzeBinaryRequest.range, "inputRange");
+
+// .NET: type name "AnalysisInput" (noun phrase; "AnalyzeInput" is a verb phrase).
+@@clientName(AnalyzeInput, "AnalysisInput", "csharp");
+// .NET: property name "Uri" to match type System.Uri (noun phrase, type-aligned).
+@@clientName(AnalyzeInput.url, "Uri", "csharp");
+
+// .NET: boolean property "HasDynamicFieldSchema" (indicates whether result may contain additional fields).
+@@clientName(ContentAnalyzer.dynamicFieldSchema, "HasDynamicFieldSchema", "csharp");
+
+// .NET: boolean properties on ContentAnalyzerConfig use "Should" prefix for clarity.
+@@clientName(ContentAnalyzerConfig.omitContent, "ShouldOmitContent", "csharp");
+@@clientName(ContentAnalyzerConfig.returnDetails, "ShouldReturnDetails", "csharp");
 
 // .NET-specific naming: use GetAnalyzers instead of ListAnalyzers
 @@clientName(ContentUnderstandingClient.listAnalyzers,
