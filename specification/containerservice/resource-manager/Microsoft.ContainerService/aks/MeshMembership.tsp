@@ -60,16 +60,16 @@ interface MeshMemberships {
   /**
    * Creates or updates the mesh membership of a managed cluster.
    */
-  createOrUpdate is ArmResourceCreateOrReplaceAsync<
-    MeshMembership,
-    LroHeaders = ArmLroLocationHeader<FinalResult = MeshMembership> &
-      Azure.Core.Foundations.RetryAfterHeader
-  >;
+  createOrUpdate is ArmResourceCreateOrReplaceAsync<MeshMembership>;
 
   /**
    * Deletes the mesh membership of a managed cluster.
    */
-  delete is ArmResourceDeleteWithoutOkAsync<MeshMembership>;
+  delete is ArmResourceDeleteWithoutOkAsync<
+    MeshMembership,
+    LroHeaders = ArmAsyncOperationHeaderWithLocation &
+      Azure.Core.Foundations.RetryAfterHeader
+  >;
 
   /**
    * Lists mesh memberships in a managed cluster.

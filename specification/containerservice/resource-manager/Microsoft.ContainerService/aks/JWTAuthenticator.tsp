@@ -53,7 +53,11 @@ interface JWTAuthenticators {
   /**
    * Creates or updates JWT authenticator in the managed cluster and updates the managed cluster to apply the settings.
    */
-  createOrUpdate is ArmResourceCreateOrReplaceAsync<JWTAuthenticator>;
+  createOrUpdate is ArmResourceCreateOrReplaceAsync<
+    JWTAuthenticator,
+    LroHeaders = ArmLroLocationHeader<FinalResult = JWTAuthenticator> &
+      Azure.Core.Foundations.RetryAfterHeader
+  >;
 
   /**
    * Deletes a JWT authenticator and updates the managed cluster to apply the settings.

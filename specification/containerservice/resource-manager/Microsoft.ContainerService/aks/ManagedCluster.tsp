@@ -575,7 +575,7 @@ interface ManagedClusters {
   rebalanceLoadBalancers is ArmResourceActionAsyncBase<
     ManagedCluster,
     RebalanceLoadBalancersRequestBody,
-    ArmAcceptedLroResponse<LroHeaders = ArmCombinedLroHeaders &
+    ArmAcceptedLroResponse<LroHeaders = ArmAsyncOperationHeaderWithLocation &
       Azure.Core.Foundations.RetryAfterHeader>,
     BaseParameters = Azure.ResourceManager.Foundations.DefaultBaseParameters<ManagedCluster>
   >;

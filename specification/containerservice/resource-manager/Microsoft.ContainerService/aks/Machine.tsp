@@ -41,7 +41,7 @@ model Machine is Azure.ResourceManager.ProxyResource<MachineProperties> {
   "The machine to create or update."
 );
 
-#suppress "@azure-tools/typespec-azure-resource-manager/no-resource-delete-operation" "Machine resources are managed internally by AKS and deleted automatically when node pools scale down. Direct DELETE is intentionally not exposed."
+#suppress "@azure-tools/typespec-azure-resource-manager/no-resource-delete-operation" "Machine resources do not support individual DELETE. Instead, machines are deleted in bulk via AgentPools_DeleteMachines, or automatically when node pools scale down."
 @armResourceOperations
 interface Machines {
   /**

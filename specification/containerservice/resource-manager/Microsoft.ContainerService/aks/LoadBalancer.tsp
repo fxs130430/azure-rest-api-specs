@@ -56,7 +56,7 @@ interface LoadBalancers {
    */
   delete is ArmResourceDeleteWithoutOkAsync<
     LoadBalancer,
-    LroHeaders = ArmCombinedLroHeaders<FinalResult = void> &
+    LroHeaders = ArmAsyncOperationHeaderWithLocation &
       Azure.Core.Foundations.RetryAfterHeader
   >;
 
