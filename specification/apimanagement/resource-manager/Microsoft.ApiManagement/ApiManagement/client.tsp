@@ -86,12 +86,6 @@ using Azure.ResourceManager;
 @@clientName(SoapApiType.gRPC, "GRPC", "java");
 
 @@clientName(Microsoft.ApiManagement, "ApiManagementClient", "python");
-
-// rename for duplicate model from Azure.ResourceManager.CommonTypes
-@@clientName(Azure.ResourceManager.CommonTypes.PrivateEndpointConnection,
-  "ArmPrivateEndpointConnection",
-  "go"
-);
 @@clientName(HttpCorrelationProtocol.W3C, "W3_C", "python");
 @@clientLocation(ApiManagementServiceResources.performConnectivityCheckAsync,
   Microsoft.ApiManagement,
