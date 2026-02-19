@@ -2647,6 +2647,7 @@ namespace KnowledgeBaseRetrievalClient {
 @@clientName(SearchServiceLimits.maxStoragePerIndex,
   "maxStoragePerIndexInBytes"
 );
+@@clientName(CustomAnalyzer.tokenizer, "tokenizerName", "csharp");
 @@clientName(PatternAnalyzer.lowercase, "lowerCaseTerms");
 @@clientName(PathHierarchyTokenizerV2.reverse, "reverseTokenOrder");
 @@clientName(PathHierarchyTokenizerV2.skip, "numberOfTokensToSkip");
@@ -2665,11 +2666,24 @@ namespace KnowledgeBaseRetrievalClient {
 );
 @@clientName(AzureOpenAIVectorizer.azureOpenAIParameters, "parameters");
 @@clientName(AzureOpenAIVectorizerParameters.resourceUri, "resourceUrl");
+@@clientName(AzureOpenAIVectorizerParameters.resourceUri,
+  "resourceUri",
+  "csharp"
+);
 @@clientName(AzureOpenAIVectorizerParameters.deploymentId,
   "deploymentName",
   "!javascript"
 );
+@@clientName(AzureOpenAIVectorizerParameters.authIdentity,
+  "authenticationIdentity",
+  "csharp"
+);
+@@clientName(AzureOpenAIVectorizerParameters.deploymentId,
+  "deploymentName",
+  "csharp"
+);
 @@clientName(WebApiVectorizer.customWebApiParameters, "webApiParameters");
+@@clientName(WebApiVectorizer.customWebApiParameters, "parameters", "csharp");
 @@clientName(WebApiVectorizerParameters.uri, "url", "python");
 @@clientName(WebApiVectorizerParameters.uri, "url", "java");
 @@clientName(SearchIndexerDataUserAssignedIdentity.userAssignedIdentity,
@@ -2951,6 +2965,7 @@ namespace KnowledgeBaseRetrievalClient {
 @@clientName(PathHierarchyTokenizerV2.`@odata.type`, "odatatype", "javascript");
 @@clientName(ListIndexStatsSummary.value, "IndexesStatistics");
 @@clientName(ListIndexStatsSummary.value, "indexesStatistics", "javascript"); //TODO: verify casing
+@@clientName(RankingOrder.RerankerScore, "reRankerScore", "csharp");
 @@clientName(Search.BM25SimilarityAlgorithm, "BM25Similarity", "csharp");
 @@clientName(Search.BM25SimilarityAlgorithm, "BM25Similarity", "javascript");
 @@clientName(Search.ClassicSimilarityAlgorithm, "ClassicSimilarity", "csharp");
