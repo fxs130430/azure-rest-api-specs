@@ -1323,6 +1323,7 @@ model ClearRange {
 }
 
 /** Represents blob tags. */
+@Xml.name("Tags")
 model BlobTags {
   /** Represents the blob tags. */
   @Xml.name("TagSet") blobTagSet: BlobTag[];
