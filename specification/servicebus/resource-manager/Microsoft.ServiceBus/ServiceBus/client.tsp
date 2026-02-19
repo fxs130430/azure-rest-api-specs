@@ -6,12 +6,6 @@ using Microsoft.ServiceBus;
 @@clientName(Microsoft.ServiceBus, "ServiceBusManagementClient", "javascript");
 @@clientName(Microsoft.ServiceBus, "ServiceBusManagementClient", "python");
 
-// rename for duplicate model from Azure.ResourceManager.CommonTypes
-@@clientName(Azure.ResourceManager.CommonTypes.ErrorAdditionalInfo,
-  "ArmErrorAdditionalInfo",
-  "go"
-);
-
 @@clientName(NetworkRuleIPAction, "NetworkRuleIpAction", "java");
 
 // Fix TLS version naming changes for Go SDK compatibility

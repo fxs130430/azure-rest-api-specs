@@ -8,12 +8,6 @@ using Microsoft.RecoveryServices;
 using Azure.ResourceManager;
 using Http;
 
-// rename for duplicate model from Azure.ResourceManager.CommonTypes
-@@clientName(Azure.ResourceManager.CommonTypes.ErrorDetail,
-  "ArmErrorDetail",
-  "go"
-);
-
 @@clientLocation(BackupResourceStorageConfigsNonCRR.bmsPrepareDataMove,
   "Client",
   "go"
