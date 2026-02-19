@@ -35,6 +35,12 @@ using Azure.AI.Projects;
 // Usage / Public accessibility overrides
 // --------------------------------------------------------------------------------
 
+
+@@access(Agents.createAgent, Access.internal);
+@@access(Agents.updateAgent, Access.internal);
+@@access(Agents.createAgentFromManifest, Access.internal);
+@@access(Agents.updateAgentFromManifest, Access.internal);
+
 // The original type is string | OpenAI.ToolChoiceParam . Making this just string
 // Prevents the emission of the full ToolChoiceParam class tree in Java, which
 // is already exposed by the Stainless library. Currently there aren't any azure-isms.
