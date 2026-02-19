@@ -12,9 +12,8 @@ options:
     examples-dir: "{project-root}/examples"
     emit-lro-options: "all"
   "@azure-tools/typespec-python":
-    service-dir: "sdk/postgresqlflexibleservers"
-    emitter-output-dir: "{output-dir}/{service-dir}/azure-mgmt-postgresqlflexibleservers"
-    namespace: "azure.mgmt.postgresqlflexibleservers"
+    emitter-output-dir: "{output-dir}/{service-dir}/azure-mgmt-postgresql"
+    namespace: "azure.mgmt.postgresql"
     generate-test: true
     generate-sample: true
     flavor: "azure"
