@@ -467,7 +467,9 @@ model FilterBlobItem {
   @Xml.name("ContainerName") containerName: string;
 
   /** The metadata of the blob. */
-  @Xml.unwrapped tags?: BlobTags;
+  @Xml.unwrapped
+  @Xml.name("Tags")
+  tags?: BlobTags;
 
   /** The version ID of the blob. */
   @Xml.name("VersionId") versionId?: string;
@@ -1321,7 +1323,6 @@ model ClearRange {
 }
 
 /** Represents blob tags. */
-@Xml.name("Tags")
 model BlobTags {
   /** Represents the blob tags. */
   @Xml.name("TagSet") blobTagSet: BlobTag[];
