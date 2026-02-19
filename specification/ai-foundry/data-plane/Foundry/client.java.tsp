@@ -114,8 +114,15 @@ namespace Azure.AI.Projects;
 @@access(FoundryFeaturesOptInKeys, Access.public);
 
 // Default name produces a style violation
-@@clientName(SASCredentials, "SasCredentials", "java");
+@@clientName(SASCredentials, "SasCredential", "java");
 @@clientName(SasCredential, "BlobReferenceSasCredential");
+
+// Singularize "Credentials" -> "Credential" for connection credential models
+@@clientName(BaseCredentials, "BaseCredential", "java");
+@@clientName(ApiKeyCredentials, "ApiKeyCredential", "java");
+@@clientName(EntraIDCredentials, "EntraIdCredential", "java");
+@@clientName(NoAuthenticationCredentials, "NoAuthenticationCredential", "java");
+@@clientName(AgenticIdentityPreviewCredentials, "AgenticIdentityPreviewCredential", "java");
 
 // Make these two internal, since all SDKs hand-write a single public method with boolean "includeCredentials"
 // input parameter that calls either on these two.
