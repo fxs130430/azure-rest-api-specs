@@ -96,7 +96,7 @@ interface AgentPools {
   /**
    * Completes the upgrade operation for the specified agent pool.
    */
-  @added(Versions.v2025_10_02_preview)
+  @added(Versions.v2026_01_02_preview)
   @summary("Completes the upgrade of an agent pool.")
   completeUpgrade is ArmResourceActionAsyncBase<
     AgentPool,
@@ -140,7 +140,7 @@ interface AgentPools {
    */
   @get
   @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.ContainerService/managedClusters/{resourceName}/agentPools/{agentPoolName}/operations/{operationId}")
-  @added(Versions.v2025_10_02_preview)
+  @added(Versions.v2026_01_02_preview)
   getByAgentPool is AgentPoolsOps.ActionSync<
     AgentPool,
     void,

@@ -49,7 +49,7 @@ interface TrustedAccessRolesOperationGroup {
 }
 
 #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-interface-requires-decorator" "Adding @armResourceOperations would inject an undesired resource-derived tag on these location-scoped operations."
-@added(Versions.v2025_10_02_preview)
+@added(Versions.v2026_01_02_preview)
 interface ContainerServiceOperationGroup {
   /**
    * Only returns the latest version of each node image. For example there may be an AKSUbuntu-1804gen2containerd-2024.01.26, but only AKSUbuntu-1804gen2containerd-2024.02.02 is visible in this list.

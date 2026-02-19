@@ -19,7 +19,7 @@ namespace Microsoft.ContainerService;
  * Mesh membership of a managed cluster.
  */
 @parentResource(ManagedCluster)
-@added(Versions.v2025_10_02_preview)
+@added(Versions.v2026_01_02_preview)
 model MeshMembership
   is Azure.ResourceManager.ProxyResource<MeshMembershipProperties> {
   ...ResourceNameParameter<
@@ -50,7 +50,7 @@ model MeshMembership
 );
 
 @armResourceOperations
-@added(Versions.v2025_10_02_preview)
+@added(Versions.v2026_01_02_preview)
 interface MeshMemberships {
   /**
    * Gets the mesh membership of a managed cluster.
@@ -87,7 +87,7 @@ interface MeshMemberships {
 /**
  * The provisioning state of the last accepted operation.
  */
-@added(Versions.v2025_10_02_preview)
+@added(Versions.v2026_01_02_preview)
 union MeshMembershipProvisioningState {
   string,
 
@@ -125,7 +125,7 @@ union MeshMembershipProvisioningState {
 /**
  * Mesh membership properties of a managed cluster.
  */
-@added(Versions.v2025_10_02_preview)
+@added(Versions.v2026_01_02_preview)
 model MeshMembershipProperties {
   /**
    * The current provisioning state of the Mesh Membership.
@@ -147,7 +147,7 @@ model MeshMembershipProperties {
 /**
  * The result of a request to list mesh memberships in a managed cluster.
  */
-@added(Versions.v2025_10_02_preview)
+@added(Versions.v2026_01_02_preview)
 model MeshMembershipsListResult {
   /**
    * The list of mesh memberships.
