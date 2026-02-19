@@ -702,6 +702,7 @@ union LicenseType {
 /**
  * The current provisioning state of the pod identity.
  */
+@lroStatus
 union ManagedClusterPodIdentityProvisioningState {
   string,
 

@@ -8150,7 +8150,8 @@
             "description": "The identity binding is being deleted."
           }
         ]
-      }
+      },
+      "readOnly": true
     },
     "IpvsScheduler": {
       "type": "string",
@@ -8544,7 +8545,8 @@
             "description": "The JWT authenticator is being deleted."
           }
         ]
-      }
+      },
+      "readOnly": true
     },
     "JWTAuthenticatorValidationRule": {
       "type": "object",
@@ -11182,7 +11184,8 @@
             "description": "Pod identity is being updated."
           }
         ]
-      }
+      },
+      "readOnly": true
     },
     "ManagedClusterPoolUpgradeProfile": {
       "type": "object",
@@ -12383,7 +12386,8 @@
             "description": "The Mesh Membership is being updated."
           }
         ]
-      }
+      },
+      "readOnly": true
     },
     "MeshMembershipsListResult": {
       "type": "object",
@@ -12652,7 +12656,8 @@
             "description": "The namespace provisioning was canceled."
           }
         ]
-      }
+      },
+      "readOnly": true
     },
     "NetworkDataplane": {
       "type": "string",
@@ -13492,7 +13497,8 @@
             "description": "Private endpoint connection provisioning succeeded."
           }
         ]
-      }
+      },
+      "readOnly": true
     },
     "PrivateLinkResource": {
       "type": "object",
@@ -14534,7 +14540,8 @@
             "description": "Trusted access role binding is being updated."
           }
         ]
-      }
+      },
+      "readOnly": true
     },
     "TrustedAccessRoleListResult": {
       "type": "object",

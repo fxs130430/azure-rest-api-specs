@@ -87,6 +87,7 @@ interface MeshMemberships {
 /**
  * The provisioning state of the last accepted operation.
  */
+@Azure.Core.lroStatus
 @added(Versions.v2026_01_02_preview)
 union MeshMembershipProvisioningState {
   string,
