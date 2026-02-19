@@ -129,7 +129,19 @@ namespace Azure.AI.Projects;
 // Type replacements / encodings
 // --------------------------------------------------------------------------------
 
-// @@alternateType(WeeklyRecurrenceSchedule.daysOfWeek, { identity: "java.time.DayOfWeek[]" }, "java");
+// @@alternateType(DayOfWeek, { identity: "java.time.DayOfWeek" }, "java")
 
 // @@access(DayOfWeek, Access.internal);
 // @@usage(DayOfWeek, Usage.input);
+
+// EvaluatorVersion datetime fields are typed as string in the spec but carry ISO-8601 timestamps
+@@alternateType(EvaluatorVersion.created_at, utcDateTime, "java");
+@@alternateType(EvaluatorVersion.modified_at, utcDateTime, "java");
+
+// Schedule trigger datetime fields are typed as string in the spec but carry ISO-8601 timestamps
+@@alternateType(RecurrenceTrigger.startTime, utcDateTime, "java");
+@@alternateType(RecurrenceTrigger.endTime, utcDateTime, "java");
+@@alternateType(OneTimeTrigger.triggerAt, utcDateTime, "java");
+@@alternateType(CronTrigger.startTime, utcDateTime, "java");
+@@alternateType(CronTrigger.endTime, utcDateTime, "java");
+@@alternateType(ScheduleRun.triggerTime, utcDateTime, "java");
