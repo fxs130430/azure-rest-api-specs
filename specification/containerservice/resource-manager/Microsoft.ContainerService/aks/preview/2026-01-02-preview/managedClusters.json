@@ -2088,6 +2088,73 @@
         "x-ms-long-running-operation": true
       }
     },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/agentPools/{agentPoolName}/operations/{operationId}": {
+      "get": {
+        "operationId": "OperationStatusResult_GetByAgentPool",
+        "tags": [
+          "AgentPools"
+        ],
+        "description": "Get the status of a specific operation in the specified agent pool.",
+        "parameters": [
+          {
+            "$ref": "../../../../../../common-types/resource-management/v6/types.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "../../../../../../common-types/resource-management/v6/types.json#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "../../../../../../common-types/resource-management/v6/types.json#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "name": "resourceName",
+            "in": "path",
+            "description": "The name of the managed cluster resource.",
+            "required": true,
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 63,
+            "pattern": "^[a-zA-Z0-9]$|^[a-zA-Z0-9][-_a-zA-Z0-9]{0,61}[a-zA-Z0-9]$"
+          },
+          {
+            "name": "agentPoolName",
+            "in": "path",
+            "description": "The name of the agent pool.",
+            "required": true,
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 12,
+            "pattern": "^[a-z][a-z0-9]{0,11}$"
+          },
+          {
+            "name": "operationId",
+            "in": "path",
+            "description": "The ID of an ongoing async operation.",
+            "required": true,
+            "type": "string",
+            "minLength": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Azure operation completed successfully.",
+            "schema": {
+              "$ref": "../../../../../../common-types/resource-management/v6/types.json#/definitions/OperationStatusResult"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "../../../../../../common-types/resource-management/v6/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Get OperationStatusResult": {
+            "$ref": "./examples/OperationStatusResultGetByAgentPool.json"
+          }
+        }
+      }
+    },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/agentPools/{agentPoolName}/upgradeNodeImageVersion": {
       "post": {
         "operationId": "AgentPools_UpgradeNodeImageVersion",
@@ -4431,6 +4498,63 @@
         }
       }
     },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/operations/{operationId}": {
+      "get": {
+        "operationId": "OperationStatusResult_Get",
+        "tags": [
+          "ManagedClusters"
+        ],
+        "description": "Get the status of a specific operation in the specified managed cluster.",
+        "parameters": [
+          {
+            "$ref": "../../../../../../common-types/resource-management/v6/types.json#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "../../../../../../common-types/resource-management/v6/types.json#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "../../../../../../common-types/resource-management/v6/types.json#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "name": "resourceName",
+            "in": "path",
+            "description": "The name of the managed cluster resource.",
+            "required": true,
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 63,
+            "pattern": "^[a-zA-Z0-9]$|^[a-zA-Z0-9][-_a-zA-Z0-9]{0,61}[a-zA-Z0-9]$"
+          },
+          {
+            "name": "operationId",
+            "in": "path",
+            "description": "The ID of an ongoing async operation.",
+            "required": true,
+            "type": "string",
+            "minLength": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Azure operation completed successfully.",
+            "schema": {
+              "$ref": "../../../../../../common-types/resource-management/v6/types.json#/definitions/OperationStatusResult"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "../../../../../../common-types/resource-management/v6/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "Get OperationStatusResult": {
+            "$ref": "./examples/OperationStatusResultGet.json"
+          }
+        }
+      }
+    },
     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/outboundNetworkDependenciesEndpoints": {
       "get": {
         "operationId": "ManagedClusters_ListOutboundNetworkDependenciesEndpoints",
@@ -6234,130 +6358,6 @@
         "x-ms-examples": {
           "Delete Snapshot": {
             "$ref": "./examples/SnapshotsDelete.json"
-          }
-        }
-      }
-    },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.ContainerService/managedClusters/{resourceName}/agentPools/{agentPoolName}/operations/{operationId}": {
-      "get": {
-        "operationId": "OperationStatusResult_GetByAgentPool",
-        "tags": [
-          "AgentPools"
-        ],
-        "description": "Get the status of a specific operation in the specified agent pool.",
-        "parameters": [
-          {
-            "$ref": "../../../../../../common-types/resource-management/v6/types.json#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "../../../../../../common-types/resource-management/v6/types.json#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "../../../../../../common-types/resource-management/v6/types.json#/parameters/ResourceGroupNameParameter"
-          },
-          {
-            "name": "resourceName",
-            "in": "path",
-            "description": "The name of the managed cluster resource.",
-            "required": true,
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 63,
-            "pattern": "^[a-zA-Z0-9]$|^[a-zA-Z0-9][-_a-zA-Z0-9]{0,61}[a-zA-Z0-9]$"
-          },
-          {
-            "name": "agentPoolName",
-            "in": "path",
-            "description": "The name of the agent pool.",
-            "required": true,
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 12,
-            "pattern": "^[a-z][a-z0-9]{0,11}$"
-          },
-          {
-            "name": "operationId",
-            "in": "path",
-            "description": "The ID of an ongoing async operation.",
-            "required": true,
-            "type": "string",
-            "minLength": 1
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Azure operation completed successfully.",
-            "schema": {
-              "$ref": "../../../../../../common-types/resource-management/v6/types.json#/definitions/OperationStatusResult"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "../../../../../../common-types/resource-management/v6/types.json#/definitions/ErrorResponse"
-            }
-          }
-        },
-        "x-ms-examples": {
-          "Get OperationStatusResult": {
-            "$ref": "./examples/OperationStatusResultGetByAgentPool.json"
-          }
-        }
-      }
-    },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.ContainerService/managedClusters/{resourceName}/operations/{operationId}": {
-      "get": {
-        "operationId": "OperationStatusResult_Get",
-        "tags": [
-          "ManagedClusters"
-        ],
-        "description": "Get the status of a specific operation in the specified managed cluster.",
-        "parameters": [
-          {
-            "$ref": "../../../../../../common-types/resource-management/v6/types.json#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "../../../../../../common-types/resource-management/v6/types.json#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "../../../../../../common-types/resource-management/v6/types.json#/parameters/ResourceGroupNameParameter"
-          },
-          {
-            "name": "resourceName",
-            "in": "path",
-            "description": "The name of the managed cluster resource.",
-            "required": true,
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 63,
-            "pattern": "^[a-zA-Z0-9]$|^[a-zA-Z0-9][-_a-zA-Z0-9]{0,61}[a-zA-Z0-9]$"
-          },
-          {
-            "name": "operationId",
-            "in": "path",
-            "description": "The ID of an ongoing async operation.",
-            "required": true,
-            "type": "string",
-            "minLength": 1
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Azure operation completed successfully.",
-            "schema": {
-              "$ref": "../../../../../../common-types/resource-management/v6/types.json#/definitions/OperationStatusResult"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "../../../../../../common-types/resource-management/v6/types.json#/definitions/ErrorResponse"
-            }
-          }
-        },
-        "x-ms-examples": {
-          "Get OperationStatusResult": {
-            "$ref": "./examples/OperationStatusResultGet.json"
           }
         }
       }

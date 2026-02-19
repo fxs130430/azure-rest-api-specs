@@ -140,7 +140,7 @@ interface AgentPools {
    * Get the status of a specific operation in the specified agent pool.
    */
   @get
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.ContainerService/managedClusters/{resourceName}/agentPools/{agentPoolName}/operations/{operationId}")
+  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/agentPools/{agentPoolName}/operations/{operationId}")
   @added(Versions.v2026_01_02_preview)
   getByAgentPool is AgentPoolsOps.ActionSync<
     AgentPool,

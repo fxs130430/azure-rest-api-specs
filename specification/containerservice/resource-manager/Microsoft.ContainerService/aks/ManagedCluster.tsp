@@ -637,7 +637,7 @@ interface ManagedClusters {
    */
   @tag("ManagedClusters")
   @get
-  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.ContainerService/managedClusters/{resourceName}/operations/{operationId}")
+  @route("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/operations/{operationId}")
   @added(Versions.v2026_01_02_preview)
   operationStatusResultGet is ManagedClusterOps.ActionSync<
     ManagedCluster,
