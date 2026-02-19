@@ -96,14 +96,15 @@ interface AgentPools {
   /**
    * Completes the upgrade operation for the specified agent pool.
    */
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-post-operation-response-codes" "Keeping both 202 and 204 responses for passing the lintdiff validator. See https://github.com/Azure/azure-openapi-validator/issues/809"
   @added(Versions.v2026_01_02_preview)
   @summary("Completes the upgrade of an agent pool.")
-  completeUpgrade is ArmResourceActionAsyncBase<
+  completeUpgrade is ArmResourceActionAsync<
     AgentPool,
     void,
-    ArmAcceptedLroResponse<LroHeaders = ArmCombinedLroHeaders<FinalResult = void> &
-      Azure.Core.Foundations.RetryAfterHeader>,
-    BaseParameters = Azure.ResourceManager.Foundations.DefaultBaseParameters<AgentPool>
+    NoContentResponse,
+    LroHeaders = ArmCombinedLroHeaders<FinalResult = void> &
+      Azure.Core.Foundations.RetryAfterHeader
   >;
 
   /**

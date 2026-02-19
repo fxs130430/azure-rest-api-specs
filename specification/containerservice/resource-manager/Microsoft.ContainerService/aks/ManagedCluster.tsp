@@ -570,14 +570,15 @@ interface ManagedClusters {
   /**
    * Rebalance nodes across specific load balancers.
    */
+  #suppress "@azure-tools/typespec-azure-resource-manager/arm-post-operation-response-codes" "Keeping both 202 and 204 responses for passing the lintdiff validator. See https://github.com/Azure/azure-openapi-validator/issues/809"
   @tag("ManagedClusters")
   @added(Versions.v2026_01_02_preview)
-  rebalanceLoadBalancers is ArmResourceActionAsyncBase<
+  rebalanceLoadBalancers is ArmResourceActionAsync<
     ManagedCluster,
     RebalanceLoadBalancersRequestBody,
-    ArmAcceptedLroResponse<LroHeaders = ArmAsyncOperationHeaderWithLocation &
-      Azure.Core.Foundations.RetryAfterHeader>,
-    BaseParameters = Azure.ResourceManager.Foundations.DefaultBaseParameters<ManagedCluster>
+    NoContentResponse,
+    LroHeaders = ArmAsyncOperationHeaderWithLocation &
+      Azure.Core.Foundations.RetryAfterHeader
   >;
 
   /**
