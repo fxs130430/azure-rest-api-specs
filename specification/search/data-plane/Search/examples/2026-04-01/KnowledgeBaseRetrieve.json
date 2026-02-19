@@ -20,7 +20,7 @@
         }
       ],
       "maxRuntimeInSeconds": 60,
-      "maxOutputSize": 100000,
+      "maxOutputSizeInTokens": 100000,
       "retrievalReasoningEffort": {
         "kind": "low"
       },
