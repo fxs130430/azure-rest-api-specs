@@ -31,6 +31,10 @@ using Azure.AI.Projects;
 @@clientName(OpenAI.FileSearchTool.max_num_results, "maxResults");
 @@clientName(OpenAI.MCPApprovalResponse.approve, "approved");
 
+@@clientName(CreateAgentRequest.name, "agentName");
+@@clientName(CreateAgentFromManifestRequest.name, "agentName");
+
+
 // --------------------------------------------------------------------------------
 // Usage / Public accessibility overrides
 // --------------------------------------------------------------------------------
