@@ -1,6 +1,9 @@
 {
   "private": "true",
   "type": "module",
+  "engines": {
+    "node": ">=20.11.0"
+  },
   "_comments": {
     "dependencies": "Runtime dependencies must be kept to an absolute minimum for performance, ideally with no transitive dependencies",
     "dependencies2": "All runtime and dev dependencies in this file, must be a superset of shared/package.json"
@@ -18,6 +21,7 @@
     "@actions/github-script": "github:actions/github-script",
     "@eslint/js": "^9.22.0",
     "@octokit/endpoint": "^11.0.0",
+    "@octokit/request-error": "^7.1.0",
     "@octokit/rest": "^22.0.0",
     "@octokit/types": "^16.0.0",
     "@octokit/webhooks-types": "^7.5.1",
@@ -29,6 +33,7 @@
     "@vitest/coverage-v8": "^4.0.15",
     "cross-env": "^10.1.0",
     "eslint": "^9.22.0",
+    "eslint-plugin-n": "^17.24.0",
     "fflate": "0.8.2",
     "globals": "^17.0.0",
     "prettier": "3.8.1",
