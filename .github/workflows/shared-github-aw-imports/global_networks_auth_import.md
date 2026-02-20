@@ -1,6 +1,15 @@
 ---
 # No `on:` here — this is a shared component meant to be imported.
 description: Steps to generate OIDC token and authenticate GitHub agent workflow
+network:
+  allowed:
+    - defaults
+    - "login.microsoftonline.com"
+    - "dev.azure.com"
+    - "*.dev.azure.com"
+    - "*.applicationinsights.azure.com"
+    - "*.visualstudio.com"
+    - "management.azure.com"
 steps:
   - name: Acquire OIDC token for Azure
     id: oidc

@@ -25,10 +25,9 @@
 #
 # Resolved workflow manifest:
 #   Imports:
-#     - shared-github-aw-imports/allowed-networks.md
-#     - shared-github-aw-imports/azure-authentication.md
+#     - shared-github-aw-imports/global_networks_auth_import.md
 #
-# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"a570b712f8db27478b14aeb485f5e91cd239b45e0860484249fa3418714ddb04","compiler_version":"v0.46.5"}
+# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"cd563cfe8a1a28b6b68ae7516600f45dc8bdd6f7d853475961403e7fbf5329fb","compiler_version":"v0.46.5"}
 
 name: "SDK Generation Agent"
 "on":
@@ -206,10 +205,7 @@ jobs:
           </system>
           GH_AW_PROMPT_EOF
           cat << 'GH_AW_PROMPT_EOF' >> "$GH_AW_PROMPT"
-          {{#runtime-import shared-github-aw-imports/allowed-networks.md}}
-          GH_AW_PROMPT_EOF
-          cat << 'GH_AW_PROMPT_EOF' >> "$GH_AW_PROMPT"
-          {{#runtime-import shared-github-aw-imports/azure-authentication.md}}
+          {{#runtime-import shared-github-aw-imports/global_networks_auth_import.md}}
           GH_AW_PROMPT_EOF
           cat << 'GH_AW_PROMPT_EOF' >> "$GH_AW_PROMPT"
           {{#runtime-import .github/workflows/sdk-generation-agent.md}}

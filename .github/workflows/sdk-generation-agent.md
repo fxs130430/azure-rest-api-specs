@@ -41,8 +41,7 @@ permissions:
 # set strict to false to allow network access to devops
 strict: false
 imports:
-  - shared-github-aw-imports/allowed-networks.md
-  - shared-github-aw-imports/azure-authentication.md
+  - shared-github-aw-imports\global_networks_auth_import.md
 env:
   AZSDK_CLI_PATH: /tmp/bin
   AZURE_CLIENT_ID: c277c2aa-5326-4d16-90de-98feeca69cbc
@@ -88,6 +87,7 @@ This workflow can be triggered in three ways:
 - Parse `issue_url` from `github.event.inputs.issue_url`.
 - Validate that `issue_url` points to an issue in this repository, extract the numeric issue ID, and hydrate issue context via the GitHub API.
 - Treat the resolved issue exactly the same as if the workflow were triggered directly from that issue.
+- Use "https://github.com/Azure/azure-rest-api-specs/issues/40516" as default `issue_url`
 
 If the triggering event does not meet its corresponding requirements, immediately call `noop` with guidance (for example: missing label, missing `Regenerate SDK`, or missing workflow_dispatch inputs).
 
