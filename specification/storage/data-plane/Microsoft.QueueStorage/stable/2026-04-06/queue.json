@@ -765,7 +765,7 @@
           "200": {
             "description": "The request has succeeded.",
             "schema": {
-              "$ref": "#/definitions/ListOfSignedIdentifier"
+              "$ref": "#/definitions/SignedIdentifiers"
             },
             "headers": {
               "Date": {
@@ -850,7 +850,7 @@
             "description": "The access control list for the queue.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/ListOfSignedIdentifier"
+              "$ref": "#/definitions/SignedIdentifiers"
             }
           }
         ],
@@ -1875,29 +1875,6 @@
         "name": "QueueMessagesList"
       }
     },
-    "ListOfSignedIdentifier": {
-      "type": "object",
-      "description": "Represents an array of signed identifiers",
-      "properties": {
-        "SignedIdentifier": {
-          "type": "array",
-          "description": "The list of signed identifiers.",
-          "items": {
-            "$ref": "#/definitions/SignedIdentifier"
-          },
-          "xml": {
-            "wrapped": false
-          },
-          "x-ms-client-name": "items"
-        }
-      },
-      "required": [
-        "SignedIdentifier"
-      ],
-      "xml": {
-        "name": "SignedIdentifiers"
-      }
-    },
     "ListQueuesIncludeType": {
       "type": "string",
       "description": "Include this parameter to specify that the queue's metadata be returned as part of the response body.",
@@ -2296,6 +2273,26 @@
       "required": [
         "Id",
         "AccessPolicy"
+      ]
+    },
+    "SignedIdentifiers": {
+      "type": "object",
+      "description": "Represents an array of signed identifiers",
+      "properties": {
+        "SignedIdentifier": {
+          "type": "array",
+          "description": "The list of signed identifiers.",
+          "items": {
+            "$ref": "#/definitions/SignedIdentifier"
+          },
+          "xml": {
+            "wrapped": false
+          },
+          "x-ms-client-name": "items"
+        }
+      },
+      "required": [
+        "SignedIdentifier"
       ]
     },
     "StorageError": {
