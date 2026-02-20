@@ -467,7 +467,7 @@ model FilterBlobItem {
   @Xml.name("ContainerName") containerName: string;
 
   /** The metadata of the blob. */
-  @Xml.unwrapped tags?: BlobTags;
+  @Xml.name("Tags") tags?: BlobTags;
 
   /** The version ID of the blob. */
   @Xml.name("VersionId") versionId?: string;
@@ -607,7 +607,7 @@ model ContainerProperties {
   lastModified: utcDateTime;
 
   /** The ETag of the container. */
-  @Xml.name("ETag") eTag: string;
+  @Xml.name("Etag") eTag: string;
 
   /** The lease status of the container. */
   @Xml.name("LeaseStatus") leaseStatus?: LeaseStatus;
@@ -906,7 +906,7 @@ model BlobItem {
   @Xml.name("Metadata") metadata?: BlobMetadata;
 
   /** The tags of the blob. */
-  @Xml.name("BlobTags") blobTags?: BlobTags;
+  @Xml.name("Tags") blobTags?: BlobTags;
 
   /** The object replication metadata of the blob. */
   #suppress "@azure-tools/typespec-autorest/unsupported-param-type" "Existing API"

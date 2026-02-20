@@ -14420,7 +14420,7 @@
           "description": "The metadata of the blob.",
           "x-ms-client-name": "metadata"
         },
-        "BlobTags": {
+        "Tags": {
           "$ref": "#/definitions/BlobTags",
           "description": "The tags of the blob.",
           "x-ms-client-name": "blobTags"
@@ -15307,9 +15307,10 @@
           "description": "The properties of the blob.",
           "x-ms-client-name": "containerName"
         },
-        "tags": {
+        "Tags": {
           "$ref": "#/definitions/BlobTags",
-          "description": "The metadata of the blob."
+          "description": "The metadata of the blob.",
+          "x-ms-client-name": "tags"
         },
         "VersionId": {
           "type": "string",
