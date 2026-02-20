@@ -195,7 +195,7 @@ interface Queue {
   setMetadata is StorageOperationNoBody<
     {
       ...TimeoutParameter;
-      ...MetadataHeaders;
+      ...MetadataHeadersParameter;
     },
     {
       @statusCode statusCode: 204;
