@@ -9,7 +9,8 @@ on:
     inputs:
       issue_url:
         description: "Issue URL providing SDK generation context"
-        required: true
+        required: false
+        default: "https://github.com/Azure/azure-rest-api-specs/issues/40516"
 if: >
   github.event_name == 'workflow_dispatch' ||
   (github.event_name == 'issues' &&
