@@ -13,7 +13,6 @@ options:
     flavor: azure
     emitter-output-dir: "{output-dir}/{service-dir}/azure-search-documents"
   "@azure-typespec/http-client-csharp":
-    namespace: "Azure.Search.Documents"
     model-namespace: true
     emitter-output-dir: "{output-dir}/{service-dir}/Azure.Search.Documents"
   "@azure-tools/typespec-ts":
