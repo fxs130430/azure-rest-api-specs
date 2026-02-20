@@ -1,4 +1,7 @@
 paths:
+  .github/workflows/*.lock.yaml:
+    ignore:
+      - ".+"
   .github/workflows/*.lock.yml:
     ignore:
       - ".+"
