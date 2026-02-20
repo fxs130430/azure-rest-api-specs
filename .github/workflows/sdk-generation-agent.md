@@ -96,7 +96,7 @@ network:
     - defaults
     - "login.microsoftonline.com"
     - "dev.azure.com"
-    - "vssps.dev.azure.com"
+    - "*.dev.azure.com"
 tools:
   github:
     toolsets: [default, actions]
@@ -146,11 +146,7 @@ When validation succeeds, execute the following steps in order.
 
 1. Announce workflow start by commenting on the resolved issue with `https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}`. If the issue cannot be determined for any reason, fall back to the `messages.run-started` safe output.
 
-2. Set following env variables(if not present):
-   AZURE_CLIENT_ID: c277c2aa-5326-4d16-90de-98feeca69cbc
-   AZURE_TENANT_ID: 72f988bf-86f1-41af-91ab-2d7cd011db47
-   AZURE_FEDERATED_TOKEN_FILE: /tmp/azure-oidc-token
-   GITHUB_ACTIONS: "true"
+2. Confirm that `/tmp/azure-oidc-token` exists, is readable, and contains non-empty data. Fail fast with a clear error message if the file is missing or empty.
 3. Identify the target issue number and collect issue context (for manual dispatch, use the supplied or default `issue_url`).
 4. Find whether there is an open TypeSpec API spec pull request associated with this request.
    - Identify TypeSpec API spec PR from issue context.
@@ -159,16 +155,12 @@ When validation succeeds, execute the following steps in order.
 - If such a PR is found and if it's open, set source branch to exactly `refs/pull/<PR number>`.
 - If no such PR is found, use default branch context.
 
-5. Validate the Azure workload identity token file before any release-plan calls:
-
-- Confirm that `/tmp/azure-oidc-token` exists, is readable, and contains non-empty data. Fail fast with a clear error message if the file is missing or empty.
-
-6. Use the azsdk CLI at `/tmp/bin/azsdk` (installed earlier) to gather release plan metadata and required arguments:
+5. Use the azsdk CLI at `/tmp/bin/azsdk` (installed earlier) to gather release plan metadata and required arguments:
 
 - Execute `/tmp/bin/azsdk release-plan get --work-item-id <WORK_ITEM_ID> --release-plan-id <RELEASE_PLAN_ID>`
 - Capture the TypeSpec project path, API version, release type, and target languages from the issue context (dispatch runs rely on the issue referenced by `issue_url`).
 
-7. Trigger SDK generation by calling `/tmp/bin/azsdk spec-workflow generate-sdk` with the following options:
+6. Trigger SDK generation by calling `/tmp/bin/azsdk spec-workflow generate-sdk` with the following options:
 
 - `--typespec-project <PATH>` (required)
 - `--api-version <VERSION>` (required)
@@ -177,7 +169,7 @@ When validation succeeds, execute the following steps in order.
 - `--workitem-id <WORK_ITEM_ID>` to tie the generation back to the release plan work item
 - Capture the pipeline/run URL emitted by the CLI for status tracking.
 
-8. Immediately add a comment with the pipeline run link/status URL or failure details (use `noop` only if no issue comment can be posted).
+7. Immediately add a comment with the pipeline run link/status URL or failure details (use `noop` only if no issue comment can be posted).
 
 ## Monitoring and Status Updates
 
