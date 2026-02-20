@@ -188,7 +188,6 @@
           },
           "uri": "https://azs-grok-aoai.openai.azure.com/openai/deployments/azs-grok-gpt-4o/chat/completions",
           "timeout": "PT30S",
-          "degreeOfParallelism": 5,
           "@odata.type": "#Microsoft.Skills.Custom.ChatCompletionSkill",
           "name": "chatCompletionSkill",
           "context": "/document/normalized_images/*",
@@ -430,7 +429,6 @@
             "context": "/document/normalized_images/*",
             "uri": "https://azs-grok-aoai.openai.azure.com/openai/deployments/azs-grok-gpt-4o/chat/completions",
             "timeout": "PT30S",
-            "degreeOfParallelism": 5,
             "apiKey": "<api-key>",
             "extraParametersBehavior": "error",
             "inputs": [

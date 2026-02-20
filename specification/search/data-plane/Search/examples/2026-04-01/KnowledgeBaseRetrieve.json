@@ -32,7 +32,6 @@
           "knowledgeSourceName": "ks-example-index",
           "includeReferences": true,
           "includeReferenceSourceData": true,
-          "alwaysQuerySource": false,
           "rerankerThreshold": 2.1,
           "kind": "searchIndex"
         }

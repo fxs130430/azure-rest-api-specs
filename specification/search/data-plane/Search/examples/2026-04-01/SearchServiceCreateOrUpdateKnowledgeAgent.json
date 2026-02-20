@@ -25,7 +25,6 @@
           "name": "myknowledgesource",
           "includeReferences": true,
           "includeReferenceSourceData": true,
-          "alwaysQuerySource": false,
           "maxSubQueries": 5,
           "rerankerThreshold": 0.7
         }
@@ -63,7 +62,6 @@
             "name": "myknowledgesource",
             "includeReferences": true,
             "includeReferenceSourceData": true,
-            "alwaysQuerySource": false,
             "maxSubQueries": 5,
             "rerankerThreshold": 0.7
           }
@@ -101,7 +99,6 @@
             "name": "myknowledgesource",
             "includeReferences": true,
             "includeReferenceSourceData": true,
-            "alwaysQuerySource": false,
             "maxSubQueries": 5,
             "rerankerThreshold": 0.7
           }

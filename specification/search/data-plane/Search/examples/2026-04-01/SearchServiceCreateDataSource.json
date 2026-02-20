@@ -38,7 +38,6 @@
         "name": "tempdatasource",
         "description": "My Azure Blob data source.",
         "type": "azureblob",
-        "indexerPermissionOptions": [],
         "credentials": {
           "connectionString": "DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net "
         },
