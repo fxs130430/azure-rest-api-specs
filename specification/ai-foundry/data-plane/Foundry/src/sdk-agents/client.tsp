@@ -34,6 +34,16 @@ using Azure.AI.Projects;
 @@clientName(CreateAgentRequest.name, "agentName");
 @@clientName(CreateAgentFromManifestRequest.name, "agentName");
 
+// Rename request models to avoid collision with synthetic body types generated
+// by the Java codegen. The codegen names synthetic bodies as {OperationName}Request,
+// which clashes with the identically-named TypeSpec models, causing a "1" suffix.
+@@clientName(CreateAgentRequest, "CreateAgentInput");
+@@clientName(UpdateAgentRequest, "UpdateAgentInput");
+@@clientName(CreateAgentVersionRequest, "CreateAgentVersionInput");
+@@clientName(CreateAgentFromManifestRequest, "CreateAgentFromManifestInput");
+@@clientName(UpdateAgentFromManifestRequest, "UpdateAgentFromManifestInput");
+@@clientName(CreateAgentVersionFromManifestRequest, "CreateAgentVersionFromManifestInput");
+
 
 // --------------------------------------------------------------------------------
 // Usage / Public accessibility overrides
