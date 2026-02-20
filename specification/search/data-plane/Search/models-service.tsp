@@ -6436,6 +6436,7 @@ model ChatCompletionSkill extends SearchIndexerSkill {
   uri: string;
 
   /** The headers required to make the http request. */
+  @removed(Versions.v2026_04_01)
   httpHeaders?: WebApiHttpHeaders;
 
   /** The method for the http request. */
@@ -6443,6 +6444,7 @@ model ChatCompletionSkill extends SearchIndexerSkill {
   httpMethod?: string;
 
   /** The desired timeout for the request. Default is 30 seconds. */
+  @removed(Versions.v2026_04_01)
   timeout?: duration;
 
   /** The desired batch size which indicates number of documents. */
@@ -6457,6 +6459,7 @@ model ChatCompletionSkill extends SearchIndexerSkill {
 
   /** Applies to custom skills that connect to external code in an Azure function or some other application that provides the transformations. This value should be the application ID created for the function or app when it was registered with Azure Active Directory. When specified, the custom skill connects to the function or app using a managed ID (either system or user-assigned) of the search service and the access token of the function or app, using this value as the resource id for creating the scope of the access token. */
   #suppress "@azure-tools/typespec-azure-core/no-nullable" "Pre-existing API contract"
+  @removed(Versions.v2026_04_01)
   authResourceId?: string | null;
 
   /** The user-assigned managed identity used for outbound connections. If an authResourceId is provided and it's not specified, the system-assigned managed identity is used. On updates to the indexer, if the identity is unspecified, the value remains unchanged. If set to "none", the value of this property is cleared. */

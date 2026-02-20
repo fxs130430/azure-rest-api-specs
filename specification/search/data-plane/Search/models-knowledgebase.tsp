@@ -37,6 +37,7 @@ model KnowledgeBaseRetrievalRequest {
   includeActivity?: boolean;
 
   /** The output configuration for this retrieval. */
+  @removed(Versions.v2026_04_01)
   outputMode?: KnowledgeRetrievalOutputMode;
 
   /** A list of runtime parameters for the knowledge sources. */
@@ -824,6 +825,10 @@ union KnowledgeSourceSynchronizationStatus {
 
 /** Represents the status and synchronization history of a knowledge source. */
 model KnowledgeSourceStatus {
+  /** The kind of knowledge source. */
+  @added(Versions.v2026_04_01)
+  kind: KnowledgeSourceKind;
+
   /** The current synchronization status. */
   synchronizationStatus: KnowledgeSourceSynchronizationStatus;
 
@@ -856,6 +861,31 @@ model KnowledgeSourceStatistics {
   averageItemsProcessedPerSynchronization: int32;
 }
 
+/** Represents a document-level indexing error encountered during knowledge source synchronization. */
+@added(Versions.v2026_04_01)
+model KnowledgeSourceErrorRecord {
+  /** Unique identifier for the failed document or item within the synchronization run. */
+  docKey: string;
+
+  /** Fully qualified document URL associated with the error. May be empty. */
+  docUrl?: string;
+
+  /** HTTP-like status code representing the failure category (e.g., 400). */
+  statusCode: int32;
+
+  /** Name of the ingestion or processing component reporting the error. */
+  name?: string;
+
+  /** Human-readable, customer-visible error message. */
+  errorMessage: string;
+
+  /** Additional contextual information about the failure. */
+  details?: string;
+
+  /** Link to relevant troubleshooting documentation. */
+  documentationLink?: string;
+}
+
 /** Represents the current state of an ongoing synchronization that spans multiple indexer runs. */
 model SynchronizationState {
   /** The start time of the current synchronization. */
@@ -869,6 +899,10 @@ model SynchronizationState {
 
   /** The number of items skipped in the current synchronization. */
   itemsSkipped: int32;
+
+  /** Collection of document-level indexing errors encountered during the current synchronization run. Returned only when errors are present. */
+  @added(Versions.v2026_04_01)
+  errors?: KnowledgeSourceErrorRecord[];
 }
 
 /** Represents the completed state of the last synchronization. */

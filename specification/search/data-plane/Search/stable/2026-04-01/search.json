@@ -5265,20 +5265,6 @@
           "type": "string",
           "description": "The url for the Web API."
         },
-        "httpHeaders": {
-          "$ref": "#/definitions/WebApiHttpHeaders",
-          "description": "The headers required to make the http request."
-        },
-        "timeout": {
-          "type": "string",
-          "format": "duration",
-          "description": "The desired timeout for the request. Default is 30 seconds."
-        },
-        "authResourceId": {
-          "type": "string",
-          "description": "Applies to custom skills that connect to external code in an Azure function or some other application that provides the transformations. This value should be the application ID created for the function or app when it was registered with Azure Active Directory. When specified, the custom skill connects to the function or app using a managed ID (either system or user-assigned) of the search service and the access token of the function or app, using this value as the resource id for creating the scope of the access token.",
-          "x-nullable": true
-        },
         "authIdentity": {
           "$ref": "#/definitions/SearchIndexerDataIdentity",
           "description": "The user-assigned managed identity used for outbound connections. If an authResourceId is provided and it's not specified, the system-assigned managed identity is used. On updates to the indexer, if the identity is unspecified, the value remains unchanged. If set to \"none\", the value of this property is cleared.",
@@ -9330,10 +9316,6 @@
           "type": "boolean",
           "description": "Indicates retrieval results should include activity information."
         },
-        "outputMode": {
-          "$ref": "#/definitions/KnowledgeRetrievalOutputMode",
-          "description": "The output configuration for this retrieval."
-        },
         "knowledgeSourceParams": {
           "type": "array",
           "description": "A list of runtime parameters for the knowledge sources.",
@@ -9701,6 +9683,46 @@
         ]
       }
     },
+    "KnowledgeSourceErrorRecord": {
+      "type": "object",
+      "description": "Represents a document-level indexing error encountered during knowledge source synchronization.",
+      "properties": {
+        "docKey": {
+          "type": "string",
+          "description": "Unique identifier for the failed document or item within the synchronization run."
+        },
+        "docUrl": {
+          "type": "string",
+          "description": "Fully qualified document URL associated with the error. May be empty."
+        },
+        "statusCode": {
+          "type": "integer",
+          "format": "int32",
+          "description": "HTTP-like status code representing the failure category (e.g., 400)."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the ingestion or processing component reporting the error."
+        },
+        "errorMessage": {
+          "type": "string",
+          "description": "Human-readable, customer-visible error message."
+        },
+        "details": {
+          "type": "string",
+          "description": "Additional contextual information about the failure."
+        },
+        "documentationLink": {
+          "type": "string",
+          "description": "Link to relevant troubleshooting documentation."
+        }
+      },
+      "required": [
+        "docKey",
+        "statusCode",
+        "errorMessage"
+      ]
+    },
     "KnowledgeSourceIngestionParameters": {
       "type": "object",
       "description": "Consolidates all general ingestion settings for knowledge sources.",
@@ -9922,6 +9944,10 @@
       "type": "object",
       "description": "Represents the status and synchronization history of a knowledge source.",
       "properties": {
+        "kind": {
+          "$ref": "#/definitions/KnowledgeSourceKind",
+          "description": "The kind of knowledge source."
+        },
         "synchronizationStatus": {
           "$ref": "#/definitions/KnowledgeSourceSynchronizationStatus",
           "description": "The current synchronization status."
@@ -9948,6 +9974,7 @@
         }
       },
       "required": [
+        "kind",
         "synchronizationStatus"
       ]
     },
@@ -18185,6 +18212,13 @@
           "type": "integer",
           "format": "int32",
           "description": "The number of items skipped in the current synchronization."
+        },
+        "errors": {
+          "type": "array",
+          "description": "Collection of document-level indexing errors encountered during the current synchronization run. Returned only when errors are present.",
+          "items": {
+            "$ref": "#/definitions/KnowledgeSourceErrorRecord"
+          }
         }
       },
       "required": [
