@@ -145,23 +145,28 @@ If the triggering event does not meet its corresponding requirements, immediatel
 
 When validation succeeds, execute the following steps in order.
 
-1. Announce workflow start by commenting on the resolved issue with `https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}`. If the issue cannot be determined for any reason, fall back to the `messages.run-started` safe output.
+1. Verify Azure CLI authentication using the federated token file:
+  - Ensure `/tmp/azure-oidc-token` exists, is readable, and contains non-empty data before attempting login.
+  - Run `az login --service-principal --username $AZURE_CLIENT_ID --tenant $AZURE_TENANT_ID --federated-token $(cat /tmp/azure-oidc-token) --allow-no-subscriptions` and capture the CLI response.
+  - If authentication fails, call the `noop` safe output with the captured response (labelled `authentication_failed`) and stop further processing.
 
-2. Confirm that `/tmp/azure-oidc-token` exists, is readable, and contains non-empty data. Fail fast with a clear error message if the file is missing or empty.
-3. Identify the target issue number and collect issue context (for manual dispatch, use the supplied or default `issue_url`).
-4. Find whether there is an open TypeSpec API spec pull request associated with this request.
+2. Announce workflow start by commenting on the resolved issue with `https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}`. If the issue cannot be determined for any reason, fall back to the `messages.run-started` safe output.
+
+3. Reconfirm that `/tmp/azure-oidc-token` still exists, is readable, and contains non-empty data before any release-plan operations. Fail fast with a clear error message if the file is missing or empty.
+4. Identify the target issue number and collect issue context (for manual dispatch, use the supplied or default `issue_url`).
+5. Find whether there is an open TypeSpec API spec pull request associated with this request.
    - Identify TypeSpec API spec PR from issue context.
    - Check if API spec PR is in open status or merged status.
 
 - If such a PR is found and if it's open, set source branch to exactly `refs/pull/<PR number>`.
 - If no such PR is found, use default branch context.
 
-5. Use the azsdk CLI at `/tmp/bin/azsdk` (installed earlier) to gather release plan metadata and required arguments:
+6. Use the azsdk CLI at `/tmp/bin/azsdk` (installed earlier) to gather release plan metadata and required arguments:
 
 - Execute `/tmp/bin/azsdk release-plan get --work-item-id <WORK_ITEM_ID> --release-plan-id <RELEASE_PLAN_ID>`
 - Capture the TypeSpec project path, API version, release type, and target languages from the issue context (dispatch runs rely on the issue referenced by `issue_url`).
 
-6. Trigger SDK generation by calling `/tmp/bin/azsdk spec-workflow generate-sdk` with the following options:
+7. Trigger SDK generation by calling `/tmp/bin/azsdk spec-workflow generate-sdk` with the following options:
 
 - `--typespec-project <PATH>` (required)
 - `--api-version <VERSION>` (required)
@@ -170,7 +175,7 @@ When validation succeeds, execute the following steps in order.
 - `--workitem-id <WORK_ITEM_ID>` to tie the generation back to the release plan work item
 - Capture the pipeline/run URL emitted by the CLI for status tracking.
 
-7. Immediately add a comment with the pipeline run link/status URL or failure details (use `noop` only if no issue comment can be posted).
+8. Immediately add a comment with the pipeline run link/status URL or failure details (use `noop` only if no issue comment can be posted).
 
 ## Monitoring and Status Updates
 
