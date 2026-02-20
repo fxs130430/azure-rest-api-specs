@@ -6,7 +6,6 @@ import "./models-index.tsp";
 
 using TypeSpec.Http;
 using Azure.ClientGenerator.Core;
-using TypeSpec.Versioning;
 
 namespace Search;
 
