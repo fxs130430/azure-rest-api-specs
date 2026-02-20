@@ -7,6 +7,9 @@ on:
     types: [created]
   workflow_dispatch:
     inputs:
+      typespec_project_path:
+        description: "Relative path to the TypeSpec project to generate from"
+        required: true
       work_item_id:
         description: "Release plan work item ID"
         required: true
@@ -14,8 +17,14 @@ on:
         description: "Release plan ID"
         required: true
       languages:
-        description: "Comma-separated languages to generate (Python,.NET,JavaScript,Java,go). Leave blank to use release plan defaults."
-        required: false
+        description: "Comma-separated languages to generate (Python,.NET,JavaScript,Java,go)"
+        required: true
+      api_version:
+        description: "API version string (for example, 2024-01-01)"
+        required: true
+      release_type:
+        description: "Release type (beta or stable)"
+        required: true
       pr_number:
         description: "Optional TypeSpec PR number to associate with SDK generation"
         required: false
@@ -141,8 +150,8 @@ This workflow can be triggered in three ways:
 
 3. **Manual dispatch**
 
-- Ensure required inputs `work_item_id` and `release_plan_id` are provided via `github.event.inputs`.
-- Parse optional inputs `languages` (comma-separated list, normalized) and `pr_number` (numeric).
+- Ensure required inputs `typespec_project_path`, `work_item_id`, `release_plan_id`, `languages`, `api_version`, and `release_type` are provided via `github.event.inputs`.
+- Parse optional input `pr_number` (numeric).
 
 If the triggering event does not meet its corresponding requirements, immediately call `noop` with guidance (for example: missing label, missing `Regenerate SDK`, or missing workflow_dispatch inputs).
 
