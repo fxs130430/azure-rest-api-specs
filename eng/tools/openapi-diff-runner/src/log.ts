@@ -64,7 +64,12 @@ export async function logMessage(message: string, level?: LogLevel): Promise<voi
  * @param line Line number (optional)
  * @param col Column number (optional)
  */
-export async function logError(message: string, file?: string, line?: number, col?: number): Promise<void> {
+export async function logError(
+  message: string,
+  file?: string,
+  line?: number,
+  col?: number,
+): Promise<void> {
   if (file) {
     const location = line && col ? `line=${line},col=${col}` : line ? `line=${line}` : "";
     const fileLocation = location ? `file=${file},${location}` : `file=${file}`;
@@ -82,7 +87,12 @@ export async function logError(message: string, file?: string, line?: number, co
  * @param line Line number (optional)
  * @param col Column number (optional)
  */
-export async function logWarning(message: string, file?: string, line?: number, col?: number): Promise<void> {
+export async function logWarning(
+  message: string,
+  file?: string,
+  line?: number,
+  col?: number,
+): Promise<void> {
   if (file) {
     const location = line && col ? `line=${line},col=${col}` : line ? `line=${line}` : "";
     const fileLocation = location ? `file=${file},${location}` : `file=${file}`;
@@ -161,7 +171,11 @@ export function truncateLogMessage(message: string, prefix?: string): string {
  * @param level The log level
  * @param prefix Optional prefix for truncation message
  */
-export async function logMessageSafe(message: string, level?: LogLevel, prefix?: string): Promise<void> {
+export async function logMessageSafe(
+  message: string,
+  level?: LogLevel,
+  prefix?: string,
+): Promise<void> {
   const safeMessage = truncateLogMessage(message, prefix);
   await logMessage(safeMessage, level);
 }
