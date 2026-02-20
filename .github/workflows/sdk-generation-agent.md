@@ -150,6 +150,7 @@ When validation succeeds, execute the following steps in order.
    AZURE_CLIENT_ID: c277c2aa-5326-4d16-90de-98feeca69cbc
    AZURE_TENANT_ID: 72f988bf-86f1-41af-91ab-2d7cd011db47
    AZURE_FEDERATED_TOKEN_FILE: /tmp/azure-oidc-token
+   GITHUB_ACTIONS: "true"
 3. Identify the target issue number and collect issue context (for manual dispatch, use the supplied or default `issue_url`).
 4. Find whether there is an open TypeSpec API spec pull request associated with this request.
    - Identify TypeSpec API spec PR from issue context.
