@@ -48,10 +48,11 @@ export function defineBaseConfig(options) {
       },
     },
     {
-      // Allow devDependency imports in test, config, perf, and cmd files
+      // Allow devDependency and transitive imports in test, config, perf, and cmd files
       files: ["**/*.config.js", "**/*.test.js", "**/test/**/*.js", "**/perf/**/*.js"],
       rules: {
         "n/no-unpublished-import": "off",
+        "n/no-extraneous-import": "off",
       },
     },
     {
