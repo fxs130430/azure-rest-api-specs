@@ -42,7 +42,7 @@ name: "SDK Generation Agent"
     inputs:
       issue_url:
         default: https://github.com/Azure/azure-rest-api-specs/issues/40516
-        description: Issue URL providing SDK generation context
+        description: Issue URL providing SDK generation info
         required: false
 
 permissions: {}

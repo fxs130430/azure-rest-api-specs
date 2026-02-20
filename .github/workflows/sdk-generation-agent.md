@@ -38,7 +38,7 @@ permissions:
   issues: read
   pull-requests: read
   id-token: write
-# set strict to false to allow network access to devops
+# set strict to false to allow network access
 strict: false
 imports:
   - shared-github-aw-imports\global_networks_auth_import.md
