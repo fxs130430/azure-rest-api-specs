@@ -40,3 +40,5 @@ interface QueueClient extends Storage.Queues.Queue {}
 @@clientNamespace(Storage.Queues.Queue, "Azure.Storage.Queues");
 
 @@clientName(Storage.Queues.MetadataHeaders.metadata, "metadata", "rust");
+
+@@scope(Storage.Queues.Service.getUserDelegationKey, "!rust");
