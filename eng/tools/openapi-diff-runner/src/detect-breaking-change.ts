@@ -319,7 +319,7 @@ export async function doBreakingChangeDetection(
       newSpec,
     );
 
-    const modifiedOadMessages: OadMessage[] = applyRules(
+    const modifiedOadMessages: OadMessage[] = await applyRules(
       oadMessages,
       scenario,
       previousApiVersionLifecycleStage,

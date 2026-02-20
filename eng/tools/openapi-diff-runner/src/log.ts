@@ -1,3 +1,4 @@
+import { log as logAsync } from "@azure-tools/specs-shared/console";
 import { appendFileSync } from "node:fs";
 
 /**
@@ -50,6 +51,48 @@ export function logMessage(message: string, level?: LogLevel): void {
     case LogLevel.Info:
     default: {
       console.log(message);
+      break;
+    }
+  }
+}
+
+/**
+ * Logs a message to the console with GitHub Actions workflow commands.
+ * Uses the async, backpressure-aware log() from .github/shared/src/console.js instead of console.log(),
+ * to ensure all messages written despite stdout backpressure.
+ * Automatically prefixes messages with LOG_PREFIX.
+ * @param message The message to log.
+ * @param level The log level (e.g., LogLevel.Group, LogLevel.EndGroup, LogLevel.Debug, LogLevel.Error).
+ */
+export async function logMessageAsync(message: string, level?: LogLevel): Promise<void> {
+  switch (level) {
+    case LogLevel.Group: {
+      await logAsync(`::group::${message}`);
+      break;
+    }
+    case LogLevel.EndGroup: {
+      await logAsync(`::endgroup::`);
+      break;
+    }
+    case LogLevel.Debug: {
+      await logAsync(`::debug::${message}`);
+      break;
+    }
+    case LogLevel.Error: {
+      await logAsync(`::error::${message}`);
+      break;
+    }
+    case LogLevel.Warn: {
+      await logAsync(`::warning::${message}`);
+      break;
+    }
+    case LogLevel.Notice: {
+      await logAsync(`::notice::${message}`);
+      break;
+    }
+    case LogLevel.Info:
+    default: {
+      await logAsync(message);
       break;
     }
   }

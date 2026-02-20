@@ -232,7 +232,7 @@ export async function validateBreakingChange(context: Context): Promise<number> 
       statusCode = 1;
     }
 
-    logFullOadMessagesList(msgs);
+    await logFullOadMessagesList(msgs);
     await generateBreakingChangeResultSummary(
       context,
       msgs,
