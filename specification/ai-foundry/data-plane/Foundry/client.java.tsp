@@ -124,6 +124,9 @@ namespace Azure.AI.Projects;
 @@clientName(NoAuthenticationCredentials, "NoAuthenticationCredential", "java");
 @@clientName(AgenticIdentityPreviewCredentials, "AgenticIdentityPreviewCredential", "java");
 
+// Enums variants
+@@clientName(ConnectionType.APIKey, "API_KEY", "java");
+
 // Make these two internal, since all SDKs hand-write a single public method with boolean "includeCredentials"
 // input parameter that calls either on these two.
 @@access(Connections.get, Access.internal);
