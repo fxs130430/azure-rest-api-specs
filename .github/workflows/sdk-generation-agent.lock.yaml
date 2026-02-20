@@ -23,7 +23,7 @@
 #
 # Trigger SDK generation from issues and comments, monitor pipeline status, and report SDK PR links.
 #
-# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"6e1e42728caf23297372161d7f05884b2c60ea709f7f04b9955a0865a9ae4f72","compiler_version":"v0.46.5"}
+# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"f0355802322719ac2663ccbd4a94bcb5d394af05b02f9f30983f6e7f4afea840","compiler_version":"v0.46.5"}
 
 name: "SDK Generation Agent"
 "on":
@@ -60,6 +60,7 @@ env:
   AZURE_CLIENT_ID: c277c2aa-5326-4d16-90de-98feeca69cbc
   AZURE_FEDERATED_TOKEN_FILE: /tmp/azure-oidc-token
   AZURE_TENANT_ID: 72f988bf-86f1-41af-91ab-2d7cd011db47
+  GITHUB_ACTIONS: "true"
   GITHUB_TOKEN: ${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
 
 jobs:
