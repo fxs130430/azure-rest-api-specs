@@ -83,22 +83,16 @@ model AzureAIDataSourceConfig extends DataSourceConfig {
     | "benchmark_preview";
 }
 
-/** Metadata for benchmark evaluation configuration. */
-model BenchmarkMetadata {
-  /** The name of the benchmark specification. */
-  benchmark_name: string;
-
-  /** The version of the benchmark specification (e.g., '0.1'). */
-  benchmark_version?: string;
-}
-
 /** Data source configuration for benchmark evaluations. */
 model AzureAIBenchmarkDataSourceConfig extends AzureAIDataSourceConfig {
   /** Data schema scenario, always `benchmark` for benchmark evaluations. */
   scenario: "benchmark_preview";
 
-  /** Metadata identifying the benchmark to use. */
-  metadata: BenchmarkMetadata;
+  /** The name of the benchmark specification. */
+  benchmark_name: string;
+
+  /** The version of the benchmark specification (e.g., '0.1'). Latest version if not specified. */
+  benchmark_version?: string;
 }
 
 /** Adding Azure AI Source type to data source for foundry extension. */
