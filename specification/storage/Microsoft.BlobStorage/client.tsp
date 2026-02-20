@@ -12,7 +12,7 @@ namespace Customizations;
   {
     service: Storage.Blob,
   },
-  "rust"
+  "rust,go"
 )
 interface BlobServiceClient extends Storage.Blob.Service {}
 
@@ -21,7 +21,7 @@ interface BlobServiceClient extends Storage.Blob.Service {}
   {
     service: Storage.Blob,
   },
-  "rust"
+  "rust,go"
 )
 interface BlobContainerClient extends Storage.Blob.Container {}
 
@@ -30,7 +30,7 @@ interface BlobContainerClient extends Storage.Blob.Container {}
   {
     service: Storage.Blob,
   },
-  "rust"
+  "rust,go"
 )
 interface BlobClient extends Storage.Blob.Blob {}
 
@@ -39,7 +39,7 @@ interface BlobClient extends Storage.Blob.Blob {}
   {
     service: Storage.Blob,
   },
-  "rust"
+  "rust,go"
 )
 interface AppendBlobClient extends Storage.Blob.AppendBlob {}
 
@@ -48,7 +48,7 @@ interface AppendBlobClient extends Storage.Blob.AppendBlob {}
   {
     service: Storage.Blob,
   },
-  "rust"
+  "rust,go"
 )
 interface BlockBlobClient extends Storage.Blob.BlockBlob {}
 
@@ -57,7 +57,7 @@ interface BlockBlobClient extends Storage.Blob.BlockBlob {}
   {
     service: Storage.Blob,
   },
-  "rust"
+  "rust,go"
 )
 interface PageBlobClient extends Storage.Blob.PageBlob {}
 
@@ -221,14 +221,99 @@ interface PageBlobClient extends Storage.Blob.PageBlob {}
 @@scope(Storage.Blob.Container.submitBatch, "!rust");
 @@scope(Storage.Blob.Service.submitBatch, "!rust");
 
-@@clientName(BlobProperties, "BlobProperties", "go");
-@@clientName(BlobItem, "BlobItem", "go");
-@@clientName(UserDelegationKey.signedOid, "SignedOID", "go");
-@@clientName(UserDelegationKey.signedTid, "SignedTID", "go");
+
+// GO SPECIFICATION
+/** The algorithm used to produce the encryption key hash. Currently, the only accepted value is \"AES256\". Must be provided if the x-ms-encryption-key header is provided. */
+#suppress "@azure-tools/typespec-azure-core/no-enum" "Existing API"
+enum EncryptionAlgorithmTypeGo {
+  /** The AES256 encryption algorithm. */
+  AES256: "AES256",
+  /** Deprecated */
+  None: "None"
+}
+/** The list blob includes parameter values. */
+#suppress "@azure-tools/typespec-azure-core/no-enum" "Existing API"
+enum ListBlobsIncludeItemGo {
+  /** The include copies. */
+  Copy: "copy",
+
+  /** The include deleted blobs. */
+  Deleted: "deleted",
+
+  /** The include metadata. */
+  Metadata: "metadata",
+
+  /** The include snapshots. */
+  Snapshots: "snapshots",
+
+  /** The include uncommitted blobs. */
+  UncommittedBlobs: "uncommittedblobs",
+
+  /** The include versions. */
+  Versions: "versions",
+
+  /** The include tags. */
+  Tags: "tags",
+
+  /** The include immutable policy. */
+  ImmutabilityPolicy: "immutabilitypolicy",
+
+  /** The include legal hold. */
+  LegalHold: "legalhold",
+
+  /** The include deleted with versions. */
+  DeletedWithVersions: "deletedwithversions",
+
+  /** Deprecated */
+  Permissions: "permissions",
+}
+/** The immutability policy mode used in requests and responses. */
+#suppress "@azure-tools/typespec-azure-core/no-enum" "Existing API"
+enum ImmutabilityPolicySetting {
+  /** The immutability policy is locked. */
+  Locked: "locked",
+
+  /** The immutability policy is unlocked. */
+  Unlocked: "unlocked",
+}
 @@alternateType(AccessPolicy.start, utcDateTime, "go");
 @@alternateType(AccessPolicy.expiry, utcDateTime, "go");
 @@alternateType(BlobItem.name, string, "go");
+@@alternateType(BlobItem.metadata, Record<string>, "go");
+@@alternateType(BlobItem.objectReplicationMetadata, Record<string>, "go");
 @@alternateType(BlobPrefix.name, string, "go");
+@@alternateType(BlockIdParameter.blockid, string, "go");
+@@alternateType(BlockLookupList.latest, string[], "go");
+@@alternateType(EncryptionAlgorithmParameter.encryptionAlgorithm, EncryptionAlgorithmTypeGo, "go");
+@@alternateType(ImmutabilityPolicyModeParameter.immutabilityPolicyMode, ImmutabilityPolicySetting, "go");
+@@alternateType(SourceEncryptionAlgorithmParameter.sourceEncryptionAlgorithm, EncryptionAlgorithmTypeGo, "go");
+@@alternateType(ListBlobsIncludeParameter.include, ListBlobsIncludeItemGo[], "go");
+@@alternateType(UserDelegationKey.signedExpiry, utcDateTime, "go");
+@@alternateType(UserDelegationKey.signedStart, utcDateTime, "go");
+@@alternateType(UserDelegationKey.value, string, "go");
+@@clientName(BlobContainerClient, "ContainerClient", "go");
+@@clientName(BlobServiceClient, "ServiceClient", "go");
+@@clientName(BlobDeleteTypeGo, "DeleteType", "go");
+@@clientName(BlobExpiryOptions, "ExpiryOptions", "go");
+@@clientName(BlobItem.objectReplicationMetadata, "OrMetadata", "go");
+@@clientName(BlobServiceProperties, "StorageServiceProperties", "go");
+@@clientName(BlobServiceProperties.cors, "CORS", "go");
+@@clientName(CorsRule, "CORSRule", "go");
+@@clientName(Error, "StorageError", "go");
+@@clientName(EncryptionAlgorithmTypeGo, "EncryptionAlgorithmType", "go");
+@@clientName(GeoReplicationStatusType, "BlobGeoReplicationStatus", "go");
+@@clientName(ListBlobsIncludeItemGo, "ListBlobsIncludeItem", "go");
+@@clientName(ListBlobsResponse, "ListBlobsFlatSegmentResponse", "go");
+@@clientName(QueryType, "QueryFormatType", "go");
+@@clientName(Storage.Blob.Blob.setProperties, "SetHTTPHeaders", "go");
+@@clientName(Storage.Blob.Container.findBlobsByTags, "FilterBlobs", "go");
+@@clientName(Storage.Blob.Container.listBlobs, "ListBlobFlatSegment", "go");
+@@clientName(Storage.Blob.Service.listContainers, "ListContainersSegment", "go");
+@@clientName(Storage.Blob.PageBlob.setSequenceNumber, "UpdateSequenceNumber", "go");
+@@clientName(Storage.Blob.Service.findBlobsByTags, "FilterBlobs", "go");
+@@clientName(UserDelegationKey.signedDelegatedUserTid, "SignedDelegatedUserTID", "go");
+@@clientName(UserDelegationKey.signedOid, "SignedOID", "go");
+@@clientName(UserDelegationKey.signedTid, "SignedTID", "go");
 
 @@alternateType(AccessPolicy.start, string, "python");
 @@alternateType(AccessPolicy.expiry, string, "python");

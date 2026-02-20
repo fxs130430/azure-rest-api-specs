@@ -915,6 +915,7 @@ interface Blob {
       /** Optional.  Only possible value is 'permanent', which specifies to permanently delete a blob if blob soft delete is enabled. */
       @query
       @clientName("blobDeleteType")
+      @alternateType(BlobDeleteTypeGo, "go")
       deletetype?: BlobDeleteType;
 
       ...AccessTierIfModifiedSinceParameter;
