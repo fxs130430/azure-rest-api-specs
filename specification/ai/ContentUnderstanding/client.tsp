@@ -96,7 +96,9 @@ interface ContentUnderstandingClient {
 @@clientName(AnalyzeBinaryRequest.range, "inputRange");
 
 // .NET: type name "AnalysisInput" (noun phrase; "AnalyzeInput" is a verb phrase).
+// TCGC infers request-body-only types as internal; override to public for the convenience API.
 @@clientName(AnalyzeInput, "AnalysisInput", "csharp");
+@@access(AnalyzeInput, Access.public);
 // .NET: property name "Uri" to match type System.Uri (noun phrase, type-aligned).
 @@clientName(AnalyzeInput.url, "Uri", "csharp");
 
