@@ -195,11 +195,7 @@ interface Queue {
   setMetadata is StorageOperationNoBody<
     {
       ...TimeoutParameter;
-
-      /** The metadata headers. */
-      @alternateType(Record<string>, "rust")
-      @header("x-ms-meta")
-      metadata: string;
+      ...MetadataHeaders;
     },
     {
       @statusCode statusCode: 204;
