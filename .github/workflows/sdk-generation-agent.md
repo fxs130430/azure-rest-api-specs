@@ -38,7 +38,6 @@ permissions:
   issues: read
   pull-requests: read
   id-token: write
-# set strict to false to allow network access
 strict: false
 imports:
   - shared-github-aw-imports\global_networks_auth_import.md
@@ -53,7 +52,7 @@ tools:
     toolsets: [default, actions]
 safe-outputs:
   add-comment:
-    max: 20
+    max: 15
     hide-older-comments: true
   messages:
     run-started: "[{workflow_name}]({run_url}) started. Link to this workflow run."
