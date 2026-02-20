@@ -21,13 +21,13 @@
 #
 # For more information: https://github.github.com/gh-aw/introduction/overview/
 #
-# Trigger SDK generation from issues and comments, monitor pipeline status, and report SDK PR.
+# Trigger SDK generation from issues and comments, monitor pipeline status, and report SDK PR links.
 #
 # Resolved workflow manifest:
 #   Imports:
 #     - shared-github-aw-imports/global_networks_auth_import.md
 #
-# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"9632ba003ed32d1abc8af4abd329f5a04399d42f1a019a7e8c569ce1ed24735e","compiler_version":"v0.46.5"}
+# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"5dbbf2cf52cdad573b99ffa7ff2977fb382f2d5974009def46fffaad89ba64df","compiler_version":"v0.46.5"}
 
 name: "SDK Generation Agent"
 "on":
@@ -903,7 +903,7 @@ jobs:
           GH_AW_WORKFLOW_ID: "sdk-generation-agent"
           GH_AW_SECRET_VERIFICATION_RESULT: ${{ needs.agent.outputs.secret_verification_result }}
           GH_AW_CHECKOUT_PR_SUCCESS: ${{ needs.agent.outputs.checkout_pr_success }}
-          GH_AW_SAFE_OUTPUT_MESSAGES: "{\"runStarted\":\"[{workflow_name}]({run_url}) started. Link to this workflow run.\"}"
+          GH_AW_SAFE_OUTPUT_MESSAGES: "{\"runStarted\":\"[{workflow_name}]({run_url}) started.\"}"
           GH_AW_GROUP_REPORTS: "false"
         with:
           github-token: ${{ secrets.GH_AW_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
@@ -1076,7 +1076,7 @@ jobs:
     timeout-minutes: 15
     env:
       GH_AW_ENGINE_ID: "copilot"
-      GH_AW_SAFE_OUTPUT_MESSAGES: "{\"runStarted\":\"[{workflow_name}]({run_url}) started. Link to this workflow run.\"}"
+      GH_AW_SAFE_OUTPUT_MESSAGES: "{\"runStarted\":\"[{workflow_name}]({run_url}) started.\"}"
       GH_AW_WORKFLOW_ID: "sdk-generation-agent"
       GH_AW_WORKFLOW_NAME: "SDK Generation Agent"
     outputs:
