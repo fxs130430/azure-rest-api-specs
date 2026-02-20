@@ -611,7 +611,7 @@ describe("command-helpers", () => {
       const { logMessage } = await import("../src/log.js");
       const msgs = createMockMessages();
 
-      logFullOadMessagesList(msgs);
+      await logFullOadMessagesList(msgs);
 
       expect(logMessage).toHaveBeenCalledWith("---- Full list of messages ----", LogLevel.Group);
       expect(logMessage).toHaveBeenCalledWith("[");
@@ -627,7 +627,7 @@ describe("command-helpers", () => {
     it("should handle empty message list", async () => {
       const { logMessage } = await import("../src/log.js");
 
-      logFullOadMessagesList([]);
+      await logFullOadMessagesList([]);
 
       expect(logMessage).toHaveBeenCalledWith("---- Full list of messages ----", LogLevel.Group);
       expect(logMessage).toHaveBeenCalledWith("[");

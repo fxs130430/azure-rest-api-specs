@@ -245,16 +245,16 @@ export function changeBaseBranch(context: Context): void {
 /**
  * Log the full list of OAD messages to console
  */
-export function logFullOadMessagesList(msgs: ResultMessageRecord[]): void {
-  logMessage("---- Full list of messages ----", LogLevel.Group);
-  logMessage("[");
+export async function logFullOadMessagesList(msgs: ResultMessageRecord[]): Promise<void> {
+  await logMessage("---- Full list of messages ----", LogLevel.Group);
+  await logMessage("[");
   // Printing the messages one by one because the console.log appears to elide the messages with "... X more items"
   // after approximately 292 messages.
   for (const msg of msgs) {
-    logMessage(JSON.stringify(msg, null, 4) + ",");
+    await logMessage(JSON.stringify(msg, null, 4) + ",");
   }
-  logMessage("]");
-  logMessage("---- End of full list of messages ----", LogLevel.EndGroup);
+  await logMessage("]");
+  await logMessage("---- End of full list of messages ----", LogLevel.EndGroup);
 }
 
 /**
