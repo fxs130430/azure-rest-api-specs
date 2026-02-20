@@ -8,7 +8,6 @@ using TypeSpec.Versioning;
 
 #suppress "@azure-tools/typespec-azure-core/auth-required" "!!FIXME!!"
 @service(#{ title: "Text Translation" })
-
 @useAuth(
   ApiKeyAuth<ApiKeyLocation.header, "Ocp-Apim-Subscription-Key"> | OAuth2Auth<[
     {
@@ -19,7 +18,6 @@ using TypeSpec.Versioning;
     }
   ]>
 )
-
 @server(
   "{Endpoint}",
   "Text translation is a cloud-based REST API feature of the Translator service that uses neural machine translation technology to enable quick and accurate source-to-target text translation in real time across all supported languages.",
