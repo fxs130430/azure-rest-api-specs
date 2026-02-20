@@ -25,7 +25,6 @@
         "kind": "low"
       },
       "includeActivity": true,
-      "outputMode": "answerSynthesis",
       "knowledgeSourceParams": [
         {
           "filterAddOn": "foo eq bar",

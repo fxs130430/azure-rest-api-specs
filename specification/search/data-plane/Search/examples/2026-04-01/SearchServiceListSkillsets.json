@@ -187,7 +187,6 @@
                 "name": "chatCompletionSkill",
                 "context": "/document/normalized_images/*",
                 "uri": "https://azs-grok-aoai.openai.azure.com/openai/deployments/azs-grok-gpt-4o/chat/completions",
-                "timeout": "PT30S",
                 "apiKey": "<redacted>",
                 "extraParametersBehavior": "error",
                 "inputs": [
@@ -223,7 +222,6 @@
                     "targetName": "response"
                   }
                 ],
-                "httpHeaders": {},
                 "commonModelParameters": {
                   "model": "gpt-4o",
                   "frequencyPenalty": 0,

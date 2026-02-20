@@ -20,7 +20,6 @@
         "kind": "minimal"
       },
       "includeActivity": true,
-      "outputMode": "extractiveData",
       "knowledgeSourceParams": [
         {
           "filterAddOn": "foo eq bar",
