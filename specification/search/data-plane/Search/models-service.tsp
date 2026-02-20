@@ -3002,6 +3002,7 @@ model SearchIndexerDataSource {
 
   /** A specific type of the data source, in case the resource is capable of different modalities. For example, 'MongoDb' for certain 'cosmosDb' accounts. */
   @visibility(Lifecycle.Read)
+  @removed(Versions.v2026_04_01)
   subType?: string;
 
   /** Credentials for the datasource. */
@@ -3018,6 +3019,7 @@ model SearchIndexerDataSource {
 
   /** Ingestion options with various types of permission data. */
   #suppress "@azure-tools/typespec-azure-core/no-nullable" "Pre-existing API contract"
+  @removed(Versions.v2026_04_01)
   indexerPermissionOptions?: IndexerPermissionOption[] | null;
 
   /** The data change detection policy for the datasource. */
@@ -3612,6 +3614,7 @@ model SearchIndexerKnowledgeStore {
 
   /** A dictionary of knowledge store-specific configuration properties. Each name is the name of a specific property. Each value must be of a primitive type. */
   #suppress "@azure-tools/typespec-azure-core/bad-record-type" "model should have additionalProperties"
+  @removed(Versions.v2026_04_01)
   parameters?: SearchIndexerKnowledgeStoreParameters;
 }
 
@@ -5645,6 +5648,10 @@ model SearchIndexerDataUserAssignedIdentity extends SearchIndexerDataIdentity {
   /** The fully qualified Azure resource Id of a user assigned managed identity typically in the form "/subscriptions/12345678-1234-1234-1234-1234567890ab/resourceGroups/rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId" that should have been assigned to the search service. */
   userAssignedIdentity: string;
 
+  /** Multi-tenant User-Assigned Managed Identity Support: The client id of the multi-tenant App that has been configured to federate with the user-assigned managed identity. */
+  @added(Versions.v2026_04_01)
+  federatedIdentityClientId?: string;
+
   /** A URI fragment specifying the type of identity. */
   #suppress "@azure-tools/typespec-azure-core/casing-style" "Maintain compatibility with existing models."
   `@odata.type`: "#Microsoft.Azure.Search.DataUserAssignedIdentity";
@@ -5790,7 +5797,7 @@ model AIServicesAccountKey extends CognitiveServicesAccount {
   /** The key used to provision the Azure AI service resource attached to a skillset. */
   key: string;
 
-  /** The subdomain url for the corresponding AI Service. */
+  /** The subdomain/Azure AI Services endpoint url for the corresponding AI Service. */
   subdomainUrl: string;
 
   /** A URI fragment specifying the type of Azure AI service resource attached to a skillset. */
@@ -5805,7 +5812,7 @@ model AIServicesAccountIdentity extends CognitiveServicesAccount {
   #suppress "@azure-tools/typespec-azure-core/no-nullable" "Pre-existing API contract"
   identity?: SearchIndexerDataIdentity | null;
 
-  /** The subdomain url for the corresponding AI Service. */
+  /** The subdomain/Azure AI Services endpoint url for the corresponding AI Service. */
   subdomainUrl: string;
 
   /** A URI fragment specifying the type of Azure AI service resource attached to a skillset. */
@@ -6432,6 +6439,7 @@ model ChatCompletionSkill extends SearchIndexerSkill {
   httpHeaders?: WebApiHttpHeaders;
 
   /** The method for the http request. */
+  @removed(Versions.v2026_04_01)
   httpMethod?: string;
 
   /** The desired timeout for the request. Default is 30 seconds. */
@@ -6439,10 +6447,12 @@ model ChatCompletionSkill extends SearchIndexerSkill {
 
   /** The desired batch size which indicates number of documents. */
   #suppress "@azure-tools/typespec-azure-core/no-nullable" "Pre-existing API contract"
+  @removed(Versions.v2026_04_01)
   batchSize?: int32 | null;
 
   /** If set, the number of parallel calls that can be made to the Web API. */
   #suppress "@azure-tools/typespec-azure-core/no-nullable" "Pre-existing API contract"
+  @removed(Versions.v2026_04_01)
   degreeOfParallelism?: int32 | null;
 
   /** Applies to custom skills that connect to external code in an Azure function or some other application that provides the transformations. This value should be the application ID created for the function or app when it was registered with Azure Active Directory. When specified, the custom skill connects to the function or app using a managed ID (either system or user-assigned) of the search service and the access token of the function or app, using this value as the resource id for creating the scope of the access token. */

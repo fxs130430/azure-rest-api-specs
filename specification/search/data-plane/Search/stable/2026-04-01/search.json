@@ -4134,7 +4134,7 @@
         },
         "subdomainUrl": {
           "type": "string",
-          "description": "The subdomain url for the corresponding AI Service."
+          "description": "The subdomain/Azure AI Services endpoint url for the corresponding AI Service."
         }
       },
       "required": [
@@ -4157,7 +4157,7 @@
         },
         "subdomainUrl": {
           "type": "string",
-          "description": "The subdomain url for the corresponding AI Service."
+          "description": "The subdomain/Azure AI Services endpoint url for the corresponding AI Service."
         }
       },
       "required": [
@@ -5269,26 +5269,10 @@
           "$ref": "#/definitions/WebApiHttpHeaders",
           "description": "The headers required to make the http request."
         },
-        "httpMethod": {
-          "type": "string",
-          "description": "The method for the http request."
-        },
         "timeout": {
           "type": "string",
           "format": "duration",
           "description": "The desired timeout for the request. Default is 30 seconds."
-        },
-        "batchSize": {
-          "type": "integer",
-          "format": "int32",
-          "description": "The desired batch size which indicates number of documents.",
-          "x-nullable": true
-        },
-        "degreeOfParallelism": {
-          "type": "integer",
-          "format": "int32",
-          "description": "If set, the number of parallel calls that can be made to the Web API.",
-          "x-nullable": true
         },
         "authResourceId": {
           "type": "string",
@@ -8835,12 +8819,8 @@
       "enum": [
         "searchIndex",
         "azureBlob",
-        "indexedSharePoint",
         "indexedOneLake",
         "web",
-        "remoteSharePoint",
-        "modelQueryPlanning",
-        "modelAnswerSynthesis",
         "agenticReasoning"
       ],
       "x-ms-enum": {
@@ -8858,11 +8838,6 @@
             "description": "Azure Blob retrieval activity."
           },
           {
-            "name": "indexedSharePoint",
-            "value": "indexedSharePoint",
-            "description": "Indexed SharePoint retrieval activity."
-          },
-          {
             "name": "indexedOneLake",
             "value": "indexedOneLake",
             "description": "Indexed OneLake retrieval activity."
@@ -8871,21 +8846,6 @@
             "name": "web",
             "value": "web",
             "description": "Web retrieval activity."
-          },
-          {
-            "name": "remoteSharePoint",
-            "value": "remoteSharePoint",
-            "description": "Remote SharePoint retrieval activity."
-          },
-          {
-            "name": "modelQueryPlanning",
-            "value": "modelQueryPlanning",
-            "description": "LLM query planning activity."
-          },
-          {
-            "name": "modelAnswerSynthesis",
-            "value": "modelAnswerSynthesis",
-            "description": "LLM answer synthesis activity."
           },
           {
             "name": "agenticReasoning",
@@ -9199,28 +9159,6 @@
         "kind"
       ]
     },
-    "KnowledgeBaseModelAnswerSynthesisActivityRecord": {
-      "type": "object",
-      "description": "Represents an LLM answer synthesis activity record.",
-      "properties": {
-        "inputTokens": {
-          "type": "integer",
-          "format": "int32",
-          "description": "The number of input tokens for the LLM answer synthesis activity."
-        },
-        "outputTokens": {
-          "type": "integer",
-          "format": "int32",
-          "description": "The number of output tokens for the LLM answer synthesis activity."
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/KnowledgeBaseActivityRecord"
-        }
-      ],
-      "x-ms-discriminator-value": "modelAnswerSynthesis"
-    },
     "KnowledgeBaseModelKind": {
       "type": "string",
       "description": "The AI model to be used for query planning.",
@@ -9238,28 +9176,6 @@
           }
         ]
       }
-    },
-    "KnowledgeBaseModelQueryPlanningActivityRecord": {
-      "type": "object",
-      "description": "Represents an LLM query planning activity record.",
-      "properties": {
-        "inputTokens": {
-          "type": "integer",
-          "format": "int32",
-          "description": "The number of input tokens for the LLM query planning activity."
-        },
-        "outputTokens": {
-          "type": "integer",
-          "format": "int32",
-          "description": "The number of output tokens for the LLM query planning activity."
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/KnowledgeBaseActivityRecord"
-        }
-      ],
-      "x-ms-discriminator-value": "modelQueryPlanning"
     },
     "KnowledgeBaseReference": {
       "type": "object",
@@ -9302,10 +9218,8 @@
       "enum": [
         "searchIndex",
         "azureBlob",
-        "indexedSharePoint",
         "indexedOneLake",
-        "web",
-        "remoteSharePoint"
+        "web"
       ],
       "x-ms-enum": {
         "name": "KnowledgeBaseReferenceType",
@@ -9322,11 +9236,6 @@
             "description": "Azure Blob document reference."
           },
           {
-            "name": "indexedSharePoint",
-            "value": "indexedSharePoint",
-            "description": "Indexed SharePoint document reference."
-          },
-          {
             "name": "indexedOneLake",
             "value": "indexedOneLake",
             "description": "Indexed OneLake document reference."
@@ -9335,11 +9244,6 @@
             "name": "web",
             "value": "web",
             "description": "Web document reference."
-          },
-          {
-            "name": "remoteSharePoint",
-            "value": "remoteSharePoint",
-            "description": "Remote SharePoint document reference."
           }
         ]
       }
@@ -9959,10 +9863,6 @@
         "includeReferenceSourceData": {
           "type": "boolean",
           "description": "Indicates whether references should include the structured data obtained during retrieval in their payload."
-        },
-        "alwaysQuerySource": {
-          "type": "boolean",
-          "description": "Indicates that this knowledge source should bypass source selection and always be queried at retrieval time."
         },
         "rerankerThreshold": {
           "type": "number",
@@ -15457,11 +15357,6 @@
           "$ref": "#/definitions/SearchIndexerDataSourceType",
           "description": "The type of the datasource."
         },
-        "subType": {
-          "type": "string",
-          "description": "A specific type of the data source, in case the resource is capable of different modalities. For example, 'MongoDb' for certain 'cosmosDb' accounts.",
-          "readOnly": true
-        },
         "credentials": {
           "$ref": "#/definitions/DataSourceCredentials",
           "description": "Credentials for the datasource.",
@@ -15475,14 +15370,6 @@
           "$ref": "#/definitions/SearchIndexerDataIdentity",
           "description": "An explicit managed identity to use for this datasource. If not specified and the connection string is a managed identity, the system-assigned managed identity is used. If not specified, the value remains unchanged. If \"none\" is specified, the value of this property is cleared.",
           "x-nullable": true
-        },
-        "indexerPermissionOptions": {
-          "type": "array",
-          "description": "Ingestion options with various types of permission data.",
-          "x-nullable": true,
-          "items": {
-            "$ref": "#/definitions/IndexerPermissionOption"
-          }
         },
         "dataChangeDetectionPolicy": {
           "$ref": "#/definitions/DataChangeDetectionPolicy",
@@ -15579,6 +15466,10 @@
         "userAssignedIdentity": {
           "type": "string",
           "description": "The fully qualified Azure resource Id of a user assigned managed identity typically in the form \"/subscriptions/12345678-1234-1234-1234-1234567890ab/resourceGroups/rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId\" that should have been assigned to the search service."
+        },
+        "federatedIdentityClientId": {
+          "type": "string",
+          "description": "Multi-tenant User-Assigned Managed Identity Support: The client id of the multi-tenant App that has been configured to federate with the user-assigned managed identity."
         }
       },
       "required": [
@@ -15713,10 +15604,6 @@
           "$ref": "#/definitions/SearchIndexerDataIdentity",
           "description": "The user-assigned managed identity used for connections to Azure Storage when writing knowledge store projections. If the connection string indicates an identity (ResourceId) and it's not specified, the system-assigned managed identity is used. On updates to the indexer, if the identity is unspecified, the value remains unchanged. If set to \"none\", the value of this property is cleared.",
           "x-nullable": true
-        },
-        "parameters": {
-          "$ref": "#/definitions/SearchIndexerKnowledgeStoreParameters",
-          "description": "A dictionary of knowledge store-specific configuration properties. Each name is the name of a specific property. Each value must be of a primitive type."
         }
       },
       "required": [

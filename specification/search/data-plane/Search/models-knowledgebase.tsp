@@ -125,6 +125,7 @@ model KnowledgeSourceParams {
   includeReferenceSourceData?: boolean;
 
   /** Indicates that this knowledge source should bypass source selection and always be queried at retrieval time. */
+  @removed(Versions.v2026_04_01)
   alwaysQuerySource?: boolean;
 
   /** The reranker threshold all retrieved documents must meet to be included in the response. */
@@ -290,6 +291,7 @@ union KnowledgeBaseActivityRecordType {
   azureBlob: "azureBlob",
 
   /** Indexed SharePoint retrieval activity. */
+  @removed(Versions.v2026_04_01)
   indexedSharePoint: "indexedSharePoint",
 
   /** Indexed OneLake retrieval activity. */
@@ -299,12 +301,15 @@ union KnowledgeBaseActivityRecordType {
   web: "web",
 
   /** Remote SharePoint retrieval activity. */
+  @removed(Versions.v2026_04_01)
   remoteSharePoint: "remoteSharePoint",
 
   /** LLM query planning activity. */
+  @removed(Versions.v2026_04_01)
   modelQueryPlanning: "modelQueryPlanning",
 
   /** LLM answer synthesis activity. */
+  @removed(Versions.v2026_04_01)
   modelAnswerSynthesis: "modelAnswerSynthesis",
 
   /** Agentic reasoning activity. */
@@ -483,6 +488,7 @@ model KnowledgeBaseRemoteSharePointActivityArguments {
 
 /** Represents an LLM query planning activity record. */
 #suppress "@azure-tools/typespec-azure-core/no-multiple-discriminator" "Existing"
+@removed(Versions.v2026_04_01)
 model KnowledgeBaseModelQueryPlanningActivityRecord
   extends KnowledgeBaseActivityRecord {
   /** The discriminator value. */
@@ -497,6 +503,7 @@ model KnowledgeBaseModelQueryPlanningActivityRecord
 
 /** Represents an LLM answer synthesis activity record. */
 #suppress "@azure-tools/typespec-azure-core/no-multiple-discriminator" "Existing"
+@removed(Versions.v2026_04_01)
 model KnowledgeBaseModelAnswerSynthesisActivityRecord
   extends KnowledgeBaseActivityRecord {
   /** The discriminator value. */
@@ -534,6 +541,7 @@ union KnowledgeBaseReferenceType {
   azureBlob: "azureBlob",
 
   /** Indexed SharePoint document reference. */
+  @removed(Versions.v2026_04_01)
   indexedSharePoint: "indexedSharePoint",
 
   /** Indexed OneLake document reference. */
@@ -543,6 +551,7 @@ union KnowledgeBaseReferenceType {
   web: "web",
 
   /** Remote SharePoint document reference. */
+  @removed(Versions.v2026_04_01)
   remoteSharePoint: "remoteSharePoint",
 }
 
