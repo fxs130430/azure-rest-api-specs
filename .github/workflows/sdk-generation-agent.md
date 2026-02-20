@@ -97,6 +97,7 @@ network:
     - "login.microsoftonline.com"
     - "dev.azure.com"
     - "*.dev.azure.com"
+    - "*.applicationinsights.azure.com"
 tools:
   github:
     toolsets: [default, actions]
