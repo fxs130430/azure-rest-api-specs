@@ -56,7 +56,7 @@ safe-outputs:
     max: 20
     hide-older-comments: true
   messages:
-    run-started: "[{workflow_name}]({run_url}) started. Debug link to this workflow run."
+    run-started: "[{workflow_name}]({run_url}) started. Link to this workflow run."
   noop:
 ---
 

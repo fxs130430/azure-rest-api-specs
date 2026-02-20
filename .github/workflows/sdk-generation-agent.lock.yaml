@@ -27,7 +27,7 @@
 #   Imports:
 #     - shared-github-aw-imports/global_networks_auth_import.md
 #
-# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"cd563cfe8a1a28b6b68ae7516600f45dc8bdd6f7d853475961403e7fbf5329fb","compiler_version":"v0.46.5"}
+# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"967888856ba38e0994b8265fce2f1c7a13612da5f9e1002457541f5ea7219a76","compiler_version":"v0.46.5"}
 
 name: "SDK Generation Agent"
 "on":
@@ -903,7 +903,7 @@ jobs:
           GH_AW_WORKFLOW_ID: "sdk-generation-agent"
           GH_AW_SECRET_VERIFICATION_RESULT: ${{ needs.agent.outputs.secret_verification_result }}
           GH_AW_CHECKOUT_PR_SUCCESS: ${{ needs.agent.outputs.checkout_pr_success }}
-          GH_AW_SAFE_OUTPUT_MESSAGES: "{\"runStarted\":\"[{workflow_name}]({run_url}) started. Debug link to this workflow run.\"}"
+          GH_AW_SAFE_OUTPUT_MESSAGES: "{\"runStarted\":\"[{workflow_name}]({run_url}) started. Link to this workflow run.\"}"
           GH_AW_GROUP_REPORTS: "false"
         with:
           github-token: ${{ secrets.GH_AW_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
@@ -1076,7 +1076,7 @@ jobs:
     timeout-minutes: 15
     env:
       GH_AW_ENGINE_ID: "copilot"
-      GH_AW_SAFE_OUTPUT_MESSAGES: "{\"runStarted\":\"[{workflow_name}]({run_url}) started. Debug link to this workflow run.\"}"
+      GH_AW_SAFE_OUTPUT_MESSAGES: "{\"runStarted\":\"[{workflow_name}]({run_url}) started. Link to this workflow run.\"}"
       GH_AW_WORKFLOW_ID: "sdk-generation-agent"
       GH_AW_WORKFLOW_NAME: "SDK Generation Agent"
     outputs:
