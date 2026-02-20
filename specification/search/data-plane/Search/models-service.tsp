@@ -4333,9 +4333,11 @@ model KnowledgeBase {
   models?: KnowledgeBaseModel[];
 
   /** The retrieval reasoning effort configuration. */
+  @removed(Versions.v2026_04_01)
   retrievalReasoningEffort?: KnowledgeRetrievalReasoningEffort;
 
   /** The output mode for the knowledge base. */
+  @removed(Versions.v2026_04_01)
   outputMode?: KnowledgeRetrievalOutputMode;
 
   /** The ETag of the knowledge base. */

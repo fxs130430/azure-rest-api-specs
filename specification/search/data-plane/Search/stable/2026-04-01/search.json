@@ -8734,14 +8734,6 @@
             "$ref": "#/definitions/KnowledgeBaseModel"
           }
         },
-        "retrievalReasoningEffort": {
-          "$ref": "#/definitions/KnowledgeRetrievalReasoningEffort",
-          "description": "The retrieval reasoning effort configuration."
-        },
-        "outputMode": {
-          "$ref": "#/definitions/KnowledgeRetrievalOutputMode",
-          "description": "The output mode for the knowledge base."
-        },
         "@odata.etag": {
           "type": "string",
           "description": "The ETag of the knowledge base.",
@@ -9534,30 +9526,6 @@
         }
       ],
       "x-ms-discriminator-value": "minimal"
-    },
-    "KnowledgeRetrievalOutputMode": {
-      "type": "string",
-      "description": "The output configuration for this retrieval.",
-      "enum": [
-        "extractiveData",
-        "answerSynthesis"
-      ],
-      "x-ms-enum": {
-        "name": "KnowledgeRetrievalOutputMode",
-        "modelAsString": true,
-        "values": [
-          {
-            "name": "extractiveData",
-            "value": "extractiveData",
-            "description": "Return data from the knowledge sources directly without generative alteration."
-          },
-          {
-            "name": "answerSynthesis",
-            "value": "answerSynthesis",
-            "description": "Synthesize an answer for the response payload."
-          }
-        ]
-      }
     },
     "KnowledgeRetrievalReasoningEffort": {
       "type": "object",

@@ -103,6 +103,7 @@ union KnowledgeRetrievalReasoningEffortKind {
 }
 
 /** The output configuration for this retrieval. */
+@removed(Versions.v2026_04_01)
 union KnowledgeRetrievalOutputMode {
   string,
 
