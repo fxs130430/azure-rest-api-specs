@@ -27,7 +27,7 @@
 #   Imports:
 #     - shared-github-aw-imports/global_networks_auth_import.md
 #
-# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"5dbbf2cf52cdad573b99ffa7ff2977fb382f2d5974009def46fffaad89ba64df","compiler_version":"v0.46.5"}
+# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"7c834c7166afb251c3fc25982e59e8f6581be0ea4c51f5a402ec5e603905882b","compiler_version":"v0.46.5"}
 
 name: "SDK Generation Agent"
 "on":
@@ -58,6 +58,7 @@ env:
   AZURE_FEDERATED_TOKEN_FILE: /tmp/azure-oidc-token
   AZURE_TENANT_ID: 72f988bf-86f1-41af-91ab-2d7cd011db47
   GITHUB_ACTIONS: "true"
+  GITHUB_TOKEN: ${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
 
 jobs:
   activation:
