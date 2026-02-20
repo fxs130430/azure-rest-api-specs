@@ -9,7 +9,7 @@ namespace Customizations;
 @@clientNamespace(Storage.Queues.Service, "Azure.Storage.Queues");
 @@clientNamespace(Storage.Queues.Queue, "Azure.Storage.Queues");
 
-@@clientName(Storage.Queues.Service, "QueueServiceClient", "rust");
+@@clientName(Storage.Queues, "QueueServiceClient", "rust");
 @@clientName(Storage.Queues.Queue, "QueueClient", "rust");
 
 @@clientName(Storage.Queues.MetadataHeaders.metadata, "metadata", "rust");
