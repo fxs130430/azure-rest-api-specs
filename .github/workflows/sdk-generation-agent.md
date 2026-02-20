@@ -7,27 +7,10 @@ on:
     types: [created]
   workflow_dispatch:
     inputs:
-      typespec_project_path:
-        description: "Relative path to the TypeSpec project to generate from"
-        required: true
-      work_item_id:
-        description: "Release plan work item ID"
-        required: true
-      release_plan_id:
-        description: "Release plan ID"
-        required: true
-      languages:
-        description: "Comma-separated languages to generate (Python,.NET,JavaScript,Java,go)"
-        required: true
-      api_version:
-        description: "API version string (for example, 2024-01-01)"
-        required: true
-      release_type:
-        description: "Release type (beta or stable)"
-        required: true
-      pr_number:
-        description: "Optional TypeSpec PR number to associate with SDK generation"
+      issue_url:
+        description: "Issue URL providing SDK generation context (defaults to #40516 if omitted)"
         required: false
+        default: "https://github.com/Azure/azure-rest-api-specs/issues/40516"
 if: >
   github.event_name == 'workflow_dispatch' ||
   (github.event_name == 'issues' &&
@@ -150,8 +133,10 @@ This workflow can be triggered in three ways:
 
 3. **Manual dispatch**
 
-- Ensure required inputs `typespec_project_path`, `work_item_id`, `release_plan_id`, `languages`, `api_version`, and `release_type` are provided via `github.event.inputs`.
-- Parse optional input `pr_number` (numeric).
+- Parse `issue_url` from `github.event.inputs.issue_url`.
+- If the input is empty, set `issue_url` to `https://github.com/Azure/azure-rest-api-specs/issues/40516`.
+- Validate that `issue_url` points to an issue in this repository, extract the numeric issue ID, and hydrate issue context via the GitHub API.
+- Treat the resolved issue exactly the same as if the workflow were triggered directly from that issue.
 
 If the triggering event does not meet its corresponding requirements, immediately call `noop` with guidance (for example: missing label, missing `Regenerate SDK`, or missing workflow_dispatch inputs).
 
@@ -159,15 +144,13 @@ If the triggering event does not meet its corresponding requirements, immediatel
 
 When validation succeeds, execute the following steps in order.
 
-1. Add a debug comment on the target issue with the workflow run link:
-
-- `https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}`
+1. Announce workflow start by commenting on the resolved issue with `https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}`. If the issue cannot be determined for any reason, fall back to the `messages.run-started` safe output.
 
 2. Set following env variables(if not present):
    AZURE_CLIENT_ID: c277c2aa-5326-4d16-90de-98feeca69cbc
    AZURE_TENANT_ID: 72f988bf-86f1-41af-91ab-2d7cd011db47
    AZURE_FEDERATED_TOKEN_FILE: /tmp/azure-oidc-token
-3. Identify the target issue number and collect issue context.
+3. Identify the target issue number and collect issue context (for manual dispatch, use the supplied or default `issue_url`).
 4. Find whether there is an open TypeSpec API spec pull request associated with this request.
    - Identify TypeSpec API spec PR from issue context.
    - Check if API spec PR is in open status or merged status.
@@ -178,7 +161,7 @@ When validation succeeds, execute the following steps in order.
 5. Use the azsdk CLI at `/tmp/bin/azsdk` (installed earlier) to gather release plan metadata and required arguments:
 
 - Execute `/tmp/bin/azsdk release-plan get --work-item-id <WORK_ITEM_ID> --release-plan-id <RELEASE_PLAN_ID>`
-- Capture the TypeSpec project path, API version, release type, and target languages from the issue context.
+- Capture the TypeSpec project path, API version, release type, and target languages from the issue context (dispatch runs rely on the issue referenced by `issue_url`).
 
 6. Trigger SDK generation by calling `/tmp/bin/azsdk spec-workflow generate-sdk` with the following options:
 
@@ -189,22 +172,19 @@ When validation succeeds, execute the following steps in order.
 - `--workitem-id <WORK_ITEM_ID>` to tie the generation back to the release plan work item
 - Capture the pipeline/run URL emitted by the CLI for status tracking.
 
-7. Immediately add a comment with:
-   - Pipeline run link/status URL, or
-   - Failure details if triggering the pipeline failed.
+7. Immediately add a comment with the pipeline run link/status URL or failure details (use `noop` only if no issue comment can be posted).
 
 ## Monitoring and Status Updates
 
 1. After successful trigger, monitor the pipeline run referenced in the CLI output.
 2. Poll status every 5 minutes by querying the pipeline's status endpoint or, when available, `azsdk` status commands using the recorded run identifier.
 3. On each poll, determine whether pipeline is still running, failed, or completed.
-4. If still running, update status via comment (keep concise).
-5. If failed, add a comment indicating failure and include pipeline link and failure summary.
+4. If still running, update status via comment (use `noop` only when commenting is not possible).
+5. If failed, add a comment indicating failure and include pipeline link and failure summary (fallback to `noop` only when comments are unavailable).
 6. If completed:
 
 - Refresh release plan data via `/tmp/bin/azsdk release-plan get --work-item-id <WORK_ITEM_ID> --release-plan-id <RELEASE_PLAN_ID>` and inspect the SDK pull request references per language.
-- Add a comment that includes one line per language using this exact format:
-  - `sdk pr for  <language>`: `<Link to sdk pull request>`
+- Add a final status update by commenting one line per language using the exact format `sdk pr for  <language>: <Link to sdk pull request>` (fallback to `noop` only if commenting fails).
 
 ## Output Requirements
 

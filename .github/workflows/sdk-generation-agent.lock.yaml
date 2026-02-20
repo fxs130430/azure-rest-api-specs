@@ -23,7 +23,7 @@
 #
 # Trigger SDK generation from issues and comments, monitor pipeline status, and report SDK PR links.
 #
-# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"c6c8d49c0a0f95a2fb5ad1723f947efd20fa9d115d546cc3c751a5ed738de611","compiler_version":"v0.46.5"}
+# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"53fcdfa268d4c9da8468056268e31c39a437d258d6d68f31b2002fc03181c50c","compiler_version":"v0.46.5"}
 
 name: "SDK Generation Agent"
 "on":
@@ -36,27 +36,10 @@ name: "SDK Generation Agent"
     - labeled
   workflow_dispatch:
     inputs:
-      api_version:
-        description: API version string (for example, 2024-01-01)
-        required: true
-      languages:
-        description: Comma-separated languages to generate (Python,.NET,JavaScript,Java,go)
-        required: true
-      pr_number:
-        description: Optional TypeSpec PR number to associate with SDK generation
+      issue_url:
+        default: https://github.com/Azure/azure-rest-api-specs/issues/40516
+        description: "Issue URL providing SDK generation context (defaults to #40516 if omitted)"
         required: false
-      release_plan_id:
-        description: Release plan ID
-        required: true
-      release_type:
-        description: Release type (beta or stable)
-        required: true
-      typespec_project_path:
-        description: Relative path to the TypeSpec project to generate from
-        required: true
-      work_item_id:
-        description: Release plan work item ID
-        required: true
 
 permissions: {}
 
