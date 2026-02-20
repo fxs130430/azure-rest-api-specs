@@ -226,3 +226,4 @@ interface PageBlobClient extends Storage.Blob.PageBlob {}
 @@scope(Storage.Blob.PageBlob.getPageRangesDiff, "!rust");
 
 @@clientName(Storage.Blob.ContainerProperties.eTag, "etag", "python");
+@@clientName(Storage.Blob.ContainerItem.delete, "deleted", "python");
