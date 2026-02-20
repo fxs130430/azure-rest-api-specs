@@ -95,10 +95,11 @@ If the triggering event does not meet its corresponding requirements, immediatel
 
 When validation succeeds, execute the following steps in order.
 
-1. Verify Azure authentication:
+1. Azure CLI Login using az login:
 
-- Ensure `/tmp/azure-oidc-token` exists, is readable, and contains non-empty data before attempting login.
-- Run `az login --service-principal --username $AZURE_CLIENT_ID --tenant $AZURE_TENANT_ID --federated-token $(cat /tmp/azure-oidc-token) --allow-no-subscriptions` and capture the CLI response.
+- Run `mkdir -p /tmp/gh-aw/agent/.azure`.
+- Set env variable AZURE_CONFIG_DIR=/tmp/gh-aw/agent/.azure
+- Run `az login --service-principal --username $AZURE_CLIENT_ID --tenant $AZURE_TENANT_ID --federated-token $(cat /tmp/azure-oidc-token) --allow-no-subscriptions 2>&1`
 - If authentication fails, call the `noop` safe output with the captured response (labelled `authentication_failed`) and stop further processing.
 
 2. Announce workflow start by commenting on the resolved issue with `https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}`. If the issue cannot be determined for any reason, fall back to the `messages.run-started` safe output.
