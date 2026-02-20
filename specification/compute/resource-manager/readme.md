@@ -34,7 +34,7 @@ These are the global settings for the Compute API.
 title: ComputeManagementClient
 description: Compute Client
 openapi-type: arm
-tag: package-2025-03-03
+tag: package-2026-03-02
 
 directive:
   - where:
@@ -349,6 +349,28 @@ suppressions:
     reason: ScaleOut operation returns both 200 and 202, but 200 will not return schema. This is a common pattern for VMSS action operations. 
     from: ComputeRP.json
     where: $.paths["/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/scaleOut"].post
+```
+
+### Tag: package-2026-03-02
+
+These settings apply only when `--tag=package-2026-03-02` is specified on the command line.
+
+``` yaml $(tag) == 'package-2026-03-02'
+input-file:
+  - Microsoft.Compute/ComputeRP/stable/2025-04-01/ComputeRP.json
+  - Microsoft.Compute/DiskRP/stable/2026-03-02/DiskRP.json
+  - Microsoft.Compute/Skus/stable/2021-07-01/skus.json
+  - Microsoft.Compute/GalleryRP/stable/2025-03-03/GalleryRP.json
+```
+
+### Tag: package-2026-03-02-only
+
+These settings apply only when `--tag=package-2026-03-02-only` is specified on the command line.
+
+```yaml $(tag) == 'package-2026-03-02-only'
+input-file:
+  - Microsoft.Compute/common-types/v1/common.json
+  - Microsoft.Compute/DiskRP/stable/2026-03-02/DiskRP.json
 ```
 
 ### Tag: package-2025-03-03
