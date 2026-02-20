@@ -71,17 +71,18 @@ interface ContentUnderstandingClient {
 @@clientName(TimeField.type, "fieldType");
 @@clientName(JsonField.type, "fieldType");
 
-// .NET: ContentField sub-types use "Value" for the typed value property (e.g. BooleanField.Value).
-// ContentField has a convenience property Value (object) for polymorphic access; each sub-type's Value hides it with the strongly-typed value.
-@@clientName(StringField.valueString, "Value", "csharp");
-@@clientName(DateField.valueDate, "Value", "csharp");
-@@clientName(TimeField.valueTime, "Value", "csharp");
-@@clientName(NumberField.valueNumber, "Value", "csharp");
-@@clientName(IntegerField.valueInteger, "Value", "csharp");
-@@clientName(BooleanField.valueBoolean, "Value", "csharp");
-@@clientName(ArrayField.valueArray, "Value", "csharp");
-@@clientName(ObjectField.valueObject, "Value", "csharp");
-@@clientName(JsonField.valueJson, "Value", "csharp");
+// .NET: Hide wire-format value properties (valueString, valueNumber, etc.) from public API.
+// Each sub-type adds a strongly-typed "Value" property via C# customization that delegates
+// to the internal wire-format property. ContentField.Value (object) provides polymorphic access.
+@@access(StringField.valueString, Access.internal, "csharp");
+@@access(DateField.valueDate, Access.internal, "csharp");
+@@access(TimeField.valueTime, Access.internal, "csharp");
+@@access(NumberField.valueNumber, Access.internal, "csharp");
+@@access(IntegerField.valueInteger, Access.internal, "csharp");
+@@access(BooleanField.valueBoolean, Access.internal, "csharp");
+@@access(ArrayField.valueArray, Access.internal, "csharp");
+@@access(ObjectField.valueObject, Access.internal, "csharp");
+@@access(JsonField.valueJson, Access.internal, "csharp");
 
 // .NET: type name "DateTimeOffsetField" to align with value type DateTimeOffset.
 @@clientName(DateField, "DateTimeOffsetField", "csharp");
