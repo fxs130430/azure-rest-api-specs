@@ -4493,7 +4493,7 @@
         },
         "subdomainUrl": {
           "type": "string",
-          "description": "The subdomain url for the corresponding AI Service."
+          "description": "The subdomain/Azure AI Services endpoint url for the corresponding AI Service."
         }
       },
       "required": [
@@ -4516,7 +4516,7 @@
         },
         "subdomainUrl": {
           "type": "string",
-          "description": "The subdomain url for the corresponding AI Service."
+          "description": "The subdomain/Azure AI Services endpoint url for the corresponding AI Service."
         }
       },
       "required": [
