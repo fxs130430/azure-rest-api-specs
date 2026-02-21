@@ -329,7 +329,7 @@ export async function doBreakingChangeDetection(
       (oadMessage) => oadMessage.type === "Error",
     ).length;
 
-    const msgs: ResultMessageRecord[] = processAndAppendOadMessages(
+    const msgs: ResultMessageRecord[] = await processAndAppendOadMessages(
       detectionContext.context,
       modifiedOadMessages,
       detectionContext.context.baseBranch,

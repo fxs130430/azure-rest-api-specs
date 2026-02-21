@@ -207,3 +207,18 @@ export function logMessageSafe(message: string, level?: LogLevel, prefix?: strin
   const safeMessage = truncateLogMessage(message, prefix);
   logMessage(safeMessage, level);
 }
+
+/**
+ * Async version of logMessageSafe that uses backpressure-aware logging.
+ * @param message The message to log
+ * @param level The log level
+ * @param prefix Optional prefix for truncation message
+ */
+export async function logMessageSafeAsync(
+  message: string,
+  level?: LogLevel,
+  prefix?: string,
+): Promise<void> {
+  const safeMessage = truncateLogMessage(message, prefix);
+  await logMessageAsync(safeMessage, level);
+}
