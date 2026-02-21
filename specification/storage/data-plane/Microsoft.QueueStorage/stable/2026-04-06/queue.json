@@ -1940,7 +1940,9 @@
       },
       "required": [
         "ServiceEndpoint",
-        "Queues"
+        "Prefix",
+        "MaxResults",
+        "NextMarker"
       ],
       "xml": {
         "name": "EnumerationResults"
