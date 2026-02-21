@@ -405,7 +405,7 @@ model OpenApiFunctionDefinition {
      * The parameters the functions accepts, described as a JSON Schema object.
      */
     #suppress "@azure-tools/typespec-azure-core/no-unknown" "External API shape takes an arbitrary json"
-    parameters: unknown;
+    parameters?: unknown;
   }[];
 }
 
