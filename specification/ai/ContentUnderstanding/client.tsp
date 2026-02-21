@@ -71,11 +71,9 @@ interface ContentUnderstandingClient {
 @@clientName(TimeField.type, "fieldType");
 @@clientName(JsonField.type, "fieldType");
 
-// Hide wire-format value properties (valueString, valueNumber, etc.) from public API.
-// Each sub-type adds a strongly-typed "Value" / "getValue()" property via SDK customization
-// that delegates to the internal wire-format property.
-// - .NET: partial class with `public new T? Value => ValueString;`
-// - Java: JavaParser customization adds typed `getValue()` override on each subclass
+// .NET: Hide wire-format value properties (valueString, valueNumber, etc.) from public API.
+// Each sub-type adds a strongly-typed "Value" property via C# customization that delegates
+// to the internal wire-format property. ContentField.Value (object) provides polymorphic access.
 @@access(StringField.valueString, Access.internal, "csharp");
 @@access(DateField.valueDate, Access.internal, "csharp");
 @@access(TimeField.valueTime, Access.internal, "csharp");
@@ -85,15 +83,6 @@ interface ContentUnderstandingClient {
 @@access(ArrayField.valueArray, Access.internal, "csharp");
 @@access(ObjectField.valueObject, Access.internal, "csharp");
 @@access(JsonField.valueJson, Access.internal, "csharp");
-@@access(StringField.valueString, Access.internal, "java");
-@@access(DateField.valueDate, Access.internal, "java");
-@@access(TimeField.valueTime, Access.internal, "java");
-@@access(NumberField.valueNumber, Access.internal, "java");
-@@access(IntegerField.valueInteger, Access.internal, "java");
-@@access(BooleanField.valueBoolean, Access.internal, "java");
-@@access(ArrayField.valueArray, Access.internal, "java");
-@@access(ObjectField.valueObject, Access.internal, "java");
-@@access(JsonField.valueJson, Access.internal, "java");
 
 // .NET: type name "DateTimeOffsetField" to align with value type DateTimeOffset.
 @@clientName(DateField, "DateTimeOffsetField", "csharp");
