@@ -41,4 +41,6 @@ interface QueueClient extends Storage.Queues.Queue {}
 
 @@clientName(Storage.Queues.MetadataHeaders.metadata, "metadata", "rust");
 
+@@clientName(Storage.Queues.Queue.sendMessage, "sendMessageInternal", "rust");
+
 @@scope(Storage.Queues.Service.getUserDelegationKey, "!rust");
