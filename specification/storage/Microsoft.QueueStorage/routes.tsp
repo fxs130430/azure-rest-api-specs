@@ -101,6 +101,7 @@ interface Service {
 
       /** Key information */
       @bodyRoot
+      @Xml.name("KeyInfo")
       keyInfo: KeyInfo;
     },
     {
