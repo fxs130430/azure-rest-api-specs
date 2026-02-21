@@ -1473,10 +1473,6 @@
               "$ref": "#/definitions/PrivateEndpointConnection"
             },
             "headers": {
-              "Azure-AsyncOperation": {
-                "type": "string",
-                "description": "A link to the status monitor"
-              },
               "Location": {
                 "type": "string",
                 "description": "The Location header contains the URL where the status of the long running operation can be checked."
@@ -2114,7 +2110,7 @@
     },
     "IotHubAuthenticationType": {
       "type": "string",
-      "description": "IotHub MI authentication type: UserAssigned, SystemAssigned.",
+      "description": "IotHub MI authentication type: KeyBased, UserAssigned, SystemAssigned.",
       "enum": [
         "KeyBased",
         "UserAssigned",

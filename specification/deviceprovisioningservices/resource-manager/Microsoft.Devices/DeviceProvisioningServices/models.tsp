@@ -148,7 +148,7 @@ union DeviceRegistryNamespaceAuthenticationType {
 }
 
 /**
- * IotHub MI authentication type: UserAssigned, SystemAssigned.
+ * IotHub MI authentication type: KeyBased, UserAssigned, SystemAssigned.
  */
 union IotHubAuthenticationType {
   string,
