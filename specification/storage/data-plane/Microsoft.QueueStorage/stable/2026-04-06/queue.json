@@ -2273,20 +2273,10 @@
       ]
     },
     "SignedIdentifiers": {
-      "type": "object",
+      "type": "array",
       "description": "Represents an array of signed identifiers",
-      "properties": {
-        "SignedIdentifier": {
-          "type": "array",
-          "description": "The list of signed identifiers.",
-          "items": {
-            "$ref": "#/definitions/SignedIdentifier"
-          },
-          "xml": {
-            "wrapped": true
-          },
-          "x-ms-client-name": "items"
-        }
+      "items": {
+        "$ref": "#/definitions/SignedIdentifier"
       }
     },
     "StorageError": {
