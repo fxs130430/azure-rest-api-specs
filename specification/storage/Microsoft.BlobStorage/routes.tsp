@@ -326,12 +326,39 @@ interface Container {
   #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
   #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
   @put
+  @sharedRoute
   @route("?restype=container&comp=metadata")
   setMetadata is StorageOperationNoBody<
     {
       ...TimeoutParameter;
       ...LeaseIdOptionalParameter;
       ...MetadataHeaders;
+      ...IfModifiedSinceParameter;
+    },
+    {
+      ...EtagResponseHeaderPrivate;
+      ...LastModifiedResponseHeaderPrivate;
+    }
+  >;
+
+  /** operation sets one or more user-defined name-value pairs for the specified container. */
+  #suppress "@azure-tools/typespec-azure-core/use-standard-operations" "Existing API"
+  #suppress "@azure-tools/typespec-azure-core/no-response-body" "Existing API"
+  #suppress "@azure-tools/typespec-azure-core/use-standard-names" "Existing API"
+  @put
+  @sharedRoute
+  @overload(Container.setMetadata)
+  @route("?restype=container&comp=metadata")
+  setMetadataRequiredMetadata is StorageOperationNoBody<
+    {
+      ...TimeoutParameter;
+      ...LeaseIdOptionalParameter;
+
+      /** The metadata headers. */
+      @alternateType(Record<string>, "rust")
+      @header("x-ms-meta")
+      metadata: string;
+
       ...IfModifiedSinceParameter;
     },
     {

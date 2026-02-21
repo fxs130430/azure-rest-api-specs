@@ -117,3 +117,5 @@ interface PageBlobClient extends Storage.Blob.PageBlob {}
 @@scope(Storage.Blob.BlockBlob.query, "!rust");
 @@scope(Storage.Blob.PageBlob.copyIncremental, "!rust");
 @@scope(Storage.Blob.PageBlob.getPageRangesDiff, "!rust");
+
+@@access(Container.setMetadataRequiredMetadata, Access.internal, "!rust");
