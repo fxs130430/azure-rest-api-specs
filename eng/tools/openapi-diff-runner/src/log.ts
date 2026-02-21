@@ -1,4 +1,5 @@
 import * as core from "@actions/core";
+import { log as logAsync } from "@azure-tools/specs-shared/console";
 
 /**
  * Log prefix for all messages from openapi-diff-runner
