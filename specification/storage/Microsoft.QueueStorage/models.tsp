@@ -458,9 +458,8 @@ model SignedIdentifiers {
    * The list of signed identifiers.
    *
    */
-  @Xml.unwrapped
   @Xml.name("SignedIdentifier")
-  items: Array<SignedIdentifier>;
+  items?: Array<SignedIdentifier>;
 }
 
 /**

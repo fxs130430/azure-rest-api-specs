@@ -2283,14 +2283,11 @@
             "$ref": "#/definitions/SignedIdentifier"
           },
           "xml": {
-            "wrapped": false
+            "wrapped": true
           },
           "x-ms-client-name": "items"
         }
-      },
-      "required": [
-        "SignedIdentifier"
-      ]
+      }
     },
     "StorageError": {
       "type": "object",
