@@ -1682,12 +1682,7 @@
           "description": "The permissions for acl the policy.",
           "x-ms-client-name": "permission"
         }
-      },
-      "required": [
-        "Start",
-        "Expiry",
-        "Permission"
-      ]
+      }
     },
     "CorsRule": {
       "type": "object",
