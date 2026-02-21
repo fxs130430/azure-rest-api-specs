@@ -165,7 +165,7 @@ const MAX_LOG_LINE_LENGTH = 60 * 1024; // 60KB to leave some buffer
  * @param prefix Optional prefix to include in the truncation message
  * @returns The original message if under limit, or truncated message with info
  */
-export function truncateLogMessage(message: string, prefix?: string): string {
+function truncateLogMessage(message: string, prefix?: string): string {
   if (message.length <= MAX_LOG_LINE_LENGTH) {
     return message;
   }
@@ -178,23 +178,13 @@ export function truncateLogMessage(message: string, prefix?: string): string {
 }
 
 /**
- * Logs a message with automatic truncation if it exceeds GitHub Actions limits
+ * Logs a message with automatic truncation if it exceeds GitHub Actions limits.
+ * Uses the async, backpressure-aware log() to ensure all messages written despite stdout backpressure.
  * @param message The message to log
  * @param level The log level
  * @param prefix Optional prefix for truncation message
  */
-export function logMessageSafe(message: string, level?: LogLevel, prefix?: string): void {
-  const safeMessage = truncateLogMessage(message, prefix);
-  logMessage(safeMessage, level);
-}
-
-/**
- * Async version of logMessageSafe that uses backpressure-aware logging.
- * @param message The message to log
- * @param level The log level
- * @param prefix Optional prefix for truncation message
- */
-export async function logMessageSafeAsync(
+export async function logMessageSafe(
   message: string,
   level?: LogLevel,
   prefix?: string,
