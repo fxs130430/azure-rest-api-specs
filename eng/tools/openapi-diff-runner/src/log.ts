@@ -184,7 +184,7 @@ function truncateLogMessage(message: string, prefix?: string): string {
  * @param level The log level
  * @param prefix Optional prefix for truncation message
  */
-export async function logMessageSafe(
+export async function logMessageSafeAsync(
   message: string,
   level?: LogLevel,
   prefix?: string,
