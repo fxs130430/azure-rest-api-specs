@@ -132,7 +132,7 @@ model TimerRoutineTrigger extends RoutineTrigger {
   @doc("The trigger type.")
   type: RoutineTriggerType.timer;
 
-  @doc("A future timer expression. Supported values include an ISO-8601 timestamp with an explicit offset, a local timestamp paired with time_zone, or a positive duration from now.")
+  @doc("A future timer expression. Supported values include an ISO-8601 timestamp with an explicit offset (e.g., `\"2026-06-01T09:00:00Z\"`), a local timestamp paired with `time_zone`, or a positive duration from now (e.g., `\"30m\"`, `\"2h\"`). The built-in `reminder` agent tool writes this field as `\"{minutes}m\"`.")
   at: string;
 
   @doc("An optional IANA or Windows time zone identifier when the timer uses a local timestamp.")
